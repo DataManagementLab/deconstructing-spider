@@ -1,0 +1,726 @@
+[
+    {
+        "original_nl": "How many climbers are there?",
+        "generalized_nl": "How|many|{TABLE} [climbers]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM climber"
+    },
+    {
+        "original_nl": "Count the number of climbers.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [climbers]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM climber"
+    },
+    {
+        "original_nl": "List the names of climbers in descending order of points.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [climbers]|in|descend [descending]|order|of|{COLUMN} [points]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM climber ORDER BY Points DESC"
+    },
+    {
+        "original_nl": "What are the names of the climbers, ordered by points descending?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [climbers]|order [ordered]|by|{COLUMN} [points]|descend [descending]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}",
+            "descend"
+        ],
+        "original_sql": "SELECT Name FROM climber ORDER BY Points DESC"
+    },
+    {
+        "original_nl": "List the names of climbers whose country is not Switzerland.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [climbers]|whose|{COLUMN} [country]|is|not|{VALUE} [Switzerland]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM climber WHERE Country != \"Switzerland\""
+    },
+    {
+        "original_nl": "What are the names of climbers who are not from the country of Switzerland?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [climbers]|who|are|not|from|the|{COLUMN} [country]|of|{VALUE} [Switzerland]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "from",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM climber WHERE Country != \"Switzerland\""
+    },
+    {
+        "original_nl": "What is the maximum point for climbers whose country is United Kingdom?",
+        "generalized_nl": "What|is|the|maximal [maximum]|{COLUMN} [point]|for|{TABLE} [climbers]|whose|{COLUMN} [country]|is|{VALUE} [United Kingdom]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT max(Points) FROM climber WHERE Country  =  \"United Kingdom\""
+    },
+    {
+        "original_nl": "Return the maximum number of points for climbers from the United Kingdom.",
+        "generalized_nl": "return [Return]|the|maximal [maximum]|number|of|{COLUMN} [points]|for|{TABLE} [climbers]|from|{NE} [the United Kingdom]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "maximal",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT max(Points) FROM climber WHERE Country  =  \"United Kingdom\""
+    },
+    {
+        "original_nl": "How many distinct countries are the climbers from?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [countries]|are|the|{TABLE} [climbers]|from",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "the",
+            "{TABLE}",
+            "from"
+        ],
+        "original_sql": "SELECT COUNT(DISTINCT Country) FROM climber"
+    },
+    {
+        "original_nl": "Count the number of different countries that climbers are from.",
+        "generalized_nl": "count [Count]|the|number|of|different|{COLUMN} [countries]|that|{TABLE} [climbers]|are|from",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{COLUMN}",
+            "that",
+            "{TABLE}",
+            "are",
+            "from"
+        ],
+        "original_sql": "SELECT COUNT(DISTINCT Country) FROM climber"
+    },
+    {
+        "original_nl": "What are the names of mountains in ascending alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [mountains]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Name FROM mountain ORDER BY Name ASC"
+    },
+    {
+        "original_nl": "Give the names of mountains in alphabetical order.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [names]|of|{TABLE} [mountains]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Name FROM mountain ORDER BY Name ASC"
+    },
+    {
+        "original_nl": "What are the countries of mountains with height bigger than 5000?",
+        "generalized_nl": "What|are|the|{COLUMN} [countries]|of|{TABLE} [mountains]|with|{COLUMN} [height]|big [bigger]|than|{NUMBER} [5000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "big",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Country FROM mountain WHERE Height  >  5000"
+    },
+    {
+        "original_nl": "Return the countries of the mountains that have a height larger than 5000.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [countries]|of|the|{TABLE} [mountains]|that|have|a|{COLUMN} [height]|{NUMBER} [larger than 5000]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Country FROM mountain WHERE Height  >  5000"
+    },
+    {
+        "original_nl": "What is the name of the highest mountain?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|high [highest]|{TABLE} [mountain]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "high",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM mountain ORDER BY Height DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the name of the mountain with the greatest height.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [name]|of|the|{TABLE} [mountain]|with|the|great [greatest]|{COLUMN} [height]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "great",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM mountain ORDER BY Height DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the distinct ranges of the mountains with the top 3 prominence.",
+        "generalized_nl": "list [List]|the|distinct|{COLUMN} [ranges]|of|the|{TABLE} [mountains]|with|the|top|{VALUE} [3]|{COLUMN} [prominence]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "top",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Range FROM mountain ORDER BY Prominence DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What are the different ranges of the 3 mountains with the highest prominence?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [ranges]|of|the|{VALUE} [3]|{TABLE} [mountains]|with|the|high [highest]|{COLUMN} [prominence]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{VALUE}",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Range FROM mountain ORDER BY Prominence DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Show names of climbers and the names of mountains they climb.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [climbers]|and|the|{COLUMN} [names]|of|{TABLE} [mountains]|they|climb",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "they",
+            "climb"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Name FROM climber AS T1 JOIN mountain AS T2 ON T1.Mountain_ID  =  T2.Mountain_ID"
+    },
+    {
+        "original_nl": "What are the names of climbers and the corresponding names of mountains that they climb?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [climbers]|and|the|match [corresponding]|{COLUMN} [names]|of|{TABLE} [mountains]|that|they|climb",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "they",
+            "climb"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Name FROM climber AS T1 JOIN mountain AS T2 ON T1.Mountain_ID  =  T2.Mountain_ID"
+    },
+    {
+        "original_nl": "Show the names of climbers and the heights of mountains they climb.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [climbers]|and|the|{COLUMN} [heights]|of|{TABLE} [mountains]|they|climb",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "they",
+            "climb"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Height FROM climber AS T1 JOIN mountain AS T2 ON T1.Mountain_ID  =  T2.Mountain_ID"
+    },
+    {
+        "original_nl": "What are the names of climbers and the corresponding heights of the mountains that they climb?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [climbers]|and|the|match [corresponding]|{COLUMN} [heights]|of|the|{TABLE} [mountains]|that|they|climb",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "they",
+            "climb"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Height FROM climber AS T1 JOIN mountain AS T2 ON T1.Mountain_ID  =  T2.Mountain_ID"
+    },
+    {
+        "original_nl": "Show the height of the mountain climbed by the climber with the maximum points.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [height]|of|the|{TABLE} [mountain]|climb [climbed]|by|the|{TABLE} [climber]|with|the|maximal [maximum]|{COLUMN} [points]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "climb",
+            "by",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "maximal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Height FROM climber AS T1 JOIN mountain AS T2 ON T1.Mountain_ID  =  T2.Mountain_ID ORDER BY T1.Points DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the height of the mountain climbined by the climbing who had the most points?",
+        "generalized_nl": "What|is|the|{COLUMN} [height]|of|the|{TABLE} [mountain]|climbined|by|the|climb [climbing]|who|have [had]|the|most|{COLUMN} [points]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "climbined",
+            "by",
+            "the",
+            "climb",
+            "who",
+            "have",
+            "the",
+            "most",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Height FROM climber AS T1 JOIN mountain AS T2 ON T1.Mountain_ID  =  T2.Mountain_ID ORDER BY T1.Points DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the distinct names of mountains climbed by climbers from country \"West Germany\".",
+        "generalized_nl": "show [Show]|the|distinct|{COLUMN} [names]|of|{TABLE} [mountains]|climb [climbed]|by|{TABLE} [climbers]|from|{COLUMN} [country]|{VALUE} [West Germany]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "climb",
+            "by",
+            "{TABLE}",
+            "from",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Name FROM climber AS T1 JOIN mountain AS T2 ON T1.Mountain_ID  =  T2.Mountain_ID WHERE T1.Country  =  \"West Germany\""
+    },
+    {
+        "original_nl": "What are the different names of mountains ascended by climbers from the country of West Germany?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [names]|of|{TABLE} [mountains]|ascend [ascended]|by|{TABLE} [climbers]|from|the|{COLUMN} [country]|of|{VALUE} [West Germany]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "ascend",
+            "by",
+            "{TABLE}",
+            "from",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Name FROM climber AS T1 JOIN mountain AS T2 ON T1.Mountain_ID  =  T2.Mountain_ID WHERE T1.Country  =  \"West Germany\""
+    },
+    {
+        "original_nl": "Show the times used by climbers to climb mountains in Country Uganda.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [times]|use [used]|by|{TABLE} [climbers]|to|climb|{TABLE} [mountains]|in|{COLUMN} [Country]|{VALUE} [Uganda]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "use",
+            "by",
+            "{TABLE}",
+            "to",
+            "climb",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.Time FROM climber AS T1 JOIN mountain AS T2 ON T1.Mountain_ID  =  T2.Mountain_ID WHERE T2.Country  =  \"Uganda\""
+    },
+    {
+        "original_nl": "What are the times used by climbers who climbed mountains in the country of Uganda?",
+        "generalized_nl": "What|are|the|{COLUMN} [times]|use [used]|by|{TABLE} [climbers]|who|climb [climbed]|{TABLE} [mountains]|in|the|{COLUMN} [country]|of|{VALUE} [Uganda]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "use",
+            "by",
+            "{TABLE}",
+            "who",
+            "climb",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.Time FROM climber AS T1 JOIN mountain AS T2 ON T1.Mountain_ID  =  T2.Mountain_ID WHERE T2.Country  =  \"Uganda\""
+    },
+    {
+        "original_nl": "Please show the countries and the number of climbers from each country.",
+        "generalized_nl": "Please|show|the|{COLUMN} [countries]|and|the|number|of|{TABLE} [climbers]|from|each|{COLUMN} [country]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "from",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Country ,  COUNT(*) FROM climber GROUP BY Country"
+    },
+    {
+        "original_nl": "How many climbers are from each country?",
+        "generalized_nl": "How|many|{TABLE} [climbers]|are|from|each|{COLUMN} [country]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "from",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Country ,  COUNT(*) FROM climber GROUP BY Country"
+    },
+    {
+        "original_nl": "List the countries that have more than one mountain.",
+        "generalized_nl": "list [List]|the|{COLUMN} [countries]|that|have|{NUMBER} [more than one]|{TABLE} [mountain]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Country FROM mountain GROUP BY Country HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "Which countries have more than one mountain?",
+        "generalized_nl": "Which|{COLUMN} [countries]|have|{NUMBER} [more than one]|{TABLE} [mountain]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Country FROM mountain GROUP BY Country HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "List the names of mountains that do not have any climber.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [mountains]|that|do|not|have|any|{TABLE} [climber]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM mountain WHERE Mountain_ID NOT IN (SELECT Mountain_ID FROM climber)"
+    },
+    {
+        "original_nl": "What are the names of countains that no climber has climbed?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|countains|that|no|{TABLE} [climber]|has|climb [climbed]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "countains",
+            "that",
+            "no",
+            "{TABLE}",
+            "has",
+            "climb"
+        ],
+        "original_sql": "SELECT Name FROM mountain WHERE Mountain_ID NOT IN (SELECT Mountain_ID FROM climber)"
+    },
+    {
+        "original_nl": "Show the countries that have mountains with height more than 5600 stories and mountains with height less than 5200.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [countries]|that|have|{TABLE} [mountains]|with|{COLUMN} [height]|{NUMBER} [more than 5600]|narrative [stories]|and|{TABLE} [mountains]|with|{COLUMN} [height]|{NUMBER} [less than 5200]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}",
+            "narrative",
+            "and",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Country FROM mountain WHERE Height  >  5600 INTERSECT SELECT Country FROM mountain WHERE Height  <  5200"
+    },
+    {
+        "original_nl": "What are the countries that have both mountains that are higher than 5600 and lower than 5200?",
+        "generalized_nl": "What|are|the|{COLUMN} [countries]|that|have|both|{TABLE} [mountains]|that|are|high [higher]|than|{NUMBER} [5600]|and|{NUMBER} [lower than 5200]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "that",
+            "are",
+            "high",
+            "than",
+            "{NUMBER}",
+            "and",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Country FROM mountain WHERE Height  >  5600 INTERSECT SELECT Country FROM mountain WHERE Height  <  5200"
+    },
+    {
+        "original_nl": "Show the range that has the most number of mountains.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [range]|that|have [has]|the|most|number|of|{TABLE} [mountains]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Range FROM mountain GROUP BY Range ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which range contains the most mountains?",
+        "generalized_nl": "Which|{COLUMN} [range]|contain [contains]|the|most|{TABLE} [mountains]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Range FROM mountain GROUP BY Range ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the names of mountains with height more than 5000 or prominence more than 1000.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [mountains]|with|{COLUMN} [height]|{NUMBER} [more than 5000]|or|{COLUMN} [prominence]|{NUMBER} [more than 1000]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}",
+            "or",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Name FROM mountain WHERE Height  >  5000 OR Prominence  >  1000"
+    },
+    {
+        "original_nl": "What are the names of mountains that have a height of over 5000 or a prominence of over 1000?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [mountains]|that|have|a|{COLUMN} [height]|of|over|{NUMBER} [5000]|or|a|{COLUMN} [prominence]|of|over|{NUMBER} [1000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "of",
+            "over",
+            "{NUMBER}",
+            "or",
+            "a",
+            "{COLUMN}",
+            "of",
+            "over",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Name FROM mountain WHERE Height  >  5000 OR Prominence  >  1000"
+    }
+]

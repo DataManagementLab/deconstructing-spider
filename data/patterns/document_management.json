@@ -1,0 +1,856 @@
+[
+    {
+        "original_nl": "Find the name and access counts of all documents, in alphabetic order of the document name.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN} [access counts]|of|all|{TABLE} [documents]|in|alphabetic|order|of|the|{COLUMN} [document name]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order",
+            "of",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT document_name ,  access_count FROM documents ORDER BY document_name"
+    },
+    {
+        "original_nl": "What are the names of all the documents, as well as the access counts of each, ordered alphabetically?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [documents]|equally [as]|well|as|the|{COLUMN} [access counts]|of|each|order [ordered]|alphabetically",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "equally",
+            "well",
+            "as",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "order",
+            "alphabetically"
+        ],
+        "original_sql": "SELECT document_name ,  access_count FROM documents ORDER BY document_name"
+    },
+    {
+        "original_nl": "Find the name of the document that has been accessed the greatest number of times, as well as the count of how many times it has been accessed?",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [document]|that|has|been|access [accessed]|the|great [greatest]|number|of|time [times]|equally [as]|well|as|the|{COLUMN_PART} [count]|of|how|many|time [times]|it|has|been|access [accessed]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "been",
+            "access",
+            "the",
+            "great",
+            "number",
+            "of",
+            "time",
+            "equally",
+            "well",
+            "as",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "how",
+            "many",
+            "time",
+            "it",
+            "has",
+            "been",
+            "access"
+        ],
+        "original_sql": "SELECT document_name ,  access_count FROM documents ORDER BY access_count DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the document which has been accessed the most times, as well as the number of times it has been accessed?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [document]|which|has|been|access [accessed]|the|most|time [times]|equally [as]|well|as|the|number|of|time [times]|it|has|been|access [accessed]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "has",
+            "been",
+            "access",
+            "the",
+            "most",
+            "time",
+            "equally",
+            "well",
+            "as",
+            "the",
+            "number",
+            "of",
+            "time",
+            "it",
+            "has",
+            "been",
+            "access"
+        ],
+        "original_sql": "SELECT document_name ,  access_count FROM documents ORDER BY access_count DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the types of documents with more than 4 documents.",
+        "generalized_nl": "find [Find]|the|type [types]|of|{TABLE} [documents]|with|{NUMBER} [more than 4]|{TABLE} [documents]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "type",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_type_code FROM documents GROUP BY document_type_code HAVING count(*)  >  4"
+    },
+    {
+        "original_nl": "What are the codes of types of documents of which there are for or more?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [codes]|of|type [types]|of|{TABLE} [documents]|of|which|there|be [are]|for|or|more",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "type",
+            "of",
+            "{TABLE}",
+            "of",
+            "which",
+            "there",
+            "be",
+            "for",
+            "or",
+            "more"
+        ],
+        "original_sql": "SELECT document_type_code FROM documents GROUP BY document_type_code HAVING count(*)  >  4"
+    },
+    {
+        "original_nl": "Find the total access count of all documents in the most popular document type.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN} [access count]|of|all|{TABLE} [documents]|in|the|most|popular|{TABLE} [document]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "most",
+            "popular",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT sum(access_count) FROM documents GROUP BY document_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the total access count of documents that are of the most common document type?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN} [access count]|of|{TABLE} [documents]|that|are|of|the|most|common|{TABLE} [document]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "of",
+            "the",
+            "most",
+            "common",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT sum(access_count) FROM documents GROUP BY document_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the average access count of documents?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [access count]|of|{TABLE} [documents]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(access_count) FROM documents"
+    },
+    {
+        "original_nl": "Find the average access count across all documents?",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [access count]|across|all|{TABLE} [documents]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(access_count) FROM documents"
+    },
+    {
+        "original_nl": "What is the structure of the document with the least number of accesses?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [structure]|of|the|{TABLE} [document]|with|the|least|number|of|access [accesses]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "least",
+            "number",
+            "of",
+            "access"
+        ],
+        "original_sql": "SELECT t2.document_structure_description FROM documents AS t1 JOIN document_structures AS t2 ON t1.document_structure_code  =  t2.document_structure_code GROUP BY t1.document_structure_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the structure description of the document that has been accessed the fewest number of times.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [structure]|{COLUMN_PART} [description]|of|the|{TABLE} [document]|that|has|been|access [accessed]|the|fewest|number|of|time [times]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "been",
+            "access",
+            "the",
+            "fewest",
+            "number",
+            "of",
+            "time"
+        ],
+        "original_sql": "SELECT t2.document_structure_description FROM documents AS t1 JOIN document_structures AS t2 ON t1.document_structure_code  =  t2.document_structure_code GROUP BY t1.document_structure_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the type of the document named \"David CV\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [type]|of|the|{TABLE} [document]|name [named]|{NE} [David CV \"]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT document_type_code FROM documents WHERE document_name  =  \"David CV\""
+    },
+    {
+        "original_nl": "Return the type code of the document named \"David CV\".",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [type]|{COLUMN_PART} [code]|of|the|{TABLE} [document]|name [named]|{NE} [David CV \"]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT document_type_code FROM documents WHERE document_name  =  \"David CV\""
+    },
+    {
+        "original_nl": "Find the list of documents that are both in the most three popular type and have the most three popular structure.",
+        "generalized_nl": "find [Find]|the|list|of|{TABLE} [documents]|that|are|both|in|the|most|{NUMBER} [three]|popular|{COLUMN_PART} [type]|and|have|the|most|{NUMBER} [three]|popular|{COLUMN_PART} [structure]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "list",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "both",
+            "in",
+            "the",
+            "most",
+            "{NUMBER}",
+            "popular",
+            "{COLUMN_PART}",
+            "and",
+            "have",
+            "the",
+            "most",
+            "{NUMBER}",
+            "popular",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT document_name FROM documents GROUP BY document_type_code ORDER BY count(*) DESC LIMIT 3 INTERSECT SELECT document_name FROM documents GROUP BY document_structure_code ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What are the names of documents that have both one of the three most common types and one of three most common structures?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [documents]|that|have|both|{NUMBER} [one]|of|the|{NUMBER} [three]|most|common|type [types]|and|{NUMBER} [one]|of|{NUMBER} [three]|most|common|structure [structures]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "both",
+            "{NUMBER}",
+            "of",
+            "the",
+            "{NUMBER}",
+            "most",
+            "common",
+            "type",
+            "and",
+            "{NUMBER}",
+            "of",
+            "{NUMBER}",
+            "most",
+            "common",
+            "structure"
+        ],
+        "original_sql": "SELECT document_name FROM documents GROUP BY document_type_code ORDER BY count(*) DESC LIMIT 3 INTERSECT SELECT document_name FROM documents GROUP BY document_structure_code ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What document types do have more than 10000 total access number.",
+        "generalized_nl": "What|{TABLE} [document]|type [types]|do|have|{NUMBER} [more than 10000]|entire [total]|{COLUMN_PART} [access]|number",
+        "generalized_tokens": [
+            "What",
+            "{TABLE}",
+            "type",
+            "do",
+            "have",
+            "{NUMBER}",
+            "entire",
+            "{COLUMN_PART}",
+            "number"
+        ],
+        "original_sql": "SELECT document_type_code FROM documents GROUP BY document_type_code HAVING sum(access_count)  >  10000"
+    },
+    {
+        "original_nl": "Return the codes of the document types that do not have a total access count of over 10000.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [codes]|of|the|{TABLE} [document]|type [types]|that|do|not|have|a|entire [total]|{COLUMN} [access count]|of|{NUMBER} [over 10000]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "type",
+            "that",
+            "do",
+            "not",
+            "have",
+            "a",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT document_type_code FROM documents GROUP BY document_type_code HAVING sum(access_count)  >  10000"
+    },
+    {
+        "original_nl": "What are all the section titles of the document named \"David CV\"?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [section titles]|of|the|{TABLE} [document]|name [named]|{NE} [David CV \"]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t2.section_title FROM documents AS t1 JOIN document_sections AS t2 ON t1.document_code  =  t2.document_code WHERE t1.document_name  =  \"David CV\""
+    },
+    {
+        "original_nl": "Give the section titles of the document with the name \"David CV\".",
+        "generalized_nl": "give [Give]|the|{COLUMN} [section titles]|of|the|{TABLE} [document]|with|the|{COLUMN_PART} [name]|{NE} [David CV \"]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t2.section_title FROM documents AS t1 JOIN document_sections AS t2 ON t1.document_code  =  t2.document_code WHERE t1.document_name  =  \"David CV\""
+    },
+    {
+        "original_nl": "Find all the name of documents without any sections.",
+        "generalized_nl": "find [Find]|all|the|{COLUMN_PART} [name]|of|{TABLE} [documents]|without|any|section [sections]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "without",
+            "any",
+            "section"
+        ],
+        "original_sql": "SELECT document_name FROM documents WHERE document_code NOT IN (SELECT document_code FROM document_sections)"
+    },
+    {
+        "original_nl": "What are the names of documents that do not have any sections?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [documents]|that|do|not|have|any|section [sections]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "section"
+        ],
+        "original_sql": "SELECT document_name FROM documents WHERE document_code NOT IN (SELECT document_code FROM document_sections)"
+    },
+    {
+        "original_nl": "List all the username and passwords of users with the most popular role.",
+        "generalized_nl": "list [List]|all|the|username|and|{COLUMN} [passwords]|of|{TABLE} [users]|with|the|most|popular|{TABLE} [role]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "username",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "popular",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT user_name ,  password FROM users GROUP BY role_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the usernames and passwords of users that have the most common role?",
+        "generalized_nl": "What|are|the|usernames|and|{COLUMN} [passwords]|of|{TABLE} [users]|that|have|the|most|common|{TABLE} [role]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "usernames",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "common",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT user_name ,  password FROM users GROUP BY role_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the average access counts of documents with functional area \"Acknowledgement\".",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [access counts]|of|{TABLE} [documents]|with|{TABLE} [functional area]|recognition [Acknowledgement]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{TABLE}",
+            "recognition"
+        ],
+        "original_sql": "SELECT avg(t1.access_count) FROM documents AS t1 JOIN document_functional_areas AS t2 ON t1.document_code  =  t2.document_code JOIN functional_areas AS t3 ON t2.functional_area_code  =  t3.functional_area_code WHERE t3.functional_area_description  =  \"Acknowledgement\""
+    },
+    {
+        "original_nl": "What are the average access counts of documents that have the functional area description \"Acknowledgement\"?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [access counts]|of|{TABLE} [documents]|that|have|the|{COLUMN} [functional area description]|recognition [Acknowledgement]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "{COLUMN}",
+            "recognition"
+        ],
+        "original_sql": "SELECT avg(t1.access_count) FROM documents AS t1 JOIN document_functional_areas AS t2 ON t1.document_code  =  t2.document_code JOIN functional_areas AS t3 ON t2.functional_area_code  =  t3.functional_area_code WHERE t3.functional_area_description  =  \"Acknowledgement\""
+    },
+    {
+        "original_nl": "Find names of the document without any images.",
+        "generalized_nl": "find [Find]|{COLUMN_PART} [names]|of|the|{TABLE} [document]|without|any|{TABLE} [images]",
+        "generalized_tokens": [
+            "find",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "without",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_name FROM documents EXCEPT SELECT t1.document_name FROM documents AS t1 JOIN document_sections AS t2 ON t1.document_code  =  t2.document_code JOIN document_sections_images AS t3 ON t2.section_id  =  t3.section_id"
+    },
+    {
+        "original_nl": "What are the names of documents that do not have any images?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [documents]|that|do|not|have|any|{TABLE} [images]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_name FROM documents EXCEPT SELECT t1.document_name FROM documents AS t1 JOIN document_sections AS t2 ON t1.document_code  =  t2.document_code JOIN document_sections_images AS t3 ON t2.section_id  =  t3.section_id"
+    },
+    {
+        "original_nl": "What is the name of the document with the most number of sections?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [document]|with|the|most|number|of|section [sections]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "number",
+            "of",
+            "section"
+        ],
+        "original_sql": "SELECT t1.document_name FROM documents AS t1 JOIN document_sections AS t2 ON t1.document_code  =  t2.document_code GROUP BY t1.document_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the name of the document that has the most sections.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [name]|of|the|{TABLE} [document]|that|have [has]|the|most|section [sections]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "section"
+        ],
+        "original_sql": "SELECT t1.document_name FROM documents AS t1 JOIN document_sections AS t2 ON t1.document_code  =  t2.document_code GROUP BY t1.document_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List all the document names which contains \"CV\".",
+        "generalized_nl": "list [List]|all|the|{COLUMN} [document names]|which|contain [contains]|curriculum_vitae [CV]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN}",
+            "which",
+            "contain",
+            "curriculum_vitae"
+        ],
+        "original_sql": "SELECT document_name FROM documents WHERE document_name LIKE \"%CV%\""
+    },
+    {
+        "original_nl": "What are the names of documents that contain the substring \"CV\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [documents]|that|contain|the|substring|curriculum_vitae [CV]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "contain",
+            "the",
+            "substring",
+            "curriculum_vitae"
+        ],
+        "original_sql": "SELECT document_name FROM documents WHERE document_name LIKE \"%CV%\""
+    },
+    {
+        "original_nl": "How many users are logged in?",
+        "generalized_nl": "How|many|{TABLE} [users]|are|log [logged]|in",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "log",
+            "in"
+        ],
+        "original_sql": "SELECT count(*) FROM users WHERE user_login  =  1"
+    },
+    {
+        "original_nl": "Count the number of users that are logged in.",
+        "generalized_nl": "{COLUMN_PART} [Count]|the|number|of|{TABLE} [users]|that|are|log [logged]|in",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "log",
+            "in"
+        ],
+        "original_sql": "SELECT count(*) FROM users WHERE user_login  =  1"
+    },
+    {
+        "original_nl": "Find the description of the most popular role among the users that have logged in.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [description]|of|the|most|popular|{TABLE} [role]|among|the|{TABLE} [users]|that|have|log [logged]|in",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "most",
+            "popular",
+            "{TABLE}",
+            "among",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "log",
+            "in"
+        ],
+        "original_sql": "SELECT role_description FROM ROLES WHERE role_code  =  (SELECT role_code FROM users WHERE user_login  =  1 GROUP BY role_code ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "What is the description of the most popular role among users that have logged in?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|of|the|most|popular|{TABLE} [role]|among|{TABLE} [users]|that|have|log [logged]|in",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "most",
+            "popular",
+            "{TABLE}",
+            "among",
+            "{TABLE}",
+            "that",
+            "have",
+            "log",
+            "in"
+        ],
+        "original_sql": "SELECT role_description FROM ROLES WHERE role_code  =  (SELECT role_code FROM users WHERE user_login  =  1 GROUP BY role_code ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Find the average access count of documents with the least popular structure.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [access count]|of|{TABLE} [documents]|with|the|least|popular|{COLUMN_PART} [structure]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "the",
+            "least",
+            "popular",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(access_count) FROM documents GROUP BY document_structure_code ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the average access count of documents that have the least common structure?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [access count]|of|{TABLE} [documents]|that|have|the|least|common|{COLUMN_PART} [structure]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "least",
+            "common",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(access_count) FROM documents GROUP BY document_structure_code ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "List all the image name and URLs in the order of their names.",
+        "generalized_nl": "list [List]|all|the|{COLUMN} [image name]|and|{COLUMN_PART} [URLs]|in|the|order|of|their|{COLUMN_PART} [names]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "in",
+            "the",
+            "order",
+            "of",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT image_name ,  image_url FROM images ORDER BY image_name"
+    },
+    {
+        "original_nl": "What are the names and urls of images, sorted alphabetically?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [urls]|of|{TABLE} [images]|screen [sorted]|alphabetically",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "screen",
+            "alphabetically"
+        ],
+        "original_sql": "SELECT image_name ,  image_url FROM images ORDER BY image_name"
+    },
+    {
+        "original_nl": "Find the number of users in each role.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [users]|in|each|{TABLE} [role]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  role_code FROM users GROUP BY role_code"
+    },
+    {
+        "original_nl": "What are the different role codes for users, and how many users have each?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [role codes]|for|{TABLE} [users]|and|how|many|{TABLE} [users]|have|each",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "and",
+            "how",
+            "many",
+            "{TABLE}",
+            "have",
+            "each"
+        ],
+        "original_sql": "SELECT count(*) ,  role_code FROM users GROUP BY role_code"
+    },
+    {
+        "original_nl": "What document types have more than 2 corresponding documents?",
+        "generalized_nl": "What|{TABLE} [document]|type [types]|have|{NUMBER} [more than 2]|match [corresponding]|{TABLE} [documents]",
+        "generalized_tokens": [
+            "What",
+            "{TABLE}",
+            "type",
+            "have",
+            "{NUMBER}",
+            "match",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_type_code FROM documents GROUP BY document_type_code HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "Give the codes of document types that have more than 2 corresponding documents.",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [codes]|of|{TABLE} [document]|type [types]|that|have|{NUMBER} [more than 2]|match [corresponding]|{TABLE} [documents]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "type",
+            "that",
+            "have",
+            "{NUMBER}",
+            "match",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_type_code FROM documents GROUP BY document_type_code HAVING count(*)  >  2"
+    }
+]

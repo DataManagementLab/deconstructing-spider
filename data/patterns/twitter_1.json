@@ -1,0 +1,514 @@
+[
+    {
+        "original_nl": "Find the emails of the user named \"Mary\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [emails]|of|the|{COLUMN_PART} [user]|name [named]|{NE} [Mary]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT email FROM user_profiles WHERE name  =  'Mary'"
+    },
+    {
+        "original_nl": "What is the partition id of the user named \"Iron Man\".",
+        "generalized_nl": "What|is|the|{COLUMN} [partition id]|of|the|{COLUMN_PART} [user]|name [named]|Iron|man [Man]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "name",
+            "Iron",
+            "man"
+        ],
+        "original_sql": "SELECT partitionid FROM user_profiles WHERE name  =  'Iron Man'"
+    },
+    {
+        "original_nl": "How many users are there?",
+        "generalized_nl": "How|many|user [users]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "user",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM user_profiles"
+    },
+    {
+        "original_nl": "How many followers does each user have?",
+        "generalized_nl": "How|many|{COLUMN} [followers]|does|each|{COLUMN_PART} [user]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "does",
+            "each",
+            "{COLUMN_PART}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM follows"
+    },
+    {
+        "original_nl": "Find the number of followers for each user.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [followers]|for|each|{COLUMN_PART} [user]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM follows GROUP BY f1"
+    },
+    {
+        "original_nl": "Find the number of tweets in record.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [tweets]|in|record",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "record"
+        ],
+        "original_sql": "SELECT count(*) FROM tweets"
+    },
+    {
+        "original_nl": "Find the number of users who posted some tweets.",
+        "generalized_nl": "find [Find]|the|number|of|user [users]|who|post [posted]|some|{TABLE} [tweets]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "user",
+            "who",
+            "post",
+            "some",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT UID) FROM tweets"
+    },
+    {
+        "original_nl": "Find the name and email of the user whose name contains the word \u2018Swift\u2019.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [email]|of|the|{COLUMN_PART} [user]|whose|{COLUMN} [name]|contain [contains]|the|word|{NE} [Swift]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "whose",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "word",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name ,  email FROM user_profiles WHERE name LIKE '%Swift%'"
+    },
+    {
+        "original_nl": "Find the names of users whose emails contain \u2018superstar\u2019 or \u2018edu\u2019.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|user [users]|whose|{COLUMN} [emails]|contain|ace [superstar]|or|\u2018edu",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "user",
+            "whose",
+            "{COLUMN}",
+            "contain",
+            "ace",
+            "or",
+            "\u2018edu"
+        ],
+        "original_sql": "SELECT name FROM user_profiles WHERE email LIKE '%superstar%' OR email LIKE '%edu%'"
+    },
+    {
+        "original_nl": "Return the text of tweets about the topic 'intern'.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [text]|of|{TABLE} [tweets]|about|the|subject [topic]|intern",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "about",
+            "the",
+            "subject",
+            "intern"
+        ],
+        "original_sql": "SELECT text FROM tweets WHERE text LIKE '%intern%'"
+    },
+    {
+        "original_nl": "Find the name and email of the users who have more than 1000 followers.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [email]|of|the|user [users]|who|have|{NUMBER} [more than 1000]|{COLUMN} [followers]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "user",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  email FROM user_profiles WHERE followers  >  1000"
+    },
+    {
+        "original_nl": "Find the names of the users whose number of followers is greater than that of the user named \"Tyler Swift\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|user [users]|whose|number|of|{COLUMN} [followers]|is|great [greater]|than|that|of|the|{COLUMN_PART} [user]|name [named]|{NE} [Tyler Swift \"]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "user",
+            "whose",
+            "number",
+            "of",
+            "{COLUMN}",
+            "is",
+            "great",
+            "than",
+            "that",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM user_profiles AS T1 JOIN follows AS T2 ON T1.uid  =  T2.f1 GROUP BY T2.f1 HAVING count(*)  >  (SELECT count(*) FROM user_profiles AS T1 JOIN follows AS T2 ON T1.uid  =  T2.f1 WHERE T1.name  =  'Tyler Swift')"
+    },
+    {
+        "original_nl": "Find the name and email for the users who have more than one follower.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [email]|for|the|user [users]|who|have|{NUMBER} [more than one]|{COLUMN} [follower]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "user",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.email FROM user_profiles AS T1 JOIN follows AS T2 ON T1.uid  =  T2.f1 GROUP BY T2.f1 HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the names of users who have more than one tweet.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|user [users]|who|have|{NUMBER} [more than one]|{TABLE} [tweet]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "user",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM user_profiles AS T1 JOIN tweets AS T2 ON T1.uid  =  T2.uid GROUP BY T2.uid HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the id of users who are followed by Mary and Susan.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [id]|of|user [users]|who|are|follow [followed]|by|{NE} [Mary]|and|{NE} [Susan]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "user",
+            "who",
+            "are",
+            "follow",
+            "by",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.f1 FROM user_profiles AS T1 JOIN follows AS T2 ON T1.uid  =  T2.f2 WHERE T1.name  =  \"Mary\" INTERSECT SELECT T2.f1 FROM user_profiles AS T1 JOIN follows AS T2 ON T1.uid  =  T2.f2 WHERE T1.name  =  \"Susan\""
+    },
+    {
+        "original_nl": "Find the id of users who are followed by Mary or Susan.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [id]|of|user [users]|who|are|follow [followed]|by|{NE} [Mary]|or|{NE} [Susan]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "user",
+            "who",
+            "are",
+            "follow",
+            "by",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.f1 FROM user_profiles AS T1 JOIN follows AS T2 ON T1.uid  =  T2.f2 WHERE T1.name  =  \"Mary\" OR T1.name  =  \"Susan\""
+    },
+    {
+        "original_nl": "Find the name of the user who has the largest number of followers.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{COLUMN_PART} [user]|who|have [has]|the|large [largest]|number|of|{COLUMN} [followers]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "who",
+            "have",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM user_profiles ORDER BY followers DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name and email of the user followed by the least number of people.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [email]|of|the|{COLUMN_PART} [user]|follow [followed]|by|the|least|number|of|people",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "follow",
+            "by",
+            "the",
+            "least",
+            "number",
+            "of",
+            "people"
+        ],
+        "original_sql": "SELECT name ,  email FROM user_profiles ORDER BY followers LIMIT 1"
+    },
+    {
+        "original_nl": "List the name and number of followers for each user, and sort the results by the number of followers in descending order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|and|number|of|{COLUMN} [followers]|for|each|{COLUMN_PART} [user]|and|screen [sort]|the|consequence [results]|by|the|number|of|{COLUMN} [followers]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN_PART}",
+            "and",
+            "screen",
+            "the",
+            "consequence",
+            "by",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT name ,  followers FROM user_profiles ORDER BY followers DESC"
+    },
+    {
+        "original_nl": "List the names of 5 users followed by the largest number of other users.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{NUMBER} [5]|user [users]|follow [followed]|by|the|large [largest]|number|of|other|user [users]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}",
+            "user",
+            "follow",
+            "by",
+            "the",
+            "large",
+            "number",
+            "of",
+            "other",
+            "user"
+        ],
+        "original_sql": "SELECT name FROM user_profiles ORDER BY followers DESC LIMIT 5"
+    },
+    {
+        "original_nl": "List the text of all tweets in the order of date.",
+        "generalized_nl": "list [List]|the|{COLUMN} [text]|of|all|{TABLE} [tweets]|in|the|order|of|{COLUMN_PART} [date]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "order",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT text FROM tweets ORDER BY createdate"
+    },
+    {
+        "original_nl": "Find the name of each user and number of tweets tweeted by each of them.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|each|{COLUMN_PART} [user]|and|number|of|{TABLE} [tweets]|tweet [tweeted]|by|each|of|them",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN_PART}",
+            "and",
+            "number",
+            "of",
+            "{TABLE}",
+            "tweet",
+            "by",
+            "each",
+            "of",
+            "them"
+        ],
+        "original_sql": "SELECT T1.name ,  count(*) FROM user_profiles AS T1 JOIN tweets AS T2 ON T1.uid  =  T2.uid GROUP BY T2.uid"
+    },
+    {
+        "original_nl": "Find the name and partition id for users who tweeted less than twice.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [partition id]|for|user [users]|who|tweet [tweeted]|less|than|twice",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "user",
+            "who",
+            "tweet",
+            "less",
+            "than",
+            "twice"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.partitionid FROM user_profiles AS T1 JOIN tweets AS T2 ON T1.uid  =  T2.uid GROUP BY T2.uid HAVING count(*)  <  2"
+    },
+    {
+        "original_nl": "Find the name of the user who tweeted more than once, and number of tweets tweeted by them.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{COLUMN_PART} [user]|who|tweet [tweeted]|more|than|once|and|number|of|{TABLE} [tweets]|tweet [tweeted]|by|them",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "who",
+            "tweet",
+            "more",
+            "than",
+            "once",
+            "and",
+            "number",
+            "of",
+            "{TABLE}",
+            "tweet",
+            "by",
+            "them"
+        ],
+        "original_sql": "SELECT T1.name ,  count(*) FROM user_profiles AS T1 JOIN tweets AS T2 ON T1.uid  =  T2.uid GROUP BY T2.uid HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the average number of followers for the users who do not have any tweet.",
+        "generalized_nl": "find [Find]|the|average|number|of|{COLUMN} [followers]|for|the|user [users]|who|do|not|have|any|{TABLE} [tweet]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "the",
+            "user",
+            "who",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(followers) FROM user_profiles WHERE UID NOT IN (SELECT UID FROM tweets)"
+    },
+    {
+        "original_nl": "Find the average number of followers for the users who had some tweets.",
+        "generalized_nl": "find [Find]|the|average|number|of|{COLUMN} [followers]|for|the|user [users]|who|have [had]|some|{TABLE} [tweets]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "the",
+            "user",
+            "who",
+            "have",
+            "some",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(followers) FROM user_profiles WHERE UID IN (SELECT UID FROM tweets)"
+    },
+    {
+        "original_nl": "Find the maximum and total number of followers of all users.",
+        "generalized_nl": "find [Find]|the|maximal [maximum]|and|entire [total]|number|of|{COLUMN} [followers]|of|all|user [users]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "maximal",
+            "and",
+            "entire",
+            "number",
+            "of",
+            "{COLUMN}",
+            "of",
+            "all",
+            "user"
+        ],
+        "original_sql": "SELECT max(followers) ,  sum(followers) FROM user_profiles"
+    }
+]

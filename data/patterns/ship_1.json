@@ -1,0 +1,890 @@
+[
+    {
+        "original_nl": "How many different captain ranks are there?",
+        "generalized_nl": "How|many|different|{TABLE} [captain]|{COLUMN} [ranks]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT rank) FROM captain"
+    },
+    {
+        "original_nl": "Count the number of different ranks of captain.",
+        "generalized_nl": "count [Count]|the|number|of|different|{COLUMN} [ranks]|of|{TABLE} [captain]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT rank) FROM captain"
+    },
+    {
+        "original_nl": "How many captains are in each rank?",
+        "generalized_nl": "How|many|{TABLE} [captains]|are|in|each|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  rank FROM captain GROUP BY rank"
+    },
+    {
+        "original_nl": "Count the number of captains that have each rank.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [captains]|that|have|each|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  rank FROM captain GROUP BY rank"
+    },
+    {
+        "original_nl": "How many captains with younger than 50 are in each rank?",
+        "generalized_nl": "How|many|{TABLE} [captains]|with|{NUMBER} [younger than 50]|are|in|each|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "are",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  rank FROM captain WHERE age  <  50 GROUP BY rank"
+    },
+    {
+        "original_nl": "Count the number of captains younger than 50 of each rank.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [captains]|{NUMBER} [younger than 50]|of|each|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "{NUMBER}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  rank FROM captain WHERE age  <  50 GROUP BY rank"
+    },
+    {
+        "original_nl": "Sort all captain names by their ages from old to young.",
+        "generalized_nl": "screen [Sort]|all|{TABLE} [captain]|{COLUMN} [names]|by|their|{COLUMN} [ages]|from|old|to|young",
+        "generalized_tokens": [
+            "screen",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "by",
+            "their",
+            "{COLUMN}",
+            "from",
+            "old",
+            "to",
+            "young"
+        ],
+        "original_sql": "SELECT name FROM captain ORDER BY age DESC"
+    },
+    {
+        "original_nl": "What are the names of captains, sorted by age descending?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [captains]|screen [sorted]|by|{COLUMN} [age]|descending",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "descending"
+        ],
+        "original_sql": "SELECT name FROM captain ORDER BY age DESC"
+    },
+    {
+        "original_nl": "Find the name, class and rank of all captains.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|{COLUMN} [class]|and|{COLUMN} [rank]|of|all|{TABLE} [captains]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  CLASS ,  rank FROM captain"
+    },
+    {
+        "original_nl": "What are the names, classes, and ranks of all captains?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|{COLUMN} [classes]|and|{COLUMN} [ranks]|of|all|{TABLE} [captains]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  CLASS ,  rank FROM captain"
+    },
+    {
+        "original_nl": "Which rank is the most common among captains?",
+        "generalized_nl": "Which|{COLUMN} [rank]|is|the|most|common|among|{TABLE} [captains]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "the",
+            "most",
+            "common",
+            "among",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT rank FROM captain GROUP BY rank ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the rank for which there are the fewest captains.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [rank]|for|which|there|be [are]|the|fewest|{TABLE} [captains]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "for",
+            "which",
+            "there",
+            "be",
+            "the",
+            "fewest",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT rank FROM captain GROUP BY rank ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which classes have more than two captains?",
+        "generalized_nl": "Which|{COLUMN} [classes]|have|{NUMBER} [more than two]|{TABLE} [captains]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT CLASS FROM captain GROUP BY CLASS HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "Give the classes that have more than two captains.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [classes]|that|have|{NUMBER} [more than two]|{TABLE} [captains]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT CLASS FROM captain GROUP BY CLASS HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "Find the name of captains whose rank are either Midshipman or Lieutenant.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [captains]|whose|{COLUMN} [rank]|are|either|{VALUE} [Midshipman]|or|{VALUE} [Lieutenant]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "either",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM captain WHERE rank  =  'Midshipman' OR rank  =  'Lieutenant'"
+    },
+    {
+        "original_nl": "What are the names of captains that have either the rank Midshipman or Lieutenant?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [captains]|that|have|either|the|{COLUMN} [rank]|{VALUE} [Midshipman]|or|{VALUE} [Lieutenant]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "either",
+            "the",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM captain WHERE rank  =  'Midshipman' OR rank  =  'Lieutenant'"
+    },
+    {
+        "original_nl": "What are the average and minimum age of captains in different class?",
+        "generalized_nl": "What|are|the|average|and|minimal [minimum]|{COLUMN} [age]|of|{TABLE} [captains]|in|different|{COLUMN} [class]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(age) ,  min(age) ,  CLASS FROM captain GROUP BY CLASS"
+    },
+    {
+        "original_nl": "Return the average and minimum age of captains in each class.",
+        "generalized_nl": "return [Return]|the|average|and|minimal [minimum]|{COLUMN} [age]|of|{TABLE} [captains]|in|each|{COLUMN} [class]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "average",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(age) ,  min(age) ,  CLASS FROM captain GROUP BY CLASS"
+    },
+    {
+        "original_nl": "Find the captain rank that has some captains in both Cutter and Armed schooner classes.",
+        "generalized_nl": "find [Find]|the|{TABLE} [captain]|{COLUMN} [rank]|that|have [has]|some|{TABLE} [captains]|in|both|{VALUE} [Cutter]|and|{VALUE} [Armed schooner]|{COLUMN} [classes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "have",
+            "some",
+            "{TABLE}",
+            "in",
+            "both",
+            "{VALUE}",
+            "and",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT rank FROM captain WHERE CLASS  =  'Cutter' INTERSECT SELECT rank FROM captain WHERE CLASS  =  'Armed schooner'"
+    },
+    {
+        "original_nl": "What are the ranks of captains that are both in the Cutter and Armed schooner classes?",
+        "generalized_nl": "What|are|the|{COLUMN} [ranks]|of|{TABLE} [captains]|that|are|both|in|the|{VALUE} [Cutter]|and|{VALUE} [Armed schooner]|{COLUMN} [classes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "both",
+            "in",
+            "the",
+            "{VALUE}",
+            "and",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT rank FROM captain WHERE CLASS  =  'Cutter' INTERSECT SELECT rank FROM captain WHERE CLASS  =  'Armed schooner'"
+    },
+    {
+        "original_nl": "Find the captain rank that has no captain in Third-rate ship of the line class.",
+        "generalized_nl": "find [Find]|the|{TABLE} [captain]|{COLUMN} [rank]|that|have [has]|no|{TABLE} [captain]|in|{VALUE} [Third - rate ship of the line]|{COLUMN} [class]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "have",
+            "no",
+            "{TABLE}",
+            "in",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT rank FROM captain EXCEPT SELECT rank FROM captain WHERE CLASS  =  'Third-rate ship of the line'"
+    },
+    {
+        "original_nl": "What are the ranks of captains that have no captain that are in the Third-rate ship of the line class?",
+        "generalized_nl": "What|are|the|{COLUMN} [ranks]|of|{TABLE} [captains]|that|have|no|{TABLE} [captain]|that|are|in|the|{VALUE} [Third - rate ship of the line]|{COLUMN} [class]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "no",
+            "{TABLE}",
+            "that",
+            "are",
+            "in",
+            "the",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT rank FROM captain EXCEPT SELECT rank FROM captain WHERE CLASS  =  'Third-rate ship of the line'"
+    },
+    {
+        "original_nl": "What is the name of the youngest captain?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|young [youngest]|{TABLE} [captain]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "young",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM captain ORDER BY age LIMIT 1"
+    },
+    {
+        "original_nl": "Return the name of the youngest captain.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [name]|of|the|young [youngest]|{TABLE} [captain]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "young",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM captain ORDER BY age LIMIT 1"
+    },
+    {
+        "original_nl": "how many ships are there?",
+        "generalized_nl": "how|many|{TABLE} [ships]|are|there",
+        "generalized_tokens": [
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM ship"
+    },
+    {
+        "original_nl": "Count the number of ships.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [ships]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM ship"
+    },
+    {
+        "original_nl": "Find the name, type, and flag of the ship that is built in the most recent year.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|{COLUMN} [type]|and|{COLUMN} [flag]|of|the|{TABLE} [ship]|that|is|{COLUMN_PART} [built]|in|{NE} [the most recent year]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "{COLUMN_PART}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name ,  TYPE ,  flag FROM ship ORDER BY built_year DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name, type, and flag of the ship that was built in the most recent year?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|{COLUMN} [type]|and|{COLUMN} [flag]|of|the|{TABLE} [ship]|that|was|{COLUMN_PART} [built]|in|{NE} [the most recent year]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "was",
+            "{COLUMN_PART}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name ,  TYPE ,  flag FROM ship ORDER BY built_year DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Group by ships by flag, and return number of ships that have each flag.",
+        "generalized_nl": "group [Group]|by|{TABLE} [ships]|by|{COLUMN} [flag]|and|return|number|of|{TABLE} [ships]|that|have|each|{COLUMN} [flag]",
+        "generalized_tokens": [
+            "group",
+            "by",
+            "{TABLE}",
+            "by",
+            "{COLUMN}",
+            "and",
+            "return",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  flag FROM ship GROUP BY flag"
+    },
+    {
+        "original_nl": "What are the different ship flags, and how many ships have each?",
+        "generalized_nl": "What|are|the|different|{TABLE} [ship]|{COLUMN} [flags]|and|how|many|{TABLE} [ships]|have|each",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "how",
+            "many",
+            "{TABLE}",
+            "have",
+            "each"
+        ],
+        "original_sql": "SELECT count(*) ,  flag FROM ship GROUP BY flag"
+    },
+    {
+        "original_nl": "Which flag is most widely used among all ships?",
+        "generalized_nl": "Which|{COLUMN} [flag]|is|most|widely|use [used]|among|all|{TABLE} [ships]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "most",
+            "widely",
+            "use",
+            "among",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT flag FROM ship GROUP BY flag ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the flag that is most common among all ships.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [flag]|that|is|most|common|among|all|{TABLE} [ships]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "most",
+            "common",
+            "among",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT flag FROM ship GROUP BY flag ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List all ship names in the order of built year and class.",
+        "generalized_nl": "list [List]|all|{TABLE} [ship]|{COLUMN} [names]|in|the|order|of|{COLUMN} [built year]|and|{COLUMN} [class]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "the",
+            "order",
+            "of",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM ship ORDER BY built_year ,  CLASS"
+    },
+    {
+        "original_nl": "What are the names of ships, ordered by year they were built and their class?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [ships]|order [ordered]|by|{COLUMN_PART} [year]|they|were|{COLUMN_PART} [built]|and|their|{COLUMN} [class]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN_PART}",
+            "they",
+            "were",
+            "{COLUMN_PART}",
+            "and",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM ship ORDER BY built_year ,  CLASS"
+    },
+    {
+        "original_nl": "Find the ship type that are used by both ships with Panama and Malta flags.",
+        "generalized_nl": "find [Find]|the|{TABLE} [ship]|{COLUMN} [type]|that|are|use [used]|by|both|{TABLE} [ships]|with|{VALUE} [Panama]|and|{VALUE} [Malta]|{COLUMN} [flags]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "are",
+            "use",
+            "by",
+            "both",
+            "{TABLE}",
+            "with",
+            "{VALUE}",
+            "and",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TYPE FROM ship WHERE flag  =  'Panama' INTERSECT SELECT TYPE FROM ship WHERE flag  =  'Malta'"
+    },
+    {
+        "original_nl": "What types of ships have both ships that have Panama Flags and Malta flags?",
+        "generalized_nl": "What|{COLUMN} [types]|of|{TABLE} [ships]|have|both|{TABLE} [ships]|that|have|{VALUE} [Panama]|{COLUMN} [Flags]|and|{VALUE} [Malta]|{COLUMN} [flags]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "have",
+            "both",
+            "{TABLE}",
+            "that",
+            "have",
+            "{VALUE}",
+            "{COLUMN}",
+            "and",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TYPE FROM ship WHERE flag  =  'Panama' INTERSECT SELECT TYPE FROM ship WHERE flag  =  'Malta'"
+    },
+    {
+        "original_nl": "In which year were most of ships built?",
+        "generalized_nl": "In|{NE} [which year]|were|most|of|{TABLE} [ships]|{COLUMN_PART} [built]",
+        "generalized_tokens": [
+            "In",
+            "{NE}",
+            "were",
+            "most",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT built_year FROM ship GROUP BY built_year ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the year in which most ships were built?",
+        "generalized_nl": "What|is|{NE} [the year]|in|which|most|{TABLE} [ships]|were|{COLUMN_PART} [built]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{NE}",
+            "in",
+            "which",
+            "most",
+            "{TABLE}",
+            "were",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT built_year FROM ship GROUP BY built_year ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the ships that have more than one captain.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [ships]|that|have|{NUMBER} [more than one]|{TABLE} [captain]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.name FROM ship AS t1 JOIN captain AS t2 ON t1.ship_id  =  t2.ship_id GROUP BY t2.ship_id HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "What are the names of ships that have more than one captain?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [ships]|that|have|{NUMBER} [more than one]|{TABLE} [captain]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.name FROM ship AS t1 JOIN captain AS t2 ON t1.ship_id  =  t2.ship_id GROUP BY t2.ship_id HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "what are the names and classes of the ships that do not have any captain yet?",
+        "generalized_nl": "what|are|the|{COLUMN} [names]|and|{COLUMN} [classes]|of|the|{TABLE} [ships]|that|do|not|have|any|{TABLE} [captain]|yet",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}",
+            "yet"
+        ],
+        "original_sql": "SELECT name ,  CLASS FROM ship WHERE ship_id NOT IN (SELECT ship_id FROM captain)"
+    },
+    {
+        "original_nl": "Return the names and classes of ships that do not have a captain?",
+        "generalized_nl": "return [Return]|the|{COLUMN} [names]|and|{COLUMN} [classes]|of|{TABLE} [ships]|that|do|not|have|a|{TABLE} [captain]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  CLASS FROM ship WHERE ship_id NOT IN (SELECT ship_id FROM captain)"
+    },
+    {
+        "original_nl": "Find the name of the ship that is steered by the youngest captain.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [ship]|that|is|steer [steered]|by|the|young [youngest]|{TABLE} [captain]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "steer",
+            "by",
+            "the",
+            "young",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.name FROM ship AS t1 JOIN captain AS t2 ON t1.ship_id  =  t2.ship_id ORDER BY t2.age LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the ship that is commanded by the youngest captain?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [ship]|that|is|command [commanded]|by|the|young [youngest]|{TABLE} [captain]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "command",
+            "by",
+            "the",
+            "young",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.name FROM ship AS t1 JOIN captain AS t2 ON t1.ship_id  =  t2.ship_id ORDER BY t2.age LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name and flag of ships that are not steered by any captain with Midshipman rank.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [flag]|of|{TABLE} [ships]|that|are|not|steer [steered]|by|any|{TABLE} [captain]|with|{VALUE} [Midshipman]|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "steer",
+            "by",
+            "any",
+            "{TABLE}",
+            "with",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  flag FROM ship WHERE ship_id NOT IN (SELECT ship_id FROM captain WHERE rank  =  'Midshipman')"
+    },
+    {
+        "original_nl": "What are the names and flags of ships that do not have a captain with the rank of Midshipman?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [flags]|of|{TABLE} [ships]|that|do|not|have|a|{TABLE} [captain]|with|the|{COLUMN} [rank]|of|{VALUE} [Midshipman]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "a",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name ,  flag FROM ship WHERE ship_id NOT IN (SELECT ship_id FROM captain WHERE rank  =  'Midshipman')"
+    },
+    {
+        "original_nl": "Find the name of the ships that are steered by both a captain with Midshipman rank and a captain with Lieutenant rank.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [ships]|that|are|steer [steered]|by|both|a|{TABLE} [captain]|with|{VALUE} [Midshipman]|{COLUMN} [rank]|and|a|{TABLE} [captain]|with|{VALUE} [Lieutenant]|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "steer",
+            "by",
+            "both",
+            "a",
+            "{TABLE}",
+            "with",
+            "{VALUE}",
+            "{COLUMN}",
+            "and",
+            "a",
+            "{TABLE}",
+            "with",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.name FROM ship AS t1 JOIN captain AS t2 ON t1.ship_id  =  t2.ship_id WHERE t2.rank  =  'Midshipman' INTERSECT SELECT t1.name FROM ship AS t1 JOIN captain AS t2 ON t1.ship_id  =  t2.ship_id WHERE t2.rank  =  'Lieutenant'"
+    },
+    {
+        "original_nl": "What are the names of ships that are commanded by both captains with the rank of Midshipman and captains with the rank of Lieutenant?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [ships]|that|are|command [commanded]|by|both|{TABLE} [captains]|with|the|{COLUMN} [rank]|of|{VALUE} [Midshipman]|and|{TABLE} [captains]|with|the|{COLUMN} [rank]|of|{VALUE} [Lieutenant]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "command",
+            "by",
+            "both",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{VALUE}",
+            "and",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT t1.name FROM ship AS t1 JOIN captain AS t2 ON t1.ship_id  =  t2.ship_id WHERE t2.rank  =  'Midshipman' INTERSECT SELECT t1.name FROM ship AS t1 JOIN captain AS t2 ON t1.ship_id  =  t2.ship_id WHERE t2.rank  =  'Lieutenant'"
+    }
+]

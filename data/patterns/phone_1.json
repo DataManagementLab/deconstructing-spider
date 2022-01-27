@@ -1,0 +1,527 @@
+[
+    {
+        "original_nl": "the names of models that launched between 2002 and 2004.",
+        "generalized_nl": "the|{COLUMN_PART} [names]|of|{COLUMN_PART} [models]|that|launch [launched]|{NE} [between 2002 and 2004]",
+        "generalized_tokens": [
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "that",
+            "launch",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Model_name FROM chip_model WHERE Launch_year BETWEEN 2002 AND 2004;"
+    },
+    {
+        "original_nl": "What are the chip model and screen mode of the phone with hardware model name \"LG-P760\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [chip model]|and|{COLUMN} [screen mode]|of|the|{TABLE} [phone]|with|{COLUMN} [hardware model name]|LG|P760",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "LG",
+            "P760"
+        ],
+        "original_sql": "SELECT chip_model ,  screen_mode FROM phone WHERE Hardware_Model_name = \"LG-P760\";"
+    },
+    {
+        "original_nl": "How many phone hardware models are produced by the company named \"Nokia Corporation\"?",
+        "generalized_nl": "How|many|{TABLE} [phone]|{COLUMN_PART} [hardware]|{COLUMN_PART} [models]|are|produce [produced]|by|the|{COLUMN_PART} [company]|name [named]|Nokia|Corporation",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "are",
+            "produce",
+            "by",
+            "the",
+            "{COLUMN_PART}",
+            "name",
+            "Nokia",
+            "Corporation"
+        ],
+        "original_sql": "SELECT count(*) FROM phone WHERE Company_name = \"Nokia Corporation\";"
+    },
+    {
+        "original_nl": "What is maximum and minimum RAM size of phone produced by company named \"Nokia Corporation\"?",
+        "generalized_nl": "What|is|maximal [maximum]|and|minimal [minimum]|{COLUMN_PART} [RAM]|size|of|{TABLE} [phone]|produce [produced]|by|{COLUMN_PART} [company]|name [named]|Nokia|Corporation",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "size",
+            "of",
+            "{TABLE}",
+            "produce",
+            "by",
+            "{COLUMN_PART}",
+            "name",
+            "Nokia",
+            "Corporation"
+        ],
+        "original_sql": "SELECT max(T1.RAM_MiB) ,  min(T1.RAM_MiB) FROM chip_model AS T1 JOIN phone AS T2 ON T1.Model_name  =  T2.chip_model WHERE T2.Company_name = \"Nokia Corporation\";"
+    },
+    {
+        "original_nl": "What is the average ROM size of phones produced by the company named \"Nokia Corporation\"?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [ROM]|size|of|{TABLE} [phones]|produce [produced]|by|the|{COLUMN_PART} [company]|name [named]|Nokia|Corporation",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "size",
+            "of",
+            "{TABLE}",
+            "produce",
+            "by",
+            "the",
+            "{COLUMN_PART}",
+            "name",
+            "Nokia",
+            "Corporation"
+        ],
+        "original_sql": "SELECT avg(T1.ROM_MiB) FROM chip_model AS T1 JOIN phone AS T2 ON T1.Model_name  =  T2.chip_model WHERE T2.Company_name = \"Nokia Corporation\";"
+    },
+    {
+        "original_nl": "List the hardware model name and company name for all the phones that were launched in year 2002 or have RAM size greater than 32.",
+        "generalized_nl": "list [List]|the|{COLUMN} [hardware model name]|and|{COLUMN} [company name]|for|all|the|{TABLE} [phones]|that|were|launch [launched]|in|{COLUMN_PART} [year]|{NUMBER} [2002]|or|have|{COLUMN_PART} [RAM]|size|{NUMBER} [greater than 32]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "were",
+            "launch",
+            "in",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "or",
+            "have",
+            "{COLUMN_PART}",
+            "size",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Hardware_Model_name ,  T2.Company_name FROM chip_model AS T1 JOIN phone AS T2 ON T1.Model_name  =  T2.chip_model WHERE T1.Launch_year = 2002 OR T1.RAM_MiB  >  32;"
+    },
+    {
+        "original_nl": "Find the Char cells, Pixels and Hardware colours for the screen of the phone whose hardware model name is \"LG-P760\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [Char cells]|{COLUMN} [Pixels]|and|{COLUMN} [Hardware colours]|for|the|{COLUMN_PART} [screen]|of|the|{TABLE} [phone]|whose|{COLUMN} [hardware model name]|is|{NE} [LG - P760]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.Char_cells ,  T1.Pixels ,  T1.Hardware_colours FROM screen_mode AS T1 JOIN phone AS T2 ON T1.Graphics_mode = T2.screen_mode WHERE T2.Hardware_Model_name = \"LG-P760\";"
+    },
+    {
+        "original_nl": "List the hardware model name and company name for the phone whose screen mode type is \"Graphics.\"",
+        "generalized_nl": "list [List]|the|{COLUMN} [hardware model name]|and|{COLUMN} [company name]|for|the|{TABLE} [phone]|whose|{COLUMN} [screen mode]|{COLUMN} [type]|is|{COLUMN_PART} [Graphics]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "{COLUMN}",
+            "is",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.Hardware_Model_name ,  T2.Company_name FROM screen_mode AS T1 JOIN phone AS T2 ON T1.Graphics_mode = T2.screen_mode WHERE T1.Type  =  \"Graphics\";"
+    },
+    {
+        "original_nl": "List the name of the company that produced more than one phone model.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|of|the|{COLUMN_PART} [company]|that|produce [produced]|{NUMBER} [more than one]|{TABLE} [phone]|{COLUMN_PART} [model]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "produce",
+            "{NUMBER}",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Company_name FROM phone GROUP BY Company_name HAVING count(*)  >  1;"
+    },
+    {
+        "original_nl": "List the maximum, minimum and average number of used kb in screen mode.",
+        "generalized_nl": "list [List]|the|maximal [maximum]|minimal [minimum]|and|average|number|of|{COLUMN} [used kb]|in|{COLUMN} [screen mode]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "maximal",
+            "minimal",
+            "and",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(used_kb) , min(used_kb) , avg(used_kb) FROM screen_mode;"
+    },
+    {
+        "original_nl": "List the name of the phone model launched in year 2002 and with the highest RAM size.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|of|the|{TABLE} [phone]|{COLUMN_PART} [model]|launch [launched]|in|{COLUMN_PART} [year]|{NUMBER} [2002]|and|with|the|high [highest]|{COLUMN_PART} [RAM]|size",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "launch",
+            "in",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "and",
+            "with",
+            "the",
+            "high",
+            "{COLUMN_PART}",
+            "size"
+        ],
+        "original_sql": "SELECT T2.Hardware_Model_name FROM chip_model AS T1 JOIN phone AS T2 ON T1.Model_name  =  T2.chip_model WHERE T1.Launch_year = 2002 ORDER BY T1.RAM_MiB DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "What are the wifi and screen mode type of the hardware model named \"LG-P760\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [wifi]|and|{COLUMN} [screen mode]|{COLUMN} [type]|of|the|{COLUMN_PART} [hardware]|{COLUMN_PART} [model]|name [named]|LG|P760",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "name",
+            "LG",
+            "P760"
+        ],
+        "original_sql": "SELECT T1.WiFi , T3.Type FROM chip_model AS T1 JOIN phone AS T2 ON T1.Model_name  =  T2.chip_model JOIN screen_mode AS T3 ON T2.screen_mode = T3.Graphics_mode WHERE T2.Hardware_Model_name = \"LG-P760\";"
+    },
+    {
+        "original_nl": "List the hardware model name for the phones that have screen mode type \"Text\" or RAM size greater than 32.",
+        "generalized_nl": "list [List]|the|{COLUMN} [hardware model name]|for|the|{TABLE} [phones]|that|have|{COLUMN} [screen mode]|{COLUMN} [type]|text [Text]|or|{COLUMN_PART} [RAM]|size|{NUMBER} [greater than 32]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "{COLUMN}",
+            "text",
+            "or",
+            "{COLUMN_PART}",
+            "size",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Hardware_Model_name FROM chip_model AS T1 JOIN phone AS T2 ON T1.Model_name  =  T2.chip_model JOIN screen_mode AS T3 ON T2.screen_mode = T3.Graphics_mode WHERE T3.Type = \"Text\" OR T1.RAM_MiB  >  32;"
+    },
+    {
+        "original_nl": "List the hardware model name for the phones that were produced by \"Nokia Corporation\" or whose screen mode type is \"Graphics.\"",
+        "generalized_nl": "list [List]|the|{COLUMN} [hardware model name]|for|the|{TABLE} [phones]|that|were|produce [produced]|by|Nokia|Corporation|or|whose|{COLUMN} [screen mode]|{COLUMN} [type]|is|{COLUMN_PART} [Graphics]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "that",
+            "were",
+            "produce",
+            "by",
+            "Nokia",
+            "Corporation",
+            "or",
+            "whose",
+            "{COLUMN}",
+            "{COLUMN}",
+            "is",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Hardware_Model_name FROM screen_mode AS T1 JOIN phone AS T2 ON T1.Graphics_mode = T2.screen_mode WHERE T1.Type  =  \"Graphics\" OR t2.Company_name  =  \"Nokia Corporation\""
+    },
+    {
+        "original_nl": "List the hardware model name for the phons that were produced by \"Nokia Corporation\" but whose screen mode type is not Text.",
+        "generalized_nl": "list [List]|the|{COLUMN} [hardware model name]|for|the|phon [phons]|that|were|produce [produced]|by|Nokia|Corporation|but|whose|{COLUMN} [screen mode]|{COLUMN} [type]|is|not|text [Text]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "phon",
+            "that",
+            "were",
+            "produce",
+            "by",
+            "Nokia",
+            "Corporation",
+            "but",
+            "whose",
+            "{COLUMN}",
+            "{COLUMN}",
+            "is",
+            "not",
+            "text"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Hardware_Model_name FROM screen_mode AS T1 JOIN phone AS T2 ON T1.Graphics_mode = T2.screen_mode WHERE t2.Company_name  =  \"Nokia Corporation\" AND T1.Type != \"Text\";"
+    },
+    {
+        "original_nl": "List the phone hardware model and company name for the phones whose screen usage in kb is between 10 and 15.",
+        "generalized_nl": "list [List]|the|{TABLE} [phone]|{COLUMN_PART} [hardware]|{COLUMN_PART} [model]|and|{COLUMN} [company name]|for|the|{TABLE} [phones]|whose|{COLUMN_PART} [screen]|use [usage]|in|{COLUMN_PART} [kb]|is|between|{NUMBER} [10]|and|{NUMBER} [15]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "use",
+            "in",
+            "{COLUMN_PART}",
+            "is",
+            "between",
+            "{NUMBER}",
+            "and",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Hardware_Model_name , T2.Company_name FROM screen_mode AS T1 JOIN phone AS T2 ON T1.Graphics_mode = T2.screen_mode WHERE T1.used_kb BETWEEN 10 AND 15;"
+    },
+    {
+        "original_nl": "Find the number of phones for each accreditation type.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [phones]|for|each|{COLUMN} [accreditation type]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Accreditation_type ,  count(*) FROM phone GROUP BY Accreditation_type"
+    },
+    {
+        "original_nl": "How many phones belongs to each accreditation type?",
+        "generalized_nl": "How|many|{TABLE} [phones]|belong [belongs]|to|each|{COLUMN} [accreditation type]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "belong",
+            "to",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Accreditation_type ,  count(*) FROM phone GROUP BY Accreditation_type"
+    },
+    {
+        "original_nl": "Find the accreditation level that more than 3 phones use.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [accreditation level]|that|{NUMBER} [more than 3]|{TABLE} [phones]|use",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "{NUMBER}",
+            "{TABLE}",
+            "use"
+        ],
+        "original_sql": "SELECT Accreditation_level FROM phone GROUP BY Accreditation_level HAVING count(*)  >  3"
+    },
+    {
+        "original_nl": "Find the details for all chip models.",
+        "generalized_nl": "find [Find]|the|detail [details]|for|all|{COLUMN} [chip models]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "detail",
+            "for",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT * FROM chip_model"
+    },
+    {
+        "original_nl": "How many models do not have the wifi function?",
+        "generalized_nl": "How|many|{COLUMN_PART} [models]|do|not|have|the|{COLUMN} [wifi]|function",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "do",
+            "not",
+            "have",
+            "the",
+            "{COLUMN}",
+            "function"
+        ],
+        "original_sql": "SELECT count(*) FROM chip_model WHERE wifi  =  'No'"
+    },
+    {
+        "original_nl": "Count the number of chip model that do not have wifi.",
+        "generalized_nl": "count [Count]|the|number|of|{COLUMN} [chip model]|that|do|not|have|{COLUMN} [wifi]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM chip_model WHERE wifi  =  'No'"
+    },
+    {
+        "original_nl": "List all the model names sorted by their launch year.",
+        "generalized_nl": "list [List]|all|the|{COLUMN} [model names]|screen [sorted]|by|their|{COLUMN} [launch year]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT model_name FROM chip_model ORDER BY launch_year"
+    },
+    {
+        "original_nl": "Find the average ram mib size of the chip models that are never used by any phone.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [ram mib]|size|of|the|{COLUMN} [chip models]|that|are|never|{COLUMN_PART} [used]|by|any|{TABLE} [phone]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "size",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "are",
+            "never",
+            "{COLUMN_PART}",
+            "by",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(RAM_MiB) FROM chip_model WHERE model_name NOT IN (SELECT chip_model FROM phone)"
+    },
+    {
+        "original_nl": "Find the names of the chip models that are not used by any phone with full accreditation type.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|the|{COLUMN} [chip models]|that|are|not|{COLUMN_PART} [used]|by|any|{TABLE} [phone]|with|full|{COLUMN} [accreditation type]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "are",
+            "not",
+            "{COLUMN_PART}",
+            "by",
+            "any",
+            "{TABLE}",
+            "with",
+            "full",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT model_name FROM chip_model EXCEPT SELECT chip_model FROM phone WHERE Accreditation_type  =  'Full'"
+    },
+    {
+        "original_nl": "Find the pixels of the screen modes that are used by both phones with full accreditation types and phones with Provisional accreditation types.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [pixels]|of|the|{COLUMN} [screen modes]|that|are|{COLUMN_PART} [used]|by|both|{TABLE} [phones]|with|full|{COLUMN} [accreditation types]|and|{TABLE} [phones]|with|probationary [Provisional]|{COLUMN} [accreditation types]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "are",
+            "{COLUMN_PART}",
+            "by",
+            "both",
+            "{TABLE}",
+            "with",
+            "full",
+            "{COLUMN}",
+            "and",
+            "{TABLE}",
+            "with",
+            "probationary",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.pixels FROM screen_mode AS t1 JOIN phone AS t2 ON t1.Graphics_mode  =  t2.screen_mode WHERE t2.Accreditation_type  =  'Provisional' INTERSECT SELECT t1.pixels FROM screen_mode AS t1 JOIN phone AS t2 ON t1.Graphics_mode  =  t2.screen_mode WHERE t2.Accreditation_type  =  'Full'"
+    }
+]

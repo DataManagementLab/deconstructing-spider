@@ -1,0 +1,290 @@
+[
+    {
+        "original_nl": "How many roller coasters are there?",
+        "generalized_nl": "How|many|{TABLE} [roller coasters]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM roller_coaster"
+    },
+    {
+        "original_nl": "List the names of roller coasters by ascending order of length.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [roller coasters]|by|ascend [ascending]|order|of|{COLUMN} [length]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "by",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM roller_coaster ORDER BY LENGTH ASC"
+    },
+    {
+        "original_nl": "What are the lengths and heights of roller coasters?",
+        "generalized_nl": "What|are|the|{COLUMN} [lengths]|and|{COLUMN} [heights]|of|{TABLE} [roller coasters]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT LENGTH ,  Height FROM roller_coaster"
+    },
+    {
+        "original_nl": "List the names of countries whose language is not \"German\".",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [countries]|whose|{COLUMN} [language]|is|not|{VALUE} [German]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM country WHERE Languages != \"German\""
+    },
+    {
+        "original_nl": "Show the statuses of roller coasters longer than 3300 or higher than 100.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [statuses]|of|{TABLE} [roller coasters]|longer|than|{NUMBER} [3300]|or|{NUMBER} [higher than 100]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "longer",
+            "than",
+            "{NUMBER}",
+            "or",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Status FROM roller_coaster WHERE LENGTH  >  3300 OR Height  >  100"
+    },
+    {
+        "original_nl": "What are the speeds of the longest roller coaster?",
+        "generalized_nl": "What|are|the|{COLUMN} [speeds]|of|the|long [longest]|{TABLE} [roller coaster]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "long",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Speed FROM roller_coaster ORDER BY LENGTH DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the average speed of roller coasters?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [speed]|of|{TABLE} [roller coasters]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Speed) FROM roller_coaster"
+    },
+    {
+        "original_nl": "Show the different statuses and the numbers of roller coasters for each status.",
+        "generalized_nl": "show [Show]|the|different|{COLUMN} [statuses]|and|the|number [numbers]|of|{TABLE} [roller coasters]|for|each|{COLUMN} [status]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Status ,  COUNT(*) FROM roller_coaster GROUP BY Status"
+    },
+    {
+        "original_nl": "Please show the most common status of roller coasters.",
+        "generalized_nl": "Please|show|the|most|common|{COLUMN} [status]|of|{TABLE} [roller coasters]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Status FROM roller_coaster GROUP BY Status ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the status shared by more than two roller coaster.",
+        "generalized_nl": "list [List]|the|{COLUMN} [status]|share [shared]|by|{NUMBER} [more than two]|{TABLE} [roller coaster]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Status FROM roller_coaster GROUP BY Status HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "Show the park of the roller coaster with the highest speed.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [park]|of|the|{TABLE} [roller coaster]|with|the|high [highest]|{COLUMN} [speed]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Park FROM roller_coaster ORDER BY Speed DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the names of roller coasters and names of country they are in.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [roller coasters]|and|{COLUMN} [names]|of|{TABLE} [country]|they|are|in",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "they",
+            "are",
+            "in"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.Name FROM country AS T1 JOIN roller_coaster AS T2 ON T1.Country_ID  =  T2.Country_ID"
+    },
+    {
+        "original_nl": "Show the names of countries that have more than one roller coaster.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [countries]|that|have|{NUMBER} [more than one]|{TABLE} [roller coaster]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM country AS T1 JOIN roller_coaster AS T2 ON T1.Country_ID  =  T2.Country_ID GROUP BY T1.Name HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "Show the name and population of the country that has the highest roller coaster.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|and|{COLUMN} [population]|of|the|{TABLE} [country]|that|have [has]|the|high [highest]|{TABLE} [roller coaster]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "high",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name ,  T1.population FROM country AS T1 JOIN roller_coaster AS T2 ON T1.Country_ID  =  T2.Country_ID ORDER BY T2.Height DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the names of countries and the average speed of roller coasters from each country.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [countries]|and|the|average|{COLUMN} [speed]|of|{TABLE} [roller coasters]|from|each|{TABLE} [country]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "from",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name ,  avg(T2.Speed) FROM country AS T1 JOIN roller_coaster AS T2 ON T1.Country_ID  =  T2.Country_ID GROUP BY T1.Name"
+    },
+    {
+        "original_nl": "How many countries do not have an roller coaster longer than 3000?",
+        "generalized_nl": "How|many|{TABLE} [countries]|do|not|have|an|{TABLE} [roller coaster]|longer|than|{NUMBER} [3000]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "not",
+            "have",
+            "an",
+            "{TABLE}",
+            "longer",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM country WHERE country_id NOT IN ( SELECT country_id FROM roller_coaster WHERE LENGTH  >  3000 )"
+    },
+    {
+        "original_nl": "What are the country names, area and population which has both roller coasters with speed higher",
+        "generalized_nl": "What|are|the|{TABLE} [country]|{COLUMN} [names]|{COLUMN} [area]|and|{COLUMN} [population]|which|have [has]|both|{TABLE} [roller coasters]|with|{COLUMN} [speed]|high [higher]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "which",
+            "have",
+            "both",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "high"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.area ,  T1.population FROM country AS T1 JOIN roller_coaster AS T2 ON T1.Country_ID  =  T2.Country_ID WHERE T2.speed  >  60 INTERSECT SELECT T1.name ,  T1.area ,  T1.population FROM country AS T1 JOIN roller_coaster AS T2 ON T1.Country_ID  =  T2.Country_ID WHERE T2.speed  <  55"
+    }
+]

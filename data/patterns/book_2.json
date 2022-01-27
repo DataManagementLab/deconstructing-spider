@@ -1,0 +1,348 @@
+[
+    {
+        "original_nl": "How many books are there?",
+        "generalized_nl": "How|many|{TABLE} [books]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM book"
+    },
+    {
+        "original_nl": "List the writers of the books in ascending alphabetical order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [writers]|of|the|{TABLE} [books]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Writer FROM book ORDER BY Writer ASC"
+    },
+    {
+        "original_nl": "List the titles of the books in ascending order of issues.",
+        "generalized_nl": "list [List]|the|{COLUMN} [titles]|of|the|{TABLE} [books]|in|ascend [ascending]|order|of|{COLUMN} [issues]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Title FROM book ORDER BY Issues ASC"
+    },
+    {
+        "original_nl": "What are the titles of the books whose writer is not \"Elaine Lee\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|the|{TABLE} [books]|whose|{COLUMN} [writer]|is|not|{VALUE} [Elaine Lee]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Title FROM book WHERE Writer != \"Elaine Lee\""
+    },
+    {
+        "original_nl": "What are the title and issues of the books?",
+        "generalized_nl": "What|are|the|{COLUMN} [title]|and|{COLUMN} [issues]|of|the|{TABLE} [books]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Title ,  Issues FROM book"
+    },
+    {
+        "original_nl": "What are the dates of publications in descending order of price?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [dates]|of|{TABLE} [publications]|in|descend [descending]|order|of|{COLUMN} [price]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Publication_Date FROM publication ORDER BY Price DESC"
+    },
+    {
+        "original_nl": "What are the distinct publishers of publications with price higher than 5000000?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [publishers]|of|{TABLE} [publications]|with|{COLUMN} [price]|high [higher]|than|{NUMBER} [5000000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "high",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT Publisher FROM publication WHERE Price  >  5000000"
+    },
+    {
+        "original_nl": "List the publisher of the publication with the highest price.",
+        "generalized_nl": "list [List]|the|{COLUMN} [publisher]|of|the|{TABLE} [publication]|with|the|high [highest]|{COLUMN} [price]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Publisher FROM publication ORDER BY Price DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the publication dates of publications with 3 lowest prices.",
+        "generalized_nl": "list [List]|the|{COLUMN} [publication dates]|of|{TABLE} [publications]|with|{VALUE} [3]|low [lowest]|{COLUMN} [prices]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{VALUE}",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Publication_Date FROM publication ORDER BY Price ASC LIMIT 3"
+    },
+    {
+        "original_nl": "Show the title and publication dates of books.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [title]|and|{COLUMN} [publication dates]|of|{TABLE} [books]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Title ,  T2.Publication_Date FROM book AS T1 JOIN publication AS T2 ON T1.Book_ID  =  T2.Book_ID"
+    },
+    {
+        "original_nl": "Show writers who have published a book with price more than 4000000.",
+        "generalized_nl": "show [Show]|{COLUMN} [writers]|who|have|publish [published]|a|{TABLE} [book]|with|{COLUMN} [price]|{NUMBER} [more than 4000000]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "who",
+            "have",
+            "publish",
+            "a",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.Writer FROM book AS T1 JOIN publication AS T2 ON T1.Book_ID  =  T2.Book_ID WHERE T2.Price  >  4000000"
+    },
+    {
+        "original_nl": "Show the titles of books in descending order of publication price.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [titles]|of|{TABLE} [books]|in|descend [descending]|order|of|{TABLE} [publication]|{COLUMN} [price]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Title FROM book AS T1 JOIN publication AS T2 ON T1.Book_ID  =  T2.Book_ID ORDER BY T2.Price DESC"
+    },
+    {
+        "original_nl": "Show publishers that have more than one publication.",
+        "generalized_nl": "show [Show]|{COLUMN} [publishers]|that|have|{NUMBER} [more than one]|{TABLE} [publication]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Publisher FROM publication GROUP BY Publisher HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "Show different publishers together with the number of publications they have.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [publishers]|together|with|the|number|of|{TABLE} [publications]|they|have",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "together",
+            "with",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "they",
+            "have"
+        ],
+        "original_sql": "SELECT Publisher ,  COUNT(*) FROM publication GROUP BY Publisher"
+    },
+    {
+        "original_nl": "Please show the most common publication date.",
+        "generalized_nl": "Please|show|the|most|common|{COLUMN} [publication date]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Publication_Date FROM publication GROUP BY Publication_Date ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the writers who have written more than one book.",
+        "generalized_nl": "list [List]|the|{COLUMN} [writers]|who|have|write [written]|{NUMBER} [more than one]|{TABLE} [book]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "write",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Writer FROM book GROUP BY Writer HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "List the titles of books that are not published.",
+        "generalized_nl": "list [List]|the|{COLUMN} [titles]|of|{TABLE} [books]|that|are|not|publish [published]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "publish"
+        ],
+        "original_sql": "SELECT Title FROM book WHERE Book_ID NOT IN (SELECT Book_ID FROM publication)"
+    },
+    {
+        "original_nl": "Show the publishers that have publications with price higher than 10000000 and publications with price lower than 5000000.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [publishers]|that|have|{TABLE} [publications]|with|{COLUMN} [price]|{NUMBER} [higher than 10000000]|and|{TABLE} [publications]|with|{COLUMN} [price]|{NUMBER} [lower than 5000000]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}",
+            "and",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Publisher FROM publication WHERE Price  >  10000000 INTERSECT SELECT Publisher FROM publication WHERE Price  <  5000000"
+    },
+    {
+        "original_nl": "What is the number of distinct publication dates?",
+        "generalized_nl": "What|is|the|number|of|distinct|{COLUMN} [publication dates]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT COUNT (DISTINCT Publication_Date) FROM publication"
+    },
+    {
+        "original_nl": "How many distinct publication dates are there in our record?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [publication dates]|are|there|in|our|record",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "there",
+            "in",
+            "our",
+            "record"
+        ],
+        "original_sql": "SELECT COUNT (DISTINCT Publication_Date) FROM publication"
+    },
+    {
+        "original_nl": "Show the prices of publications whose publisher is either \"Person\" or \"Wiley\"",
+        "generalized_nl": "show [Show]|the|{COLUMN} [prices]|of|{TABLE} [publications]|whose|{COLUMN} [publisher]|is|either|person [Person]|or|{VALUE} [Wiley]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "either",
+            "person",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Price FROM publication WHERE Publisher  =  \"Person\" OR Publisher  =  \"Wiley\""
+    }
+]

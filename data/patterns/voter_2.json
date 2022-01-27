@@ -1,0 +1,1282 @@
+[
+    {
+        "original_nl": "Find the number of students in total.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [students]|in|entire [total]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM STUDENT"
+    },
+    {
+        "original_nl": "How many students are there in total?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|there|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM STUDENT"
+    },
+    {
+        "original_nl": "Find the number of voting records in total.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [voting records]|in|entire [total]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM VOTING_RECORD"
+    },
+    {
+        "original_nl": "How many voting records do we have?",
+        "generalized_nl": "How|many|{TABLE} [voting records]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM VOTING_RECORD"
+    },
+    {
+        "original_nl": "Find the distinct number of president votes.",
+        "generalized_nl": "find [Find]|the|distinct|number|of|{COLUMN} [president votes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT President_Vote) FROM VOTING_RECORD"
+    },
+    {
+        "original_nl": "How many distinct president votes are recorded?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [president votes]|are|record [recorded]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "record"
+        ],
+        "original_sql": "SELECT count(DISTINCT President_Vote) FROM VOTING_RECORD"
+    },
+    {
+        "original_nl": "Find the maximum age of all the students.",
+        "generalized_nl": "find [Find]|the|maximal [maximum]|{COLUMN} [age]|of|all|the|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Age) FROM STUDENT"
+    },
+    {
+        "original_nl": "What is the oldest age among the students?",
+        "generalized_nl": "What|is|the|old [oldest]|{COLUMN} [age]|among|the|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "old",
+            "{COLUMN}",
+            "among",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Age) FROM STUDENT"
+    },
+    {
+        "original_nl": "Find the last names of students with major 50.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last names]|of|{TABLE} [students]|with|{COLUMN} [major]|{NUMBER} [50]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT LName FROM STUDENT WHERE Major  =  50"
+    },
+    {
+        "original_nl": "What are the last names of students studying major 50?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|of|{TABLE} [students]|study [studying]|{COLUMN} [major]|{NUMBER} [50]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "study",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT LName FROM STUDENT WHERE Major  =  50"
+    },
+    {
+        "original_nl": "Find the first names of students with age above 22.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|{TABLE} [students]|with|{COLUMN} [age]|above|{NE} [22]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Fname FROM STUDENT WHERE Age  >  22"
+    },
+    {
+        "original_nl": "What are the first names of all the students aged above 22?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|of|all|the|{TABLE} [students]|age [aged]|{NE} [above 22]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "age",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Fname FROM STUDENT WHERE Age  >  22"
+    },
+    {
+        "original_nl": "What are the majors of male (sex is M) students?",
+        "generalized_nl": "What|are|the|{COLUMN} [majors]|of|male|{COLUMN} [sex]|is|megabyte [M]|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "male",
+            "{COLUMN}",
+            "is",
+            "megabyte",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Major FROM STUDENT WHERE Sex  =  \"M\""
+    },
+    {
+        "original_nl": "List the major of each male student.",
+        "generalized_nl": "list [List]|the|{COLUMN} [major]|of|each|male|{TABLE} [student]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "male",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Major FROM STUDENT WHERE Sex  =  \"M\""
+    },
+    {
+        "original_nl": "What is the average age of female (sex is F) students?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|of|female|{COLUMN} [sex]|is|F|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "female",
+            "{COLUMN}",
+            "is",
+            "F",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Age) FROM STUDENT WHERE Sex  =  \"F\""
+    },
+    {
+        "original_nl": "Find the average age of female students.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [age]|of|female|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "female",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Age) FROM STUDENT WHERE Sex  =  \"F\""
+    },
+    {
+        "original_nl": "What are the maximum and minimum age of students with major 600?",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [age]|of|{TABLE} [students]|with|{COLUMN} [major]|{NUMBER} [600]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT max(Age) ,  min(Age) FROM STUDENT WHERE Major  =  600"
+    },
+    {
+        "original_nl": "Tell me the ages of the oldest and youngest students studying major 600.",
+        "generalized_nl": "tell [Tell]|me|the|{COLUMN} [ages]|of|the|old [oldest]|and|young [youngest]|{TABLE} [students]|study [studying]|{COLUMN} [major]|{NUMBER} [600]",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "old",
+            "and",
+            "young",
+            "{TABLE}",
+            "study",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT max(Age) ,  min(Age) FROM STUDENT WHERE Major  =  600"
+    },
+    {
+        "original_nl": "Who are the advisors for students that live in a city with city code \"BAL\"?",
+        "generalized_nl": "Who|are|the|{COLUMN} [advisors]|for|{TABLE} [students]|that|live|in|a|{COLUMN_PART} [city]|with|{COLUMN} [city code]|BAL",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "that",
+            "live",
+            "in",
+            "a",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN}",
+            "BAL"
+        ],
+        "original_sql": "SELECT Advisor FROM STUDENT WHERE city_code  =  \"BAL\""
+    },
+    {
+        "original_nl": "Show the advisors of the students whose city of residence has city code \"BAL\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [advisors]|of|the|{TABLE} [students]|whose|{COLUMN_PART} [city]|of|residence|have [has]|{COLUMN} [city code]|BAL",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "of",
+            "residence",
+            "have",
+            "{COLUMN}",
+            "BAL"
+        ],
+        "original_sql": "SELECT Advisor FROM STUDENT WHERE city_code  =  \"BAL\""
+    },
+    {
+        "original_nl": "What are the distinct secretary votes in the fall election cycle?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [secretary votes]|in|the|fall|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "in",
+            "the",
+            "fall",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Secretary_Vote FROM VOTING_RECORD WHERE ELECTION_CYCLE  =  \"Fall\""
+    },
+    {
+        "original_nl": "Return all the distinct secretary votes made in the fall election cycle.",
+        "generalized_nl": "return [Return]|all|the|distinct|{COLUMN} [secretary votes]|make [made]|in|the|fall|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "return",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "make",
+            "in",
+            "the",
+            "fall",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Secretary_Vote FROM VOTING_RECORD WHERE ELECTION_CYCLE  =  \"Fall\""
+    },
+    {
+        "original_nl": "What are the distinct president votes on 08/30/2015?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [president votes]|on|{NUMBER} [08/30/2015]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "on",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT PRESIDENT_Vote FROM VOTING_RECORD WHERE Registration_Date  =  \"08/30/2015\""
+    },
+    {
+        "original_nl": "Show all the distinct president votes made on 08/30/2015.",
+        "generalized_nl": "show [Show]|all|the|distinct|{COLUMN} [president votes]|make [made]|on|{NUMBER} [08/30/2015]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "make",
+            "on",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT PRESIDENT_Vote FROM VOTING_RECORD WHERE Registration_Date  =  \"08/30/2015\""
+    },
+    {
+        "original_nl": "Report the distinct registration date and the election cycle.",
+        "generalized_nl": "report [Report]|the|distinct|{COLUMN} [registration date]|and|the|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "report",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Registration_Date ,  Election_Cycle FROM VOTING_RECORD"
+    },
+    {
+        "original_nl": "What are the distinct registration dates and the election cycles?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [registration dates]|and|the|{COLUMN} [election cycles]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Registration_Date ,  Election_Cycle FROM VOTING_RECORD"
+    },
+    {
+        "original_nl": "Report the distinct president vote and the vice president vote.",
+        "generalized_nl": "report [Report]|the|distinct|{COLUMN} [president vote]|and|the|{COLUMN} [vice president vote]",
+        "generalized_tokens": [
+            "report",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT President_Vote ,  VICE_President_Vote FROM VOTING_RECORD"
+    },
+    {
+        "original_nl": "List all the distinct president votes and the vice president votes.",
+        "generalized_nl": "list [List]|all|the|distinct|{COLUMN} [president votes]|and|the|{COLUMN} [vice president votes]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT President_Vote ,  VICE_President_Vote FROM VOTING_RECORD"
+    },
+    {
+        "original_nl": "Find the distinct last names of the students who have class president votes.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [last names]|of|the|{TABLE} [students]|who|have|{COLUMN} [class president votes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.CLASS_President_VOTE"
+    },
+    {
+        "original_nl": "What are the distinct last names of the students who have class president votes?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [last names]|of|the|{TABLE} [students]|who|have|{COLUMN} [class president votes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.CLASS_President_VOTE"
+    },
+    {
+        "original_nl": "Find the distinct first names of the students who have class senator votes.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [first names]|of|the|{TABLE} [students]|who|have|{COLUMN} [class senator votes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Fname FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.CLASS_Senator_VOTE"
+    },
+    {
+        "original_nl": "What are the distinct first names of the students who have class president votes?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [first names]|of|the|{TABLE} [students]|who|have|{COLUMN} [class president votes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Fname FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.CLASS_Senator_VOTE"
+    },
+    {
+        "original_nl": "Find the distinct ages of students who have secretary votes in the fall election cycle.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [ages]|of|{TABLE} [students]|who|have|{COLUMN} [secretary votes]|in|the|fall|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "in",
+            "the",
+            "fall",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Age FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.Secretary_Vote WHERE T2.Election_Cycle  =  \"Fall\""
+    },
+    {
+        "original_nl": "What are the distinct ages of students who have secretary votes in the fall election cycle?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [ages]|of|{TABLE} [students]|who|have|{COLUMN} [secretary votes]|in|the|fall|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "in",
+            "the",
+            "fall",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Age FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.Secretary_Vote WHERE T2.Election_Cycle  =  \"Fall\""
+    },
+    {
+        "original_nl": "Find the distinct Advisor of students who have treasurer votes in the spring election cycle.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [Advisor]|of|{TABLE} [students]|who|have|{COLUMN} [treasurer votes]|in|the|{NE} [spring]|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Advisor FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.Treasurer_Vote WHERE T2.Election_Cycle  =  \"Spring\""
+    },
+    {
+        "original_nl": "Who served as an advisor for students who have treasurer votes in the spring election cycle?",
+        "generalized_nl": "Who|serve [served]|as|an|{COLUMN} [advisor]|for|{TABLE} [students]|who|have|{COLUMN} [treasurer votes]|in|the|{NE} [spring]|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "Who",
+            "serve",
+            "as",
+            "an",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Advisor FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.Treasurer_Vote WHERE T2.Election_Cycle  =  \"Spring\""
+    },
+    {
+        "original_nl": "Find the distinct majors of students who have treasurer votes.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [majors]|of|{TABLE} [students]|who|have|{COLUMN} [treasurer votes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Major FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.Treasurer_Vote"
+    },
+    {
+        "original_nl": "What are the distinct majors that students with treasurer votes are studying?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [majors]|that|{TABLE} [students]|with|{COLUMN} [treasurer votes]|are|study [studying]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "that",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "are",
+            "study"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Major FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.Treasurer_Vote"
+    },
+    {
+        "original_nl": "Find the first and last names of all the female (sex is F) students who have president votes.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|all|the|female|{COLUMN} [sex]|is|F|{TABLE} [students]|who|have|{COLUMN} [president votes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "female",
+            "{COLUMN}",
+            "is",
+            "F",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Fname ,  T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.President_VOTE WHERE T1.sex  =  \"F\""
+    },
+    {
+        "original_nl": "What are the first and last names of all the female students who have president votes?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|all|the|female|{TABLE} [students]|who|have|{COLUMN} [president votes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "female",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Fname ,  T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.President_VOTE WHERE T1.sex  =  \"F\""
+    },
+    {
+        "original_nl": "Find the first and last name of all the students of age 18 who have vice president votes.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|all|the|{TABLE} [students]|of|{COLUMN} [age]|{NUMBER} [18]|who|have|{COLUMN} [vice president votes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "of",
+            "{COLUMN}",
+            "{NUMBER}",
+            "who",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Fname ,  T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.VICE_President_VOTE WHERE T1.age  =  18"
+    },
+    {
+        "original_nl": "What are the first names and last names of the students who are 18 years old and have vice president votes.",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|and|{COLUMN} [last names]|of|the|{TABLE} [students]|who|are|{NE} [18 years old]|and|have|{COLUMN} [vice president votes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "{NE}",
+            "and",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Fname ,  T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.VICE_President_VOTE WHERE T1.age  =  18"
+    },
+    {
+        "original_nl": "How many male (sex is M) students have class senator votes in the fall election cycle?",
+        "generalized_nl": "How|many|male|{COLUMN} [sex]|is|megabyte [M]|{TABLE} [students]|have|{COLUMN} [class senator votes]|in|the|fall|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "male",
+            "{COLUMN}",
+            "is",
+            "megabyte",
+            "{TABLE}",
+            "have",
+            "{COLUMN}",
+            "in",
+            "the",
+            "fall",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  Class_Senator_Vote WHERE T1.Sex  =  \"M\" AND T2.Election_Cycle  =  \"Fall\""
+    },
+    {
+        "original_nl": "Count the number of male students who had class senator votes in the fall election cycle.",
+        "generalized_nl": "count [Count]|the|number|of|male|{TABLE} [students]|who|have [had]|{COLUMN} [class senator votes]|in|the|fall|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "male",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "in",
+            "the",
+            "fall",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  Class_Senator_Vote WHERE T1.Sex  =  \"M\" AND T2.Election_Cycle  =  \"Fall\""
+    },
+    {
+        "original_nl": "Find the number of students whose city code is NYC and who have class senator votes in the spring election cycle.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [students]|whose|{COLUMN} [city code]|is|{NE} [NYC]|and|who|have|{COLUMN} [class senator votes]|in|the|{NE} [spring]|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}",
+            "and",
+            "who",
+            "have",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  Class_Senator_Vote WHERE T1.city_code  =  \"NYC\" AND T2.Election_Cycle  =  \"Spring\""
+    },
+    {
+        "original_nl": "Find the average age of students who live in the city with code \"NYC\" and have secretary votes in the spring election cycle.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [age]|of|{TABLE} [students]|who|live|in|the|{COLUMN_PART} [city]|with|{COLUMN_PART} [code]|{NE} [NYC]|and|have|{COLUMN} [secretary votes]|in|the|{NE} [spring]|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "live",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}",
+            "and",
+            "have",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(T1.Age) FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  SECRETARY_Vote WHERE T1.city_code  =  \"NYC\" AND T2.Election_Cycle  =  \"Spring\""
+    },
+    {
+        "original_nl": "What is the average age of students who have city code \"NYC\" and have secretary votes for the spring election cycle?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|of|{TABLE} [students]|who|have|{COLUMN} [city code]|{NE} [NYC]|and|have|{COLUMN} [secretary votes]|for|the|{NE} [spring]|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "{NE}",
+            "and",
+            "have",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(T1.Age) FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  SECRETARY_Vote WHERE T1.city_code  =  \"NYC\" AND T2.Election_Cycle  =  \"Spring\""
+    },
+    {
+        "original_nl": "Find the average age of female (sex is F) students who have secretary votes in the spring election cycle.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [age]|of|female|{COLUMN} [sex]|is|F|{TABLE} [students]|who|have|{COLUMN} [secretary votes]|in|the|{NE} [spring]|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "female",
+            "{COLUMN}",
+            "is",
+            "F",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(T1.Age) FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  SECRETARY_Vote WHERE T1.Sex  =  \"F\" AND T2.Election_Cycle  =  \"Spring\""
+    },
+    {
+        "original_nl": "What is the average age of the female students with secretary votes in the spring election cycle?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|of|the|female|{TABLE} [students]|with|{COLUMN} [secretary votes]|in|the|{NE} [spring]|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "the",
+            "female",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(T1.Age) FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  SECRETARY_Vote WHERE T1.Sex  =  \"F\" AND T2.Election_Cycle  =  \"Spring\""
+    },
+    {
+        "original_nl": "Find the distinct first names of all the students who have vice president votes and whose city code is not PIT.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [first names]|of|all|the|{TABLE} [students]|who|have|{COLUMN} [vice president votes]|and|whose|{COLUMN} [city code]|is|not|pit [PIT]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "and",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "pit"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Fname FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.VICE_PRESIDENT_Vote EXCEPT SELECT DISTINCT Fname FROM STUDENT WHERE city_code  =  \"PIT\""
+    },
+    {
+        "original_nl": "What are the distinct first names of the students who have vice president votes and reside in a city whose city code is not PIT?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [first names]|of|the|{TABLE} [students]|who|have|{COLUMN} [vice president votes]|and|reside|in|a|{COLUMN_PART} [city]|whose|{COLUMN} [city code]|is|not|pit [PIT]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "and",
+            "reside",
+            "in",
+            "a",
+            "{COLUMN_PART}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "pit"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Fname FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  T2.VICE_PRESIDENT_Vote EXCEPT SELECT DISTINCT Fname FROM STUDENT WHERE city_code  =  \"PIT\""
+    },
+    {
+        "original_nl": "Find the distinct last names of all the students who have president votes and whose advisor is not 2192.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [last names]|of|all|the|{TABLE} [students]|who|have|{COLUMN} [president votes]|and|whose|{COLUMN} [advisor]|is|not|{NUMBER} [2192]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "and",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  PRESIDENT_Vote EXCEPT SELECT DISTINCT LName FROM STUDENT WHERE Advisor  =  \"2192\""
+    },
+    {
+        "original_nl": "What are the distinct last names of the students who have president votes but do not have 2192 as the advisor?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [last names]|of|the|{TABLE} [students]|who|have|{COLUMN} [president votes]|but|do|not|have|{NUMBER} [2192]|as|the|{COLUMN} [advisor]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "but",
+            "do",
+            "not",
+            "have",
+            "{NUMBER}",
+            "as",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  PRESIDENT_Vote EXCEPT SELECT DISTINCT LName FROM STUDENT WHERE Advisor  =  \"2192\""
+    },
+    {
+        "original_nl": "Find the distinct last names of all the students who have president votes and whose advisor is 8741.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [last names]|of|all|the|{TABLE} [students]|who|have|{COLUMN} [president votes]|and|whose|{COLUMN} [advisor]|is|{NUMBER} [8741]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "and",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  PRESIDENT_Vote INTERSECT SELECT DISTINCT LName FROM STUDENT WHERE Advisor  =  \"8741\""
+    },
+    {
+        "original_nl": "What are the distinct last names of the students who have president votes and have 8741 as the advisor?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [last names]|of|the|{TABLE} [students]|who|have|{COLUMN} [president votes]|and|have|{NUMBER} [8741]|as|the|{COLUMN} [advisor]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "and",
+            "have",
+            "{NUMBER}",
+            "as",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  PRESIDENT_Vote INTERSECT SELECT DISTINCT LName FROM STUDENT WHERE Advisor  =  \"8741\""
+    },
+    {
+        "original_nl": "For each advisor, report the total number of students advised by him or her.",
+        "generalized_nl": "For|each|{COLUMN} [advisor]|report|the|entire [total]|number|of|{TABLE} [students]|rede [advised]|by|him|or|her",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "report",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{TABLE}",
+            "rede",
+            "by",
+            "him",
+            "or",
+            "her"
+        ],
+        "original_sql": "SELECT Advisor ,  count(*) FROM STUDENT GROUP BY Advisor"
+    },
+    {
+        "original_nl": "How many students does each advisor have?",
+        "generalized_nl": "How|many|{TABLE} [students]|does|each|{COLUMN} [advisor]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "each",
+            "{COLUMN}",
+            "have"
+        ],
+        "original_sql": "SELECT Advisor ,  count(*) FROM STUDENT GROUP BY Advisor"
+    },
+    {
+        "original_nl": "Report all advisors that advise more than 2 students.",
+        "generalized_nl": "report [Report]|all|{COLUMN} [advisors]|that|rede [advise]|{NUMBER} [more than 2]|{TABLE} [students]",
+        "generalized_tokens": [
+            "report",
+            "all",
+            "{COLUMN}",
+            "that",
+            "rede",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Advisor FROM STUDENT GROUP BY Advisor HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "Which advisors have more than two students?",
+        "generalized_nl": "Which|{COLUMN} [advisors]|have|{NUMBER} [more than two]|{TABLE} [students]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Advisor FROM STUDENT GROUP BY Advisor HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "Report all majors that have less than 3 students.",
+        "generalized_nl": "report [Report]|all|{COLUMN} [majors]|that|have|{NUMBER} [less than 3]|{TABLE} [students]",
+        "generalized_tokens": [
+            "report",
+            "all",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Major FROM STUDENT GROUP BY Major HAVING COUNT(*)  <  3"
+    },
+    {
+        "original_nl": "What are the majors only less than three students are studying?",
+        "generalized_nl": "What|are|the|{COLUMN} [majors]|only|{NUMBER} [less than three]|{TABLE} [students]|are|study [studying]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "only",
+            "{NUMBER}",
+            "{TABLE}",
+            "are",
+            "study"
+        ],
+        "original_sql": "SELECT Major FROM STUDENT GROUP BY Major HAVING COUNT(*)  <  3"
+    },
+    {
+        "original_nl": "For each election cycle, report the number of voting records.",
+        "generalized_nl": "For|each|{COLUMN} [election cycle]|report|the|number|of|{TABLE} [voting records]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "report",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Election_Cycle ,  count(*) FROM VOTING_RECORD GROUP BY Election_Cycle"
+    },
+    {
+        "original_nl": "Count the number of voting records for each election cycle.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [voting records]|for|each|{COLUMN} [election cycle]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Election_Cycle ,  count(*) FROM VOTING_RECORD GROUP BY Election_Cycle"
+    },
+    {
+        "original_nl": "Which major has the most students?",
+        "generalized_nl": "Which|{COLUMN} [major]|have [has]|the|most|{TABLE} [students]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Major FROM STUDENT GROUP BY major ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the major that is studied by the largest number of students.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [major]|that|is|study [studied]|by|the|large [largest]|number|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "study",
+            "by",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Major FROM STUDENT GROUP BY major ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the most common major among female (sex is F) students?",
+        "generalized_nl": "What|is|the|most|common|{COLUMN} [major]|among|female|{COLUMN} [sex]|is|F|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "among",
+            "female",
+            "{COLUMN}",
+            "is",
+            "F",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Major FROM STUDENT WHERE Sex  =  \"F\" GROUP BY major ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the major that is studied by the most female students.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [major]|that|is|study [studied]|by|the|most|female|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "study",
+            "by",
+            "the",
+            "most",
+            "female",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Major FROM STUDENT WHERE Sex  =  \"F\" GROUP BY major ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the city_code of the city that the most students live in?",
+        "generalized_nl": "What|is|the|{COLUMN} [city _ code]|of|the|{COLUMN_PART} [city]|that|the|most|{TABLE} [students]|live|in",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "the",
+            "most",
+            "{TABLE}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT city_code FROM STUDENT GROUP BY city_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the code of the city that has the most students.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [code]|of|the|{COLUMN_PART} [city]|that|have [has]|the|most|{TABLE} [students]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT city_code FROM STUDENT GROUP BY city_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Report the distinct advisors who have more than 2 students.",
+        "generalized_nl": "report [Report]|the|distinct|{COLUMN} [advisors]|who|have|{NUMBER} [more than 2]|{TABLE} [students]",
+        "generalized_tokens": [
+            "report",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Advisor FROM STUDENT GROUP BY Advisor HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "Which advisors are advising more than 2 students?",
+        "generalized_nl": "Which|{COLUMN} [advisors]|are|rede [advising]|{NUMBER} [more than 2]|{TABLE} [students]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "are",
+            "rede",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Advisor FROM STUDENT GROUP BY Advisor HAVING count(*)  >  2"
+    }
+]

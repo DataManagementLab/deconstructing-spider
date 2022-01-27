@@ -1,0 +1,419 @@
+[
+    {
+        "original_nl": "How many body builders are there?",
+        "generalized_nl": "How|many|{TABLE} [body builders]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM body_builder"
+    },
+    {
+        "original_nl": "List the total scores of body builders in ascending order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [total]|score [scores]|of|{TABLE} [body builders]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "score",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT Total FROM body_builder ORDER BY Total ASC"
+    },
+    {
+        "original_nl": "List the snatch score and clean jerk score of body builders in ascending order of snatch score.",
+        "generalized_nl": "list [List]|the|{COLUMN} [snatch]|score|and|{COLUMN} [clean jerk]|score|of|{TABLE} [body builders]|in|ascend [ascending]|order|of|{COLUMN} [snatch]|score",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "score",
+            "and",
+            "{COLUMN}",
+            "score",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}",
+            "score"
+        ],
+        "original_sql": "SELECT Snatch ,  Clean_Jerk FROM body_builder ORDER BY Snatch ASC"
+    },
+    {
+        "original_nl": "What is the average snatch score of body builders?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [snatch]|score|of|{TABLE} [body builders]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "score",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Snatch) FROM body_builder"
+    },
+    {
+        "original_nl": "What are the clean and jerk score of the body builder with the highest total score?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [clean]|and|{COLUMN_PART} [jerk]|score|of|the|{TABLE} [body builder]|with|the|high [highest]|{COLUMN} [total]|score",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "score",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}",
+            "score"
+        ],
+        "original_sql": "SELECT Clean_Jerk FROM body_builder ORDER BY Total DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the birthdays of people in ascending order of height?",
+        "generalized_nl": "What|are|the|birthday [birthdays]|of|{TABLE} [people]|in|ascend [ascending]|order|of|{COLUMN} [height]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "birthday",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Birth_Date FROM People ORDER BY Height ASC"
+    },
+    {
+        "original_nl": "What are the names of body builders?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [body builders]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM body_builder AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID"
+    },
+    {
+        "original_nl": "What are the names of body builders whose total score is higher than 300?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [body builders]|whose|{COLUMN} [total]|score|is|high [higher]|than|{NUMBER} [300]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "score",
+            "is",
+            "high",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Name FROM body_builder AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID WHERE T1.Total  >  300"
+    },
+    {
+        "original_nl": "What is the name of the body builder with the greatest body weight?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [body builder]|with|the|great [greatest]|{COLUMN_PART} [body]|{COLUMN} [weight]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "great",
+            "{COLUMN_PART}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name FROM body_builder AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T2.Weight DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the birth date and birth place of the body builder with the highest total points?",
+        "generalized_nl": "What|are|the|{COLUMN} [birth date]|and|{COLUMN} [birth place]|of|the|{TABLE} [body builder]|with|the|high [highest]|{COLUMN} [total]|point [points]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}",
+            "point"
+        ],
+        "original_sql": "SELECT T2.Birth_Date ,  T2.Birth_Place FROM body_builder AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T1.Total DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the heights of body builders with total score smaller than 315?",
+        "generalized_nl": "What|are|the|{COLUMN} [heights]|of|{TABLE} [body builders]|with|{COLUMN} [total]|score|small [smaller]|than|{NUMBER} [315]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "score",
+            "small",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Height FROM body_builder AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID WHERE T1.Total  <  315"
+    },
+    {
+        "original_nl": "What is the average total score of body builders with height bigger than 200?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [total]|score|of|{TABLE} [body builders]|with|{COLUMN} [height]|{NUMBER} [bigger than 200]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "score",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT avg(T1.Total) FROM body_builder AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID WHERE T2.Height  >  200"
+    },
+    {
+        "original_nl": "What are the names of body builders in descending order of total scores?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [body builders]|in|descend [descending]|order|of|{COLUMN} [total]|score [scores]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}",
+            "score"
+        ],
+        "original_sql": "SELECT T2.Name FROM body_builder AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T1.Total DESC"
+    },
+    {
+        "original_nl": "List each birth place along with the number of people from there.",
+        "generalized_nl": "list [List]|each|{COLUMN} [birth place]|along|with|the|number|of|{TABLE} [people]|from|there",
+        "generalized_tokens": [
+            "list",
+            "each",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "from",
+            "there"
+        ],
+        "original_sql": "SELECT Birth_Place ,  COUNT(*) FROM people GROUP BY Birth_Place"
+    },
+    {
+        "original_nl": "What is the most common birth place of people?",
+        "generalized_nl": "What|is|the|most|common|{COLUMN} [birth place]|of|{TABLE} [people]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Birth_Place FROM people GROUP BY Birth_Place ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the birth places that are shared by at least two people?",
+        "generalized_nl": "What|are|the|{COLUMN} [birth places]|that|are|share [shared]|by|{NUMBER} [at least two]|{TABLE} [people]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "are",
+            "share",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Birth_Place FROM people GROUP BY Birth_Place HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "List the height and weight of people in descending order of height.",
+        "generalized_nl": "list [List]|the|{COLUMN} [height]|and|{COLUMN} [weight]|of|{TABLE} [people]|in|descend [descending]|order|of|{COLUMN} [height]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Height ,  Weight FROM people ORDER BY Height DESC"
+    },
+    {
+        "original_nl": "Show all information about each body builder.",
+        "generalized_nl": "show [Show]|all|information|about|each|{TABLE} [body builder]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "information",
+            "about",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT * FROM body_builder"
+    },
+    {
+        "original_nl": "List the names and origins of people who are not body builders.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|and|origin [origins]|of|{TABLE} [people]|who|are|not|{TABLE} [body builders]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "origin",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name ,  birth_place FROM people EXCEPT SELECT T1.Name ,  T1.birth_place FROM people AS T1 JOIN body_builder AS T2 ON T1.people_id  =  T2.people_id"
+    },
+    {
+        "original_nl": "How many distinct birth places are there?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [birth places]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT Birth_Place) FROM people"
+    },
+    {
+        "original_nl": "How many persons are not body builders?",
+        "generalized_nl": "How|many|person [persons]|are|not|{TABLE} [body builders]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "person",
+            "are",
+            "not",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM people WHERE people_id NOT IN (SELECT People_ID FROM body_builder)"
+    },
+    {
+        "original_nl": "List the weight of the body builders who have snatch score higher than 140 or have the height greater than 200.",
+        "generalized_nl": "list [List]|the|{COLUMN} [weight]|of|the|{TABLE} [body builders]|who|have|{COLUMN} [snatch]|score|{NUMBER} [higher than 140]|or|have|the|{COLUMN} [height]|{NUMBER} [greater than 200]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "score",
+            "{NUMBER}",
+            "or",
+            "have",
+            "the",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.weight FROM body_builder AS T1 JOIN people AS T2 ON T1.people_id  =  T2.people_id WHERE T1.snatch  >  140 OR T2.height  >  200;"
+    },
+    {
+        "original_nl": "What are the total scores of the body builders whose birthday contains the string \"January\" ?",
+        "generalized_nl": "What|are|the|{COLUMN} [total]|score [scores]|of|the|{TABLE} [body builders]|whose|birthday|contain [contains]|the|string|{NE} [January]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "score",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "birthday",
+            "contain",
+            "the",
+            "string",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.total FROM body_builder AS T1 JOIN people AS T2 ON T1.people_id  =  T2.people_id WHERE T2.Birth_Date LIKE \"%January%\";"
+    },
+    {
+        "original_nl": "What is the minimum snatch score?",
+        "generalized_nl": "What|is|the|minimal [minimum]|{COLUMN} [snatch]|score",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "minimal",
+            "{COLUMN}",
+            "score"
+        ],
+        "original_sql": "SELECT min(snatch) FROM body_builder"
+    }
+]

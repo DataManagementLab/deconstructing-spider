@@ -1,0 +1,278 @@
+[
+    {
+        "original_nl": "How many performances are there?",
+        "generalized_nl": "How|many|{TABLE} [performances]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM performance"
+    },
+    {
+        "original_nl": "List the hosts of performances in ascending order of attendance.",
+        "generalized_nl": "list [List]|the|{COLUMN} [hosts]|of|{TABLE} [performances]|in|ascend [ascending]|order|of|{COLUMN} [attendance]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT HOST FROM performance ORDER BY Attendance ASC"
+    },
+    {
+        "original_nl": "What are the dates and locations of performances?",
+        "generalized_nl": "What|are|the|{COLUMN} [dates]|and|{COLUMN} [locations]|of|{TABLE} [performances]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Date ,  LOCATION FROM performance"
+    },
+    {
+        "original_nl": "Show the attendances of the performances at location \"TD Garden\" or \"Bell Centre\"",
+        "generalized_nl": "show [Show]|the|{COLUMN} [attendances]|of|the|{TABLE} [performances]|at|{COLUMN} [location]|{VALUE} [TD Garden]|or|{VALUE} [Bell Centre]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "at",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Attendance FROM performance WHERE LOCATION  =  \"TD Garden\" OR LOCATION  =  \"Bell Centre\""
+    },
+    {
+        "original_nl": "What is the average number of attendees for performances?",
+        "generalized_nl": "What|is|the|average|number|of|attendant [attendees]|for|{TABLE} [performances]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "attendant",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Attendance) FROM performance"
+    },
+    {
+        "original_nl": "What is the date of the performance with the highest number of attendees?",
+        "generalized_nl": "What|is|the|{COLUMN} [date]|of|the|{TABLE} [performance]|with|the|high [highest]|number|of|attendant [attendees]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "number",
+            "of",
+            "attendant"
+        ],
+        "original_sql": "SELECT Date FROM performance ORDER BY Attendance DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different locations and the number of performances at each location.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [locations]|and|the|number|of|{TABLE} [performances]|at|each|{COLUMN} [location]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "at",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT LOCATION ,  COUNT(*) FROM performance GROUP BY LOCATION"
+    },
+    {
+        "original_nl": "Show the most common location of performances.",
+        "generalized_nl": "show [Show]|the|most|common|{COLUMN} [location]|of|{TABLE} [performances]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT LOCATION FROM performance GROUP BY LOCATION ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the locations that have at least two performances.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [locations]|that|have|{NUMBER} [at least two]|{TABLE} [performances]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT LOCATION FROM performance GROUP BY LOCATION HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the locations that have both performances with more than 2000 attendees and performances with less than 1000 attendees.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [locations]|that|have|both|{TABLE} [performances]|with|{NUMBER} [more than 2000]|attendant [attendees]|and|{TABLE} [performances]|with|{NUMBER} [less than 1000]|attendant [attendees]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "attendant",
+            "and",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "attendant"
+        ],
+        "original_sql": "SELECT LOCATION FROM performance WHERE Attendance  >  2000 INTERSECT SELECT LOCATION FROM performance WHERE Attendance  <  1000"
+    },
+    {
+        "original_nl": "Show the names of members and the location of the performances they attended.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [members]|and|the|{COLUMN} [location]|of|the|{TABLE} [performances]|they|attend [attended]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "they",
+            "attend"
+        ],
+        "original_sql": "SELECT T2.Name ,  T3.Location FROM member_attendance AS T1 JOIN member AS T2 ON T1.Member_ID  =  T2.Member_ID JOIN performance AS T3 ON T1.Performance_ID  =  T3.Performance_ID"
+    },
+    {
+        "original_nl": "Show the names of members and the location of performances they attended in ascending alphabetical order of their names.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [members]|and|the|{COLUMN} [location]|of|{TABLE} [performances]|they|attend [attended]|in|ascend [ascending]|alphabetic [alphabetical]|order|of|their|{COLUMN} [names]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "they",
+            "attend",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order",
+            "of",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name ,  T3.Location FROM member_attendance AS T1 JOIN member AS T2 ON T1.Member_ID  =  T2.Member_ID JOIN performance AS T3 ON T1.Performance_ID  =  T3.Performance_ID ORDER BY T2.Name ASC"
+    },
+    {
+        "original_nl": "Show the dates of performances with attending members whose roles are \"Violin\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [dates]|of|{TABLE} [performances]|with|attend [attending]|{TABLE} [members]|whose|{COLUMN} [roles]|are|{VALUE} [Violin]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "attend",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T3.Date FROM member_attendance AS T1 JOIN member AS T2 ON T1.Member_ID  =  T2.Member_ID JOIN performance AS T3 ON T1.Performance_ID  =  T3.Performance_ID WHERE T2.Role  =  \"Violin\""
+    },
+    {
+        "original_nl": "Show the names of members and the dates of performances they attended in descending order of attendance of the performances.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [members]|and|the|{COLUMN} [dates]|of|{TABLE} [performances]|they|attend [attended]|in|descend [descending]|order|of|{COLUMN} [attendance]|of|the|{TABLE} [performances]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "they",
+            "attend",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name ,  T3.Date FROM member_attendance AS T1 JOIN member AS T2 ON T1.Member_ID  =  T2.Member_ID JOIN performance AS T3 ON T1.Performance_ID  =  T3.Performance_ID ORDER BY T3.Attendance DESC"
+    },
+    {
+        "original_nl": "List the names of members who did not attend any performance.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [members]|who|did|not|attend|any|{TABLE} [performance]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "not",
+            "attend",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM member WHERE Member_ID NOT IN (SELECT Member_ID FROM member_attendance)"
+    }
+]

@@ -1,0 +1,497 @@
+[
+    {
+        "original_nl": "How many schools are there?",
+        "generalized_nl": "How|many|{TABLE} [schools]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM school"
+    },
+    {
+        "original_nl": "Count the number of schools.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [schools]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM school"
+    },
+    {
+        "original_nl": "Show all school names in alphabetical order.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [school names]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT school_name FROM school ORDER BY school_name"
+    },
+    {
+        "original_nl": "List the name, location, mascot for all schools.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|{COLUMN} [location]|{COLUMN} [mascot]|for|all|{TABLE} [schools]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT school_name ,  LOCATION ,  mascot FROM school"
+    },
+    {
+        "original_nl": "What are the total and average enrollment of all schools?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [total]|and|average|{COLUMN} [enrollment]|of|all|{TABLE} [schools]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(enrollment) ,  avg(enrollment) FROM school"
+    },
+    {
+        "original_nl": "What are the mascots for schools with enrollments above the average?",
+        "generalized_nl": "What|are|the|{COLUMN} [mascots]|for|{TABLE} [schools]|with|{COLUMN} [enrollments]|above|the|average",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "above",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT mascot FROM school WHERE enrollment  >  (SELECT avg(enrollment) FROM school)"
+    },
+    {
+        "original_nl": "List the name of the school with the smallest enrollment.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|of|the|{TABLE} [school]|with|the|small [smallest]|{COLUMN} [enrollment]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "small",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT school_name FROM school ORDER BY enrollment LIMIT 1"
+    },
+    {
+        "original_nl": "Show the average, maximum, minimum enrollment of all schools.",
+        "generalized_nl": "show [Show]|the|average|maximal [maximum]|minimal [minimum]|{COLUMN} [enrollment]|of|all|{TABLE} [schools]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "maximal",
+            "minimal",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(enrollment) ,  max(enrollment) ,  min(enrollment) FROM school"
+    },
+    {
+        "original_nl": "Show each county along with the number of schools and total enrollment in each county.",
+        "generalized_nl": "show [Show]|each|{COLUMN} [county]|along|with|the|number|of|{TABLE} [schools]|and|{COLUMN_PART} [total]|{COLUMN} [enrollment]|in|each|{COLUMN} [county]",
+        "generalized_tokens": [
+            "show",
+            "each",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT county ,  count(*) ,  sum(enrollment) FROM school GROUP BY county"
+    },
+    {
+        "original_nl": "How many donors have endowment for school named \"Glenn\"?",
+        "generalized_nl": "How|many|donor [donors]|have|{TABLE} [endowment]|for|{TABLE} [school]|name [named]|{VALUE} [Glenn]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "donor",
+            "have",
+            "{TABLE}",
+            "for",
+            "{TABLE}",
+            "name",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT T1.donator_name) FROM endowment AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id WHERE T2.school_name  =  \"Glenn\""
+    },
+    {
+        "original_nl": "List each donator name and the amount of endowment in descending order of the amount of endowment.",
+        "generalized_nl": "list [List]|each|{COLUMN} [donator name]|and|the|{COLUMN} [amount]|of|{TABLE} [endowment]|in|descend [descending]|order|of|the|{COLUMN} [amount]|of|{TABLE} [endowment]",
+        "generalized_tokens": [
+            "list",
+            "each",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT donator_name ,  sum(amount) FROM endowment GROUP BY donator_name ORDER BY sum(amount) DESC"
+    },
+    {
+        "original_nl": "List the names of the schools without any endowment.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|the|{TABLE} [schools]|without|any|{TABLE} [endowment]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "without",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT school_name FROM school WHERE school_id NOT IN (SELECT school_id FROM endowment)"
+    },
+    {
+        "original_nl": "List all the names of schools with an endowment amount smaller than or equal to 10.",
+        "generalized_nl": "list [List]|all|the|{COLUMN_PART} [names]|of|{TABLE} [schools]|with|an|{TABLE} [endowment]|{COLUMN} [amount]|small [smaller]|than|or|equal|to|{VALUE} [10]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "an",
+            "{TABLE}",
+            "{COLUMN}",
+            "small",
+            "than",
+            "or",
+            "equal",
+            "to",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.school_name FROM endowment AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id GROUP BY T1.school_id HAVING sum(T1.amount)  <=  10"
+    },
+    {
+        "original_nl": "Show the names of donors who donated to both school \"Glenn\" and \"Triton.\"",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|donor [donors]|who|donate [donated]|to|both|{TABLE} [school]|{VALUE} [Glenn]|and|{VALUE} [Triton]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "donor",
+            "who",
+            "donate",
+            "to",
+            "both",
+            "{TABLE}",
+            "{VALUE}",
+            "and",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.donator_name FROM endowment AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id WHERE T2.school_name  =  'Glenn' INTERSECT SELECT T1.donator_name FROM endowment AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id WHERE T2.school_name  =  'Triton'"
+    },
+    {
+        "original_nl": "Show the names of all the donors except those whose donation amount less than 9.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|all|the|donor [donors]|except|those|whose|contribution [donation]|{COLUMN} [amount]|{NUMBER} [less than 9]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "donor",
+            "except",
+            "those",
+            "whose",
+            "contribution",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT donator_name FROM endowment EXCEPT SELECT donator_name FROM endowment WHERE amount  <  9"
+    },
+    {
+        "original_nl": "List the amount and donor name for the largest amount of donation.",
+        "generalized_nl": "list [List]|the|{COLUMN} [amount]|and|do|nor|{COLUMN_PART} [name]|for|the|large [largest]|{COLUMN} [amount]|of|contribution [donation]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "do",
+            "nor",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "large",
+            "{COLUMN}",
+            "of",
+            "contribution"
+        ],
+        "original_sql": "SELECT amount ,  donator_name FROM endowment ORDER BY amount DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many budgets are above 3000 in year 2001 or before?",
+        "generalized_nl": "How|many|{TABLE} [budgets]|are|above|{NUMBER} [3000]|in|{COLUMN} [year]|{VALUE} [2001]|or|earlier [before]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "above",
+            "{NUMBER}",
+            "in",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "earlier"
+        ],
+        "original_sql": "SELECT count(*) FROM budget WHERE budgeted  >  3000 AND YEAR  <=  2001"
+    },
+    {
+        "original_nl": "Count the number of budgets in year 2001 or before whose budgeted amount is greater than 3000",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [budgets]|in|{COLUMN} [year]|{VALUE} [2001]|or|before|whose|{COLUMN} [budgeted]|{COLUMN} [amount]|is|{NUMBER} [greater than 3000]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "before",
+            "whose",
+            "{COLUMN}",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM budget WHERE budgeted  >  3000 AND YEAR  <=  2001"
+    },
+    {
+        "original_nl": "Show each school name, its budgeted amount, and invested amount in year 2002 or after.",
+        "generalized_nl": "show [Show]|each|{COLUMN} [school name]|its|{COLUMN} [budgeted]|{COLUMN} [amount]|and|{COLUMN} [invested]|{COLUMN} [amount]|in|{COLUMN} [year]|{VALUE} [2002]|or|subsequently [after]",
+        "generalized_tokens": [
+            "show",
+            "each",
+            "{COLUMN}",
+            "its",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "subsequently"
+        ],
+        "original_sql": "SELECT T2.school_name ,  T1.budgeted ,  T1.invested FROM budget AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id WHERE T1.year  >=  2002"
+    },
+    {
+        "original_nl": "Show all donor names.",
+        "generalized_nl": "show [Show]|all|donor|{COLUMN_PART} [names]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "donor",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT donator_name FROM endowment"
+    },
+    {
+        "original_nl": "How many budget record has a budget amount smaller than the invested amount?",
+        "generalized_nl": "How|many|{TABLE} [budget]|record|have [has]|a|{TABLE} [budget]|{COLUMN} [amount]|small [smaller]|than|the|{COLUMN} [invested]|{COLUMN} [amount]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "record",
+            "have",
+            "a",
+            "{TABLE}",
+            "{COLUMN}",
+            "small",
+            "than",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM budget WHERE budgeted  <  invested"
+    },
+    {
+        "original_nl": "What is the total budget amount for school \"Glenn\" in all years?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [total]|{TABLE} [budget]|{COLUMN} [amount]|for|{TABLE} [school]|{VALUE} [Glenn]|in|{NE} [all years]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "{VALUE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(T1.budgeted) FROM budget AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id WHERE T2.school_name  =  'Glenn'"
+    },
+    {
+        "original_nl": "Show the names of schools with a total budget amount greater than 100 or a total endowment greater than 10.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [schools]|with|a|{COLUMN_PART} [total]|{TABLE} [budget]|{COLUMN} [amount]|{NUMBER} [greater than 100]|or|a|{COLUMN_PART} [total]|{TABLE} [endowment]|{NUMBER} [greater than 10]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "a",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "{COLUMN}",
+            "{NUMBER}",
+            "or",
+            "a",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.school_name FROM budget AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id JOIN endowment AS T3 ON T2.school_id  =  T3.school_id GROUP BY T2.school_name HAVING sum(T1.budgeted)  >  100 OR sum(T3.amount)  >  10"
+    },
+    {
+        "original_nl": "Find the names of schools that have more than one donator with donation amount above 8.5.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [schools]|that|have|{NUMBER} [more than one]|{COLUMN_PART} [donator]|with|contribution [donation]|{COLUMN} [amount]|above|{NUMBER} [8.5]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "with",
+            "contribution",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.School_name FROM endowment AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id WHERE T1.amount  >  8.5 GROUP BY T1.school_id HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the number of schools that have more than one donator whose donation amount is less than 8.5.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [schools]|that|have|{NUMBER} [more than one]|{COLUMN_PART} [donator]|whose|contribution [donation]|{COLUMN} [amount]|is|{NUMBER} [less than 8.5]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "whose",
+            "contribution",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM (SELECT * FROM endowment WHERE amount  >  8.5 GROUP BY school_id HAVING count(*)  >  1)"
+    },
+    {
+        "original_nl": "List the name, IHSAA Football Class, and Mascot of the schools that have more than 6000 of budgeted amount or were founded before 2003, in the order of percent of total invested budget and total budgeted budget.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|{COLUMN} [IHSAA Football Class]|and|{COLUMN} [Mascot]|of|the|{TABLE} [schools]|that|have|{NUMBER} [more than 6000]|of|{COLUMN} [budgeted]|{COLUMN} [amount]|or|were|establish [founded]|before|{VALUE} [2003]|in|the|order|of|{COLUMN_PART} [percent]|of|{COLUMN_PART} [total]|{COLUMN} [invested]|{TABLE} [budget]|and|{COLUMN_PART} [total]|{COLUMN} [budgeted]|{TABLE} [budget]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "of",
+            "{COLUMN}",
+            "{COLUMN}",
+            "or",
+            "were",
+            "establish",
+            "before",
+            "{VALUE}",
+            "in",
+            "the",
+            "order",
+            "of",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "{TABLE}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.School_name ,  T1.Mascot ,  T1.IHSAA_Football_Class FROM school AS T1 JOIN budget AS T2 ON T1.school_id  =  T2.school_id WHERE Budgeted  >  6000 OR YEAR  <  2003 ORDER BY T2.total_budget_percent_invested ,  T2.total_budget_percent_budgeted"
+    }
+]

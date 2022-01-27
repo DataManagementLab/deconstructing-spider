@@ -1,0 +1,299 @@
+[
+    {
+        "original_nl": "How many debates are there?",
+        "generalized_nl": "How|many|{TABLE} [debates]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM debate"
+    },
+    {
+        "original_nl": "List the venues of debates in ascending order of the number of audience.",
+        "generalized_nl": "list [List]|the|{COLUMN} [venues]|of|{TABLE} [debates]|in|ascend [ascending]|order|of|the|number|of|{COLUMN_PART} [audience]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "the",
+            "number",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Venue FROM debate ORDER BY Num_of_Audience ASC"
+    },
+    {
+        "original_nl": "What are the date and venue of each debate?",
+        "generalized_nl": "What|are|the|{COLUMN} [date]|and|{COLUMN} [venue]|of|each|{TABLE} [debate]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Date ,  Venue FROM debate"
+    },
+    {
+        "original_nl": "List the dates of debates with number of audience bigger than 150",
+        "generalized_nl": "list [List]|the|{COLUMN} [dates]|of|{TABLE} [debates]|with|number|of|{COLUMN_PART} [audience]|{NUMBER} [bigger than 150]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Date FROM debate WHERE Num_of_Audience  >  150"
+    },
+    {
+        "original_nl": "Show the names of people aged either 35 or 36.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [people]|age [aged]|either|{VALUE} [35]|or|{VALUE} [36]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "age",
+            "either",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM  people WHERE Age  =  35 OR Age  =  36"
+    },
+    {
+        "original_nl": "What is the party of the youngest people?",
+        "generalized_nl": "What|is|the|{COLUMN} [party]|of|the|young [youngest]|{TABLE} [people]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "young",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Party FROM people ORDER BY Age ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different parties of people along with the number of people in each party.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [parties]|of|{TABLE} [people]|along|with|the|number|of|{TABLE} [people]|in|each|{COLUMN} [party]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "along",
+            "with",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Party ,  COUNT(*) FROM people GROUP BY Party"
+    },
+    {
+        "original_nl": "Show the party that has the most people.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [party]|that|have [has]|the|most|{TABLE} [people]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Party FROM people GROUP BY Party ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the distinct venues of debates",
+        "generalized_nl": "show [Show]|the|distinct|{COLUMN} [venues]|of|{TABLE} [debates]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT Venue FROM debate"
+    },
+    {
+        "original_nl": "Show the names of people, and dates and venues of debates they are on the affirmative side.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [people]|and|{COLUMN} [dates]|and|{COLUMN} [venues]|of|{TABLE} [debates]|they|are|on|the|{COLUMN} [affirmative]|side",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "they",
+            "are",
+            "on",
+            "the",
+            "{COLUMN}",
+            "side"
+        ],
+        "original_sql": "SELECT T3.Name ,  T2.Date ,  T2.Venue FROM debate_people AS T1 JOIN debate AS T2 ON T1.Debate_ID  =  T2.Debate_ID JOIN people AS T3 ON T1.Affirmative  =  T3.People_ID"
+    },
+    {
+        "original_nl": "Show the names of people, and dates and venues of debates they are on the negative side, ordered in ascending alphabetical order of name.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [people]|and|{COLUMN} [dates]|and|{COLUMN} [venues]|of|{TABLE} [debates]|they|are|on|the|{COLUMN} [negative]|side|order [ordered]|in|ascend [ascending]|alphabetic [alphabetical]|order|of|{COLUMN} [name]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "they",
+            "are",
+            "on",
+            "the",
+            "{COLUMN}",
+            "side",
+            "order",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T3.Name ,  T2.Date ,  T2.Venue FROM debate_people AS T1 JOIN debate AS T2 ON T1.Debate_ID  =  T2.Debate_ID JOIN people AS T3 ON T1.Negative  =  T3.People_ID ORDER BY T3.Name ASC"
+    },
+    {
+        "original_nl": "Show the names of people that are on affirmative side of debates with number of audience bigger than 200.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [people]|that|are|on|{COLUMN} [affirmative]|side|of|{TABLE} [debates]|with|number|of|{COLUMN_PART} [audience]|{NUMBER} [bigger than 200]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "on",
+            "{COLUMN}",
+            "side",
+            "of",
+            "{TABLE}",
+            "with",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T3.Name FROM debate_people AS T1 JOIN debate AS T2 ON T1.Debate_ID  =  T2.Debate_ID JOIN people AS T3 ON T1.Affirmative  =  T3.People_ID WHERE T2.Num_of_Audience  >  200"
+    },
+    {
+        "original_nl": "Show the names of people and the number of times they have been on the affirmative side of debates.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [people]|and|the|number|of|time [times]|they|have|been|on|the|{COLUMN} [affirmative]|side|of|{TABLE} [debates]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "time",
+            "they",
+            "have",
+            "been",
+            "on",
+            "the",
+            "{COLUMN}",
+            "side",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name ,  COUNT(*) FROM debate_people AS T1 JOIN people AS T2 ON T1.Affirmative  =  T2.People_ID GROUP BY T2.Name"
+    },
+    {
+        "original_nl": "Show the names of people who have been on the negative side of debates at least twice.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [people]|who|have|been|on|the|{COLUMN} [negative]|side|of|{TABLE} [debates]|at|least|twice",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "been",
+            "on",
+            "the",
+            "{COLUMN}",
+            "side",
+            "of",
+            "{TABLE}",
+            "at",
+            "least",
+            "twice"
+        ],
+        "original_sql": "SELECT T2.Name FROM debate_people AS T1 JOIN people AS T2 ON T1.Negative  =  T2.People_ID GROUP BY T2.Name HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "List the names of people that have not been on the affirmative side of debates.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [people]|that|have|not|been|on|the|{COLUMN} [affirmative]|side|of|{TABLE} [debates]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "not",
+            "been",
+            "on",
+            "the",
+            "{COLUMN}",
+            "side",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM people WHERE People_id NOT IN (SELECT Affirmative FROM debate_people)"
+    }
+]

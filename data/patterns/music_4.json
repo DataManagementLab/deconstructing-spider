@@ -1,0 +1,1082 @@
+[
+    {
+        "original_nl": "How many artists are there?",
+        "generalized_nl": "How|many|{COLUMN} [artists]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM artist"
+    },
+    {
+        "original_nl": "Count the number of artists.",
+        "generalized_nl": "count [Count]|the|number|of|{COLUMN} [artists]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM artist"
+    },
+    {
+        "original_nl": "List the age of all music artists.",
+        "generalized_nl": "list [List]|the|{COLUMN} [age]|of|all|{COLUMN_PART} [music]|{COLUMN} [artists]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN_PART}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Age FROM artist"
+    },
+    {
+        "original_nl": "What are the ages of all music artists?",
+        "generalized_nl": "What|are|the|{COLUMN} [ages]|of|all|{COLUMN_PART} [music]|{COLUMN} [artists]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN_PART}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Age FROM artist"
+    },
+    {
+        "original_nl": "What is the average age of all artists?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|of|all|{COLUMN} [artists]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(Age) FROM artist"
+    },
+    {
+        "original_nl": "Return the average age across all artists.",
+        "generalized_nl": "return [Return]|the|average|{COLUMN} [age]|across|all|{COLUMN} [artists]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "average",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(Age) FROM artist"
+    },
+    {
+        "original_nl": "What are the famous titles of the artist \"Triumfall\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [famous titles]|of|the|{COLUMN} [artist]|{VALUE} [Triumfall]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Famous_Title FROM artist WHERE Artist  =  \"Triumfall\""
+    },
+    {
+        "original_nl": "Return the famous titles of the artist called \"Triumfall\".",
+        "generalized_nl": "return [Return]|the|{COLUMN} [famous titles]|of|the|{COLUMN} [artist]|call [called]|{VALUE} [Triumfall]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "call",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Famous_Title FROM artist WHERE Artist  =  \"Triumfall\""
+    },
+    {
+        "original_nl": "What are the distinct Famous release dates?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [Famous release dates]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT distinct(Famous_Release_date) FROM artist"
+    },
+    {
+        "original_nl": "Give the distinct famous release dates for all artists.",
+        "generalized_nl": "give [Give]|the|distinct|{COLUMN} [famous release dates]|for|all|{COLUMN} [artists]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT distinct(Famous_Release_date) FROM artist"
+    },
+    {
+        "original_nl": "Return the dates of ceremony and the results of all music festivals",
+        "generalized_nl": "return [Return]|the|{COLUMN} [dates of ceremony]|and|the|{COLUMN} [results]|of|all|{COLUMN} [music festivals]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Date_of_ceremony ,  RESULT FROM music_festival"
+    },
+    {
+        "original_nl": "What are the dates of ceremony and results for each music festival?",
+        "generalized_nl": "What|are|the|{COLUMN} [dates of ceremony]|and|{COLUMN} [results]|for|each|{COLUMN} [music festival]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Date_of_ceremony ,  RESULT FROM music_festival"
+    },
+    {
+        "original_nl": "What are the category of music festivals with result \"Awarded\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [category]|of|{COLUMN} [music festivals]|with|{COLUMN} [result]|{VALUE} [Awarded]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Category FROM music_festival WHERE RESULT  =  \"Awarded\""
+    },
+    {
+        "original_nl": "Return the categories of music festivals that have the result \"Awarded\".",
+        "generalized_nl": "return [Return]|the|{COLUMN} [categories]|of|{COLUMN} [music festivals]|that|have|the|{COLUMN} [result]|{VALUE} [Awarded]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Category FROM music_festival WHERE RESULT  =  \"Awarded\""
+    },
+    {
+        "original_nl": "What are the maximum and minimum week on top of all volumes?",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [week on top]|of|all|{COLUMN} [volumes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(Weeks_on_Top) ,  min(Weeks_on_Top) FROM volume"
+    },
+    {
+        "original_nl": "Give the maximum and minimum weeks on top across all volumes.",
+        "generalized_nl": "give [Give]|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [weeks on top]|across|all|{COLUMN} [volumes]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(Weeks_on_Top) ,  min(Weeks_on_Top) FROM volume"
+    },
+    {
+        "original_nl": "What are the songs in volumes with more than 1 week on top?",
+        "generalized_nl": "What|are|the|{COLUMN} [songs]|in|{COLUMN} [volumes]|with|{NE} [more than 1 week]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}",
+            "with",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Song FROM volume WHERE Weeks_on_Top  >  1"
+    },
+    {
+        "original_nl": "Give the songs included in volumes that have more than 1 week on top.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [songs]|include [included]|in|{COLUMN} [volumes]|that|have|{NE} [more than 1 week]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "include",
+            "in",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Song FROM volume WHERE Weeks_on_Top  >  1"
+    },
+    {
+        "original_nl": "Please list all songs in volumes in ascending alphabetical order.",
+        "generalized_nl": "Please|list|all|{COLUMN} [songs]|in|{COLUMN} [volumes]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "Please",
+            "list",
+            "all",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Song FROM volume ORDER BY Song"
+    },
+    {
+        "original_nl": "What are the the songs in volumes, listed in ascending order?",
+        "generalized_nl": "What|are|the|the|{COLUMN} [songs]|in|{COLUMN} [volumes]|list [listed]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "the",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}",
+            "list",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT Song FROM volume ORDER BY Song"
+    },
+    {
+        "original_nl": "How many distinct artists do the volumes associate to?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [artists]|do|the|{COLUMN} [volumes]|associate|to",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "do",
+            "the",
+            "{COLUMN}",
+            "associate",
+            "to"
+        ],
+        "original_sql": "SELECT COUNT(DISTINCT Artist_ID) FROM volume"
+    },
+    {
+        "original_nl": "Count the number of distinct artists who have volumes.",
+        "generalized_nl": "count [Count]|the|number|of|distinct|{COLUMN} [artists]|who|have|{COLUMN} [volumes]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{COLUMN}",
+            "who",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT COUNT(DISTINCT Artist_ID) FROM volume"
+    },
+    {
+        "original_nl": "Please show the date of ceremony of the volumes that last more than 2 weeks on top.",
+        "generalized_nl": "Please|show|the|{COLUMN} [date of ceremony]|of|the|{COLUMN} [volumes]|that|last|{NE} [more than 2 weeks]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "last",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.Date_of_ceremony FROM music_festival AS T1 JOIN volume AS T2 ON T1.Volume  =  T2.Volume_ID WHERE T2.Weeks_on_Top  >  2"
+    },
+    {
+        "original_nl": "What are the dates of ceremony at music festivals corresponding to volumes that lasted more than 2 weeks on top?",
+        "generalized_nl": "What|are|the|{COLUMN} [dates of ceremony]|at|{COLUMN} [music festivals]|match [corresponding]|to|{COLUMN} [volumes]|that|last [lasted]|{NE} [more than 2 weeks]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "at",
+            "{COLUMN}",
+            "match",
+            "to",
+            "{COLUMN}",
+            "that",
+            "last",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.Date_of_ceremony FROM music_festival AS T1 JOIN volume AS T2 ON T1.Volume  =  T2.Volume_ID WHERE T2.Weeks_on_Top  >  2"
+    },
+    {
+        "original_nl": "Please show the songs that have result \"nominated\" at music festivals.",
+        "generalized_nl": "Please|show|the|{COLUMN} [songs]|that|have|{COLUMN} [result]|nominate [nominated]|at|{COLUMN} [music festivals]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "nominate",
+            "at",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Song FROM music_festival AS T1 JOIN volume AS T2 ON T1.Volume  =  T2.Volume_ID WHERE T1.Result  =  \"Nominated\""
+    },
+    {
+        "original_nl": "What are the songs in volumes that have resulted in a nomination at music festivals?",
+        "generalized_nl": "What|are|the|{COLUMN} [songs]|in|{COLUMN} [volumes]|that|have|result [resulted]|in|a|nomination|at|{COLUMN} [music festivals]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}",
+            "that",
+            "have",
+            "result",
+            "in",
+            "a",
+            "nomination",
+            "at",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Song FROM music_festival AS T1 JOIN volume AS T2 ON T1.Volume  =  T2.Volume_ID WHERE T1.Result  =  \"Nominated\""
+    },
+    {
+        "original_nl": "What are the issue dates of volumes associated with the artist \"Gorgoroth\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [issue dates]|of|{COLUMN} [volumes]|associate [associated]|with|the|{COLUMN} [artist]|{VALUE} [Gorgoroth]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.Issue_Date FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T1.Artist  =  \"Gorgoroth\""
+    },
+    {
+        "original_nl": "Return the issue dates of volumes that are by the artist named Gorgoroth.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [issue dates]|of|{COLUMN} [volumes]|that|are|by|the|{COLUMN} [artist]|name [named]|{VALUE} [Gorgoroth]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "are",
+            "by",
+            "the",
+            "{COLUMN}",
+            "name",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.Issue_Date FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T1.Artist  =  \"Gorgoroth\""
+    },
+    {
+        "original_nl": "What are the songs in volumes associated with the artist aged 32 or older?",
+        "generalized_nl": "What|are|the|{COLUMN} [songs]|in|{COLUMN} [volumes]|associate [associated]|with|the|{COLUMN} [artist]|age [aged]|{NE} [32]|or|old [older]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "the",
+            "{COLUMN}",
+            "age",
+            "{NE}",
+            "or",
+            "old"
+        ],
+        "original_sql": "SELECT T2.Song FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T1.age  >=  32"
+    },
+    {
+        "original_nl": "Return names of songs in volumes that are by artists that are at least 32 years old.",
+        "generalized_nl": "return [Return]|name [names]|of|{COLUMN} [songs]|in|{COLUMN} [volumes]|that|are|by|{COLUMN} [artists]|that|are|{NE} [at least 32 years old]",
+        "generalized_tokens": [
+            "return",
+            "name",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}",
+            "that",
+            "are",
+            "by",
+            "{COLUMN}",
+            "that",
+            "are",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Song FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T1.age  >=  32"
+    },
+    {
+        "original_nl": "What is the average weeks on top of volumes associated with the artist aged 25 or younger?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [weeks on top]|of|{COLUMN} [volumes]|associate [associated]|with|the|{COLUMN} [artist]|aged|{NE} [25]|or|young [younger]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "the",
+            "{COLUMN}",
+            "aged",
+            "{NE}",
+            "or",
+            "young"
+        ],
+        "original_sql": "SELECT avg(T2.Weeks_on_Top) FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T1.age  <=  25"
+    },
+    {
+        "original_nl": "Return the average number of weeks on top for volumes by artists that are at most 25 years old.",
+        "generalized_nl": "return [Return]|the|average|number|of|{COLUMN} [weeks on top]|for|{COLUMN} [volumes]|by|{COLUMN} [artists]|that|are|at|most|{NE} [25 years old]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "{COLUMN}",
+            "by",
+            "{COLUMN}",
+            "that",
+            "are",
+            "at",
+            "most",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(T2.Weeks_on_Top) FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T1.age  <=  25"
+    },
+    {
+        "original_nl": "What are the famous title of the artists associated with volumes with more than 2 weeks on top?",
+        "generalized_nl": "What|are|the|{COLUMN} [famous title]|of|the|{COLUMN} [artists]|associate [associated]|with|{COLUMN} [volumes]|with|{NE} [more than 2 weeks]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "{COLUMN}",
+            "with",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.Famous_Title FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T2.Weeks_on_Top  >  2"
+    },
+    {
+        "original_nl": "Return the famous titles for artists that have volumes that lasted more than 2 weeks on top.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [famous titles]|for|{COLUMN} [artists]|that|have|{COLUMN} [volumes]|that|last [lasted]|{NE} [more than 2 weeks]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "that",
+            "last",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.Famous_Title FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T2.Weeks_on_Top  >  2"
+    },
+    {
+        "original_nl": "Please list the age and famous title of artists in descending order of age.",
+        "generalized_nl": "Please|list|the|{COLUMN} [age]|and|{COLUMN} [famous title]|of|{COLUMN} [artists]|in|descend [descending]|order|of|{COLUMN} [age]",
+        "generalized_tokens": [
+            "Please",
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Famous_Title ,  Age FROM artist ORDER BY Age DESC"
+    },
+    {
+        "original_nl": "What are the famous titles and ages of each artist, listed in descending order by age?",
+        "generalized_nl": "What|are|the|{COLUMN} [famous titles]|and|{COLUMN} [ages]|of|each|{COLUMN} [artist]|list [listed]|in|descend [descending]|order|by|{COLUMN} [age]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}",
+            "list",
+            "in",
+            "descend",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Famous_Title ,  Age FROM artist ORDER BY Age DESC"
+    },
+    {
+        "original_nl": "What is the famous release date of the artist with the oldest age?",
+        "generalized_nl": "What|is|the|{COLUMN} [famous release date]|of|the|{COLUMN} [artist]|with|the|old [oldest]|{COLUMN} [age]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "old",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Famous_Release_date FROM artist ORDER BY Age DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the famous release date for the oldest artist.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [famous release date]|for|the|old [oldest]|{COLUMN} [artist]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "old",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Famous_Release_date FROM artist ORDER BY Age DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Please show the categories of the music festivals and the count.",
+        "generalized_nl": "Please|show|the|{COLUMN} [categories]|of|the|{COLUMN} [music festivals]|and|the|count",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "count"
+        ],
+        "original_sql": "SELECT Category ,  COUNT(*) FROM music_festival GROUP BY Category"
+    },
+    {
+        "original_nl": "Return the number of music festivals of each category.",
+        "generalized_nl": "return [Return]|the|number|of|{COLUMN} [music festivals]|of|each|{COLUMN} [category]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Category ,  COUNT(*) FROM music_festival GROUP BY Category"
+    },
+    {
+        "original_nl": "What is the most common result of the music festival?",
+        "generalized_nl": "What|is|the|most|common|{COLUMN} [result]|of|the|{COLUMN} [music festival]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT RESULT FROM music_festival GROUP BY RESULT ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the result that is most frequent at music festivals.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [result]|that|is|most|frequent|at|{COLUMN} [music festivals]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "most",
+            "frequent",
+            "at",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT RESULT FROM music_festival GROUP BY RESULT ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Please show the categories of the music festivals with count more than 1.",
+        "generalized_nl": "Please|show|the|{COLUMN} [categories]|of|the|{COLUMN} [music festivals]|with|count|{NUMBER} [more than 1]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "count",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Category FROM music_festival GROUP BY Category HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "What are the categories of music festivals for which there have been more than 1 music festival?",
+        "generalized_nl": "What|are|the|{COLUMN} [categories]|of|{COLUMN} [music festivals]|for|which|there|have|been|{NUMBER} [more than 1]|{COLUMN} [music festival]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "for",
+            "which",
+            "there",
+            "have",
+            "been",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Category FROM music_festival GROUP BY Category HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "What is the song in the volume with the maximum weeks on top?",
+        "generalized_nl": "What|is|the|{COLUMN} [song]|in|the|{COLUMN} [volume]|with|{NE} [the maximum weeks]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Song FROM volume ORDER BY Weeks_on_Top DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the song in the volume that has spent the most weeks on top?",
+        "generalized_nl": "return [Return]|the|{COLUMN} [song]|in|the|{COLUMN} [volume]|that|has|spend [spent]|{NE} [the most weeks]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "that",
+            "has",
+            "spend",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Song FROM volume ORDER BY Weeks_on_Top DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the famous titles of artists that do not have any volume.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [famous titles]|of|{COLUMN} [artists]|that|do|not|have|any|{COLUMN} [volume]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Famous_Title FROM artist WHERE Artist_ID NOT IN(SELECT Artist_ID FROM volume)"
+    },
+    {
+        "original_nl": "What are the famous titles of artists who do not have any volumes?",
+        "generalized_nl": "What|are|the|{COLUMN} [famous titles]|of|{COLUMN} [artists]|who|do|not|have|any|{COLUMN} [volumes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Famous_Title FROM artist WHERE Artist_ID NOT IN(SELECT Artist_ID FROM volume)"
+    },
+    {
+        "original_nl": "Show the famous titles of the artists with both volumes that lasted more than 2 weeks on top and volumes that lasted less than 2 weeks on top.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [famous titles]|of|the|{COLUMN} [artists]|with|both|{COLUMN} [volumes]|that|last [lasted]|{NE} [more than 2 weeks]|on|{COLUMN_PART} [top]|and|{COLUMN} [volumes]|that|last [lasted]|{NE} [less than 2 weeks]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "both",
+            "{COLUMN}",
+            "that",
+            "last",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "that",
+            "last",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.Famous_Title FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T2.Weeks_on_Top  >  2 INTERSECT SELECT T1.Famous_Title FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T2.Weeks_on_Top  <  2"
+    },
+    {
+        "original_nl": "What are the famous titles of artists who have not only had volumes that spent more than 2 weeks on top but also volumes that spent less than 2 weeks on top?",
+        "generalized_nl": "What|are|the|{COLUMN} [famous titles]|of|{COLUMN} [artists]|who|have|not|only|have [had]|{COLUMN} [volumes]|that|spend [spent]|{NE} [more than 2 weeks]|on|{COLUMN_PART} [top]|but|besides [also]|{COLUMN} [volumes]|that|spend [spent]|{NE} [less than 2 weeks]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "have",
+            "not",
+            "only",
+            "have",
+            "{COLUMN}",
+            "that",
+            "spend",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}",
+            "but",
+            "besides",
+            "{COLUMN}",
+            "that",
+            "spend",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.Famous_Title FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T2.Weeks_on_Top  >  2 INTERSECT SELECT T1.Famous_Title FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T2.Weeks_on_Top  <  2"
+    },
+    {
+        "original_nl": "What are the date of ceremony of music festivals with category \"Best Song\" and result \"Awarded\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [date of ceremony]|of|{COLUMN} [music festivals]|with|{COLUMN} [category]|{VALUE} [Best Song]|and|{COLUMN} [result]|{VALUE} [Awarded]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}",
+            "and",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Date_of_ceremony FROM music_festival WHERE Category  =  \"Best Song\" AND RESULT  =  \"Awarded\""
+    },
+    {
+        "original_nl": "Return the dates of ceremony corresponding to music festivals that had the category \"Best Song\" and result \"Awarded\".",
+        "generalized_nl": "return [Return]|the|{COLUMN} [dates of ceremony]|match [corresponding]|to|{COLUMN} [music festivals]|that|have [had]|the|{COLUMN} [category]|{VALUE} [Best Song]|and|{COLUMN} [result]|{VALUE} [Awarded]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "match",
+            "to",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "{COLUMN}",
+            "{VALUE}",
+            "and",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Date_of_ceremony FROM music_festival WHERE Category  =  \"Best Song\" AND RESULT  =  \"Awarded\""
+    },
+    {
+        "original_nl": "What is the issue date of the volume with the minimum weeks on top?",
+        "generalized_nl": "What|is|the|{COLUMN} [issue date]|of|the|{COLUMN} [volume]|with|{NE} [the minimum weeks]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Issue_Date FROM volume ORDER BY Weeks_on_Top ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the issue date of the volume that has spent the fewest weeks on top.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [issue date]|of|the|{COLUMN} [volume]|that|has|spend [spent]|{NE} [the fewest weeks]|on|{COLUMN_PART} [top]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "has",
+            "spend",
+            "{NE}",
+            "on",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Issue_Date FROM volume ORDER BY Weeks_on_Top ASC LIMIT 1"
+    },
+    {
+        "original_nl": "How many distinct artists have volumes?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [artists]|have|{COLUMN} [volumes]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT COUNT(DISTINCT Artist_ID) FROM volume"
+    },
+    {
+        "original_nl": "Count the number of artists who have had volumes.",
+        "generalized_nl": "count [Count]|the|number|of|{COLUMN} [artists]|who|have|have [had]|{COLUMN} [volumes]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "who",
+            "have",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT COUNT(DISTINCT Artist_ID) FROM volume"
+    },
+    {
+        "original_nl": "Please show the results of music festivals and the number of music festivals that have had each, ordered by this count.",
+        "generalized_nl": "Please|show|the|{COLUMN} [results]|of|{COLUMN} [music festivals]|and|the|number|of|{COLUMN} [music festivals]|that|have|have [had]|each|order [ordered]|by|this|count",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "have",
+            "each",
+            "order",
+            "by",
+            "this",
+            "count"
+        ],
+        "original_sql": "SELECT RESULT ,  COUNT(*) FROM music_festival GROUP BY RESULT ORDER BY COUNT(*) DESC"
+    },
+    {
+        "original_nl": "How many music festivals have had each kind of result, ordered descending by count?",
+        "generalized_nl": "How|many|{COLUMN} [music festivals]|have|have [had]|each|kind|of|{COLUMN} [result]|order [ordered]|descend [descending]|by|count",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "have",
+            "have",
+            "each",
+            "kind",
+            "of",
+            "{COLUMN}",
+            "order",
+            "descend",
+            "by",
+            "count"
+        ],
+        "original_sql": "SELECT RESULT ,  COUNT(*) FROM music_festival GROUP BY RESULT ORDER BY COUNT(*) DESC"
+    },
+    {
+        "original_nl": "What are the issue dates of volumes associated with the artist aged 23 or younger?",
+        "generalized_nl": "What|are|the|{COLUMN} [issue dates]|of|{COLUMN} [volumes]|associate [associated]|with|the|{COLUMN} [artist]|aged|{NE} [23]|or|young [younger]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "the",
+            "{COLUMN}",
+            "aged",
+            "{NE}",
+            "or",
+            "young"
+        ],
+        "original_sql": "SELECT Issue_Date FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T1.age  <=  23"
+    },
+    {
+        "original_nl": "Return the issue dates of volumes by artists who are at most 23 years old?",
+        "generalized_nl": "return [Return]|the|{COLUMN} [issue dates]|of|{COLUMN} [volumes]|by|{COLUMN} [artists]|who|are|at|most|{NE} [23 years old]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "by",
+            "{COLUMN}",
+            "who",
+            "are",
+            "at",
+            "most",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Issue_Date FROM artist AS T1 JOIN volume AS T2 ON T1.Artist_ID  =  T2.Artist_ID WHERE T1.age  <=  23"
+    }
+]

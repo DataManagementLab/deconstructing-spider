@@ -1,0 +1,549 @@
+[
+    {
+        "original_nl": "Give me the the customer details and id for the customers who had two or more policies but did not file any claims.",
+        "generalized_nl": "give [Give]|me|the|the|{COLUMN} [customer details]|and|{COLUMN_PART} [id]|for|the|{TABLE} [customers]|who|have [had]|{NUMBER} [two]|or|more|policy [policies]|but|did|not|file|any|{TABLE} [claims]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "or",
+            "more",
+            "policy",
+            "but",
+            "did",
+            "not",
+            "file",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.customer_details ,  T1.customer_id FROM Customers AS T1 JOIN Customer_Policies AS T2 ON T1.Customer_id  =  T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >=  2 EXCEPT SELECT T1.customer_details ,  T1.customer_id FROM Customers AS T1 JOIN Customer_Policies AS T2 ON T1.Customer_id  =  T2.customer_id JOIN Claims AS T3 ON T2.policy_id  =  T3.policy_id"
+    },
+    {
+        "original_nl": "List the method, date and amount of all the payments, in ascending order of date.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [method]|{COLUMN_PART} [date]|and|{COLUMN_PART} [amount]|of|all|the|{TABLE} [payments]|in|ascend [ascending]|order|of|{COLUMN_PART} [date]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Payment_Method_Code ,  Date_Payment_Made ,  Amount_Payment FROM Payments ORDER BY Date_Payment_Made ASC"
+    },
+    {
+        "original_nl": "Give me the claim date, settlement date for all the claims whose claimed amount is larger than the average.",
+        "generalized_nl": "give [Give]|me|the|{TABLE} [claim]|{COLUMN_PART} [date]|{TABLE} [settlement]|{COLUMN_PART} [date]|for|all|the|{TABLE} [claims]|whose|{COLUMN_PART} [claimed]|{COLUMN_PART} [amount]|is|large [larger]|than|the|average",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "large",
+            "than",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT Date_Claim_Made ,  Date_Claim_Settled FROM Claims WHERE Amount_Claimed  >  ( SELECT avg(Amount_Claimed) FROM Claims )"
+    },
+    {
+        "original_nl": "Return the claim start date for the claims whose claimed amount is no more than the average",
+        "generalized_nl": "return [Return]|the|{TABLE} [claim]|{COLUMN} [start date]|for|the|{TABLE} [claims]|whose|{COLUMN_PART} [claimed]|{COLUMN_PART} [amount]|is|no|more|than|the|average",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "no",
+            "more",
+            "than",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT Date_Claim_Made FROM Claims WHERE Amount_Settled  <=  ( SELECT avg(Amount_Settled) FROM Claims )"
+    },
+    {
+        "original_nl": "Find the claim id and the number of settlements made for the claim with the most recent settlement date.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [claim id]|and|the|number|of|{TABLE} [settlements]|{COLUMN_PART} [made]|for|the|{TABLE} [claim]|with|the|most|recent|{TABLE} [settlement]|{COLUMN_PART} [date]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "recent",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.claim_id FROM Claims AS T1 JOIN Settlements AS T2 ON T1.claim_id  =  T2.claim_id GROUP BY T1.claim_id ORDER BY T1.Date_Claim_Settled DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Of all the claims, what was the earliest date when any claim was made?",
+        "generalized_nl": "Of|all|the|{TABLE} [claims]|what|was|the|early [earliest]|{COLUMN_PART} [date]|when|any|{TABLE} [claim]|was|{COLUMN_PART} [made]",
+        "generalized_tokens": [
+            "Of",
+            "all",
+            "the",
+            "{TABLE}",
+            "what",
+            "was",
+            "the",
+            "early",
+            "{COLUMN_PART}",
+            "when",
+            "any",
+            "{TABLE}",
+            "was",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Date_Claim_Made FROM Claims ORDER BY Date_Claim_Made ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Tell me the the date when the first claim was made.",
+        "generalized_nl": "tell [Tell]|me|the|the|{COLUMN_PART} [date]|when|the|{NE} [first]|{TABLE} [claim]|was|{COLUMN_PART} [made]",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "the",
+            "{COLUMN_PART}",
+            "when",
+            "the",
+            "{NE}",
+            "{TABLE}",
+            "was",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Date_Claim_Made FROM Claims ORDER BY Date_Claim_Made ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the total amount of settlement made for all the settlements?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [amount]|of|{TABLE} [settlement]|{COLUMN_PART} [made]|for|all|the|{TABLE} [settlements]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(Amount_Settled) FROM Settlements"
+    },
+    {
+        "original_nl": "Compute the total amount of settlement across all the settlements.",
+        "generalized_nl": "calculate [Compute]|the|entire [total]|{COLUMN_PART} [amount]|of|{TABLE} [settlement]|across|all|the|{TABLE} [settlements]",
+        "generalized_tokens": [
+            "calculate",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "across",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(Amount_Settled) FROM Settlements"
+    },
+    {
+        "original_nl": "Find the the customer details and id for the customers who had more than one policy.",
+        "generalized_nl": "find [Find]|the|the|{COLUMN} [customer details]|and|{COLUMN_PART} [id]|for|the|{TABLE} [customers]|who|have [had]|{NUMBER} [more than one]|{COLUMN_PART} [policy]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.customer_details ,  T1.customer_id FROM Customers AS T1 JOIN Customer_Policies AS T2 ON T1.Customer_id  =  T2.Customer_id GROUP BY T1.customer_id HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "What are the claim dates and settlement dates of all the settlements?",
+        "generalized_nl": "What|are|the|{TABLE} [claim]|{COLUMN_PART} [dates]|and|{TABLE} [settlement]|{COLUMN_PART} [dates]|of|all|the|{TABLE} [settlements]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Date_Claim_Made ,  Date_Claim_Settled FROM Settlements"
+    },
+    {
+        "original_nl": "Tell me the the claim date and settlement date for each settlement case.",
+        "generalized_nl": "tell [Tell]|me|the|the|{TABLE} [claim]|{COLUMN_PART} [date]|and|{TABLE} [settlement]|{COLUMN_PART} [date]|for|each|{TABLE} [settlement]|case",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "for",
+            "each",
+            "{TABLE}",
+            "case"
+        ],
+        "original_sql": "SELECT Date_Claim_Made ,  Date_Claim_Settled FROM Settlements"
+    },
+    {
+        "original_nl": "What is the most popular payment method?",
+        "generalized_nl": "What|is|the|most|popular|{TABLE} [payment]|{COLUMN_PART} [method]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "popular",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Payment_Method_Code FROM Payments GROUP BY Payment_Method_Code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which payment method is used the most often?",
+        "generalized_nl": "Which|{TABLE} [payment]|{COLUMN_PART} [method]|is|use [used]|the|most|frequently [often]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "is",
+            "use",
+            "the",
+            "most",
+            "frequently"
+        ],
+        "original_sql": "SELECT Payment_Method_Code FROM Payments GROUP BY Payment_Method_Code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "With which kind of payment method were the least number of payments processed?",
+        "generalized_nl": "With|which|kind|of|{TABLE} [payment]|{COLUMN_PART} [method]|were|the|least|number|of|{TABLE} [payments]|process [processed]",
+        "generalized_tokens": [
+            "With",
+            "which",
+            "kind",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "were",
+            "the",
+            "least",
+            "number",
+            "of",
+            "{TABLE}",
+            "process"
+        ],
+        "original_sql": "SELECT Payment_Method_Code FROM Payments GROUP BY Payment_Method_Code ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the payment method that were used the least often?",
+        "generalized_nl": "What|is|the|{TABLE} [payment]|{COLUMN_PART} [method]|that|were|use [used]|the|least|frequently [often]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "that",
+            "were",
+            "use",
+            "the",
+            "least",
+            "frequently"
+        ],
+        "original_sql": "SELECT Payment_Method_Code FROM Payments GROUP BY Payment_Method_Code ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the total amount of payment?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [amount]|of|{TABLE} [payment]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(Amount_Payment) FROM Payments"
+    },
+    {
+        "original_nl": "Compute the total amount of payment processed.",
+        "generalized_nl": "calculate [Compute]|the|entire [total]|{COLUMN_PART} [amount]|of|{TABLE} [payment]|process [processed]",
+        "generalized_tokens": [
+            "calculate",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "process"
+        ],
+        "original_sql": "SELECT sum(Amount_Payment) FROM Payments"
+    },
+    {
+        "original_nl": "What are all the distinct details of the customers?",
+        "generalized_nl": "What|are|all|the|distinct|{COLUMN_PART} [details]|of|the|{TABLE} [customers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT customer_details FROM Customers"
+    },
+    {
+        "original_nl": "Return the distinct customer details.",
+        "generalized_nl": "return [Return]|the|distinct|{COLUMN} [customer details]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT customer_details FROM Customers"
+    },
+    {
+        "original_nl": "Which kind of policy type was chosen by the most customers?",
+        "generalized_nl": "Which|kind|of|{COLUMN_PART} [policy]|{COLUMN_PART} [type]|was|choose [chosen]|by|the|most|{TABLE} [customers]",
+        "generalized_tokens": [
+            "Which",
+            "kind",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "was",
+            "choose",
+            "by",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Policy_Type_Code FROM Customer_Policies GROUP BY Policy_Type_Code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the policy type the most customers choose.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [policy]|{COLUMN_PART} [type]|the|most|{TABLE} [customers]|choose",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "the",
+            "most",
+            "{TABLE}",
+            "choose"
+        ],
+        "original_sql": "SELECT Policy_Type_Code FROM Customer_Policies GROUP BY Policy_Type_Code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many settlements are there in total?",
+        "generalized_nl": "How|many|{TABLE} [settlements]|are|there|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM Settlements"
+    },
+    {
+        "original_nl": "Count the total number of settlements made.",
+        "generalized_nl": "count [Count]|the|entire [total]|number|of|{TABLE} [settlements]|{COLUMN_PART} [made]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM Settlements"
+    },
+    {
+        "original_nl": "Give me the payment Id, the date and the amount for all the payments processed with Visa.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN} [payment Id]|the|{COLUMN_PART} [date]|and|the|{COLUMN_PART} [amount]|for|all|the|{TABLE} [payments]|process [processed]|with|{NE} [Visa]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN}",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}",
+            "process",
+            "with",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Payment_ID ,  Date_Payment_Made ,  Amount_Payment FROM Payments WHERE Payment_Method_Code  =  'Visa'"
+    },
+    {
+        "original_nl": "List the details of the customers who do not have any policies.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [details]|of|the|{TABLE} [customers]|who|do|not|have|any|policy [policies]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "have",
+            "any",
+            "policy"
+        ],
+        "original_sql": "SELECT customer_details FROM Customers EXCEPT SELECT T1.customer_details FROM Customers AS T1 JOIN Customer_Policies AS T2 ON T1.customer_id  =  T2.customer_id"
+    },
+    {
+        "original_nl": "List the date the claim was made, the date it was settled and the amount settled for all the claims which had exactly one settlement.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [date]|the|{TABLE} [claim]|was|{COLUMN_PART} [made]|the|{COLUMN_PART} [date]|it|was|{COLUMN_PART} [settled]|and|the|{COLUMN} [amount settled]|for|all|the|{TABLE} [claims]|which|have [had]|precisely [exactly]|{NUMBER} [one]|{TABLE} [settlement]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "the",
+            "{TABLE}",
+            "was",
+            "{COLUMN_PART}",
+            "the",
+            "{COLUMN_PART}",
+            "it",
+            "was",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}",
+            "which",
+            "have",
+            "precisely",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.claim_id ,  T1.date_claim_made ,  T1.Date_Claim_Settled FROM Claims AS T1 JOIN Settlements AS T2 ON T1.Claim_id  =  T2.Claim_id GROUP BY T1.claim_id HAVING count(*)  =  1"
+    },
+    {
+        "original_nl": "Find the total claimed amount of all the claims.",
+        "generalized_nl": "find [Find]|the|sum [total]|{COLUMN_PART} [claimed]|{COLUMN_PART} [amount]|of|all|the|{TABLE} [claims]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "sum",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(Amount_Claimed) FROM Claims"
+    },
+    {
+        "original_nl": "What is total amount claimed summed across all the claims?",
+        "generalized_nl": "What|is|entire [total]|{COLUMN} [amount claimed]|summarize [summed]|across|all|the|{TABLE} [claims]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "entire",
+            "{COLUMN}",
+            "summarize",
+            "across",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(Amount_Claimed) FROM Claims"
+    }
+]

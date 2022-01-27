@@ -1,0 +1,1728 @@
+[
+    {
+        "original_nl": "How many bands are there?",
+        "generalized_nl": "How|many|{TABLE} [bands]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Band"
+    },
+    {
+        "original_nl": "Find the number of bands.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [bands]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Band"
+    },
+    {
+        "original_nl": "What are all the labels?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [labels]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT label FROM Albums"
+    },
+    {
+        "original_nl": "What are the different album labels listed?",
+        "generalized_nl": "What|are|the|different|{TABLE} [album]|{COLUMN} [labels]|list [listed]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{TABLE}",
+            "{COLUMN}",
+            "list"
+        ],
+        "original_sql": "SELECT DISTINCT label FROM Albums"
+    },
+    {
+        "original_nl": "Find all the albums in 2012.",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [albums]|in|{NE} [2012]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT * FROM Albums WHERE YEAR  =  2012"
+    },
+    {
+        "original_nl": "return all columns of the albums created in the year of 2012.",
+        "generalized_nl": "return|all|column [columns]|of|the|{TABLE} [albums]|create [created]|in|{NE} [the year of 2012]",
+        "generalized_tokens": [
+            "return",
+            "all",
+            "column",
+            "of",
+            "the",
+            "{TABLE}",
+            "create",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT * FROM Albums WHERE YEAR  =  2012"
+    },
+    {
+        "original_nl": "Find all the stage positions of the musicians with first name \"Solveig\"",
+        "generalized_nl": "find [Find]|all|the|{COLUMN} [stage positions]|of|the|musician [musicians]|with|{COLUMN} [first name]|Solveig",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "musician",
+            "with",
+            "{COLUMN}",
+            "Solveig"
+        ],
+        "original_sql": "SELECT DISTINCT T1.stageposition FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id WHERE Firstname  =  \"Solveig\""
+    },
+    {
+        "original_nl": "What are the different stage positions for all musicians whose first name is \"Solveig\"?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [stage positions]|for|all|musician [musicians]|whose|{COLUMN} [first name]|is|Solveig",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "all",
+            "musician",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "Solveig"
+        ],
+        "original_sql": "SELECT DISTINCT T1.stageposition FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id WHERE Firstname  =  \"Solveig\""
+    },
+    {
+        "original_nl": "How many songs are there?",
+        "generalized_nl": "How|many|{TABLE} [songs]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Songs"
+    },
+    {
+        "original_nl": "Count the number of songs.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [songs]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Songs"
+    },
+    {
+        "original_nl": "Find all the songs performed by artist with last name \"Heilo\"",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [songs]|perform [performed]|by|artist|with|{COLUMN} [last name]|{NE} [Heilo]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "perform",
+            "by",
+            "artist",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T3.Title FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId WHERE T2.Lastname  =  \"Heilo\""
+    },
+    {
+        "original_nl": "What are the names of the songs by the artist whose last name is \"Heilo\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [songs]|by|the|artist|whose|{COLUMN} [last name]|is|{NE} [Heilo]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "by",
+            "the",
+            "artist",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T3.Title FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId WHERE T2.Lastname  =  \"Heilo\""
+    },
+    {
+        "original_nl": "Hom many musicians performed in the song \"Flash\"?",
+        "generalized_nl": "Hom|many|musician [musicians]|perform [performed]|in|the|{TABLE} [song]|{NE} [Flash]",
+        "generalized_tokens": [
+            "Hom",
+            "many",
+            "musician",
+            "perform",
+            "in",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM performance AS T1 JOIN band AS T2 ON T1.bandmate  =  T2.id JOIN songs AS T3 ON T3.songid  =  T1.songid WHERE T3.Title  =  \"Flash\""
+    },
+    {
+        "original_nl": "How many musicians play in the song \"Flash\"?",
+        "generalized_nl": "How|many|musician [musicians]|play|in|the|{TABLE} [song]|flash [Flash]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "musician",
+            "play",
+            "in",
+            "the",
+            "{TABLE}",
+            "flash"
+        ],
+        "original_sql": "SELECT count(*) FROM performance AS T1 JOIN band AS T2 ON T1.bandmate  =  T2.id JOIN songs AS T3 ON T3.songid  =  T1.songid WHERE T3.Title  =  \"Flash\""
+    },
+    {
+        "original_nl": "Find all the songs produced by artists with first name \"Marianne\".",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [songs]|produce [produced]|by|artist [artists]|with|{COLUMN} [first name]|{NE} [Marianne]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "produce",
+            "by",
+            "artist",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T3.Title FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId WHERE T2.firstname  =  \"Marianne\""
+    },
+    {
+        "original_nl": "What are the names of all songs produced by the artist with the first name \"Marianne\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|{TABLE} [songs]|produce [produced]|by|the|artist|with|the|{COLUMN} [first name]|{NE} [Marianne]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "produce",
+            "by",
+            "the",
+            "artist",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T3.Title FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId WHERE T2.firstname  =  \"Marianne\""
+    },
+    {
+        "original_nl": "What are the first and last names of the artist who perfomed the song \"Badlands\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|the|artist|who|perfomed|the|{TABLE} [song]|{NE} [Badlands]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "artist",
+            "who",
+            "perfomed",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.firstname ,  T2.lastname FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId WHERE T3.Title  =  \"Badlands\""
+    },
+    {
+        "original_nl": "What are the first and last names of the performer who was in the back stage position for the song \"Badlands\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|the|performer|who|was|in|the|back|{COLUMN} [stage position]|for|the|{TABLE} [song]|{NE} [Badlands]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "performer",
+            "who",
+            "was",
+            "in",
+            "the",
+            "back",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.firstname ,  T2.lastname FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId WHERE T3.Title  =  \"Badlands\" AND T1.StagePosition  =  \"back\""
+    },
+    {
+        "original_nl": "How many unique labels are there for albums?",
+        "generalized_nl": "How|many|unique|{COLUMN} [labels]|are|there|for|{TABLE} [albums]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "unique",
+            "{COLUMN}",
+            "are",
+            "there",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT label) FROM albums"
+    },
+    {
+        "original_nl": "What are the unique labels for the albums?",
+        "generalized_nl": "What|are|the|unique|{COLUMN} [labels]|for|the|{TABLE} [albums]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "unique",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT label) FROM albums"
+    },
+    {
+        "original_nl": "What is the label that has the most albums?",
+        "generalized_nl": "What|is|the|{COLUMN} [label]|that|have [has]|the|most|{TABLE} [albums]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT label FROM albums GROUP BY label ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the label with the most albums?",
+        "generalized_nl": "What|is|the|{COLUMN} [label]|with|the|most|{TABLE} [albums]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT label FROM albums GROUP BY label ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the last name of the musician that have produced the most number of songs?",
+        "generalized_nl": "What|is|the|{COLUMN} [last name]|of|the|musician|that|have|produce [produced]|the|most|number|of|{TABLE} [songs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "musician",
+            "that",
+            "have",
+            "produce",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.lastname FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId GROUP BY lastname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the last name of the musician who was in the most songs?",
+        "generalized_nl": "What|is|the|{COLUMN} [last name]|of|the|musician|who|was|in|the|most|{TABLE} [songs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "musician",
+            "who",
+            "was",
+            "in",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.lastname FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId GROUP BY lastname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the last name of the musician that has been at the back position the most?",
+        "generalized_nl": "What|is|the|{COLUMN} [last name]|of|the|musician|that|has|been|at|the|back|{COLUMN} [position]|the|most",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "musician",
+            "that",
+            "has",
+            "been",
+            "at",
+            "the",
+            "back",
+            "{COLUMN}",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT T2.lastname FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id WHERE stageposition  =  \"back\" GROUP BY lastname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the last name of the musicians who has played back position the most?",
+        "generalized_nl": "What|is|the|{COLUMN} [last name]|of|the|musician [musicians]|who|has|play [played]|back|{COLUMN} [position]|the|most",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "musician",
+            "who",
+            "has",
+            "play",
+            "back",
+            "{COLUMN}",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT T2.lastname FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id WHERE stageposition  =  \"back\" GROUP BY lastname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find all the songs whose name contains the word \"the\".",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [songs]|whose|{COLUMN_PART} [name]|contain [contains]|the|word|the",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "contain",
+            "the",
+            "word",
+            "the"
+        ],
+        "original_sql": "SELECT title FROM songs WHERE title LIKE '% the %'"
+    },
+    {
+        "original_nl": "What are the names of the songs whose title has the word \"the\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [songs]|whose|{COLUMN} [title]|have [has]|the|word|the",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "have",
+            "the",
+            "word",
+            "the"
+        ],
+        "original_sql": "SELECT title FROM songs WHERE title LIKE '% the %'"
+    },
+    {
+        "original_nl": "What are all the instruments used?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [instruments]|use [used]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "use"
+        ],
+        "original_sql": "SELECT DISTINCT instrument FROM Instruments"
+    },
+    {
+        "original_nl": "What are the different instruments listed in the database?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [instruments]|list [listed]|in|the|database",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "list",
+            "in",
+            "the",
+            "database"
+        ],
+        "original_sql": "SELECT DISTINCT instrument FROM Instruments"
+    },
+    {
+        "original_nl": "What instrument did the musician with last name \"Heilo\" use in the song \"Le Pop\"?",
+        "generalized_nl": "What|{COLUMN} [instrument]|do [did]|the|musician|with|{COLUMN} [last name]|{NE} [Heilo]|use|in|the|{TABLE} [song]|{NE} [Le Pop \"]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "do",
+            "the",
+            "musician",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "use",
+            "in",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T4.instrument FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId JOIN Instruments AS T4 ON T4.songid  =  T3.songid AND T4.bandmateid  =  T2.id WHERE T2.lastname  =  \"Heilo\" AND T3.title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "What instruments did the musician with the last name \"Heilo\" play in the song \"Le Pop\"?",
+        "generalized_nl": "What|{COLUMN} [instruments]|did|the|musician|with|the|{COLUMN} [last name]|{NE} [Heilo]|play|in|the|{TABLE} [song]|{NE} [Le Pop \"]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "did",
+            "the",
+            "musician",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "play",
+            "in",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T4.instrument FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId JOIN Instruments AS T4 ON T4.songid  =  T3.songid AND T4.bandmateid  =  T2.id WHERE T2.lastname  =  \"Heilo\" AND T3.title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "What is the most used instrument?",
+        "generalized_nl": "What|is|the|most|use [used]|{COLUMN} [instrument]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "use",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT instrument FROM instruments GROUP BY instrument ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What instrument is used the most?",
+        "generalized_nl": "What|{COLUMN} [instrument]|is|use [used]|the|most",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "is",
+            "use",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT instrument FROM instruments GROUP BY instrument ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many songs have used the instrument \"drums\"?",
+        "generalized_nl": "How|many|{TABLE} [songs]|have|use [used]|the|{COLUMN} [instrument]|drum [drums]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "use",
+            "the",
+            "{COLUMN}",
+            "drum"
+        ],
+        "original_sql": "SELECT count(*) FROM instruments WHERE instrument  =  \"drums\""
+    },
+    {
+        "original_nl": "How many songs use drums as an instrument?",
+        "generalized_nl": "How|many|{TABLE} [songs]|use|drum [drums]|as|an|{COLUMN} [instrument]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "use",
+            "drum",
+            "as",
+            "an",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM instruments WHERE instrument  =  \"drums\""
+    },
+    {
+        "original_nl": "What instruments does the the song \"Le Pop\" use?",
+        "generalized_nl": "What|{COLUMN} [instruments]|does|the|the|{TABLE} [song]|{NE} [Le Pop]|use",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "does",
+            "the",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "use"
+        ],
+        "original_sql": "SELECT instrument FROM instruments AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "What are the instruments are used in the song \"Le Pop\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [instruments]|are|use [used]|in|the|{TABLE} [song]|{NE} [Le Pop \"]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "are",
+            "use",
+            "in",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT instrument FROM instruments AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "How many instruments does the song \"Le Pop\" use?",
+        "generalized_nl": "How|many|{COLUMN} [instruments]|does|the|{TABLE} [song]|{NE} [Le Pop]|use",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "does",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "use"
+        ],
+        "original_sql": "SELECT count(DISTINCT instrument) FROM instruments AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "How many different instruments are used in the song \"Le Pop\"?",
+        "generalized_nl": "How|many|different|{COLUMN} [instruments]|are|use [used]|in|the|{TABLE} [song]|{NE} [Le Pop \"]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "use",
+            "in",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT instrument) FROM instruments AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "How many instrument does the musician with last name \"Heilo\" use?",
+        "generalized_nl": "How|many|{COLUMN} [instrument]|does|the|musician|with|{COLUMN} [last name]|{NE} [Heilo]|use",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "does",
+            "the",
+            "musician",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "use"
+        ],
+        "original_sql": "SELECT count(DISTINCT instrument) FROM instruments AS T1 JOIN Band AS T2 ON T1.bandmateid  =  T2.id WHERE T2.lastname  =  \"Heilo\""
+    },
+    {
+        "original_nl": "How many different instruments does the musician with the last name \"Heilo\" use?",
+        "generalized_nl": "How|many|different|{COLUMN} [instruments]|does|the|musician|with|the|{COLUMN} [last name]|{NE} [Heilo]|use",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "does",
+            "the",
+            "musician",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "use"
+        ],
+        "original_sql": "SELECT count(DISTINCT instrument) FROM instruments AS T1 JOIN Band AS T2 ON T1.bandmateid  =  T2.id WHERE T2.lastname  =  \"Heilo\""
+    },
+    {
+        "original_nl": "Find all the instruments ever used by the musician with last name \"Heilo\"?",
+        "generalized_nl": "find [Find]|all|the|{COLUMN} [instruments]|ever|use [used]|by|the|musician|with|{COLUMN} [last name]|{NE} [Heilo]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{COLUMN}",
+            "ever",
+            "use",
+            "by",
+            "the",
+            "musician",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT instrument FROM instruments AS T1 JOIN Band AS T2 ON T1.bandmateid  =  T2.id WHERE T2.lastname  =  \"Heilo\""
+    },
+    {
+        "original_nl": "What are all the instruments used by the musician with the last name \"Heilo\"?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [instruments]|use [used]|by|the|musician|with|the|{COLUMN} [last name]|{NE} [Heilo]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "use",
+            "by",
+            "the",
+            "musician",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT instrument FROM instruments AS T1 JOIN Band AS T2 ON T1.bandmateid  =  T2.id WHERE T2.lastname  =  \"Heilo\""
+    },
+    {
+        "original_nl": "Which song has the most vocals?",
+        "generalized_nl": "Which|{TABLE} [song]|have [has]|the|most|{TABLE} [vocals]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid GROUP BY T1.songid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the song with the most vocals?",
+        "generalized_nl": "What|is|the|{TABLE} [song]|with|the|most|{TABLE} [vocals]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid GROUP BY T1.songid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which vocal type is the most frequently appearring type?",
+        "generalized_nl": "Which|{TABLE} [vocal]|{COLUMN} [type]|is|the|most|frequently|appearring|{COLUMN} [type]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN}",
+            "is",
+            "the",
+            "most",
+            "frequently",
+            "appearring",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals GROUP BY TYPE ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the type of vocables that appears most frequently?",
+        "generalized_nl": "What|is|the|{COLUMN} [type]|of|vocable [vocables]|that|appear [appears]|most|frequently",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "vocable",
+            "that",
+            "appear",
+            "most",
+            "frequently"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals GROUP BY TYPE ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which vocal type has the band mate with last name \"Heilo\" played the most?",
+        "generalized_nl": "Which|{TABLE} [vocal]|{COLUMN} [type]|have [has]|the|{TABLE} [band]|mate|with|{COLUMN} [last name]|{NE} [Heilo]|play [played]|the|most",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN}",
+            "have",
+            "the",
+            "{TABLE}",
+            "mate",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "play",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN band AS T2 ON T1.bandmate  =  T2.id WHERE lastname  =  \"Heilo\" GROUP BY TYPE ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the type of vocals that the band member with the last name \"Heilo\" played the most?",
+        "generalized_nl": "What|is|the|{COLUMN} [type]|of|{TABLE} [vocals]|that|the|{TABLE} [band]|member|with|the|{COLUMN} [last name]|{NE} [Heilo]|play [played]|the|most",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "the",
+            "{TABLE}",
+            "member",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "play",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN band AS T2 ON T1.bandmate  =  T2.id WHERE lastname  =  \"Heilo\" GROUP BY TYPE ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the vocal types used in song \"Le Pop\"?",
+        "generalized_nl": "What|are|the|{TABLE} [vocal]|{COLUMN} [types]|use [used]|in|{TABLE} [song]|{NE} [Le Pop \"]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "use",
+            "in",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "What are the types of vocals used in the song \"Le Pop\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [types]|of|{TABLE} [vocals]|use [used]|in|the|{TABLE} [song]|{NE} [Le Pop \"]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "use",
+            "in",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "Find the number of vocal types used in song \"Demon Kitty Rag\"?",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [vocal]|{COLUMN} [types]|use [used]|in|{TABLE} [song]|devil [Demon]|Kitty|Rag",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "{COLUMN}",
+            "use",
+            "in",
+            "{TABLE}",
+            "devil",
+            "Kitty",
+            "Rag"
+        ],
+        "original_sql": "SELECT count(*) FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Demon Kitty Rag\""
+    },
+    {
+        "original_nl": "What are the types of vocals used in the song \"Demon Kitty Rag\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [types]|of|{TABLE} [vocals]|use [used]|in|the|{TABLE} [song]|Demon|Kitty|Rag",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "use",
+            "in",
+            "the",
+            "{TABLE}",
+            "Demon",
+            "Kitty",
+            "Rag"
+        ],
+        "original_sql": "SELECT count(*) FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Demon Kitty Rag\""
+    },
+    {
+        "original_nl": "How many songs have a lead vocal?",
+        "generalized_nl": "How|many|{TABLE} [songs]|have|a|lead|{TABLE} [vocal]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "a",
+            "lead",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT title) FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE TYPE  =  \"lead\""
+    },
+    {
+        "original_nl": "How many songs have vocals of type lead?",
+        "generalized_nl": "How|many|{TABLE} [songs]|have|{TABLE} [vocals]|of|{COLUMN} [type]|lead",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{TABLE}",
+            "of",
+            "{COLUMN}",
+            "lead"
+        ],
+        "original_sql": "SELECT count(DISTINCT title) FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE TYPE  =  \"lead\""
+    },
+    {
+        "original_nl": "Which vocal type did the musician with first name \"Solveig\" played in the song with title \"A Bar in Amsterdam\"?",
+        "generalized_nl": "Which|{TABLE} [vocal]|{COLUMN} [type]|do [did]|the|musician|with|{COLUMN} [first name]|{NE} [Solveig]|play [played]|in|the|{TABLE} [song]|with|{COLUMN} [title]|A|Bar|in|Amsterdam",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN}",
+            "do",
+            "the",
+            "musician",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "play",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "A",
+            "Bar",
+            "in",
+            "Amsterdam"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid JOIN band AS T3 ON T1.bandmate  =  T3.id WHERE T3.firstname  =  \"Solveig\" AND T2.title  =  \"A Bar In Amsterdam\""
+    },
+    {
+        "original_nl": "What are the types of vocals that the musician with the first name \"Solveig\" played in the song \"A Bar in Amsterdam\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [types]|of|{TABLE} [vocals]|that|the|musician|with|the|{COLUMN} [first name]|{NE} [Solveig]|play [played]|in|the|{TABLE} [song]|A|Bar|in|Amsterdam",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "the",
+            "musician",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "play",
+            "in",
+            "the",
+            "{TABLE}",
+            "A",
+            "Bar",
+            "in",
+            "Amsterdam"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid JOIN band AS T3 ON T1.bandmate  =  T3.id WHERE T3.firstname  =  \"Solveig\" AND T2.title  =  \"A Bar In Amsterdam\""
+    },
+    {
+        "original_nl": "Find all the songs that do not have a lead vocal.",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [songs]|that|do|not|have|a|lead|{TABLE} [vocal]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "a",
+            "lead",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid EXCEPT SELECT t2.title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid WHERE TYPE  =  \"lead\""
+    },
+    {
+        "original_nl": "What are the names of the songs without a lead vocal?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [songs]|without|a|lead|{TABLE} [vocal]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "without",
+            "a",
+            "lead",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid EXCEPT SELECT t2.title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid WHERE TYPE  =  \"lead\""
+    },
+    {
+        "original_nl": "Find all the vocal types.",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [vocal]|{COLUMN} [types]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT TYPE FROM vocals"
+    },
+    {
+        "original_nl": "What are the different types of vocals?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [types]|of|{TABLE} [vocals]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT TYPE FROM vocals"
+    },
+    {
+        "original_nl": "What are the albums produced in year 2010?",
+        "generalized_nl": "What|are|the|{TABLE} [albums]|produce [produced]|in|{COLUMN} [year]|{NUMBER} [2010]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "produce",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT * FROM Albums WHERE YEAR  =  2010"
+    },
+    {
+        "original_nl": "What information is there on albums from 2010?",
+        "generalized_nl": "What|information|is|there|on|{TABLE} [albums]|from|{NE} [2010]",
+        "generalized_tokens": [
+            "What",
+            "information",
+            "is",
+            "there",
+            "on",
+            "{TABLE}",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT * FROM Albums WHERE YEAR  =  2010"
+    },
+    {
+        "original_nl": "Who performed the song named \"Le Pop\"?",
+        "generalized_nl": "Who|perform [performed]|the|{TABLE} [song]|name [named]|{NE} [Le Pop \"]",
+        "generalized_tokens": [
+            "Who",
+            "perform",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.firstname ,  T2.lastname FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId WHERE T3.Title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "What is the first and last name of artist who performed \"Le Pop\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|artist|who|perform [performed]|{NE} [Le Pop \"]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "artist",
+            "who",
+            "perform",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.firstname ,  T2.lastname FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId WHERE T3.Title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "What is the last name of the musician that have produced the most songs?",
+        "generalized_nl": "What|is|the|{COLUMN} [last name]|of|the|musician|that|have|produce [produced]|the|most|{TABLE} [songs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "musician",
+            "that",
+            "have",
+            "produce",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.lastname FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId GROUP BY lastname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the last name of the artist who sang the most songs?",
+        "generalized_nl": "What|is|the|{COLUMN} [last name]|of|the|artist|who|sing [sang]|the|most|{TABLE} [songs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "artist",
+            "who",
+            "sing",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.lastname FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId GROUP BY lastname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What instrument did the musician with last name \"Heilo\" use in the song \"Badlands\"?",
+        "generalized_nl": "What|{COLUMN} [instrument]|do [did]|the|musician|with|{COLUMN} [last name]|{NE} [Heilo]|use|in|the|{TABLE} [song]|{NE} [Badlands]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "do",
+            "the",
+            "musician",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "use",
+            "in",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T4.instrument FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId JOIN Instruments AS T4 ON T4.songid  =  T3.songid AND T4.bandmateid  =  T2.id WHERE T2.lastname  =  \"Heilo\" AND T3.title  =  \"Badlands\""
+    },
+    {
+        "original_nl": "What instruments did the musician with the last name \"Heilo\" play in \"Badlands\"?",
+        "generalized_nl": "What|{COLUMN} [instruments]|did|the|musician|with|the|{COLUMN} [last name]|{NE} [Heilo]|play|in|{NE} [Badlands]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "did",
+            "the",
+            "musician",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "play",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T4.instrument FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId JOIN Instruments AS T4 ON T4.songid  =  T3.songid AND T4.bandmateid  =  T2.id WHERE T2.lastname  =  \"Heilo\" AND T3.title  =  \"Badlands\""
+    },
+    {
+        "original_nl": "How many instruments does the song \"Badlands\" use?",
+        "generalized_nl": "How|many|{COLUMN} [instruments]|does|the|{TABLE} [song]|{NE} [Badlands]|use",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "does",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "use"
+        ],
+        "original_sql": "SELECT count(DISTINCT instrument) FROM instruments AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Badlands\""
+    },
+    {
+        "original_nl": "How many different instruments are used in the song \"Badlands\"?",
+        "generalized_nl": "How|many|different|{COLUMN} [instruments]|are|use [used]|in|the|{TABLE} [song]|{NE} [Badlands]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "use",
+            "in",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT instrument) FROM instruments AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Badlands\""
+    },
+    {
+        "original_nl": "What are the vocal types used in song \"Badlands\"?",
+        "generalized_nl": "What|are|the|{TABLE} [vocal]|{COLUMN} [types]|use [used]|in|{TABLE} [song]|{NE} [Badlands]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "use",
+            "in",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Badlands\""
+    },
+    {
+        "original_nl": "What types of vocals are used in the song \"Badlands\"?",
+        "generalized_nl": "What|{COLUMN} [types]|of|{TABLE} [vocals]|are|use [used]|in|the|{TABLE} [song]|{NE} [Badlands]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "are",
+            "use",
+            "in",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Badlands\""
+    },
+    {
+        "original_nl": "Find the number of vocal types used in song \"Le Pop\"",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [vocal]|{COLUMN} [types]|use [used]|in|{TABLE} [song]|Le|Pop",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "{COLUMN}",
+            "use",
+            "in",
+            "{TABLE}",
+            "Le",
+            "Pop"
+        ],
+        "original_sql": "SELECT count(*) FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "How many vocal types are used in the song \"Le Pop\"?",
+        "generalized_nl": "How|many|{TABLE} [vocal]|{COLUMN} [types]|are|use [used]|in|the|{TABLE} [song]|{NE} [Le Pop \"]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "{COLUMN}",
+            "are",
+            "use",
+            "in",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE title  =  \"Le Pop\""
+    },
+    {
+        "original_nl": "How many songs have a shared vocal?",
+        "generalized_nl": "How|many|{TABLE} [songs]|have|a|share [shared]|{TABLE} [vocal]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "a",
+            "share",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT title) FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE TYPE  =  \"shared\""
+    },
+    {
+        "original_nl": "How many different songs have shared vocals?",
+        "generalized_nl": "How|many|different|{TABLE} [songs]|have|share [shared]|{TABLE} [vocals]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "have",
+            "share",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT title) FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid WHERE TYPE  =  \"shared\""
+    },
+    {
+        "original_nl": "Find all the songs that do not have a back vocal.",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [songs]|that|do|not|have|a|back|{TABLE} [vocal]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "a",
+            "back",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid EXCEPT SELECT t2.title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid WHERE TYPE  =  \"back\""
+    },
+    {
+        "original_nl": "What are the different names of all songs without back vocals?",
+        "generalized_nl": "What|are|the|different|{COLUMN_PART} [names]|of|all|{TABLE} [songs]|without|back|{TABLE} [vocals]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "without",
+            "back",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid EXCEPT SELECT t2.title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid WHERE TYPE  =  \"back\""
+    },
+    {
+        "original_nl": "Which vocal type has the band mate with first name \"Solveig\" played the most?",
+        "generalized_nl": "Which|{TABLE} [vocal]|{COLUMN} [type]|have [has]|the|{TABLE} [band]|mate|with|{COLUMN} [first name]|Solveig|play [played]|the|most",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN}",
+            "have",
+            "the",
+            "{TABLE}",
+            "mate",
+            "with",
+            "{COLUMN}",
+            "Solveig",
+            "play",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN band AS T2 ON T1.bandmate  =  T2.id WHERE firstname  =  \"Solveig\" GROUP BY TYPE ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the types of vocals that the band member with the first name \"Solveig\" played the most?",
+        "generalized_nl": "What|are|the|{COLUMN} [types]|of|{TABLE} [vocals]|that|the|{TABLE} [band]|member|with|the|{COLUMN} [first name]|{NE} [Solveig]|play [played]|the|most",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "the",
+            "{TABLE}",
+            "member",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "play",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN band AS T2 ON T1.bandmate  =  T2.id WHERE firstname  =  \"Solveig\" GROUP BY TYPE ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which vocal type did the musician with last name \"Heilo\" played in the song with title \"Der Kapitan\"?",
+        "generalized_nl": "Which|{TABLE} [vocal]|{COLUMN} [type]|do [did]|the|musician|with|{COLUMN} [last name]|{NE} [Heilo]|play [played]|in|the|{TABLE} [song]|with|{COLUMN} [title]|{NE} [Der Kapitan]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN}",
+            "do",
+            "the",
+            "musician",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "play",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid JOIN band AS T3 ON T1.bandmate  =  T3.id WHERE T3.lastname  =  \"Heilo\" AND T2.title  =  \"Der Kapitan\""
+    },
+    {
+        "original_nl": "What are the types of vocals that the musician with the last name \"Heilo\" played in \"Der Kapitan\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [types]|of|{TABLE} [vocals]|that|the|musician|with|the|{COLUMN} [last name]|{NE} [Heilo]|play [played]|in|Der|Kapitan",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "the",
+            "musician",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "play",
+            "in",
+            "Der",
+            "Kapitan"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN songs AS T2 ON T1.songid  =  T2.songid JOIN band AS T3 ON T1.bandmate  =  T3.id WHERE T3.lastname  =  \"Heilo\" AND T2.title  =  \"Der Kapitan\""
+    },
+    {
+        "original_nl": "Find the first name of the band mate that has performed in most songs.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|of|the|{TABLE} [band]|mate|that|has|perform [performed]|in|most|{TABLE} [songs]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "mate",
+            "that",
+            "has",
+            "perform",
+            "in",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t2.firstname FROM Performance AS t1 JOIN Band AS t2 ON t1.bandmate  =  t2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId GROUP BY firstname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the first name of the band mate who perfomed in the most songs?",
+        "generalized_nl": "What|is|the|{COLUMN} [first name]|of|the|{TABLE} [band]|mate|who|perfomed|in|the|most|{TABLE} [songs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "mate",
+            "who",
+            "perfomed",
+            "in",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t2.firstname FROM Performance AS t1 JOIN Band AS t2 ON t1.bandmate  =  t2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId GROUP BY firstname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which vocal type has the band mate with first name \"Marianne\" played the most?",
+        "generalized_nl": "Which|{TABLE} [vocal]|{COLUMN} [type]|have [has]|the|{TABLE} [band]|mate|with|{COLUMN} [first name]|{NE} [Marianne]|play [played]|the|most",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN}",
+            "have",
+            "the",
+            "{TABLE}",
+            "mate",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "play",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN band AS T2 ON T1.bandmate  =  T2.id WHERE firstname  =  \"Marianne\" GROUP BY TYPE ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the vocal type of the band mate whose first name is \"Marianne\" played the most?",
+        "generalized_nl": "What|is|the|{TABLE} [vocal]|{COLUMN} [type]|of|the|{TABLE} [band]|mate|whose|{COLUMN} [first name]|is|{NE} [Marianne]|play [played]|the|most",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "mate",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}",
+            "play",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT TYPE FROM vocals AS T1 JOIN band AS T2 ON T1.bandmate  =  T2.id WHERE firstname  =  \"Marianne\" GROUP BY TYPE ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the first and last name of the artist who performed back stage for the song \"Der Kapitan\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|artist|who|perform [performed]|back|{COLUMN_PART} [stage]|for|the|{TABLE} [song]|Der|Kapitan",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "artist",
+            "who",
+            "perform",
+            "back",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "Der",
+            "Kapitan"
+        ],
+        "original_sql": "SELECT T2.firstname ,  T2.lastname FROM Performance AS T1 JOIN Band AS T2 ON T1.bandmate  =  T2.id JOIN Songs AS T3 ON T3.SongId  =  T1.SongId WHERE T3.Title  =  \"Der Kapitan\" AND T1.StagePosition  =  \"back\""
+    },
+    {
+        "original_nl": "Find the name of songs that does not have a back vocal.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [songs]|that|does|not|have|a|back|{TABLE} [vocal]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "does",
+            "not",
+            "have",
+            "a",
+            "back",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid EXCEPT SELECT t2.title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid WHERE TYPE  =  \"back\""
+    },
+    {
+        "original_nl": "What are the names of the songs that do not have back vocals?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [songs]|that|do|not|have|back|{TABLE} [vocals]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "back",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid EXCEPT SELECT t2.title FROM vocals AS t1 JOIN songs AS t2 ON t1.songid  =  t2.songid WHERE TYPE  =  \"back\""
+    },
+    {
+        "original_nl": "What are the songs in album \"A Kiss Before You Go: Live in Hamburg\"?",
+        "generalized_nl": "What|are|the|{TABLE} [songs]|in|{TABLE} [album]|A|kiss [Kiss]|Before|You|go [Go]|live [Live]|in|Hamburg",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "in",
+            "{TABLE}",
+            "A",
+            "kiss",
+            "Before",
+            "You",
+            "go",
+            "live",
+            "in",
+            "Hamburg"
+        ],
+        "original_sql": "SELECT T3.title FROM albums AS T1 JOIN tracklists AS T2 ON T1.aid  =  T2.albumid JOIN songs AS T3 ON T2.songid  =  T3.songid WHERE T1.title  =  \"A Kiss Before You Go: Live in Hamburg\""
+    },
+    {
+        "original_nl": "What are the song titles on the album \"A Kiss Before You Go: Live in Hamburg\"?",
+        "generalized_nl": "What|are|the|{TABLE} [song]|{COLUMN} [titles]|on|the|{TABLE} [album]|A|kiss [Kiss]|Before|You|go [Go]|live [Live]|in|Hamburg",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "on",
+            "the",
+            "{TABLE}",
+            "A",
+            "kiss",
+            "Before",
+            "You",
+            "go",
+            "live",
+            "in",
+            "Hamburg"
+        ],
+        "original_sql": "SELECT T3.title FROM albums AS T1 JOIN tracklists AS T2 ON T1.aid  =  T2.albumid JOIN songs AS T3 ON T2.songid  =  T3.songid WHERE T1.title  =  \"A Kiss Before You Go: Live in Hamburg\""
+    },
+    {
+        "original_nl": "What are all the songs in albums under label \"Universal Music Group\"?",
+        "generalized_nl": "What|are|all|the|{TABLE} [songs]|in|{TABLE} [albums]|under|{COLUMN} [label]|Universal|Music|Group",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "{TABLE}",
+            "under",
+            "{COLUMN}",
+            "Universal",
+            "Music",
+            "Group"
+        ],
+        "original_sql": "SELECT T3.title FROM albums AS T1 JOIN tracklists AS T2 ON T1.aid  =  T2.albumid JOIN songs AS T3 ON T2.songid  =  T3.songid WHERE t1.label  =  \"Universal Music Group\""
+    },
+    {
+        "original_nl": "What are the names of all the songs whose album is under the label of \"Universal Music Group\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [songs]|whose|{TABLE} [album]|is|under|the|{COLUMN} [label]|of|Universal|Music|Group",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{TABLE}",
+            "is",
+            "under",
+            "the",
+            "{COLUMN}",
+            "of",
+            "Universal",
+            "Music",
+            "Group"
+        ],
+        "original_sql": "SELECT T3.title FROM albums AS T1 JOIN tracklists AS T2 ON T1.aid  =  T2.albumid JOIN songs AS T3 ON T2.songid  =  T3.songid WHERE t1.label  =  \"Universal Music Group\""
+    },
+    {
+        "original_nl": "Find the number of songs in all the studio albums.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [songs]|in|all|the|studio|{TABLE} [albums]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "all",
+            "the",
+            "studio",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT T3.title) FROM albums AS T1 JOIN tracklists AS T2 ON T1.aid  =  T2.albumid JOIN songs AS T3 ON T2.songid  =  T3.songid WHERE t1.type  =  \"Studio\""
+    },
+    {
+        "original_nl": "How many songs appear in studio albums?",
+        "generalized_nl": "How|many|{TABLE} [songs]|appear|in|studio|{TABLE} [albums]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "appear",
+            "in",
+            "studio",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT T3.title) FROM albums AS T1 JOIN tracklists AS T2 ON T1.aid  =  T2.albumid JOIN songs AS T3 ON T2.songid  =  T3.songid WHERE t1.type  =  \"Studio\""
+    }
+]

@@ -1,0 +1,1750 @@
+[
+    {
+        "original_nl": "What are the top 5 countries by number of invoices and how many do they have?",
+        "generalized_nl": "What|are|the|top|{VALUE} [5]|{COLUMN} [countries]|by|number|of|{TABLE} [invoices]|and|how|many|do|they|have",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "top",
+            "{VALUE}",
+            "{COLUMN}",
+            "by",
+            "number",
+            "of",
+            "{TABLE}",
+            "and",
+            "how",
+            "many",
+            "do",
+            "they",
+            "have"
+        ],
+        "original_sql": "SELECT billing_country ,  COUNT(*) FROM invoices GROUP BY billing_country ORDER BY count(*) DESC LIMIT 5;"
+    },
+    {
+        "original_nl": "What are the names of the top 8 countries by total invoice size and what are those sizes?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|top|{VALUE} [8]|{COLUMN} [countries]|by|{COLUMN} [total]|{TABLE} [invoice]|size|and|what|are|those|size [sizes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "top",
+            "{VALUE}",
+            "{COLUMN}",
+            "by",
+            "{COLUMN}",
+            "{TABLE}",
+            "size",
+            "and",
+            "what",
+            "are",
+            "those",
+            "size"
+        ],
+        "original_sql": "SELECT billing_country ,  SUM(total) FROM invoices GROUP BY billing_country ORDER BY SUM(total) DESC LIMIT 8;"
+    },
+    {
+        "original_nl": "What are the names of the countries and average invoice size of the top countries by size?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{COLUMN} [countries]|and|average|{TABLE} [invoice]|size|of|the|top|{COLUMN} [countries]|by|size",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "and",
+            "average",
+            "{TABLE}",
+            "size",
+            "of",
+            "the",
+            "top",
+            "{COLUMN}",
+            "by",
+            "size"
+        ],
+        "original_sql": "SELECT billing_country ,  AVG(total) FROM invoices GROUP BY billing_country ORDER BY AVG(total) DESC LIMIT 10;"
+    },
+    {
+        "original_nl": "What are the first and last names of the 5 customers who purchased something most recently?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|the|{VALUE} [5]|{TABLE} [customers]|who|buy [purchased]|something|most|recently",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{VALUE}",
+            "{TABLE}",
+            "who",
+            "buy",
+            "something",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT T1.first_name ,  T1.last_name FROM customers AS T1 JOIN invoices AS T2 ON T2.customer_id  =  T1.id ORDER BY T2.invoice_date DESC LIMIT 5;"
+    },
+    {
+        "original_nl": "What are the top 10 customers' first and last names by total number of orders and how many orders did they make?",
+        "generalized_nl": "What|are|the|top|{VALUE} [10]|{TABLE} [customers]|'|{COLUMN_PART} [first]|and|{COLUMN} [last names]|by|{COLUMN} [total]|number|of|order [orders]|and|how|many|order [orders]|did|they|make",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "top",
+            "{VALUE}",
+            "{TABLE}",
+            "'",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "by",
+            "{COLUMN}",
+            "number",
+            "of",
+            "order",
+            "and",
+            "how",
+            "many",
+            "order",
+            "did",
+            "they",
+            "make"
+        ],
+        "original_sql": "SELECT T1.first_name ,  T1.last_name ,  COUNT(*) FROM customers AS T1 JOIN invoices AS T2 ON T2.customer_id  =  T1.id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 10;"
+    },
+    {
+        "original_nl": "What are the top 10 customers' first and last names with the highest gross sales, and also what are the sales?",
+        "generalized_nl": "What|are|the|top|{VALUE} [10]|{TABLE} [customers]|'|{COLUMN_PART} [first]|and|{COLUMN} [last names]|with|the|high [highest]|gross|sale [sales]|and|besides [also]|what|are|the|sale [sales]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "top",
+            "{VALUE}",
+            "{TABLE}",
+            "'",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "with",
+            "the",
+            "high",
+            "gross",
+            "sale",
+            "and",
+            "besides",
+            "what",
+            "are",
+            "the",
+            "sale"
+        ],
+        "original_sql": "SELECT T1.first_name ,  T1.last_name ,  SUM(T2.total) FROM customers AS T1 JOIN invoices AS T2 ON T2.customer_id  =  T1.id GROUP BY T1.id ORDER BY SUM(T2.total) DESC LIMIT 10;"
+    },
+    {
+        "original_nl": "How many tracks does each genre have and what are the names of the top 5?",
+        "generalized_nl": "How|many|{TABLE} [tracks]|does|each|{TABLE} [genre]|have|and|what|are|the|{COLUMN} [names]|of|the|top|{VALUE} [5]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "each",
+            "{TABLE}",
+            "have",
+            "and",
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "top",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.name ,  COUNT(*) FROM genres AS T1 JOIN tracks AS T2 ON T2.genre_id  =  T1.id GROUP BY T1.id ORDER BY count(*) DESC LIMIT 5;"
+    },
+    {
+        "original_nl": "List every album's title.",
+        "generalized_nl": "list [List]|every|{TABLE} [album]|'s|{COLUMN} [title]",
+        "generalized_tokens": [
+            "list",
+            "every",
+            "{TABLE}",
+            "'s",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT title FROM albums;"
+    },
+    {
+        "original_nl": "What are the titles of all the albums?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|all|the|{TABLE} [albums]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM albums;"
+    },
+    {
+        "original_nl": "List every album ordered by album title in ascending order.",
+        "generalized_nl": "list [List]|every|{TABLE} [album]|order [ordered]|by|{TABLE} [album]|{COLUMN} [title]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "list",
+            "every",
+            "{TABLE}",
+            "order",
+            "by",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT title FROM albums ORDER BY title;"
+    },
+    {
+        "original_nl": "What are the titles of all the albums alphabetically ascending?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|all|the|{TABLE} [albums]|alphabetically|ascend [ascending]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "alphabetically",
+            "ascend"
+        ],
+        "original_sql": "SELECT title FROM albums ORDER BY title;"
+    },
+    {
+        "original_nl": "List every album whose title starts with A in alphabetical order.",
+        "generalized_nl": "list [List]|every|{TABLE} [album]|whose|{COLUMN} [title]|start [starts]|with|A|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "every",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "start",
+            "with",
+            "A",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT title FROM albums WHERE title LIKE 'A%' ORDER BY title;"
+    },
+    {
+        "original_nl": "What are the titles of all albums that start with A in alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|all|{TABLE} [albums]|that|start|with|A|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "start",
+            "with",
+            "A",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT title FROM albums WHERE title LIKE 'A%' ORDER BY title;"
+    },
+    {
+        "original_nl": "List the customers first and last name of 10 least expensive invoices.",
+        "generalized_nl": "list [List]|the|{TABLE} [customers]|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|{VALUE} [10]|least|expensive|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{VALUE}",
+            "least",
+            "expensive",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.first_name ,  T1.last_name FROM customers AS T1 JOIN invoices AS T2 ON T2.customer_id  =  T1.id ORDER BY total LIMIT 10;"
+    },
+    {
+        "original_nl": "What are the first and last names of the customers with the 10 cheapest invoices?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|the|{TABLE} [customers]|with|the|{VALUE} [10]|cheap [cheapest]|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{VALUE}",
+            "cheap",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.first_name ,  T1.last_name FROM customers AS T1 JOIN invoices AS T2 ON T2.customer_id  =  T1.id ORDER BY total LIMIT 10;"
+    },
+    {
+        "original_nl": "List total amount of  invoice from Chicago, IL.",
+        "generalized_nl": "list [List]|{COLUMN} [total]|sum [amount]|of|{TABLE} [invoice]|from|{NE} [Chicago]|{NE} [IL]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "sum",
+            "of",
+            "{TABLE}",
+            "from",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(total) FROM invoices WHERE billing_city  =  \"Chicago\" AND billing_state  =  \"IL\";"
+    },
+    {
+        "original_nl": "What are the total amount of money in the invoices billed from Chicago, Illinois?",
+        "generalized_nl": "What|are|the|{COLUMN} [total]|sum [amount]|of|money|in|the|{TABLE} [invoices]|charge [billed]|from|{NE} [Chicago]|{NE} [Illinois]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "sum",
+            "of",
+            "money",
+            "in",
+            "the",
+            "{TABLE}",
+            "charge",
+            "from",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(total) FROM invoices WHERE billing_city  =  \"Chicago\" AND billing_state  =  \"IL\";"
+    },
+    {
+        "original_nl": "List the number of invoices from Chicago, IL.",
+        "generalized_nl": "list [List]|the|number|of|{TABLE} [invoices]|from|{NE} [Chicago]|{NE} [IL]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "from",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM invoices WHERE billing_city  =  \"Chicago\" AND billing_state  =  \"IL\";"
+    },
+    {
+        "original_nl": "How many invoices were billed from Chicago, IL?",
+        "generalized_nl": "How|many|{TABLE} [invoices]|were|charge [billed]|from|{NE} [Chicago]|IL",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "were",
+            "charge",
+            "from",
+            "{NE}",
+            "IL"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM invoices WHERE billing_city  =  \"Chicago\" AND billing_state  =  \"IL\";"
+    },
+    {
+        "original_nl": "List the number of invoices from the US, grouped by state.",
+        "generalized_nl": "list [List]|the|number|of|{TABLE} [invoices]|from|the|{NE} [US]|group [grouped]|by|{COLUMN} [state]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "from",
+            "the",
+            "{NE}",
+            "group",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT billing_state ,  COUNT(*) FROM invoices WHERE billing_country  =  \"USA\" GROUP BY billing_state;"
+    },
+    {
+        "original_nl": "How many invoices were billed from each state?",
+        "generalized_nl": "How|many|{TABLE} [invoices]|were|charge [billed]|from|each|{COLUMN} [state]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "were",
+            "charge",
+            "from",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT billing_state ,  COUNT(*) FROM invoices WHERE billing_country  =  \"USA\" GROUP BY billing_state;"
+    },
+    {
+        "original_nl": "List the state in the US with the most invoices.",
+        "generalized_nl": "list [List]|the|{COLUMN} [state]|in|the|{NE} [US]|with|the|most|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{NE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT billing_state ,  COUNT(*) FROM invoices WHERE billing_country  =  \"USA\" GROUP BY billing_state ORDER BY COUNT(*) DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "What are the states with the most invoices?",
+        "generalized_nl": "What|are|the|{COLUMN} [states]|with|the|most|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT billing_state ,  COUNT(*) FROM invoices WHERE billing_country  =  \"USA\" GROUP BY billing_state ORDER BY COUNT(*) DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "List the number of invoices and the invoice total from California.",
+        "generalized_nl": "list [List]|the|number|of|{TABLE} [invoices]|and|the|{TABLE} [invoice]|{COLUMN} [total]|from|{NE} [California]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT billing_state ,  COUNT(*) ,  SUM(total) FROM invoices WHERE billing_state  =  \"CA\";"
+    },
+    {
+        "original_nl": "What is the number of invoices and total money billed in them from CA?",
+        "generalized_nl": "What|is|the|number|of|{TABLE} [invoices]|and|{COLUMN} [total]|money|charge [billed]|in|them|from|{NE} [CA]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "money",
+            "charge",
+            "in",
+            "them",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT billing_state ,  COUNT(*) ,  SUM(total) FROM invoices WHERE billing_state  =  \"CA\";"
+    },
+    {
+        "original_nl": "List Aerosmith's albums.",
+        "generalized_nl": "list [List]|{NE} [Aerosmith]|'s|{TABLE} [albums]",
+        "generalized_tokens": [
+            "list",
+            "{NE}",
+            "'s",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.title FROM albums AS T1 JOIN artists AS T2 ON  T1.artist_id = T2.id WHERE T2.name = \"Aerosmith\";"
+    },
+    {
+        "original_nl": "What are the titles of all the Aerosmith albums?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|all|the|{NE} [Aerosmith]|{TABLE} [albums]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.title FROM albums AS T1 JOIN artists AS T2 ON  T1.artist_id = T2.id WHERE T2.name = \"Aerosmith\";"
+    },
+    {
+        "original_nl": "How many albums does Billy Cobham has?",
+        "generalized_nl": "How|many|{TABLE} [albums]|does|{NE} [Billy Cobham]|have [has]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM albums AS T1 JOIN artists AS T2 ON  T1.artist_id = T2.id WHERE T2.name = \"Billy Cobham\";"
+    },
+    {
+        "original_nl": "How many albums has Billy Cobam released?",
+        "generalized_nl": "How|many|{TABLE} [albums]|has|{NE} [Billy Cobam]|free [released]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "has",
+            "{NE}",
+            "free"
+        ],
+        "original_sql": "SELECT count(*) FROM albums AS T1 JOIN artists AS T2 ON  T1.artist_id = T2.id WHERE T2.name = \"Billy Cobham\";"
+    },
+    {
+        "original_nl": "Eduardo Martins is a customer at which company?",
+        "generalized_nl": "{NE} [Eduardo Martins]|is|a|{TABLE} [customer]|at|which|{COLUMN} [company]",
+        "generalized_tokens": [
+            "{NE}",
+            "is",
+            "a",
+            "{TABLE}",
+            "at",
+            "which",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT company FROM customers WHERE first_name = \"Eduardo\" AND last_name = \"Martins\";"
+    },
+    {
+        "original_nl": "What is the company where Eduardo Martins is a customer?",
+        "generalized_nl": "What|is|the|{COLUMN} [company]|where|{NE} [Eduardo Martins]|is|a|{TABLE} [customer]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "where",
+            "{NE}",
+            "is",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT company FROM customers WHERE first_name = \"Eduardo\" AND last_name = \"Martins\";"
+    },
+    {
+        "original_nl": "What is Astrid Gruber's email and phone number?",
+        "generalized_nl": "What|is|{NE} [Astrid Gruber 's]|{COLUMN} [email]|and|{COLUMN} [phone]|number",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{NE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "number"
+        ],
+        "original_sql": "SELECT email ,  phone FROM customers WHERE first_name = \"Astrid\" AND last_name = \"Gruber\";"
+    },
+    {
+        "original_nl": "What is the email and phone number of Astrid Gruber the customer?",
+        "generalized_nl": "What|is|the|{COLUMN} [email]|and|{COLUMN} [phone]|number|of|{NE} [Astrid Gruber]|the|{TABLE} [customer]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "number",
+            "of",
+            "{NE}",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT email ,  phone FROM customers WHERE first_name = \"Astrid\" AND last_name = \"Gruber\";"
+    },
+    {
+        "original_nl": "How many customers live in Prague city?",
+        "generalized_nl": "How|many|{TABLE} [customers]|live|in|{NE} [Prague city]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers WHERE city = \"Prague\";"
+    },
+    {
+        "original_nl": "How many customers live in the city of Prague?",
+        "generalized_nl": "How|many|{TABLE} [customers]|live|in|the|{COLUMN} [city]|of|{NE} [Prague]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "live",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers WHERE city = \"Prague\";"
+    },
+    {
+        "original_nl": "How many customers in state of CA?",
+        "generalized_nl": "How|many|{TABLE} [customers]|in|{COLUMN} [state]|of|{NE} [CA]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers WHERE state = \"CA\";"
+    },
+    {
+        "original_nl": "How many customers are from California?",
+        "generalized_nl": "How|many|{TABLE} [customers]|are|from|{NE} [California]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers WHERE state = \"CA\";"
+    },
+    {
+        "original_nl": "What country does Roberto Almeida live?",
+        "generalized_nl": "What|{COLUMN} [country]|does|{NE} [Roberto Almeida]|live",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "does",
+            "{NE}",
+            "live"
+        ],
+        "original_sql": "SELECT country FROM customers WHERE first_name = \"Roberto\" AND last_name = \"Almeida\";"
+    },
+    {
+        "original_nl": "In which country does Roberto Almeida?",
+        "generalized_nl": "In|which|{COLUMN} [country]|does|{NE} [Roberto Almeida]",
+        "generalized_tokens": [
+            "In",
+            "which",
+            "{COLUMN}",
+            "does",
+            "{NE}"
+        ],
+        "original_sql": "SELECT country FROM customers WHERE first_name = \"Roberto\" AND last_name = \"Almeida\";"
+    },
+    {
+        "original_nl": "List the name of albums that are released by aritist whose name has 'Led'",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [albums]|that|are|free [released]|by|aritist|whose|{COLUMN} [name]|has|lead [Led]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "free",
+            "by",
+            "aritist",
+            "whose",
+            "{COLUMN}",
+            "has",
+            "lead"
+        ],
+        "original_sql": "SELECT T2.title FROM artists AS T1 JOIN albums AS T2 ON T1.id  =  T2.artist_id WHERE T1.name LIKE '%Led%'"
+    },
+    {
+        "original_nl": "What is the title of the album that was released by the artist whose name has the phrase 'Led'?",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|of|the|{TABLE} [album]|that|was|free [released]|by|the|{TABLE} [artist]|whose|{COLUMN} [name]|have [has]|the|phrase|lead [Led]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "was",
+            "free",
+            "by",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "have",
+            "the",
+            "phrase",
+            "lead"
+        ],
+        "original_sql": "SELECT T2.title FROM artists AS T1 JOIN albums AS T2 ON T1.id  =  T2.artist_id WHERE T1.name LIKE '%Led%'"
+    },
+    {
+        "original_nl": "How many customers does Steve Johnson support?",
+        "generalized_nl": "How|many|{TABLE} [customers]|does|{NE} [Steve Johnson]|{COLUMN_PART} [support]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM employees AS T1 JOIN customers AS T2 ON T2.support_rep_id = T1.id WHERE T1.first_name = \"Steve\" AND T1.last_name = \"Johnson\";"
+    },
+    {
+        "original_nl": "What is the count of customers that Steve Johnson supports?",
+        "generalized_nl": "What|is|the|count|of|{TABLE} [customers]|that|{NE} [Steve Johnson]|support [supports]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "count",
+            "of",
+            "{TABLE}",
+            "that",
+            "{NE}",
+            "support"
+        ],
+        "original_sql": "SELECT count(*) FROM employees AS T1 JOIN customers AS T2 ON T2.support_rep_id = T1.id WHERE T1.first_name = \"Steve\" AND T1.last_name = \"Johnson\";"
+    },
+    {
+        "original_nl": "What is the title, phone and hire date of Nancy Edwards?",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|{COLUMN} [phone]|and|{COLUMN} [hire date]|of|{NE} [Nancy Edwards]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT title ,  phone ,  hire_date FROM employees WHERE first_name = \"Nancy\" AND last_name = \"Edwards\";"
+    },
+    {
+        "original_nl": "What is the title, phone number and hire date for the employee named Nancy Edwards?",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|{COLUMN} [phone]|number|and|{COLUMN} [hire date]|for|the|{TABLE} [employee]|name [named]|{NE} [Nancy Edwards]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "number",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT title ,  phone ,  hire_date FROM employees WHERE first_name = \"Nancy\" AND last_name = \"Edwards\";"
+    },
+    {
+        "original_nl": "find the full name of employees who report to Nancy Edwards?",
+        "generalized_nl": "find|the|full|{COLUMN} [name]|of|{TABLE} [employees]|who|report|to|{NE} [Nancy Edwards]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "full",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "report",
+            "to",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.first_name , T2.last_name FROM employees AS T1 JOIN employees AS T2 ON T1.id = T2.reports_to WHERE T1.first_name = \"Nancy\" AND T1.last_name = \"Edwards\";"
+    },
+    {
+        "original_nl": "What is the first and last name of the employee who reports to Nancy Edwards?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [employee]|who|{COLUMN} [reports to]|{NE} [Nancy Edwards]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.first_name , T2.last_name FROM employees AS T1 JOIN employees AS T2 ON T1.id = T2.reports_to WHERE T1.first_name = \"Nancy\" AND T1.last_name = \"Edwards\";"
+    },
+    {
+        "original_nl": "What is the address of employee Nancy Edwards?",
+        "generalized_nl": "What|is|the|{COLUMN} [address]|of|{TABLE} [employee]|{NE} [Nancy Edwards]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT address FROM employees WHERE first_name = \"Nancy\" AND last_name = \"Edwards\";"
+    },
+    {
+        "original_nl": "What is Nancy Edwards's address?",
+        "generalized_nl": "What|is|{NE} [Nancy Edwards 's]|{COLUMN} [address]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT address FROM employees WHERE first_name = \"Nancy\" AND last_name = \"Edwards\";"
+    },
+    {
+        "original_nl": "Find the full name of employee who supported the most number of customers.",
+        "generalized_nl": "find [Find]|the|full|{COLUMN} [name]|of|{TABLE} [employee]|who|support [supported]|the|most|number|of|{TABLE} [customers]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "full",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "support",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.first_name , T1.last_name FROM employees AS T1 JOIN customers AS T2 ON T1.id  =  T2.support_rep_id GROUP BY T1.id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the full name of the employee who has the most customers?",
+        "generalized_nl": "What|is|the|full|{COLUMN} [name]|of|the|{TABLE} [employee]|who|have [has]|the|most|{TABLE} [customers]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "full",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.first_name , T1.last_name FROM employees AS T1 JOIN customers AS T2 ON T1.id  =  T2.support_rep_id GROUP BY T1.id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many employees are living in Canada?",
+        "generalized_nl": "How|many|{TABLE} [employees]|are|live [living]|in|{NE} [Canada]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM employees WHERE country = \"Canada\";"
+    },
+    {
+        "original_nl": "How many employees live in Canada?",
+        "generalized_nl": "How|many|{TABLE} [employees]|live|in|{NE} [Canada]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM employees WHERE country = \"Canada\";"
+    },
+    {
+        "original_nl": "What is the the phone number of Nancy Edwards?",
+        "generalized_nl": "What|is|the|the|{COLUMN} [phone]|number|of|{NE} [Nancy Edwards]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "the",
+            "{COLUMN}",
+            "number",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT phone FROM employees WHERE first_name = \"Nancy\" AND last_name = \"Edwards\";"
+    },
+    {
+        "original_nl": "What si the youngest employee's first and last name?",
+        "generalized_nl": "What|si|the|young [youngest]|{TABLE} [employee]|'s|{COLUMN_PART} [first]|and|{COLUMN} [last name]",
+        "generalized_tokens": [
+            "What",
+            "si",
+            "the",
+            "young",
+            "{TABLE}",
+            "'s",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT first_name , last_name FROM employees ORDER BY birth_date DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "What are the first and last names of the top 10 longest-serving employees?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|the|top|{VALUE} [10]|long [longest]|serve [serving]|{TABLE} [employees]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "top",
+            "{VALUE}",
+            "long",
+            "serve",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT first_name , last_name FROM employees ORDER BY hire_date ASC LIMIT 10;"
+    },
+    {
+        "original_nl": "Find the number of employees whose title is IT Staff from each city?",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [employees]|whose|{COLUMN} [title]|is|IT|staff [Staff]|from|each|{COLUMN} [city]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "IT",
+            "staff",
+            "from",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  city FROM employees WHERE title  =  'IT Staff' GROUP BY city"
+    },
+    {
+        "original_nl": "How many employees who are IT staff are from each city?",
+        "generalized_nl": "How|many|{TABLE} [employees]|who|are|IT|staff|are|from|each|{COLUMN} [city]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "who",
+            "are",
+            "IT",
+            "staff",
+            "are",
+            "from",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  city FROM employees WHERE title  =  'IT Staff' GROUP BY city"
+    },
+    {
+        "original_nl": "What are the first and last names of all the employees and how many people report to them?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|all|the|{TABLE} [employees]|and|how|many|people|report|to|them",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "and",
+            "how",
+            "many",
+            "people",
+            "report",
+            "to",
+            "them"
+        ],
+        "original_sql": "SELECT T2.first_name , T2.last_name ,  count(T1.reports_to) FROM employees AS T1 JOIN employees AS T2 ON T1.reports_to = T2.id GROUP BY T1.reports_to ORDER BY count(T1.reports_to) DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "How many orders does Lucas Mancini has?",
+        "generalized_nl": "How|many|order [orders]|does|{NE} [Lucas Mancini]|have [has]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "order",
+            "does",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM customers AS T1 JOIN invoices AS T2 ON T1.id = T2.customer_id WHERE T1.first_name = \"Lucas\" AND T1.last_name = \"Mancini\";"
+    },
+    {
+        "original_nl": "How many orders does Luca Mancini have in his invoices?",
+        "generalized_nl": "How|many|order [orders]|does|{NE} [Luca Mancini]|have|in|his|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "order",
+            "does",
+            "{NE}",
+            "have",
+            "in",
+            "his",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers AS T1 JOIN invoices AS T2 ON T1.id = T2.customer_id WHERE T1.first_name = \"Lucas\" AND T1.last_name = \"Mancini\";"
+    },
+    {
+        "original_nl": "What is the total amount of money spent by Lucas Mancini?",
+        "generalized_nl": "What|is|the|{COLUMN} [total]|sum [amount]|of|money|spend [spent]|by|{NE} [Lucas Mancini]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "sum",
+            "of",
+            "money",
+            "spend",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(T2.total) FROM customers AS T1 JOIN invoices AS T2 ON T1.id = T2.customer_id WHERE T1.first_name = \"Lucas\" AND T1.last_name = \"Mancini\";"
+    },
+    {
+        "original_nl": "How much money did Lucas Mancini spend?",
+        "generalized_nl": "How|much|money|did|{NE} [Lucas Mancini]|spend",
+        "generalized_tokens": [
+            "How",
+            "much",
+            "money",
+            "did",
+            "{NE}",
+            "spend"
+        ],
+        "original_sql": "SELECT sum(T2.total) FROM customers AS T1 JOIN invoices AS T2 ON T1.id = T2.customer_id WHERE T1.first_name = \"Lucas\" AND T1.last_name = \"Mancini\";"
+    },
+    {
+        "original_nl": "List all media types.",
+        "generalized_nl": "list [List]|all|{TABLE} [media types]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM media_types;"
+    },
+    {
+        "original_nl": "What are the names of all the media types?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|the|{TABLE} [media types]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM media_types;"
+    },
+    {
+        "original_nl": "List all different genre types.",
+        "generalized_nl": "list [List]|all|different|{TABLE} [genre]|type [types]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "different",
+            "{TABLE}",
+            "type"
+        ],
+        "original_sql": "SELECT DISTINCT name FROM genres;"
+    },
+    {
+        "original_nl": "What are the different names of the genres?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [names]|of|the|{TABLE} [genres]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT name FROM genres;"
+    },
+    {
+        "original_nl": "List the name of all playlist.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|all|{TABLE} [playlist]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM playlists;"
+    },
+    {
+        "original_nl": "What are the names of all the playlists?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|the|{TABLE} [playlists]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM playlists;"
+    },
+    {
+        "original_nl": "Who is the composer of track Fast As a Shark?",
+        "generalized_nl": "Who|is|the|{COLUMN} [composer]|of|{TABLE} [track]|{NE} [Fast As a Shark]",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT composer FROM tracks WHERE name = \"Fast As a Shark\";"
+    },
+    {
+        "original_nl": "What is the composer who created the track \"Fast As a Shark\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [composer]|who|create [created]|the|{TABLE} [track]|fast [Fast]|As|a|Shark",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "who",
+            "create",
+            "the",
+            "{TABLE}",
+            "fast",
+            "As",
+            "a",
+            "Shark"
+        ],
+        "original_sql": "SELECT composer FROM tracks WHERE name = \"Fast As a Shark\";"
+    },
+    {
+        "original_nl": "How long does track Fast As a Shark has?",
+        "generalized_nl": "How|long|does|{TABLE} [track]|{NE} [Fast As a Shark]|have [has]",
+        "generalized_tokens": [
+            "How",
+            "long",
+            "does",
+            "{TABLE}",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT milliseconds FROM tracks WHERE name = \"Fast As a Shark\";"
+    },
+    {
+        "original_nl": "How many milliseconds long is Fast As a Shark?",
+        "generalized_nl": "How|many|{COLUMN} [milliseconds]|long|is|{NE} [Fast As a Shark]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "long",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT milliseconds FROM tracks WHERE name = \"Fast As a Shark\";"
+    },
+    {
+        "original_nl": "What is the name of tracks whose genre is Rock?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|{TABLE} [tracks]|whose|{TABLE} [genre]|is|rock [Rock]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{TABLE}",
+            "is",
+            "rock"
+        ],
+        "original_sql": "SELECT T2.name FROM genres AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id WHERE T1.name = \"Rock\";"
+    },
+    {
+        "original_nl": "What is the name of all tracks in the Rock genre?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|all|{TABLE} [tracks]|in|the|rock [Rock]|{TABLE} [genre]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "rock",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name FROM genres AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id WHERE T1.name = \"Rock\";"
+    },
+    {
+        "original_nl": "What is title of album which track Balls to the Wall belongs to?",
+        "generalized_nl": "What|is|{COLUMN} [title]|of|{TABLE} [album]|which|{TABLE} [track]|{NE} [Balls to the Wall]|belong [belongs]|to",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "which",
+            "{TABLE}",
+            "{NE}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T1.title FROM albums AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id WHERE T2.name = \"Balls to the Wall\";"
+    },
+    {
+        "original_nl": "What is the name of the album that has the track Ball to the Wall?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [album]|that|have [has]|{NE} [the track Ball to the Wall]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.title FROM albums AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id WHERE T2.name = \"Balls to the Wall\";"
+    },
+    {
+        "original_nl": "List name of all tracks in Balls to the Wall.",
+        "generalized_nl": "list [List]|{COLUMN} [name]|of|all|{TABLE} [tracks]|in|{NE} [Balls to the Wall]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.name FROM albums AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id WHERE T1.title = \"Balls to the Wall\";"
+    },
+    {
+        "original_nl": "What is the name of all tracks in the album named Balls to the Wall?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|all|{TABLE} [tracks]|in|the|{TABLE} [album]|name [named]|{NE} [Balls to the Wall]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.name FROM albums AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id WHERE T1.title = \"Balls to the Wall\";"
+    },
+    {
+        "original_nl": "List title of albums have the number of tracks greater than 10.",
+        "generalized_nl": "list [List]|{COLUMN} [title]|of|{TABLE} [albums]|have|the|number|of|{TABLE} [tracks]|{NUMBER} [greater than 10]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "have",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.title FROM albums AS T1 JOIN tracks AS T2 ON T1.id = T2.album_id GROUP BY T1.id HAVING count(T1.id)  >  10;"
+    },
+    {
+        "original_nl": "What are the names of the albums that have more than 10 tracks?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [albums]|that|have|{NUMBER} [more than 10]|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.title FROM albums AS T1 JOIN tracks AS T2 ON T1.id = T2.album_id GROUP BY T1.id HAVING count(T1.id)  >  10;"
+    },
+    {
+        "original_nl": "List the name of tracks belongs to genre Rock and whose media type is MPEG audio file.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [tracks]|belong [belongs]|to|{TABLE} [genre]|{NE} [Rock]|and|whose|{TABLE} [media type]|is|mpeg [MPEG]|audio|file",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "belong",
+            "to",
+            "{TABLE}",
+            "{NE}",
+            "and",
+            "whose",
+            "{TABLE}",
+            "is",
+            "mpeg",
+            "audio",
+            "file"
+        ],
+        "original_sql": "SELECT T2.name FROM genres AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id JOIN media_types AS T3 ON T3.id = T2.media_type_id WHERE T1.name = \"Rock\" AND T3.name = \"MPEG audio file\";"
+    },
+    {
+        "original_nl": "What are the names of all Rock tracks that are stored on MPEG audio files?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{NE} [Rock]|{TABLE} [tracks]|that|are|store [stored]|on|mpeg [MPEG]|audio|file [files]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{NE}",
+            "{TABLE}",
+            "that",
+            "are",
+            "store",
+            "on",
+            "mpeg",
+            "audio",
+            "file"
+        ],
+        "original_sql": "SELECT T2.name FROM genres AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id JOIN media_types AS T3 ON T3.id = T2.media_type_id WHERE T1.name = \"Rock\" AND T3.name = \"MPEG audio file\";"
+    },
+    {
+        "original_nl": "List the name of tracks belongs to genre Rock or media type is MPEG audio file.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [tracks]|belong [belongs]|to|{TABLE} [genre]|rock [Rock]|or|{TABLE} [media type]|is|mpeg [MPEG]|audio|file",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "belong",
+            "to",
+            "{TABLE}",
+            "rock",
+            "or",
+            "{TABLE}",
+            "is",
+            "mpeg",
+            "audio",
+            "file"
+        ],
+        "original_sql": "SELECT T2.name FROM genres AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id JOIN media_types AS T3 ON T3.id = T2.media_type_id WHERE T1.name = \"Rock\" OR T3.name = \"MPEG audio file\";"
+    },
+    {
+        "original_nl": "What are the names of all tracks that belong to the Rock genre and whose media type is MPEG?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [tracks]|that|belong|to|the|rock [Rock]|{TABLE} [genre]|and|whose|{TABLE} [media type]|is|mpeg [MPEG]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "belong",
+            "to",
+            "the",
+            "rock",
+            "{TABLE}",
+            "and",
+            "whose",
+            "{TABLE}",
+            "is",
+            "mpeg"
+        ],
+        "original_sql": "SELECT T2.name FROM genres AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id JOIN media_types AS T3 ON T3.id = T2.media_type_id WHERE T1.name = \"Rock\" OR T3.name = \"MPEG audio file\";"
+    },
+    {
+        "original_nl": "List the name of tracks belongs to genre Rock or genre Jazz.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [tracks]|belong [belongs]|to|{TABLE} [genre]|rock [Rock]|or|{TABLE} [genre]|{NE} [Jazz]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "belong",
+            "to",
+            "{TABLE}",
+            "rock",
+            "or",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.name FROM genres AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id WHERE T1.name = \"Rock\" OR T1.name = \"Jazz\""
+    },
+    {
+        "original_nl": "What are the names of the tracks that are Rock or Jazz songs?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [tracks]|that|are|{NE} [Rock or Jazz]|song [songs]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "{NE}",
+            "song"
+        ],
+        "original_sql": "SELECT T2.name FROM genres AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id WHERE T1.name = \"Rock\" OR T1.name = \"Jazz\""
+    },
+    {
+        "original_nl": "List the name of all tracks in the playlists of Movies.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|all|{TABLE} [tracks]|in|the|{TABLE} [playlists]|of|movie [Movies]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "{TABLE}",
+            "of",
+            "movie"
+        ],
+        "original_sql": "SELECT T1.name FROM tracks AS T1 JOIN playlist_tracks AS T2 ON T1.id = T2.track_id JOIN playlists AS T3 ON T3.id = T2.playlist_id WHERE T3.name = \"Movies\";"
+    },
+    {
+        "original_nl": "What are the names of all tracks that are on playlists titled Movies?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [tracks]|that|are|on|{TABLE} [playlists]|entitle [titled]|{NE} [Movies]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "are",
+            "on",
+            "{TABLE}",
+            "entitle",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM tracks AS T1 JOIN playlist_tracks AS T2 ON T1.id = T2.track_id JOIN playlists AS T3 ON T3.id = T2.playlist_id WHERE T3.name = \"Movies\";"
+    },
+    {
+        "original_nl": "List the name of playlist which has number of tracks greater than 100.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [playlist]|which|have [has]|number|of|{TABLE} [tracks]|{NUMBER} [greater than 100]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "which",
+            "have",
+            "number",
+            "of",
+            "{TABLE}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.name FROM playlist_tracks AS T1 JOIN playlists AS T2 ON T2.id = T1.playlist_id GROUP BY T1.playlist_id HAVING count(T1.track_id)  >  100;"
+    },
+    {
+        "original_nl": "What are the names of all playlists that have more than 100 tracks?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [playlists]|that|have|{NUMBER} [more than 100]|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name FROM playlist_tracks AS T1 JOIN playlists AS T2 ON T2.id = T1.playlist_id GROUP BY T1.playlist_id HAVING count(T1.track_id)  >  100;"
+    },
+    {
+        "original_nl": "List all tracks bought by customer Daan Peeters.",
+        "generalized_nl": "list [List]|all|{TABLE} [tracks]|buy [bought]|by|{TABLE} [customer]|{NE} [Daan Peeters]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "buy",
+            "by",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM tracks AS T1 JOIN invoice_lines AS T2 ON T1.id = T2.track_id JOIN invoices AS T3 ON T3.id = T2.invoice_id JOIN customers AS T4 ON T4.id = T3.customer_id WHERE T4.first_name = \"Daan\" AND T4.last_name = \"Peeters\";"
+    },
+    {
+        "original_nl": "What are the tracks that Dean Peeters bought?",
+        "generalized_nl": "What|are|the|{TABLE} [tracks]|that|{NE} [Dean Peeters]|buy [bought]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "that",
+            "{NE}",
+            "buy"
+        ],
+        "original_sql": "SELECT T1.name FROM tracks AS T1 JOIN invoice_lines AS T2 ON T1.id = T2.track_id JOIN invoices AS T3 ON T3.id = T2.invoice_id JOIN customers AS T4 ON T4.id = T3.customer_id WHERE T4.first_name = \"Daan\" AND T4.last_name = \"Peeters\";"
+    },
+    {
+        "original_nl": "How much is the track Fast As a Shark?",
+        "generalized_nl": "How|much|is|the|{TABLE} [track]|{NE} [Fast As a Shark]",
+        "generalized_tokens": [
+            "How",
+            "much",
+            "is",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT unit_price FROM tracks WHERE name = \"Fast As a Shark\";"
+    },
+    {
+        "original_nl": "What is the unit price of the tune \"Fast As a Shark\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [unit price]|of|the|tune|fast [Fast]|As|a|Shark",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "tune",
+            "fast",
+            "As",
+            "a",
+            "Shark"
+        ],
+        "original_sql": "SELECT unit_price FROM tracks WHERE name = \"Fast As a Shark\";"
+    },
+    {
+        "original_nl": "Find the name of tracks which are in Movies playlist but not in music playlist.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [tracks]|which|are|in|movie [Movies]|{TABLE} [playlist]|but|not|in|music|{TABLE} [playlist]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "which",
+            "are",
+            "in",
+            "movie",
+            "{TABLE}",
+            "but",
+            "not",
+            "in",
+            "music",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM tracks AS T1 JOIN playlist_tracks AS T2 ON T1.id  =  T2.track_id JOIN playlists AS T3 ON T2.playlist_id  =  T3.id WHERE T3.name  =  'Movies' EXCEPT SELECT T1.name FROM tracks AS T1 JOIN playlist_tracks AS T2 ON T1.id  =  T2.track_id JOIN playlists AS T3 ON T2.playlist_id  =  T3.id WHERE T3.name  =  'Music'"
+    },
+    {
+        "original_nl": "What are the names of all tracks that are on the Movies playlist but not in the music playlist?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [tracks]|that|are|on|the|movie [Movies]|{TABLE} [playlist]|but|not|in|the|music|{TABLE} [playlist]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "are",
+            "on",
+            "the",
+            "movie",
+            "{TABLE}",
+            "but",
+            "not",
+            "in",
+            "the",
+            "music",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM tracks AS T1 JOIN playlist_tracks AS T2 ON T1.id  =  T2.track_id JOIN playlists AS T3 ON T2.playlist_id  =  T3.id WHERE T3.name  =  'Movies' EXCEPT SELECT T1.name FROM tracks AS T1 JOIN playlist_tracks AS T2 ON T1.id  =  T2.track_id JOIN playlists AS T3 ON T2.playlist_id  =  T3.id WHERE T3.name  =  'Music'"
+    },
+    {
+        "original_nl": "Find the name of tracks which are in both Movies and music playlists.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [tracks]|which|are|in|both|{NE} [Movies]|and|music|{TABLE} [playlists]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "which",
+            "are",
+            "in",
+            "both",
+            "{NE}",
+            "and",
+            "music",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM tracks AS T1 JOIN playlist_tracks AS T2 ON T1.id  =  T2.track_id JOIN playlists AS T3 ON T2.playlist_id  =  T3.id WHERE T3.name  =  'Movies' INTERSECT SELECT T1.name FROM tracks AS T1 JOIN playlist_tracks AS T2 ON T1.id  =  T2.track_id JOIN playlists AS T3 ON T2.playlist_id  =  T3.id WHERE T3.name  =  'Music'"
+    },
+    {
+        "original_nl": "What are the names of all the tracks that are in both the Movies and music playlists?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|the|{TABLE} [tracks]|that|are|in|both|the|movie [Movies]|and|music|{TABLE} [playlists]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "in",
+            "both",
+            "the",
+            "movie",
+            "and",
+            "music",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM tracks AS T1 JOIN playlist_tracks AS T2 ON T1.id  =  T2.track_id JOIN playlists AS T3 ON T2.playlist_id  =  T3.id WHERE T3.name  =  'Movies' INTERSECT SELECT T1.name FROM tracks AS T1 JOIN playlist_tracks AS T2 ON T1.id  =  T2.track_id JOIN playlists AS T3 ON T2.playlist_id  =  T3.id WHERE T3.name  =  'Music'"
+    },
+    {
+        "original_nl": "Find number of tracks in each genre?",
+        "generalized_nl": "find [Find]|number|of|{TABLE} [tracks]|in|each|{TABLE} [genre]",
+        "generalized_tokens": [
+            "find",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.name FROM genres AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id GROUP BY T1.name;"
+    },
+    {
+        "original_nl": "How many tracks are in each genre?",
+        "generalized_nl": "How|many|{TABLE} [tracks]|are|in|each|{TABLE} [genre]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.name FROM genres AS T1 JOIN tracks AS T2 ON T1.id = T2.genre_id GROUP BY T1.name;"
+    }
+]

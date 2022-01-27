@@ -1,0 +1,1468 @@
+[
+    {
+        "original_nl": "How many accounts do we have?",
+        "generalized_nl": "How|many|{TABLE} [accounts]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Accounts"
+    },
+    {
+        "original_nl": "Count the number of accounts.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Accounts"
+    },
+    {
+        "original_nl": "Show all account ids and account details.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [account ids]|and|{COLUMN} [account details]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT account_id ,  account_details FROM Accounts"
+    },
+    {
+        "original_nl": "What are the ids and details of all accounts?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|and|{COLUMN_PART} [details]|of|all|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT account_id ,  account_details FROM Accounts"
+    },
+    {
+        "original_nl": "How many statements do we have?",
+        "generalized_nl": "How|many|{TABLE} [statements]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Statements"
+    },
+    {
+        "original_nl": "Count the number of statements.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [statements]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Statements"
+    },
+    {
+        "original_nl": "List all statement ids and statement details.",
+        "generalized_nl": "list [List]|all|{COLUMN} [statement ids]|and|{COLUMN} [statement details]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT STATEMENT_ID ,  statement_details FROM Statements"
+    },
+    {
+        "original_nl": "What are the ids and details of all statements?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|and|{COLUMN_PART} [details]|of|all|{TABLE} [statements]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT STATEMENT_ID ,  statement_details FROM Statements"
+    },
+    {
+        "original_nl": "Show statement id, statement detail, account detail for accounts.",
+        "generalized_nl": "show [Show]|{COLUMN} [statement id]|{COLUMN} [statement detail]|{COLUMN} [account detail]|for|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.statement_id ,  T2.statement_details ,  T1.account_details FROM Accounts AS T1 JOIN Statements AS T2 ON T1.statement_id  =  T2.statement_id"
+    },
+    {
+        "original_nl": "What are the statement ids, statement details, and account details, for all accounts?",
+        "generalized_nl": "What|are|the|{COLUMN} [statement ids]|{COLUMN} [statement details]|and|{COLUMN} [account details]|for|all|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.statement_id ,  T2.statement_details ,  T1.account_details FROM Accounts AS T1 JOIN Statements AS T2 ON T1.statement_id  =  T2.statement_id"
+    },
+    {
+        "original_nl": "Show all statement id and the number of accounts for each statement.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [statement id]|and|the|number|of|{TABLE} [accounts]|for|each|{TABLE} [statement]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT STATEMENT_ID ,  count(*) FROM Accounts GROUP BY STATEMENT_ID"
+    },
+    {
+        "original_nl": "What are the different statement ids on accounts, and the number of accounts for each?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [statement ids]|on|{TABLE} [accounts]|and|the|number|of|{TABLE} [accounts]|for|each",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "on",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "each"
+        ],
+        "original_sql": "SELECT STATEMENT_ID ,  count(*) FROM Accounts GROUP BY STATEMENT_ID"
+    },
+    {
+        "original_nl": "Show the statement id and the statement detail for the statement with most number of accounts.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [statement id]|and|the|{COLUMN} [statement detail]|for|the|{TABLE} [statement]|with|most|number|of|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.statement_id ,  T2.statement_details FROM Accounts AS T1 JOIN Statements AS T2 ON T1.statement_id  =  T2.statement_id GROUP BY T1.statement_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the statement id and statement detail for the statement that has the most corresponding accounts?",
+        "generalized_nl": "What|are|the|{COLUMN} [statement id]|and|{COLUMN} [statement detail]|for|the|{TABLE} [statement]|that|have [has]|the|most|match [corresponding]|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "match",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.statement_id ,  T2.statement_details FROM Accounts AS T1 JOIN Statements AS T2 ON T1.statement_id  =  T2.statement_id GROUP BY T1.statement_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the number of documents.",
+        "generalized_nl": "show [Show]|the|number|of|{TABLE} [documents]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Documents"
+    },
+    {
+        "original_nl": "Count the number of documents.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [documents]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Documents"
+    },
+    {
+        "original_nl": "List the document type code, document name, and document description for the document with name 'Noel CV' or name 'King Book'.",
+        "generalized_nl": "list [List]|the|{COLUMN} [document type code]|{COLUMN} [document name]|and|{COLUMN} [document description]|for|the|{TABLE} [document]|with|{COLUMN_PART} [name]|{NE} [Noel]|CV|or|{COLUMN_PART} [name]|King|Book",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}",
+            "CV",
+            "or",
+            "{COLUMN_PART}",
+            "King",
+            "Book"
+        ],
+        "original_sql": "SELECT document_type_code ,  document_name ,  document_description FROM Documents WHERE document_name  =  'Noel CV' OR document_name  =  'King Book'"
+    },
+    {
+        "original_nl": "What are the type come, name, and description of the document that has either the name 'Noel CV' or 'King Book'?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [type]|come|{COLUMN_PART} [name]|and|{COLUMN_PART} [description]|of|the|{TABLE} [document]|that|have [has]|either|the|{COLUMN_PART} [name]|{NE} [Noel]|CV|or|King|Book",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "come",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "either",
+            "the",
+            "{COLUMN_PART}",
+            "{NE}",
+            "CV",
+            "or",
+            "King",
+            "Book"
+        ],
+        "original_sql": "SELECT document_type_code ,  document_name ,  document_description FROM Documents WHERE document_name  =  'Noel CV' OR document_name  =  'King Book'"
+    },
+    {
+        "original_nl": "Show the ids and names of all documents.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|and|{COLUMN_PART} [names]|of|all|{TABLE} [documents]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_id ,  document_name FROM Documents"
+    },
+    {
+        "original_nl": "What are the ids and names for each of the documents?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|and|{COLUMN_PART} [names]|for|each|of|the|{TABLE} [documents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "each",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_id ,  document_name FROM Documents"
+    },
+    {
+        "original_nl": "Find names and ids of all documents with document type code BK.",
+        "generalized_nl": "find [Find]|{COLUMN_PART} [names]|and|{COLUMN_PART} [ids]|of|all|{TABLE} [documents]|with|{COLUMN} [document type code]|berkelium [BK]",
+        "generalized_tokens": [
+            "find",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "berkelium"
+        ],
+        "original_sql": "SELECT document_name ,  document_id FROM Documents WHERE document_type_code  =  \"BK\""
+    },
+    {
+        "original_nl": "What are the names and ids of documents that have the type code BK?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [ids]|of|{TABLE} [documents]|that|have|the|{COLUMN_PART} [type]|{COLUMN_PART} [code]|berkelium [BK]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "berkelium"
+        ],
+        "original_sql": "SELECT document_name ,  document_id FROM Documents WHERE document_type_code  =  \"BK\""
+    },
+    {
+        "original_nl": "How many documents are with document type code BK for each product id?",
+        "generalized_nl": "How|many|{TABLE} [documents]|are|with|{COLUMN} [document type code]|berkelium [BK]|for|each|product|{COLUMN_PART} [id]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "with",
+            "{COLUMN}",
+            "berkelium",
+            "for",
+            "each",
+            "product",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) ,  project_id FROM Documents WHERE document_type_code  =  \"BK\" GROUP BY project_id"
+    },
+    {
+        "original_nl": "Count the number of documents with the type code BK that correspond to each product id.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [documents]|with|the|{COLUMN_PART} [type]|{COLUMN_PART} [code]|berkelium [BK]|that|match [correspond]|to|each|product|{COLUMN_PART} [id]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "berkelium",
+            "that",
+            "match",
+            "to",
+            "each",
+            "product",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) ,  project_id FROM Documents WHERE document_type_code  =  \"BK\" GROUP BY project_id"
+    },
+    {
+        "original_nl": "Show the document name and the document date for all documents on project with details 'Graph Database project'.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [document name]|and|the|{COLUMN} [document date]|for|all|{TABLE} [documents]|on|{TABLE} [project]|with|{COLUMN_PART} [details]|{NE} [Graph Database project ']",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "on",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT document_name ,  document_date FROM Documents AS T1 JOIN projects AS T2 ON T1.project_id  =  T2.project_id WHERE T2.project_details  =  'Graph Database project'"
+    },
+    {
+        "original_nl": "What are the names and dates for documents corresponding to project that has the details 'Graph Database project'?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [dates]|for|{TABLE} [documents]|match [corresponding]|to|{TABLE} [project]|that|have [has]|the|{COLUMN_PART} [details]|graph [Graph]|database [Database]|{TABLE} [project]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "match",
+            "to",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "graph",
+            "database",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_name ,  document_date FROM Documents AS T1 JOIN projects AS T2 ON T1.project_id  =  T2.project_id WHERE T2.project_details  =  'Graph Database project'"
+    },
+    {
+        "original_nl": "Show project ids and the number of documents in each project.",
+        "generalized_nl": "show [Show]|{COLUMN} [project ids]|and|the|number|of|{TABLE} [documents]|in|each|{TABLE} [project]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT project_id ,  count(*) FROM Documents GROUP BY project_id"
+    },
+    {
+        "original_nl": "How many documents correspond with each project id?",
+        "generalized_nl": "How|many|{TABLE} [documents]|match [correspond]|with|each|{COLUMN} [project id]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "match",
+            "with",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT project_id ,  count(*) FROM Documents GROUP BY project_id"
+    },
+    {
+        "original_nl": "What is the id of the project with least number of documents?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|the|{TABLE} [project]|with|least|number|of|{TABLE} [documents]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "least",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT project_id FROM Documents GROUP BY project_id ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the id of the project that has the fewest corresponding documents.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [id]|of|the|{TABLE} [project]|that|have [has]|the|fewest|match [corresponding]|{TABLE} [documents]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "fewest",
+            "match",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT project_id FROM Documents GROUP BY project_id ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the ids for projects with at least 2 documents.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|for|{TABLE} [projects]|with|{NUMBER} [at least 2]|{TABLE} [documents]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT project_id FROM Documents GROUP BY project_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What are project ids of projects that have 2 or more corresponding documents?",
+        "generalized_nl": "What|are|{COLUMN} [project ids]|of|{TABLE} [projects]|that|have|{NUMBER} [2]|or|more|match [corresponding]|{TABLE} [documents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "or",
+            "more",
+            "match",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT project_id FROM Documents GROUP BY project_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "List document type codes and the number of documents in each code.",
+        "generalized_nl": "list [List]|{COLUMN} [document type codes]|and|the|number|of|{TABLE} [documents]|in|each|{COLUMN_PART} [code]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT document_type_code ,  count(*) FROM Documents GROUP BY document_type_code"
+    },
+    {
+        "original_nl": "How many documents are there of each type?",
+        "generalized_nl": "How|many|{TABLE} [documents]|are|there|of|each|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "of",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT document_type_code ,  count(*) FROM Documents GROUP BY document_type_code"
+    },
+    {
+        "original_nl": "What is the document type code with most number of documents?",
+        "generalized_nl": "What|is|the|{COLUMN} [document type code]|with|most|number|of|{TABLE} [documents]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "with",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_type_code FROM Documents GROUP BY document_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the code of the document type that is most common.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [code]|of|the|{TABLE} [document]|{COLUMN_PART} [type]|that|is|most|common",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "that",
+            "is",
+            "most",
+            "common"
+        ],
+        "original_sql": "SELECT document_type_code FROM Documents GROUP BY document_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the document type code with fewer than 3 documents.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [document type code]|with|{NUMBER} [fewer than 3]|{TABLE} [documents]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_type_code FROM Documents GROUP BY document_type_code HAVING count(*)  <  3"
+    },
+    {
+        "original_nl": "What are the codes corresponding to document types for which there are less than 3 documents?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [codes]|match [corresponding]|to|{TABLE} [document]|type [types]|for|which|there|be [are]|{NUMBER} [less than 3]|{TABLE} [documents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "match",
+            "to",
+            "{TABLE}",
+            "type",
+            "for",
+            "which",
+            "there",
+            "be",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_type_code FROM Documents GROUP BY document_type_code HAVING count(*)  <  3"
+    },
+    {
+        "original_nl": "Show the statement detail and the corresponding document name for the statement with detail 'Private Project'.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [statement detail]|and|the|match [corresponding]|{COLUMN} [document name]|for|the|{TABLE} [statement]|with|{COLUMN_PART} [detail]|private [Private]|{TABLE} [Project]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "private",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.statement_details ,  T2.document_name FROM Statements AS T1 JOIN Documents AS T2 ON T1.statement_id  =  T2.document_id WHERE T1.statement_details  =  'Private Project'"
+    },
+    {
+        "original_nl": "What are the details for statements with the details 'Private Project', and what are the names of the corresponding documents?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|for|{TABLE} [statements]|with|the|{COLUMN_PART} [details]|{NE} [Private Project]|and|what|are|the|{COLUMN_PART} [names]|of|the|match [corresponding]|{TABLE} [documents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{NE}",
+            "and",
+            "what",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "match",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.statement_details ,  T2.document_name FROM Statements AS T1 JOIN Documents AS T2 ON T1.statement_id  =  T2.document_id WHERE T1.statement_details  =  'Private Project'"
+    },
+    {
+        "original_nl": "Show all document type codes, document type names, document type descriptions.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [document type codes]|{COLUMN} [document type names]|{COLUMN} [document type descriptions]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT document_type_code ,  document_type_name ,  document_type_description FROM Ref_document_types"
+    },
+    {
+        "original_nl": "What are the codes, names, and descriptions of the different document types?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [codes]|{COLUMN_PART} [names]|and|{COLUMN_PART} [descriptions]|of|the|different|{TABLE} [document]|type [types]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "different",
+            "{TABLE}",
+            "type"
+        ],
+        "original_sql": "SELECT document_type_code ,  document_type_name ,  document_type_description FROM Ref_document_types"
+    },
+    {
+        "original_nl": "What is the document type description for document type named Film?",
+        "generalized_nl": "What|is|the|{COLUMN} [document type description]|for|{TABLE} [document]|{COLUMN_PART} [type]|name [named]|film [Film]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "name",
+            "film"
+        ],
+        "original_sql": "SELECT document_type_description FROM Ref_document_types WHERE document_type_name  =  \"Film\""
+    },
+    {
+        "original_nl": "Return the description of the document type name 'Film'.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [description]|of|the|{COLUMN} [document type name]|film [Film]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "film"
+        ],
+        "original_sql": "SELECT document_type_description FROM Ref_document_types WHERE document_type_name  =  \"Film\""
+    },
+    {
+        "original_nl": "What is the document type name and the document type description and creation date for all the documents?",
+        "generalized_nl": "What|is|the|{COLUMN} [document type name]|and|the|{COLUMN} [document type description]|and|creation|{COLUMN_PART} [date]|for|all|the|{TABLE} [documents]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "and",
+            "creation",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.document_type_name ,  T1.document_type_description ,  T2.Document_date FROM Ref_document_types AS T1 JOIN Documents AS T2 ON T1.document_type_code  =  T2.document_type_code"
+    },
+    {
+        "original_nl": "Return the type name, type description, and date of creation for each document.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [type]|{COLUMN_PART} [name]|{COLUMN_PART} [type]|{COLUMN_PART} [description]|and|{COLUMN_PART} [date]|of|creation|for|each|{TABLE} [document]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "creation",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.document_type_name ,  T1.document_type_description ,  T2.Document_date FROM Ref_document_types AS T1 JOIN Documents AS T2 ON T1.document_type_code  =  T2.document_type_code"
+    },
+    {
+        "original_nl": "Show the number of projects.",
+        "generalized_nl": "show [Show]|the|number|of|{TABLE} [projects]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Projects"
+    },
+    {
+        "original_nl": "How many projects are there?",
+        "generalized_nl": "How|many|{TABLE} [projects]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Projects"
+    },
+    {
+        "original_nl": "List ids and details for all projects.",
+        "generalized_nl": "list [List]|{COLUMN_PART} [ids]|and|{COLUMN_PART} [details]|for|all|{TABLE} [projects]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT project_id ,  project_details FROM Projects"
+    },
+    {
+        "original_nl": "What are the ids and details for each project?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|and|{COLUMN_PART} [details]|for|each|{TABLE} [project]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT project_id ,  project_details FROM Projects"
+    },
+    {
+        "original_nl": "What is the project id and detail for the project with at least two documents?",
+        "generalized_nl": "What|is|the|{COLUMN} [project id]|and|{COLUMN_PART} [detail]|for|the|{TABLE} [project]|with|{NUMBER} [at least two]|{TABLE} [documents]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.project_id ,  T1.project_details FROM Projects AS T1 JOIN Documents AS T2 ON T1.project_id  =  T2.project_id GROUP BY T1.project_id HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "Return the ids and details corresponding to projects for which there are more than two documents.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [ids]|and|{COLUMN_PART} [details]|match [corresponding]|to|{TABLE} [projects]|for|which|there|be [are]|{NUMBER} [more than two]|{TABLE} [documents]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "match",
+            "to",
+            "{TABLE}",
+            "for",
+            "which",
+            "there",
+            "be",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.project_id ,  T1.project_details FROM Projects AS T1 JOIN Documents AS T2 ON T1.project_id  =  T2.project_id GROUP BY T1.project_id HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "What is the project detail for the project with document \"King Book\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [project detail]|for|the|{TABLE} [project]|with|{TABLE} [document]|King|Book",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "{TABLE}",
+            "King",
+            "Book"
+        ],
+        "original_sql": "SELECT T1.project_details FROM Projects AS T1 JOIN Documents AS T2 ON T1.project_id  =  T2.project_id WHERE T2.document_name  =  \"King Book\""
+    },
+    {
+        "original_nl": "Give the details of the project with the document name 'King Book'.",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [details]|of|the|{TABLE} [project]|with|the|{COLUMN} [document name]|King|Book",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "King",
+            "Book"
+        ],
+        "original_sql": "SELECT T1.project_details FROM Projects AS T1 JOIN Documents AS T2 ON T1.project_id  =  T2.project_id WHERE T2.document_name  =  \"King Book\""
+    },
+    {
+        "original_nl": "How many budget types do we have?",
+        "generalized_nl": "How|many|{COLUMN_PART} [budget]|type [types]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "type",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Ref_budget_codes"
+    },
+    {
+        "original_nl": "Count the number of budget codes.",
+        "generalized_nl": "count [Count]|the|number|of|{COLUMN_PART} [budget]|{COLUMN_PART} [codes]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM Ref_budget_codes"
+    },
+    {
+        "original_nl": "List all budget type codes and descriptions.",
+        "generalized_nl": "list [List]|all|{COLUMN} [budget type codes]|and|{COLUMN_PART} [descriptions]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT budget_type_code ,  budget_type_description FROM Ref_budget_codes"
+    },
+    {
+        "original_nl": "What are the type codes and descriptions of each budget type?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [type]|{COLUMN_PART} [codes]|and|{COLUMN_PART} [descriptions]|of|each|{COLUMN_PART} [budget]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT budget_type_code ,  budget_type_description FROM Ref_budget_codes"
+    },
+    {
+        "original_nl": "What is the description for the budget type with code ORG?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|for|the|{COLUMN_PART} [budget]|{COLUMN_PART} [type]|with|{COLUMN_PART} [code]|ORG",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "ORG"
+        ],
+        "original_sql": "SELECT budget_type_description FROM Ref_budget_codes WHERE budget_type_code  =  \"ORG\""
+    },
+    {
+        "original_nl": "Return the description of the budget type that has the code ORG.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [description]|of|the|{COLUMN_PART} [budget]|{COLUMN_PART} [type]|that|have [has]|the|{COLUMN_PART} [code]|{NE} [ORG]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "that",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT budget_type_description FROM Ref_budget_codes WHERE budget_type_code  =  \"ORG\""
+    },
+    {
+        "original_nl": "How many documents have expenses?",
+        "generalized_nl": "How|many|{TABLE} [documents]|have|expense [expenses]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "expense"
+        ],
+        "original_sql": "SELECT count(*) FROM Documents_with_expenses"
+    },
+    {
+        "original_nl": "Count the number of documents with expenses.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [documents with expenses]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Documents_with_expenses"
+    },
+    {
+        "original_nl": "What are the document ids for the budget type code 'SF'?",
+        "generalized_nl": "What|are|the|{COLUMN} [document ids]|for|the|{COLUMN} [budget type code]|SF",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{COLUMN}",
+            "SF"
+        ],
+        "original_sql": "SELECT document_id FROM Documents_with_expenses WHERE budget_type_code  =  'SF'"
+    },
+    {
+        "original_nl": "Give the ids of documents with expenses that have the budget code 'SF'.",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [ids]|of|{TABLE} [documents with expenses]|that|have|the|{COLUMN_PART} [budget]|{COLUMN_PART} [code]|SF",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "SF"
+        ],
+        "original_sql": "SELECT document_id FROM Documents_with_expenses WHERE budget_type_code  =  'SF'"
+    },
+    {
+        "original_nl": "Show the budget type code and description and the corresponding document id.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [budget type code]|and|{COLUMN_PART} [description]|and|the|match [corresponding]|{COLUMN} [document id]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.budget_type_code ,  T2.budget_type_description ,  T1.document_id FROM Documents_with_expenses AS T1 JOIN Ref_budget_codes AS T2 ON T1.budget_type_code  =  T2.budget_type_code"
+    },
+    {
+        "original_nl": "Return the budget type codes, budget type descriptions and document ids for documents with expenses.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [budget type codes]|{COLUMN} [budget type descriptions]|and|{COLUMN} [document ids]|for|{TABLE} [documents with expenses]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.budget_type_code ,  T2.budget_type_description ,  T1.document_id FROM Documents_with_expenses AS T1 JOIN Ref_budget_codes AS T2 ON T1.budget_type_code  =  T2.budget_type_code"
+    },
+    {
+        "original_nl": "Show ids for all documents with budget types described as 'Government'.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|for|all|{TABLE} [documents]|with|{COLUMN_PART} [budget]|type [types]|describe [described]|as|{NE} [Government]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "type",
+            "describe",
+            "as",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.document_id FROM Documents_with_expenses AS T1 JOIN Ref_Budget_Codes AS T2 ON T1.Budget_Type_code  =  T2.Budget_Type_code WHERE T2.budget_type_Description  =  \"Government\""
+    },
+    {
+        "original_nl": "Give the ids for documents that have the budget description 'Government'.",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [ids]|for|{TABLE} [documents]|that|have|the|{COLUMN_PART} [budget]|{COLUMN_PART} [description]|{NE} [Government]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.document_id FROM Documents_with_expenses AS T1 JOIN Ref_Budget_Codes AS T2 ON T1.Budget_Type_code  =  T2.Budget_Type_code WHERE T2.budget_type_Description  =  \"Government\""
+    },
+    {
+        "original_nl": "Show budget type codes and the number of documents in each budget type.",
+        "generalized_nl": "show [Show]|{COLUMN} [budget type codes]|and|the|number|of|{TABLE} [documents]|in|each|{COLUMN_PART} [budget]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT budget_type_code ,  count(*) FROM Documents_with_expenses GROUP BY budget_type_code"
+    },
+    {
+        "original_nl": "What are the different budget type codes, and how many documents are there for each?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [budget type codes]|and|how|many|{TABLE} [documents]|are|there|for|each",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "for",
+            "each"
+        ],
+        "original_sql": "SELECT budget_type_code ,  count(*) FROM Documents_with_expenses GROUP BY budget_type_code"
+    },
+    {
+        "original_nl": "What is the budget type code with most number of documents.",
+        "generalized_nl": "What|is|the|{COLUMN} [budget type code]|with|most|number|of|{TABLE} [documents]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "with",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT budget_type_code FROM Documents_with_expenses GROUP BY budget_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Give the budget type code that is most common among documents with expenses.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [budget type code]|that|is|most|common|among|{TABLE} [documents with expenses]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "most",
+            "common",
+            "among",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT budget_type_code FROM Documents_with_expenses GROUP BY budget_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the ids of documents which don't have expense budgets?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|{TABLE} [documents]|which|do|n't|have|expense|budget [budgets]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "which",
+            "do",
+            "n't",
+            "have",
+            "expense",
+            "budget"
+        ],
+        "original_sql": "SELECT document_id FROM Documents EXCEPT SELECT document_id FROM Documents_with_expenses"
+    },
+    {
+        "original_nl": "Return the ids of documents that do not have expenses.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [ids]|of|{TABLE} [documents]|that|do|not|have|expense [expenses]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "expense"
+        ],
+        "original_sql": "SELECT document_id FROM Documents EXCEPT SELECT document_id FROM Documents_with_expenses"
+    },
+    {
+        "original_nl": "Show ids for all documents in type CV without expense budgets.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|for|all|{TABLE} [documents]|in|{COLUMN_PART} [type]|curriculum_vitae [CV]|without|expense|budget [budgets]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "in",
+            "{COLUMN_PART}",
+            "curriculum_vitae",
+            "without",
+            "expense",
+            "budget"
+        ],
+        "original_sql": "SELECT document_id FROM Documents WHERE document_type_code  =  \"CV\" EXCEPT SELECT document_id FROM Documents_with_expenses"
+    },
+    {
+        "original_nl": "What are the ids of documents with the type code CV that do not have expenses.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|{TABLE} [documents]|with|the|{COLUMN_PART} [type]|{COLUMN_PART} [code]|curriculum_vitae [CV]|that|do|not|have|expense [expenses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "curriculum_vitae",
+            "that",
+            "do",
+            "not",
+            "have",
+            "expense"
+        ],
+        "original_sql": "SELECT document_id FROM Documents WHERE document_type_code  =  \"CV\" EXCEPT SELECT document_id FROM Documents_with_expenses"
+    },
+    {
+        "original_nl": "What are the ids of documents with letter 's' in the name with any expense budgets.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|{TABLE} [documents]|with|letter|s|in|the|{COLUMN_PART} [name]|with|any|expense|budget [budgets]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "letter",
+            "s",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "any",
+            "expense",
+            "budget"
+        ],
+        "original_sql": "SELECT T1.document_id FROM Documents AS T1 JOIN Documents_with_expenses AS T2 ON T1.document_id  =  T2.document_id WHERE T1.document_name LIKE '%s%'"
+    },
+    {
+        "original_nl": "Give the ids of documents that have expenses and contain the letter s in their names.",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [ids]|of|{TABLE} [documents]|that|have|expense [expenses]|and|contain|the|letter|s|in|their|{COLUMN_PART} [names]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "expense",
+            "and",
+            "contain",
+            "the",
+            "letter",
+            "s",
+            "in",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.document_id FROM Documents AS T1 JOIN Documents_with_expenses AS T2 ON T1.document_id  =  T2.document_id WHERE T1.document_name LIKE '%s%'"
+    },
+    {
+        "original_nl": "How many documents do not have any expense?",
+        "generalized_nl": "How|many|{TABLE} [documents]|do|not|have|any|expense",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "not",
+            "have",
+            "any",
+            "expense"
+        ],
+        "original_sql": "SELECT count(*) FROM Documents WHERE document_id NOT IN ( SELECT document_id FROM Documents_with_expenses )"
+    },
+    {
+        "original_nl": "Count the number of documents that do not have expenses.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [documents]|that|do|not|have|expense [expenses]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "expense"
+        ],
+        "original_sql": "SELECT count(*) FROM Documents WHERE document_id NOT IN ( SELECT document_id FROM Documents_with_expenses )"
+    },
+    {
+        "original_nl": "What are the dates for the documents with both 'GV' type and 'SF' type expenses?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [dates]|for|the|{TABLE} [documents]|with|both|GV|{COLUMN_PART} [type]|and|SF|{COLUMN_PART} [type]|expense [expenses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "both",
+            "GV",
+            "{COLUMN_PART}",
+            "and",
+            "SF",
+            "{COLUMN_PART}",
+            "expense"
+        ],
+        "original_sql": "SELECT T1.document_date FROM Documents AS T1 JOIN Documents_with_Expenses AS T2 ON T1.document_id  =  T2.document_id WHERE T2.budget_type_code  =  'GV' INTERSECT SELECT T1.document_date FROM Documents AS T1 JOIN Documents_with_Expenses AS T2 ON T1.document_id  =  T2.document_id WHERE T2.budget_type_code  =  'SF'"
+    },
+    {
+        "original_nl": "Give the dates of creation for documents that have both budget type codes 'GV' and 'SF'.",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [dates]|of|creation|for|{TABLE} [documents]|that|have|both|{COLUMN} [budget type codes]|GV|and|SF",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "creation",
+            "for",
+            "{TABLE}",
+            "that",
+            "have",
+            "both",
+            "{COLUMN}",
+            "GV",
+            "and",
+            "SF"
+        ],
+        "original_sql": "SELECT T1.document_date FROM Documents AS T1 JOIN Documents_with_Expenses AS T2 ON T1.document_id  =  T2.document_id WHERE T2.budget_type_code  =  'GV' INTERSECT SELECT T1.document_date FROM Documents AS T1 JOIN Documents_with_Expenses AS T2 ON T1.document_id  =  T2.document_id WHERE T2.budget_type_code  =  'SF'"
+    },
+    {
+        "original_nl": "What are the account details with the largest value or with value having char '5' in it?",
+        "generalized_nl": "What|are|the|{COLUMN} [account details]|with|the|large [largest]|value|or|with|value|have [having]|char|{NUMBER} [5]|in|it",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "large",
+            "value",
+            "or",
+            "with",
+            "value",
+            "have",
+            "char",
+            "{NUMBER}",
+            "in",
+            "it"
+        ],
+        "original_sql": "SELECT max(Account_details) FROM Accounts UNION SELECT Account_details FROM Accounts WHERE Account_details LIKE \"%5%\""
+    },
+    {
+        "original_nl": "Return the account details with the greatest value, as well as those that include the character 5.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [account details]|with|the|great [greatest]|value|equally [as]|well|as|those|that|include|the|character|{NUMBER} [5]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "great",
+            "value",
+            "equally",
+            "well",
+            "as",
+            "those",
+            "that",
+            "include",
+            "the",
+            "character",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT max(Account_details) FROM Accounts UNION SELECT Account_details FROM Accounts WHERE Account_details LIKE \"%5%\""
+    }
+]

@@ -1,0 +1,206 @@
+[
+    {
+        "original_nl": "What is the distinct service types that are provided by the organization which has detail 'Denesik and Sons Party'?",
+        "generalized_nl": "What|is|the|distinct|{TABLE} [service]|{COLUMN_PART} [types]|that|are|{COLUMN_PART} [provided]|by|the|{TABLE} [organization]|which|have [has]|{COLUMN_PART} [detail]|{NE} [Denesik and Sons Party ']",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "distinct",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "that",
+            "are",
+            "{COLUMN_PART}",
+            "by",
+            "the",
+            "{TABLE}",
+            "which",
+            "have",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.service_type_code FROM services AS T1 JOIN organizations AS T2 ON T1.organization_id  =  T2.organization_id WHERE T2.organization_details  =  'Denesik and Sons Party'"
+    },
+    {
+        "original_nl": "List the id and type of each thing, and the details of the organization that owns it.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [id]|and|{COLUMN_PART} [type]|of|each|{TABLE} [thing]|and|the|{COLUMN_PART} [details]|of|the|{TABLE} [organization]|that|own [owns]|it",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "own",
+            "it"
+        ],
+        "original_sql": "SELECT T1.thing_id ,  T1.type_of_Thing_Code ,  T2.organization_details FROM Things AS T1 JOIN Organizations AS T2 ON T1.organization_id  =  T2.organization_id"
+    },
+    {
+        "original_nl": "What are the id and details of the customers who have at least 3 events?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [id]|and|{COLUMN_PART} [details]|of|the|{TABLE} [customers]|who|have|{NUMBER} [at least 3]|event [events]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "event"
+        ],
+        "original_sql": "SELECT T1.customer_id ,  T1.customer_details FROM Customers AS T1 JOIN Customer_Events AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >=  3"
+    },
+    {
+        "original_nl": "What is each customer's move in date, and the corresponding customer id and details?",
+        "generalized_nl": "What|is|each|{TABLE} [customer]|'s|move|in|{COLUMN_PART} [date]|and|the|match [corresponding]|{COLUMN} [customer id]|and|{COLUMN_PART} [details]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "each",
+            "{TABLE}",
+            "'s",
+            "move",
+            "in",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.date_moved_in ,  T1.customer_id ,  T1.customer_details FROM Customers AS T1 JOIN Customer_Events AS T2 ON T1.customer_id  =  T2.customer_id"
+    },
+    {
+        "original_nl": "How many distinct locations have the things with service detail 'Unsatisfied' been located in?",
+        "generalized_nl": "How|many|distinct|location [locations]|have|the|{TABLE} [things]|with|{COLUMN} [service detail]|unsated [Unsatisfied]|been|locate [located]|in",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "location",
+            "have",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "unsated",
+            "been",
+            "locate",
+            "in"
+        ],
+        "original_sql": "SELECT count(DISTINCT T2.Location_Code) FROM Things AS T1 JOIN Timed_Locations_of_Things AS T2 ON T1.thing_id  =  T2.thing_id WHERE T1.service_details  =  'Unsatisfied'"
+    },
+    {
+        "original_nl": "How many different status codes of things are there?",
+        "generalized_nl": "How|many|different|{COLUMN_PART} [status]|{COLUMN_PART} [codes]|of|{TABLE} [things]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT Status_of_Thing_Code) FROM Timed_Status_of_Things"
+    },
+    {
+        "original_nl": "When is the last day any resident moved in?",
+        "generalized_nl": "When|is|{NE} [the last day]|any|{TABLE} [resident]|{COLUMN_PART} [moved]|in",
+        "generalized_tokens": [
+            "When",
+            "is",
+            "{NE}",
+            "any",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "in"
+        ],
+        "original_sql": "SELECT max(date_moved_in) FROM Residents"
+    },
+    {
+        "original_nl": "What are the resident details containing the substring 'Miss'?",
+        "generalized_nl": "What|are|the|{TABLE} [resident]|{COLUMN_PART} [details]|contain [containing]|the|substring|miss [Miss]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "contain",
+            "the",
+            "substring",
+            "miss"
+        ],
+        "original_sql": "SELECT other_details FROM Residents WHERE other_details LIKE '%Miss%'"
+    },
+    {
+        "original_nl": "List the customer event id and the corresponding move in date and property id.",
+        "generalized_nl": "list [List]|the|{COLUMN} [customer event id]|and|the|match [corresponding]|move|in|{COLUMN_PART} [date]|and|{COLUMN} [property id]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "move",
+            "in",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT customer_event_id ,  date_moved_in ,  property_id FROM customer_events"
+    },
+    {
+        "original_nl": "How many customers did not have any event?",
+        "generalized_nl": "How|many|{TABLE} [customers]|did|not|have|any|{COLUMN_PART} [event]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "did",
+            "not",
+            "have",
+            "any",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers WHERE customer_id NOT IN ( SELECT customer_id FROM customer_events )"
+    },
+    {
+        "original_nl": "What are the distinct move in dates of the residents?",
+        "generalized_nl": "What|are|the|distinct|move|in|{COLUMN_PART} [dates]|of|the|{TABLE} [residents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "move",
+            "in",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT date_moved_in FROM residents"
+    }
+]

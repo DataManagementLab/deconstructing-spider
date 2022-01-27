@@ -1,0 +1,538 @@
+[
+    {
+        "original_nl": "Find the id of the item whose title is \"orange\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|of|the|{TABLE} [item]|whose|{COLUMN} [title]|is|orange",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "orange"
+        ],
+        "original_sql": "SELECT i_id FROM item WHERE title  =  \"orange\""
+    },
+    {
+        "original_nl": "List all information in the item table.",
+        "generalized_nl": "list [List]|all|information|in|the|{TABLE} [item]|table",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "information",
+            "in",
+            "the",
+            "{TABLE}",
+            "table"
+        ],
+        "original_sql": "SELECT * FROM item"
+    },
+    {
+        "original_nl": "Find the number of reviews.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [reviews]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM review"
+    },
+    {
+        "original_nl": "How many users are there?",
+        "generalized_nl": "How|many|user [users]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "user",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM useracct"
+    },
+    {
+        "original_nl": "Find the average and maximum rating of all reviews.",
+        "generalized_nl": "find [Find]|the|average|and|maximal [maximum]|{COLUMN} [rating]|of|all|{TABLE} [reviews]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(rating) ,  max(rating) FROM review"
+    },
+    {
+        "original_nl": "Find the highest rank of all reviews.",
+        "generalized_nl": "find [Find]|the|high [highest]|{COLUMN} [rank]|of|all|{TABLE} [reviews]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "high",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT min(rank) FROM review"
+    },
+    {
+        "original_nl": "How many different users wrote some reviews?",
+        "generalized_nl": "How|many|different|user [users]|write [wrote]|some|{TABLE} [reviews]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "user",
+            "write",
+            "some",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT u_id) FROM review"
+    },
+    {
+        "original_nl": "How many different items were reviewed by some users?",
+        "generalized_nl": "How|many|different|{TABLE} [items]|were|review [reviewed]|by|some|user [users]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "were",
+            "review",
+            "by",
+            "some",
+            "user"
+        ],
+        "original_sql": "SELECT count(DISTINCT i_id) FROM review"
+    },
+    {
+        "original_nl": "Find the number of items that did not receive any review.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [items]|that|did|not|receive|any|{TABLE} [review]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "did",
+            "not",
+            "receive",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM item WHERE i_id NOT IN (SELECT i_id FROM review)"
+    },
+    {
+        "original_nl": "Find the names of users who did not leave any review.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|user [users]|who|did|not|leave|any|{TABLE} [review]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "user",
+            "who",
+            "did",
+            "not",
+            "leave",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM useracct WHERE u_id NOT IN (SELECT u_id FROM review)"
+    },
+    {
+        "original_nl": "Find the names of goods that receive a rating of 10.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|good [goods]|that|receive|a|{COLUMN} [rating]|of|{NUMBER} [10]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "good",
+            "that",
+            "receive",
+            "a",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.title FROM item AS T1 JOIN review AS T2 ON T1.i_id  =  T2.i_id WHERE T2.rating  =  10"
+    },
+    {
+        "original_nl": "Find the titles of items whose rating is higher than the average review rating of all items.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [titles]|of|{TABLE} [items]|whose|{COLUMN} [rating]|is|high [higher]|than|the|average|{TABLE} [review]|{COLUMN} [rating]|of|all|{TABLE} [items]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "high",
+            "than",
+            "the",
+            "average",
+            "{TABLE}",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.title FROM item AS T1 JOIN review AS T2 ON T1.i_id  =  T2.i_id WHERE T2.rating  >  (SELECT avg(rating) FROM review)"
+    },
+    {
+        "original_nl": "Find the titles of items that received any rating below 5.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [titles]|of|{TABLE} [items]|that|receive [received]|any|{COLUMN} [rating]|below|{NUMBER} [5]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "receive",
+            "any",
+            "{COLUMN}",
+            "below",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.title FROM item AS T1 JOIN review AS T2 ON T1.i_id  =  T2.i_id WHERE T2.rating  <  5"
+    },
+    {
+        "original_nl": "Find the titles of items that received both a rating higher than 8 and a rating below 5.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [titles]|of|{TABLE} [items]|that|receive [received]|both|a|{COLUMN} [rating]|{NUMBER} [higher than 8]|and|a|{COLUMN} [rating]|below|{NUMBER} [5]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "receive",
+            "both",
+            "a",
+            "{COLUMN}",
+            "{NUMBER}",
+            "and",
+            "a",
+            "{COLUMN}",
+            "below",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.title FROM item AS T1 JOIN review AS T2 ON T1.i_id  =  T2.i_id WHERE T2.rating  >  8 INTERSECT SELECT T1.title FROM item AS T1 JOIN review AS T2 ON T1.i_id  =  T2.i_id WHERE T2.rating  <  5"
+    },
+    {
+        "original_nl": "Find the names of items whose rank is higher than 3 and whose average rating is above 5.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [items]|whose|{COLUMN} [rank]|is|{NUMBER} [higher than 3]|and|whose|average|{COLUMN} [rating]|is|above|{NUMBER} [5]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}",
+            "and",
+            "whose",
+            "average",
+            "{COLUMN}",
+            "is",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.title FROM item AS T1 JOIN review AS T2 ON T1.i_id  =  T2.i_id WHERE T2.rank  >  3 INTERSECT SELECT T1.title FROM item AS T1 JOIN review AS T2 ON T1.i_id  =  T2.i_id GROUP BY T2.i_id HAVING avg(T2.rating)  >  5"
+    },
+    {
+        "original_nl": "Find the name of the item with the lowest average rating.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [item]|with|the|low [lowest]|average|{COLUMN} [rating]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "low",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.title FROM item AS T1 JOIN review AS T2 ON T1.i_id  =  T2.i_id GROUP BY T2.i_id ORDER BY avg(T2.rating) LIMIT 1"
+    },
+    {
+        "original_nl": "List the titles of all items in alphabetic order .",
+        "generalized_nl": "list [List]|the|{COLUMN} [titles]|of|all|{TABLE} [items]|in|alphabetic|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT title FROM item ORDER BY title"
+    },
+    {
+        "original_nl": "Find the name of the user who gives the most reviews.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{COLUMN_PART} [user]|who|give [gives]|the|most|{TABLE} [reviews]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "who",
+            "give",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM useracct AS T1 JOIN review AS T2 ON T1.u_id  =  T2.u_id GROUP BY T2.u_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name and id of the item with the highest average rating.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN_PART} [id]|of|the|{TABLE} [item]|with|the|high [highest]|average|{COLUMN} [rating]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.title ,  T1.i_id FROM item AS T1 JOIN review AS T2 ON T1.i_id  =  T2.i_id GROUP BY T2.i_id ORDER BY avg(T2.rating) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name and id of the good with the highest average rank.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN_PART} [id]|of|the|good|with|the|high [highest]|average|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "good",
+            "with",
+            "the",
+            "high",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.title ,  T1.i_id FROM item AS T1 JOIN review AS T2 ON T1.i_id  =  T2.i_id GROUP BY T2.i_id ORDER BY avg(T2.rank) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "For each user, return the name and the average rating of reviews given by them.",
+        "generalized_nl": "For|each|{COLUMN_PART} [user]|return|the|{COLUMN} [name]|and|the|average|{COLUMN} [rating]|of|{TABLE} [reviews]|give [given]|by|them",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN_PART}",
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "give",
+            "by",
+            "them"
+        ],
+        "original_sql": "SELECT T1.name ,  avg(T2.rating) FROM useracct AS T1 JOIN review AS T2 ON T1.u_id  =  T2.u_id GROUP BY T2.u_id"
+    },
+    {
+        "original_nl": "For each user, find their name and the number of reviews written by them.",
+        "generalized_nl": "For|each|{COLUMN_PART} [user]|find|their|{COLUMN} [name]|and|the|number|of|{TABLE} [reviews]|write [written]|by|them",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN_PART}",
+            "find",
+            "their",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "write",
+            "by",
+            "them"
+        ],
+        "original_sql": "SELECT T1.name ,  count(*) FROM useracct AS T1 JOIN review AS T2 ON T1.u_id  =  T2.u_id GROUP BY T2.u_id"
+    },
+    {
+        "original_nl": "Find the name of the user who gave the highest rating.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{COLUMN_PART} [user]|who|give [gave]|the|high [highest]|{COLUMN} [rating]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "who",
+            "give",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name FROM useracct AS T1 JOIN review AS T2 ON T1.u_id  =  T2.u_id ORDER BY T2.rating DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the source user with the highest average trust score.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{COLUMN_PART} [source]|{COLUMN_PART} [user]|with|the|high [highest]|average|{COLUMN} [trust]|score",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "high",
+            "average",
+            "{COLUMN}",
+            "score"
+        ],
+        "original_sql": "SELECT T1.name FROM useracct AS T1 JOIN trust AS T2 ON T1.u_id  =  T2.source_u_id GROUP BY T2.source_u_id ORDER BY avg(trust) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find each target user's name and average trust score.",
+        "generalized_nl": "find [Find]|each|{COLUMN_PART} [target]|{COLUMN_PART} [user]|'s|{COLUMN} [name]|and|average|{COLUMN} [trust]|score",
+        "generalized_tokens": [
+            "find",
+            "each",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "'s",
+            "{COLUMN}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "score"
+        ],
+        "original_sql": "SELECT T1.name ,  avg(trust) FROM useracct AS T1 JOIN trust AS T2 ON T1.u_id  =  T2.target_u_id GROUP BY T2.target_u_id"
+    },
+    {
+        "original_nl": "Find the name of the target user with the lowest trust score.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{COLUMN_PART} [target]|{COLUMN_PART} [user]|with|the|low [lowest]|{COLUMN} [trust]|score",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "low",
+            "{COLUMN}",
+            "score"
+        ],
+        "original_sql": "SELECT T1.name FROM useracct AS T1 JOIN trust AS T2 ON T1.u_id  =  T2.target_u_id ORDER BY trust LIMIT 1"
+    },
+    {
+        "original_nl": "Find the names of the items that did not receive any review.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|{TABLE} [items]|that|did|not|receive|any|{TABLE} [review]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "did",
+            "not",
+            "receive",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM item WHERE i_id NOT IN (SELECT i_id FROM review)"
+    },
+    {
+        "original_nl": "Find the names of users who did not leave any review.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|user [users]|who|did|not|leave|any|{TABLE} [review]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "user",
+            "who",
+            "did",
+            "not",
+            "leave",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM useracct WHERE u_id NOT IN (SELECT u_id FROM review)"
+    },
+    {
+        "original_nl": "Find the number of users who did not write any review.",
+        "generalized_nl": "find [Find]|the|number|of|user [users]|who|did|not|write|any|{TABLE} [review]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "user",
+            "who",
+            "did",
+            "not",
+            "write",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM useracct WHERE u_id NOT IN (SELECT u_id FROM review)"
+    },
+    {
+        "original_nl": "Find the number of items without any review.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [items]|without|any|{TABLE} [review]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "without",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM item WHERE i_id NOT IN (SELECT i_id FROM review)"
+    }
+]

@@ -1,0 +1,747 @@
+[
+    {
+        "original_nl": "List every individual's first name, middle name and last name in alphabetical order by last name.",
+        "generalized_nl": "list [List]|every|{TABLE} [individual]|'s|{COLUMN_PART} [first]|{COLUMN_PART} [name]|{COLUMN_PART} [middle]|{COLUMN_PART} [name]|and|{COLUMN_PART} [last]|{COLUMN_PART} [name]|in|alphabetic [alphabetical]|order|by|{COLUMN_PART} [last]|{COLUMN_PART} [name]",
+        "generalized_tokens": [
+            "list",
+            "every",
+            "{TABLE}",
+            "'s",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "in",
+            "alphabetic",
+            "order",
+            "by",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT individual_first_name ,  individual_middle_name ,  individual_last_name FROM individuals ORDER BY individual_last_name"
+    },
+    {
+        "original_nl": "What are the first, middle, and last names of all individuals, ordered by last name?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [middle]|and|{COLUMN_PART} [last]|{COLUMN_PART} [names]|of|all|{TABLE} [individuals]|order [ordered]|by|{COLUMN_PART} [last]|{COLUMN_PART} [name]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT individual_first_name ,  individual_middle_name ,  individual_last_name FROM individuals ORDER BY individual_last_name"
+    },
+    {
+        "original_nl": "List all the types of forms.",
+        "generalized_nl": "list [List]|all|the|type [types]|of|{TABLE} [forms]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "type",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT form_type_code FROM forms"
+    },
+    {
+        "original_nl": "What are the different types of forms?",
+        "generalized_nl": "What|are|the|different|type [types]|of|{TABLE} [forms]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "type",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT form_type_code FROM forms"
+    },
+    {
+        "original_nl": "Find the name of the most popular party form.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|most|popular|{TABLE} [party]|{TABLE} [form]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "most",
+            "popular",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.form_name FROM forms AS t1 JOIN party_forms AS t2 ON t1.form_id  =  t2.form_id GROUP BY t2.form_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the party form that is most common?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [party]|{TABLE} [form]|that|is|most|common",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{TABLE}",
+            "that",
+            "is",
+            "most",
+            "common"
+        ],
+        "original_sql": "SELECT t1.form_name FROM forms AS t1 JOIN party_forms AS t2 ON t1.form_id  =  t2.form_id GROUP BY t2.form_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the payment method and phone of the party with email \"enrico09@example.com\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [payment]|{COLUMN_PART} [method]|and|{COLUMN_PART} [phone]|of|the|{TABLE} [party]|with|{COLUMN_PART} [email]|enrico09@example.com",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "enrico09@example.com"
+        ],
+        "original_sql": "SELECT payment_method_code ,  party_phone FROM parties WHERE party_email  =  \"enrico09@example.com\""
+    },
+    {
+        "original_nl": "What is the payment method code and party phone of the party with the email 'enrico09@example.com'?",
+        "generalized_nl": "What|is|the|{COLUMN} [payment method code]|and|{COLUMN} [party phone]|of|the|{TABLE} [party]|with|the|{COLUMN_PART} [email]|enrico09@example.com",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "enrico09@example.com"
+        ],
+        "original_sql": "SELECT payment_method_code ,  party_phone FROM parties WHERE party_email  =  \"enrico09@example.com\""
+    },
+    {
+        "original_nl": "Find the emails of parties with the most popular party form.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [emails]|of|{TABLE} [parties]|with|the|most|popular|{TABLE} [party]|{TABLE} [form]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "popular",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.party_email FROM parties AS t1 JOIN party_forms AS t2 ON t1.party_id  =  t2.party_id WHERE t2.form_id  =  (SELECT form_id FROM party_forms GROUP BY form_id ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "What are the party emails associated with parties that used the party form that is the most common?",
+        "generalized_nl": "What|are|the|{COLUMN} [party emails]|associate [associated]|with|{TABLE} [parties]|that|use [used]|the|{TABLE} [party]|{TABLE} [form]|that|is|the|most|common",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "{TABLE}",
+            "that",
+            "use",
+            "the",
+            "{TABLE}",
+            "{TABLE}",
+            "that",
+            "is",
+            "the",
+            "most",
+            "common"
+        ],
+        "original_sql": "SELECT t1.party_email FROM parties AS t1 JOIN party_forms AS t2 ON t1.party_id  =  t2.party_id WHERE t2.form_id  =  (SELECT form_id FROM party_forms GROUP BY form_id ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "List all the name of organizations in order of the date formed.",
+        "generalized_nl": "list [List]|all|the|{COLUMN_PART} [name]|of|{TABLE} [organizations]|in|order|of|the|{COLUMN} [date formed]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "order",
+            "of",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT organization_name FROM organizations ORDER BY date_formed ASC"
+    },
+    {
+        "original_nl": "What are the names of organizations, ordered by the date they were formed, ascending?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [organizations]|order [ordered]|by|the|{COLUMN_PART} [date]|they|were|{COLUMN_PART} [formed]|ascend [ascending]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "order",
+            "by",
+            "the",
+            "{COLUMN_PART}",
+            "they",
+            "were",
+            "{COLUMN_PART}",
+            "ascend"
+        ],
+        "original_sql": "SELECT organization_name FROM organizations ORDER BY date_formed ASC"
+    },
+    {
+        "original_nl": "Find the name of the youngest organization.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|young [youngest]|{TABLE} [organization]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "young",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT organization_name FROM organizations ORDER BY date_formed DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the organization that was formed most recently?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [organization]|that|was|{COLUMN_PART} [formed]|most|recently",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "was",
+            "{COLUMN_PART}",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT organization_name FROM organizations ORDER BY date_formed DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the last name of the latest contact individual of the organization \"Labour Party\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|the|late [latest]|{COLUMN_PART} [contact]|{TABLE} [individual]|of|the|{TABLE} [organization]|Labour|{TABLE} [Party]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "late",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "Labour",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.individual_last_name FROM organizations AS t1 JOIN organization_contact_individuals AS t2 ON t1.organization_id  =  t2.organization_id JOIN individuals AS t3 ON t2.individual_id  =  t3.individual_id WHERE t1.organization_name  =  \"Labour Party\" ORDER BY t2.date_contact_to DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the last name of the contact individual from the Labour party organization who was contacted most recently?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|the|{COLUMN_PART} [contact]|{TABLE} [individual]|from|the|{NE} [Labour]|{TABLE} [party]|{TABLE} [organization]|who|was|reach [contacted]|most|recently",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "from",
+            "the",
+            "{NE}",
+            "{TABLE}",
+            "{TABLE}",
+            "who",
+            "was",
+            "reach",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT t3.individual_last_name FROM organizations AS t1 JOIN organization_contact_individuals AS t2 ON t1.organization_id  =  t2.organization_id JOIN individuals AS t3 ON t2.individual_id  =  t3.individual_id WHERE t1.organization_name  =  \"Labour Party\" ORDER BY t2.date_contact_to DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the last name of the first ever contact person of the organization with the highest UK Vat number.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|the|{COLUMN_PART} [first]|ever|{COLUMN_PART} [contact]|person|of|the|{TABLE} [organization]|with|the|high [highest]|{COLUMN} [UK Vat number]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "ever",
+            "{COLUMN_PART}",
+            "person",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t3.individual_last_name FROM organizations AS t1 JOIN organization_contact_individuals AS t2 ON t1.organization_id  =  t2.organization_id JOIN individuals AS t3 ON t2.individual_id  =  t3.individual_id WHERE t1.uk_vat_number  =  (SELECT max(uk_vat_number) FROM organizations) ORDER BY t2.date_contact_to ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the last name of the first individual contacted from the organization with the maximum UK Vat number across all organizations?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|the|{COLUMN_PART} [first]|{TABLE} [individual]|reach [contacted]|from|the|{TABLE} [organization]|with|the|maximal [maximum]|{COLUMN} [UK Vat number]|across|all|{TABLE} [organizations]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "reach",
+            "from",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.individual_last_name FROM organizations AS t1 JOIN organization_contact_individuals AS t2 ON t1.organization_id  =  t2.organization_id JOIN individuals AS t3 ON t2.individual_id  =  t3.individual_id WHERE t1.uk_vat_number  =  (SELECT max(uk_vat_number) FROM organizations) ORDER BY t2.date_contact_to ASC LIMIT 1"
+    },
+    {
+        "original_nl": "How many services are there?",
+        "generalized_nl": "How|many|{TABLE} [services]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM services"
+    },
+    {
+        "original_nl": "Count the number of services.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [services]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM services"
+    },
+    {
+        "original_nl": "Find name of the services that has never been used.",
+        "generalized_nl": "find [Find]|{COLUMN_PART} [name]|of|the|{TABLE} [services]|that|has|never|been|use [used]",
+        "generalized_tokens": [
+            "find",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "never",
+            "been",
+            "use"
+        ],
+        "original_sql": "SELECT service_name FROM services EXCEPT SELECT t1.service_name FROM services AS t1 JOIN party_services AS t2 ON t1.service_id  =  t2.service_id"
+    },
+    {
+        "original_nl": "What are the names of the services that have never been used?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [services]|that|have|never|been|use [used]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "never",
+            "been",
+            "use"
+        ],
+        "original_sql": "SELECT service_name FROM services EXCEPT SELECT t1.service_name FROM services AS t1 JOIN party_services AS t2 ON t1.service_id  =  t2.service_id"
+    },
+    {
+        "original_nl": "Find the name of all the cities and states.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|all|the|{COLUMN_PART} [cities]|and|state [states]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "state"
+        ],
+        "original_sql": "SELECT town_city FROM addresses UNION SELECT state_province_county FROM addresses"
+    },
+    {
+        "original_nl": "What are the names of all cities and states?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|{COLUMN_PART} [cities]|and|state [states]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{COLUMN_PART}",
+            "and",
+            "state"
+        ],
+        "original_sql": "SELECT town_city FROM addresses UNION SELECT state_province_county FROM addresses"
+    },
+    {
+        "original_nl": "How many cities are there in state \"Colorado\"?",
+        "generalized_nl": "How|many|{COLUMN_PART} [cities]|are|there|in|{COLUMN_PART} [state]|{NE} [Colorado]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "are",
+            "there",
+            "in",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM addresses WHERE state_province_county  =  \"Colorado\""
+    },
+    {
+        "original_nl": "Count the number of cities in the state of Colorado.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{COLUMN_PART} [cities]|in|the|{COLUMN_PART} [state]|of|{NE} [Colorado]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM addresses WHERE state_province_county  =  \"Colorado\""
+    },
+    {
+        "original_nl": "Find the payment method code used by more than 3 parties.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [payment method code]|use [used]|by|{NUMBER} [more than 3]|{TABLE} [parties]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "use",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT payment_method_code FROM parties GROUP BY payment_method_code HAVING count(*)  >  3"
+    },
+    {
+        "original_nl": "What are the payment method codes that have been used by more than 3 parties?",
+        "generalized_nl": "What|are|the|{COLUMN} [payment method codes]|that|have|been|use [used]|by|{NUMBER} [more than 3]|{TABLE} [parties]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "been",
+            "use",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT payment_method_code FROM parties GROUP BY payment_method_code HAVING count(*)  >  3"
+    },
+    {
+        "original_nl": "Find the name of organizations whose names contain \"Party\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [organizations]|whose|{COLUMN_PART} [names]|contain|{TABLE} [Party]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "contain",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT organization_name FROM organizations WHERE organization_name LIKE \"%Party%\""
+    },
+    {
+        "original_nl": "What are the names of organizations that contain the word \"Party\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [organizations]|that|contain|the|word|{TABLE} [Party]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "contain",
+            "the",
+            "word",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT organization_name FROM organizations WHERE organization_name LIKE \"%Party%\""
+    },
+    {
+        "original_nl": "How many distinct payment methods are used by parties?",
+        "generalized_nl": "How|many|distinct|{COLUMN_PART} [payment]|method [methods]|are|use [used]|by|{TABLE} [parties]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN_PART}",
+            "method",
+            "are",
+            "use",
+            "by",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT payment_method_code) FROM parties"
+    },
+    {
+        "original_nl": "Count the number of different payment method codes used by parties.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|different|{COLUMN} [payment method codes]|use [used]|by|{TABLE} [parties]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "different",
+            "{COLUMN}",
+            "use",
+            "by",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT payment_method_code) FROM parties"
+    },
+    {
+        "original_nl": "Which is the email of the party that has used the services the most number of times?",
+        "generalized_nl": "Which|is|the|{COLUMN_PART} [email]|of|the|{TABLE} [party]|that|has|use [used]|the|{TABLE} [services]|the|most|{COLUMN_PART} [number]|of|time [times]",
+        "generalized_tokens": [
+            "Which",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "use",
+            "the",
+            "{TABLE}",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "time"
+        ],
+        "original_sql": "SELECT t1.party_email FROM parties AS t1 JOIN party_services AS t2 ON t1.party_id  =  t2.customer_id GROUP BY t1.party_email ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the party email that has used party services the greatest number of times.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [party email]|that|has|use [used]|{TABLE} [party]|{TABLE} [services]|the|great [greatest]|{COLUMN_PART} [number]|of|time [times]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "that",
+            "has",
+            "use",
+            "{TABLE}",
+            "{TABLE}",
+            "the",
+            "great",
+            "{COLUMN_PART}",
+            "of",
+            "time"
+        ],
+        "original_sql": "SELECT t1.party_email FROM parties AS t1 JOIN party_services AS t2 ON t1.party_id  =  t2.customer_id GROUP BY t1.party_email ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which state can address \"6862 Kaitlyn Knolls\" possibly be in?",
+        "generalized_nl": "Which|{COLUMN_PART} [state]|can|{TABLE} [address]|{NUMBER} [6862]|Kaitlyn|Knolls|possibly|be|in",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "can",
+            "{TABLE}",
+            "{NUMBER}",
+            "Kaitlyn",
+            "Knolls",
+            "possibly",
+            "be",
+            "in"
+        ],
+        "original_sql": "SELECT state_province_county FROM addresses WHERE line_1_number_building LIKE \"%6862 Kaitlyn Knolls%\""
+    },
+    {
+        "original_nl": "Give the state corresponding to the line number building \"6862 Kaitlyn Knolls\".",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [state]|match [corresponding]|to|the|{COLUMN_PART} [line]|{COLUMN_PART} [number]|{COLUMN_PART} [building]|{NUMBER} [6862]|Kaitlyn|Knolls",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "match",
+            "to",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "Kaitlyn",
+            "Knolls"
+        ],
+        "original_sql": "SELECT state_province_county FROM addresses WHERE line_1_number_building LIKE \"%6862 Kaitlyn Knolls%\""
+    },
+    {
+        "original_nl": "What is the name of organization that has the greatest number of contact individuals?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|{TABLE} [organization]|that|have [has]|the|great [greatest]|{COLUMN_PART} [number]|of|{COLUMN_PART} [contact]|{TABLE} [individuals]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "great",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.organization_name FROM organizations AS t1 JOIN organization_contact_individuals AS t2 ON t1.organization_id  =  t2.organization_id GROUP BY t1.organization_name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the name of the organization which has the most contact individuals.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [name]|of|the|{TABLE} [organization]|which|have [has]|the|most|{COLUMN_PART} [contact]|{TABLE} [individuals]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "have",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.organization_name FROM organizations AS t1 JOIN organization_contact_individuals AS t2 ON t1.organization_id  =  t2.organization_id GROUP BY t1.organization_name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the last name of the individuals that have been contact individuals of an organization.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|the|{TABLE} [individuals]|that|have|been|{COLUMN_PART} [contact]|{TABLE} [individuals]|of|an|{TABLE} [organization]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "been",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "of",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT t1.individual_last_name FROM individuals AS t1 JOIN organization_contact_individuals AS t2 ON t1.individual_id  =  t2.individual_id"
+    },
+    {
+        "original_nl": "What are the last names of individuals who have been contact individuals for an organization?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [last]|{COLUMN_PART} [names]|of|{TABLE} [individuals]|who|have|been|{COLUMN_PART} [contact]|{TABLE} [individuals]|for|an|{TABLE} [organization]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "been",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "for",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT t1.individual_last_name FROM individuals AS t1 JOIN organization_contact_individuals AS t2 ON t1.individual_id  =  t2.individual_id"
+    }
+]

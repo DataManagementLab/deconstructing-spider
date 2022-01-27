@@ -1,0 +1,692 @@
+[
+    {
+        "original_nl": "How many companies are there?",
+        "generalized_nl": "How|many|{TABLE} [companies]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Companies"
+    },
+    {
+        "original_nl": "Count the number of companies.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [companies]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Companies"
+    },
+    {
+        "original_nl": "List the names of companies in descending order of market value.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [companies]|in|descend [descending]|order|of|{COLUMN_PART} [market]|{COLUMN_PART} [value]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT name FROM Companies ORDER BY Market_Value_billion DESC"
+    },
+    {
+        "original_nl": "Sort the company names in descending order of the company's market value.",
+        "generalized_nl": "screen [Sort]|the|{TABLE} [company]|{COLUMN} [names]|in|descend [descending]|order|of|the|{TABLE} [company]|'s|{COLUMN_PART} [market]|{COLUMN_PART} [value]",
+        "generalized_tokens": [
+            "screen",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "the",
+            "{TABLE}",
+            "'s",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT name FROM Companies ORDER BY Market_Value_billion DESC"
+    },
+    {
+        "original_nl": "What are the names of companies whose headquarters are not \"USA\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [companies]|whose|{COLUMN} [headquarters]|are|not|{VALUE} [USA]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM Companies WHERE Headquarters != 'USA'"
+    },
+    {
+        "original_nl": "Find the names of the companies whose headquarters are not located in \"USA\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|{TABLE} [companies]|whose|{COLUMN} [headquarters]|are|not|locate [located]|in|{VALUE} [USA]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "not",
+            "locate",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM Companies WHERE Headquarters != 'USA'"
+    },
+    {
+        "original_nl": "What are the name and assets of each company, sorted in ascending order of company name?",
+        "generalized_nl": "What|are|the|{COLUMN} [name]|and|{COLUMN_PART} [assets]|of|each|{TABLE} [company]|screen [sorted]|in|ascend [ascending]|order|of|{TABLE} [company]|{COLUMN} [name]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "screen",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  Assets_billion FROM Companies ORDER BY name ASC"
+    },
+    {
+        "original_nl": "List the name and assets of each company in ascending order of company name.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|and|{COLUMN_PART} [assets]|of|each|{TABLE} [company]|in|ascend [ascending]|order|of|{TABLE} [company]|{COLUMN} [name]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  Assets_billion FROM Companies ORDER BY name ASC"
+    },
+    {
+        "original_nl": "What are the average profits of companies?",
+        "generalized_nl": "What|are|the|average|{COLUMN_PART} [profits]|of|{TABLE} [companies]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Profits_billion) FROM Companies"
+    },
+    {
+        "original_nl": "Compute the average profits companies make.",
+        "generalized_nl": "calculate [Compute]|the|average|{COLUMN_PART} [profits]|{TABLE} [companies]|make",
+        "generalized_tokens": [
+            "calculate",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "make"
+        ],
+        "original_sql": "SELECT avg(Profits_billion) FROM Companies"
+    },
+    {
+        "original_nl": "What are the maximum and minimum sales of the companies whose industries are not \"Banking\".",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minimal [minimum]|{COLUMN_PART} [sales]|of|the|{TABLE} [companies]|whose|{COLUMN} [industries]|are|not|{VALUE} [Banking]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT max(Sales_billion) ,  min(Sales_billion) FROM Companies WHERE Industry != \"Banking\""
+    },
+    {
+        "original_nl": "Find the maximum and minimum sales of the companies that are not in the \"Banking\" industry.",
+        "generalized_nl": "find [Find]|the|maximal [maximum]|and|minimal [minimum]|{COLUMN_PART} [sales]|of|the|{TABLE} [companies]|that|are|not|in|the|{VALUE} [Banking]|{COLUMN} [industry]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "in",
+            "the",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(Sales_billion) ,  min(Sales_billion) FROM Companies WHERE Industry != \"Banking\""
+    },
+    {
+        "original_nl": "How many different industries are the companies in?",
+        "generalized_nl": "How|many|different|{COLUMN} [industries]|are|the|{TABLE} [companies]|in",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "the",
+            "{TABLE}",
+            "in"
+        ],
+        "original_sql": "SELECT count(DISTINCT Industry) FROM Companies"
+    },
+    {
+        "original_nl": "Count the number of distinct company industries.",
+        "generalized_nl": "count [Count]|the|number|of|distinct|{TABLE} [company]|{COLUMN} [industries]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT Industry) FROM Companies"
+    },
+    {
+        "original_nl": "List the names of buildings in descending order of building height.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [buildings]|in|descend [descending]|order|of|{TABLE} [building]|{COLUMN} [height]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM buildings ORDER BY Height DESC"
+    },
+    {
+        "original_nl": "What are the names of buildings sorted in descending order of building height?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [buildings]|screen [sorted]|in|descend [descending]|order|of|{TABLE} [building]|{COLUMN} [height]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "screen",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM buildings ORDER BY Height DESC"
+    },
+    {
+        "original_nl": "Find the stories of the building with the largest height.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [stories]|of|the|{TABLE} [building]|with|the|large [largest]|{COLUMN} [height]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Stories FROM buildings ORDER BY Height DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the stories of highest building?",
+        "generalized_nl": "What|is|the|{COLUMN} [stories]|of|high [highest]|{TABLE} [building]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "high",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Stories FROM buildings ORDER BY Height DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the name of a building along with the name of a company whose office is in the building.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|a|{TABLE} [building]|along|with|the|{COLUMN} [name]|of|a|{TABLE} [company]|whose|office|is|in|the|{TABLE} [building]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "a",
+            "{TABLE}",
+            "along",
+            "with",
+            "the",
+            "{COLUMN}",
+            "of",
+            "a",
+            "{TABLE}",
+            "whose",
+            "office",
+            "is",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.name ,  T2.name FROM Office_locations AS T1 JOIN buildings AS T2 ON T1.building_id  =  T2.id JOIN Companies AS T3 ON T1.company_id  =  T3.id"
+    },
+    {
+        "original_nl": "For each company, return the company name and the name of the building its office is located in.",
+        "generalized_nl": "For|each|{TABLE} [company]|return|the|{TABLE} [company]|{COLUMN} [name]|and|the|{COLUMN} [name]|of|the|{TABLE} [building]|its|office|is|locate [located]|in",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "return",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "its",
+            "office",
+            "is",
+            "locate",
+            "in"
+        ],
+        "original_sql": "SELECT T3.name ,  T2.name FROM Office_locations AS T1 JOIN buildings AS T2 ON T1.building_id  =  T2.id JOIN Companies AS T3 ON T1.company_id  =  T3.id"
+    },
+    {
+        "original_nl": "Show the names of the buildings that have more than one company offices.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|the|{TABLE} [buildings]|that|have|{NUMBER} [more than one]|{TABLE} [company]|office [offices]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}",
+            "office"
+        ],
+        "original_sql": "SELECT T2.name FROM Office_locations AS T1 JOIN buildings AS T2 ON T1.building_id  =  T2.id JOIN Companies AS T3 ON T1.company_id  =  T3.id GROUP BY T1.building_id HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "Show the name of the building that has the most company offices.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|of|the|{TABLE} [building]|that|have [has]|the|most|{TABLE} [company]|office [offices]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}",
+            "office"
+        ],
+        "original_sql": "SELECT T2.name FROM Office_locations AS T1 JOIN buildings AS T2 ON T1.building_id  =  T2.id JOIN Companies AS T3 ON T1.company_id  =  T3.id GROUP BY T1.building_id ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Please show the names of the buildings whose status is \"on-hold\", in ascending order of stories.",
+        "generalized_nl": "Please|show|the|{COLUMN} [names]|of|the|{TABLE} [buildings]|whose|{COLUMN} [status]|is|{VALUE} [on - hold]|in|ascend [ascending]|order|of|{COLUMN} [stories]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{VALUE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM buildings WHERE Status  =  \"on-hold\" ORDER BY Stories ASC"
+    },
+    {
+        "original_nl": "Find the names of the buildings in \"on-hold\" status, and sort them in ascending order of building stories.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|{TABLE} [buildings]|in|{VALUE} [on - hold]|{COLUMN} [status]|and|screen [sort]|them|in|ascend [ascending]|order|of|{TABLE} [building]|{COLUMN} [stories]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "{VALUE}",
+            "{COLUMN}",
+            "and",
+            "screen",
+            "them",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM buildings WHERE Status  =  \"on-hold\" ORDER BY Stories ASC"
+    },
+    {
+        "original_nl": "Please show each industry and the corresponding number of companies in that industry.",
+        "generalized_nl": "Please|show|each|{COLUMN} [industry]|and|the|match [corresponding]|number|of|{TABLE} [companies]|in|that|{COLUMN} [industry]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "each",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "that",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Industry ,  COUNT(*) FROM Companies GROUP BY Industry"
+    },
+    {
+        "original_nl": "Whah are the name of each industry and the number of companies in that industry?",
+        "generalized_nl": "Whah|are|the|{COLUMN} [name]|of|each|{COLUMN} [industry]|and|the|number|of|{TABLE} [companies]|in|that|{COLUMN} [industry]",
+        "generalized_tokens": [
+            "Whah",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "that",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Industry ,  COUNT(*) FROM Companies GROUP BY Industry"
+    },
+    {
+        "original_nl": "Please show the industries of companies in descending order of the number of companies.",
+        "generalized_nl": "Please|show|the|{COLUMN} [industries]|of|{TABLE} [companies]|in|descend [descending]|order|of|the|number|of|{TABLE} [companies]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Industry FROM Companies GROUP BY Industry ORDER BY COUNT(*) DESC"
+    },
+    {
+        "original_nl": "Sort all the industries in descending order of the count of companies in each industry",
+        "generalized_nl": "screen [Sort]|all|the|{COLUMN} [industries]|in|descend [descending]|order|of|the|count|of|{TABLE} [companies]|in|each|{COLUMN} [industry]",
+        "generalized_tokens": [
+            "screen",
+            "all",
+            "the",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "the",
+            "count",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Industry FROM Companies GROUP BY Industry ORDER BY COUNT(*) DESC"
+    },
+    {
+        "original_nl": "List the industry shared by the most companies.",
+        "generalized_nl": "list [List]|the|{COLUMN} [industry]|share [shared]|by|the|most|{TABLE} [companies]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Industry FROM Companies GROUP BY Industry ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which industry has the most companies?",
+        "generalized_nl": "Which|{COLUMN} [industry]|have [has]|the|most|{TABLE} [companies]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Industry FROM Companies GROUP BY Industry ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the names of buildings that have no company office.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [buildings]|that|have|no|{TABLE} [company]|office",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "no",
+            "{TABLE}",
+            "office"
+        ],
+        "original_sql": "SELECT name FROM buildings WHERE id NOT IN (SELECT building_id FROM Office_locations)"
+    },
+    {
+        "original_nl": "Show the industries shared by companies whose headquarters are \"USA\" and companies whose headquarters are \"China\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [industries]|share [shared]|by|{TABLE} [companies]|whose|{COLUMN} [headquarters]|are|{VALUE} [USA]|and|{TABLE} [companies]|whose|{COLUMN} [headquarters]|are|{VALUE} [China]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "{VALUE}",
+            "and",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Industry FROM Companies WHERE Headquarters  =  \"USA\" INTERSECT SELECT Industry FROM Companies WHERE Headquarters  =  \"China\""
+    },
+    {
+        "original_nl": "Which industries have both companies with headquarter in \"USA\" and companies with headquarter in \"China\"?",
+        "generalized_nl": "Which|{COLUMN} [industries]|have|both|{TABLE} [companies]|with|headquarter|in|{VALUE} [USA]|and|{TABLE} [companies]|with|headquarter|in|{VALUE} [China]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "both",
+            "{TABLE}",
+            "with",
+            "headquarter",
+            "in",
+            "{VALUE}",
+            "and",
+            "{TABLE}",
+            "with",
+            "headquarter",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Industry FROM Companies WHERE Headquarters  =  \"USA\" INTERSECT SELECT Industry FROM Companies WHERE Headquarters  =  \"China\""
+    },
+    {
+        "original_nl": "Find the number of companies whose industry is \"Banking\" or \"Conglomerate\",",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [companies]|whose|{COLUMN} [industry]|is|{VALUE} [Banking]|or|{VALUE} [Conglomerate]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Companies WHERE Industry  =  \"Banking\" OR Industry  =  \"Conglomerate\""
+    },
+    {
+        "original_nl": "How many companies are in either \"Banking\" industry or \"Conglomerate\" industry?",
+        "generalized_nl": "How|many|{TABLE} [companies]|are|in|either|{VALUE} [Banking]|{COLUMN} [industry]|or|{VALUE} [Conglomerate]|{COLUMN} [industry]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "either",
+            "{VALUE}",
+            "{COLUMN}",
+            "or",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM Companies WHERE Industry  =  \"Banking\" OR Industry  =  \"Conglomerate\""
+    },
+    {
+        "original_nl": "Show the headquarters shared by more than two companies.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [headquarters]|share [shared]|by|{NUMBER} [more than two]|{TABLE} [companies]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Headquarters FROM Companies GROUP BY Headquarters HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "Which headquarter locations are used by more than 2 companies?",
+        "generalized_nl": "Which|headquarter|location [locations]|are|use [used]|by|{NUMBER} [more than 2]|{TABLE} [companies]",
+        "generalized_tokens": [
+            "Which",
+            "headquarter",
+            "location",
+            "are",
+            "use",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Headquarters FROM Companies GROUP BY Headquarters HAVING COUNT(*)  >  2"
+    }
+]

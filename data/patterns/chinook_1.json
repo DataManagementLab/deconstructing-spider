@@ -1,0 +1,1526 @@
+[
+    {
+        "original_nl": "How many albums are there?",
+        "generalized_nl": "How|many|{TABLE} [albums]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM ALBUM"
+    },
+    {
+        "original_nl": "Find the number of albums.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [albums]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM ALBUM"
+    },
+    {
+        "original_nl": "List the names of all music genres.",
+        "generalized_nl": "{COLUMN_PART} [List]|the|{COLUMN} [names]|of|all|music|{TABLE} [genres]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "music",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM GENRE"
+    },
+    {
+        "original_nl": "What are the names of different music genres?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|different|music|{TABLE} [genres]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "different",
+            "music",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM GENRE"
+    },
+    {
+        "original_nl": "Find all the customer information in state NY.",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [customer]|information|in|{COLUMN} [state]|{NE} [NY]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "information",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT * FROM CUSTOMER WHERE State  =  \"NY\""
+    },
+    {
+        "original_nl": "What is all the customer information for customers in NY state?",
+        "generalized_nl": "What|is|all|the|{TABLE} [customer]|information|for|{TABLE} [customers]|in|{NE} [NY]|{COLUMN} [state]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "all",
+            "the",
+            "{TABLE}",
+            "information",
+            "for",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT * FROM CUSTOMER WHERE State  =  \"NY\""
+    },
+    {
+        "original_nl": "What are the first names and last names of the employees who live in Calgary city.",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|and|{COLUMN} [last names]|of|the|{TABLE} [employees]|who|live|in|{NE} [Calgary city]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT FirstName ,  LastName FROM EMPLOYEE WHERE City  =  \"Calgary\""
+    },
+    {
+        "original_nl": "Find the full names of employees living in the city of Calgary.",
+        "generalized_nl": "find [Find]|the|full|{COLUMN} [names]|of|{TABLE} [employees]|live [living]|in|the|{COLUMN} [city]|of|{NE} [Calgary]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "full",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "live",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT FirstName ,  LastName FROM EMPLOYEE WHERE City  =  \"Calgary\""
+    },
+    {
+        "original_nl": "What are the distinct billing countries of the invoices?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [billing countries]|of|the|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT distinct(BillingCountry) FROM INVOICE"
+    },
+    {
+        "original_nl": "Find the different billing countries for all invoices.",
+        "generalized_nl": "find [Find]|the|different|{COLUMN} [billing countries]|for|all|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT distinct(BillingCountry) FROM INVOICE"
+    },
+    {
+        "original_nl": "Find the names of all artists that have \"a\" in their names.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{TABLE} [artists]|that|have|a|in|their|{COLUMN} [names]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "in",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM ARTIST WHERE Name LIKE \"%a%\""
+    },
+    {
+        "original_nl": "What are the names of artist who have the letter 'a' in their names?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [artist]|who|have|the|letter|a|in|their|{COLUMN} [names]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "letter",
+            "a",
+            "in",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM ARTIST WHERE Name LIKE \"%a%\""
+    },
+    {
+        "original_nl": "Find the title of all the albums of the artist \"AC/DC\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [title]|of|all|the|{TABLE} [albums]|of|the|{TABLE} [artist]|{NE} [AC / DC \"]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Title FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistId WHERE T2.Name  =  \"AC/DC\""
+    },
+    {
+        "original_nl": "What are the titles of albums by the artist \"AC/DC\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|{TABLE} [albums]|by|the|{TABLE} [artist]|AC|DC",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "by",
+            "the",
+            "{TABLE}",
+            "AC",
+            "DC"
+        ],
+        "original_sql": "SELECT Title FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistId WHERE T2.Name  =  \"AC/DC\""
+    },
+    {
+        "original_nl": "Hom many albums does the artist \"Metallica\" have?",
+        "generalized_nl": "{NE} [Hom]|many|{TABLE} [albums]|does|the|{TABLE} [artist]|{NE} [Metallica]|have",
+        "generalized_tokens": [
+            "{NE}",
+            "many",
+            "{TABLE}",
+            "does",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistId WHERE T2.Name  =  \"Metallica\""
+    },
+    {
+        "original_nl": "Find the number of albums by the artist \"Metallica\".",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [albums]|by|the|{TABLE} [artist]|{NE} [Metallica]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "by",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistId WHERE T2.Name  =  \"Metallica\""
+    },
+    {
+        "original_nl": "Which artist does the album \"Balls to the Wall\" belong to?",
+        "generalized_nl": "Which|{TABLE} [artist]|does|the|{TABLE} [album]|ball [Balls]|to|the|Wall|belong|to",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "does",
+            "the",
+            "{TABLE}",
+            "ball",
+            "to",
+            "the",
+            "Wall",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T2.Name FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistId WHERE T1.Title  =  \"Balls to the Wall\""
+    },
+    {
+        "original_nl": "Find the name of the artist who made the album \"Balls to the Wall\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [artist]|who|make [made]|the|{TABLE} [album]|ball [Balls]|to|the|Wall",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "make",
+            "the",
+            "{TABLE}",
+            "ball",
+            "to",
+            "the",
+            "Wall"
+        ],
+        "original_sql": "SELECT T2.Name FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistId WHERE T1.Title  =  \"Balls to the Wall\""
+    },
+    {
+        "original_nl": "Which artist has the most albums?",
+        "generalized_nl": "Which|{TABLE} [artist]|have [has]|the|most|{TABLE} [albums]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistId GROUP BY T2.Name ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the artist with the greatest number of albums?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [artist]|with|the|great [greatest]|number|of|{TABLE} [albums]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "great",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistId GROUP BY T2.Name ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the names of all the tracks that contain the word \"you\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|the|{TABLE} [tracks]|that|contain|the|word|you",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "contain",
+            "the",
+            "word",
+            "you"
+        ],
+        "original_sql": "SELECT Name FROM TRACK WHERE Name LIKE '%you%'"
+    },
+    {
+        "original_nl": "What are the names of tracks that contain the the word you in them?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [tracks]|that|contain|the|the|word|you|in|them",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "contain",
+            "the",
+            "the",
+            "word",
+            "you",
+            "in",
+            "them"
+        ],
+        "original_sql": "SELECT Name FROM TRACK WHERE Name LIKE '%you%'"
+    },
+    {
+        "original_nl": "What is the average unit price of all the tracks?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [unit price]|of|all|the|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT AVG(UnitPrice) FROM TRACK"
+    },
+    {
+        "original_nl": "Find the average unit price for a track.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [unit price]|for|a|{TABLE} [track]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT AVG(UnitPrice) FROM TRACK"
+    },
+    {
+        "original_nl": "What are the durations of the longest and the shortest tracks in milliseconds?",
+        "generalized_nl": "What|are|the|duration [durations]|of|the|long [longest]|and|the|short [shortest]|{TABLE} [tracks]|in|{COLUMN} [milliseconds]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "duration",
+            "of",
+            "the",
+            "long",
+            "and",
+            "the",
+            "short",
+            "{TABLE}",
+            "in",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(Milliseconds) ,  min(Milliseconds) FROM TRACK"
+    },
+    {
+        "original_nl": "Find the maximum and minimum durations of tracks in milliseconds.",
+        "generalized_nl": "find [Find]|the|maximal [maximum]|and|minimal [minimum]|duration [durations]|of|{TABLE} [tracks]|in|{COLUMN} [milliseconds]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "duration",
+            "of",
+            "{TABLE}",
+            "in",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(Milliseconds) ,  min(Milliseconds) FROM TRACK"
+    },
+    {
+        "original_nl": "Show the album names, ids and the number of tracks for each album.",
+        "generalized_nl": "show [Show]|the|{TABLE} [album]|{COLUMN} [names]|{COLUMN_PART} [ids]|and|the|number|of|{TABLE} [tracks]|for|each|{TABLE} [album]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Title ,  T2.AlbumID ,  COUNT(*) FROM ALBUM AS T1 JOIN TRACK AS T2 ON T1.AlbumId  =  T2.AlbumId GROUP BY T2.AlbumID"
+    },
+    {
+        "original_nl": "What are the names and ids of the different albums, and how many tracks are on each?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN_PART} [ids]|of|the|different|{TABLE} [albums]|and|how|many|{TABLE} [tracks]|are|on|each",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "different",
+            "{TABLE}",
+            "and",
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "on",
+            "each"
+        ],
+        "original_sql": "SELECT T1.Title ,  T2.AlbumID ,  COUNT(*) FROM ALBUM AS T1 JOIN TRACK AS T2 ON T1.AlbumId  =  T2.AlbumId GROUP BY T2.AlbumID"
+    },
+    {
+        "original_nl": "What is the name of the most common genre in all tracks?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|most|common|{TABLE} [genre]|in|all|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "most",
+            "common",
+            "{TABLE}",
+            "in",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId GROUP BY T2.GenreId ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the genre that is most frequent across all tracks.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [genre]|that|is|most|frequent|across|all|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "most",
+            "frequent",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId GROUP BY T2.GenreId ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the least common media type in all tracks?",
+        "generalized_nl": "What|is|the|least|common|{TABLE} [media type]|in|all|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "least",
+            "common",
+            "{TABLE}",
+            "in",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM MEDIATYPE AS T1 JOIN TRACK AS T2 ON T1.MediaTypeId  =  T2.MediaTypeId GROUP BY T2.MediaTypeId ORDER BY COUNT(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the media type that is least common across all tracks?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [media type]|that|is|least|common|across|all|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "least",
+            "common",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM MEDIATYPE AS T1 JOIN TRACK AS T2 ON T1.MediaTypeId  =  T2.MediaTypeId GROUP BY T2.MediaTypeId ORDER BY COUNT(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the album names and ids for albums that contain tracks with unit price bigger than 1.",
+        "generalized_nl": "show [Show]|the|{TABLE} [album]|{COLUMN} [names]|and|{COLUMN_PART} [ids]|for|{TABLE} [albums]|that|contain|{TABLE} [tracks]|with|{COLUMN} [unit price]|big [bigger]|than|{NUMBER} [1]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "that",
+            "contain",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "big",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.Title ,  T2.AlbumID FROM ALBUM AS T1 JOIN TRACK AS T2 ON T1.AlbumId  =  T2.AlbumId WHERE T2.UnitPrice  >  1 GROUP BY T2.AlbumID"
+    },
+    {
+        "original_nl": "What are the titles and ids for albums containing tracks with unit price greater than 1?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|and|{COLUMN_PART} [ids]|for|{TABLE} [albums]|contain [containing]|{TABLE} [tracks]|with|{COLUMN} [unit price]|great [greater]|than|{NUMBER} [1]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "contain",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "great",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.Title ,  T2.AlbumID FROM ALBUM AS T1 JOIN TRACK AS T2 ON T1.AlbumId  =  T2.AlbumId WHERE T2.UnitPrice  >  1 GROUP BY T2.AlbumID"
+    },
+    {
+        "original_nl": "How many tracks belong to rock genre?",
+        "generalized_nl": "How|many|{TABLE} [tracks]|belong|to|rock|{TABLE} [genre]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "belong",
+            "to",
+            "rock",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId WHERE T1.Name  =  \"Rock\""
+    },
+    {
+        "original_nl": "Count the number of tracks that are part of the rock genre.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [tracks]|that|are|part|of|the|rock|{TABLE} [genre]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "part",
+            "of",
+            "the",
+            "rock",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId WHERE T1.Name  =  \"Rock\""
+    },
+    {
+        "original_nl": "What is the average unit price of tracks that belong to Jazz genre?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [unit price]|of|{TABLE} [tracks]|that|belong|to|{NE} [Jazz]|{TABLE} [genre]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "belong",
+            "to",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT AVG(UnitPrice) FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId WHERE T1.Name  =  \"Jazz\""
+    },
+    {
+        "original_nl": "Find the average unit price of jazz tracks.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [unit price]|of|jazz|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "jazz",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT AVG(UnitPrice) FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId WHERE T1.Name  =  \"Jazz\""
+    },
+    {
+        "original_nl": "What is the first name and last name of the customer that has email \"luisg@embraer.com.br\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [first name]|and|{COLUMN} [last name]|of|the|{TABLE} [customer]|that|has|{COLUMN} [email]|luisg@embraer.com.br",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "{COLUMN}",
+            "luisg@embraer.com.br"
+        ],
+        "original_sql": "SELECT FirstName ,  LastName FROM CUSTOMER WHERE Email  =  \"luisg@embraer.com.br\""
+    },
+    {
+        "original_nl": "Find the full name of the customer with the email \"luisg@embraer.com.br\".",
+        "generalized_nl": "find [Find]|the|full|{COLUMN} [name]|of|the|{TABLE} [customer]|with|the|{COLUMN} [email]|luisg@embraer.com.br",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "full",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "luisg@embraer.com.br"
+        ],
+        "original_sql": "SELECT FirstName ,  LastName FROM CUSTOMER WHERE Email  =  \"luisg@embraer.com.br\""
+    },
+    {
+        "original_nl": "How many customers have email that contains \"gmail.com\"?",
+        "generalized_nl": "How|many|{TABLE} [customers]|have|{COLUMN} [email]|that|contain [contains]|gmail.com",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{COLUMN}",
+            "that",
+            "contain",
+            "gmail.com"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM CUSTOMER WHERE Email LIKE \"%gmail.com%\""
+    },
+    {
+        "original_nl": "Count the number of customers that have an email containing \"gmail.com\".",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [customers]|that|have|an|{COLUMN} [email]|contain [containing]|gmail.com",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "an",
+            "{COLUMN}",
+            "contain",
+            "gmail.com"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM CUSTOMER WHERE Email LIKE \"%gmail.com%\""
+    },
+    {
+        "original_nl": "What is the first name and last name employee helps the customer with first name Leonie?",
+        "generalized_nl": "What|is|the|{COLUMN} [first name]|and|{COLUMN} [last name]|{TABLE} [employee]|help [helps]|the|{TABLE} [customer]|with|{COLUMN} [first name]|{NE} [Leonie]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "{TABLE}",
+            "help",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.FirstName ,  T2.LastName FROM CUSTOMER AS T1 JOIN EMPLOYEE AS T2 ON T1.SupportRepId  =  T2.EmployeeId WHERE T1.FirstName  =  \"Leonie\""
+    },
+    {
+        "original_nl": "Find the full names of employees who help customers with the first name Leonie.",
+        "generalized_nl": "find [Find]|the|full|{COLUMN} [names]|of|{TABLE} [employees]|who|help|{TABLE} [customers]|with|the|{COLUMN} [first name]|{NE} [Leonie]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "full",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "help",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.FirstName ,  T2.LastName FROM CUSTOMER AS T1 JOIN EMPLOYEE AS T2 ON T1.SupportRepId  =  T2.EmployeeId WHERE T1.FirstName  =  \"Leonie\""
+    },
+    {
+        "original_nl": "What city does the employee who helps the customer with postal code 70174 live in?",
+        "generalized_nl": "What|{COLUMN} [city]|does|the|{TABLE} [employee]|who|help [helps]|the|{TABLE} [customer]|with|{COLUMN} [postal code]|{NUMBER} [70174]|live|in",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "does",
+            "the",
+            "{TABLE}",
+            "who",
+            "help",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT T2.City FROM CUSTOMER AS T1 JOIN EMPLOYEE AS T2 ON T1.SupportRepId  =  T2.EmployeeId WHERE T1.PostalCode  =  \"70174\""
+    },
+    {
+        "original_nl": "Find the cities corresponding to employees who help customers with the postal code 70174.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [cities]|match [corresponding]|to|{TABLE} [employees]|who|help|{TABLE} [customers]|with|the|{COLUMN} [postal code]|{NUMBER} [70174]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "match",
+            "to",
+            "{TABLE}",
+            "who",
+            "help",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.City FROM CUSTOMER AS T1 JOIN EMPLOYEE AS T2 ON T1.SupportRepId  =  T2.EmployeeId WHERE T1.PostalCode  =  \"70174\""
+    },
+    {
+        "original_nl": "How many distinct cities does the employees live in?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [cities]|does|the|{TABLE} [employees]|live|in",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "does",
+            "the",
+            "{TABLE}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT COUNT(DISTINCT city) FROM EMPLOYEE"
+    },
+    {
+        "original_nl": "Find the number of different cities that employees live in.",
+        "generalized_nl": "find [Find]|the|number|of|different|{COLUMN} [cities]|that|{TABLE} [employees]|live|in",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{COLUMN}",
+            "that",
+            "{TABLE}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT COUNT(DISTINCT city) FROM EMPLOYEE"
+    },
+    {
+        "original_nl": "Find all invoice dates corresponding to customers with first name Astrid and last name Gruber.",
+        "generalized_nl": "find [Find]|all|{COLUMN} [invoice dates]|match [corresponding]|to|{TABLE} [customers]|with|{COLUMN} [first name]|{NE} [Astrid]|and|{COLUMN} [last name]|{NE} [Gruber]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "{COLUMN}",
+            "match",
+            "to",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.InvoiceDate FROM CUSTOMER AS T1 JOIN INVOICE AS T2 ON T1.CustomerId  =  T2.CustomerId WHERE T1.FirstName  =  \"Astrid\" AND LastName  =  \"Gruber\""
+    },
+    {
+        "original_nl": "What are the invoice dates for customers with the first name Astrid and the last name Gruber?",
+        "generalized_nl": "What|are|the|{COLUMN} [invoice dates]|for|{TABLE} [customers]|with|the|{COLUMN} [first name]|{NE} [Astrid]|and|the|{COLUMN} [last name]|{NE} [Gruber]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.InvoiceDate FROM CUSTOMER AS T1 JOIN INVOICE AS T2 ON T1.CustomerId  =  T2.CustomerId WHERE T1.FirstName  =  \"Astrid\" AND LastName  =  \"Gruber\""
+    },
+    {
+        "original_nl": "Find all the customer last names that do not have invoice totals larger than 20.",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [customer]|{COLUMN} [last names]|that|do|not|have|{TABLE} [invoice]|{COLUMN} [totals]|{NUMBER} [larger than 20]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "{TABLE}",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT LastName FROM CUSTOMER EXCEPT SELECT T1.LastName FROM CUSTOMER AS T1 JOIN Invoice AS T2 ON T1.CustomerId  =  T2.CustomerId WHERE T2.total  >  20"
+    },
+    {
+        "original_nl": "What are the last names of customers without invoice totals exceeding 20?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|of|{TABLE} [customers]|without|{TABLE} [invoice]|{COLUMN} [totals]|exceed [exceeding]|{NUMBER} [20]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "without",
+            "{TABLE}",
+            "{COLUMN}",
+            "exceed",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT LastName FROM CUSTOMER EXCEPT SELECT T1.LastName FROM CUSTOMER AS T1 JOIN Invoice AS T2 ON T1.CustomerId  =  T2.CustomerId WHERE T2.total  >  20"
+    },
+    {
+        "original_nl": "Find the first names of all customers that live in Brazil and have an invoice.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|all|{TABLE} [customers]|that|live|in|{NE} [Brazil]|and|have|an|{TABLE} [invoice]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "live",
+            "in",
+            "{NE}",
+            "and",
+            "have",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.FirstName FROM CUSTOMER AS T1 JOIN INVOICE AS T2 ON T1.CustomerId  =  T2.CustomerId WHERE T1.country  =  \"Brazil\""
+    },
+    {
+        "original_nl": "What are the different first names for customers from Brazil who have also had an invoice?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [first names]|for|{TABLE} [customers]|from|{NE} [Brazil]|who|have|besides [also]|have [had]|an|{TABLE} [invoice]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "from",
+            "{NE}",
+            "who",
+            "have",
+            "besides",
+            "have",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.FirstName FROM CUSTOMER AS T1 JOIN INVOICE AS T2 ON T1.CustomerId  =  T2.CustomerId WHERE T1.country  =  \"Brazil\""
+    },
+    {
+        "original_nl": "Find the address of all customers that live in Germany and have invoice.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [address]|of|all|{TABLE} [customers]|that|live|in|{NE} [Germany]|and|have|{TABLE} [invoice]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "live",
+            "in",
+            "{NE}",
+            "and",
+            "have",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Address FROM CUSTOMER AS T1 JOIN INVOICE AS T2 ON T1.CustomerId  =  T2.CustomerId WHERE T1.country  =  \"Germany\""
+    },
+    {
+        "original_nl": "What are the addresses of customers living in Germany who have had an invoice?",
+        "generalized_nl": "What|are|the|{COLUMN} [addresses]|of|{TABLE} [customers]|live [living]|in|{NE} [Germany]|who|have|have [had]|an|{TABLE} [invoice]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "live",
+            "in",
+            "{NE}",
+            "who",
+            "have",
+            "have",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Address FROM CUSTOMER AS T1 JOIN INVOICE AS T2 ON T1.CustomerId  =  T2.CustomerId WHERE T1.country  =  \"Germany\""
+    },
+    {
+        "original_nl": "List the phone numbers of all employees.",
+        "generalized_nl": "{COLUMN_PART} [List]|the|{COLUMN} [phone]|number [numbers]|of|all|{TABLE} [employees]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "the",
+            "{COLUMN}",
+            "number",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Phone FROM EMPLOYEE"
+    },
+    {
+        "original_nl": "What are the phone numbers for each employee?",
+        "generalized_nl": "What|are|the|{COLUMN} [phone]|number [numbers]|for|each|{TABLE} [employee]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "number",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Phone FROM EMPLOYEE"
+    },
+    {
+        "original_nl": "How many tracks are in the AAC audio file media type?",
+        "generalized_nl": "How|many|{TABLE} [tracks]|are|in|the|{NE} [AAC]|audio|file|{TABLE} [media type]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "the",
+            "{NE}",
+            "audio",
+            "file",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM MEDIATYPE AS T1 JOIN TRACK AS T2 ON T1.MediaTypeId  =  T2.MediaTypeId WHERE T1.Name  =  \"AAC audio file\""
+    },
+    {
+        "original_nl": "Count the number of tracks that are of the media type \"AAC audio file\".",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [tracks]|that|are|of|the|{TABLE} [media type]|AAC|audio|file",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "of",
+            "the",
+            "{TABLE}",
+            "AAC",
+            "audio",
+            "file"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM MEDIATYPE AS T1 JOIN TRACK AS T2 ON T1.MediaTypeId  =  T2.MediaTypeId WHERE T1.Name  =  \"AAC audio file\""
+    },
+    {
+        "original_nl": "What is the average duration in milliseconds of tracks that belong to Latin or Pop genre?",
+        "generalized_nl": "What|is|the|average|duration|in|{COLUMN} [milliseconds]|of|{TABLE} [tracks]|that|belong|to|{NE} [Latin]|or|pop [Pop]|{TABLE} [genre]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "duration",
+            "in",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "belong",
+            "to",
+            "{NE}",
+            "or",
+            "pop",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT AVG(Milliseconds) FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId WHERE T1.Name  =  \"Latin\" OR T1.Name  =  \"Pop\""
+    },
+    {
+        "original_nl": "Find the average millisecond length of Latin and Pop tracks.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [millisecond]|length|of|{NE} [Latin]|and|pop [Pop]|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "length",
+            "of",
+            "{NE}",
+            "and",
+            "pop",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT AVG(Milliseconds) FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId WHERE T1.Name  =  \"Latin\" OR T1.Name  =  \"Pop\""
+    },
+    {
+        "original_nl": "Please show the employee first names and ids of employees who serve at least 10 customers.",
+        "generalized_nl": "Please|show|the|{TABLE} [employee]|{COLUMN} [first names]|and|{COLUMN_PART} [ids]|of|{TABLE} [employees]|who|serve|{NUMBER} [at least 10]|{TABLE} [customers]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "serve",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.FirstName ,  T1.SupportRepId FROM CUSTOMER AS T1 JOIN EMPLOYEE AS T2 ON T1.SupportRepId  =  T2.EmployeeId GROUP BY T1.SupportRepId HAVING COUNT(*)  >=  10"
+    },
+    {
+        "original_nl": "What are the first names and support rep ids for employees serving 10 or more customers?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|and|{COLUMN_PART} [support]|rep|{COLUMN_PART} [ids]|for|{TABLE} [employees]|serve [serving]|{NUMBER} [10]|or|more|{TABLE} [customers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "rep",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "serve",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.FirstName ,  T1.SupportRepId FROM CUSTOMER AS T1 JOIN EMPLOYEE AS T2 ON T1.SupportRepId  =  T2.EmployeeId GROUP BY T1.SupportRepId HAVING COUNT(*)  >=  10"
+    },
+    {
+        "original_nl": "Please show the employee last names that serves no more than 20 customers.",
+        "generalized_nl": "Please|show|the|{TABLE} [employee]|{COLUMN} [last names]|that|serve [serves]|{NUMBER} [no more than 20]|{TABLE} [customers]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "serve",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.LastName FROM CUSTOMER AS T1 JOIN EMPLOYEE AS T2 ON T1.SupportRepId  =  T2.EmployeeId GROUP BY T1.SupportRepId HAVING COUNT(*)  <=  20"
+    },
+    {
+        "original_nl": "What are the last names of employees who serve at most 20 customers?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|of|{TABLE} [employees]|who|serve|at|most|{NUMBER} [20]|{TABLE} [customers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "serve",
+            "at",
+            "most",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.LastName FROM CUSTOMER AS T1 JOIN EMPLOYEE AS T2 ON T1.SupportRepId  =  T2.EmployeeId GROUP BY T1.SupportRepId HAVING COUNT(*)  <=  20"
+    },
+    {
+        "original_nl": "Please list all album titles in alphabetical order.",
+        "generalized_nl": "Please|{COLUMN_PART} [list]|all|{TABLE} [album]|{COLUMN} [titles]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "Please",
+            "{COLUMN_PART}",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Title FROM ALBUM ORDER BY Title"
+    },
+    {
+        "original_nl": "What are all the album titles, in alphabetical order?",
+        "generalized_nl": "What|are|all|the|{TABLE} [album]|{COLUMN} [titles]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Title FROM ALBUM ORDER BY Title"
+    },
+    {
+        "original_nl": "Please list the name and id of all artists that have at least 3 albums in alphabetical order.",
+        "generalized_nl": "Please|{COLUMN_PART} [list]|the|{COLUMN} [name]|and|{COLUMN_PART} [id]|of|all|{TABLE} [artists]|that|have|{NUMBER} [at least 3]|{TABLE} [albums]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "Please",
+            "{COLUMN_PART}",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.ArtistId FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistID GROUP BY T1.ArtistId HAVING COUNT(*)  >=  3 ORDER BY T2.Name"
+    },
+    {
+        "original_nl": "What are the names and ids of artists with 3 or more albums, listed in alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN_PART} [ids]|of|{TABLE} [artists]|with|{NUMBER} [3]|or|more|{TABLE} [albums]|list [listed]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{TABLE}",
+            "list",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.ArtistId FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistID GROUP BY T1.ArtistId HAVING COUNT(*)  >=  3 ORDER BY T2.Name"
+    },
+    {
+        "original_nl": "Find the names of artists that do not have any albums.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [artists]|that|do|not|have|any|{TABLE} [albums]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM ARTIST EXCEPT SELECT T2.Name FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistId"
+    },
+    {
+        "original_nl": "What are the names of artists who have not released any albums?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [artists]|who|have|not|free [released]|any|{TABLE} [albums]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "not",
+            "free",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM ARTIST EXCEPT SELECT T2.Name FROM ALBUM AS T1 JOIN ARTIST AS T2 ON T1.ArtistId  =  T2.ArtistId"
+    },
+    {
+        "original_nl": "What is the average unit price of rock tracks?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [unit price]|of|rock|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "rock",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT AVG(T2.UnitPrice) FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId WHERE T1.Name  =  \"Rock\""
+    },
+    {
+        "original_nl": "Find the average unit price of tracks from the Rock genre.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [unit price]|of|{TABLE} [tracks]|from|the|rock [Rock]|{TABLE} [genre]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "from",
+            "the",
+            "rock",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT AVG(T2.UnitPrice) FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId WHERE T1.Name  =  \"Rock\""
+    },
+    {
+        "original_nl": "What are the duration of the longest and shortest pop tracks in milliseconds?",
+        "generalized_nl": "What|are|the|duration|of|the|long [longest]|and|short [shortest]|pop|{TABLE} [tracks]|in|{COLUMN} [milliseconds]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "duration",
+            "of",
+            "the",
+            "long",
+            "and",
+            "short",
+            "pop",
+            "{TABLE}",
+            "in",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(Milliseconds) ,  min(Milliseconds) FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId WHERE T1.Name  =  \"Pop\""
+    },
+    {
+        "original_nl": "Find the maximum and minimum millisecond lengths of pop tracks.",
+        "generalized_nl": "find [Find]|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [millisecond]|length [lengths]|of|pop|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "length",
+            "of",
+            "pop",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Milliseconds) ,  min(Milliseconds) FROM GENRE AS T1 JOIN TRACK AS T2 ON T1.GenreId  =  T2.GenreId WHERE T1.Name  =  \"Pop\""
+    },
+    {
+        "original_nl": "What are the birth dates of employees living in Edmonton?",
+        "generalized_nl": "What|are|the|{COLUMN} [birth dates]|of|{TABLE} [employees]|live [living]|in|{NE} [Edmonton]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT BirthDate FROM EMPLOYEE WHERE City  =  \"Edmonton\""
+    },
+    {
+        "original_nl": "Find the birth dates corresponding to employees who live in the city of Edmonton.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [birth dates]|match [corresponding]|to|{TABLE} [employees]|who|live|in|the|{COLUMN} [city]|of|{NE} [Edmonton]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "match",
+            "to",
+            "{TABLE}",
+            "who",
+            "live",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT BirthDate FROM EMPLOYEE WHERE City  =  \"Edmonton\""
+    },
+    {
+        "original_nl": "What are the distinct unit prices of all tracks?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [unit prices]|of|all|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT distinct(UnitPrice) FROM TRACK"
+    },
+    {
+        "original_nl": "Find the distinct unit prices for tracks.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [unit prices]|for|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT distinct(UnitPrice) FROM TRACK"
+    },
+    {
+        "original_nl": "How many artists do not have any album?",
+        "generalized_nl": "How|many|{TABLE} [artists]|do|not|have|any|{TABLE} [album]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM ARTIST WHERE artistid NOT IN(SELECT artistid FROM ALBUM)"
+    },
+    {
+        "original_nl": "Cound the number of artists who have not released an album.",
+        "generalized_nl": "Cound|the|number|of|{TABLE} [artists]|who|have|not|free [released]|an|{TABLE} [album]",
+        "generalized_tokens": [
+            "Cound",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "not",
+            "free",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM ARTIST WHERE artistid NOT IN(SELECT artistid FROM ALBUM)"
+    },
+    {
+        "original_nl": "What are the album titles for albums containing both 'Reggae' and 'Rock' genre tracks?",
+        "generalized_nl": "What|are|the|{TABLE} [album]|{COLUMN} [titles]|for|{TABLE} [albums]|contain [containing]|both|{NE} [Reggae]|and|{NE} [Rock]|{TABLE} [genre]|{TABLE} [tracks]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "contain",
+            "both",
+            "{NE}",
+            "and",
+            "{NE}",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Title FROM Album AS T1 JOIN Track AS T2 ON T1.AlbumId  =  T2.AlbumId JOIN Genre AS T3 ON T2.GenreID  =  T3.GenreID WHERE T3.Name  =  'Reggae' INTERSECT SELECT T1.Title FROM Album AS T1 JOIN Track AS T2 ON T1.AlbumId  =  T2.AlbumId JOIN Genre AS T3 ON T2.GenreID  =  T3.GenreID WHERE T3.Name  =  'Rock'"
+    },
+    {
+        "original_nl": "Find the titles of albums that contain tracks of both the Reggae and Rock genres.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [titles]|of|{TABLE} [albums]|that|contain|{TABLE} [tracks]|of|both|the|{NE} [Reggae]|and|rock [Rock]|{TABLE} [genres]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "contain",
+            "{TABLE}",
+            "of",
+            "both",
+            "the",
+            "{NE}",
+            "and",
+            "rock",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Title FROM Album AS T1 JOIN Track AS T2 ON T1.AlbumId  =  T2.AlbumId JOIN Genre AS T3 ON T2.GenreID  =  T3.GenreID WHERE T3.Name  =  'Reggae' INTERSECT SELECT T1.Title FROM Album AS T1 JOIN Track AS T2 ON T1.AlbumId  =  T2.AlbumId JOIN Genre AS T3 ON T2.GenreID  =  T3.GenreID WHERE T3.Name  =  'Rock'"
+    }
+]

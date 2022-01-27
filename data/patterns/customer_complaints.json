@@ -1,0 +1,900 @@
+[
+    {
+        "original_nl": "How many customers are there?",
+        "generalized_nl": "How|many|{TABLE} [customers]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM customers"
+    },
+    {
+        "original_nl": "Count the number of customers.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [customers]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers"
+    },
+    {
+        "original_nl": "Find the emails and phone numbers of all the customers, ordered by email address and phone number.",
+        "generalized_nl": "find [Find]|the|electronic_mail [emails]|and|{COLUMN} [phone numbers]|of|all|the|{TABLE} [customers]|order [ordered]|by|{COLUMN} [email address]|and|{COLUMN} [phone number]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "electronic_mail",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT email_address ,  phone_number FROM customers ORDER BY email_address ,  phone_number"
+    },
+    {
+        "original_nl": "What are the emails and phone numbers of all customers, sorted by email address and phone number?",
+        "generalized_nl": "What|are|the|electronic_mail [emails]|and|{COLUMN} [phone numbers]|of|all|{TABLE} [customers]|screen [sorted]|by|{COLUMN} [email address]|and|{COLUMN} [phone number]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "electronic_mail",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT email_address ,  phone_number FROM customers ORDER BY email_address ,  phone_number"
+    },
+    {
+        "original_nl": "Which city has the least number of customers whose type code is \"Good Credit Rating\"?",
+        "generalized_nl": "Which|{COLUMN_PART} [city]|have [has]|the|least|{COLUMN_PART} [number]|of|{TABLE} [customers]|whose|{COLUMN_PART} [type]|{COLUMN_PART} [code]|is|good [Good]|credit [Credit]|evaluation [Rating]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "have",
+            "the",
+            "least",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "good",
+            "credit",
+            "evaluation"
+        ],
+        "original_sql": "SELECT town_city FROM customers WHERE customer_type_code  =  \"Good Credit Rating\" GROUP BY town_city ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "Return the city with the customer type code \"Good Credit Rating\" that had the fewest customers.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [city]|with|the|{COLUMN} [customer type code]|good [Good]|credit [Credit]|evaluation [Rating]|that|have [had]|the|fewest|{TABLE} [customers]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "good",
+            "credit",
+            "evaluation",
+            "that",
+            "have",
+            "the",
+            "fewest",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT town_city FROM customers WHERE customer_type_code  =  \"Good Credit Rating\" GROUP BY town_city ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "List the name of all products along with the number of complaints that they have received.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|of|all|{TABLE} [products]|along|with|the|{COLUMN_PART} [number]|of|{TABLE} [complaints]|that|they|have|receive [received]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "along",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "they",
+            "have",
+            "receive"
+        ],
+        "original_sql": "SELECT t1.product_name ,  count(*) FROM products AS t1 JOIN complaints AS t2 ON t1.product_id  =  t2.product_id GROUP BY t1.product_name"
+    },
+    {
+        "original_nl": "What are all the different product names, and how many complains has each received?",
+        "generalized_nl": "What|are|all|the|different|{COLUMN} [product names]|and|how|many|complains|has|each|receive [received]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "how",
+            "many",
+            "complains",
+            "has",
+            "each",
+            "receive"
+        ],
+        "original_sql": "SELECT t1.product_name ,  count(*) FROM products AS t1 JOIN complaints AS t2 ON t1.product_id  =  t2.product_id GROUP BY t1.product_name"
+    },
+    {
+        "original_nl": "Find the emails of customers who has filed a complaints of the product with the most complaints.",
+        "generalized_nl": "find [Find]|the|electronic_mail [emails]|of|{TABLE} [customers]|who|has|file [filed]|a|{TABLE} [complaints]|of|the|{TABLE} [product]|with|the|most|{TABLE} [complaints]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "electronic_mail",
+            "of",
+            "{TABLE}",
+            "who",
+            "has",
+            "file",
+            "a",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.email_address FROM customers AS t1 JOIN complaints AS t2 ON t1.customer_id  =  t2.customer_id GROUP BY t1.customer_id ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "What are the emails of customers who have filed complaints on the product which has had the greatest number of complaints?",
+        "generalized_nl": "What|are|the|electronic_mail [emails]|of|{TABLE} [customers]|who|have|file [filed]|{TABLE} [complaints]|on|the|{TABLE} [product]|which|has|have [had]|the|great [greatest]|{COLUMN_PART} [number]|of|{TABLE} [complaints]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "electronic_mail",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "file",
+            "{TABLE}",
+            "on",
+            "the",
+            "{TABLE}",
+            "which",
+            "has",
+            "have",
+            "the",
+            "great",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.email_address FROM customers AS t1 JOIN complaints AS t2 ON t1.customer_id  =  t2.customer_id GROUP BY t1.customer_id ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "Which products has been complained by the customer who has filed least amount of complaints?",
+        "generalized_nl": "Which|{TABLE} [products]|has|been|complain [complained]|by|the|{TABLE} [customer]|who|has|file [filed]|least|sum [amount]|of|{TABLE} [complaints]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "has",
+            "been",
+            "complain",
+            "by",
+            "the",
+            "{TABLE}",
+            "who",
+            "has",
+            "file",
+            "least",
+            "sum",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT t1.product_name FROM products AS t1 JOIN complaints AS t2 ON t1.product_id  =  t2.product_id JOIN customers AS t3 GROUP BY t3.customer_id ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "Return the names of products that have had complaints filed by the customer who has filed the fewest complaints.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [names]|of|{TABLE} [products]|that|have|have [had]|{TABLE} [complaints]|file [filed]|by|the|{TABLE} [customer]|who|has|file [filed]|the|fewest|{TABLE} [complaints]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "have",
+            "{TABLE}",
+            "file",
+            "by",
+            "the",
+            "{TABLE}",
+            "who",
+            "has",
+            "file",
+            "the",
+            "fewest",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT t1.product_name FROM products AS t1 JOIN complaints AS t2 ON t1.product_id  =  t2.product_id JOIN customers AS t3 GROUP BY t3.customer_id ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "What is the phone number of the customer who has filed the most recent complaint?",
+        "generalized_nl": "What|is|the|{COLUMN} [phone number]|of|the|{TABLE} [customer]|who|has|file [filed]|the|most|recent|{TABLE} [complaint]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "has",
+            "file",
+            "the",
+            "most",
+            "recent",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.phone_number FROM customers AS t1 JOIN complaints AS t2 ON t1.customer_id  =  t2.customer_id ORDER BY t2.date_complaint_raised DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the phone number of the customer who filed the complaint that was raised most recently.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [phone number]|of|the|{TABLE} [customer]|who|file [filed]|the|{TABLE} [complaint]|that|was|{COLUMN_PART} [raised]|most|recently",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "file",
+            "the",
+            "{TABLE}",
+            "that",
+            "was",
+            "{COLUMN_PART}",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT t1.phone_number FROM customers AS t1 JOIN complaints AS t2 ON t1.customer_id  =  t2.customer_id ORDER BY t2.date_complaint_raised DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the email and phone number of the customers who have never filed a complaint before.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [email]|and|{COLUMN} [phone number]|of|the|{TABLE} [customers]|who|have|never|file [filed]|a|{TABLE} [complaint]|earlier [before]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "never",
+            "file",
+            "a",
+            "{TABLE}",
+            "earlier"
+        ],
+        "original_sql": "SELECT email_address ,  phone_number FROM customers WHERE customer_id NOT IN (SELECT customer_id FROM complaints)"
+    },
+    {
+        "original_nl": "What are the emails and phone numbers of custoemrs who have never filed a complaint?",
+        "generalized_nl": "What|are|the|electronic_mail [emails]|and|{COLUMN} [phone numbers]|of|custoemrs|who|have|never|file [filed]|a|{TABLE} [complaint]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "electronic_mail",
+            "and",
+            "{COLUMN}",
+            "of",
+            "custoemrs",
+            "who",
+            "have",
+            "never",
+            "file",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT email_address ,  phone_number FROM customers WHERE customer_id NOT IN (SELECT customer_id FROM complaints)"
+    },
+    {
+        "original_nl": "Find the phone number of all the customers and staff.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [phone number]|of|all|the|{TABLE} [customers]|and|{TABLE} [staff]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "and",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT phone_number FROM customers UNION SELECT phone_number FROM staff"
+    },
+    {
+        "original_nl": "What are the phone numbers of all customers and all staff members?",
+        "generalized_nl": "What|are|the|{COLUMN} [phone numbers]|of|all|{TABLE} [customers]|and|all|{TABLE} [staff]|member [members]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "and",
+            "all",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT phone_number FROM customers UNION SELECT phone_number FROM staff"
+    },
+    {
+        "original_nl": "What is the description of the product named \"Chocolate\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|of|the|{TABLE} [product]|name [named]|{NE} [Chocolate]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT product_description FROM products WHERE product_name  =  \"Chocolate\""
+    },
+    {
+        "original_nl": "Return the description of the product called \"Chocolate\".",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [description]|of|the|{TABLE} [product]|call [called]|{NE} [Chocolate]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "call",
+            "{NE}"
+        ],
+        "original_sql": "SELECT product_description FROM products WHERE product_name  =  \"Chocolate\""
+    },
+    {
+        "original_nl": "Find the name and category of the most expensive product.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [category]|of|the|most|expensive|{TABLE} [product]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "most",
+            "expensive",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT product_name ,  product_category_code FROM products ORDER BY product_price DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name and category code of the product with the highest price?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [category]|{COLUMN_PART} [code]|of|the|{TABLE} [product]|with|the|high [highest]|{COLUMN_PART} [price]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT product_name ,  product_category_code FROM products ORDER BY product_price DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the prices of products which has never received a single complaint.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [prices]|of|{TABLE} [products]|which|has|never|receive [received]|a|single|{TABLE} [complaint]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "which",
+            "has",
+            "never",
+            "receive",
+            "a",
+            "single",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT product_price FROM products WHERE product_id NOT IN (SELECT product_id FROM complaints)"
+    },
+    {
+        "original_nl": "What are the prices of products that have never gotten a complaint?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [prices]|of|{TABLE} [products]|that|have|never|get [gotten]|a|{TABLE} [complaint]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "never",
+            "get",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT product_price FROM products WHERE product_id NOT IN (SELECT product_id FROM complaints)"
+    },
+    {
+        "original_nl": "What is the average price of the products for each category?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [price]|of|the|{TABLE} [products]|for|each|{COLUMN_PART} [category]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(product_price) ,  product_category_code FROM products GROUP BY product_category_code"
+    },
+    {
+        "original_nl": "Return the average price of products that have each category code.",
+        "generalized_nl": "return [Return]|the|average|{COLUMN_PART} [price]|of|{TABLE} [products]|that|have|each|{COLUMN_PART} [category]|{COLUMN_PART} [code]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "each",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(product_price) ,  product_category_code FROM products GROUP BY product_category_code"
+    },
+    {
+        "original_nl": "Find the last name of the staff member who processed the complaint of the cheapest product.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last name]|of|the|{TABLE} [staff]|member|who|process [processed]|the|{TABLE} [complaint]|of|the|cheap [cheapest]|{TABLE} [product]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "member",
+            "who",
+            "process",
+            "the",
+            "{TABLE}",
+            "of",
+            "the",
+            "cheap",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.last_name FROM staff AS t1 JOIN complaints AS t2 ON t1.staff_id  =  t2.staff_id JOIN products AS t3 ON t2.product_id  =  t3.product_id ORDER BY t3.product_price LIMIT 1"
+    },
+    {
+        "original_nl": "What is the last name of the staff member in charge of the complaint on the product with the lowest price?",
+        "generalized_nl": "What|is|the|{COLUMN} [last name]|of|the|{TABLE} [staff]|member|in|charge|of|the|{TABLE} [complaint]|on|the|{TABLE} [product]|with|the|low [lowest]|{COLUMN_PART} [price]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "member",
+            "in",
+            "charge",
+            "of",
+            "the",
+            "{TABLE}",
+            "on",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "low",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.last_name FROM staff AS t1 JOIN complaints AS t2 ON t1.staff_id  =  t2.staff_id JOIN products AS t3 ON t2.product_id  =  t3.product_id ORDER BY t3.product_price LIMIT 1"
+    },
+    {
+        "original_nl": "Which complaint status has more than 3 records on file?",
+        "generalized_nl": "Which|{TABLE} [complaint]|{COLUMN_PART} [status]|have [has]|{NUMBER} [more than 3]|record [records]|on|file",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "have",
+            "{NUMBER}",
+            "record",
+            "on",
+            "file"
+        ],
+        "original_sql": "SELECT complaint_status_code FROM complaints GROUP BY complaint_status_code HAVING count(*)  >  3"
+    },
+    {
+        "original_nl": "Return complaint status codes have more than 3 corresponding complaints?",
+        "generalized_nl": "return [Return]|{COLUMN} [complaint status codes]|have|{NUMBER} [more than 3]|match [corresponding]|{TABLE} [complaints]",
+        "generalized_tokens": [
+            "return",
+            "{COLUMN}",
+            "have",
+            "{NUMBER}",
+            "match",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT complaint_status_code FROM complaints GROUP BY complaint_status_code HAVING count(*)  >  3"
+    },
+    {
+        "original_nl": "Find the last name of the staff whose email address contains \"wrau\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last name]|of|the|{TABLE} [staff]|whose|{COLUMN} [email address]|contain [contains]|wrau",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "contain",
+            "wrau"
+        ],
+        "original_sql": "SELECT last_name FROM staff WHERE email_address LIKE \"%wrau%\""
+    },
+    {
+        "original_nl": "What are the last names of staff with email addressed containing the substring \"wrau\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|of|{TABLE} [staff]|with|{COLUMN_PART} [email]|address [addressed]|contain [containing]|the|substring|wrau",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "address",
+            "contain",
+            "the",
+            "substring",
+            "wrau"
+        ],
+        "original_sql": "SELECT last_name FROM staff WHERE email_address LIKE \"%wrau%\""
+    },
+    {
+        "original_nl": "How many customers are there in the customer type with the most customers?",
+        "generalized_nl": "How|many|{TABLE} [customers]|are|there|in|the|{TABLE} [customer]|{COLUMN_PART} [type]|with|the|most|{TABLE} [customers]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers GROUP BY customer_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Count the number of customers that have the customer type that is most common.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [customers]|that|have|the|{TABLE} [customer]|{COLUMN_PART} [type]|that|is|most|common",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "that",
+            "is",
+            "most",
+            "common"
+        ],
+        "original_sql": "SELECT count(*) FROM customers GROUP BY customer_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the last name of the staff who has handled the first ever complaint?",
+        "generalized_nl": "What|is|the|{COLUMN} [last name]|of|the|{TABLE} [staff]|who|has|handle [handled]|the|{COLUMN_PART} [first]|ever|{TABLE} [complaint]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "has",
+            "handle",
+            "the",
+            "{COLUMN_PART}",
+            "ever",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.last_name FROM staff AS t1 JOIN complaints AS t2 ON t1.staff_id  =  t2.staff_id ORDER BY t2.date_complaint_raised LIMIT 1"
+    },
+    {
+        "original_nl": "Return the last name of the staff member who handled the complaint with the earliest date raised.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [last name]|of|the|{TABLE} [staff]|member|who|handle [handled]|the|{TABLE} [complaint]|with|the|early [earliest]|{COLUMN_PART} [date]|{COLUMN_PART} [raised]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "member",
+            "who",
+            "handle",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "early",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.last_name FROM staff AS t1 JOIN complaints AS t2 ON t1.staff_id  =  t2.staff_id ORDER BY t2.date_complaint_raised LIMIT 1"
+    },
+    {
+        "original_nl": "How many distinct complaint type codes are there in the database?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [complaint type codes]|are|there|in|the|database",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "there",
+            "in",
+            "the",
+            "database"
+        ],
+        "original_sql": "SELECT count(DISTINCT complaint_type_code) FROM complaints"
+    },
+    {
+        "original_nl": "Count the number of different complaint type codes.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|different|{COLUMN} [complaint type codes]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT complaint_type_code) FROM complaints"
+    },
+    {
+        "original_nl": "Find the address line 1 and 2 of the customer with email \"vbogisich@example.org\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [address line 1]|and|{COLUMN_PART} [2]|of|the|{TABLE} [customer]|with|{COLUMN_PART} [email]|vbogisich@example.org",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "vbogisich@example.org"
+        ],
+        "original_sql": "SELECT address_line_1 ,  address_line_2 FROM customers WHERE email_address  =  \"vbogisich@example.org\""
+    },
+    {
+        "original_nl": "What are lines 1 and 2 of the addressed of the customer with the email \"vbogisich@example.org\"?",
+        "generalized_nl": "What|are|line [lines]|{COLUMN_PART} [1]|and|{COLUMN_PART} [2]|of|the|address [addressed]|of|the|{TABLE} [customer]|with|the|{COLUMN_PART} [email]|vbogisich@example.org",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "line",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "address",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "vbogisich@example.org"
+        ],
+        "original_sql": "SELECT address_line_1 ,  address_line_2 FROM customers WHERE email_address  =  \"vbogisich@example.org\""
+    },
+    {
+        "original_nl": "Find the number of complaints with Product Failure type for each complaint status.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [complaints]|with|{TABLE} [Product]|failure [Failure]|{COLUMN_PART} [type]|for|each|{TABLE} [complaint]|{COLUMN_PART} [status]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{TABLE}",
+            "failure",
+            "{COLUMN_PART}",
+            "for",
+            "each",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT complaint_status_code ,  count(*) FROM complaints WHERE complaint_type_code  =  \"Product Failure\" GROUP BY complaint_status_code"
+    },
+    {
+        "original_nl": "Of complaints with the type code \"Product Failure\", how many had each different status code?",
+        "generalized_nl": "Of|{TABLE} [complaints]|with|the|{COLUMN_PART} [type]|{COLUMN_PART} [code]|{TABLE} [Product]|failure [Failure]|how|many|have [had]|each|different|{COLUMN_PART} [status]|{COLUMN_PART} [code]",
+        "generalized_tokens": [
+            "Of",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "failure",
+            "how",
+            "many",
+            "have",
+            "each",
+            "different",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT complaint_status_code ,  count(*) FROM complaints WHERE complaint_type_code  =  \"Product Failure\" GROUP BY complaint_status_code"
+    },
+    {
+        "original_nl": "What is first names of the top 5 staff who have handled the greatest number of complaints?",
+        "generalized_nl": "What|is|{COLUMN} [first names]|of|the|top|{NUMBER} [5]|{TABLE} [staff]|who|have|handle [handled]|the|great [greatest]|{COLUMN_PART} [number]|of|{TABLE} [complaints]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{COLUMN}",
+            "of",
+            "the",
+            "top",
+            "{NUMBER}",
+            "{TABLE}",
+            "who",
+            "have",
+            "handle",
+            "the",
+            "great",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.first_name FROM staff AS t1 JOIN complaints AS t2 ON t1.staff_id  =  t2.staff_id GROUP BY t2.staff_id ORDER BY count(*) LIMIT 5"
+    },
+    {
+        "original_nl": "Return the first names of the 5 staff members who have handled the most complaints.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [first names]|of|the|{NUMBER} [5]|{TABLE} [staff]|member [members]|who|have|handle [handled]|the|most|{TABLE} [complaints]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{NUMBER}",
+            "{TABLE}",
+            "member",
+            "who",
+            "have",
+            "handle",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.first_name FROM staff AS t1 JOIN complaints AS t2 ON t1.staff_id  =  t2.staff_id GROUP BY t2.staff_id ORDER BY count(*) LIMIT 5"
+    },
+    {
+        "original_nl": "Which state has the most customers?",
+        "generalized_nl": "Which|{COLUMN} [state]|have [has]|the|most|{TABLE} [customers]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT state FROM customers GROUP BY state ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "Give the state that has the most customers.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [state]|that|have [has]|the|most|{TABLE} [customers]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT state FROM customers GROUP BY state ORDER BY count(*) LIMIT 1"
+    }
+]

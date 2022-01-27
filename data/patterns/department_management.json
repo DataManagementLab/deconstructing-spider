@@ -1,0 +1,270 @@
+[
+    {
+        "original_nl": "How many heads of the departments are older than 56 ?",
+        "generalized_nl": "How|many|{TABLE} [heads]|of|the|{TABLE} [departments]|are|old [older]|than|{NE} [56]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "are",
+            "old",
+            "than",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM head WHERE age  >  56"
+    },
+    {
+        "original_nl": "List the name, born state and age of the heads of departments ordered by age.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|{COLUMN} [born state]|and|{COLUMN} [age]|of|the|{TABLE} [heads]|of|{TABLE} [departments]|order [ordered]|by|{COLUMN} [age]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "of",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  born_state ,  age FROM head ORDER BY age"
+    },
+    {
+        "original_nl": "List the creation year, name and budget of each department.",
+        "generalized_nl": "list [List]|the|{COLUMN} [creation]|year|{COLUMN} [name]|and|{COLUMN_PART} [budget]|of|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "year",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT creation ,  name ,  budget_in_billions FROM department"
+    },
+    {
+        "original_nl": "What are the maximum and minimum budget of the departments?",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minimal [minimum]|{COLUMN_PART} [budget]|of|the|{TABLE} [departments]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(budget_in_billions) ,  min(budget_in_billions) FROM department"
+    },
+    {
+        "original_nl": "What is the average number of employees of the departments whose rank is between 10 and 15?",
+        "generalized_nl": "What|is|the|average|number|of|{COLUMN_PART} [employees]|of|the|{TABLE} [departments]|whose|rank|is|{NE} [between 10 and 15]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "rank",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(num_employees) FROM department WHERE ranking BETWEEN 10 AND 15"
+    },
+    {
+        "original_nl": "What are the names of the heads who are born outside the California state?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [heads]|who|are|{COLUMN_PART} [born]|outside|the|{NE} [California]|{COLUMN_PART} [state]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "{COLUMN_PART}",
+            "outside",
+            "the",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT name FROM head WHERE born_state != 'California'"
+    },
+    {
+        "original_nl": "What are the distinct creation years of the departments managed by a secretary born in state 'Alabama'?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [creation]|{NE} [years]|of|the|{TABLE} [departments]|pull_off [managed]|by|a|secretary|{COLUMN_PART} [born]|in|{COLUMN_PART} [state]|{NE} [Alabama]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "{NE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "pull_off",
+            "by",
+            "a",
+            "secretary",
+            "{COLUMN_PART}",
+            "in",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.creation FROM department AS T1 JOIN management AS T2 ON T1.department_id  =  T2.department_id JOIN head AS T3 ON T2.head_id  =  T3.head_id WHERE T3.born_state  =  'Alabama'"
+    },
+    {
+        "original_nl": "What are the names of the states where at least 3 heads were born?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{COLUMN_PART} [states]|where|{NUMBER} [at least 3]|{TABLE} [heads]|were|{COLUMN_PART} [born]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "where",
+            "{NUMBER}",
+            "{TABLE}",
+            "were",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT born_state FROM head GROUP BY born_state HAVING count(*)  >=  3"
+    },
+    {
+        "original_nl": "In which year were most departments established?",
+        "generalized_nl": "In|{NE} [which year]|were|most|{TABLE} [departments]|establish [established]",
+        "generalized_tokens": [
+            "In",
+            "{NE}",
+            "were",
+            "most",
+            "{TABLE}",
+            "establish"
+        ],
+        "original_sql": "SELECT creation FROM department GROUP BY creation ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the name and number of employees for the departments managed by heads whose temporary acting value is 'Yes'?",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|and|number|of|{COLUMN_PART} [employees]|for|the|{TABLE} [departments]|pull_off [managed]|by|{TABLE} [heads]|whose|{COLUMN} [temporary acting]|value|is|Yes",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "pull_off",
+            "by",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "value",
+            "is",
+            "Yes"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.num_employees FROM department AS T1 JOIN management AS T2 ON T1.department_id  =  T2.department_id WHERE T2.temporary_acting  =  'Yes'"
+    },
+    {
+        "original_nl": "How many acting statuses are there?",
+        "generalized_nl": "How|many|{COLUMN_PART} [acting]|status [statuses]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "status",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT temporary_acting) FROM management"
+    },
+    {
+        "original_nl": "How many departments are led by heads who are not mentioned?",
+        "generalized_nl": "How|many|{TABLE} [departments]|are|lead [led]|by|{TABLE} [heads]|who|are|not|mention [mentioned]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "lead",
+            "by",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "mention"
+        ],
+        "original_sql": "SELECT count(*) FROM department WHERE department_id NOT IN (SELECT department_id FROM management);"
+    },
+    {
+        "original_nl": "What are the distinct ages of the heads who are acting?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [ages]|of|the|{TABLE} [heads]|who|are|{COLUMN_PART} [acting]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.age FROM management AS T2 JOIN head AS T1 ON T1.head_id  =  T2.head_id WHERE T2.temporary_acting  =  'Yes'"
+    },
+    {
+        "original_nl": "List the states where both the secretary of 'Treasury' department and the secretary of 'Homeland Security' were born.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [states]|where|both|the|secretary|of|{NE} [Treasury]|{TABLE} [department]|and|the|secretary|of|{NE} [Homeland Security ']|were|{COLUMN_PART} [born]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "where",
+            "both",
+            "the",
+            "secretary",
+            "of",
+            "{NE}",
+            "{TABLE}",
+            "and",
+            "the",
+            "secretary",
+            "of",
+            "{NE}",
+            "were",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T3.born_state FROM department AS T1 JOIN management AS T2 ON T1.department_id  =  T2.department_id JOIN head AS T3 ON T2.head_id  =  T3.head_id WHERE T1.name  =  'Treasury' INTERSECT SELECT T3.born_state FROM department AS T1 JOIN management AS T2 ON T1.department_id  =  T2.department_id JOIN head AS T3 ON T2.head_id  =  T3.head_id WHERE T1.name  =  'Homeland Security'"
+    }
+]

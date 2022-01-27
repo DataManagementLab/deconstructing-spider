@@ -1,0 +1,1488 @@
+[
+    {
+        "original_nl": "How many friends does Dan have?",
+        "generalized_nl": "How|many|{COLUMN} [friends]|does|{NE} [Dan]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "does",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(T2.friend) FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T1.name  =  'Dan'"
+    },
+    {
+        "original_nl": "How many friends does Dan have?",
+        "generalized_nl": "How|many|{COLUMN} [friends]|does|{NE} [Dan]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "does",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(T2.friend) FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T1.name  =  'Dan'"
+    },
+    {
+        "original_nl": "How many females does this network has?",
+        "generalized_nl": "How|many|female [females]|does|this|network|have [has]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "female",
+            "does",
+            "this",
+            "network",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Person WHERE gender  =  'female'"
+    },
+    {
+        "original_nl": "How many females are in the network?",
+        "generalized_nl": "How|many|female [females]|are|in|the|network",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "female",
+            "are",
+            "in",
+            "the",
+            "network"
+        ],
+        "original_sql": "SELECT count(*) FROM Person WHERE gender  =  'female'"
+    },
+    {
+        "original_nl": "What is the average age for all person?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|for|all|{TABLE} [person]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(age) FROM Person"
+    },
+    {
+        "original_nl": "What is the average age for all people in the table?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|for|all|{TABLE} [people]|in|the|table",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "table"
+        ],
+        "original_sql": "SELECT avg(age) FROM Person"
+    },
+    {
+        "original_nl": "How many different cities are they from?",
+        "generalized_nl": "How|many|different|{COLUMN} [cities]|are|they|from",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "they",
+            "from"
+        ],
+        "original_sql": "SELECT count(DISTINCT city) FROM Person"
+    },
+    {
+        "original_nl": "How many different cities do people originate from?",
+        "generalized_nl": "How|many|different|{COLUMN} [cities]|do|{TABLE} [people]|originate|from",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "do",
+            "{TABLE}",
+            "originate",
+            "from"
+        ],
+        "original_sql": "SELECT count(DISTINCT city) FROM Person"
+    },
+    {
+        "original_nl": "How many type of jobs do they have?",
+        "generalized_nl": "How|many|type|of|{COLUMN} [jobs]|do|they|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "type",
+            "of",
+            "{COLUMN}",
+            "do",
+            "they",
+            "have"
+        ],
+        "original_sql": "SELECT count(DISTINCT job) FROM Person"
+    },
+    {
+        "original_nl": "How many different jobs are listed?",
+        "generalized_nl": "How|many|different|{COLUMN} [jobs]|are|list [listed]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "list"
+        ],
+        "original_sql": "SELECT count(DISTINCT job) FROM Person"
+    },
+    {
+        "original_nl": "Who is the oldest person?",
+        "generalized_nl": "Who|is|the|old [oldest]|{TABLE} [person]",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "old",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM Person WHERE age  =  (SELECT max(age) FROM person)"
+    },
+    {
+        "original_nl": "What is the name of the person who is the oldest?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [person]|who|is|the|old [oldest]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "is",
+            "the",
+            "old"
+        ],
+        "original_sql": "SELECT name FROM Person WHERE age  =  (SELECT max(age) FROM person)"
+    },
+    {
+        "original_nl": "Who is the oldest person whose job is student?",
+        "generalized_nl": "Who|is|the|old [oldest]|{TABLE} [person]|whose|{COLUMN} [job]|is|student",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "old",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "student"
+        ],
+        "original_sql": "SELECT name FROM Person WHERE job  =  'student' AND age  =  (SELECT max(age) FROM person WHERE job  =  'student' )"
+    },
+    {
+        "original_nl": "What is the name of the oldest student?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|old [oldest]|student",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "old",
+            "student"
+        ],
+        "original_sql": "SELECT name FROM Person WHERE job  =  'student' AND age  =  (SELECT max(age) FROM person WHERE job  =  'student' )"
+    },
+    {
+        "original_nl": "Who is the youngest male?",
+        "generalized_nl": "Who|is|the|young [youngest]|male",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "young",
+            "male"
+        ],
+        "original_sql": "SELECT name FROM Person WHERE gender  =  'male' AND age  =  (SELECT min(age) FROM person WHERE gender  =  'male' )"
+    },
+    {
+        "original_nl": "What is the name of the youngest male?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|young [youngest]|male",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "young",
+            "male"
+        ],
+        "original_sql": "SELECT name FROM Person WHERE gender  =  'male' AND age  =  (SELECT min(age) FROM person WHERE gender  =  'male' )"
+    },
+    {
+        "original_nl": "How old is the doctor named Zach?",
+        "generalized_nl": "How|old|is|the|doctor|name [named]|{NE} [Zach]",
+        "generalized_tokens": [
+            "How",
+            "old",
+            "is",
+            "the",
+            "doctor",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT age FROM Person WHERE job  =  'doctor' AND name  =  'Zach'"
+    },
+    {
+        "original_nl": "What is the age of the doctor named Zach?",
+        "generalized_nl": "What|is|the|{COLUMN} [age]|of|the|doctor|name [named]|{NE} [Zach]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "doctor",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT age FROM Person WHERE job  =  'doctor' AND name  =  'Zach'"
+    },
+    {
+        "original_nl": "Who is the person whose age is below 30?",
+        "generalized_nl": "Who|is|the|{TABLE} [person]|whose|{COLUMN} [age]|is|below|{NE} [30]",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "below",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM Person WHERE age  <  30"
+    },
+    {
+        "original_nl": "What is the name of the person whose age is below 30?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [person]|whose|{COLUMN} [age]|is|below|{NE} [30]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "below",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM Person WHERE age  <  30"
+    },
+    {
+        "original_nl": "How many people whose age is greater 30 and job is engineer?",
+        "generalized_nl": "How|many|{TABLE} [people]|whose|{COLUMN} [age]|is|great [greater]|{NE} [30]|and|{COLUMN} [job]|is|engineer",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "great",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "is",
+            "engineer"
+        ],
+        "original_sql": "SELECT count(*) FROM Person WHERE age  >  30 AND job  =  'engineer'"
+    },
+    {
+        "original_nl": "HOw many engineers are older than 30?",
+        "generalized_nl": "HOw|many|engineer [engineers]|are|old [older]|than|{NE} [30]",
+        "generalized_tokens": [
+            "HOw",
+            "many",
+            "engineer",
+            "are",
+            "old",
+            "than",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Person WHERE age  >  30 AND job  =  'engineer'"
+    },
+    {
+        "original_nl": "What is the average age for each gender?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|for|each|{COLUMN} [gender]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(age) ,  gender FROM Person GROUP BY gender"
+    },
+    {
+        "original_nl": "How old is each gender, on average?",
+        "generalized_nl": "How|old|is|each|{COLUMN} [gender]|on|average",
+        "generalized_tokens": [
+            "How",
+            "old",
+            "is",
+            "each",
+            "{COLUMN}",
+            "on",
+            "average"
+        ],
+        "original_sql": "SELECT avg(age) ,  gender FROM Person GROUP BY gender"
+    },
+    {
+        "original_nl": "What is average age for different job title?",
+        "generalized_nl": "What|is|average|{COLUMN} [age]|for|different|{COLUMN} [job]|title",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "average",
+            "{COLUMN}",
+            "for",
+            "different",
+            "{COLUMN}",
+            "title"
+        ],
+        "original_sql": "SELECT avg(age) ,  job FROM Person GROUP BY job"
+    },
+    {
+        "original_nl": "How old is the average person for each job?",
+        "generalized_nl": "How|old|is|the|average|{TABLE} [person]|for|each|{COLUMN} [job]",
+        "generalized_tokens": [
+            "How",
+            "old",
+            "is",
+            "the",
+            "average",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(age) ,  job FROM Person GROUP BY job"
+    },
+    {
+        "original_nl": "What is average age of male for different job title?",
+        "generalized_nl": "What|is|average|{COLUMN} [age]|of|male|for|different|{COLUMN} [job]|title",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "average",
+            "{COLUMN}",
+            "of",
+            "male",
+            "for",
+            "different",
+            "{COLUMN}",
+            "title"
+        ],
+        "original_sql": "SELECT avg(age) ,  job FROM Person WHERE gender  =  'male' GROUP BY job"
+    },
+    {
+        "original_nl": "What is the average age for a male in each job?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|for|a|male|in|each|{COLUMN} [job]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "a",
+            "male",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(age) ,  job FROM Person WHERE gender  =  'male' GROUP BY job"
+    },
+    {
+        "original_nl": "What is minimum age for different job title?",
+        "generalized_nl": "What|is|minimal [minimum]|{COLUMN} [age]|for|different|{COLUMN} [job]|title",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "minimal",
+            "{COLUMN}",
+            "for",
+            "different",
+            "{COLUMN}",
+            "title"
+        ],
+        "original_sql": "SELECT min(age) ,  job FROM Person GROUP BY job"
+    },
+    {
+        "original_nl": "How old is the youngest person for each job?",
+        "generalized_nl": "How|old|is|the|young [youngest]|{TABLE} [person]|for|each|{COLUMN} [job]",
+        "generalized_tokens": [
+            "How",
+            "old",
+            "is",
+            "the",
+            "young",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT min(age) ,  job FROM Person GROUP BY job"
+    },
+    {
+        "original_nl": "Find the number of people who is under 40 for each gender.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [people]|who|is|{NE} [under 40]|for|each|{COLUMN} [gender]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "is",
+            "{NE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  gender FROM Person WHERE age  <  40 GROUP BY gender"
+    },
+    {
+        "original_nl": "How many people are under 40 for each gender?",
+        "generalized_nl": "How|many|{TABLE} [people]|are|{NE} [under 40]|for|each|{COLUMN} [gender]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "{NE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  gender FROM Person WHERE age  <  40 GROUP BY gender"
+    },
+    {
+        "original_nl": "Find the name of people whose age is greater than any engineer sorted by their age.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [people]|whose|{COLUMN} [age]|is|great [greater]|than|any|engineer|screen [sorted]|by|their|{COLUMN} [age]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "great",
+            "than",
+            "any",
+            "engineer",
+            "screen",
+            "by",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM Person WHERE age  >  (SELECT min(age) FROM person WHERE job  =  'engineer') ORDER BY age"
+    },
+    {
+        "original_nl": "Find the number of people whose age is greater than all engineers.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [people]|whose|{COLUMN} [age]|is|great [greater]|than|all|engineer [engineers]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "great",
+            "than",
+            "all",
+            "engineer"
+        ],
+        "original_sql": "SELECT count(*) FROM Person WHERE age  >  (SELECT max(age) FROM person WHERE job  =  'engineer')"
+    },
+    {
+        "original_nl": "How many people are older than every engineer?",
+        "generalized_nl": "How|many|{TABLE} [people]|are|old [older]|than|every|engineer",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "old",
+            "than",
+            "every",
+            "engineer"
+        ],
+        "original_sql": "SELECT count(*) FROM Person WHERE age  >  (SELECT max(age) FROM person WHERE job  =  'engineer')"
+    },
+    {
+        "original_nl": "list the name, job title of all people ordered by their names.",
+        "generalized_nl": "list|the|{COLUMN} [name]|{COLUMN} [job]|title|of|all|{TABLE} [people]|order [ordered]|by|their|{COLUMN} [names]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "title",
+            "of",
+            "all",
+            "{TABLE}",
+            "order",
+            "by",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  job FROM Person ORDER BY name"
+    },
+    {
+        "original_nl": "What are the names and job titles of every person ordered alphabetically by name?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [job]|title [titles]|of|every|{TABLE} [person]|order [ordered]|alphabetically|by|{COLUMN} [name]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "title",
+            "of",
+            "every",
+            "{TABLE}",
+            "order",
+            "alphabetically",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  job FROM Person ORDER BY name"
+    },
+    {
+        "original_nl": "Find the names of all person sorted in the descending order using age.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{TABLE} [person]|screen [sorted]|in|the|descending|order|use [using]|{COLUMN} [age]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "screen",
+            "in",
+            "the",
+            "descending",
+            "order",
+            "use",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM Person ORDER BY age DESC"
+    },
+    {
+        "original_nl": "What are the names of everybody sorted by age in descending order?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|everybody|screen [sorted]|by|{COLUMN} [age]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "everybody",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT name FROM Person ORDER BY age DESC"
+    },
+    {
+        "original_nl": "Find the name and age of all males in order of their age.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [age]|of|all|male [males]|in|order|of|their|{COLUMN} [age]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "male",
+            "in",
+            "order",
+            "of",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM Person WHERE gender  =  'male' ORDER BY age"
+    },
+    {
+        "original_nl": "Find the name and age of the person who is a friend of both Dan and Alice.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [age]|of|the|{TABLE} [person]|who|is|a|{COLUMN} [friend]|of|both|{NE} [Dan]|and|{NE} [Alice]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "is",
+            "a",
+            "{COLUMN}",
+            "of",
+            "both",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.age FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend  =  'Dan' INTERSECT SELECT T1.name ,   T1.age FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend  =  'Alice'"
+    },
+    {
+        "original_nl": "What are the names and ages of every person who is a friend of both Dan and Alice?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [ages]|of|every|{TABLE} [person]|who|is|a|{COLUMN} [friend]|of|both|{NE} [Dan]|and|{NE} [Alice]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "every",
+            "{TABLE}",
+            "who",
+            "is",
+            "a",
+            "{COLUMN}",
+            "of",
+            "both",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.age FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend  =  'Dan' INTERSECT SELECT T1.name ,   T1.age FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend  =  'Alice'"
+    },
+    {
+        "original_nl": "Find the name and age of the person who is a friend of Dan or Alice.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [age]|of|the|{TABLE} [person]|who|is|a|{COLUMN} [friend]|of|{NE} [Dan]|or|{NE} [Alice]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "is",
+            "a",
+            "{COLUMN}",
+            "of",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name ,  T1.age FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend  =  'Dan' OR T2.friend  =  'Alice'"
+    },
+    {
+        "original_nl": "What are the different names and ages of every friend of either Dan or alice?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [names]|and|{COLUMN} [ages]|of|every|{COLUMN} [friend]|of|either|{NE} [Dan]|or|alice",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "every",
+            "{COLUMN}",
+            "of",
+            "either",
+            "{NE}",
+            "or",
+            "alice"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name ,  T1.age FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend  =  'Dan' OR T2.friend  =  'Alice'"
+    },
+    {
+        "original_nl": "Find the name of the person who has friends with age above 40 and under age 30?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [person]|who|have [has]|{COLUMN} [friends]|with|{COLUMN} [age]|above|{NE} [40]|and|{NE} [under age 30]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  >  40) INTERSECT SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  <  30)"
+    },
+    {
+        "original_nl": "What are the names of every person who has a friend over 40 and under 30?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|every|{TABLE} [person]|who|have [has]|a|{COLUMN} [friend]|over|{NE} [40]|and|{NE} [under 30]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "every",
+            "{TABLE}",
+            "who",
+            "have",
+            "a",
+            "{COLUMN}",
+            "over",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  >  40) INTERSECT SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  <  30)"
+    },
+    {
+        "original_nl": "Find the name of the person who has friends with age above 40 but not under age 30?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [person]|who|have [has]|{COLUMN} [friends]|with|{COLUMN} [age]|above|{NE} [40]|but|not|{NE} [under age 30]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NE}",
+            "but",
+            "not",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  >  40) EXCEPT SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  <  30)"
+    },
+    {
+        "original_nl": "What are the names of the people who are older 40 but no friends under age 30?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [people]|who|are|old [older]|{NE} [40]|but|no|{COLUMN} [friends]|{NE} [under age 30]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "old",
+            "{NE}",
+            "but",
+            "no",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  >  40) EXCEPT SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  <  30)"
+    },
+    {
+        "original_nl": "Find the name of the person who has no student friends.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [person]|who|have [has]|no|student|{COLUMN} [friends]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "no",
+            "student",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM person EXCEPT SELECT T2.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T1.job  =  'student'"
+    },
+    {
+        "original_nl": "What are the names of the people who have no friends who are students?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [people]|who|have|no|{COLUMN} [friends]|who|are|student [students]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "no",
+            "{COLUMN}",
+            "who",
+            "are",
+            "student"
+        ],
+        "original_sql": "SELECT name FROM person EXCEPT SELECT T2.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T1.job  =  'student'"
+    },
+    {
+        "original_nl": "Find the person who has exactly one friend.",
+        "generalized_nl": "find [Find]|the|{TABLE} [person]|who|have [has]|{NUMBER} [exactly one]|{COLUMN} [friend]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM PersonFriend GROUP BY name HAVING count(*)  =  1"
+    },
+    {
+        "original_nl": "What are the names of everybody who has exactly one friend?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|everybody|who|have [has]|precisely [exactly]|{NUMBER} [one]|{COLUMN} [friend]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "everybody",
+            "who",
+            "have",
+            "precisely",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM PersonFriend GROUP BY name HAVING count(*)  =  1"
+    },
+    {
+        "original_nl": "Who are the friends of Bob?",
+        "generalized_nl": "Who|are|the|{COLUMN} [friends]|of|{NE} [Bob]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.friend FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T1.name  =  'Bob'"
+    },
+    {
+        "original_nl": "Who are Bob's friends?",
+        "generalized_nl": "Who|are|{NE} [Bob]|'s|{COLUMN} [friends]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "{NE}",
+            "'s",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.friend FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T1.name  =  'Bob'"
+    },
+    {
+        "original_nl": "Find the name of persons who are friends with Bob.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|person [persons]|who|are|{COLUMN} [friends]|with|Bob.",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "person",
+            "who",
+            "are",
+            "{COLUMN}",
+            "with",
+            "Bob."
+        ],
+        "original_sql": "SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend  =  'Bob'"
+    },
+    {
+        "original_nl": "What are the names of all of Bob's friends?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|of|{NE} [Bob]|'s|{COLUMN} [friends]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "of",
+            "{NE}",
+            "'s",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend  =  'Bob'"
+    },
+    {
+        "original_nl": "Find the names of females who are friends with Zach",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|female [females]|who|are|{COLUMN} [friends]|with|{NE} [Zach]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "female",
+            "who",
+            "are",
+            "{COLUMN}",
+            "with",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend  =  'Zach' AND T1.gender  =  'female'"
+    },
+    {
+        "original_nl": "What are the names of all females who are friends with Zach?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|female [females]|who|are|{COLUMN} [friends]|with|{NE} [Zach]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "female",
+            "who",
+            "are",
+            "{COLUMN}",
+            "with",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend  =  'Zach' AND T1.gender  =  'female'"
+    },
+    {
+        "original_nl": "Find the female friends of Alice.",
+        "generalized_nl": "find [Find]|the|female|{COLUMN} [friends]|of|{NE} [Alice]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "female",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.friend FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T2.name  =  'Alice' AND T1.gender  =  'female'"
+    },
+    {
+        "original_nl": "What are all the friends of Alice who are female?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [friends]|of|{NE} [Alice]|who|are|female",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}",
+            "who",
+            "are",
+            "female"
+        ],
+        "original_sql": "SELECT T2.friend FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T2.name  =  'Alice' AND T1.gender  =  'female'"
+    },
+    {
+        "original_nl": "Find the male friend of Alice whose job is a doctor?",
+        "generalized_nl": "find [Find]|the|male|{COLUMN} [friend]|of|{NE} [Alice]|whose|{COLUMN} [job]|is|a|doctor",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "male",
+            "{COLUMN}",
+            "of",
+            "{NE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "a",
+            "doctor"
+        ],
+        "original_sql": "SELECT T2.friend FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T2.name  =  'Alice' AND T1.gender  =  'male' AND T1.job  =  'doctor'"
+    },
+    {
+        "original_nl": "Who are the friends of Alice that are doctors?",
+        "generalized_nl": "Who|are|the|{COLUMN} [friends]|of|{NE} [Alice]|that|are|doctor [doctors]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}",
+            "that",
+            "are",
+            "doctor"
+        ],
+        "original_sql": "SELECT T2.friend FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T2.name  =  'Alice' AND T1.gender  =  'male' AND T1.job  =  'doctor'"
+    },
+    {
+        "original_nl": "Who has a friend that is from new york city?",
+        "generalized_nl": "Who|have [has]|a|{COLUMN} [friend]|that|is|from|new|{NE} [york city]",
+        "generalized_tokens": [
+            "Who",
+            "have",
+            "a",
+            "{COLUMN}",
+            "that",
+            "is",
+            "from",
+            "new",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T1.city  =  'new york city'"
+    },
+    {
+        "original_nl": "What are the names of all friends who are from New York?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{COLUMN} [friends]|who|are|from|{NE} [New York]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "who",
+            "are",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T1.city  =  'new york city'"
+    },
+    {
+        "original_nl": "Who has friends that are younger than the average age?",
+        "generalized_nl": "Who|have [has]|{COLUMN} [friends]|that|are|young [younger]|than|the|average|{COLUMN} [age]",
+        "generalized_tokens": [
+            "Who",
+            "have",
+            "{COLUMN}",
+            "that",
+            "are",
+            "young",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T1.age  <  (SELECT avg(age) FROM person)"
+    },
+    {
+        "original_nl": "What are the different names of friends who are younger than the average age for a friend?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [names]|of|{COLUMN} [friends]|who|are|young [younger]|than|the|average|{COLUMN} [age]|for|a|{COLUMN} [friend]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "are",
+            "young",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "a",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T1.age  <  (SELECT avg(age) FROM person)"
+    },
+    {
+        "original_nl": "Whare the names, friends, and ages of all people who are older than the average age of a person?",
+        "generalized_nl": "Whare|the|{COLUMN} [names]|{COLUMN} [friends]|and|{COLUMN} [ages]|of|all|{TABLE} [people]|who|are|old [older]|than|the|average|{COLUMN} [age]|of|a|{TABLE} [person]",
+        "generalized_tokens": [
+            "Whare",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "old",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.name ,  T2.friend ,  T1.age FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T1.age  >  (SELECT avg(age) FROM person)"
+    },
+    {
+        "original_nl": "Who is the friend of Zach with longest year relationship?",
+        "generalized_nl": "Who|is|the|{COLUMN} [friend]|of|{NE} [Zach]|with|long [longest]|{COLUMN} [year]|relationship",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}",
+            "with",
+            "long",
+            "{COLUMN}",
+            "relationship"
+        ],
+        "original_sql": "SELECT friend FROM PersonFriend WHERE name =  'Zach' AND YEAR  =  (SELECT max(YEAR) FROM PersonFriend WHERE name =  'Zach')"
+    },
+    {
+        "original_nl": "Which friend of Zach has the longest-lasting friendship?",
+        "generalized_nl": "Which|{COLUMN} [friend]|of|{NE} [Zach]|have [has]|the|long [longest]|permanent [lasting]|friendship",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "of",
+            "{NE}",
+            "have",
+            "the",
+            "long",
+            "permanent",
+            "friendship"
+        ],
+        "original_sql": "SELECT friend FROM PersonFriend WHERE name =  'Zach' AND YEAR  =  (SELECT max(YEAR) FROM PersonFriend WHERE name =  'Zach')"
+    },
+    {
+        "original_nl": "What is the age of the friend of Zach with longest year relationship?",
+        "generalized_nl": "What|is|the|{COLUMN} [age]|of|the|{COLUMN} [friend]|of|{NE} [Zach]|with|long [longest]|{COLUMN} [year]|relationship",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}",
+            "with",
+            "long",
+            "{COLUMN}",
+            "relationship"
+        ],
+        "original_sql": "SELECT T1.age FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T2.name =  'Zach' AND T2.year  =  (SELECT max(YEAR) FROM PersonFriend WHERE name =  'Zach')"
+    },
+    {
+        "original_nl": "What are the ages of all of Zach's friends who are in the longest relationship?",
+        "generalized_nl": "What|are|the|{COLUMN} [ages]|of|all|of|{NE} [Zach]|'s|{COLUMN} [friends]|who|are|in|the|long [longest]|relationship",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "of",
+            "{NE}",
+            "'s",
+            "{COLUMN}",
+            "who",
+            "are",
+            "in",
+            "the",
+            "long",
+            "relationship"
+        ],
+        "original_sql": "SELECT T1.age FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend WHERE T2.name =  'Zach' AND T2.year  =  (SELECT max(YEAR) FROM PersonFriend WHERE name =  'Zach')"
+    },
+    {
+        "original_nl": "Find the name of persons who are friends with Alice for the shortest years.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|person [persons]|who|are|{COLUMN} [friends]|with|{NE} [Alice]|for|{NE} [the shortest years]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "person",
+            "who",
+            "are",
+            "{COLUMN}",
+            "with",
+            "{NE}",
+            "for",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM PersonFriend WHERE friend =  'Alice' AND YEAR  =  (SELECT min(YEAR) FROM PersonFriend WHERE friend =  'Alice')"
+    },
+    {
+        "original_nl": "What are the names of all people who are friends with Alice for the shortest amount of time?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [people]|who|are|{COLUMN} [friends]|with|{NE} [Alice]|for|the|short [shortest]|sum [amount]|of|time",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "{COLUMN}",
+            "with",
+            "{NE}",
+            "for",
+            "the",
+            "short",
+            "sum",
+            "of",
+            "time"
+        ],
+        "original_sql": "SELECT name FROM PersonFriend WHERE friend =  'Alice' AND YEAR  =  (SELECT min(YEAR) FROM PersonFriend WHERE friend =  'Alice')"
+    },
+    {
+        "original_nl": "Find the name, age, and job title of persons who are friends with Alice for the longest years.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|{COLUMN} [age]|and|{COLUMN} [job]|title|of|person [persons]|who|are|{COLUMN} [friends]|with|{NE} [Alice]|for|{NE} [the longest years]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "title",
+            "of",
+            "person",
+            "who",
+            "are",
+            "{COLUMN}",
+            "with",
+            "{NE}",
+            "for",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.age ,  T1.job FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend =  'Alice' AND T2.year  =  (SELECT max(YEAR) FROM PersonFriend WHERE friend =  'Alice')"
+    },
+    {
+        "original_nl": "What are the names, ages, and jobs of all people who are friends with Alice for the longest amount of time?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|{COLUMN} [ages]|and|{COLUMN} [jobs]|of|all|{TABLE} [people]|who|are|{COLUMN} [friends]|with|{NE} [Alice]|for|the|long [longest]|sum [amount]|of|time",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "{COLUMN}",
+            "with",
+            "{NE}",
+            "for",
+            "the",
+            "long",
+            "sum",
+            "of",
+            "time"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.age ,  T1.job FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend =  'Alice' AND T2.year  =  (SELECT max(YEAR) FROM PersonFriend WHERE friend =  'Alice')"
+    },
+    {
+        "original_nl": "Who is the person that has no friend?",
+        "generalized_nl": "Who|is|the|{TABLE} [person]|that|have [has]|no|{COLUMN} [friend]",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "no",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM person EXCEPT SELECT name FROM PersonFriend"
+    },
+    {
+        "original_nl": "What are the names of all people who do not have friends?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [people]|who|do|not|have|{COLUMN} [friends]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM person EXCEPT SELECT name FROM PersonFriend"
+    },
+    {
+        "original_nl": "Which person whose friends have the oldest average age?",
+        "generalized_nl": "Which|{TABLE} [person]|whose|{COLUMN} [friends]|have|the|old [oldest]|average|{COLUMN} [age]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "have",
+            "the",
+            "old",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.name ,  avg(T1.age) FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend GROUP BY T2.name ORDER BY avg(T1.age) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the person who has the oldest average age for their friends, and what is that average age?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [person]|who|have [has]|the|old [oldest]|average|{COLUMN} [age]|for|their|{COLUMN} [friends]|and|what|is|that|average|{COLUMN} [age]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "old",
+            "average",
+            "{COLUMN}",
+            "for",
+            "their",
+            "{COLUMN}",
+            "and",
+            "what",
+            "is",
+            "that",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.name ,  avg(T1.age) FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.friend GROUP BY T2.name ORDER BY avg(T1.age) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the total number of people who has no friend living in the city of Austin.",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{TABLE} [people]|who|have [has]|no|{COLUMN} [friend]|live [living]|in|the|{COLUMN} [city]|of|{NE} [Austin]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "no",
+            "{COLUMN}",
+            "live",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT name) FROM PersonFriend WHERE friend NOT IN (SELECT name FROM person WHERE city  =  'Austin')"
+    },
+    {
+        "original_nl": "What is the total number of people who have no friends living in Austin?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{TABLE} [people]|who|have|no|{COLUMN} [friends]|live [living]|in|{NE} [Austin]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "no",
+            "{COLUMN}",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT name) FROM PersonFriend WHERE friend NOT IN (SELECT name FROM person WHERE city  =  'Austin')"
+    },
+    {
+        "original_nl": "Find Alice's friends of friends.",
+        "generalized_nl": "find [Find]|{NE} [Alice]|'s|{COLUMN} [friends]|of|{COLUMN} [friends]",
+        "generalized_tokens": [
+            "find",
+            "{NE}",
+            "'s",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T4.name FROM PersonFriend AS T1 JOIN Person AS T2 ON T1.name  =  T2.name JOIN PersonFriend AS T3 ON T1.friend  =  T3.name JOIN PersonFriend AS T4 ON T3.friend  =  T4.name WHERE T2.name  =  'Alice' AND T4.name != 'Alice'"
+    },
+    {
+        "original_nl": "What are the names of all of Alice's friends of friends?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|of|{NE} [Alice]|'s|{COLUMN} [friends]|of|{COLUMN} [friends]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "of",
+            "{NE}",
+            "'s",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T4.name FROM PersonFriend AS T1 JOIN Person AS T2 ON T1.name  =  T2.name JOIN PersonFriend AS T3 ON T1.friend  =  T3.name JOIN PersonFriend AS T4 ON T3.friend  =  T4.name WHERE T2.name  =  'Alice' AND T4.name != 'Alice'"
+    }
+]

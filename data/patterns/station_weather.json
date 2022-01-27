@@ -1,0 +1,304 @@
+[
+    {
+        "original_nl": "list the local authorities and services provided by all stations.",
+        "generalized_nl": "list|the|{COLUMN} [local authorities]|and|{COLUMN} [services]|provide [provided]|by|all|{TABLE} [stations]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "provide",
+            "by",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT local_authority ,  services FROM station"
+    },
+    {
+        "original_nl": "show all train numbers and names ordered by their time from early to late.",
+        "generalized_nl": "show|all|{COLUMN} [train numbers]|and|{COLUMN} [names]|order [ordered]|by|their|{COLUMN} [time]|from|early|to|late",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "order",
+            "by",
+            "their",
+            "{COLUMN}",
+            "from",
+            "early",
+            "to",
+            "late"
+        ],
+        "original_sql": "SELECT train_number ,  name FROM train ORDER BY TIME"
+    },
+    {
+        "original_nl": "Give me the times and numbers of all trains that go to Chennai, ordered by time.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN} [times]|and|{COLUMN_PART} [numbers]|of|all|{TABLE} [trains]|that|go|to|{VALUE} [Chennai]|order [ordered]|by|{COLUMN} [time]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "go",
+            "to",
+            "{VALUE}",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TIME ,  train_number FROM train WHERE destination  =  'Chennai' ORDER BY TIME"
+    },
+    {
+        "original_nl": "How many trains have 'Express' in their names?",
+        "generalized_nl": "How|many|{TABLE} [trains]|have|express [Express]|in|their|{COLUMN} [names]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "express",
+            "in",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM train WHERE name LIKE \"%Express%\""
+    },
+    {
+        "original_nl": "Find the number and time of the train that goes from Chennai to Guruvayur.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|and|{COLUMN} [time]|of|the|{TABLE} [train]|that|go [goes]|from|{VALUE} [Chennai]|to|{VALUE} [Guruvayur]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "go",
+            "from",
+            "{VALUE}",
+            "to",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT train_number ,  TIME FROM train WHERE origin  =  'Chennai' AND destination  =  'Guruvayur'"
+    },
+    {
+        "original_nl": "Find the number of trains starting from each origin.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [trains]|start [starting]|from|each|{COLUMN} [origin]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "start",
+            "from",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT origin ,  count(*) FROM train GROUP BY origin"
+    },
+    {
+        "original_nl": "Find the name of the train whose route runs through greatest number of stations.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [train]|whose|{TABLE} [route]|run [runs]|through|great [greatest]|{COLUMN_PART} [number]|of|{TABLE} [stations]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{TABLE}",
+            "run",
+            "through",
+            "great",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.name FROM train AS t1 JOIN route AS t2 ON t1.id  =  t2.train_id GROUP BY t2.train_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the number of trains for each station, as well as the station network name and services.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [trains]|for|each|{TABLE} [station]|equally [as]|well|as|the|{TABLE} [station]|{COLUMN} [network name]|and|{COLUMN} [services]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}",
+            "equally",
+            "well",
+            "as",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  t1.network_name ,  t1.services FROM station AS t1 JOIN route AS t2 ON t1.id  =  t2.station_id GROUP BY t2.station_id"
+    },
+    {
+        "original_nl": "What is the average high temperature for each day of week?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [high temperature]|for|{NE} [each day of week]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(high_temperature) ,  day_of_week FROM weekly_weather GROUP BY day_of_week"
+    },
+    {
+        "original_nl": "Give me the maximum low temperature and average precipitation at the Amersham station.",
+        "generalized_nl": "give [Give]|me|the|maximal [maximum]|{COLUMN} [low temperature]|and|average|{COLUMN} [precipitation]|at|the|{VALUE} [Amersham]|{TABLE} [station]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "at",
+            "the",
+            "{VALUE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(t1.low_temperature) ,  avg(t1.precipitation) FROM weekly_weather AS t1 JOIN station AS t2 ON t1.station_id  =  t2.id WHERE t2.network_name  =  \"Amersham\""
+    },
+    {
+        "original_nl": "Find names and times of trains that run through stations for the local authority Chiltern.",
+        "generalized_nl": "find [Find]|{COLUMN} [names]|and|{COLUMN} [times]|of|{TABLE} [trains]|that|run|through|{TABLE} [stations]|for|the|{COLUMN} [local authority]|{VALUE} [Chiltern]",
+        "generalized_tokens": [
+            "find",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "run",
+            "through",
+            "{TABLE}",
+            "for",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT t3.name ,  t3.time FROM station AS t1 JOIN route AS t2 ON t1.id  =  t2.station_id JOIN train AS t3 ON t2.train_id  =  t3.id WHERE t1.local_authority  =  \"Chiltern\""
+    },
+    {
+        "original_nl": "How many different services are provided by all stations?",
+        "generalized_nl": "How|many|different|{COLUMN} [services]|are|provide [provided]|by|all|{TABLE} [stations]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "provide",
+            "by",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT services) FROM station"
+    },
+    {
+        "original_nl": "Find the id and local authority of the station with has the highest average high temperature.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [id]|and|{COLUMN} [local authority]|of|the|{TABLE} [station]|with|have [has]|the|high [highest]|average|{COLUMN} [high temperature]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "have",
+            "the",
+            "high",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t2.id ,  t2.local_authority FROM weekly_weather AS t1 JOIN station AS t2 ON t1.station_id  =  t2.id GROUP BY t1.station_id ORDER BY avg(high_temperature) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the id and local authority of the station whose maximum precipitation is higher than 50.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [id]|and|{COLUMN} [local authority]|of|the|{TABLE} [station]|whose|maximal [maximum]|{COLUMN} [precipitation]|is|high [higher]|than|{VALUE} [50]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "maximal",
+            "{COLUMN}",
+            "is",
+            "high",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT t2.id ,  t2.local_authority FROM weekly_weather AS t1 JOIN station AS t2 ON t1.station_id  =  t2.id GROUP BY t1.station_id HAVING max(t1.precipitation)  >  50"
+    },
+    {
+        "original_nl": "show the lowest low temperature and highest wind speed in miles per hour.",
+        "generalized_nl": "show|the|low [lowest]|{COLUMN} [low temperature]|and|high [highest]|{COLUMN_PART} [wind]|{COLUMN_PART} [speed]|in|{NE} [miles]|per|hour",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "low",
+            "{COLUMN}",
+            "and",
+            "high",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "in",
+            "{NE}",
+            "per",
+            "hour"
+        ],
+        "original_sql": "SELECT min(low_temperature) ,  max(wind_speed_mph) FROM weekly_weather"
+    },
+    {
+        "original_nl": "Find the origins from which more than 1 train starts.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [origins]|from|which|{NUMBER} [more than 1]|{TABLE} [train]|start [starts]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "from",
+            "which",
+            "{NUMBER}",
+            "{TABLE}",
+            "start"
+        ],
+        "original_sql": "SELECT origin FROM train GROUP BY origin HAVING count(*)  >  1"
+    }
+]

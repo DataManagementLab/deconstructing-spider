@@ -1,0 +1,618 @@
+[
+    {
+        "original_nl": "Find the names of all the catalog entries.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [catalog]|entry [entries]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "entry"
+        ],
+        "original_sql": "SELECT distinct(catalog_entry_name) FROM catalog_contents"
+    },
+    {
+        "original_nl": "What are all the catalog entry names?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [catalog entry names]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT distinct(catalog_entry_name) FROM catalog_contents"
+    },
+    {
+        "original_nl": "Find the list of attribute data types possessed by more than 3 attribute definitions.",
+        "generalized_nl": "find [Find]|the|list|of|{COLUMN} [attribute data types]|possess [possessed]|by|{NUMBER} [more than 3]|{TABLE} [attribute definitions]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "list",
+            "of",
+            "{COLUMN}",
+            "possess",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT attribute_data_type FROM Attribute_Definitions GROUP BY attribute_data_type HAVING count(*)  >  3"
+    },
+    {
+        "original_nl": "What are the attribute data types with more than 3 attribute definitions?",
+        "generalized_nl": "What|are|the|{COLUMN} [attribute data types]|with|{NUMBER} [more than 3]|{TABLE} [attribute definitions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT attribute_data_type FROM Attribute_Definitions GROUP BY attribute_data_type HAVING count(*)  >  3"
+    },
+    {
+        "original_nl": "What is the attribute data type of the attribute with name \"Green\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [attribute data type]|of|the|{COLUMN_PART} [attribute]|with|{COLUMN_PART} [name]|green [Green]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "green"
+        ],
+        "original_sql": "SELECT attribute_data_type FROM Attribute_Definitions WHERE attribute_name  =  \"Green\""
+    },
+    {
+        "original_nl": "Find the attribute data type for the attribute named \"Green\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [attribute data type]|for|the|{COLUMN_PART} [attribute]|name [named]|Green",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{COLUMN_PART}",
+            "name",
+            "Green"
+        ],
+        "original_sql": "SELECT attribute_data_type FROM Attribute_Definitions WHERE attribute_name  =  \"Green\""
+    },
+    {
+        "original_nl": "Find the name and level of catalog structure with level between 5 and 10.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [level]|of|{TABLE} [catalog structure]|with|{COLUMN_PART} [level]|between|{NUMBER} [5]|and|{NUMBER} [10]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "between",
+            "{NUMBER}",
+            "and",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT catalog_level_name ,  catalog_level_number FROM Catalog_Structure WHERE catalog_level_number BETWEEN 5 AND 10"
+    },
+    {
+        "original_nl": "What are the name and level of catalog structure with level number between 5 and 10",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [level]|of|{TABLE} [catalog structure]|with|{COLUMN_PART} [level]|{COLUMN_PART} [number]|between|{NUMBER} [5]|and|{NUMBER} [10]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "between",
+            "{NUMBER}",
+            "and",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT catalog_level_name ,  catalog_level_number FROM Catalog_Structure WHERE catalog_level_number BETWEEN 5 AND 10"
+    },
+    {
+        "original_nl": "Find all the catalog publishers whose name contains \"Murray\"",
+        "generalized_nl": "find [Find]|all|the|{COLUMN} [catalog publishers]|whose|{COLUMN_PART} [name]|contain [contains]|{NE} [Murray]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN_PART}",
+            "contain",
+            "{NE}"
+        ],
+        "original_sql": "SELECT distinct(catalog_publisher) FROM catalogs WHERE catalog_publisher LIKE \"%Murray%\""
+    },
+    {
+        "original_nl": "Which catalog publishers have substring \"Murray\" in their names?",
+        "generalized_nl": "Which|{COLUMN} [catalog publishers]|have|substring|{NE} [Murray]|in|their|{COLUMN_PART} [names]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "substring",
+            "{NE}",
+            "in",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT distinct(catalog_publisher) FROM catalogs WHERE catalog_publisher LIKE \"%Murray%\""
+    },
+    {
+        "original_nl": "Which catalog publisher has published the most catalogs?",
+        "generalized_nl": "Which|{COLUMN} [catalog publisher]|has|publish [published]|the|most|{TABLE} [catalogs]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "has",
+            "publish",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT catalog_publisher FROM catalogs GROUP BY catalog_publisher ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the catalog publisher that has the most catalogs.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [catalog publisher]|that|have [has]|the|most|{TABLE} [catalogs]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT catalog_publisher FROM catalogs GROUP BY catalog_publisher ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the names and publication dates of all catalogs that have catalog level number greater than 5.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [publication]|{COLUMN_PART} [dates]|of|all|{TABLE} [catalogs]|that|have|{COLUMN} [catalog level number]|{NUMBER} [greater than 5]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT t1.catalog_name ,  t1.date_of_publication FROM catalogs AS t1 JOIN catalog_structure AS t2 ON t1.catalog_id  =  t2.catalog_id WHERE catalog_level_number  >  5"
+    },
+    {
+        "original_nl": "What are the name and publication date of the catalogs with catalog level number above 5?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [publication]|{COLUMN_PART} [date]|of|the|{TABLE} [catalogs]|with|{COLUMN} [catalog level number]|above|{NUMBER} [5]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT t1.catalog_name ,  t1.date_of_publication FROM catalogs AS t1 JOIN catalog_structure AS t2 ON t1.catalog_id  =  t2.catalog_id WHERE catalog_level_number  >  5"
+    },
+    {
+        "original_nl": "What are the entry names of catalog with the attribute possessed by most entries.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [entry]|{COLUMN_PART} [names]|of|{TABLE} [catalog]|with|the|{COLUMN_PART} [attribute]|possess [possessed]|by|most|entry [entries]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "possess",
+            "by",
+            "most",
+            "entry"
+        ],
+        "original_sql": "SELECT t1.catalog_entry_name FROM Catalog_Contents AS t1 JOIN Catalog_Contents_Additional_Attributes AS t2 ON t1.catalog_entry_id  =  t2.catalog_entry_id WHERE t2.attribute_value  =  (SELECT attribute_value FROM Catalog_Contents_Additional_Attributes GROUP BY attribute_value ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Find the entry names of the catalog with the attribute that have the most entries.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [entry]|{COLUMN_PART} [names]|of|the|{TABLE} [catalog]|with|the|{COLUMN_PART} [attribute]|that|have|the|most|entry [entries]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "entry"
+        ],
+        "original_sql": "SELECT t1.catalog_entry_name FROM Catalog_Contents AS t1 JOIN Catalog_Contents_Additional_Attributes AS t2 ON t1.catalog_entry_id  =  t2.catalog_entry_id WHERE t2.attribute_value  =  (SELECT attribute_value FROM Catalog_Contents_Additional_Attributes GROUP BY attribute_value ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "What is the entry name of the most expensive catalog (in USD)?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [entry]|{COLUMN_PART} [name]|of|the|most|expensive|{TABLE} [catalog]|in|USD",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "most",
+            "expensive",
+            "{TABLE}",
+            "in",
+            "USD"
+        ],
+        "original_sql": "SELECT catalog_entry_name FROM catalog_contents ORDER BY price_in_dollars DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the entry name of the catalog with the highest price (in USD).",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [entry]|{COLUMN_PART} [name]|of|the|{TABLE} [catalog]|with|the|high [highest]|{COLUMN_PART} [price]|in|USD",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN_PART}",
+            "in",
+            "USD"
+        ],
+        "original_sql": "SELECT catalog_entry_name FROM catalog_contents ORDER BY price_in_dollars DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the level name of the cheapest catalog (in USD)?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [level]|{COLUMN_PART} [name]|of|the|cheap [cheapest]|{TABLE} [catalog]|in|USD",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "cheap",
+            "{TABLE}",
+            "in",
+            "USD"
+        ],
+        "original_sql": "SELECT t2.catalog_level_name FROM catalog_contents AS t1 JOIN catalog_structure AS t2 ON t1.catalog_level_number  =  t2.catalog_level_number ORDER BY t1.price_in_dollars LIMIT 1"
+    },
+    {
+        "original_nl": "Find the level name of the catalog with the lowest price (in USD).",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [level]|{COLUMN_PART} [name]|of|the|{TABLE} [catalog]|with|the|low [lowest]|{COLUMN_PART} [price]|in|USD",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "low",
+            "{COLUMN_PART}",
+            "in",
+            "USD"
+        ],
+        "original_sql": "SELECT t2.catalog_level_name FROM catalog_contents AS t1 JOIN catalog_structure AS t2 ON t1.catalog_level_number  =  t2.catalog_level_number ORDER BY t1.price_in_dollars LIMIT 1"
+    },
+    {
+        "original_nl": "What are the average and minimum price (in Euro) of all products?",
+        "generalized_nl": "What|are|the|average|and|minimal [minimum]|{COLUMN_PART} [price]|in|Euro|of|all|product [products]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "in",
+            "Euro",
+            "of",
+            "all",
+            "product"
+        ],
+        "original_sql": "SELECT avg(price_in_euros) ,  min(price_in_euros) FROM catalog_contents"
+    },
+    {
+        "original_nl": "Give me the average and minimum price (in Euro) of the products.",
+        "generalized_nl": "give [Give]|me|the|average|and|minimal [minimum]|{COLUMN_PART} [price]|in|Euro|of|the|product [products]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "average",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "in",
+            "Euro",
+            "of",
+            "the",
+            "product"
+        ],
+        "original_sql": "SELECT avg(price_in_euros) ,  min(price_in_euros) FROM catalog_contents"
+    },
+    {
+        "original_nl": "Find the name of the product that has the smallest capacity.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{COLUMN_PART} [product]|that|have [has]|the|small [smallest]|{COLUMN} [capacity]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "have",
+            "the",
+            "small",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT catalog_entry_name FROM catalog_contents ORDER BY capacity ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the names of all the products whose stock number starts with \"2\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|all|the|product [products]|whose|{COLUMN_PART} [stock]|{COLUMN_PART} [number]|start [starts]|with|{NUMBER} [2]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "product",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "start",
+            "with",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT catalog_entry_name FROM catalog_contents WHERE product_stock_number LIKE \"2%\""
+    },
+    {
+        "original_nl": "Find the names of catalog entries with level number 8.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [catalog]|entry [entries]|with|{COLUMN_PART} [level]|{COLUMN_PART} [number]|{NUMBER} [8]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "entry",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT t1.catalog_entry_name FROM Catalog_Contents AS t1 JOIN Catalog_Contents_Additional_Attributes AS t2 ON t1.catalog_entry_id  =  t2.catalog_entry_id WHERE t2.catalog_level_number  =  \"8\""
+    },
+    {
+        "original_nl": "What are the names of catalog entries with level number 8?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [catalog]|entry [entries]|with|{COLUMN_PART} [level]|{COLUMN_PART} [number]|{NUMBER} [8]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "entry",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT t1.catalog_entry_name FROM Catalog_Contents AS t1 JOIN Catalog_Contents_Additional_Attributes AS t2 ON t1.catalog_entry_id  =  t2.catalog_entry_id WHERE t2.catalog_level_number  =  \"8\""
+    },
+    {
+        "original_nl": "Find the names of the products with length smaller than 3 or height greater than 5.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|the|product [products]|with|{COLUMN} [length]|small [smaller]|than|{NUMBER} [3]|or|{COLUMN} [height]|{NUMBER} [greater than 5]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "product",
+            "with",
+            "{COLUMN}",
+            "small",
+            "than",
+            "{NUMBER}",
+            "or",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT catalog_entry_name FROM catalog_contents WHERE LENGTH  <  3 OR width  >  5"
+    },
+    {
+        "original_nl": "Find the name and attribute ID of the attribute definitions with attribute value 0.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN} [attribute ID]|of|the|{TABLE} [attribute definitions]|with|{COLUMN} [attribute value]|{NUMBER} [0]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT t1.attribute_name ,  t1.attribute_id FROM Attribute_Definitions AS t1 JOIN Catalog_Contents_Additional_Attributes AS t2 ON t1.attribute_id  =  t2.attribute_id WHERE t2.attribute_value  =  0"
+    },
+    {
+        "original_nl": "Find the name and capacity of products with price greater than 700 (in USD).",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN} [capacity]|of|product [products]|with|{COLUMN_PART} [price]|great [greater]|than|{NUMBER} [700]|in|USD",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "product",
+            "with",
+            "{COLUMN_PART}",
+            "great",
+            "than",
+            "{NUMBER}",
+            "in",
+            "USD"
+        ],
+        "original_sql": "SELECT catalog_entry_name ,  capacity FROM Catalog_Contents WHERE price_in_dollars  >  700"
+    },
+    {
+        "original_nl": "Find the dates on which more than one revisions were made.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [dates]|on|which|{NUMBER} [more than one]|revision [revisions]|were|make [made]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "on",
+            "which",
+            "{NUMBER}",
+            "revision",
+            "were",
+            "make"
+        ],
+        "original_sql": "SELECT date_of_latest_revision FROM Catalogs GROUP BY date_of_latest_revision HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "On which days more than one revisions were made on catalogs.",
+        "generalized_nl": "On|{NE} [which days]|{NUMBER} [more than one]|revision [revisions]|were|make [made]|on|{TABLE} [catalogs]",
+        "generalized_tokens": [
+            "On",
+            "{NE}",
+            "{NUMBER}",
+            "revision",
+            "were",
+            "make",
+            "on",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT date_of_latest_revision FROM Catalogs GROUP BY date_of_latest_revision HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "How many products are there in the records?",
+        "generalized_nl": "How|many|product [products]|are|there|in|the|record [records]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "product",
+            "are",
+            "there",
+            "in",
+            "the",
+            "record"
+        ],
+        "original_sql": "SELECT count(*) FROM catalog_contents"
+    },
+    {
+        "original_nl": "Find the total number of catalog contents.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN_PART} [number]|of|{TABLE} [catalog]|content [contents]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "content"
+        ],
+        "original_sql": "SELECT count(*) FROM catalog_contents"
+    },
+    {
+        "original_nl": "Name all the products with next entry ID greater than 8.",
+        "generalized_nl": "{COLUMN_PART} [Name]|all|the|product [products]|with|{COLUMN} [next entry ID]|great [greater]|than|{NUMBER} [8]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "all",
+            "the",
+            "product",
+            "with",
+            "{COLUMN}",
+            "great",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT catalog_entry_name FROM catalog_contents WHERE next_entry_id  >  8"
+    },
+    {
+        "original_nl": "What are the catalog entry names of the products with next entry ID above 8?",
+        "generalized_nl": "What|are|the|{COLUMN} [catalog entry names]|of|the|product [products]|with|{COLUMN} [next entry ID]|above|{NUMBER} [8]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "product",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT catalog_entry_name FROM catalog_contents WHERE next_entry_id  >  8"
+    }
+]

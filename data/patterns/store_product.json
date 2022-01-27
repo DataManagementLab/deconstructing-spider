@@ -1,0 +1,811 @@
+[
+    {
+        "original_nl": "Find all the distinct district names ordered by city area in descending.",
+        "generalized_nl": "find [Find]|all|the|distinct|{COLUMN} [district names]|order [ordered]|by|{COLUMN} [city area]|in|descend [descending]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "order",
+            "by",
+            "{COLUMN}",
+            "in",
+            "descend"
+        ],
+        "original_sql": "SELECT DISTINCT District_name FROM district ORDER BY city_area DESC"
+    },
+    {
+        "original_nl": "What are the different district names in order of descending city area?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [district names]|in|order|of|descend [descending]|{COLUMN} [city area]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "in",
+            "order",
+            "of",
+            "descend",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT District_name FROM district ORDER BY city_area DESC"
+    },
+    {
+        "original_nl": "Find the list of page size which have more than 3 product listed",
+        "generalized_nl": "find [Find]|the|list|of|{COLUMN_PART} [page]|{COLUMN_PART} [size]|which|have|{NUMBER} [more than 3]|{COLUMN} [product]|list [listed]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "list",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "which",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}",
+            "list"
+        ],
+        "original_sql": "SELECT max_page_size FROM product GROUP BY max_page_size HAVING count(*)  >  3"
+    },
+    {
+        "original_nl": "What is the maximum page size for everything that has more than 3 products listed?",
+        "generalized_nl": "What|is|the|maximal [maximum]|{COLUMN_PART} [page]|{COLUMN_PART} [size]|for|everything|that|have [has]|{NUMBER} [more than 3]|{COLUMN} [products]|list [listed]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "for",
+            "everything",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}",
+            "list"
+        ],
+        "original_sql": "SELECT max_page_size FROM product GROUP BY max_page_size HAVING count(*)  >  3"
+    },
+    {
+        "original_nl": "Find the name and population of district with population between 200000 and 2000000",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [population]|of|{TABLE} [district]|with|{COLUMN_PART} [population]|{NE} [between 200000 and 2000000]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT District_name ,  City_Population FROM district WHERE City_Population BETWEEN 200000 AND 2000000"
+    },
+    {
+        "original_nl": "What are the district names and city populations for all districts that between 200,000 and 2,000,000 residents?",
+        "generalized_nl": "What|are|the|{COLUMN} [district names]|and|{COLUMN} [city populations]|for|all|{TABLE} [districts]|that|{NUMBER} [between 200,000 and 2,000,000]|resident [residents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "that",
+            "{NUMBER}",
+            "resident"
+        ],
+        "original_sql": "SELECT District_name ,  City_Population FROM district WHERE City_Population BETWEEN 200000 AND 2000000"
+    },
+    {
+        "original_nl": "Find the name all districts with city area greater than 10 or population larger than 100000",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|all|{TABLE} [districts]|with|{COLUMN} [city area]|great [greater]|than|{VALUE} [10]|or|{COLUMN_PART} [population]|large [larger]|than|{NUMBER} [100000]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "all",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "great",
+            "than",
+            "{VALUE}",
+            "or",
+            "{COLUMN_PART}",
+            "large",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT district_name FROM district WHERE city_area  >  10 OR City_Population  >  100000"
+    },
+    {
+        "original_nl": "What are the names of all districts with a city area greater than 10 or have more than 100000 people living there?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|{TABLE} [districts]|with|a|{COLUMN} [city area]|{NUMBER} [greater than 10]|or|have|{NUMBER} [more than 100000]|people|live [living]|there",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "with",
+            "a",
+            "{COLUMN}",
+            "{NUMBER}",
+            "or",
+            "have",
+            "{NUMBER}",
+            "people",
+            "live",
+            "there"
+        ],
+        "original_sql": "SELECT district_name FROM district WHERE city_area  >  10 OR City_Population  >  100000"
+    },
+    {
+        "original_nl": "Which district has the largest population?",
+        "generalized_nl": "Which|{TABLE} [district]|have [has]|the|large [largest]|{COLUMN_PART} [population]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "have",
+            "the",
+            "large",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT district_name FROM district ORDER BY city_population DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the district with the most residents?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [district]|with|the|most|resident [residents]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "resident"
+        ],
+        "original_sql": "SELECT district_name FROM district ORDER BY city_population DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which district has the least area?",
+        "generalized_nl": "Which|{TABLE} [district]|have [has]|the|least|{COLUMN_PART} [area]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "have",
+            "the",
+            "least",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT district_name FROM district ORDER BY city_area ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the district with the smallest area?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [district]|with|the|small [smallest]|{COLUMN_PART} [area]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "small",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT district_name FROM district ORDER BY city_area ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the total population of the top 3 districts with the largest area.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN_PART} [population]|of|the|top|{VALUE} [3]|{TABLE} [districts]|with|the|large [largest]|{COLUMN_PART} [area]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "top",
+            "{VALUE}",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT sum(city_population) FROM district ORDER BY city_area DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What is the total number of residents for the districts with the 3 largest areas?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [number]|of|resident [residents]|for|the|{TABLE} [districts]|with|the|{VALUE} [3]|large [largest]|{COLUMN_PART} [areas]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "resident",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{VALUE}",
+            "large",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT sum(city_population) FROM district ORDER BY city_area DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Find all types of store and number of them.",
+        "generalized_nl": "find [Find]|all|{COLUMN} [types]|of|{TABLE} [store]|and|{COLUMN_PART} [number]|of|them",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "them"
+        ],
+        "original_sql": "SELECT TYPE ,  count(*) FROM store GROUP BY TYPE"
+    },
+    {
+        "original_nl": "For each type of store, how many of them are there?",
+        "generalized_nl": "For|each|{COLUMN} [type]|of|{TABLE} [store]|how|many|of|them|are|there",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "how",
+            "many",
+            "of",
+            "them",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT TYPE ,  count(*) FROM store GROUP BY TYPE"
+    },
+    {
+        "original_nl": "Find the names of all stores in Khanewal District.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|all|{TABLE} [stores]|in|{VALUE} [Khanewal District]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT t1.store_name FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id WHERE t3.district_name  =  \"Khanewal District\""
+    },
+    {
+        "original_nl": "What are the names of all the stores located in Khanewal District?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [stores]|locate [located]|in|{VALUE} [Khanewal District]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "locate",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT t1.store_name FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id WHERE t3.district_name  =  \"Khanewal District\""
+    },
+    {
+        "original_nl": "Find all the stores in the district with the most population.",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [stores]|in|the|{TABLE} [district]|with|the|most|{COLUMN_PART} [population]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.store_name FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id WHERE district_id  =  (SELECT district_id FROM district ORDER BY city_population DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "What are the names of all the stores in the largest district by population?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [stores]|in|the|large [largest]|{TABLE} [district]|by|{COLUMN_PART} [population]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "large",
+            "{TABLE}",
+            "by",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.store_name FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id WHERE district_id  =  (SELECT district_id FROM district ORDER BY city_population DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Which city is the headquarter of the store named \"Blackville\" in?",
+        "generalized_nl": "Which|{COLUMN_PART} [city]|is|the|headquarter|of|the|{TABLE} [store]|name [named]|{VALUE} [Blackville]|in",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "is",
+            "the",
+            "headquarter",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}",
+            "in"
+        ],
+        "original_sql": "SELECT t3.headquartered_city FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id WHERE t1.store_name  =  \"Blackville\""
+    },
+    {
+        "original_nl": "What city is the headquarter of the store Blackville?",
+        "generalized_nl": "What|{COLUMN_PART} [city]|is|the|headquarter|of|the|{TABLE} [store]|{VALUE} [Blackville]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN_PART}",
+            "is",
+            "the",
+            "headquarter",
+            "of",
+            "the",
+            "{TABLE}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT t3.headquartered_city FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id WHERE t1.store_name  =  \"Blackville\""
+    },
+    {
+        "original_nl": "Find the number of stores in each city.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [stores]|in|each|{COLUMN_PART} [city]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t3.headquartered_city ,  count(*) FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id GROUP BY t3.headquartered_city"
+    },
+    {
+        "original_nl": "How many stores are headquarted in each city?",
+        "generalized_nl": "How|many|{TABLE} [stores]|are|headquarted|in|each|{COLUMN_PART} [city]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "headquarted",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t3.headquartered_city ,  count(*) FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id GROUP BY t3.headquartered_city"
+    },
+    {
+        "original_nl": "Find the city with the most number of stores.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [city]|with|the|most|{COLUMN_PART} [number]|of|{TABLE} [stores]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.headquartered_city FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id GROUP BY t3.headquartered_city ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the city with the most number of flagship stores?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [city]|with|the|most|{COLUMN_PART} [number]|of|flagship|{TABLE} [stores]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "flagship",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.headquartered_city FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id GROUP BY t3.headquartered_city ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the average pages per minute color?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [pages per minute color]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(pages_per_minute_color) FROM product"
+    },
+    {
+        "original_nl": "What is the average number of pages per minute color?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [number]|of|{COLUMN} [pages per minute color]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(pages_per_minute_color) FROM product"
+    },
+    {
+        "original_nl": "What products are available at store named \"Miramichi\"?",
+        "generalized_nl": "What|{COLUMN} [products]|are|available|at|{TABLE} [store]|name [named]|{VALUE} [Miramichi]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "are",
+            "available",
+            "at",
+            "{TABLE}",
+            "name",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT t1.product FROM product AS t1 JOIN store_product AS t2 ON t1.product_id  =  t2.product_id JOIN store AS t3 ON t2.store_id  =  t3.store_id WHERE t3.store_name  =  \"Miramichi\""
+    },
+    {
+        "original_nl": "What products are sold at the store named Miramichi?",
+        "generalized_nl": "What|{COLUMN} [products]|are|sell [sold]|at|the|{TABLE} [store]|name [named]|{VALUE} [Miramichi]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "are",
+            "sell",
+            "at",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT t1.product FROM product AS t1 JOIN store_product AS t2 ON t1.product_id  =  t2.product_id JOIN store AS t3 ON t2.store_id  =  t3.store_id WHERE t3.store_name  =  \"Miramichi\""
+    },
+    {
+        "original_nl": "Find products with max page size as \"A4\" and pages per minute color smaller than 5.",
+        "generalized_nl": "find [Find]|{COLUMN} [products]|with|{COLUMN} [max page size]|as|{VALUE} [A4]|and|{COLUMN} [pages per minute color]|small [smaller]|than|{VALUE} [5]",
+        "generalized_tokens": [
+            "find",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{VALUE}",
+            "and",
+            "{COLUMN}",
+            "small",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT product FROM product WHERE max_page_size  =  \"A4\" AND pages_per_minute_color  <  5"
+    },
+    {
+        "original_nl": "What are the products with the maximum page size A4 that also have a pages per minute color smaller than 5?",
+        "generalized_nl": "What|are|the|{COLUMN} [products]|with|the|maximal [maximum]|{COLUMN_PART} [page]|{COLUMN_PART} [size]|{VALUE} [A4]|that|besides [also]|have|a|{COLUMN} [pages per minute color]|small [smaller]|than|{VALUE} [5]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "maximal",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{VALUE}",
+            "that",
+            "besides",
+            "have",
+            "a",
+            "{COLUMN}",
+            "small",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT product FROM product WHERE max_page_size  =  \"A4\" AND pages_per_minute_color  <  5"
+    },
+    {
+        "original_nl": "Find products with max page size as \"A4\" or pages per minute color smaller than 5.",
+        "generalized_nl": "find [Find]|{COLUMN} [products]|with|{COLUMN} [max page size]|as|{VALUE} [A4]|or|{COLUMN} [pages per minute color]|small [smaller]|than|{VALUE} [5]",
+        "generalized_tokens": [
+            "find",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{VALUE}",
+            "or",
+            "{COLUMN}",
+            "small",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT product FROM product WHERE max_page_size  =  \"A4\" OR pages_per_minute_color  <  5"
+    },
+    {
+        "original_nl": "What are the products with the maximum page size eqal to A4 or a pages per minute color less than 5?",
+        "generalized_nl": "What|are|the|{COLUMN} [products]|with|the|maximal [maximum]|{COLUMN_PART} [page]|{COLUMN_PART} [size]|eqal|to|{VALUE} [A4]|or|a|{COLUMN} [pages per minute color]|{NUMBER} [less than 5]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "maximal",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "eqal",
+            "to",
+            "{VALUE}",
+            "or",
+            "a",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT product FROM product WHERE max_page_size  =  \"A4\" OR pages_per_minute_color  <  5"
+    },
+    {
+        "original_nl": "Find all the product whose name contains the word \"Scanner\".",
+        "generalized_nl": "find [Find]|all|the|{COLUMN} [product]|whose|{COLUMN_PART} [name]|contain [contains]|the|word|scanner [Scanner]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN_PART}",
+            "contain",
+            "the",
+            "word",
+            "scanner"
+        ],
+        "original_sql": "SELECT product FROM product WHERE product LIKE \"%Scanner%\""
+    },
+    {
+        "original_nl": "What are all of the products whose name includes the substring \"Scanner\"?",
+        "generalized_nl": "What|are|all|of|the|{COLUMN} [products]|whose|{COLUMN_PART} [name]|include [includes]|the|substring|scanner [Scanner]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "of",
+            "the",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN_PART}",
+            "include",
+            "the",
+            "substring",
+            "scanner"
+        ],
+        "original_sql": "SELECT product FROM product WHERE product LIKE \"%Scanner%\""
+    },
+    {
+        "original_nl": "Find the most prominent max page size among all the products.",
+        "generalized_nl": "find [Find]|the|most|outstanding [prominent]|{COLUMN} [max page size]|among|all|the|{COLUMN} [products]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "most",
+            "outstanding",
+            "{COLUMN}",
+            "among",
+            "all",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max_page_size FROM product GROUP BY max_page_size ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the most common maximum page size?",
+        "generalized_nl": "What|is|the|most|common|maximal [maximum]|{COLUMN_PART} [page]|{COLUMN_PART} [size]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "common",
+            "maximal",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT max_page_size FROM product GROUP BY max_page_size ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the products that are not using the most frequently-used max page size.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{COLUMN} [products]|that|are|not|use [using]|the|most|frequently|use [used]|{COLUMN} [max page size]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "are",
+            "not",
+            "use",
+            "the",
+            "most",
+            "frequently",
+            "use",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT product FROM product WHERE product != (SELECT max_page_size FROM product GROUP BY max_page_size ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "What are the names of all products that are not the most frequently-used maximum page size?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|{COLUMN} [products]|that|are|not|the|most|frequently|use [used]|maximal [maximum]|{COLUMN_PART} [page]|{COLUMN_PART} [size]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "that",
+            "are",
+            "not",
+            "the",
+            "most",
+            "frequently",
+            "use",
+            "maximal",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT product FROM product WHERE product != (SELECT max_page_size FROM product GROUP BY max_page_size ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Find the total population of the districts where the area is bigger than the average city area.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN_PART} [population]|of|the|{TABLE} [districts]|where|the|{COLUMN_PART} [area]|is|big [bigger]|than|the|average|{COLUMN} [city area]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "where",
+            "the",
+            "{COLUMN_PART}",
+            "is",
+            "big",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(city_population) FROM district WHERE city_area  >  (SELECT avg(city_area) FROM district)"
+    },
+    {
+        "original_nl": "What is the total population for all the districts that have an area larger tahn the average city area?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [population]|for|all|the|{TABLE} [districts]|that|have|an|{COLUMN_PART} [area]|large [larger]|tahn|the|average|{COLUMN} [city area]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "an",
+            "{COLUMN_PART}",
+            "large",
+            "tahn",
+            "the",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(city_population) FROM district WHERE city_area  >  (SELECT avg(city_area) FROM district)"
+    },
+    {
+        "original_nl": "Find the names of districts where have both city mall and village store type stores.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [districts]|where|have|both|{COLUMN_PART} [city]|promenade [mall]|and|village|{TABLE} [store]|{COLUMN} [type]|{TABLE} [stores]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "where",
+            "have",
+            "both",
+            "{COLUMN_PART}",
+            "promenade",
+            "and",
+            "village",
+            "{TABLE}",
+            "{COLUMN}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.District_name FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id WHERE t1.Type  =  \"City Mall\" INTERSECT SELECT t3.District_name FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id WHERE t1.Type  =  \"Village Store\""
+    },
+    {
+        "original_nl": "What are the names of the districts that have both mall and village store style shops?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [districts]|that|have|both|promenade [mall]|and|village|{TABLE} [store]|style|shop [shops]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "both",
+            "promenade",
+            "and",
+            "village",
+            "{TABLE}",
+            "style",
+            "shop"
+        ],
+        "original_sql": "SELECT t3.District_name FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id WHERE t1.Type  =  \"City Mall\" INTERSECT SELECT t3.District_name FROM store AS t1 JOIN store_district AS t2 ON t1.store_id  =  t2.store_id JOIN district AS t3 ON t2.district_id  =  t3.district_id WHERE t1.Type  =  \"Village Store\""
+    }
+]

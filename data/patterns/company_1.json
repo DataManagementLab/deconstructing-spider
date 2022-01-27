@@ -1,0 +1,128 @@
+[
+    {
+        "original_nl": "List all department names ordered by their starting date.",
+        "generalized_nl": "list [List]|all|{COLUMN} [department names]|order [ordered]|by|their|start [starting]|{COLUMN_PART} [date]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "order",
+            "by",
+            "their",
+            "start",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT dname FROM department ORDER BY mgr_start_date"
+    },
+    {
+        "original_nl": "find all dependent names who have a spouse relation with some employee.",
+        "generalized_nl": "find|all|{COLUMN} [dependent names]|who|have|a|spouse|relation|with|some|{TABLE} [employee]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "{COLUMN}",
+            "who",
+            "have",
+            "a",
+            "spouse",
+            "relation",
+            "with",
+            "some",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Dependent_name FROM dependent WHERE relationship  =  'Spouse'"
+    },
+    {
+        "original_nl": "how many female dependents are there?",
+        "generalized_nl": "how|many|female|{TABLE} [dependents]|are|there",
+        "generalized_tokens": [
+            "how",
+            "many",
+            "female",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM dependent WHERE sex  =  'F'"
+    },
+    {
+        "original_nl": "Find the names of departments that are located in Houston.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [departments]|that|are|locate [located]|in|{NE} [Houston]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "locate",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t1.dname FROM department AS t1 JOIN dept_locations AS t2 ON t1.dnumber  =  t2.dnumber WHERE t2.dlocation  =  'Houston'"
+    },
+    {
+        "original_nl": "Return the first names and last names of employees who earn more than 30000 in salary.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [first names]|and|{COLUMN} [last names]|of|{TABLE} [employees]|who|gain [earn]|{NUMBER} [more than 30000]|in|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "gain",
+            "{NUMBER}",
+            "in",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM employee WHERE salary  >  30000"
+    },
+    {
+        "original_nl": "Find the number of employees of each gender whose salary is lower than 50000.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [employees]|of|each|gender|whose|{COLUMN} [salary]|is|{NUMBER} [lower than 50000]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "of",
+            "each",
+            "gender",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) ,  sex FROM employee WHERE salary  <  50000 GROUP BY sex"
+    },
+    {
+        "original_nl": "list the first and last names, and the addresses of all employees in the ascending order of their birth date.",
+        "generalized_nl": "list|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|and|the|{COLUMN} [addresses]|of|all|{TABLE} [employees]|in|the|ascend [ascending]|order|of|their|{COLUMN} [birth date]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "ascend",
+            "order",
+            "of",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT fname ,  lname ,  address FROM employee ORDER BY Bdate"
+    }
+]

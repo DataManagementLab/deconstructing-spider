@@ -1,0 +1,1737 @@
+[
+    {
+        "original_nl": "How many aircrafts do we have?",
+        "generalized_nl": "How|many|aircraft [aircrafts]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "aircraft",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Aircraft"
+    },
+    {
+        "original_nl": "How many aircrafts exist in the database?",
+        "generalized_nl": "How|many|aircraft [aircrafts]|exist|in|the|database",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "aircraft",
+            "exist",
+            "in",
+            "the",
+            "database"
+        ],
+        "original_sql": "SELECT count(*) FROM Aircraft"
+    },
+    {
+        "original_nl": "Show name and distance for all aircrafts.",
+        "generalized_nl": "show [Show]|{COLUMN} [name]|and|{COLUMN} [distance]|for|all|aircraft [aircrafts]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "aircraft"
+        ],
+        "original_sql": "SELECT name ,  distance FROM Aircraft"
+    },
+    {
+        "original_nl": "What are the names and distances for all airplanes?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [distances]|for|all|airplane [airplanes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "airplane"
+        ],
+        "original_sql": "SELECT name ,  distance FROM Aircraft"
+    },
+    {
+        "original_nl": "Show ids for all aircrafts with more than 1000 distance.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|for|all|aircraft [aircrafts]|with|{NUMBER} [more than 1000]|{COLUMN} [distance]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "aircraft",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT aid FROM Aircraft WHERE distance  >  1000"
+    },
+    {
+        "original_nl": "What are the ids of all aircrafts that can cover a distance of more than 1000?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|aircraft [aircrafts]|that|can|cover|a|{COLUMN} [distance]|of|{NUMBER} [more than 1000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "aircraft",
+            "that",
+            "can",
+            "cover",
+            "a",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT aid FROM Aircraft WHERE distance  >  1000"
+    },
+    {
+        "original_nl": "How many aircrafts have distance between 1000 and 5000?",
+        "generalized_nl": "How|many|aircraft [aircrafts]|have|{COLUMN} [distance]|between|{NUMBER} [1000 and 5000]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "aircraft",
+            "have",
+            "{COLUMN}",
+            "between",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM Aircraft WHERE distance BETWEEN 1000 AND 5000"
+    },
+    {
+        "original_nl": "What is the count of aircrafts that have a distance between 1000 and 5000?",
+        "generalized_nl": "What|is|the|count|of|aircraft [aircrafts]|that|have|a|{COLUMN} [distance]|between|{NUMBER} [1000 and 5000]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "count",
+            "of",
+            "aircraft",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "between",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM Aircraft WHERE distance BETWEEN 1000 AND 5000"
+    },
+    {
+        "original_nl": "What is the name and distance for aircraft with id 12?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [distance]|for|{TABLE} [aircraft]|with|{COLUMN_PART} [id]|{NUMBER} [12]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT name ,  distance FROM Aircraft WHERE aid  =  12"
+    },
+    {
+        "original_nl": "What is the name and distance for the aircraft that has an id of 12?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [distance]|for|the|{TABLE} [aircraft]|that|have [has]|an|{COLUMN_PART} [id]|of|{NUMBER} [12]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "an",
+            "{COLUMN_PART}",
+            "of",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT name ,  distance FROM Aircraft WHERE aid  =  12"
+    },
+    {
+        "original_nl": "What is the minimum, average, and maximum distance of all aircrafts.",
+        "generalized_nl": "What|is|the|minimal [minimum]|average|and|maximal [maximum]|{COLUMN} [distance]|of|all|aircraft [aircrafts]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "minimal",
+            "average",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "all",
+            "aircraft"
+        ],
+        "original_sql": "SELECT min(distance) ,  avg(distance) ,  max(distance) FROM Aircraft"
+    },
+    {
+        "original_nl": "Return the minimum, average and maximum distances traveled across all aircrafts.",
+        "generalized_nl": "return [Return]|the|minimum|average|and|maximal [maximum]|{COLUMN} [distances]|travel [traveled]|across|all|aircraft [aircrafts]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "minimum",
+            "average",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "travel",
+            "across",
+            "all",
+            "aircraft"
+        ],
+        "original_sql": "SELECT min(distance) ,  avg(distance) ,  max(distance) FROM Aircraft"
+    },
+    {
+        "original_nl": "Show the id and name of the aircraft with the maximum distance.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|and|{COLUMN} [name]|of|the|{TABLE} [aircraft]|with|the|maximal [maximum]|{COLUMN} [distance]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "maximal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT aid ,  name FROM Aircraft ORDER BY distance DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the id and name of the aircraft that can cover the maximum distance?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|and|{COLUMN} [name]|of|the|{TABLE} [aircraft]|that|can|cover|the|maximal [maximum]|{COLUMN} [distance]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "can",
+            "cover",
+            "the",
+            "maximal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT aid ,  name FROM Aircraft ORDER BY distance DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the name of aircrafts with top three lowest distances.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|of|aircraft [aircrafts]|with|top|{NUMBER} [three]|low [lowest]|{COLUMN} [distances]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "aircraft",
+            "with",
+            "top",
+            "{NUMBER}",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM Aircraft ORDER BY distance LIMIT 3"
+    },
+    {
+        "original_nl": "Show names for all aircrafts with distances more than the average.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|for|all|aircraft [aircrafts]|with|{COLUMN} [distances]|more|than|the|average",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "for",
+            "all",
+            "aircraft",
+            "with",
+            "{COLUMN}",
+            "more",
+            "than",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT name FROM Aircraft WHERE distance  >  (SELECT avg(distance) FROM Aircraft)"
+    },
+    {
+        "original_nl": "What are the names of all aircrafts that can cover more distances than average?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|aircraft [aircrafts]|that|can|cover|more|{COLUMN} [distances]|than|average",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "aircraft",
+            "that",
+            "can",
+            "cover",
+            "more",
+            "{COLUMN}",
+            "than",
+            "average"
+        ],
+        "original_sql": "SELECT name FROM Aircraft WHERE distance  >  (SELECT avg(distance) FROM Aircraft)"
+    },
+    {
+        "original_nl": "How many employees do we have?",
+        "generalized_nl": "How|many|{TABLE} [employees]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Employee"
+    },
+    {
+        "original_nl": "What is the number of employees?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [number]|of|{TABLE} [employees]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Employee"
+    },
+    {
+        "original_nl": "Show name and salary for all employees sorted by salary.",
+        "generalized_nl": "show [Show]|{COLUMN} [name]|and|{COLUMN} [salary]|for|all|{TABLE} [employees]|screen [sorted]|by|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  salary FROM Employee ORDER BY salary"
+    },
+    {
+        "original_nl": "What is the name and salary of all employees in order of salary?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [salary]|of|all|{TABLE} [employees]|in|order|of|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  salary FROM Employee ORDER BY salary"
+    },
+    {
+        "original_nl": "Show ids for all employees with at least 100000 salary.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|for|all|{TABLE} [employees]|with|{NUMBER} [at least 100000]|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT eid FROM Employee WHERE salary  >  100000"
+    },
+    {
+        "original_nl": "What is the id of every employee who has at least a salary of  100000?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|every|{TABLE} [employee]|who|have [has]|at|least|a|{COLUMN} [salary]|of|{NUMBER} [100000]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "every",
+            "{TABLE}",
+            "who",
+            "have",
+            "at",
+            "least",
+            "a",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT eid FROM Employee WHERE salary  >  100000"
+    },
+    {
+        "original_nl": "How many employees have salary between 100000 and 200000?",
+        "generalized_nl": "How|many|{TABLE} [employees]|have|{COLUMN} [salary]|{NUMBER} [between 100000 and 200000]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM Employee WHERE salary BETWEEN 100000 AND 200000"
+    },
+    {
+        "original_nl": "What is the number of employees that have a salary between 100000 and 200000?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [number]|of|{TABLE} [employees]|that|have|a|{COLUMN} [salary]|{NE} [between 100000 and 200000]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Employee WHERE salary BETWEEN 100000 AND 200000"
+    },
+    {
+        "original_nl": "What is the name and salary for employee with id 242518965?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [salary]|for|{TABLE} [employee]|with|{COLUMN_PART} [id]|{NUMBER} [242518965]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT name ,  salary FROM Employee WHERE eid  =  242518965"
+    },
+    {
+        "original_nl": "What is the name and salary of the employee with the id 242518965?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [salary]|of|the|{TABLE} [employee]|with|the|{COLUMN_PART} [id]|{NUMBER} [242518965]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT name ,  salary FROM Employee WHERE eid  =  242518965"
+    },
+    {
+        "original_nl": "What is average and maximum salary of all employees.",
+        "generalized_nl": "What|is|average|and|maximal [maximum]|{COLUMN} [salary]|of|all|{TABLE} [employees]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "average",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(salary) ,  max(salary) FROM Employee"
+    },
+    {
+        "original_nl": "What is the average and largest salary of all employees?",
+        "generalized_nl": "What|is|the|average|and|large [largest]|{COLUMN} [salary]|of|all|{TABLE} [employees]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "and",
+            "large",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(salary) ,  max(salary) FROM Employee"
+    },
+    {
+        "original_nl": "Show the id and name of the employee with maximum salary.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|and|{COLUMN} [name]|of|the|{TABLE} [employee]|with|maximal [maximum]|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "maximal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT eid ,  name FROM Employee ORDER BY salary DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the id and name of the employee with the highest salary?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|and|{COLUMN} [name]|of|the|{TABLE} [employee]|with|the|high [highest]|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT eid ,  name FROM Employee ORDER BY salary DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the name of employees with three lowest salaries.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|of|{TABLE} [employees]|with|{NUMBER} [three]|low [lowest]|{COLUMN} [salaries]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM Employee ORDER BY salary ASC LIMIT 3"
+    },
+    {
+        "original_nl": "What is the name of the 3 employees who get paid the least?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{NUMBER} [3]|{TABLE} [employees]|who|get|pay [paid]|the|least",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{NUMBER}",
+            "{TABLE}",
+            "who",
+            "get",
+            "pay",
+            "the",
+            "least"
+        ],
+        "original_sql": "SELECT name FROM Employee ORDER BY salary ASC LIMIT 3"
+    },
+    {
+        "original_nl": "Show names for all employees with salary more than the average.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|for|all|{TABLE} [employees]|with|{COLUMN} [salary]|more|than|the|average",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "more",
+            "than",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT name FROM Employee WHERE salary  >  (SELECT avg(salary) FROM Employee)"
+    },
+    {
+        "original_nl": "What are the names of all employees who have a salary higher than average?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [employees]|who|have|a|{COLUMN} [salary]|high [higher]|than|average",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "a",
+            "{COLUMN}",
+            "high",
+            "than",
+            "average"
+        ],
+        "original_sql": "SELECT name FROM Employee WHERE salary  >  (SELECT avg(salary) FROM Employee)"
+    },
+    {
+        "original_nl": "Show the id and salary of Mark Young.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|and|{COLUMN} [salary]|of|{NE} [Mark Young]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT eid ,  salary FROM Employee WHERE name  =  'Mark Young'"
+    },
+    {
+        "original_nl": "What is the id and salary of the employee named Mark Young?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|and|{COLUMN} [salary]|of|the|{TABLE} [employee]|name [named]|{NE} [Mark Young]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT eid ,  salary FROM Employee WHERE name  =  'Mark Young'"
+    },
+    {
+        "original_nl": "How many flights do we have?",
+        "generalized_nl": "How|many|{TABLE} [flights]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Flight"
+    },
+    {
+        "original_nl": "What is the number of flights?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [number]|of|{TABLE} [flights]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Flight"
+    },
+    {
+        "original_nl": "Show flight number, origin, destination of all flights in the alphabetical order of the departure cities.",
+        "generalized_nl": "show [Show]|{COLUMN} [flight number]|{COLUMN} [origin]|{COLUMN} [destination]|of|all|{TABLE} [flights]|in|the|alphabetic [alphabetical]|order|of|the|{COLUMN_PART} [departure]|city [cities]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "alphabetic",
+            "order",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "city"
+        ],
+        "original_sql": "SELECT flno ,  origin ,  destination FROM Flight ORDER BY origin"
+    },
+    {
+        "original_nl": "What is the flight number, origin, and destination for all flights in alphabetical order by departure cities?",
+        "generalized_nl": "What|is|the|{COLUMN} [flight number]|{COLUMN} [origin]|and|{COLUMN} [destination]|for|all|{TABLE} [flights]|in|alphabetic [alphabetical]|order|by|{COLUMN_PART} [departure]|city [cities]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order",
+            "by",
+            "{COLUMN_PART}",
+            "city"
+        ],
+        "original_sql": "SELECT flno ,  origin ,  destination FROM Flight ORDER BY origin"
+    },
+    {
+        "original_nl": "Show all flight number from Los Angeles.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [flight number]|from|{NE} [Los Angeles]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT flno FROM Flight WHERE origin  =  \"Los Angeles\""
+    },
+    {
+        "original_nl": "What are the numbers of all flights coming from Los Angeles?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [numbers]|of|all|{TABLE} [flights]|come [coming]|from|{NE} [Los Angeles]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "come",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT flno FROM Flight WHERE origin  =  \"Los Angeles\""
+    },
+    {
+        "original_nl": "Show origins of all flights with destination Honolulu.",
+        "generalized_nl": "show [Show]|{COLUMN} [origins]|of|all|{TABLE} [flights]|with|{COLUMN} [destination]|{NE} [Honolulu]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT origin FROM Flight WHERE destination  =  \"Honolulu\""
+    },
+    {
+        "original_nl": "What are the origins of all flights that are headed to Honolulu?",
+        "generalized_nl": "What|are|the|{COLUMN} [origins]|of|all|{TABLE} [flights]|that|are|head [headed]|to|{NE} [Honolulu]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "are",
+            "head",
+            "to",
+            "{NE}"
+        ],
+        "original_sql": "SELECT origin FROM Flight WHERE destination  =  \"Honolulu\""
+    },
+    {
+        "original_nl": "Show me the departure date and arrival date for all flights from Los Angeles to Honolulu.",
+        "generalized_nl": "show [Show]|me|the|{COLUMN} [departure date]|and|{COLUMN} [arrival date]|for|all|{TABLE} [flights]|from|{NE} [Los Angeles]|to|{NE} [Honolulu]",
+        "generalized_tokens": [
+            "show",
+            "me",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "from",
+            "{NE}",
+            "to",
+            "{NE}"
+        ],
+        "original_sql": "SELECT departure_date ,  arrival_date FROM Flight WHERE origin  =  \"Los Angeles\" AND destination  =  \"Honolulu\""
+    },
+    {
+        "original_nl": "What are the departure and arrival dates of all flights from LA to Honolulu?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [departure]|and|{COLUMN} [arrival dates]|of|all|{TABLE} [flights]|from|{NE} [LA]|to|{NE} [Honolulu]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "from",
+            "{NE}",
+            "to",
+            "{NE}"
+        ],
+        "original_sql": "SELECT departure_date ,  arrival_date FROM Flight WHERE origin  =  \"Los Angeles\" AND destination  =  \"Honolulu\""
+    },
+    {
+        "original_nl": "Show flight number for all flights with more than 2000 distance.",
+        "generalized_nl": "show [Show]|{COLUMN} [flight number]|for|all|{TABLE} [flights]|with|{NUMBER} [more than 2000]|{COLUMN} [distance]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT flno FROM Flight WHERE distance  >  2000"
+    },
+    {
+        "original_nl": "What are the numbers of all flights that can cover a distance of more than 2000?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [numbers]|of|all|{TABLE} [flights]|that|can|cover|a|{COLUMN} [distance]|of|{NUMBER} [more than 2000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "can",
+            "cover",
+            "a",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT flno FROM Flight WHERE distance  >  2000"
+    },
+    {
+        "original_nl": "What is the average price for flights from Los Angeles to Honolulu.",
+        "generalized_nl": "What|is|the|average|{COLUMN} [price]|for|{TABLE} [flights]|from|{NE} [Los Angeles]|to|{NE} [Honolulu]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "from",
+            "{NE}",
+            "to",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(price) FROM Flight WHERE origin  =  \"Los Angeles\" AND destination  =  \"Honolulu\""
+    },
+    {
+        "original_nl": "What is the average price for flights from LA to Honolulu?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [price]|for|{TABLE} [flights]|from|{NE} [LA]|to|{NE} [Honolulu]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "from",
+            "{NE}",
+            "to",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(price) FROM Flight WHERE origin  =  \"Los Angeles\" AND destination  =  \"Honolulu\""
+    },
+    {
+        "original_nl": "Show origin and destination for flights with price higher than 300.",
+        "generalized_nl": "show [Show]|{COLUMN} [origin]|and|{COLUMN} [destination]|for|{TABLE} [flights]|with|{COLUMN} [price]|{NUMBER} [higher than 300]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT origin ,  destination FROM Flight WHERE price  >  300"
+    },
+    {
+        "original_nl": "What is the origin and destination for all flights whose price is higher than 300?",
+        "generalized_nl": "What|is|the|{COLUMN} [origin]|and|{COLUMN} [destination]|for|all|{TABLE} [flights]|whose|{COLUMN} [price]|is|high [higher]|than|{NUMBER} [300]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "high",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT origin ,  destination FROM Flight WHERE price  >  300"
+    },
+    {
+        "original_nl": "Show the flight number and distance of the flight with maximum price.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [flight number]|and|{COLUMN} [distance]|of|the|{TABLE} [flight]|with|maximal [maximum]|{COLUMN} [price]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "maximal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT flno ,  distance FROM Flight ORDER BY price DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the flight number and its distance for the one with the maximum price?",
+        "generalized_nl": "What|is|the|{COLUMN} [flight number]|and|it|s|{COLUMN} [distance]|for|the|one|with|the|maximal [maximum]|{COLUMN} [price]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "it",
+            "s",
+            "{COLUMN}",
+            "for",
+            "the",
+            "one",
+            "with",
+            "the",
+            "maximal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT flno ,  distance FROM Flight ORDER BY price DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the flight number of flights with three lowest distances.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [flight number]|of|{TABLE} [flights]|with|{NUMBER} [three]|low [lowest]|{COLUMN} [distances]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT flno FROM Flight ORDER BY distance ASC LIMIT 3"
+    },
+    {
+        "original_nl": "What are the numbers of the shortest flights?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [numbers]|of|the|short [shortest]|{TABLE} [flights]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "short",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT flno FROM Flight ORDER BY distance ASC LIMIT 3"
+    },
+    {
+        "original_nl": "What is the average distance and average price for flights from Los Angeles.",
+        "generalized_nl": "What|is|the|average|{COLUMN} [distance]|and|average|{COLUMN} [price]|for|{TABLE} [flights]|from|{NE} [Los Angeles]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(distance) ,  avg(price) FROM Flight WHERE origin  =  \"Los Angeles\""
+    },
+    {
+        "original_nl": "What is the average distance and price for all flights from LA?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [distance]|and|{COLUMN} [price]|for|all|{TABLE} [flights]|from|{NE} [LA]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(distance) ,  avg(price) FROM Flight WHERE origin  =  \"Los Angeles\""
+    },
+    {
+        "original_nl": "Show all origins and the number of flights from each origin.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [origins]|and|the|{COLUMN_PART} [number]|of|{TABLE} [flights]|from|each|{COLUMN} [origin]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "from",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT origin ,  count(*) FROM Flight GROUP BY origin"
+    },
+    {
+        "original_nl": "For each origin, how many flights came from there?",
+        "generalized_nl": "For|each|{COLUMN} [origin]|how|many|{TABLE} [flights]|come [came]|from|there",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "how",
+            "many",
+            "{TABLE}",
+            "come",
+            "from",
+            "there"
+        ],
+        "original_sql": "SELECT origin ,  count(*) FROM Flight GROUP BY origin"
+    },
+    {
+        "original_nl": "Show all destinations and the number of flights to each destination.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [destinations]|and|the|{COLUMN_PART} [number]|of|{TABLE} [flights]|to|each|{COLUMN} [destination]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "to",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT destination ,  count(*) FROM Flight GROUP BY destination"
+    },
+    {
+        "original_nl": "What are the destinations and number of flights to each one?",
+        "generalized_nl": "What|are|the|{COLUMN} [destinations]|and|{COLUMN_PART} [number]|of|{TABLE} [flights]|to|each|one",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "to",
+            "each",
+            "one"
+        ],
+        "original_sql": "SELECT destination ,  count(*) FROM Flight GROUP BY destination"
+    },
+    {
+        "original_nl": "Which origin has most number of flights?",
+        "generalized_nl": "Which|{COLUMN} [origin]|have [has]|most|{COLUMN_PART} [number]|of|{TABLE} [flights]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT origin FROM Flight GROUP BY origin ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What place has the most flights coming from there?",
+        "generalized_nl": "What|place|have [has]|the|most|{TABLE} [flights]|come [coming]|from|there",
+        "generalized_tokens": [
+            "What",
+            "place",
+            "have",
+            "the",
+            "most",
+            "{TABLE}",
+            "come",
+            "from",
+            "there"
+        ],
+        "original_sql": "SELECT origin FROM Flight GROUP BY origin ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which destination has least number of flights?",
+        "generalized_nl": "Which|{COLUMN} [destination]|have [has]|least|{COLUMN_PART} [number]|of|{TABLE} [flights]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "least",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT destination FROM Flight GROUP BY destination ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "What destination has the fewest number of flights?",
+        "generalized_nl": "What|{COLUMN} [destination]|have [has]|the|fewest|{COLUMN_PART} [number]|of|{TABLE} [flights]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "have",
+            "the",
+            "fewest",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT destination FROM Flight GROUP BY destination ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "What is the aircraft name for the flight with number 99",
+        "generalized_nl": "What|is|the|{TABLE} [aircraft]|{COLUMN} [name]|for|the|{TABLE} [flight]|with|{COLUMN_PART} [number]|{NUMBER} [99]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.name FROM Flight AS T1 JOIN Aircraft AS T2 ON T1.aid  =  T2.aid WHERE T1.flno  =  99"
+    },
+    {
+        "original_nl": "What is the name of the aircraft that was on flight number 99?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [aircraft]|that|was|on|{COLUMN} [flight number]|{NUMBER} [99]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "was",
+            "on",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.name FROM Flight AS T1 JOIN Aircraft AS T2 ON T1.aid  =  T2.aid WHERE T1.flno  =  99"
+    },
+    {
+        "original_nl": "Show all flight numbers with aircraft Airbus A340-300.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [flight numbers]|with|{TABLE} [aircraft]|{NE} [Airbus]|{NE} [A340 - 300]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "with",
+            "{TABLE}",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.flno FROM Flight AS T1 JOIN Aircraft AS T2 ON T1.aid  =  T2.aid WHERE T2.name  =  \"Airbus A340-300\""
+    },
+    {
+        "original_nl": "What are the flight numbers for the aircraft Airbus A340-300?",
+        "generalized_nl": "What|are|the|{COLUMN} [flight numbers]|for|the|{TABLE} [aircraft]|{NE} [Airbus]|{NE} [A340 - 300]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.flno FROM Flight AS T1 JOIN Aircraft AS T2 ON T1.aid  =  T2.aid WHERE T2.name  =  \"Airbus A340-300\""
+    },
+    {
+        "original_nl": "Show aircraft names and number of flights for each aircraft.",
+        "generalized_nl": "show [Show]|{TABLE} [aircraft]|{COLUMN} [names]|and|{COLUMN_PART} [number]|of|{TABLE} [flights]|for|each|{TABLE} [aircraft]",
+        "generalized_tokens": [
+            "show",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name ,  count(*) FROM Flight AS T1 JOIN Aircraft AS T2 ON T1.aid  =  T2.aid GROUP BY T1.aid"
+    },
+    {
+        "original_nl": "What is the name of each aircraft and how many flights does each one complete?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|each|{TABLE} [aircraft]|and|how|many|{TABLE} [flights]|does|each|one|complete",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}",
+            "and",
+            "how",
+            "many",
+            "{TABLE}",
+            "does",
+            "each",
+            "one",
+            "complete"
+        ],
+        "original_sql": "SELECT T2.name ,  count(*) FROM Flight AS T1 JOIN Aircraft AS T2 ON T1.aid  =  T2.aid GROUP BY T1.aid"
+    },
+    {
+        "original_nl": "Show names for all aircraft with at least two flights.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|for|all|{TABLE} [aircraft]|with|{NUMBER} [at least two]|{TABLE} [flights]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name FROM Flight AS T1 JOIN Aircraft AS T2 ON T1.aid  =  T2.aid GROUP BY T1.aid HAVING count(*)  >= 2"
+    },
+    {
+        "original_nl": "What are the names for all aircrafts with at least 2 flights?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|for|all|aircraft [aircrafts]|with|{NUMBER} [at least 2]|{TABLE} [flights]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "aircraft",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name FROM Flight AS T1 JOIN Aircraft AS T2 ON T1.aid  =  T2.aid GROUP BY T1.aid HAVING count(*)  >= 2"
+    },
+    {
+        "original_nl": "How many employees have certificate.",
+        "generalized_nl": "How|many|{TABLE} [employees]|have|{TABLE} [certificate]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT eid) FROM Certificate"
+    },
+    {
+        "original_nl": "What is the count of distinct employees with certificates?",
+        "generalized_nl": "What|is|the|count|of|distinct|{TABLE} [employees]|with|{TABLE} [certificates]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "count",
+            "of",
+            "distinct",
+            "{TABLE}",
+            "with",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT eid) FROM Certificate"
+    },
+    {
+        "original_nl": "Show ids for all employees who don't have a certificate.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|for|all|{TABLE} [employees]|who|do|n't|have|a|{TABLE} [certificate]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "who",
+            "do",
+            "n't",
+            "have",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT eid FROM Employee EXCEPT SELECT eid FROM Certificate"
+    },
+    {
+        "original_nl": "What are the ids of all employees that don't have certificates?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|{TABLE} [employees]|that|do|n't|have|{TABLE} [certificates]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "do",
+            "n't",
+            "have",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT eid FROM Employee EXCEPT SELECT eid FROM Certificate"
+    },
+    {
+        "original_nl": "Show names for all aircrafts of which John Williams has certificates.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|for|all|aircraft [aircrafts]|of|which|{NE} [John Williams]|have [has]|{TABLE} [certificates]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "for",
+            "all",
+            "aircraft",
+            "of",
+            "which",
+            "{NE}",
+            "have",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T1.name  =  \"John Williams\""
+    },
+    {
+        "original_nl": "What are the names of all aircrafts that John Williams have certificates to be able to fly?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|aircraft [aircrafts]|that|{NE} [John Williams]|have|{TABLE} [certificates]|to|be|able|to|fly",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "aircraft",
+            "that",
+            "{NE}",
+            "have",
+            "{TABLE}",
+            "to",
+            "be",
+            "able",
+            "to",
+            "fly"
+        ],
+        "original_sql": "SELECT T3.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T1.name  =  \"John Williams\""
+    },
+    {
+        "original_nl": "Show names for all employees who have certificate of Boeing 737-800.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|for|all|{TABLE} [employees]|who|have|{TABLE} [certificate]|of|{NE} [Boeing]|{NE} [737 -800]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "{TABLE}",
+            "of",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T3.name  =  \"Boeing 737-800\""
+    },
+    {
+        "original_nl": "What are the names of all employees who have a certificate to fly Boeing 737-800?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [employees]|who|have|a|{TABLE} [certificate]|to|fly|{NE} [Boeing]|{NE} [737-800]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "a",
+            "{TABLE}",
+            "to",
+            "fly",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T3.name  =  \"Boeing 737-800\""
+    },
+    {
+        "original_nl": "Show names for all employees who have certificates on both Boeing 737-800 and Airbus A340-300.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|for|all|{TABLE} [employees]|who|have|{TABLE} [certificates]|on|both|{NE} [Boeing]|{NE} [737-800]|and|{NE} [Airbus]|{NE} [A340 - 300]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "{TABLE}",
+            "on",
+            "both",
+            "{NE}",
+            "{NE}",
+            "and",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T3.name  =  \"Boeing 737-800\" INTERSECT SELECT T1.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T3.name  =  \"Airbus A340-300\""
+    },
+    {
+        "original_nl": "What are the names of all employees who can fly both the Boeing 737-800 and the Airbus A340-300?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [employees]|who|can|fly|both|the|{NE} [Boeing]|{NE} [737-800]|and|the|{NE} [Airbus]|{NE} [A340 - 300]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "can",
+            "fly",
+            "both",
+            "the",
+            "{NE}",
+            "{NE}",
+            "and",
+            "the",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T3.name  =  \"Boeing 737-800\" INTERSECT SELECT T1.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T3.name  =  \"Airbus A340-300\""
+    },
+    {
+        "original_nl": "Show names for all employees who do not have certificate of Boeing 737-800.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|for|all|{TABLE} [employees]|who|do|not|have|{TABLE} [certificate]|of|{NE} [Boeing]|{NE} [737 - 800]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "have",
+            "{TABLE}",
+            "of",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM Employee EXCEPT SELECT T1.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T3.name  =  \"Boeing 737-800\""
+    },
+    {
+        "original_nl": "What are the names of all employees who are not certified to fly Boeing 737-800s?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [employees]|who|are|not|certify [certified]|to|fly|{NE} [Boeing]|{NE} [737]|-800s",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "certify",
+            "to",
+            "fly",
+            "{NE}",
+            "{NE}",
+            "-800s"
+        ],
+        "original_sql": "SELECT name FROM Employee EXCEPT SELECT T1.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T3.name  =  \"Boeing 737-800\""
+    },
+    {
+        "original_nl": "Show the name of aircraft which fewest people have its certificate.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|of|{TABLE} [aircraft]|which|fewest|people|have|its|{TABLE} [certificate]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "which",
+            "fewest",
+            "people",
+            "have",
+            "its",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name FROM Certificate AS T1 JOIN Aircraft AS T2 ON T2.aid  =  T1.aid GROUP BY T1.aid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the names of the aircraft that the least people are certified to fly?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [aircraft]|that|the|least|people|are|certify [certified]|to|fly",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "the",
+            "least",
+            "people",
+            "are",
+            "certify",
+            "to",
+            "fly"
+        ],
+        "original_sql": "SELECT T2.name FROM Certificate AS T1 JOIN Aircraft AS T2 ON T2.aid  =  T1.aid GROUP BY T1.aid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the name and distance of the aircrafts with more than 5000 distance and which at least 5 people have its certificate.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|and|{COLUMN} [distance]|of|the|aircraft [aircrafts]|with|{NUMBER} [more than 5000]|{COLUMN} [distance]|and|which|{NUMBER} [at least 5]|people|have|its|{TABLE} [certificate]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "aircraft",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}",
+            "and",
+            "which",
+            "{NUMBER}",
+            "people",
+            "have",
+            "its",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name FROM Certificate AS T1 JOIN Aircraft AS T2 ON T2.aid  =  T1.aid WHERE T2.distance  >  5000 GROUP BY T1.aid ORDER BY count(*)  >=  5"
+    },
+    {
+        "original_nl": "What is the name and distance of every aircraft that can cover a distance of more than 5000 and which at least 5 people can fly?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [distance]|of|every|{TABLE} [aircraft]|that|can|cover|a|{COLUMN} [distance]|of|{NUMBER} [more than 5000]|and|which|{NUMBER} [at least 5]|people|can|fly",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "every",
+            "{TABLE}",
+            "that",
+            "can",
+            "cover",
+            "a",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}",
+            "and",
+            "which",
+            "{NUMBER}",
+            "people",
+            "can",
+            "fly"
+        ],
+        "original_sql": "SELECT T2.name FROM Certificate AS T1 JOIN Aircraft AS T2 ON T2.aid  =  T1.aid WHERE T2.distance  >  5000 GROUP BY T1.aid ORDER BY count(*)  >=  5"
+    },
+    {
+        "original_nl": "what is the salary and name of the employee who has the most number of aircraft certificates?",
+        "generalized_nl": "what|is|the|{COLUMN} [salary]|and|{COLUMN} [name]|of|the|{TABLE} [employee]|who|have [has]|the|most|{COLUMN_PART} [number]|of|{TABLE} [aircraft]|{TABLE} [certificates]",
+        "generalized_tokens": [
+            "what",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.salary FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid GROUP BY T1.eid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the salaray and name of the employee that is certified to fly the most planes?",
+        "generalized_nl": "What|is|the|salaray|and|{COLUMN} [name]|of|the|{TABLE} [employee]|that|is|certify [certified]|to|fly|the|most|plane [planes]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "salaray",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "certify",
+            "to",
+            "fly",
+            "the",
+            "most",
+            "plane"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.salary FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid GROUP BY T1.eid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the salary and name of the employee who has the most number of certificates on aircrafts with distance more than 5000?",
+        "generalized_nl": "What|is|the|{COLUMN} [salary]|and|{COLUMN} [name]|of|the|{TABLE} [employee]|who|have [has]|the|most|{COLUMN_PART} [number]|of|{TABLE} [certificates]|on|aircraft [aircrafts]|with|{COLUMN} [distance]|{NUMBER} [more than 5000]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "on",
+            "aircraft",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T3.distance  >  5000 GROUP BY T1.eid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the salaray and name of the employee with the most certificates to fly planes more than 5000?",
+        "generalized_nl": "What|is|the|salaray|and|{COLUMN} [name]|of|the|{TABLE} [employee]|with|the|most|{TABLE} [certificates]|to|fly|plane [planes]|{NUMBER} [more than 5000]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "salaray",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}",
+            "to",
+            "fly",
+            "plane",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.name FROM Employee AS T1 JOIN Certificate AS T2 ON T1.eid  =  T2.eid JOIN Aircraft AS T3 ON T3.aid  =  T2.aid WHERE T3.distance  >  5000 GROUP BY T1.eid ORDER BY count(*) DESC LIMIT 1"
+    }
+]

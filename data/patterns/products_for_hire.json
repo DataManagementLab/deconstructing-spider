@@ -1,0 +1,300 @@
+[
+    {
+        "original_nl": "Are the customers holding coupons with amount 500 bad or good?",
+        "generalized_nl": "Are|the|{TABLE} [customers]|hold [holding]|coupon [coupons]|with|{COLUMN_PART} [amount]|{NUMBER} [500]|{COLUMN_PART} [bad]|or|{COLUMN_PART} [good]",
+        "generalized_tokens": [
+            "Are",
+            "the",
+            "{TABLE}",
+            "hold",
+            "coupon",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "or",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.good_or_bad_customer FROM customers AS T1 JOIN discount_coupons AS T2 ON T1.coupon_id  =  T2.coupon_id WHERE T2.coupon_amount  =  500"
+    },
+    {
+        "original_nl": "What are the id and the amount of refund of the booking that incurred the most times of payments?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [id]|and|the|{COLUMN} [amount of refund]|of|the|{TABLE} [booking]|that|incur [incurred]|the|most|time [times]|of|{TABLE} [payments]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "incur",
+            "the",
+            "most",
+            "time",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.booking_id ,  T1.amount_of_refund FROM Bookings AS T1 JOIN Payments AS T2 ON T1.booking_id  =  T2.booking_id GROUP BY T1.booking_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the id of the product that is booked for 3 times?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|the|{COLUMN_PART} [product]|that|is|{COLUMN_PART} [booked]|for|{NUMBER} [3]|time [times]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "is",
+            "{COLUMN_PART}",
+            "for",
+            "{NUMBER}",
+            "time"
+        ],
+        "original_sql": "SELECT product_id FROM products_booked GROUP BY product_id HAVING count(*)  =  3"
+    },
+    {
+        "original_nl": "What is the product description of the product booked with an amount of 102.76?",
+        "generalized_nl": "What|is|the|{COLUMN} [product description]|of|the|{COLUMN_PART} [product]|{COLUMN_PART} [booked]|with|an|{COLUMN_PART} [amount]|of|{NUMBER} [102.76]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "with",
+            "an",
+            "{COLUMN_PART}",
+            "of",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.product_description FROM products_booked AS T1 JOIN products_for_hire AS T2 ON T1.product_id  =  T2.product_id WHERE T1.booked_amount  =  102.76"
+    },
+    {
+        "original_nl": "What are the start date and end date of the booking that has booked the product named 'Book collection A'?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [start]|{COLUMN_PART} [date]|and|{COLUMN_PART} [end]|{COLUMN_PART} [date]|of|the|{TABLE} [booking]|that|has|{COLUMN_PART} [booked]|the|{COLUMN_PART} [product]|name [named]|book [Book]|collection|a [A]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "{COLUMN_PART}",
+            "the",
+            "{COLUMN_PART}",
+            "name",
+            "book",
+            "collection",
+            "a"
+        ],
+        "original_sql": "SELECT T3.booking_start_date ,   T3.booking_end_date FROM Products_for_hire AS T1 JOIN products_booked AS T2 ON T1.product_id  =  T2.product_id JOIN bookings AS T3 ON T2.booking_id  =  T3.booking_id WHERE T1.product_name  =  'Book collection A'"
+    },
+    {
+        "original_nl": "What are the names of products whose availability equals to 1?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|product [products]|whose|handiness [availability]|equal [equals]|to|{NUMBER} [1]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "product",
+            "whose",
+            "handiness",
+            "equal",
+            "to",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.product_name FROM view_product_availability AS T1 JOIN products_for_hire AS T2 ON T1.product_id  =  T2.product_id WHERE T1.available_yn  =  1"
+    },
+    {
+        "original_nl": "How many different product types are there?",
+        "generalized_nl": "How|many|different|{COLUMN_PART} [product]|type [types]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN_PART}",
+            "type",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT product_type_code) FROM products_for_hire"
+    },
+    {
+        "original_nl": "What is the average amount due for all the payments?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [amount due]|for|all|the|{TABLE} [payments]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(amount_due) FROM payments"
+    },
+    {
+        "original_nl": "What are the maximum, minimum, and average booked count for the products booked?",
+        "generalized_nl": "What|are|the|maximal [maximum]|minimal [minimum]|and|average|{COLUMN} [booked count]|for|the|{TABLE} [products booked]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "minimal",
+            "and",
+            "average",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(booked_count) ,  min(booked_count) ,  avg(booked_count) FROM products_booked"
+    },
+    {
+        "original_nl": "What are all the distinct payment types?",
+        "generalized_nl": "What|are|all|the|distinct|{TABLE} [payment]|type [types]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "distinct",
+            "{TABLE}",
+            "type"
+        ],
+        "original_sql": "SELECT DISTINCT payment_type_code FROM payments"
+    },
+    {
+        "original_nl": "What are the daily hire costs for the products with substring 'Book' in its name?",
+        "generalized_nl": "What|are|the|{COLUMN} [daily hire costs]|for|the|product [products]|with|substring|book [Book]|in|its|{COLUMN_PART} [name]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "product",
+            "with",
+            "substring",
+            "book",
+            "in",
+            "its",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT daily_hire_cost FROM Products_for_hire WHERE product_name LIKE '%Book%'"
+    },
+    {
+        "original_nl": "How many products are never booked with amount higher than 200?",
+        "generalized_nl": "How|many|product [products]|are|never|{COLUMN_PART} [booked]|with|{COLUMN_PART} [amount]|{NUMBER} [higher than 200]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "product",
+            "are",
+            "never",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM Products_for_hire WHERE product_id NOT IN ( SELECT product_id FROM products_booked WHERE booked_amount  >  200 )"
+    },
+    {
+        "original_nl": "What are the coupon amount of the coupons owned by both good and bad customers?",
+        "generalized_nl": "What|are|the|{COLUMN} [coupon amount]|of|the|coupon [coupons]|own [owned]|by|both|{COLUMN_PART} [good]|and|{COLUMN_PART} [bad]|{TABLE} [customers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "coupon",
+            "own",
+            "by",
+            "both",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.coupon_amount FROM Discount_Coupons AS T1 JOIN customers AS T2 ON T1.coupon_id  =  T2.coupon_id WHERE T2.good_or_bad_customer  =  'good' INTERSECT SELECT T1.coupon_amount FROM Discount_Coupons AS T1 JOIN customers AS T2 ON T1.coupon_id  =  T2.coupon_id WHERE T2.good_or_bad_customer  =  'bad'"
+    },
+    {
+        "original_nl": "What are the payment date of the payment with amount paid higher than 300 or with payment type is 'Check'",
+        "generalized_nl": "What|are|the|{COLUMN} [payment date]|of|the|{TABLE} [payment]|with|{COLUMN} [amount paid]|high [higher]|than|{NUMBER} [300]|or|with|{TABLE} [payment]|{COLUMN_PART} [type]|is|check [Check]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "high",
+            "than",
+            "{NUMBER}",
+            "or",
+            "with",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "is",
+            "check"
+        ],
+        "original_sql": "SELECT payment_date FROM payments WHERE amount_paid  >  300 OR payment_type_code  =  'Check'"
+    },
+    {
+        "original_nl": "What are the names and descriptions of the products that are of 'Cutlery' type and have daily hire cost lower than 20?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [descriptions]|of|the|product [products]|that|are|of|cutter [Cutlery]|{COLUMN_PART} [type]|and|have|{COLUMN} [daily hire cost]|low [lower]|than|{NUMBER} [20]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "product",
+            "that",
+            "are",
+            "of",
+            "cutter",
+            "{COLUMN_PART}",
+            "and",
+            "have",
+            "{COLUMN}",
+            "low",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT product_name ,  product_description FROM products_for_hire WHERE product_type_code  =  'Cutlery' AND daily_hire_cost  <  20"
+    }
+]

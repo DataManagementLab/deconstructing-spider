@@ -1,0 +1,1445 @@
+[
+    {
+        "original_nl": "How many video games exist?",
+        "generalized_nl": "How|many|{TABLE} [video games]|exist",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "exist"
+        ],
+        "original_sql": "SELECT count(*) FROM Video_games"
+    },
+    {
+        "original_nl": "How many video games do you have?",
+        "generalized_nl": "How|many|{TABLE} [video games]|do|you|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "you",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Video_games"
+    },
+    {
+        "original_nl": "How many video game types exist?",
+        "generalized_nl": "How|many|{TABLE} [video game]|{COLUMN_PART} [types]|exist",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "exist"
+        ],
+        "original_sql": "SELECT count(DISTINCT gtype) FROM Video_games"
+    },
+    {
+        "original_nl": "What is the count of different game types?",
+        "generalized_nl": "What|is|the|count|of|different|{COLUMN} [game types]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "count",
+            "of",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT gtype) FROM Video_games"
+    },
+    {
+        "original_nl": "Show all video game types.",
+        "generalized_nl": "show [Show]|all|{TABLE} [video game]|{COLUMN_PART} [types]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT gtype FROM Video_games"
+    },
+    {
+        "original_nl": "What are the different types of video games?",
+        "generalized_nl": "What|are|the|different|{COLUMN_PART} [types]|of|{TABLE} [video games]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT gtype FROM Video_games"
+    },
+    {
+        "original_nl": "Show all video games and their types in the order of their names.",
+        "generalized_nl": "show [Show]|all|{TABLE} [video games]|and|their|{COLUMN_PART} [types]|in|the|order|of|their|{COLUMN_PART} [names]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{TABLE}",
+            "and",
+            "their",
+            "{COLUMN_PART}",
+            "in",
+            "the",
+            "order",
+            "of",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT gname ,  gtype FROM Video_games ORDER BY gname"
+    },
+    {
+        "original_nl": "What are the names of all the video games and their types in alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [video games]|and|their|{COLUMN_PART} [types]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "and",
+            "their",
+            "{COLUMN_PART}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT gname ,  gtype FROM Video_games ORDER BY gname"
+    },
+    {
+        "original_nl": "What are the names of all video games that are collectible cards?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|{TABLE} [video games]|that|are|collectible|card [cards]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "are",
+            "collectible",
+            "card"
+        ],
+        "original_sql": "SELECT gname FROM Video_games WHERE gtype  =  \"Collectible card game\""
+    },
+    {
+        "original_nl": "What is the type of video game Call of Destiny.",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [type]|of|{TABLE} [video game]|{NE} [Call of Destiny]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT gtype FROM Video_games WHERE gname  =  \"Call of Destiny\""
+    },
+    {
+        "original_nl": "What type of game is Call of Destiny?",
+        "generalized_nl": "What|{COLUMN_PART} [type]|of|{COLUMN_PART} [game]|is|call [Call]|of|Destiny",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "is",
+            "call",
+            "of",
+            "Destiny"
+        ],
+        "original_sql": "SELECT gtype FROM Video_games WHERE gname  =  \"Call of Destiny\""
+    },
+    {
+        "original_nl": "How many video games have type Massively multiplayer online game?",
+        "generalized_nl": "How|many|{TABLE} [video games]|have|{COLUMN_PART} [type]|massively [Massively]|multiplayer|on-line [online]|{COLUMN_PART} [game]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{COLUMN_PART}",
+            "massively",
+            "multiplayer",
+            "on-line",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM Video_games WHERE gtype  =  \"Massively multiplayer online game\""
+    },
+    {
+        "original_nl": "Count the number of video games with Massively multiplayer online game type .",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [video games]|with|massively [Massively]|multiplayer|on-line [online]|{COLUMN} [game type]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "with",
+            "massively",
+            "multiplayer",
+            "on-line",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM Video_games WHERE gtype  =  \"Massively multiplayer online game\""
+    },
+    {
+        "original_nl": "Show all video game types and the number of video games in each type.",
+        "generalized_nl": "show [Show]|all|{TABLE} [video game]|{COLUMN_PART} [types]|and|the|number|of|{TABLE} [video games]|in|each|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT gtype ,  count(*) FROM Video_games GROUP BY gtype"
+    },
+    {
+        "original_nl": "What are the types of video games and how many are in each type?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [types]|of|{TABLE} [video games]|and|how|many|are|in|each|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "how",
+            "many",
+            "are",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT gtype ,  count(*) FROM Video_games GROUP BY gtype"
+    },
+    {
+        "original_nl": "Which game type has most number of games?",
+        "generalized_nl": "Which|{COLUMN} [game type]|have [has]|most|number|of|{COLUMN_PART} [games]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "most",
+            "number",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT gtype FROM Video_games GROUP BY gtype ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What type has the most games?",
+        "generalized_nl": "What|{COLUMN_PART} [type]|have [has]|the|most|{COLUMN_PART} [games]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN_PART}",
+            "have",
+            "the",
+            "most",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT gtype FROM Video_games GROUP BY gtype ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which game type has least number of games?",
+        "generalized_nl": "Which|{COLUMN} [game type]|have [has]|least|number|of|{COLUMN_PART} [games]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "least",
+            "number",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT gtype FROM Video_games GROUP BY gtype ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "What is the type with the fewest games?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [type]|with|the|fewest|{COLUMN_PART} [games]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "fewest",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT gtype FROM Video_games GROUP BY gtype ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "Show ids for all students who live in CHI.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|for|all|{TABLE} [students]|who|live|in|{NE} [CHI]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "who",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE city_code  =  \"CHI\""
+    },
+    {
+        "original_nl": "What are the ids of all students who live in CHI?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|{TABLE} [students]|who|live|in|{NE} [CHI]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE city_code  =  \"CHI\""
+    },
+    {
+        "original_nl": "Show ids for all students who have advisor 1121.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|for|all|{TABLE} [students]|who|have|{COLUMN} [advisor]|{NUMBER} [1121]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE Advisor  =  1121"
+    },
+    {
+        "original_nl": "What are the ids of all students who have advisor number 1121?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|{TABLE} [students]|who|have|{COLUMN} [advisor]|number|{NUMBER} [1121]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "number",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE Advisor  =  1121"
+    },
+    {
+        "original_nl": "Show first name for all students with major 600.",
+        "generalized_nl": "show [Show]|{COLUMN} [first name]|for|all|{TABLE} [students]|with|{COLUMN} [major]|{NUMBER} [600]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Fname FROM Student WHERE Major  =  600"
+    },
+    {
+        "original_nl": "What are the first names for all students who are from the major numbered 600?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|for|all|{TABLE} [students]|who|are|from|the|{COLUMN} [major]|number [numbered]|{NUMBER} [600]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "from",
+            "the",
+            "{COLUMN}",
+            "number",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Fname FROM Student WHERE Major  =  600"
+    },
+    {
+        "original_nl": "Show the average, minimum, and maximum age for different majors.",
+        "generalized_nl": "show [Show]|the|average|minimal [minimum]|and|maximal [maximum]|{COLUMN} [age]|for|different|{COLUMN} [majors]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "minimal",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "for",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT major ,  avg(age) ,  min(age) ,  max(age) FROM Student GROUP BY major"
+    },
+    {
+        "original_nl": "What are the average, minimum, and max ages for each of the different majors?",
+        "generalized_nl": "What|are|the|average|minimum|and|max|{COLUMN} [ages]|for|each|of|the|different|{COLUMN} [majors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "minimum",
+            "and",
+            "max",
+            "{COLUMN}",
+            "for",
+            "each",
+            "of",
+            "the",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT major ,  avg(age) ,  min(age) ,  max(age) FROM Student GROUP BY major"
+    },
+    {
+        "original_nl": "Show all advisors who have at least two students.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [advisors]|who|have|{NUMBER} [at least two]|{TABLE} [students]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT advisor FROM Student GROUP BY advisor HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the advisors",
+        "generalized_nl": "What|are|the|{COLUMN} [advisors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT advisor FROM Student GROUP BY advisor HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "How many sports do we have?",
+        "generalized_nl": "How|many|sport [sports]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "sport",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(DISTINCT sportname) FROM Sportsinfo"
+    },
+    {
+        "original_nl": "How many different types of sports do we offer?",
+        "generalized_nl": "How|many|different|{COLUMN_PART} [types]|of|sport [sports]|do|we|offer",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN_PART}",
+            "of",
+            "sport",
+            "do",
+            "we",
+            "offer"
+        ],
+        "original_sql": "SELECT count(DISTINCT sportname) FROM Sportsinfo"
+    },
+    {
+        "original_nl": "How many students play sports?",
+        "generalized_nl": "How|many|{TABLE} [students]|play|sport [sports]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "play",
+            "sport"
+        ],
+        "original_sql": "SELECT count(DISTINCT StuID) FROM Sportsinfo"
+    },
+    {
+        "original_nl": "How many different students are involved in sports?",
+        "generalized_nl": "How|many|different|{TABLE} [students]|are|involved|in|sport [sports]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "are",
+            "involved",
+            "in",
+            "sport"
+        ],
+        "original_sql": "SELECT count(DISTINCT StuID) FROM Sportsinfo"
+    },
+    {
+        "original_nl": "List ids for all student who are on scholarship.",
+        "generalized_nl": "list [List]|{COLUMN_PART} [ids]|for|all|{TABLE} [student]|who|are|{COLUMN} [on scholarship]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT StuID FROM Sportsinfo WHERE onscholarship  =  'Y'"
+    },
+    {
+        "original_nl": "What are the ids for all sporty students who are on scholarship?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|for|all|clean [sporty]|{TABLE} [students]|who|are|{COLUMN} [on scholarship]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "clean",
+            "{TABLE}",
+            "who",
+            "are",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT StuID FROM Sportsinfo WHERE onscholarship  =  'Y'"
+    },
+    {
+        "original_nl": "Show last names for all student who are on scholarship.",
+        "generalized_nl": "show [Show]|{COLUMN} [last names]|for|all|{TABLE} [student]|who|are|{COLUMN} [on scholarship]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Lname FROM Sportsinfo AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID WHERE T1.onscholarship  =  'Y'"
+    },
+    {
+        "original_nl": "What are the last names for all scholarship students?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|for|all|{COLUMN_PART} [scholarship]|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Lname FROM Sportsinfo AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID WHERE T1.onscholarship  =  'Y'"
+    },
+    {
+        "original_nl": "How many games are played for all students?",
+        "generalized_nl": "How|many|{COLUMN_PART} [games]|are|{COLUMN_PART} [played]|for|all|{TABLE} [students]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "are",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(gamesplayed) FROM Sportsinfo"
+    },
+    {
+        "original_nl": "What is the total number of games played?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{COLUMN} [games played]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(gamesplayed) FROM Sportsinfo"
+    },
+    {
+        "original_nl": "How many games are played for all football games by students on scholarship?",
+        "generalized_nl": "How|many|{COLUMN_PART} [games]|are|{COLUMN_PART} [played]|for|all|football|{COLUMN_PART} [games]|by|{TABLE} [students]|{COLUMN} [on scholarship]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "are",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "football",
+            "{COLUMN_PART}",
+            "by",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(gamesplayed) FROM Sportsinfo WHERE sportname  =  \"Football\" AND onscholarship  =  'Y'"
+    },
+    {
+        "original_nl": "What is the total number of all football games played by scholarship students?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|all|football|{COLUMN} [games played]|by|{COLUMN_PART} [scholarship]|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "all",
+            "football",
+            "{COLUMN}",
+            "by",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(gamesplayed) FROM Sportsinfo WHERE sportname  =  \"Football\" AND onscholarship  =  'Y'"
+    },
+    {
+        "original_nl": "Show all sport name and the number of students.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [sport name]|and|the|number|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sportname ,  count(*) FROM Sportsinfo GROUP BY sportname"
+    },
+    {
+        "original_nl": "How many students play each sport?",
+        "generalized_nl": "How|many|{TABLE} [students]|play|each|{COLUMN_PART} [sport]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "play",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT sportname ,  count(*) FROM Sportsinfo GROUP BY sportname"
+    },
+    {
+        "original_nl": "Show all student IDs with the number of sports and total number of games played",
+        "generalized_nl": "show [Show]|all|{COLUMN} [student IDs]|with|the|number|of|sport [sports]|and|entire [total]|number|of|{COLUMN} [games played]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "with",
+            "the",
+            "number",
+            "of",
+            "sport",
+            "and",
+            "entire",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT StuID ,  count(*) ,  sum(gamesplayed) FROM Sportsinfo GROUP BY StuID"
+    },
+    {
+        "original_nl": "What are the ids of all students along with how many sports and games did they play?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|{TABLE} [students]|along|with|how|many|sport [sports]|and|{COLUMN_PART} [games]|did|they|play",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "along",
+            "with",
+            "how",
+            "many",
+            "sport",
+            "and",
+            "{COLUMN_PART}",
+            "did",
+            "they",
+            "play"
+        ],
+        "original_sql": "SELECT StuID ,  count(*) ,  sum(gamesplayed) FROM Sportsinfo GROUP BY StuID"
+    },
+    {
+        "original_nl": "Show all student IDs with more than total 10 hours per week on all sports played.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [student IDs]|with|more|than|entire [total]|{NE} [10 hours]|{COLUMN_PART} [per]|{COLUMN_PART} [week]|on|all|sport [sports]|{COLUMN_PART} [played]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "with",
+            "more",
+            "than",
+            "entire",
+            "{NE}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "on",
+            "all",
+            "sport",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT StuID FROM Sportsinfo GROUP BY StuID HAVING sum(hoursperweek)  >  10"
+    },
+    {
+        "original_nl": "What are the student IDs for everybody who worked for more than 10 hours per week on all sports?",
+        "generalized_nl": "What|are|the|{COLUMN} [student IDs]|for|everybody|who|work [worked]|for|{NE} [more than 10 hours]|{COLUMN_PART} [per]|{COLUMN_PART} [week]|on|all|sport [sports]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "everybody",
+            "who",
+            "work",
+            "for",
+            "{NE}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "on",
+            "all",
+            "sport"
+        ],
+        "original_sql": "SELECT StuID FROM Sportsinfo GROUP BY StuID HAVING sum(hoursperweek)  >  10"
+    },
+    {
+        "original_nl": "What is the first name and last name of the student who have most number of sports?",
+        "generalized_nl": "What|is|the|{COLUMN} [first name]|and|{COLUMN} [last name]|of|the|{TABLE} [student]|who|have|most|number|of|sport [sports]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "most",
+            "number",
+            "of",
+            "sport"
+        ],
+        "original_sql": "SELECT T2.Fname ,  T2.Lname FROM Sportsinfo AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID GROUP BY T1.StuID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the first and last name of the student who played the most sports?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [student]|who|{COLUMN_PART} [played]|the|most|sport [sports]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "the",
+            "most",
+            "sport"
+        ],
+        "original_sql": "SELECT T2.Fname ,  T2.Lname FROM Sportsinfo AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID GROUP BY T1.StuID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which sport has most number of students on scholarship?",
+        "generalized_nl": "Which|{COLUMN_PART} [sport]|have [has]|most|number|of|{TABLE} [students]|{COLUMN} [on scholarship]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "have",
+            "most",
+            "number",
+            "of",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sportname FROM Sportsinfo WHERE onscholarship  =  'Y' GROUP BY sportname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the sport with the most scholarship students?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [sport]|with|the|most|{COLUMN_PART} [scholarship]|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sportname FROM Sportsinfo WHERE onscholarship  =  'Y' GROUP BY sportname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show student ids who don't have any sports.",
+        "generalized_nl": "show [Show]|{COLUMN} [student ids]|who|do|n't|have|any|sport [sports]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "who",
+            "do",
+            "n't",
+            "have",
+            "any",
+            "sport"
+        ],
+        "original_sql": "SELECT StuID FROM Student EXCEPT SELECT StuID FROM Sportsinfo"
+    },
+    {
+        "original_nl": "What are the ids of all students who don't play sports?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|{TABLE} [students]|who|do|n't|play|sport [sports]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "do",
+            "n't",
+            "play",
+            "sport"
+        ],
+        "original_sql": "SELECT StuID FROM Student EXCEPT SELECT StuID FROM Sportsinfo"
+    },
+    {
+        "original_nl": "Show student ids who are on scholarship and have major 600.",
+        "generalized_nl": "show [Show]|{COLUMN} [student ids]|who|are|{COLUMN} [on scholarship]|and|have|{COLUMN} [major]|{NUMBER} [600]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "who",
+            "are",
+            "{COLUMN}",
+            "and",
+            "have",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE major  =  600 INTERSECT SELECT StuID FROM Sportsinfo WHERE onscholarship  =  'Y'"
+    },
+    {
+        "original_nl": "What are the student ids for those on scholarship in major number 600?",
+        "generalized_nl": "What|are|the|{COLUMN} [student ids]|for|those|{COLUMN} [on scholarship]|in|{COLUMN} [major]|number|{NUMBER} [600]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "those",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}",
+            "number",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE major  =  600 INTERSECT SELECT StuID FROM Sportsinfo WHERE onscholarship  =  'Y'"
+    },
+    {
+        "original_nl": "Show student ids who are female and play football.",
+        "generalized_nl": "show [Show]|{COLUMN} [student ids]|who|are|female|and|play|football",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "who",
+            "are",
+            "female",
+            "and",
+            "play",
+            "football"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE sex  =  'F' INTERSECT SELECT StuID FROM Sportsinfo WHERE sportname  =  \"Football\""
+    },
+    {
+        "original_nl": "What are the ids of all female students who play football?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|female|{TABLE} [students]|who|play|football",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "female",
+            "{TABLE}",
+            "who",
+            "play",
+            "football"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE sex  =  'F' INTERSECT SELECT StuID FROM Sportsinfo WHERE sportname  =  \"Football\""
+    },
+    {
+        "original_nl": "Show all male student ids who don't play football.",
+        "generalized_nl": "show [Show]|all|male|{COLUMN} [student ids]|who|do|n't|play|football",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "male",
+            "{COLUMN}",
+            "who",
+            "do",
+            "n't",
+            "play",
+            "football"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE sex  =  'M' EXCEPT SELECT StuID FROM Sportsinfo WHERE sportname  =  \"Football\""
+    },
+    {
+        "original_nl": "What are the ids of all male students who do not play football?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|male|{TABLE} [students]|who|do|not|play|football",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "male",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "play",
+            "football"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE sex  =  'M' EXCEPT SELECT StuID FROM Sportsinfo WHERE sportname  =  \"Football\""
+    },
+    {
+        "original_nl": "Show total hours per week and number of games played for student David Shieber.",
+        "generalized_nl": "show [Show]|entire [total]|{COLUMN} [hours per week]|and|number|of|{COLUMN} [games played]|for|{TABLE} [student]|{NE} [David Shieber]",
+        "generalized_tokens": [
+            "show",
+            "entire",
+            "{COLUMN}",
+            "and",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(hoursperweek) ,  sum(gamesplayed) FROM Sportsinfo AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID WHERE T2.Fname  =  \"David\" AND T2.Lname  =  \"Shieber\""
+    },
+    {
+        "original_nl": "What is the total number of hours per work and number of games played by David Shieber?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{COLUMN_PART} [hours]|{COLUMN_PART} [per]|work|and|number|of|{COLUMN} [games played]|by|{NE} [David Shieber]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "work",
+            "and",
+            "number",
+            "of",
+            "{COLUMN}",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(hoursperweek) ,  sum(gamesplayed) FROM Sportsinfo AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID WHERE T2.Fname  =  \"David\" AND T2.Lname  =  \"Shieber\""
+    },
+    {
+        "original_nl": "Show total hours per week and number of games played for students under 20.",
+        "generalized_nl": "show [Show]|entire [total]|{COLUMN} [hours per week]|and|number|of|{COLUMN} [games played]|for|{TABLE} [students]|{NE} [under 20]",
+        "generalized_tokens": [
+            "show",
+            "entire",
+            "{COLUMN}",
+            "and",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(hoursperweek) ,  sum(gamesplayed) FROM Sportsinfo AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID WHERE T2.age  <  20"
+    },
+    {
+        "original_nl": "What is the total number of hours per week and number of games played by students under 20?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{COLUMN} [hours per week]|and|number|of|{COLUMN} [games played]|by|{TABLE} [students]|{NE} [under 20]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{COLUMN}",
+            "and",
+            "number",
+            "of",
+            "{COLUMN}",
+            "by",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(hoursperweek) ,  sum(gamesplayed) FROM Sportsinfo AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID WHERE T2.age  <  20"
+    },
+    {
+        "original_nl": "How many students play video games?",
+        "generalized_nl": "How|many|{TABLE} [students]|play|{TABLE} [video games]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "play",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT StuID) FROM Plays_games"
+    },
+    {
+        "original_nl": "How many different students play games?",
+        "generalized_nl": "How|many|different|{TABLE} [students]|play|{COLUMN_PART} [games]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "play",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(DISTINCT StuID) FROM Plays_games"
+    },
+    {
+        "original_nl": "Show ids of students who don't play video game.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|of|{TABLE} [students]|who|do|n't|play|{TABLE} [video game]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "do",
+            "n't",
+            "play",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT StuID FROM Student EXCEPT SELECT StuID FROM Plays_games"
+    },
+    {
+        "original_nl": "What are the ids of all students who are not video game players?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|{TABLE} [students]|who|are|not|{TABLE} [video game]|player [players]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "{TABLE}",
+            "player"
+        ],
+        "original_sql": "SELECT StuID FROM Student EXCEPT SELECT StuID FROM Plays_games"
+    },
+    {
+        "original_nl": "Show ids of students who play video game and play sports.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|of|{TABLE} [students]|who|play|{TABLE} [video game]|and|play|sport [sports]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "play",
+            "{TABLE}",
+            "and",
+            "play",
+            "sport"
+        ],
+        "original_sql": "SELECT StuID FROM Sportsinfo INTERSECT SELECT StuID FROM Plays_games"
+    },
+    {
+        "original_nl": "What are the ids of all students who played video games and sports?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|{TABLE} [students]|who|{COLUMN_PART} [played]|{TABLE} [video games]|and|sport [sports]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "and",
+            "sport"
+        ],
+        "original_sql": "SELECT StuID FROM Sportsinfo INTERSECT SELECT StuID FROM Plays_games"
+    },
+    {
+        "original_nl": "Show all game ids and the number of hours played.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [game ids]|and|{NE} [the number of hours]|{COLUMN_PART} [played]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT gameid ,  sum(hours_played) FROM Plays_games GROUP BY gameid"
+    },
+    {
+        "original_nl": "What are ids and total number of hours played for each game?",
+        "generalized_nl": "What|are|{COLUMN_PART} [ids]|and|entire [total]|number|of|{COLUMN} [hours played]|for|each|{COLUMN_PART} [game]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{COLUMN_PART}",
+            "and",
+            "entire",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT gameid ,  sum(hours_played) FROM Plays_games GROUP BY gameid"
+    },
+    {
+        "original_nl": "Show all student ids and the number of hours played.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [student ids]|and|the|number|of|{COLUMN} [hours played]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Stuid ,  sum(hours_played) FROM Plays_games GROUP BY Stuid"
+    },
+    {
+        "original_nl": "What are the ids of all students and number of hours played?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|{TABLE} [students]|and|number|of|{COLUMN} [hours played]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "and",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Stuid ,  sum(hours_played) FROM Plays_games GROUP BY Stuid"
+    },
+    {
+        "original_nl": "Show the game name that has most number of hours played.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [game name]|that|have [has]|{NE} [most number of hours]|{COLUMN_PART} [played]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT gname FROM Plays_games AS T1 JOIN Video_games AS T2 ON T1.gameid  =  T2.gameid GROUP BY T1.gameid ORDER BY sum(hours_played) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the game that has been played the most?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{COLUMN_PART} [game]|that|has|been|{COLUMN_PART} [played]|the|most",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "has",
+            "been",
+            "{COLUMN_PART}",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT gname FROM Plays_games AS T1 JOIN Video_games AS T2 ON T1.gameid  =  T2.gameid GROUP BY T1.gameid ORDER BY sum(hours_played) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show all game names played by at least 1000 hours.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [game names]|{COLUMN_PART} [played]|by|{NE} [at least 1000 hours]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT gname FROM Plays_games AS T1 JOIN Video_games AS T2 ON T1.gameid  =  T2.gameid GROUP BY T1.gameid HAVING sum(hours_played)  >=  1000"
+    },
+    {
+        "original_nl": "What are the names of all the games that have been played for at least 1000 hours?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|the|{COLUMN_PART} [games]|that|have|been|{COLUMN_PART} [played]|for|{NE} [at least 1000 hours]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "have",
+            "been",
+            "{COLUMN_PART}",
+            "for",
+            "{NE}"
+        ],
+        "original_sql": "SELECT gname FROM Plays_games AS T1 JOIN Video_games AS T2 ON T1.gameid  =  T2.gameid GROUP BY T1.gameid HAVING sum(hours_played)  >=  1000"
+    },
+    {
+        "original_nl": "Show all game names played by Linda Smith",
+        "generalized_nl": "show [Show]|all|{COLUMN} [game names]|{COLUMN_PART} [played]|by|{NE} [Linda Smith]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Gname FROM Plays_games AS T1 JOIN Video_games AS T2 ON T1.gameid  =  T2.gameid JOIN Student AS T3 ON T3.Stuid  =  T1.Stuid WHERE T3.Lname  =  \"Smith\" AND T3.Fname  =  \"Linda\""
+    },
+    {
+        "original_nl": "What are the names of all games played by Linda Smith?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|{COLUMN} [games played]|by|{NE} [Linda Smith]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Gname FROM Plays_games AS T1 JOIN Video_games AS T2 ON T1.gameid  =  T2.gameid JOIN Student AS T3 ON T3.Stuid  =  T1.Stuid WHERE T3.Lname  =  \"Smith\" AND T3.Fname  =  \"Linda\""
+    },
+    {
+        "original_nl": "Find the last and first name of students who are playing Football or Lacrosse.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [last]|and|{COLUMN} [first name]|of|{TABLE} [students]|who|are|play [playing]|{VALUE} [Football]|or|{VALUE} [Lacrosse]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "play",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.lname ,  T2.fname FROM SportsInfo AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID WHERE T1.SportName  =  \"Football\" OR T1.SportName  =  \"Lacrosse\""
+    },
+    {
+        "original_nl": "What is the first and last name of all students who play Football or Lacrosse?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|all|{TABLE} [students]|who|play|{VALUE} [Football]|or|{VALUE} [Lacrosse]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "play",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.lname ,  T2.fname FROM SportsInfo AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID WHERE T1.SportName  =  \"Football\" OR T1.SportName  =  \"Lacrosse\""
+    },
+    {
+        "original_nl": "Find the first name and age of the students who are playing both Football and Lacrosse.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|and|{COLUMN} [age]|of|the|{TABLE} [students]|who|are|play [playing]|both|{VALUE} [Football]|and|{VALUE} [Lacrosse]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "play",
+            "both",
+            "{VALUE}",
+            "and",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT fname ,  age FROM Student WHERE StuID IN (SELECT StuID FROM Sportsinfo WHERE SportName  =  \"Football\" INTERSECT SELECT StuID FROM Sportsinfo WHERE SportName  =  \"Lacrosse\")"
+    },
+    {
+        "original_nl": "What are the first names and ages of all students who are playing both Football and Lacrosse?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|and|{COLUMN} [ages]|of|all|{TABLE} [students]|who|are|play [playing]|both|{VALUE} [Football]|and|{VALUE} [Lacrosse]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "play",
+            "both",
+            "{VALUE}",
+            "and",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT fname ,  age FROM Student WHERE StuID IN (SELECT StuID FROM Sportsinfo WHERE SportName  =  \"Football\" INTERSECT SELECT StuID FROM Sportsinfo WHERE SportName  =  \"Lacrosse\")"
+    },
+    {
+        "original_nl": "Find the last name and gender of the students who are playing both Call of Destiny and Works of Widenius games.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last name]|and|gender|of|the|{TABLE} [students]|who|are|play [playing]|both|call [Call]|of|Destiny|and|Works|of|Widenius|{COLUMN_PART} [games]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "gender",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "play",
+            "both",
+            "call",
+            "of",
+            "Destiny",
+            "and",
+            "Works",
+            "of",
+            "Widenius",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT lname ,  sex FROM Student WHERE StuID IN (SELECT T1.StuID FROM Plays_games AS T1 JOIN Video_games AS T2 ON T1.GameID  =  T2.GameID WHERE T2.Gname  =  \"Call of Destiny\" INTERSECT SELECT T1.StuID FROM Plays_games AS T1 JOIN Video_games AS T2 ON T1.GameID  =  T2.GameID WHERE T2.Gname  =  \"Works of Widenius\")"
+    },
+    {
+        "original_nl": "what is the last name and gender of all students who played both Call of Destiny and Works of Widenius?",
+        "generalized_nl": "what|is|the|{COLUMN} [last name]|and|gender|of|all|{TABLE} [students]|who|{COLUMN_PART} [played]|both|call [Call]|of|Destiny|and|Works|of|Widenius",
+        "generalized_tokens": [
+            "what",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "gender",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "both",
+            "call",
+            "of",
+            "Destiny",
+            "and",
+            "Works",
+            "of",
+            "Widenius"
+        ],
+        "original_sql": "SELECT lname ,  sex FROM Student WHERE StuID IN (SELECT T1.StuID FROM Plays_games AS T1 JOIN Video_games AS T2 ON T1.GameID  =  T2.GameID WHERE T2.Gname  =  \"Call of Destiny\" INTERSECT SELECT T1.StuID FROM Plays_games AS T1 JOIN Video_games AS T2 ON T1.GameID  =  T2.GameID WHERE T2.Gname  =  \"Works of Widenius\")"
+    }
+]

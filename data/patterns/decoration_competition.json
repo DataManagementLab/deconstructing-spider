@@ -1,0 +1,261 @@
+[
+    {
+        "original_nl": "How many members are there?",
+        "generalized_nl": "How|many|{TABLE} [members]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM member"
+    },
+    {
+        "original_nl": "List the names of members in ascending alphabetical order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [members]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Name FROM member ORDER BY Name ASC"
+    },
+    {
+        "original_nl": "What are the names and countries of members?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [countries]|of|{TABLE} [members]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name ,  Country FROM member"
+    },
+    {
+        "original_nl": "Show the names of members whose country is \"United States\" or \"Canada\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [members]|whose|{COLUMN} [country]|is|{VALUE} [United States]|or|{VALUE} [Canada]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM member WHERE Country  =  \"United States\" OR Country  =  \"Canada\""
+    },
+    {
+        "original_nl": "Show the different countries and the number of members from each.",
+        "generalized_nl": "show [Show]|the|different|{COLUMN} [countries]|and|the|number|of|{TABLE} [members]|from|each",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "from",
+            "each"
+        ],
+        "original_sql": "SELECT Country ,  COUNT(*) FROM member GROUP BY Country"
+    },
+    {
+        "original_nl": "Show the most common country across members.",
+        "generalized_nl": "show [Show]|the|most|common|{COLUMN} [country]|across|{TABLE} [members]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "across",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Country FROM member GROUP BY Country ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which countries have more than two members?",
+        "generalized_nl": "Which|{COLUMN} [countries]|have|{NUMBER} [more than two]|{TABLE} [members]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Country FROM member GROUP BY Country HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "Show the leader names and locations of colleges.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [leader names]|and|{COLUMN_PART} [locations]|of|{TABLE} [colleges]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Leader_Name ,  College_Location FROM college"
+    },
+    {
+        "original_nl": "Show the names of members and names of colleges they go to.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [members]|and|{COLUMN} [names]|of|{TABLE} [colleges]|they|go|to",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "they",
+            "go",
+            "to"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.Name FROM college AS T1 JOIN member AS T2 ON T1.College_ID  =  T2.College_ID"
+    },
+    {
+        "original_nl": "Show the names of members and the locations of colleges they go to in ascending alphabetical order of member names.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [members]|and|the|{COLUMN_PART} [locations]|of|{TABLE} [colleges]|they|go|to|in|ascend [ascending]|alphabetic [alphabetical]|order|of|{TABLE} [member]|{COLUMN} [names]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "they",
+            "go",
+            "to",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order",
+            "of",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.College_Location FROM college AS T1 JOIN member AS T2 ON T1.College_ID  =  T2.College_ID ORDER BY T2.Name ASC"
+    },
+    {
+        "original_nl": "Show the distinct leader names of colleges associated with members from country \"Canada\".",
+        "generalized_nl": "show [Show]|the|distinct|{COLUMN} [leader names]|of|{TABLE} [colleges]|associate [associated]|with|{TABLE} [members]|from|{COLUMN} [country]|{VALUE} [Canada]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "associate",
+            "with",
+            "{TABLE}",
+            "from",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Leader_Name FROM college AS T1 JOIN member AS T2 ON T1.College_ID  =  T2.College_ID WHERE T2.Country  =  \"Canada\""
+    },
+    {
+        "original_nl": "Show the names of members and the decoration themes they have.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [members]|and|the|{COLUMN} [decoration themes]|they|have",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "they",
+            "have"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Decoration_Theme FROM member AS T1 JOIN round AS T2 ON T1.Member_ID  =  T2.Member_ID"
+    },
+    {
+        "original_nl": "Show the names of members that have a rank in round higher than 3.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [members]|that|have|a|{COLUMN} [rank in round]|high [higher]|than|{VALUE} [3]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "high",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM member AS T1 JOIN round AS T2 ON T1.Member_ID  =  T2.Member_ID WHERE T2.Rank_in_Round  >  3"
+    },
+    {
+        "original_nl": "Show the names of members in ascending order of their rank in rounds.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [members]|in|ascend [ascending]|order|of|their|{COLUMN_PART} [rank]|in|{TABLE} [rounds]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "their",
+            "{COLUMN_PART}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM member AS T1 JOIN round AS T2 ON T1.Member_ID  =  T2.Member_ID ORDER BY Rank_in_Round ASC"
+    },
+    {
+        "original_nl": "List the names of members who did not participate in any round.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [members]|who|did|not|participate|in|any|{TABLE} [round]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "not",
+            "participate",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM member WHERE Member_ID NOT IN (SELECT Member_ID FROM round)"
+    }
+]

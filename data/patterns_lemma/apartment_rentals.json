@@ -1,0 +1,1312 @@
+[
+    {
+        "original_nl": "How many apartment bookings are there in total?",
+        "generalized_nl": "How|many|{TABLE} [apartment]|engagement [bookings]|are|there|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "engagement",
+            "are",
+            "there",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM Apartment_Bookings"
+    },
+    {
+        "original_nl": "Count the total number of apartment bookings.",
+        "generalized_nl": "{COLUMN_PART} [Count]|the|entire [total]|{COLUMN_PART} [number]|of|{TABLE} [apartment]|engagement [bookings]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "engagement"
+        ],
+        "original_sql": "SELECT count(*) FROM Apartment_Bookings"
+    },
+    {
+        "original_nl": "Show the start dates and end dates of all the apartment bookings.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [start]|{COLUMN_PART} [dates]|and|{COLUMN_PART} [end]|{COLUMN_PART} [dates]|of|all|the|{TABLE} [apartment]|engagement [bookings]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "engagement"
+        ],
+        "original_sql": "SELECT booking_start_date ,  booking_end_date FROM Apartment_Bookings"
+    },
+    {
+        "original_nl": "What are the start date and end date of each apartment booking?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [start]|{COLUMN_PART} [date]|and|{COLUMN_PART} [end]|{COLUMN_PART} [date]|of|each|{TABLE} [apartment]|{COLUMN_PART} [booking]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT booking_start_date ,  booking_end_date FROM Apartment_Bookings"
+    },
+    {
+        "original_nl": "Show all distinct building descriptions.",
+        "generalized_nl": "show [Show]|all|distinct|{COLUMN} [building descriptions]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT building_description FROM Apartment_Buildings"
+    },
+    {
+        "original_nl": "Give me a list of all the distinct building descriptions.",
+        "generalized_nl": "give [Give]|me|a|list|of|all|the|distinct|{COLUMN} [building descriptions]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT building_description FROM Apartment_Buildings"
+    },
+    {
+        "original_nl": "Show the short names of the buildings managed by \"Emma\".",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [short]|{COLUMN_PART} [names]|of|the|building [buildings]|pull_off [managed]|by|{NE} [Emma]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "building",
+            "pull_off",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT building_short_name FROM Apartment_Buildings WHERE building_manager\t =  \"Emma\""
+    },
+    {
+        "original_nl": "Show the addresses and phones of all the buildings managed by \"Brenden\".",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [addresses]|and|{COLUMN_PART} [phones]|of|all|the|building [buildings]|pull_off [managed]|by|{NE} [Brenden]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "building",
+            "pull_off",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT building_address ,  building_phone FROM Apartment_Buildings WHERE building_manager\t =  \"Brenden\""
+    },
+    {
+        "original_nl": "What are the address and phone number of the buildings managed by \"Brenden\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [address]|and|{COLUMN_PART} [phone]|{COLUMN_PART} [number]|of|the|building [buildings]|pull_off [managed]|by|{NE} [Brenden]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "building",
+            "pull_off",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT building_address ,  building_phone FROM Apartment_Buildings WHERE building_manager\t =  \"Brenden\""
+    },
+    {
+        "original_nl": "What are the building full names that contain the word \"court\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [building full names]|that|contain|the|word|court",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "contain",
+            "the",
+            "word",
+            "court"
+        ],
+        "original_sql": "SELECT building_full_name FROM Apartment_Buildings WHERE building_full_name LIKE \"%court%\""
+    },
+    {
+        "original_nl": "Find all the building full names containing the word \"court\".",
+        "generalized_nl": "find [Find]|all|the|{COLUMN} [building full names]|contain [containing]|the|word|court",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "word",
+            "court"
+        ],
+        "original_sql": "SELECT building_full_name FROM Apartment_Buildings WHERE building_full_name LIKE \"%court%\""
+    },
+    {
+        "original_nl": "What is the minimum and maximum number of bathrooms of all the apartments?",
+        "generalized_nl": "What|is|the|minimal [minimum]|and|maximal [maximum]|{COLUMN_PART} [number]|of|bathroom [bathrooms]|of|all|the|{TABLE} [apartments]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "minimal",
+            "and",
+            "maximal",
+            "{COLUMN_PART}",
+            "of",
+            "bathroom",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT min(bathroom_count) ,  max(bathroom_count) FROM Apartments"
+    },
+    {
+        "original_nl": "Give me the minimum and maximum bathroom count among all the apartments.",
+        "generalized_nl": "give [Give]|me|the|minimum|and|maximal [maximum]|{COLUMN} [bathroom count]|among|all|the|{TABLE} [apartments]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "minimum",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "among",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT min(bathroom_count) ,  max(bathroom_count) FROM Apartments"
+    },
+    {
+        "original_nl": "What is the average number of bedrooms of all apartments?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [number]|of|bedroom [bedrooms]|of|all|{TABLE} [apartments]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "bedroom",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(bedroom_count) FROM Apartments"
+    },
+    {
+        "original_nl": "Find the average number of bedrooms of all the apartments.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN_PART} [number]|of|bedroom [bedrooms]|of|all|the|{TABLE} [apartments]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "bedroom",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(bedroom_count) FROM Apartments"
+    },
+    {
+        "original_nl": "Return the apartment number and the number of rooms for each apartment.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [apartment number]|and|the|{COLUMN_PART} [number]|of|room [rooms]|for|each|{TABLE} [apartment]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "room",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT apt_number ,  room_count FROM Apartments"
+    },
+    {
+        "original_nl": "What are the apartment number and the room count of each apartment?",
+        "generalized_nl": "What|are|the|{COLUMN} [apartment number]|and|the|{COLUMN} [room count]|of|each|{TABLE} [apartment]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT apt_number ,  room_count FROM Apartments"
+    },
+    {
+        "original_nl": "What is the average number of rooms of apartments with type code \"Studio\"?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [number]|of|room [rooms]|of|{TABLE} [apartments]|with|{COLUMN_PART} [type]|{COLUMN_PART} [code]|studio [Studio]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "room",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "studio"
+        ],
+        "original_sql": "SELECT avg(room_count) FROM Apartments WHERE apt_type_code  =  \"Studio\""
+    },
+    {
+        "original_nl": "Find the average room count of the apartments that have the \"Studio\" type code.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [room count]|of|the|{TABLE} [apartments]|that|have|the|studio [Studio]|{COLUMN_PART} [type]|{COLUMN_PART} [code]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "studio",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(room_count) FROM Apartments WHERE apt_type_code  =  \"Studio\""
+    },
+    {
+        "original_nl": "Return the apartment numbers of the apartments with type code \"Flat\".",
+        "generalized_nl": "return [Return]|the|{COLUMN} [apartment numbers]|of|the|{TABLE} [apartments]|with|{COLUMN_PART} [type]|{COLUMN_PART} [code]|Flat",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "Flat"
+        ],
+        "original_sql": "SELECT apt_number FROM Apartments WHERE apt_type_code  =  \"Flat\""
+    },
+    {
+        "original_nl": "Return the first names and last names of all guests",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|{COLUMN_PART} [last]|{COLUMN_PART} [names]|of|all|{TABLE} [guests]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT guest_first_name ,  guest_last_name FROM Guests"
+    },
+    {
+        "original_nl": "What are the first names and last names of all the guests?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|{COLUMN_PART} [last]|{COLUMN_PART} [names]|of|all|the|{TABLE} [guests]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT guest_first_name ,  guest_last_name FROM Guests"
+    },
+    {
+        "original_nl": "Return the date of birth for all the guests with gender code \"Male\".",
+        "generalized_nl": "return [Return]|the|{COLUMN} [date of birth]|for|all|the|{TABLE} [guests]|with|{COLUMN} [gender code]|male [Male]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "male"
+        ],
+        "original_sql": "SELECT date_of_birth FROM Guests WHERE gender_code  =  \"Male\""
+    },
+    {
+        "original_nl": "What are dates of birth of all the guests whose gender is \"Male\"?",
+        "generalized_nl": "What|are|{COLUMN} [dates of birth]|of|all|the|{TABLE} [guests]|whose|{COLUMN_PART} [gender]|is|male [Male]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "male"
+        ],
+        "original_sql": "SELECT date_of_birth FROM Guests WHERE gender_code  =  \"Male\""
+    },
+    {
+        "original_nl": "Show the apartment numbers, start dates, and end dates of all the apartment bookings.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [apartment numbers]|{COLUMN_PART} [start]|{COLUMN_PART} [dates]|and|{COLUMN_PART} [end]|{COLUMN_PART} [dates]|of|all|the|{TABLE} [apartment]|engagement [bookings]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "engagement"
+        ],
+        "original_sql": "SELECT T2.apt_number ,  T1.booking_start_date ,  T1.booking_start_date FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id"
+    },
+    {
+        "original_nl": "What are the apartment number, start date, and end date of each apartment booking?",
+        "generalized_nl": "What|are|the|{COLUMN} [apartment number]|{COLUMN_PART} [start]|{COLUMN_PART} [date]|and|{COLUMN_PART} [end]|{COLUMN_PART} [date]|of|each|{TABLE} [apartment]|{COLUMN_PART} [booking]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.apt_number ,  T1.booking_start_date ,  T1.booking_start_date FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id"
+    },
+    {
+        "original_nl": "What are the booking start and end dates of the apartments with type code \"Duplex\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [booking]|{COLUMN_PART} [start]|and|{COLUMN_PART} [end]|{COLUMN_PART} [dates]|of|the|{TABLE} [apartments]|with|{COLUMN_PART} [type]|{COLUMN_PART} [code]|duplex_house [Duplex]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "duplex_house"
+        ],
+        "original_sql": "SELECT T1.booking_start_date ,  T1.booking_start_date FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T2.apt_type_code  =  \"Duplex\""
+    },
+    {
+        "original_nl": "Return the booking start date and end date for the apartments that have type code \"Duplex\".",
+        "generalized_nl": "return [Return]|the|{COLUMN} [booking start date]|and|{COLUMN_PART} [end]|{COLUMN_PART} [date]|for|the|{TABLE} [apartments]|that|have|{COLUMN_PART} [type]|{COLUMN_PART} [code]|duplex_house [Duplex]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "duplex_house"
+        ],
+        "original_sql": "SELECT T1.booking_start_date ,  T1.booking_start_date FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T2.apt_type_code  =  \"Duplex\""
+    },
+    {
+        "original_nl": "What are the booking start and end dates of the apartments with more than 2 bedrooms?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [booking]|{COLUMN_PART} [start]|and|{COLUMN_PART} [end]|{COLUMN_PART} [dates]|of|the|{TABLE} [apartments]|with|{NUMBER} [more than 2]|bedroom [bedrooms]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "bedroom"
+        ],
+        "original_sql": "SELECT T1.booking_start_date ,  T1.booking_start_date FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T2.bedroom_count  >  2"
+    },
+    {
+        "original_nl": "Find the booking start date and end date for the apartments that have more than two bedrooms.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [booking start date]|and|{COLUMN_PART} [end]|{COLUMN_PART} [date]|for|the|{TABLE} [apartments]|that|have|{NUMBER} [more than two]|bedroom [bedrooms]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "bedroom"
+        ],
+        "original_sql": "SELECT T1.booking_start_date ,  T1.booking_start_date FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T2.bedroom_count  >  2"
+    },
+    {
+        "original_nl": "What is the booking status code of the apartment with apartment number \"Suite 634\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [booking status code]|of|the|{TABLE} [apartment]|with|{COLUMN} [apartment number]|suite [Suite]|{NUMBER} [634]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "suite",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.booking_status_code FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T2.apt_number  =  \"Suite 634\""
+    },
+    {
+        "original_nl": "Tell me the booking status code for the apartment with number \"Suite 634\".",
+        "generalized_nl": "tell [Tell]|me|the|{COLUMN} [booking status code]|for|the|{TABLE} [apartment]|with|{COLUMN_PART} [number]|suite [Suite]|{NUMBER} [634]",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "suite",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.booking_status_code FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T2.apt_number  =  \"Suite 634\""
+    },
+    {
+        "original_nl": "Show the distinct apartment numbers of the apartments that have bookings with status code \"Confirmed\".",
+        "generalized_nl": "show [Show]|the|distinct|{COLUMN} [apartment numbers]|of|the|{TABLE} [apartments]|that|have|engagement [bookings]|with|{COLUMN_PART} [status]|{COLUMN_PART} [code]|confirm [Confirmed]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "engagement",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "confirm"
+        ],
+        "original_sql": "SELECT DISTINCT T2.apt_number FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T1.booking_status_code  =  \"Confirmed\""
+    },
+    {
+        "original_nl": "Show the average room count of the apartments that have booking status code \"Provisional\".",
+        "generalized_nl": "show [Show]|the|average|{COLUMN} [room count]|of|the|{TABLE} [apartments]|that|have|{COLUMN} [booking status code]|Provisional",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "Provisional"
+        ],
+        "original_sql": "SELECT avg(room_count) FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T1.booking_status_code  =  \"Provisional\""
+    },
+    {
+        "original_nl": "What is the average room count of the apartments whose booking status code is \"Provisional\"?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [room count]|of|the|{TABLE} [apartments]|whose|{COLUMN} [booking status code]|is|probationary [Provisional]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "probationary"
+        ],
+        "original_sql": "SELECT avg(room_count) FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T1.booking_status_code  =  \"Provisional\""
+    },
+    {
+        "original_nl": "Show the guest first names, start dates, and end dates of all the apartment bookings.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [guest first names]|{COLUMN_PART} [start]|{COLUMN_PART} [dates]|and|{COLUMN_PART} [end]|{COLUMN_PART} [dates]|of|all|the|{TABLE} [apartment]|engagement [bookings]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "engagement"
+        ],
+        "original_sql": "SELECT T2.guest_first_name ,  T1.booking_start_date ,  T1.booking_start_date FROM Apartment_Bookings AS T1 JOIN Guests AS T2 ON T1.guest_id  =  T2.guest_id"
+    },
+    {
+        "original_nl": "What are the guest first name, start date, and end date of each apartment booking?",
+        "generalized_nl": "What|are|the|{COLUMN} [guest first name]|{COLUMN_PART} [start]|{COLUMN_PART} [date]|and|{COLUMN_PART} [end]|{COLUMN_PART} [date]|of|each|{TABLE} [apartment]|{COLUMN_PART} [booking]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.guest_first_name ,  T1.booking_start_date ,  T1.booking_start_date FROM Apartment_Bookings AS T1 JOIN Guests AS T2 ON T1.guest_id  =  T2.guest_id"
+    },
+    {
+        "original_nl": "Show the start dates and end dates of all the apartment bookings made by guests with gender code \"Female\".",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [start]|{COLUMN_PART} [dates]|and|{COLUMN_PART} [end]|{COLUMN_PART} [dates]|of|all|the|{TABLE} [apartment]|engagement [bookings]|make [made]|by|{TABLE} [guests]|with|{COLUMN} [gender code]|female [Female]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "engagement",
+            "make",
+            "by",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "female"
+        ],
+        "original_sql": "SELECT T1.booking_start_date ,  T1.booking_start_date FROM Apartment_Bookings AS T1 JOIN Guests AS T2 ON T1.guest_id  =  T2.guest_id WHERE T2.gender_code  =  \"Female\""
+    },
+    {
+        "original_nl": "What are the start date and end date of the apartment bookings made by female guests (gender code \"Female\")?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [start]|{COLUMN_PART} [date]|and|{COLUMN_PART} [end]|{COLUMN_PART} [date]|of|the|{TABLE} [apartment]|engagement [bookings]|make [made]|by|female|{TABLE} [guests]|{COLUMN} [gender code]|female [Female]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "engagement",
+            "make",
+            "by",
+            "female",
+            "{TABLE}",
+            "{COLUMN}",
+            "female"
+        ],
+        "original_sql": "SELECT T1.booking_start_date ,  T1.booking_start_date FROM Apartment_Bookings AS T1 JOIN Guests AS T2 ON T1.guest_id  =  T2.guest_id WHERE T2.gender_code  =  \"Female\""
+    },
+    {
+        "original_nl": "Show the first names and last names of all the guests that have apartment bookings with status code \"Confirmed\".",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|{COLUMN_PART} [last]|{COLUMN_PART} [names]|of|all|the|{TABLE} [guests]|that|have|{TABLE} [apartment]|engagement [bookings]|with|{COLUMN_PART} [status]|{COLUMN_PART} [code]|confirm [Confirmed]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{TABLE}",
+            "engagement",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "confirm"
+        ],
+        "original_sql": "SELECT T2.guest_first_name ,  T2.guest_last_name FROM Apartment_Bookings AS T1 JOIN Guests AS T2 ON T1.guest_id  =  T2.guest_id WHERE T1.booking_status_code  =  \"Confirmed\""
+    },
+    {
+        "original_nl": "Show the facility codes of apartments with more than 4 bedrooms.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [facility codes]|of|{TABLE} [apartments]|with|{NUMBER} [more than 4]|bedroom [bedrooms]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "bedroom"
+        ],
+        "original_sql": "SELECT T1.facility_code FROM Apartment_Facilities AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T2.bedroom_count  >  4"
+    },
+    {
+        "original_nl": "What are the facility codes of the apartments with more than four bedrooms?",
+        "generalized_nl": "What|are|the|{COLUMN} [facility codes]|of|the|{TABLE} [apartments]|with|{NUMBER} [more than four]|bedroom [bedrooms]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "bedroom"
+        ],
+        "original_sql": "SELECT T1.facility_code FROM Apartment_Facilities AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T2.bedroom_count  >  4"
+    },
+    {
+        "original_nl": "Show the total number of rooms of all apartments with facility code \"Gym\".",
+        "generalized_nl": "show [Show]|the|entire [total]|{COLUMN_PART} [number]|of|room [rooms]|of|all|{TABLE} [apartments]|with|{COLUMN} [facility code]|gymnasium [Gym]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "room",
+            "of",
+            "all",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "gymnasium"
+        ],
+        "original_sql": "SELECT sum(T2.room_count) FROM Apartment_Facilities AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T1.facility_code  =  \"Gym\""
+    },
+    {
+        "original_nl": "Find the total number of rooms in the apartments that have facility code \"Gym\".",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN_PART} [number]|of|room [rooms]|in|the|{TABLE} [apartments]|that|have|{COLUMN} [facility code]|gymnasium [Gym]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "room",
+            "in",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "gymnasium"
+        ],
+        "original_sql": "SELECT sum(T2.room_count) FROM Apartment_Facilities AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T1.facility_code  =  \"Gym\""
+    },
+    {
+        "original_nl": "Show the total number of rooms of the apartments in the building with short name \"Columbus Square\".",
+        "generalized_nl": "show [Show]|the|entire [total]|{COLUMN_PART} [number]|of|room [rooms]|of|the|{TABLE} [apartments]|in|the|{COLUMN_PART} [building]|with|{COLUMN_PART} [short]|{COLUMN_PART} [name]|Columbus|Square",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "room",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "Columbus",
+            "Square"
+        ],
+        "original_sql": "SELECT sum(T2.room_count) FROM Apartment_Buildings AS T1 JOIN Apartments AS T2 ON T1.building_id  =  T2.building_id WHERE T1.building_short_name  =  \"Columbus Square\""
+    },
+    {
+        "original_nl": "How many rooms in total are there in the apartments in the building with short name \"Columbus Square\"?",
+        "generalized_nl": "How|many|room [rooms]|in|sum [total]|are|there|in|the|{TABLE} [apartments]|in|the|{COLUMN_PART} [building]|with|{COLUMN_PART} [short]|{COLUMN_PART} [name]|Columbus|Square",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "room",
+            "in",
+            "sum",
+            "are",
+            "there",
+            "in",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "Columbus",
+            "Square"
+        ],
+        "original_sql": "SELECT sum(T2.room_count) FROM Apartment_Buildings AS T1 JOIN Apartments AS T2 ON T1.building_id  =  T2.building_id WHERE T1.building_short_name  =  \"Columbus Square\""
+    },
+    {
+        "original_nl": "Show the addresses of the buildings that have apartments with more than 2 bathrooms.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [addresses]|of|the|building [buildings]|that|have|{TABLE} [apartments]|with|{NUMBER} [more than 2]|bathroom [bathrooms]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "building",
+            "that",
+            "have",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "bathroom"
+        ],
+        "original_sql": "SELECT T1.building_address FROM Apartment_Buildings AS T1 JOIN Apartments AS T2 ON T1.building_id  =  T2.building_id WHERE T2.bathroom_count  >  2"
+    },
+    {
+        "original_nl": "Show the apartment type codes and apartment numbers in the buildings managed by \"Kyle\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [apartment type codes]|and|{COLUMN} [apartment numbers]|in|the|building [buildings]|pull_off [managed]|by|{NE} [Kyle]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "in",
+            "the",
+            "building",
+            "pull_off",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.apt_type_code ,  T2.apt_number FROM Apartment_Buildings AS T1 JOIN Apartments AS T2 ON T1.building_id  =  T2.building_id WHERE T1.building_manager  =  \"Kyle\""
+    },
+    {
+        "original_nl": "What apartment type codes and apartment numbers do the buildings managed by \"Kyle\" have?",
+        "generalized_nl": "What|{COLUMN} [apartment type codes]|and|{COLUMN} [apartment numbers]|do|the|building [buildings]|pull_off [managed]|by|{NE} [Kyle]|have",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "do",
+            "the",
+            "building",
+            "pull_off",
+            "by",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT T2.apt_type_code ,  T2.apt_number FROM Apartment_Buildings AS T1 JOIN Apartments AS T2 ON T1.building_id  =  T2.building_id WHERE T1.building_manager  =  \"Kyle\""
+    },
+    {
+        "original_nl": "Show the booking status code and the corresponding number of bookings.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [booking status code]|and|the|match [corresponding]|{COLUMN_PART} [number]|of|engagement [bookings]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN_PART}",
+            "of",
+            "engagement"
+        ],
+        "original_sql": "SELECT \tbooking_status_code ,  COUNT(*) FROM Apartment_Bookings GROUP BY booking_status_code"
+    },
+    {
+        "original_nl": "Return all the apartment numbers sorted by the room count in ascending order.",
+        "generalized_nl": "return [Return]|all|the|{COLUMN} [apartment numbers]|screen [sorted]|by|the|{COLUMN} [room count]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "return",
+            "all",
+            "the",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "the",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT apt_number FROM Apartments ORDER BY room_count ASC"
+    },
+    {
+        "original_nl": "Sort the apartment numbers in ascending order of room count.",
+        "generalized_nl": "screen [Sort]|the|{COLUMN} [apartment numbers]|in|ascend [ascending]|order|of|{COLUMN} [room count]",
+        "generalized_tokens": [
+            "screen",
+            "the",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT apt_number FROM Apartments ORDER BY room_count ASC"
+    },
+    {
+        "original_nl": "Return the apartment number with the largest number of bedrooms.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [apartment number]|with|the|large [largest]|{COLUMN_PART} [number]|of|bedroom [bedrooms]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "bedroom"
+        ],
+        "original_sql": "SELECT apt_number FROM Apartments ORDER BY bedroom_count DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the apartment number of the apartment with the most beds?",
+        "generalized_nl": "What|is|the|{COLUMN} [apartment number]|of|the|{TABLE} [apartment]|with|the|most|bed [beds]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "bed"
+        ],
+        "original_sql": "SELECT apt_number FROM Apartments ORDER BY bedroom_count DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the apartment type codes and the corresponding number of apartments sorted by the number of apartments in ascending order.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [apartment type codes]|and|the|match [corresponding]|{COLUMN_PART} [number]|of|{TABLE} [apartments]|screen [sorted]|by|the|{COLUMN_PART} [number]|of|{TABLE} [apartments]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "screen",
+            "by",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT apt_type_code ,  COUNT(*) FROM Apartments GROUP BY apt_type_code ORDER BY COUNT(*) ASC"
+    },
+    {
+        "original_nl": "Return each apartment type code with the number of apartments having that apartment type, in ascending order of the number of apartments.",
+        "generalized_nl": "return [Return]|each|{COLUMN} [apartment type code]|with|the|{COLUMN_PART} [number]|of|{TABLE} [apartments]|have [having]|that|{TABLE} [apartment]|{COLUMN_PART} [type]|in|ascend [ascending]|order|of|the|{COLUMN_PART} [number]|of|{TABLE} [apartments]",
+        "generalized_tokens": [
+            "return",
+            "each",
+            "{COLUMN}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "have",
+            "that",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT apt_type_code ,  COUNT(*) FROM Apartments GROUP BY apt_type_code ORDER BY COUNT(*) ASC"
+    },
+    {
+        "original_nl": "Show the top 3 apartment type codes sorted by the average number of rooms in descending order.",
+        "generalized_nl": "show [Show]|the|top|{NUMBER} [3]|{COLUMN} [apartment type codes]|screen [sorted]|by|the|average|{COLUMN_PART} [number]|of|room [rooms]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "top",
+            "{NUMBER}",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "room",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT apt_type_code FROM Apartments GROUP BY apt_type_code ORDER BY avg(room_count) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Show the apartment type code that has the largest number of total rooms, together with the number of bathrooms and number of bedrooms.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [apartment type code]|that|have [has]|the|large [largest]|{COLUMN_PART} [number]|of|entire [total]|room [rooms]|together|with|the|{COLUMN_PART} [number]|of|bathroom [bathrooms]|and|{COLUMN_PART} [number]|of|bedroom [bedrooms]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "entire",
+            "room",
+            "together",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "bathroom",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "bedroom"
+        ],
+        "original_sql": "SELECT apt_type_code ,  bathroom_count ,  bedroom_count FROM Apartments GROUP BY apt_type_code ORDER BY sum(room_count) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the most common apartment type code.",
+        "generalized_nl": "show [Show]|the|most|common|{COLUMN} [apartment type code]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT apt_type_code FROM Apartments GROUP BY apt_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which apartment type code appears the most often?",
+        "generalized_nl": "Which|{COLUMN} [apartment type code]|appear [appears]|the|most|frequently [often]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "appear",
+            "the",
+            "most",
+            "frequently"
+        ],
+        "original_sql": "SELECT apt_type_code FROM Apartments GROUP BY apt_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the most common apartment type code among apartments with more than 1 bathroom.",
+        "generalized_nl": "show [Show]|the|most|common|{COLUMN} [apartment type code]|among|{TABLE} [apartments]|with|{NUMBER} [more than 1]|{COLUMN_PART} [bathroom]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "among",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT apt_type_code FROM Apartments WHERE bathroom_count  >  1 GROUP BY apt_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which apartment type code is the most common among apartments with more than one bathroom?",
+        "generalized_nl": "Which|{COLUMN} [apartment type code]|is|the|most|common|among|{TABLE} [apartments]|with|{NUMBER} [more than one]|{COLUMN_PART} [bathroom]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "the",
+            "most",
+            "common",
+            "among",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT apt_type_code FROM Apartments WHERE bathroom_count  >  1 GROUP BY apt_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show each apartment type code, and the maximum and minimum number of rooms for each type.",
+        "generalized_nl": "show [Show]|each|{COLUMN} [apartment type code]|and|the|maximal [maximum]|and|minimal [minimum]|{COLUMN_PART} [number]|of|room [rooms]|for|each|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "show",
+            "each",
+            "{COLUMN}",
+            "and",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "room",
+            "for",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT apt_type_code ,  max(room_count) ,  min(room_count) FROM Apartments GROUP BY apt_type_code"
+    },
+    {
+        "original_nl": "Return each apartment type code along with the maximum and minimum number of rooms among each type.",
+        "generalized_nl": "return [Return]|each|{COLUMN} [apartment type code]|along|with|the|maximal [maximum]|and|minimal [minimum]|{COLUMN_PART} [number]|of|room [rooms]|among|each|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "return",
+            "each",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "room",
+            "among",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT apt_type_code ,  max(room_count) ,  min(room_count) FROM Apartments GROUP BY apt_type_code"
+    },
+    {
+        "original_nl": "Show each gender code and the corresponding count of guests sorted by the count in descending order.",
+        "generalized_nl": "show [Show]|each|{COLUMN} [gender code]|and|the|match [corresponding]|{COLUMN_PART} [count]|of|{TABLE} [guests]|screen [sorted]|by|the|{COLUMN_PART} [count]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "show",
+            "each",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "screen",
+            "by",
+            "the",
+            "{COLUMN_PART}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT gender_code ,  COUNT(*) FROM Guests GROUP BY gender_code ORDER BY COUNT(*) DESC"
+    },
+    {
+        "original_nl": "How many apartments do not have any facility?",
+        "generalized_nl": "How|many|{TABLE} [apartments]|do|not|have|any|{COLUMN_PART} [facility]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM Apartments WHERE apt_id NOT IN (SELECT apt_id FROM Apartment_Facilities)"
+    },
+    {
+        "original_nl": "Find the number of apartments that have no facility.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [apartments]|that|have|no|{COLUMN_PART} [facility]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "no",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM Apartments WHERE apt_id NOT IN (SELECT apt_id FROM Apartment_Facilities)"
+    },
+    {
+        "original_nl": "Show the apartment numbers of apartments with bookings that have status code both \"Provisional\" and \"Confirmed\"",
+        "generalized_nl": "show [Show]|the|{COLUMN} [apartment numbers]|of|{TABLE} [apartments]|with|engagement [bookings]|that|have|{COLUMN_PART} [status]|{COLUMN_PART} [code]|both|probationary [Provisional]|and|confirm [Confirmed]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "engagement",
+            "that",
+            "have",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "both",
+            "probationary",
+            "and",
+            "confirm"
+        ],
+        "original_sql": "SELECT T2.apt_number FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T1.booking_status_code  =  \"Confirmed\" INTERSECT SELECT T2.apt_number FROM Apartment_Bookings AS T1 JOIN Apartments AS T2 ON T1.apt_id  =  T2.apt_id WHERE T1.booking_status_code  =  \"Provisional\""
+    },
+    {
+        "original_nl": "Show the apartment numbers of apartments with unit status availability of both 0 and 1.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [apartment numbers]|of|{TABLE} [apartments]|with|unit|{COLUMN_PART} [status]|handiness [availability]|of|both|{NUMBER} [0]|and|{NUMBER} [1]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "unit",
+            "{COLUMN_PART}",
+            "handiness",
+            "of",
+            "both",
+            "{NUMBER}",
+            "and",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.apt_number FROM Apartments AS T1 JOIN View_Unit_Status AS T2 ON T1.apt_id  =  T2.apt_id WHERE T2.available_yn  =  0 INTERSECT SELECT T1.apt_number FROM Apartments AS T1 JOIN View_Unit_Status AS T2 ON T1.apt_id  =  T2.apt_id WHERE T2.available_yn  =  1"
+    }
+]

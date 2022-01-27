@@ -1,0 +1,1949 @@
+[
+    {
+        "original_nl": "Find the name of dorms only for female (F gender).",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [dorms]|only|for|female|degree_fahrenheit [F]|{COLUMN} [gender]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "only",
+            "for",
+            "female",
+            "degree_fahrenheit",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT dorm_name FROM dorm WHERE gender  =  'F'"
+    },
+    {
+        "original_nl": "What are the names of the all-female dorms?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|all|female|{TABLE} [dorms]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "all",
+            "female",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT dorm_name FROM dorm WHERE gender  =  'F'"
+    },
+    {
+        "original_nl": "Find the name of dorms that can accommodate more than 300 students.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [dorms]|that|can|accommodate|{NUMBER} [more than 300]|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "can",
+            "accommodate",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT dorm_name FROM dorm WHERE student_capacity  >  300"
+    },
+    {
+        "original_nl": "What are the names of all the dorms that can accomdate more than 300 students?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [dorms]|that|can|accomdate|{NUMBER} [more than 300]|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "can",
+            "accomdate",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT dorm_name FROM dorm WHERE student_capacity  >  300"
+    },
+    {
+        "original_nl": "How many female students (sex is F) whose age is below 25?",
+        "generalized_nl": "How|many|female|{TABLE} [students]|{COLUMN} [sex]|is|F|whose|{COLUMN} [age]|is|below|{NUMBER} [25]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "female",
+            "{TABLE}",
+            "{COLUMN}",
+            "is",
+            "F",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "below",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM student WHERE sex  =  'F' AND age  <  25"
+    },
+    {
+        "original_nl": "How many girl students who are younger than 25?",
+        "generalized_nl": "How|many|girl|{TABLE} [students]|who|are|young [younger]|than|{NE} [25]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "girl",
+            "{TABLE}",
+            "who",
+            "are",
+            "young",
+            "than",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM student WHERE sex  =  'F' AND age  <  25"
+    },
+    {
+        "original_nl": "Find the first name of students who is older than 20.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|of|{TABLE} [students]|who|is|old [older]|than|{NE} [20]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "is",
+            "old",
+            "than",
+            "{NE}"
+        ],
+        "original_sql": "SELECT fname FROM student WHERE age  >  20"
+    },
+    {
+        "original_nl": "What are the first names of all students who are older than 20?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|of|all|{TABLE} [students]|who|are|old [older]|than|{NE} [20]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "old",
+            "than",
+            "{NE}"
+        ],
+        "original_sql": "SELECT fname FROM student WHERE age  >  20"
+    },
+    {
+        "original_nl": "Find the first name of students living in city PHL whose age is between 20 and 25.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|of|{TABLE} [students]|live [living]|in|{COLUMN_PART} [city]|{NE} [PHL]|whose|{COLUMN} [age]|is|{NE} [between 20 and 25]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "live",
+            "in",
+            "{COLUMN_PART}",
+            "{NE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT fname FROM student WHERE city_code  =  'PHL' AND age BETWEEN 20 AND 25"
+    },
+    {
+        "original_nl": "What is the first name of the students who are in age 20 to 25 and living in PHL city?",
+        "generalized_nl": "What|is|the|{COLUMN} [first name]|of|the|{TABLE} [students]|who|are|in|{COLUMN} [age]|{NUMBER} [20]|to|{NUMBER} [25]|and|live [living]|in|{NE} [PHL city]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}",
+            "to",
+            "{NUMBER}",
+            "and",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT fname FROM student WHERE city_code  =  'PHL' AND age BETWEEN 20 AND 25"
+    },
+    {
+        "original_nl": "How many dorms are there?",
+        "generalized_nl": "How|many|{TABLE} [dorms]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM dorm"
+    },
+    {
+        "original_nl": "How many dorms are in the database?",
+        "generalized_nl": "How|many|{TABLE} [dorms]|are|in|the|database",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "the",
+            "database"
+        ],
+        "original_sql": "SELECT count(*) FROM dorm"
+    },
+    {
+        "original_nl": "Find the number of distinct amenities.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|distinct|comforts [amenities]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "distinct",
+            "comforts"
+        ],
+        "original_sql": "SELECT count(*) FROM dorm_amenity"
+    },
+    {
+        "original_nl": "How many diffrent dorm amenities are there?",
+        "generalized_nl": "How|many|diffrent|{TABLE} [dorm]|comforts [amenities]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "diffrent",
+            "{TABLE}",
+            "comforts",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM dorm_amenity"
+    },
+    {
+        "original_nl": "Find the total capacity of all dorms.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN_PART} [capacity]|of|all|{TABLE} [dorms]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(student_capacity) FROM dorm"
+    },
+    {
+        "original_nl": "What is the total student capacity of all dorms?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN} [student capacity]|of|all|{TABLE} [dorms]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(student_capacity) FROM dorm"
+    },
+    {
+        "original_nl": "How many students are there?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM student"
+    },
+    {
+        "original_nl": "How many students exist?",
+        "generalized_nl": "How|many|{TABLE} [students]|exist",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "exist"
+        ],
+        "original_sql": "SELECT count(*) FROM student"
+    },
+    {
+        "original_nl": "Find the average age of all students living in the each city.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [age]|of|all|{TABLE} [students]|live [living]|in|the|each|{COLUMN_PART} [city]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "live",
+            "in",
+            "the",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(age) ,  city_code FROM student GROUP BY city_code"
+    },
+    {
+        "original_nl": "What is the average age for each city and what are those cities?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|for|each|{COLUMN_PART} [city]|and|what|are|those|city [cities]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN_PART}",
+            "and",
+            "what",
+            "are",
+            "those",
+            "city"
+        ],
+        "original_sql": "SELECT avg(age) ,  city_code FROM student GROUP BY city_code"
+    },
+    {
+        "original_nl": "Find the average and total capacity of dorms for the students with gender X.",
+        "generalized_nl": "find [Find]|the|average|and|entire [total]|{COLUMN_PART} [capacity]|of|{TABLE} [dorms]|for|the|{TABLE} [students]|with|{COLUMN} [gender]|X.",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "and",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "X."
+        ],
+        "original_sql": "SELECT avg(student_capacity) ,  sum(student_capacity) FROM dorm WHERE gender  =  'X'"
+    },
+    {
+        "original_nl": "What is the average and total capacity for all dorms who are of gender X?",
+        "generalized_nl": "What|is|the|average|and|entire [total]|{COLUMN_PART} [capacity]|for|all|{TABLE} [dorms]|who|are|of|{COLUMN} [gender]|ten [X]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "and",
+            "entire",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "of",
+            "{COLUMN}",
+            "ten"
+        ],
+        "original_sql": "SELECT avg(student_capacity) ,  sum(student_capacity) FROM dorm WHERE gender  =  'X'"
+    },
+    {
+        "original_nl": "Find the number of dorms that have some amenity.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [dorms]|that|have|some|{COLUMN_PART} [amenity]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "some",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(DISTINCT dormid) FROM has_amenity"
+    },
+    {
+        "original_nl": "How many dorms have amenities?",
+        "generalized_nl": "How|many|{TABLE} [dorms]|have|comforts [amenities]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "comforts"
+        ],
+        "original_sql": "SELECT count(DISTINCT dormid) FROM has_amenity"
+    },
+    {
+        "original_nl": "Find the name of dorms that do not have any amenity",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [dorms]|that|do|not|have|any|{COLUMN_PART} [amenity]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT dorm_name FROM dorm WHERE dormid NOT IN (SELECT dormid FROM has_amenity)"
+    },
+    {
+        "original_nl": "What are the names of all the dorms that don't have any amenities?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [dorms]|that|do|n't|have|any|comforts [amenities]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "do",
+            "n't",
+            "have",
+            "any",
+            "comforts"
+        ],
+        "original_sql": "SELECT dorm_name FROM dorm WHERE dormid NOT IN (SELECT dormid FROM has_amenity)"
+    },
+    {
+        "original_nl": "Find the number of distinct gender for dorms.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|distinct|{COLUMN} [gender]|for|{TABLE} [dorms]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "distinct",
+            "{COLUMN}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT gender) FROM dorm"
+    },
+    {
+        "original_nl": "How many different genders are there in the dorms?",
+        "generalized_nl": "How|many|different|{COLUMN} [genders]|are|there|in|the|{TABLE} [dorms]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "there",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT gender) FROM dorm"
+    },
+    {
+        "original_nl": "Find the capacity and gender type of the dorm whose name has substring \u2018Donor\u2019.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [capacity]|and|{COLUMN} [gender]|type|of|the|{TABLE} [dorm]|whose|{COLUMN_PART} [name]|has|substring|donor [Donor]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "type",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "has",
+            "substring",
+            "donor"
+        ],
+        "original_sql": "SELECT student_capacity ,  gender FROM dorm WHERE dorm_name LIKE '%Donor%'"
+    },
+    {
+        "original_nl": "What is the student capacity and type of gender for the dorm whose name as the phrase Donor in it?",
+        "generalized_nl": "What|is|the|{COLUMN} [student capacity]|and|type|of|{COLUMN} [gender]|for|the|{TABLE} [dorm]|whose|{COLUMN_PART} [name]|as|the|phrase|donor [Donor]|in|it",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "type",
+            "of",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "as",
+            "the",
+            "phrase",
+            "donor",
+            "in",
+            "it"
+        ],
+        "original_sql": "SELECT student_capacity ,  gender FROM dorm WHERE dorm_name LIKE '%Donor%'"
+    },
+    {
+        "original_nl": "Find the name and gender type of the dorms whose capacity is greater than 300 or less than 100.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN} [gender]|type|of|the|{TABLE} [dorms]|whose|{COLUMN_PART} [capacity]|is|great [greater]|than|{NUMBER} [300]|or|{NUMBER} [less than 100]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "type",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "great",
+            "than",
+            "{NUMBER}",
+            "or",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT dorm_name ,  gender FROM dorm WHERE student_capacity  >  300 OR student_capacity  <  100"
+    },
+    {
+        "original_nl": "What are the names and types of the dorms that have a capacity greater than 300 or less than 100?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|type [types]|of|the|{TABLE} [dorms]|that|have|a|{COLUMN_PART} [capacity]|great [greater]|than|{NUMBER} [300]|or|{NUMBER} [less than 100]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "type",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN_PART}",
+            "great",
+            "than",
+            "{NUMBER}",
+            "or",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT dorm_name ,  gender FROM dorm WHERE student_capacity  >  300 OR student_capacity  <  100"
+    },
+    {
+        "original_nl": "Find the numbers of different majors and cities.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [numbers]|of|different|{COLUMN} [majors]|and|city [cities]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "different",
+            "{COLUMN}",
+            "and",
+            "city"
+        ],
+        "original_sql": "SELECT count(DISTINCT major) ,  count(DISTINCT city_code) FROM student"
+    },
+    {
+        "original_nl": "How many different majors are there and how many different city codes are there for each student?",
+        "generalized_nl": "How|many|different|{COLUMN} [majors]|are|there|and|how|many|different|{COLUMN} [city codes]|are|there|for|each|{TABLE} [student]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "there",
+            "and",
+            "how",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "there",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT major) ,  count(DISTINCT city_code) FROM student"
+    },
+    {
+        "original_nl": "Find the name of dorms which have both TV Lounge and Study Room as amenities.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [dorms]|which|have|both|{NE} [TV Lounge]|and|{NE} [Study Room]|as|comforts [amenities]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "which",
+            "have",
+            "both",
+            "{NE}",
+            "and",
+            "{NE}",
+            "as",
+            "comforts"
+        ],
+        "original_sql": "SELECT T1.dorm_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T3.amenity_name  =  'TV Lounge' INTERSECT SELECT T1.dorm_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T3.amenity_name  =  'Study Room'"
+    },
+    {
+        "original_nl": "What is the name of the dorm with both a TV Lounge and Study Room listed as amenities?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [dorm]|with|both|a|television [TV]|sofa [Lounge]|and|{NE} [Study Room]|list [listed]|as|comforts [amenities]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "both",
+            "a",
+            "television",
+            "sofa",
+            "and",
+            "{NE}",
+            "list",
+            "as",
+            "comforts"
+        ],
+        "original_sql": "SELECT T1.dorm_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T3.amenity_name  =  'TV Lounge' INTERSECT SELECT T1.dorm_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T3.amenity_name  =  'Study Room'"
+    },
+    {
+        "original_nl": "Find the name of dorms which have TV Lounge but no Study Room as amenity.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [dorms]|which|have|television [TV]|sofa [Lounge]|but|{NE} [no Study Room]|as|{COLUMN_PART} [amenity]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "which",
+            "have",
+            "television",
+            "sofa",
+            "but",
+            "{NE}",
+            "as",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.dorm_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T3.amenity_name  =  'TV Lounge' EXCEPT SELECT T1.dorm_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T3.amenity_name  =  'Study Room'"
+    },
+    {
+        "original_nl": "What is the name of each dorm that has a TV Lounge but no study rooms?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|each|{TABLE} [dorm]|that|have [has]|{NE} [a TV Lounge]|but|no|study|room [rooms]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NE}",
+            "but",
+            "no",
+            "study",
+            "room"
+        ],
+        "original_sql": "SELECT T1.dorm_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T3.amenity_name  =  'TV Lounge' EXCEPT SELECT T1.dorm_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T3.amenity_name  =  'Study Room'"
+    },
+    {
+        "original_nl": "Find the last name of students who is either female (sex is F) and living in the city of code BAL or male (sex is M) and in age of below 20.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last name]|of|{TABLE} [students]|who|is|either|female|{COLUMN} [sex]|is|F|and|live [living]|in|the|{COLUMN_PART} [city]|of|{COLUMN_PART} [code]|BAL|or|male|{COLUMN} [sex]|is|megabyte [M]|and|in|{COLUMN} [age]|of|below|{NUMBER} [20]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "is",
+            "either",
+            "female",
+            "{COLUMN}",
+            "is",
+            "F",
+            "and",
+            "live",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "BAL",
+            "or",
+            "male",
+            "{COLUMN}",
+            "is",
+            "megabyte",
+            "and",
+            "in",
+            "{COLUMN}",
+            "of",
+            "below",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT lname FROM student WHERE sex  =  'F' AND city_code  =  'BAL' UNION SELECT lname FROM student WHERE sex  =  'M' AND age  <  20"
+    },
+    {
+        "original_nl": "What is the last name of every student who is either female or living in a city with the code BAL or male and under 20?",
+        "generalized_nl": "What|is|the|{COLUMN} [last name]|of|every|{TABLE} [student]|who|is|either|female|or|live [living]|in|a|{COLUMN_PART} [city]|with|the|{COLUMN_PART} [code]|BAL|or|male|and|{NE} [under 20]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "every",
+            "{TABLE}",
+            "who",
+            "is",
+            "either",
+            "female",
+            "or",
+            "live",
+            "in",
+            "a",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "BAL",
+            "or",
+            "male",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT lname FROM student WHERE sex  =  'F' AND city_code  =  'BAL' UNION SELECT lname FROM student WHERE sex  =  'M' AND age  <  20"
+    },
+    {
+        "original_nl": "Find the name of the dorm with the largest capacity.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [dorm]|with|the|large [largest]|{COLUMN_PART} [capacity]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT dorm_name FROM dorm ORDER BY student_capacity DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the names of the dorm with the largest capacity?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [dorm]|with|the|large [largest]|{COLUMN_PART} [capacity]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT dorm_name FROM dorm ORDER BY student_capacity DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List in alphabetic order all different amenities.",
+        "generalized_nl": "list [List]|in|alphabetic|order|all|different|comforts [amenities]",
+        "generalized_tokens": [
+            "list",
+            "in",
+            "alphabetic",
+            "order",
+            "all",
+            "different",
+            "comforts"
+        ],
+        "original_sql": "SELECT amenity_name FROM dorm_amenity ORDER BY amenity_name"
+    },
+    {
+        "original_nl": "What are the different dorm amenity names in alphabetical order?",
+        "generalized_nl": "What|are|the|different|{TABLE} [dorm]|{COLUMN} [amenity names]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT amenity_name FROM dorm_amenity ORDER BY amenity_name"
+    },
+    {
+        "original_nl": "Find the code of city where most of students are living in.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [code]|of|{COLUMN_PART} [city]|where|most|of|{TABLE} [students]|are|live [living]|in",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "where",
+            "most",
+            "of",
+            "{TABLE}",
+            "are",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT city_code FROM student GROUP BY city_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the code of the city with the most students?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [code]|of|the|{COLUMN_PART} [city]|with|the|most|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT city_code FROM student GROUP BY city_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the first and last name of students whose age is younger than the average age.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|{TABLE} [students]|whose|{COLUMN} [age]|is|young [younger]|than|the|average|{COLUMN} [age]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "young",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM student WHERE age  <  (SELECT avg(age) FROM student)"
+    },
+    {
+        "original_nl": "What is the first and last name of all students who are younger than average?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|all|{TABLE} [students]|who|are|young [younger]|than|average",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "young",
+            "than",
+            "average"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM student WHERE age  <  (SELECT avg(age) FROM student)"
+    },
+    {
+        "original_nl": "List the first and last name of students who are not living in the city with code HKG, and sorted the results by their ages.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|{TABLE} [students]|who|are|not|live [living]|in|the|{COLUMN_PART} [city]|with|{COLUMN_PART} [code]|{NE} [HKG]|and|screen [sorted]|the|consequence [results]|by|their|{COLUMN} [ages]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "live",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}",
+            "and",
+            "screen",
+            "the",
+            "consequence",
+            "by",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM student WHERE city_code != 'HKG' ORDER BY age"
+    },
+    {
+        "original_nl": "What are the first and last names of all students who are not living in the city HKG and order the results by age?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|all|{TABLE} [students]|who|are|not|live [living]|in|the|{COLUMN_PART} [city]|{NE} [HKG]|and|order|the|consequence [results]|by|{COLUMN} [age]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "live",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "{NE}",
+            "and",
+            "order",
+            "the",
+            "consequence",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM student WHERE city_code != 'HKG' ORDER BY age"
+    },
+    {
+        "original_nl": "List name of all amenities which Anonymous Donor Hall has, and sort the results in alphabetic order.",
+        "generalized_nl": "list [List]|{COLUMN_PART} [name]|of|all|comforts [amenities]|which|{NE} [Anonymous Donor Hall]|have [has]|and|screen [sort]|the|consequence [results]|in|alphabetic|order",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "comforts",
+            "which",
+            "{NE}",
+            "have",
+            "and",
+            "screen",
+            "the",
+            "consequence",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT T1.amenity_name FROM dorm_amenity AS T1 JOIN has_amenity AS T2 ON T2.amenid  =  T1.amenid JOIN dorm AS T3 ON T2.dormid  =  T3.dormid WHERE T3.dorm_name  =  'Anonymous Donor Hall' ORDER BY T1.amenity_name"
+    },
+    {
+        "original_nl": "What are the amenities in alphabetical order that Anonymous Donor Hall has?",
+        "generalized_nl": "What|are|the|comforts [amenities]|in|alphabetic [alphabetical]|order|that|{NE} [Anonymous Donor Hall]|have [has]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "comforts",
+            "in",
+            "alphabetic",
+            "order",
+            "that",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT T1.amenity_name FROM dorm_amenity AS T1 JOIN has_amenity AS T2 ON T2.amenid  =  T1.amenid JOIN dorm AS T3 ON T2.dormid  =  T3.dormid WHERE T3.dorm_name  =  'Anonymous Donor Hall' ORDER BY T1.amenity_name"
+    },
+    {
+        "original_nl": "Find the number of dorms and total capacity for each gender.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [dorms]|and|entire [total]|{COLUMN_PART} [capacity]|for|each|{COLUMN} [gender]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "entire",
+            "{COLUMN_PART}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  sum(student_capacity) ,  gender FROM dorm GROUP BY gender"
+    },
+    {
+        "original_nl": "How many dorms are there and what is the total capacity for each gender?",
+        "generalized_nl": "How|many|{TABLE} [dorms]|are|there|and|what|is|the|entire [total]|{COLUMN_PART} [capacity]|for|each|{COLUMN} [gender]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "and",
+            "what",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  sum(student_capacity) ,  gender FROM dorm GROUP BY gender"
+    },
+    {
+        "original_nl": "Find the average and oldest age for students with different sex.",
+        "generalized_nl": "find [Find]|the|average|and|old [oldest]|{COLUMN} [age]|for|{TABLE} [students]|with|different|{COLUMN} [sex]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "and",
+            "old",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(age) ,  max(age) ,  sex FROM student GROUP BY sex"
+    },
+    {
+        "original_nl": "What is the average and oldest age for each gender of student?",
+        "generalized_nl": "What|is|the|average|and|old [oldest]|{COLUMN} [age]|for|each|{COLUMN} [gender]|of|{TABLE} [student]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "and",
+            "old",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(age) ,  max(age) ,  sex FROM student GROUP BY sex"
+    },
+    {
+        "original_nl": "Find the number of students in each major.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [students]|in|each|{COLUMN} [major]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  major FROM student GROUP BY major"
+    },
+    {
+        "original_nl": "How many students are there in each major?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|there|in|each|{COLUMN} [major]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  major FROM student GROUP BY major"
+    },
+    {
+        "original_nl": "Find the number and average age of students living in each city.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|and|average|{COLUMN} [age]|of|{TABLE} [students]|live [living]|in|each|{COLUMN_PART} [city]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "live",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) ,  avg(age) ,  city_code FROM student GROUP BY city_code"
+    },
+    {
+        "original_nl": "How many students live in each city and what are their average ages?",
+        "generalized_nl": "How|many|{TABLE} [students]|live|in|each|{COLUMN_PART} [city]|and|what|are|their|average|{COLUMN} [ages]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "live",
+            "in",
+            "each",
+            "{COLUMN_PART}",
+            "and",
+            "what",
+            "are",
+            "their",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  avg(age) ,  city_code FROM student GROUP BY city_code"
+    },
+    {
+        "original_nl": "Find the average age and number of male students (with sex M) from each city.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [age]|and|{COLUMN_PART} [number]|of|male|{TABLE} [students]|with|{COLUMN} [sex]|megabyte [M]|from|each|{COLUMN_PART} [city]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "male",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "megabyte",
+            "from",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) ,  avg(age) ,  city_code FROM student WHERE sex  =  'M' GROUP BY city_code"
+    },
+    {
+        "original_nl": "What is the average age and how many male students are there in each city?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|and|how|many|male|{TABLE} [students]|are|there|in|each|{COLUMN_PART} [city]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "how",
+            "many",
+            "male",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) ,  avg(age) ,  city_code FROM student WHERE sex  =  'M' GROUP BY city_code"
+    },
+    {
+        "original_nl": "Find the number of students for the cities where have more than one student.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [students]|for|the|city [cities]|where|have|{NUMBER} [more than one]|{TABLE} [student]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "the",
+            "city",
+            "where",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  city_code FROM student GROUP BY city_code HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "How many students are from each city, and which cities have more than one cities?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|from|each|{COLUMN_PART} [city]|and|which|city [cities]|have|{NUMBER} [more than one]|city [cities]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "from",
+            "each",
+            "{COLUMN_PART}",
+            "and",
+            "which",
+            "city",
+            "have",
+            "{NUMBER}",
+            "city"
+        ],
+        "original_sql": "SELECT count(*) ,  city_code FROM student GROUP BY city_code HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the first and last name of students who are not in the largest major.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|{TABLE} [students]|who|are|not|in|the|large [largest]|{COLUMN} [major]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "in",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM student WHERE major != (SELECT major FROM student GROUP BY major ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "What is the first and last name of the students who are not in the largest major?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [students]|who|are|not|in|the|large [largest]|{COLUMN} [major]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "in",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM student WHERE major != (SELECT major FROM student GROUP BY major ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Find the number of students whose age is older than the average age for each gender.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [students]|whose|{COLUMN} [age]|is|old [older]|than|the|average|{COLUMN} [age]|for|each|{COLUMN} [gender]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "old",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  sex FROM student WHERE age  >  (SELECT avg(age) FROM student) GROUP BY sex"
+    },
+    {
+        "original_nl": "How many students are older than average for each gender?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|old [older]|than|average|for|each|{COLUMN} [gender]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "old",
+            "than",
+            "average",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  sex FROM student WHERE age  >  (SELECT avg(age) FROM student) GROUP BY sex"
+    },
+    {
+        "original_nl": "Find the average age of students living in each dorm and the name of dorm.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [age]|of|{TABLE} [students]|live [living]|in|each|{TABLE} [dorm]|and|the|{COLUMN_PART} [name]|of|{TABLE} [dorm]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "live",
+            "in",
+            "each",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(T1.age) ,  T3.dorm_name FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid GROUP BY T3.dorm_name"
+    },
+    {
+        "original_nl": "What is the average age for each dorm and what are the names of each dorm?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|for|each|{TABLE} [dorm]|and|what|are|the|{COLUMN_PART} [names]|of|each|{TABLE} [dorm]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}",
+            "and",
+            "what",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(T1.age) ,  T3.dorm_name FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid GROUP BY T3.dorm_name"
+    },
+    {
+        "original_nl": "Find the number of amenities for each of the dorms that can accommodate more than 100 students.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|comforts [amenities]|for|each|of|the|{TABLE} [dorms]|that|can|accommodate|{NUMBER} [more than 100]|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "comforts",
+            "for",
+            "each",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "can",
+            "accommodate",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.dormid FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid WHERE T1.student_capacity  >  100 GROUP BY T1.dormid"
+    },
+    {
+        "original_nl": "For each dorm, how many amenities does it have?",
+        "generalized_nl": "For|each|{TABLE} [dorm]|how|many|comforts [amenities]|does|it|have",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "how",
+            "many",
+            "comforts",
+            "does",
+            "it",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.dormid FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid WHERE T1.student_capacity  >  100 GROUP BY T1.dormid"
+    },
+    {
+        "original_nl": "Find the number of students who is older than 20 in each dorm.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [students]|who|is|old [older]|than|{NE} [20]|in|each|{TABLE} [dorm]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "is",
+            "old",
+            "than",
+            "{NE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  T3.dorm_name FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid WHERE T1.age  >  20 GROUP BY T3.dorm_name"
+    },
+    {
+        "original_nl": "How many students are older than 20 in each dorm?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|old [older]|than|{NE} [20]|in|each|{TABLE} [dorm]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "old",
+            "than",
+            "{NE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  T3.dorm_name FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid WHERE T1.age  >  20 GROUP BY T3.dorm_name"
+    },
+    {
+        "original_nl": "Find the first name of students who are living in the Smith Hall.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|of|{TABLE} [students]|who|are|live [living]|in|{NE} [the Smith Hall]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.fname FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid WHERE T3.dorm_name  =  'Smith Hall'"
+    },
+    {
+        "original_nl": "What are the first names of all students in Smith Hall?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|of|all|{TABLE} [students]|in|{NE} [Smith Hall]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.fname FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid WHERE T3.dorm_name  =  'Smith Hall'"
+    },
+    {
+        "original_nl": "Find the average age of students who are living in the dorm with the largest capacity.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [age]|of|{TABLE} [students]|who|are|live [living]|in|the|{TABLE} [dorm]|with|the|large [largest]|{COLUMN_PART} [capacity]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "live",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(T1.age) FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid WHERE T3.student_capacity  =  (SELECT max(student_capacity) FROM dorm)"
+    },
+    {
+        "original_nl": "What is the average age of students who are living in the dorm with the largest capacity?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|of|{TABLE} [students]|who|are|live [living]|in|the|{TABLE} [dorm]|with|the|large [largest]|{COLUMN_PART} [capacity]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "live",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(T1.age) FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid WHERE T3.student_capacity  =  (SELECT max(student_capacity) FROM dorm)"
+    },
+    {
+        "original_nl": "Find the total number of students living in the male dorm (with gender M).",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN_PART} [number]|of|{TABLE} [students]|live [living]|in|the|male|{TABLE} [dorm]|with|{COLUMN} [gender]|megabyte [M]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "live",
+            "in",
+            "the",
+            "male",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "megabyte"
+        ],
+        "original_sql": "SELECT count(*) FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid WHERE T3.gender  =  'M'"
+    },
+    {
+        "original_nl": "What are the total number of students who are living in a male dorm?",
+        "generalized_nl": "What|are|the|entire [total]|{COLUMN_PART} [number]|of|{TABLE} [students]|who|are|live [living]|in|a|male|{TABLE} [dorm]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "live",
+            "in",
+            "a",
+            "male",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid WHERE T3.gender  =  'M'"
+    },
+    {
+        "original_nl": "Find the number of female students (with F sex) living in Smith Hall",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|female|{TABLE} [students]|with|degree_fahrenheit [F]|{COLUMN} [sex]|live [living]|in|{NE} [Smith Hall]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "female",
+            "{TABLE}",
+            "with",
+            "degree_fahrenheit",
+            "{COLUMN}",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid WHERE T3.dorm_name  =  'Smith Hall' AND T1.sex  =  'F'"
+    },
+    {
+        "original_nl": "How many female students live in Smith Hall?",
+        "generalized_nl": "How|many|female|{TABLE} [students]|live|in|{NE} [Smith Hall]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "female",
+            "{TABLE}",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid JOIN dorm AS T3 ON T3.dormid  =  T2.dormid WHERE T3.dorm_name  =  'Smith Hall' AND T1.sex  =  'F'"
+    },
+    {
+        "original_nl": "Find the name of amenities Smith Hall dorm have.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|comforts [amenities]|{NE} [Smith Hall]|{TABLE} [dorm]|have",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "comforts",
+            "{NE}",
+            "{TABLE}",
+            "have"
+        ],
+        "original_sql": "SELECT T3.amenity_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T1.dorm_name  =  'Smith Hall'"
+    },
+    {
+        "original_nl": "What are the names of the amenities that Smith Hall has?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|comforts [amenities]|that|{NE} [Smith Hall]|have [has]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "comforts",
+            "that",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT T3.amenity_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T1.dorm_name  =  'Smith Hall'"
+    },
+    {
+        "original_nl": "What amenities does Smith Hall have in alphabetical order?",
+        "generalized_nl": "What|comforts [amenities]|does|{NE} [Smith Hall]|have|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "comforts",
+            "does",
+            "{NE}",
+            "have",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT T3.amenity_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T1.dorm_name  =  'Smith Hall' ORDER BY T3.amenity_name"
+    },
+    {
+        "original_nl": "Find the name of amenity that is most common in all dorms.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{COLUMN_PART} [amenity]|that|is|most|common|in|all|{TABLE} [dorms]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "that",
+            "is",
+            "most",
+            "common",
+            "in",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.amenity_name FROM dorm_amenity AS T1 JOIN has_amenity AS T2 ON T1.amenid  =  T2.amenid GROUP BY T2.amenid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the most common amenity in the dorms?",
+        "generalized_nl": "What|is|the|most|common|{COLUMN_PART} [amenity]|in|the|{TABLE} [dorms]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "common",
+            "{COLUMN_PART}",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.amenity_name FROM dorm_amenity AS T1 JOIN has_amenity AS T2 ON T1.amenid  =  T2.amenid GROUP BY T2.amenid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the first name of students who are living in the dorm that has most number of amenities.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|of|{TABLE} [students]|who|are|live [living]|in|the|{TABLE} [dorm]|that|have [has]|most|{COLUMN_PART} [number]|of|comforts [amenities]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "live",
+            "in",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "comforts"
+        ],
+        "original_sql": "SELECT T1.fname FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid WHERE T2.dormid IN (SELECT T2.dormid FROM dorm AS T3 JOIN has_amenity AS T4 ON T3.dormid  =  T4.dormid JOIN dorm_amenity AS T5 ON T4.amenid  =  T5.amenid GROUP BY T3.dormid ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "What are the first names of all students who live in the dorm with the most amenities?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|of|all|{TABLE} [students]|who|live|in|the|{TABLE} [dorm]|with|the|most|comforts [amenities]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "live",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "comforts"
+        ],
+        "original_sql": "SELECT T1.fname FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid WHERE T2.dormid IN (SELECT T2.dormid FROM dorm AS T3 JOIN has_amenity AS T4 ON T3.dormid  =  T4.dormid JOIN dorm_amenity AS T5 ON T4.amenid  =  T5.amenid GROUP BY T3.dormid ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Find the name and capacity of the dorm with least number of amenities.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [capacity]|of|the|{TABLE} [dorm]|with|least|{COLUMN_PART} [number]|of|comforts [amenities]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "least",
+            "{COLUMN_PART}",
+            "of",
+            "comforts"
+        ],
+        "original_sql": "SELECT T1.dorm_name ,  T1.student_capacity FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid GROUP BY T2.dormid ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name and capacity of the dorm with the fewest amount of amenities?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [capacity]|of|the|{TABLE} [dorm]|with|the|fewest|sum [amount]|of|comforts [amenities]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "fewest",
+            "sum",
+            "of",
+            "comforts"
+        ],
+        "original_sql": "SELECT T1.dorm_name ,  T1.student_capacity FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid GROUP BY T2.dormid ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of dorms that do not have amenity TV Lounge.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [dorms]|that|do|not|{TABLE} [have amenity]|television [TV]|sofa [Lounge]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "{TABLE}",
+            "television",
+            "sofa"
+        ],
+        "original_sql": "SELECT dorm_name FROM dorm EXCEPT SELECT T1.dorm_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T3.amenity_name  =  'TV Lounge'"
+    },
+    {
+        "original_nl": "What are the names of the dorm that does not have a TV Lounge?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [dorm]|that|does|not|have|{NE} [a TV Lounge]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "does",
+            "not",
+            "have",
+            "{NE}"
+        ],
+        "original_sql": "SELECT dorm_name FROM dorm EXCEPT SELECT T1.dorm_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid WHERE T3.amenity_name  =  'TV Lounge'"
+    },
+    {
+        "original_nl": "Find the first and last name of students who are living in the dorms that have amenity TV Lounge.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|{TABLE} [students]|who|are|live [living]|in|the|{TABLE} [dorms]|that|{TABLE} [have amenity]|television [TV]|Lounge",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "live",
+            "in",
+            "the",
+            "{TABLE}",
+            "that",
+            "{TABLE}",
+            "television",
+            "Lounge"
+        ],
+        "original_sql": "SELECT T1.fname ,  T1.lname FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid WHERE T2.dormid IN (SELECT T3.dormid FROM has_amenity AS T3 JOIN dorm_amenity AS T4 ON T3.amenid  =  T4.amenid WHERE T4.amenity_name  =  'TV Lounge')"
+    },
+    {
+        "original_nl": "What are the first and last names of all students who are living in a dorm with a TV Lounge?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|all|{TABLE} [students]|who|are|live [living]|in|a|{TABLE} [dorm]|with|a|television [TV]|sofa [Lounge]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "live",
+            "in",
+            "a",
+            "{TABLE}",
+            "with",
+            "a",
+            "television",
+            "sofa"
+        ],
+        "original_sql": "SELECT T1.fname ,  T1.lname FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid WHERE T2.dormid IN (SELECT T3.dormid FROM has_amenity AS T3 JOIN dorm_amenity AS T4 ON T3.amenid  =  T4.amenid WHERE T4.amenity_name  =  'TV Lounge')"
+    },
+    {
+        "original_nl": "Find the first name and age of students who are living in the dorms that do not have amenity TV Lounge.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|and|{COLUMN} [age]|of|{TABLE} [students]|who|are|live [living]|in|the|{TABLE} [dorms]|that|do|not|{TABLE} [have amenity]|television [TV]|Lounge",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "live",
+            "in",
+            "the",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "{TABLE}",
+            "television",
+            "Lounge"
+        ],
+        "original_sql": "SELECT T1.fname ,  T1.age FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid WHERE T2.dormid NOT IN (SELECT T3.dormid FROM has_amenity AS T3 JOIN dorm_amenity AS T4 ON T3.amenid  =  T4.amenid WHERE T4.amenity_name  =  'TV Lounge')"
+    },
+    {
+        "original_nl": "What is the first name and age of every student who lives in a dorm with a TV Lounge?",
+        "generalized_nl": "What|is|the|{COLUMN} [first name]|and|{COLUMN} [age]|of|every|{TABLE} [student]|who|{TABLE} [lives in]|a|{TABLE} [dorm]|with|a|television [TV]|sofa [Lounge]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "every",
+            "{TABLE}",
+            "who",
+            "{TABLE}",
+            "a",
+            "{TABLE}",
+            "with",
+            "a",
+            "television",
+            "sofa"
+        ],
+        "original_sql": "SELECT T1.fname ,  T1.age FROM student AS T1 JOIN lives_in AS T2 ON T1.stuid  =  T2.stuid WHERE T2.dormid NOT IN (SELECT T3.dormid FROM has_amenity AS T3 JOIN dorm_amenity AS T4 ON T3.amenid  =  T4.amenid WHERE T4.amenity_name  =  'TV Lounge')"
+    },
+    {
+        "original_nl": "Find the name of amenities of the dorm where the student with last name Smith is living in.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|comforts [amenities]|of|the|{TABLE} [dorm]|where|the|{TABLE} [student]|with|{COLUMN} [last name]|{NE} [Smith]|is|live [living]|in",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "comforts",
+            "of",
+            "the",
+            "{TABLE}",
+            "where",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "is",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT T3.amenity_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid JOIN lives_in AS T4 ON T4.dormid  =  T1.dormid JOIN student AS T5 ON T5.stuid  =  T4.stuid WHERE T5.lname  =  'Smith'"
+    },
+    {
+        "original_nl": "What are the amenities in the dorm that a student who has the last name of Smith lives in?",
+        "generalized_nl": "What|are|the|comforts [amenities]|in|the|{TABLE} [dorm]|that|a|{TABLE} [student]|who|have [has]|the|{COLUMN} [last name]|of|{NE} [Smith]|{TABLE} [lives in]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "comforts",
+            "in",
+            "the",
+            "{TABLE}",
+            "that",
+            "a",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.amenity_name FROM dorm AS T1 JOIN has_amenity AS T2 ON T1.dormid  =  T2.dormid JOIN dorm_amenity AS T3 ON T2.amenid  =  T3.amenid JOIN lives_in AS T4 ON T4.dormid  =  T1.dormid JOIN student AS T5 ON T5.stuid  =  T4.stuid WHERE T5.lname  =  'Smith'"
+    }
+]

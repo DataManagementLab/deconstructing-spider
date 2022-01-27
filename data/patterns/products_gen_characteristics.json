@@ -1,0 +1,1546 @@
+[
+    {
+        "original_nl": "How many products are there?",
+        "generalized_nl": "How|many|{TABLE} [products]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM products"
+    },
+    {
+        "original_nl": "Count the number of products.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [products]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM products"
+    },
+    {
+        "original_nl": "How many colors are there?",
+        "generalized_nl": "How|many|color [colors]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "color",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM ref_colors"
+    },
+    {
+        "original_nl": "Count the number of colors.",
+        "generalized_nl": "count [Count]|the|number|of|color [colors]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "color"
+        ],
+        "original_sql": "SELECT count(*) FROM ref_colors"
+    },
+    {
+        "original_nl": "How many characteristics are there?",
+        "generalized_nl": "How|many|{TABLE} [characteristics]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM CHARACTERISTICS"
+    },
+    {
+        "original_nl": "Count the number of characteristics.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [characteristics]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM CHARACTERISTICS"
+    },
+    {
+        "original_nl": "What are the names and buying prices of all the products?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [buying]|{COLUMN_PART} [prices]|of|all|the|{TABLE} [products]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT product_name ,  typical_buying_price FROM products"
+    },
+    {
+        "original_nl": "Return the names and typical buying prices for all products.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [names]|and|{COLUMN} [typical buying prices]|for|all|{TABLE} [products]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT product_name ,  typical_buying_price FROM products"
+    },
+    {
+        "original_nl": "List the description of all the colors.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [description]|of|all|the|color [colors]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "color"
+        ],
+        "original_sql": "SELECT color_description FROM ref_colors"
+    },
+    {
+        "original_nl": "What are the descriptions for each color?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [descriptions]|for|each|{COLUMN_PART} [color]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT color_description FROM ref_colors"
+    },
+    {
+        "original_nl": "Find the names of all the product characteristics.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [product]|{TABLE} [characteristics]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT characteristic_name FROM CHARACTERISTICS"
+    },
+    {
+        "original_nl": "What are the different names of the product characteristics?",
+        "generalized_nl": "What|are|the|different|{COLUMN_PART} [names]|of|the|{TABLE} [product]|{TABLE} [characteristics]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT characteristic_name FROM CHARACTERISTICS"
+    },
+    {
+        "original_nl": "What are the names of products with category \"Spices\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [products]|with|{COLUMN_PART} [category]|spice [Spices]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "spice"
+        ],
+        "original_sql": "SELECT product_name FROM products WHERE product_category_code  =  \"Spices\""
+    },
+    {
+        "original_nl": "Return the names of products in the category 'Spices'.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [names]|of|{TABLE} [products]|in|the|{COLUMN_PART} [category]|{NE} [Spices]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT product_name FROM products WHERE product_category_code  =  \"Spices\""
+    },
+    {
+        "original_nl": "List the names, color descriptions and product descriptions of products with category \"Herbs\".",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|{COLUMN} [color descriptions]|and|{COLUMN} [product descriptions]|of|{TABLE} [products]|with|{COLUMN_PART} [category]|herb [Herbs]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "herb"
+        ],
+        "original_sql": "SELECT T1.product_name ,  T2.color_description ,  T1.product_description FROM products AS T1 JOIN Ref_colors AS T2 ON T1.color_code  =  T2.color_code WHERE product_category_code  =  \"Herbs\""
+    },
+    {
+        "original_nl": "What are the names, color descriptions, and product descriptions for products in the 'Herbs' category?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|{COLUMN} [color descriptions]|and|{COLUMN} [product descriptions]|for|{TABLE} [products]|in|the|herb [Herbs]|{COLUMN_PART} [category]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "in",
+            "the",
+            "herb",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.product_name ,  T2.color_description ,  T1.product_description FROM products AS T1 JOIN Ref_colors AS T2 ON T1.color_code  =  T2.color_code WHERE product_category_code  =  \"Herbs\""
+    },
+    {
+        "original_nl": "How many products are there under the category \"Seeds\"?",
+        "generalized_nl": "How|many|{TABLE} [products]|are|there|under|the|{COLUMN_PART} [category]|seed [Seeds]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "under",
+            "the",
+            "{COLUMN_PART}",
+            "seed"
+        ],
+        "original_sql": "SELECT count(*) FROM products WHERE product_category_code  =  \"Seeds\""
+    },
+    {
+        "original_nl": "Count the number of products in the category 'Seeds'.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [products]|in|the|{COLUMN_PART} [category]|{NE} [Seeds]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM products WHERE product_category_code  =  \"Seeds\""
+    },
+    {
+        "original_nl": "Find the number of products with category \"Spices\" and typically sold above 1000.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [products]|with|{COLUMN_PART} [category]|spice [Spices]|and|typically|sell [sold]|above|{NUMBER} [1000]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "spice",
+            "and",
+            "typically",
+            "sell",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM products WHERE product_category_code  =  \"Spices\" AND typical_buying_price  >  1000"
+    },
+    {
+        "original_nl": "How many products are in the 'Spices' category and have a typical price of over 1000?",
+        "generalized_nl": "How|many|{TABLE} [products]|are|in|the|spice [Spices]|{COLUMN_PART} [category]|and|have|a|{COLUMN_PART} [typical]|{COLUMN_PART} [price]|of|over|{NUMBER} [1000]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "the",
+            "spice",
+            "{COLUMN_PART}",
+            "and",
+            "have",
+            "a",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "over",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM products WHERE product_category_code  =  \"Spices\" AND typical_buying_price  >  1000"
+    },
+    {
+        "original_nl": "What is the category and typical buying price  of the product with name \"cumin\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [category]|and|{COLUMN} [typical buying price]|of|the|{TABLE} [product]|with|{COLUMN_PART} [name]|cumin",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "cumin"
+        ],
+        "original_sql": "SELECT product_category_code ,  typical_buying_price FROM products WHERE product_name  =  \"cumin\""
+    },
+    {
+        "original_nl": "Return the category code and typical price of 'cumin'.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [category]|{COLUMN_PART} [code]|and|{COLUMN_PART} [typical]|{COLUMN_PART} [price]|of|cumin",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "cumin"
+        ],
+        "original_sql": "SELECT product_category_code ,  typical_buying_price FROM products WHERE product_name  =  \"cumin\""
+    },
+    {
+        "original_nl": "Which category does the product named \"flax\" belong to?",
+        "generalized_nl": "Which|{COLUMN_PART} [category]|does|the|{TABLE} [product]|name [named]|flax|belong|to",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "does",
+            "the",
+            "{TABLE}",
+            "name",
+            "flax",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT product_category_code FROM products WHERE product_name  =  \"flax\""
+    },
+    {
+        "original_nl": "What is the code of the category that the product with the name 'flax' belongs to?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [code]|of|the|{COLUMN_PART} [category]|that|the|{TABLE} [product]|with|the|{COLUMN_PART} [name]|flax|belong [belongs]|to",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "flax",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT product_category_code FROM products WHERE product_name  =  \"flax\""
+    },
+    {
+        "original_nl": "What is the name of the product with the color description 'yellow'?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [product]|with|the|{COLUMN} [color description]|yellow",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "yellow"
+        ],
+        "original_sql": "SELECT T1.product_name FROM products AS T1 JOIN ref_colors AS T2 ON T1.color_code  =  T2.color_code WHERE T2.color_description  =  'yellow'"
+    },
+    {
+        "original_nl": "Give the name of the products that have a color description 'yellow'.",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [name]|of|the|{TABLE} [products]|that|have|a|{COLUMN} [color description]|yellow",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "yellow"
+        ],
+        "original_sql": "SELECT T1.product_name FROM products AS T1 JOIN ref_colors AS T2 ON T1.color_code  =  T2.color_code WHERE T2.color_description  =  'yellow'"
+    },
+    {
+        "original_nl": "Find the category descriptions of the products whose descriptions include letter 't'.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [category]|{COLUMN_PART} [descriptions]|of|the|{TABLE} [products]|whose|{COLUMN_PART} [descriptions]|include|letter|'t",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "include",
+            "letter",
+            "'t"
+        ],
+        "original_sql": "SELECT T1.product_category_description FROM ref_product_categories AS T1 JOIN products AS T2 ON T1.product_category_code  =  T2.product_category_code WHERE T2.product_description LIKE '%t%'"
+    },
+    {
+        "original_nl": "What are the descriptions of the categories that products with product descriptions that contain the letter t are in?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [descriptions]|of|the|class [categories]|that|{TABLE} [products]|with|{COLUMN} [product descriptions]|that|contain|the|letter|thymine [t]|are|in",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "class",
+            "that",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "that",
+            "contain",
+            "the",
+            "letter",
+            "thymine",
+            "are",
+            "in"
+        ],
+        "original_sql": "SELECT T1.product_category_description FROM ref_product_categories AS T1 JOIN products AS T2 ON T1.product_category_code  =  T2.product_category_code WHERE T2.product_description LIKE '%t%'"
+    },
+    {
+        "original_nl": "What is the color description of the product with name \"catnip\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [color description]|of|the|{TABLE} [product]|with|{COLUMN_PART} [name]|catmint [catnip]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "catmint"
+        ],
+        "original_sql": "SELECT t2.color_description FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code WHERE t1.product_name  =  \"catnip\""
+    },
+    {
+        "original_nl": "Give the color description for the product 'catnip'.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [color description]|for|the|{TABLE} [product]|catmint [catnip]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "catmint"
+        ],
+        "original_sql": "SELECT t2.color_description FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code WHERE t1.product_name  =  \"catnip\""
+    },
+    {
+        "original_nl": "What is the color code and description of the product named \"chervil\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [color code]|and|{COLUMN_PART} [description]|of|the|{TABLE} [product]|name [named]|chervil",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "chervil"
+        ],
+        "original_sql": "SELECT t1.color_code ,  t2.color_description FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code WHERE t1.product_name  =  \"chervil\""
+    },
+    {
+        "original_nl": "Return the color code and description for the product with the name 'chervil'.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [color code]|and|{COLUMN_PART} [description]|for|the|{TABLE} [product]|with|the|{COLUMN_PART} [name]|chervil",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "chervil"
+        ],
+        "original_sql": "SELECT t1.color_code ,  t2.color_description FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code WHERE t1.product_name  =  \"chervil\""
+    },
+    {
+        "original_nl": "Find the id and color description of the products with at least 2 characteristics.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|and|{COLUMN} [color description]|of|the|{TABLE} [products]|with|{NUMBER} [at least 2]|{TABLE} [characteristics]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.product_id ,  t2.color_description FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code JOIN product_characteristics AS t3 ON t1.product_id  =  t3.product_id GROUP BY t1.product_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the product ids and color descriptions for products with two or more characteristics?",
+        "generalized_nl": "What|are|the|{COLUMN} [product ids]|and|{COLUMN} [color descriptions]|for|{TABLE} [products]|with|{NUMBER} [two]|or|more|{TABLE} [characteristics]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.product_id ,  t2.color_description FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code JOIN product_characteristics AS t3 ON t1.product_id  =  t3.product_id GROUP BY t1.product_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "List all the product names with the color description \"white\".",
+        "generalized_nl": "list [List]|all|the|{COLUMN} [product names]|with|the|{COLUMN} [color description]|white",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "white"
+        ],
+        "original_sql": "SELECT t1.product_name FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code WHERE t2.color_description  =  \"white\""
+    },
+    {
+        "original_nl": "What are the names of products with 'white' as their color description?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [products]|with|white|as|their|{COLUMN} [color description]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "white",
+            "as",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.product_name FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code WHERE t2.color_description  =  \"white\""
+    },
+    {
+        "original_nl": "What are the name and typical buying and selling prices of the products that have color described as \"yellow\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [typical]|{COLUMN_PART} [buying]|and|{COLUMN_PART} [selling]|{COLUMN_PART} [prices]|of|the|{TABLE} [products]|that|have|{COLUMN_PART} [color]|describe [described]|as|yellow",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN_PART}",
+            "describe",
+            "as",
+            "yellow"
+        ],
+        "original_sql": "SELECT t1.product_name ,  t1.typical_buying_price ,  t1.typical_selling_price FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code WHERE t2.color_description  =  \"yellow\""
+    },
+    {
+        "original_nl": "Return the names and typical buying and selling prices for products that have 'yellow' as their color description.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [typical]|{COLUMN_PART} [buying]|and|{COLUMN_PART} [selling]|{COLUMN_PART} [prices]|for|{TABLE} [products]|that|have|yellow|as|their|{COLUMN} [color description]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "that",
+            "have",
+            "yellow",
+            "as",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.product_name ,  t1.typical_buying_price ,  t1.typical_selling_price FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code WHERE t2.color_description  =  \"yellow\""
+    },
+    {
+        "original_nl": "How many characteristics does the product named \"sesame\" have?",
+        "generalized_nl": "How|many|{TABLE} [characteristics]|does|the|{TABLE} [product]|name [named]|sesame|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "the",
+            "{TABLE}",
+            "name",
+            "sesame",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id WHERE t1.product_name  =  \"sesame\""
+    },
+    {
+        "original_nl": "Count the number of characteristics the product 'sesame' has.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [characteristics]|the|{TABLE} [product]|sesame|have [has]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "the",
+            "{TABLE}",
+            "sesame",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id WHERE t1.product_name  =  \"sesame\""
+    },
+    {
+        "original_nl": "How many distinct characteristic names does the product \"cumin\" have?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [characteristic names]|does|the|{TABLE} [product]|cumin|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "does",
+            "the",
+            "{TABLE}",
+            "cumin",
+            "have"
+        ],
+        "original_sql": "SELECT count(DISTINCT t3.characteristic_name) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"sesame\""
+    },
+    {
+        "original_nl": "Count the number of different characteristic names the product 'cumin' has.",
+        "generalized_nl": "count [Count]|the|number|of|different|{COLUMN} [characteristic names]|the|{TABLE} [product]|cumin|have [has]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{COLUMN}",
+            "the",
+            "{TABLE}",
+            "cumin",
+            "have"
+        ],
+        "original_sql": "SELECT count(DISTINCT t3.characteristic_name) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"sesame\""
+    },
+    {
+        "original_nl": "What are all the characteristic names of product \"sesame\"?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [characteristic names]|of|{TABLE} [product]|sesame",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "sesame"
+        ],
+        "original_sql": "SELECT t3.characteristic_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"sesame\""
+    },
+    {
+        "original_nl": "Return the characteristic names of the 'sesame' product.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [characteristic names]|of|the|sesame|{TABLE} [product]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "sesame",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.characteristic_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"sesame\""
+    },
+    {
+        "original_nl": "List all the characteristic names and data types of product \"cumin\".",
+        "generalized_nl": "list [List]|all|the|{COLUMN} [characteristic names]|and|{COLUMN_PART} [data]|{COLUMN_PART} [types]|of|{TABLE} [product]|cumin",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "cumin"
+        ],
+        "original_sql": "SELECT t3.characteristic_name ,  t3.characteristic_data_type FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"cumin\""
+    },
+    {
+        "original_nl": "What are the names and data types of the characteristics of the 'cumin' product?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [data]|{COLUMN_PART} [types]|of|the|{TABLE} [characteristics]|of|the|cumin|{TABLE} [product]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "of",
+            "the",
+            "cumin",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.characteristic_name ,  t3.characteristic_data_type FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"cumin\""
+    },
+    {
+        "original_nl": "List all characteristics of product named \"sesame\" with type code \"Grade\".",
+        "generalized_nl": "list [List]|all|{TABLE} [characteristics]|of|{TABLE} [product]|name [named]|sesame|with|{COLUMN_PART} [type]|{COLUMN_PART} [code]|grade [Grade]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "of",
+            "{TABLE}",
+            "name",
+            "sesame",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "grade"
+        ],
+        "original_sql": "SELECT t3.characteristic_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"sesame\" AND t3.characteristic_type_code  =  \"Grade\""
+    },
+    {
+        "original_nl": "What are the names of the characteristics of the product 'sesame' that have the characteristic type code 'Grade'?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [characteristics]|of|the|{TABLE} [product]|sesame|that|have|the|{COLUMN} [characteristic type code]|grade [Grade]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "sesame",
+            "that",
+            "have",
+            "the",
+            "{COLUMN}",
+            "grade"
+        ],
+        "original_sql": "SELECT t3.characteristic_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"sesame\" AND t3.characteristic_type_code  =  \"Grade\""
+    },
+    {
+        "original_nl": "How many characteristics does the product named \"laurel\" have?",
+        "generalized_nl": "How|many|{TABLE} [characteristics]|does|the|{TABLE} [product]|name [named]|laurel|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "the",
+            "{TABLE}",
+            "name",
+            "laurel",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"laurel\""
+    },
+    {
+        "original_nl": "Count the number of characteristics of the product named 'laurel'.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [characteristics]|of|the|{TABLE} [product]|name [named]|laurel",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "laurel"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"laurel\""
+    },
+    {
+        "original_nl": "Find the number of characteristics that the product \"flax\" has.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [characteristics]|that|the|{TABLE} [product]|flax|have [has]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "the",
+            "{TABLE}",
+            "flax",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"flax\""
+    },
+    {
+        "original_nl": "Count the number of characteristics of the 'flax' product.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [characteristics]|of|the|flax|{TABLE} [product]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "of",
+            "the",
+            "flax",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t1.product_name  =  \"flax\""
+    },
+    {
+        "original_nl": "Find the name of the products that have the color description \"red\" and have the characteristic name \"fast\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [products]|that|have|the|{COLUMN} [color description]|crimson [red]|and|have|the|{COLUMN} [characteristic name]|fast",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "{COLUMN}",
+            "crimson",
+            "and",
+            "have",
+            "the",
+            "{COLUMN}",
+            "fast"
+        ],
+        "original_sql": "SELECT product_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id JOIN ref_colors AS t4 ON t1.color_code  =  t4.color_code WHERE t4.color_description  =  \"red\" AND t3.characteristic_name  =  \"fast\""
+    },
+    {
+        "original_nl": "What are the names of the products that have a color description of 'red' and the 'fast' characteristic?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [products]|that|have|a|{COLUMN} [color description]|of|crimson [red]|and|the|fast|{TABLE} [characteristic]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "of",
+            "crimson",
+            "and",
+            "the",
+            "fast",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT product_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id JOIN ref_colors AS t4 ON t1.color_code  =  t4.color_code WHERE t4.color_description  =  \"red\" AND t3.characteristic_name  =  \"fast\""
+    },
+    {
+        "original_nl": "How many products have the characteristic named \"hot\"?",
+        "generalized_nl": "How|many|{TABLE} [products]|have|the|{TABLE} [characteristic]|name [named]|hot",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "the",
+            "{TABLE}",
+            "name",
+            "hot"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t3.characteristic_name  =  \"hot\""
+    },
+    {
+        "original_nl": "Count the number of products with the 'hot' charactersitic.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [products]|with|the|hot|charactersitic",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "with",
+            "the",
+            "hot",
+            "charactersitic"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t3.characteristic_name  =  \"hot\""
+    },
+    {
+        "original_nl": "List the all the distinct names of the products with the characteristic name 'warm'.",
+        "generalized_nl": "list [List]|the|all|the|distinct|{COLUMN_PART} [names]|of|the|{TABLE} [products]|with|the|{COLUMN} [characteristic name]|warm",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "warm"
+        ],
+        "original_sql": "SELECT DISTINCT t1.product_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t3.characteristic_name  =  \"warm\""
+    },
+    {
+        "original_nl": "What are the different product names for products that have the 'warm' characteristic:?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [product names]|for|{TABLE} [products]|that|have|the|warm|{TABLE} [characteristic]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "warm",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT t1.product_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id WHERE t3.characteristic_name  =  \"warm\""
+    },
+    {
+        "original_nl": "Find the number of the products that have their color described as \"red\" and have a characteristic named \"slow\".",
+        "generalized_nl": "find [Find]|the|number|of|the|{TABLE} [products]|that|have|their|{COLUMN_PART} [color]|describe [described]|as|crimson [red]|and|have|a|{TABLE} [characteristic]|name [named]|slow",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "their",
+            "{COLUMN_PART}",
+            "describe",
+            "as",
+            "crimson",
+            "and",
+            "have",
+            "a",
+            "{TABLE}",
+            "name",
+            "slow"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id JOIN ref_colors AS t4 ON t1.color_code  =  t4.color_code WHERE t4.color_description  =  \"red\" AND t3.characteristic_name  =  \"slow\""
+    },
+    {
+        "original_nl": "How many products have the color description 'red' and the characteristic name 'slow'?",
+        "generalized_nl": "How|many|{TABLE} [products]|have|the|{COLUMN} [color description]|crimson [red]|and|the|{COLUMN} [characteristic name]|slow",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "the",
+            "{COLUMN}",
+            "crimson",
+            "and",
+            "the",
+            "{COLUMN}",
+            "slow"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id JOIN ref_colors AS t4 ON t1.color_code  =  t4.color_code WHERE t4.color_description  =  \"red\" AND t3.characteristic_name  =  \"slow\""
+    },
+    {
+        "original_nl": "Count the products that have the color description \"white\" or have the characteristic name \"hot\".",
+        "generalized_nl": "count [Count]|the|{TABLE} [products]|that|have|the|{COLUMN} [color description]|white|or|have|the|{COLUMN} [characteristic name]|hot",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "{COLUMN}",
+            "white",
+            "or",
+            "have",
+            "the",
+            "{COLUMN}",
+            "hot"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id JOIN ref_colors AS t4 ON t1.color_code  =  t4.color_code WHERE t4.color_description  =  \"white\" OR t3.characteristic_name  =  \"hot\""
+    },
+    {
+        "original_nl": "How many products have their color described as 'white' or have a characteristic with the name 'hot'?",
+        "generalized_nl": "How|many|{TABLE} [products]|have|their|{COLUMN_PART} [color]|describe [described]|as|white|or|have|a|{TABLE} [characteristic]|with|the|{COLUMN_PART} [name]|hot",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "their",
+            "{COLUMN_PART}",
+            "describe",
+            "as",
+            "white",
+            "or",
+            "have",
+            "a",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "hot"
+        ],
+        "original_sql": "SELECT count(*) FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id JOIN ref_colors AS t4 ON t1.color_code  =  t4.color_code WHERE t4.color_description  =  \"white\" OR t3.characteristic_name  =  \"hot\""
+    },
+    {
+        "original_nl": "What is the unit of measuerment of the product category code \"Herbs\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [unit]|of|measuerment|of|the|{COLUMN} [product category code]|herb [Herbs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "measuerment",
+            "of",
+            "the",
+            "{COLUMN}",
+            "herb"
+        ],
+        "original_sql": "SELECT unit_of_measure FROM ref_product_categories WHERE product_category_code  =  \"Herbs\""
+    },
+    {
+        "original_nl": "Return the unit of measure for 'Herb' products.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [unit of measure]|for|herb [Herb]|{TABLE} [products]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "for",
+            "herb",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT unit_of_measure FROM ref_product_categories WHERE product_category_code  =  \"Herbs\""
+    },
+    {
+        "original_nl": "Find the product category description of the product category with code \"Spices\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [product category description]|of|the|{TABLE} [product]|{COLUMN_PART} [category]|with|{COLUMN_PART} [code]|spice [Spices]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "spice"
+        ],
+        "original_sql": "SELECT product_category_description FROM ref_product_categories WHERE product_category_code  =  \"Spices\""
+    },
+    {
+        "original_nl": "What is the description of the product category with the code 'Spices'?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|of|the|{TABLE} [product]|{COLUMN_PART} [category]|with|the|{COLUMN_PART} [code]|spice [Spices]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "spice"
+        ],
+        "original_sql": "SELECT product_category_description FROM ref_product_categories WHERE product_category_code  =  \"Spices\""
+    },
+    {
+        "original_nl": "What is the product category description and unit of measurement of category \"Herbs\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [product category description]|and|{COLUMN_PART} [unit]|of|measurement|of|{COLUMN_PART} [category]|herb [Herbs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "measurement",
+            "of",
+            "{COLUMN_PART}",
+            "herb"
+        ],
+        "original_sql": "SELECT product_category_description ,  unit_of_measure FROM ref_product_categories WHERE product_category_code  =  \"Herbs\""
+    },
+    {
+        "original_nl": "Return the description and unit of measurement for products in the 'Herbs' category.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [description]|and|{COLUMN_PART} [unit]|of|measurement|for|{TABLE} [products]|in|the|herb [Herbs]|{COLUMN_PART} [category]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "measurement",
+            "for",
+            "{TABLE}",
+            "in",
+            "the",
+            "herb",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT product_category_description ,  unit_of_measure FROM ref_product_categories WHERE product_category_code  =  \"Herbs\""
+    },
+    {
+        "original_nl": "What is the unit of measurement of product named \"cumin\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [unit]|of|measurement|of|{TABLE} [product]|name [named]|cumin",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "measurement",
+            "of",
+            "{TABLE}",
+            "name",
+            "cumin"
+        ],
+        "original_sql": "SELECT t2.unit_of_measure FROM products AS t1 JOIN ref_product_categories AS t2 ON t1.product_category_code  =  t2.product_category_code WHERE t1.product_name  =  \"cumin\""
+    },
+    {
+        "original_nl": "Give the unit of measure for the product with the name 'cumin'.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [unit of measure]|for|the|{TABLE} [product]|with|the|{COLUMN_PART} [name]|cumin",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "cumin"
+        ],
+        "original_sql": "SELECT t2.unit_of_measure FROM products AS t1 JOIN ref_product_categories AS t2 ON t1.product_category_code  =  t2.product_category_code WHERE t1.product_name  =  \"cumin\""
+    },
+    {
+        "original_nl": "Find the unit of measurement and product category code of product named \"chervil\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [unit]|of|measurement|and|{COLUMN} [product category code]|of|{TABLE} [product]|name [named]|chervil",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "measurement",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "name",
+            "chervil"
+        ],
+        "original_sql": "SELECT t2.unit_of_measure ,  t2.product_category_code FROM products AS t1 JOIN ref_product_categories AS t2 ON t1.product_category_code  =  t2.product_category_code WHERE t1.product_name  =  \"chervil\""
+    },
+    {
+        "original_nl": "What are the unit of measure and category code for the 'chervil' product?",
+        "generalized_nl": "What|are|the|{COLUMN} [unit of measure]|and|{COLUMN_PART} [category]|{COLUMN_PART} [code]|for|the|chervil|{TABLE} [product]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "chervil",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t2.unit_of_measure ,  t2.product_category_code FROM products AS t1 JOIN ref_product_categories AS t2 ON t1.product_category_code  =  t2.product_category_code WHERE t1.product_name  =  \"chervil\""
+    },
+    {
+        "original_nl": "Find the product names that are colored 'white' but do not have unit of measurement \"Handful\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [product names]|that|are|color [colored]|white|but|do|not|have|{COLUMN_PART} [unit]|of|measurement|handful [Handful]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "are",
+            "color",
+            "white",
+            "but",
+            "do",
+            "not",
+            "have",
+            "{COLUMN_PART}",
+            "of",
+            "measurement",
+            "handful"
+        ],
+        "original_sql": "SELECT t1.product_name FROM products AS t1 JOIN ref_product_categories AS t2 ON t1.product_category_code  =  t2.product_category_code JOIN ref_colors AS t3 ON t1.color_code  =  t3.color_code WHERE t3.color_description  =  \"white\" AND t2.unit_of_measure != \"Handful\""
+    },
+    {
+        "original_nl": "What are the names of products that are not 'white' in color and are not measured by the unit 'Handful'?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [products]|that|are|not|white|in|{COLUMN_PART} [color]|and|are|not|measure [measured]|by|the|{COLUMN_PART} [unit]|handful [Handful]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "white",
+            "in",
+            "{COLUMN_PART}",
+            "and",
+            "are",
+            "not",
+            "measure",
+            "by",
+            "the",
+            "{COLUMN_PART}",
+            "handful"
+        ],
+        "original_sql": "SELECT t1.product_name FROM products AS t1 JOIN ref_product_categories AS t2 ON t1.product_category_code  =  t2.product_category_code JOIN ref_colors AS t3 ON t1.color_code  =  t3.color_code WHERE t3.color_description  =  \"white\" AND t2.unit_of_measure != \"Handful\""
+    },
+    {
+        "original_nl": "What is the description of the color for most products?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|of|the|{COLUMN_PART} [color]|for|most|{TABLE} [products]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t2.color_description FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code GROUP BY t2.color_description ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the color description that is most common across all products.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [color description]|that|is|most|common|across|all|{TABLE} [products]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "most",
+            "common",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t2.color_description FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code GROUP BY t2.color_description ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the description of the color used by least products?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|of|the|{COLUMN_PART} [color]|use [used]|by|least|{TABLE} [products]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "use",
+            "by",
+            "least",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t2.color_description FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code GROUP BY t2.color_description ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Give the color description that is least common across products.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [color description]|that|is|least|common|across|{TABLE} [products]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "least",
+            "common",
+            "across",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t2.color_description FROM products AS t1 JOIN ref_colors AS t2 ON t1.color_code  =  t2.color_code GROUP BY t2.color_description ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the characteristic name used by most number of the products?",
+        "generalized_nl": "What|is|the|{COLUMN} [characteristic name]|use [used]|by|most|number|of|the|{TABLE} [products]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "use",
+            "by",
+            "most",
+            "number",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.characteristic_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id GROUP BY t3.characteristic_name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the name of the characteristic that is most common across all products.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [name]|of|the|{TABLE} [characteristic]|that|is|most|common|across|all|{TABLE} [products]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "most",
+            "common",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.characteristic_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id GROUP BY t3.characteristic_name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the names, details and data types of the characteristics which are never used by any product?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|{COLUMN_PART} [details]|and|{COLUMN_PART} [data]|{COLUMN_PART} [types]|of|the|{TABLE} [characteristics]|which|are|never|use [used]|by|any|{TABLE} [product]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "are",
+            "never",
+            "use",
+            "by",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT characteristic_name ,  other_characteristic_details ,  characteristic_data_type FROM CHARACTERISTICS EXCEPT SELECT t1.characteristic_name ,  t1.other_characteristic_details ,  t1.characteristic_data_type FROM CHARACTERISTICS AS t1 JOIN product_characteristics AS t2 ON t1.characteristic_id  =  t2.characteristic_id"
+    },
+    {
+        "original_nl": "Give the names, details, and data types of characteristics that are not found in any product.",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [names]|{COLUMN_PART} [details]|and|{COLUMN_PART} [data]|{COLUMN_PART} [types]|of|{TABLE} [characteristics]|that|are|not|find [found]|in|any|{TABLE} [product]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "find",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT characteristic_name ,  other_characteristic_details ,  characteristic_data_type FROM CHARACTERISTICS EXCEPT SELECT t1.characteristic_name ,  t1.other_characteristic_details ,  t1.characteristic_data_type FROM CHARACTERISTICS AS t1 JOIN product_characteristics AS t2 ON t1.characteristic_id  =  t2.characteristic_id"
+    },
+    {
+        "original_nl": "What are characteristic names used at least twice across all products?",
+        "generalized_nl": "What|are|{COLUMN} [characteristic names]|use [used]|at|least|twice|across|all|{TABLE} [products]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{COLUMN}",
+            "use",
+            "at",
+            "least",
+            "twice",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.characteristic_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id GROUP BY t3.characteristic_name HAVING count(*)  >= 2"
+    },
+    {
+        "original_nl": "Give the names of characteristics that are in two or more products?",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [names]|of|{TABLE} [characteristics]|that|are|in|{NUMBER} [two]|or|more|{TABLE} [products]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "in",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.characteristic_name FROM products AS t1 JOIN product_characteristics AS t2 ON t1.product_id  =  t2.product_id JOIN CHARACTERISTICS AS t3 ON t2.characteristic_id  =  t3.characteristic_id GROUP BY t3.characteristic_name HAVING count(*)  >= 2"
+    },
+    {
+        "original_nl": "How many colors are never used by any product?",
+        "generalized_nl": "How|many|color [colors]|are|never|use [used]|by|any|{TABLE} [product]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "color",
+            "are",
+            "never",
+            "use",
+            "by",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Ref_colors WHERE color_code NOT IN ( SELECT color_code FROM products )"
+    },
+    {
+        "original_nl": "Count the number of colors that are not used in any products.",
+        "generalized_nl": "count [Count]|the|number|of|color [colors]|that|are|not|use [used]|in|any|{TABLE} [products]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "color",
+            "that",
+            "are",
+            "not",
+            "use",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Ref_colors WHERE color_code NOT IN ( SELECT color_code FROM products )"
+    }
+]

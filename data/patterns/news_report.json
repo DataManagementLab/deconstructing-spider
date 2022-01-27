@@ -1,0 +1,338 @@
+[
+    {
+        "original_nl": "How many journalists are there?",
+        "generalized_nl": "How|many|{TABLE} [journalists]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM journalist"
+    },
+    {
+        "original_nl": "List the names of journalists in ascending order of years working.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [journalists]|in|ascend [ascending]|order|of|{COLUMN} [years working]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM journalist ORDER BY Years_working ASC"
+    },
+    {
+        "original_nl": "What are the nationalities and ages of journalists?",
+        "generalized_nl": "What|are|the|{COLUMN} [nationalities]|and|{COLUMN} [ages]|of|{TABLE} [journalists]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Nationality ,  Age FROM journalist"
+    },
+    {
+        "original_nl": "Show the names of journalists from \"England\" or \"Wales\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [journalists]|from|{VALUE} [England]|or|{VALUE} [Wales]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "from",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM journalist WHERE Nationality  =  \"England\" OR Nationality  =  \"Wales\""
+    },
+    {
+        "original_nl": "What is the average number of years spent working as a journalist?",
+        "generalized_nl": "What|is|the|average|number|of|{COLUMN_PART} [years]|spend [spent]|{COLUMN_PART} [working]|as|a|{TABLE} [journalist]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "spend",
+            "{COLUMN_PART}",
+            "as",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Years_working) FROM journalist"
+    },
+    {
+        "original_nl": "What is the nationality of the journalist with the largest number of years working?",
+        "generalized_nl": "What|is|the|{COLUMN} [nationality]|of|the|{TABLE} [journalist]|with|the|large [largest]|number|of|{COLUMN} [years working]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Nationality FROM journalist ORDER BY Years_working DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the different nationalities and the number of journalists of each nationality.",
+        "generalized_nl": "show [Show]|the|different|{COLUMN} [nationalities]|and|the|number|of|{TABLE} [journalists]|of|each|{COLUMN} [nationality]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Nationality ,  COUNT(*) FROM journalist GROUP BY Nationality"
+    },
+    {
+        "original_nl": "Show the most common nationality for journalists.",
+        "generalized_nl": "show [Show]|the|most|common|{COLUMN} [nationality]|for|{TABLE} [journalists]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Nationality FROM journalist GROUP BY Nationality ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the nations that have both journalists with more than 10 years of working and journalists with less than 3 years of working.",
+        "generalized_nl": "show [Show]|the|nation [nations]|that|have|both|{TABLE} [journalists]|with|{NE} [more than 10 years]|of|{COLUMN_PART} [working]|and|{TABLE} [journalists]|with|{NE} [less than 3 years]|of|{COLUMN_PART} [working]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "nation",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "with",
+            "{NE}",
+            "of",
+            "{COLUMN_PART}",
+            "and",
+            "{TABLE}",
+            "with",
+            "{NE}",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Nationality FROM journalist WHERE Years_working  >  10 INTERSECT SELECT Nationality FROM journalist WHERE Years_working  <  3"
+    },
+    {
+        "original_nl": "Show the dates, places, and names of events in descending order of the attendance.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [dates]|place [places]|and|{COLUMN} [names]|of|{TABLE} [events]|in|descend [descending]|order|of|the|{COLUMN_PART} [attendance]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "place",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "the",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Date ,  Name ,  venue FROM event ORDER BY Event_Attendance DESC"
+    },
+    {
+        "original_nl": "Show the names of journalists and the dates of the events they reported.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [journalists]|and|the|{COLUMN} [dates]|of|the|{TABLE} [events]|they|report [reported]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "they",
+            "report"
+        ],
+        "original_sql": "SELECT T3.Name ,  T2.Date FROM news_report AS T1 JOIN event AS T2 ON T1.Event_ID  =  T2.Event_ID JOIN journalist AS T3 ON T1.journalist_ID  =  T3.journalist_ID"
+    },
+    {
+        "original_nl": "Show the names of journalists and the names of the events they reported in ascending order",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [journalists]|and|the|{COLUMN} [names]|of|the|{TABLE} [events]|they|report [reported]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "they",
+            "report",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT T3.Name ,  T2.Name FROM news_report AS T1 JOIN event AS T2 ON T1.Event_ID  =  T2.Event_ID JOIN journalist AS T3 ON T1.journalist_ID  =  T3.journalist_ID ORDER BY T2.Event_Attendance ASC"
+    },
+    {
+        "original_nl": "Show the names of journalists and the number of events they reported.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [journalists]|and|the|number|of|{TABLE} [events]|they|report [reported]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "they",
+            "report"
+        ],
+        "original_sql": "SELECT T3.Name ,  COUNT(*) FROM news_report AS T1 JOIN event AS T2 ON T1.Event_ID  =  T2.Event_ID JOIN journalist AS T3 ON T1.journalist_ID  =  T3.journalist_ID GROUP BY T3.Name"
+    },
+    {
+        "original_nl": "Show the names of journalists that have reported more than one event.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [journalists]|that|have|report [reported]|{NUMBER} [more than one]|{TABLE} [event]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "report",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Name FROM news_report AS T1 JOIN event AS T2 ON T1.Event_ID  =  T2.Event_ID JOIN journalist AS T3 ON T1.journalist_ID  =  T3.journalist_ID GROUP BY T3.Name HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "List the names of journalists who have not reported any event.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [journalists]|who|have|not|report [reported]|any|{TABLE} [event]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "not",
+            "report",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM journalist WHERE journalist_ID NOT IN (SELECT journalist_ID FROM news_report)"
+    },
+    {
+        "original_nl": "what are the average and maximum attendances of all events?",
+        "generalized_nl": "what|are|the|average|and|maximal [maximum]|{COLUMN_PART} [attendances]|of|all|{TABLE} [events]",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "the",
+            "average",
+            "and",
+            "maximal",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Event_Attendance) ,  max(Event_Attendance) FROM event"
+    },
+    {
+        "original_nl": "Find the average age and experience working length of journalists working on different role type.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [age]|and|experience|{COLUMN_PART} [working]|length|of|{TABLE} [journalists]|{COLUMN_PART} [working]|on|different|function [role]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "experience",
+            "{COLUMN_PART}",
+            "length",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "on",
+            "different",
+            "function",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(t1.age) ,  avg(Years_working) ,  t2.work_type FROM journalist AS t1 JOIN news_report AS t2 ON t1.journalist_id  =  t2.journalist_id GROUP BY t2.work_type"
+    },
+    {
+        "original_nl": "List the event venues and names that have the top 2 most number of people attended.",
+        "generalized_nl": "list [List]|the|{TABLE} [event]|{COLUMN} [venues]|and|{COLUMN} [names]|that|have|the|top|{VALUE} [2]|most|number|of|people|attend [attended]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "top",
+            "{VALUE}",
+            "most",
+            "number",
+            "of",
+            "people",
+            "attend"
+        ],
+        "original_sql": "SELECT venue ,  name FROM event ORDER BY Event_Attendance DESC LIMIT 2"
+    }
+]

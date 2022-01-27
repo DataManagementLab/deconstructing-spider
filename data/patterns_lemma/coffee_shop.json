@@ -1,0 +1,310 @@
+[
+    {
+        "original_nl": "How many members have the black membership card?",
+        "generalized_nl": "How|many|{TABLE} [members]|have|the|black|{COLUMN} [membership card]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "the",
+            "black",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM member WHERE Membership_card  =  'Black'"
+    },
+    {
+        "original_nl": "Find the number of members living in each address.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [members]|live [living]|in|each|{COLUMN} [address]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "live",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  address FROM member GROUP BY address"
+    },
+    {
+        "original_nl": "Give me the names of members whose address is in Harford or Waterbury.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN} [names]|of|{TABLE} [members]|whose|{COLUMN} [address]|is|in|{NE} [Harford]|or|{VALUE} [Waterbury]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "in",
+            "{NE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM member WHERE address  =  'Harford' OR address  =  'Waterbury'"
+    },
+    {
+        "original_nl": "Find the ids and names of members who are under age 30 or with black membership card.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [ids]|and|{COLUMN} [names]|of|{TABLE} [members]|who|are|{NE} [under age 30]|or|with|black|{COLUMN} [membership card]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "{NE}",
+            "or",
+            "with",
+            "black",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  member_id FROM member WHERE Membership_card  =  'Black' OR age  <  30"
+    },
+    {
+        "original_nl": "Find the purchase time, age and address of each member, and show the results in the order of purchase time.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [purchase]|{COLUMN_PART} [time]|{COLUMN} [age]|and|{COLUMN} [address]|of|each|{TABLE} [member]|and|show|the|consequence [results]|in|the|order|of|{COLUMN_PART} [purchase]|{COLUMN_PART} [time]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}",
+            "and",
+            "show",
+            "the",
+            "consequence",
+            "in",
+            "the",
+            "order",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Time_of_purchase ,  age ,  address FROM member ORDER BY Time_of_purchase"
+    },
+    {
+        "original_nl": "Which membership card has more than 5 members?",
+        "generalized_nl": "Which|{COLUMN} [membership card]|have [has]|{NUMBER} [more than 5]|{TABLE} [members]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Membership_card FROM member GROUP BY Membership_card HAVING count(*)  >  5"
+    },
+    {
+        "original_nl": "Which address has both members younger than 30 and members older than 40?",
+        "generalized_nl": "Which|{COLUMN} [address]|have [has]|both|{TABLE} [members]|young [younger]|than|{VALUE} [30]|and|{TABLE} [members]|old [older]|than|{VALUE} [40]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "both",
+            "{TABLE}",
+            "young",
+            "than",
+            "{VALUE}",
+            "and",
+            "{TABLE}",
+            "old",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT address FROM member WHERE age  <  30 INTERSECT SELECT address FROM member WHERE age  >  40"
+    },
+    {
+        "original_nl": "What is the membership card held by both members living in Hartford and ones living in Waterbury address?",
+        "generalized_nl": "What|is|the|{COLUMN} [membership card]|hold [held]|by|both|{TABLE} [members]|live [living]|in|{VALUE} [Hartford]|and|one [ones]|live [living]|in|{VALUE} [Waterbury]|{COLUMN} [address]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "hold",
+            "by",
+            "both",
+            "{TABLE}",
+            "live",
+            "in",
+            "{VALUE}",
+            "and",
+            "one",
+            "live",
+            "in",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT membership_card FROM member WHERE address  =  'Hartford' INTERSECT SELECT membership_card FROM member WHERE address  =  'Waterbury'"
+    },
+    {
+        "original_nl": "How many members are not living in Hartford?",
+        "generalized_nl": "How|many|{TABLE} [members]|are|not|live [living]|in|{VALUE} [Hartford]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "not",
+            "live",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) FROM member WHERE address != 'Hartford'"
+    },
+    {
+        "original_nl": "Which address do not have any member with the black membership card?",
+        "generalized_nl": "Which|{COLUMN} [address]|do|not|have|any|{TABLE} [member]|with|the|black|{COLUMN} [membership card]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}",
+            "with",
+            "the",
+            "black",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT address FROM member EXCEPT SELECT address FROM member WHERE Membership_card  =  'Black'"
+    },
+    {
+        "original_nl": "Show the shop addresses ordered by their opening year.",
+        "generalized_nl": "show [Show]|the|{TABLE} [shop]|{COLUMN} [addresses]|order [ordered]|by|{NE} [their opening year]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "order",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT address FROM shop ORDER BY open_year"
+    },
+    {
+        "original_nl": "What are the average score and average staff number of all shops?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [score]|and|average|{COLUMN_PART} [staff]|number|of|all|{TABLE} [shops]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "average",
+            "{COLUMN_PART}",
+            "number",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(num_of_staff) ,  avg(score) FROM shop"
+    },
+    {
+        "original_nl": "Find the id and address of the shops whose score is below the average score.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|and|{COLUMN} [address]|of|the|{TABLE} [shops]|whose|{COLUMN} [score]|is|below|the|average|{COLUMN} [score]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "below",
+            "the",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT shop_id ,  address FROM shop WHERE score  <  (SELECT avg(score) FROM shop)"
+    },
+    {
+        "original_nl": "Find the address and staff number of the shops that do not have any happy hour.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [address]|and|{COLUMN_PART} [staff]|number|of|the|{TABLE} [shops]|that|do|not|have|{NE} [any happy hour]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "number",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "{NE}"
+        ],
+        "original_sql": "SELECT address ,  num_of_staff FROM shop WHERE shop_id NOT IN (SELECT shop_id FROM happy_hour)"
+    },
+    {
+        "original_nl": "What are the id and address of the shops which have a happy hour in May?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [id]|and|{COLUMN} [address]|of|the|{TABLE} [shops]|which|have|{NE} [a happy hour]|in|{VALUE} [May]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "have",
+            "{NE}",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT t1.address ,  t1.shop_id FROM shop AS t1 JOIN happy_hour AS t2 ON t1.shop_id  =  t2.shop_id WHERE MONTH  =  'May'"
+    },
+    {
+        "original_nl": "Which month has the most happy hours?",
+        "generalized_nl": "Which|{COLUMN} [month]|have [has]|the|most|{TABLE} [happy hours]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT MONTH FROM happy_hour GROUP BY MONTH ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which months have more than 2 happy hours?",
+        "generalized_nl": "Which|{COLUMN} [months]|have|{NE} [more than 2 happy hours]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{NE}"
+        ],
+        "original_sql": "SELECT MONTH FROM happy_hour GROUP BY MONTH HAVING count(*)  >  2"
+    }
+]

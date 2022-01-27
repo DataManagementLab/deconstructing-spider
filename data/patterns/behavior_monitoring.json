@@ -1,0 +1,730 @@
+[
+    {
+        "original_nl": "How many assessment notes are there in total?",
+        "generalized_nl": "How|many|{TABLE} [assessment notes]|are|there|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM ASSESSMENT_NOTES"
+    },
+    {
+        "original_nl": "What are the dates of the assessment notes?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [dates]|of|the|{TABLE} [assessment notes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT date_of_notes FROM Assessment_Notes"
+    },
+    {
+        "original_nl": "How many addresses have zip code 197?",
+        "generalized_nl": "How|many|{TABLE} [addresses]|have|{COLUMN_PART} [zip]|{COLUMN_PART} [code]|{NUMBER} [197]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM ADDRESSES WHERE zip_postcode  =  \"197\""
+    },
+    {
+        "original_nl": "How many distinct incident type codes are there?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [incident type codes]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT incident_type_code) FROM Behavior_Incident"
+    },
+    {
+        "original_nl": "Return all distinct detention type codes.",
+        "generalized_nl": "return [Return]|all|distinct|{COLUMN} [detention type codes]",
+        "generalized_tokens": [
+            "return",
+            "all",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT detention_type_code FROM Detention"
+    },
+    {
+        "original_nl": "What are the start and end dates for incidents with incident type code \"NOISE\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [start]|and|{COLUMN_PART} [end]|{COLUMN_PART} [dates]|for|incident [incidents]|with|{COLUMN} [incident type code]|noise [NOISE]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "for",
+            "incident",
+            "with",
+            "{COLUMN}",
+            "noise"
+        ],
+        "original_sql": "SELECT date_incident_start ,  date_incident_end FROM Behavior_Incident WHERE incident_type_code  =  \"NOISE\""
+    },
+    {
+        "original_nl": "Return all detention summaries.",
+        "generalized_nl": "return [Return]|all|{COLUMN} [detention summaries]",
+        "generalized_tokens": [
+            "return",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT detention_summary FROM Detention"
+    },
+    {
+        "original_nl": "Return the cell phone number and email address for all students.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [cell]|telephone [phone]|{COLUMN_PART} [number]|and|{COLUMN} [email address]|for|all|{TABLE} [students]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "telephone",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT cell_mobile_number ,  email_address FROM STUDENTS"
+    },
+    {
+        "original_nl": "What is the email of the student with first name \"Emma\" and last name \"Rohan\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [email]|of|the|{TABLE} [student]|with|{COLUMN} [first name]|{NE} [Emma]|and|{COLUMN} [last name]|{NE} [Rohan]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT email_address FROM Students WHERE first_name  =  \"Emma\" AND last_name  =  \"Rohan\""
+    },
+    {
+        "original_nl": "How many distinct students have been in detention?",
+        "generalized_nl": "How|many|distinct|{TABLE} [students]|have|been|in|{TABLE} [detention]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{TABLE}",
+            "have",
+            "been",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT student_id) FROM Students_in_Detention"
+    },
+    {
+        "original_nl": "What is the gender of the teacher with last name \"Medhurst\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [gender]|of|the|{TABLE} [teacher]|with|{COLUMN} [last name]|{NE} [Medhurst]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT gender FROM TEACHERS WHERE last_name  =  \"Medhurst\""
+    },
+    {
+        "original_nl": "What is the incident type description for the incident type with code \"VIOLENCE\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [incident type description]|for|the|{COLUMN_PART} [incident]|{COLUMN_PART} [type]|with|{COLUMN_PART} [code]|violence [VIOLENCE]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "violence"
+        ],
+        "original_sql": "SELECT incident_type_description FROM Ref_Incident_Type WHERE incident_type_code  =  \"VIOLENCE\""
+    },
+    {
+        "original_nl": "Find the maximum and minimum monthly rental for all student addresses.",
+        "generalized_nl": "find [Find]|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [monthly rental]|for|all|{TABLE} [student]|{TABLE} [addresses]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(monthly_rental) ,  min(monthly_rental) FROM Student_Addresses"
+    },
+    {
+        "original_nl": "Find the first names of teachers whose email address contains the word \"man\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|{TABLE} [teachers]|whose|{COLUMN} [email address]|contain [contains]|the|word|man",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "word",
+            "man"
+        ],
+        "original_sql": "SELECT first_name FROM Teachers WHERE email_address LIKE '%man%'"
+    },
+    {
+        "original_nl": "List all information about the assessment notes sorted by date in ascending order.",
+        "generalized_nl": "list [List]|all|information|about|the|{TABLE} [assessment notes]|screen [sorted]|by|{COLUMN_PART} [date]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "information",
+            "about",
+            "the",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN_PART}",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT * FROM Assessment_Notes ORDER BY date_of_notes ASC"
+    },
+    {
+        "original_nl": "List all cities of addresses in alphabetical order.",
+        "generalized_nl": "list [List]|all|{COLUMN} [cities]|of|{TABLE} [addresses]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT city FROM Addresses ORDER BY city"
+    },
+    {
+        "original_nl": "Find the first names and last names of teachers in alphabetical order of last name.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|and|{COLUMN} [last names]|of|{TABLE} [teachers]|in|alphabetic [alphabetical]|order|of|{COLUMN} [last name]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT first_name ,  last_name FROM Teachers ORDER BY last_name"
+    },
+    {
+        "original_nl": "Find all information about student addresses, and sort by monthly rental in descending order.",
+        "generalized_nl": "find [Find]|all|information|about|{TABLE} [student]|{TABLE} [addresses]|and|sort|by|{COLUMN} [monthly rental]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "information",
+            "about",
+            "{TABLE}",
+            "{TABLE}",
+            "and",
+            "sort",
+            "by",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT * FROM Student_Addresses ORDER BY monthly_rental DESC"
+    },
+    {
+        "original_nl": "Find the id and first name of the student that has the most number of assessment notes?",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|and|{COLUMN} [first name]|of|the|{TABLE} [student]|that|have [has]|the|most|{COLUMN_PART} [number]|of|{TABLE} [assessment notes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.student_id ,  T2.first_name FROM Assessment_Notes AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the ids and first names of the 3 teachers that have the most number of assessment notes?",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [ids]|and|{COLUMN} [first names]|of|the|{COLUMN_PART} [3]|{TABLE} [teachers]|that|have|the|most|{COLUMN_PART} [number]|of|{TABLE} [assessment notes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.teacher_id ,  T2.first_name FROM Assessment_Notes AS T1 JOIN Teachers AS T2 ON T1.teacher_id  =  T2.teacher_id GROUP BY T1.teacher_id ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Find the id and last name of the student that has the most behavior incidents?",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|and|{COLUMN} [last name]|of|the|{TABLE} [student]|that|have [has]|the|most|{TABLE} [behavior incidents]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.student_id ,  T2.last_name FROM Behavior_Incident AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the id and last name of the teacher that has the most detentions with detention type code \"AFTER\"?",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|and|{COLUMN} [last name]|of|the|{TABLE} [teacher]|that|have [has]|the|most|{TABLE} [detentions]|with|{COLUMN} [detention type code]|subsequently [AFTER]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "subsequently"
+        ],
+        "original_sql": "SELECT T1.teacher_id ,  T2.last_name FROM Detention AS T1 JOIN Teachers AS T2 ON T1.teacher_id  =  T2.teacher_id WHERE T1.detention_type_code  =  \"AFTER\" GROUP BY T1.teacher_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the id and first name of the student whose addresses have the highest average monthly rental?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [id]|and|{COLUMN} [first name]|of|the|{TABLE} [student]|whose|{TABLE} [addresses]|have|the|high [highest]|average|{COLUMN} [monthly rental]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{TABLE}",
+            "have",
+            "the",
+            "high",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.student_id ,  T2.first_name FROM Student_Addresses AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id ORDER BY AVG(monthly_rental) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the id and city of the student address with the highest average monthly rental.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|and|{COLUMN} [city]|of|the|{TABLE} [student]|{TABLE} [address]|with|the|high [highest]|average|{COLUMN} [monthly rental]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.address_id ,  T1.city FROM Addresses AS T1 JOIN Student_Addresses AS T2 ON T1.address_id  =  T2.address_id GROUP BY T2.address_id ORDER BY AVG(monthly_rental) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the code and description of the most frequent behavior incident type?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [code]|and|{COLUMN_PART} [description]|of|the|most|frequent|{TABLE} [behavior incident]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "most",
+            "frequent",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.incident_type_code ,  T2.incident_type_description FROM Behavior_Incident AS T1 JOIN Ref_Incident_Type AS T2 ON T1.incident_type_code  =  T2.incident_type_code GROUP BY T1.incident_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the code and description of the least frequent detention type ?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [code]|and|{COLUMN_PART} [description]|of|the|least|frequent|{TABLE} [detention]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "least",
+            "frequent",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.detention_type_code ,  T2.detention_type_description FROM Detention AS T1 JOIN Ref_Detention_Type AS T2 ON T1.detention_type_code  =  T2.detention_type_code GROUP BY T1.detention_type_code ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the dates of assessment notes for students with first name \"Fanny\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [dates]|of|{TABLE} [assessment notes]|for|{TABLE} [students]|with|{COLUMN} [first name]|{NE} [Fanny]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.date_of_notes FROM Assessment_Notes AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id WHERE T2.first_name  =  \"Fanny\""
+    },
+    {
+        "original_nl": "Find the texts of assessment notes for teachers with last name \"Schuster\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [texts]|of|{TABLE} [assessment notes]|for|{TABLE} [teachers]|with|{COLUMN} [last name]|{NE} [Schuster]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.text_of_notes FROM Assessment_Notes AS T1 JOIN Teachers AS T2 ON T1.teacher_id  =  T2.teacher_id WHERE T2.last_name  =  \"Schuster\""
+    },
+    {
+        "original_nl": "Find the start and end dates of behavior incidents of students with last name \"Fahey\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [start]|and|{COLUMN_PART} [end]|{COLUMN_PART} [dates]|of|{TABLE} [behavior incidents]|of|{TABLE} [students]|with|{COLUMN} [last name]|{NE} [Fahey]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.date_incident_start ,  date_incident_end FROM Behavior_Incident AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id WHERE T2.last_name  =  \"Fahey\""
+    },
+    {
+        "original_nl": "Find the start and end dates of detentions of teachers with last name \"Schultz\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [start]|and|{COLUMN_PART} [end]|{COLUMN_PART} [dates]|of|{TABLE} [detentions]|of|{TABLE} [teachers]|with|{COLUMN} [last name]|{NE} [Schultz]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.datetime_detention_start ,  datetime_detention_end FROM Detention AS T1 JOIN Teachers AS T2 ON T1.teacher_id  =  T2.teacher_id WHERE T2.last_name  =  \"Schultz\""
+    },
+    {
+        "original_nl": "What are the id and zip code of the address with the highest monthly rental?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [id]|and|{COLUMN_PART} [zip]|{COLUMN_PART} [code]|of|the|{TABLE} [address]|with|the|high [highest]|{COLUMN} [monthly rental]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.address_id ,  T1.zip_postcode FROM Addresses AS T1 JOIN Student_Addresses AS T2 ON T1.address_id  =  T2.address_id ORDER BY monthly_rental DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the cell phone number of the student whose address has the lowest monthly rental?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [cell]|telephone [phone]|{COLUMN_PART} [number]|of|the|{TABLE} [student]|whose|{TABLE} [address]|have [has]|the|low [lowest]|{COLUMN} [monthly rental]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "telephone",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{TABLE}",
+            "have",
+            "the",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.cell_mobile_number FROM Student_Addresses AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id ORDER BY T1.monthly_rental ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the monthly rentals of student addresses in Texas state?",
+        "generalized_nl": "What|are|the|{COLUMN} [monthly rentals]|of|{TABLE} [student]|{TABLE} [addresses]|in|{NE} [Texas]|{COLUMN_PART} [state]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.monthly_rental FROM Addresses AS T1 JOIN Student_Addresses AS T2 ON T1.address_id  =  T2.address_id WHERE T1.state_province_county  =  \"Texas\""
+    },
+    {
+        "original_nl": "What are the first names and last names of students with address in Wisconsin state?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|and|{COLUMN} [last names]|of|{TABLE} [students]|with|{TABLE} [address]|in|{NE} [Wisconsin]|{COLUMN_PART} [state]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.first_name ,  T2.last_name FROM Addresses AS T1 JOIN Students AS T2 ON T1.address_id  =  T2.address_id WHERE T1.state_province_county  =  \"Wisconsin\""
+    },
+    {
+        "original_nl": "What are the line 1 and average monthly rentals of all student addresses?",
+        "generalized_nl": "What|are|the|{COLUMN} [line 1]|and|average|{COLUMN} [monthly rentals]|of|all|{TABLE} [student]|{TABLE} [addresses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.line_1 ,  avg(T2.monthly_rental) FROM Addresses AS T1 JOIN Student_Addresses AS T2 ON T1.address_id  =  T2.address_id GROUP BY T2.address_id"
+    },
+    {
+        "original_nl": "What is the zip code of the address where the teacher with first name \"Lyla\" lives?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [zip]|{COLUMN_PART} [code]|of|the|{TABLE} [address]|where|the|{TABLE} [teacher]|with|{COLUMN} [first name]|{NE} [Lyla]|live [lives]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "where",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "live"
+        ],
+        "original_sql": "SELECT T1.zip_postcode FROM Addresses AS T1 JOIN Teachers AS T2 ON T1.address_id  =  T2.address_id WHERE T2.first_name  =  \"Lyla\""
+    },
+    {
+        "original_nl": "What are the email addresses of teachers whose address has zip code \"918\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [email addresses]|of|{TABLE} [teachers]|whose|{TABLE} [address]|have [has]|{COLUMN_PART} [zip]|{COLUMN_PART} [code]|{NUMBER} [918]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{TABLE}",
+            "have",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.email_address FROM Addresses AS T1 JOIN Teachers AS T2 ON T1.address_id  =  T2.address_id WHERE T1.zip_postcode  =  \"918\""
+    },
+    {
+        "original_nl": "How many students are not involved in any behavior incident?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|not|involved|in|any|{TABLE} [behavior incident]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "not",
+            "involved",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM STUDENTS WHERE student_id NOT IN ( SELECT student_id FROM Behavior_Incident )"
+    },
+    {
+        "original_nl": "Find the last names of teachers who are not involved in any detention.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last names]|of|{TABLE} [teachers]|who|are|not|involved|in|any|{TABLE} [detention]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "involved",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT last_name FROM Teachers EXCEPT SELECT T1.last_name FROM Teachers AS T1 JOIN Detention AS T2 ON T1.teacher_id  =  T2.teacher_id"
+    },
+    {
+        "original_nl": "What are the line 1 of addresses shared by some students and some teachers?",
+        "generalized_nl": "What|are|the|{COLUMN} [line 1]|of|{TABLE} [addresses]|share [shared]|by|some|{TABLE} [students]|and|some|{TABLE} [teachers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "share",
+            "by",
+            "some",
+            "{TABLE}",
+            "and",
+            "some",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.line_1 FROM Addresses AS T1 JOIN Students AS T2 ON T1.address_id  =  T2.address_id INTERSECT SELECT T1.line_1 FROM Addresses AS T1 JOIN Teachers AS T2 ON T1.address_id  =  T2.address_id"
+    }
+]

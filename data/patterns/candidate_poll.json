@@ -1,0 +1,742 @@
+[
+    {
+        "original_nl": "How many candidates are there?",
+        "generalized_nl": "How|many|{TABLE} [candidates]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM candidate"
+    },
+    {
+        "original_nl": "Count the number of candidates.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [candidates]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM candidate"
+    },
+    {
+        "original_nl": "Which poll resource provided the most number of candidate information?",
+        "generalized_nl": "Which|{COLUMN_PART} [poll]|resource|provide [provided]|the|most|number|of|{TABLE} [candidate]|information",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "resource",
+            "provide",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}",
+            "information"
+        ],
+        "original_sql": "SELECT poll_source FROM candidate GROUP BY poll_source ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the poll resource associated with the most candidates.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [poll]|resource|associate [associated]|with|the|most|{TABLE} [candidates]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "resource",
+            "associate",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT poll_source FROM candidate GROUP BY poll_source ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "what are the top 3 highest support rates?",
+        "generalized_nl": "what|are|the|top|{VALUE} [3]|high [highest]|{COLUMN} [support rates]",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "the",
+            "top",
+            "{VALUE}",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT support_rate FROM candidate ORDER BY support_rate DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Return the top 3 greatest support rates.",
+        "generalized_nl": "return [Return]|the|top|{VALUE} [3]|great [greatest]|{COLUMN} [support rates]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "top",
+            "{VALUE}",
+            "great",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT support_rate FROM candidate ORDER BY support_rate DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Find the id of the candidate who got the lowest oppose rate.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|of|the|{TABLE} [candidate]|who|get [got]|the|low [lowest]|{COLUMN} [oppose rate]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "get",
+            "the",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Candidate_ID FROM candidate ORDER BY oppose_rate LIMIT 1"
+    },
+    {
+        "original_nl": "What is the id of the candidate with the lowest oppose rate?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|the|{TABLE} [candidate]|with|the|low [lowest]|{COLUMN} [oppose rate]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Candidate_ID FROM candidate ORDER BY oppose_rate LIMIT 1"
+    },
+    {
+        "original_nl": "Please list support, consider, and oppose rates for each candidate in ascending order by unsure rate.",
+        "generalized_nl": "Please|list|{COLUMN_PART} [support]|{COLUMN_PART} [consider]|and|{COLUMN} [oppose rates]|for|each|{TABLE} [candidate]|in|ascend [ascending]|order|by|{COLUMN} [unsure rate]",
+        "generalized_tokens": [
+            "Please",
+            "list",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Support_rate ,  Consider_rate ,  Oppose_rate FROM candidate ORDER BY unsure_rate"
+    },
+    {
+        "original_nl": "What are the support, consider, and oppose rates of each candidate, ordered ascending by their unsure rate?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [support]|{COLUMN_PART} [consider]|and|{COLUMN} [oppose rates]|of|each|{TABLE} [candidate]|order [ordered]|ascend [ascending]|by|their|{COLUMN} [unsure rate]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}",
+            "order",
+            "ascend",
+            "by",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Support_rate ,  Consider_rate ,  Oppose_rate FROM candidate ORDER BY unsure_rate"
+    },
+    {
+        "original_nl": "which poll source does the highest oppose rate come from?",
+        "generalized_nl": "which|{COLUMN} [poll source]|does|the|high [highest]|{COLUMN} [oppose rate]|come|from",
+        "generalized_tokens": [
+            "which",
+            "{COLUMN}",
+            "does",
+            "the",
+            "high",
+            "{COLUMN}",
+            "come",
+            "from"
+        ],
+        "original_sql": "SELECT poll_source FROM candidate ORDER BY oppose_rate DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the poll source corresponding to the candidate who has the oppose rate.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [poll source]|match [corresponding]|to|the|{TABLE} [candidate]|who|have [has]|the|{COLUMN} [oppose rate]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "match",
+            "to",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT poll_source FROM candidate ORDER BY oppose_rate DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List all people names in the order of their date of birth from old to young.",
+        "generalized_nl": "list [List]|all|{TABLE} [people]|{COLUMN} [names]|in|the|order|of|their|{COLUMN} [date of birth]|from|old|to|young",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "the",
+            "order",
+            "of",
+            "their",
+            "{COLUMN}",
+            "from",
+            "old",
+            "to",
+            "young"
+        ],
+        "original_sql": "SELECT name FROM people ORDER BY date_of_birth"
+    },
+    {
+        "original_nl": "What are the names of all people, ordered by their date of birth?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [people]|order [ordered]|by|their|{COLUMN} [date of birth]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "order",
+            "by",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM people ORDER BY date_of_birth"
+    },
+    {
+        "original_nl": "Find the average height and weight for all males (sex is M).",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [height]|and|{COLUMN} [weight]|for|all|male [males]|{COLUMN} [sex]|is|{VALUE} [M]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "male",
+            "{COLUMN}",
+            "is",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT avg(height) ,  avg(weight) FROM people WHERE sex  =  'M'"
+    },
+    {
+        "original_nl": "What are the average height and weight across males (sex is M)?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [height]|and|{COLUMN} [weight]|across|male [males]|{COLUMN} [sex]|is|{VALUE} [M]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "across",
+            "male",
+            "{COLUMN}",
+            "is",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT avg(height) ,  avg(weight) FROM people WHERE sex  =  'M'"
+    },
+    {
+        "original_nl": "find the names of people who are taller than 200 or lower than 190.",
+        "generalized_nl": "find|the|{COLUMN} [names]|of|{TABLE} [people]|who|are|tall [taller]|than|{VALUE} [200]|or|{NUMBER} [lower than 190]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "tall",
+            "than",
+            "{VALUE}",
+            "or",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT name FROM people WHERE height  >  200 OR height  <  190"
+    },
+    {
+        "original_nl": "What are the names of people who have a height greater than 200 or less than 190?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [people]|who|have|a|{COLUMN} [height]|great [greater]|than|{VALUE} [200]|or|less|than|{NUMBER} [190]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "a",
+            "{COLUMN}",
+            "great",
+            "than",
+            "{VALUE}",
+            "or",
+            "less",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT name FROM people WHERE height  >  200 OR height  <  190"
+    },
+    {
+        "original_nl": "Find the average and minimum weight for each gender.",
+        "generalized_nl": "find [Find]|the|average|and|minimal [minimum]|{COLUMN} [weight]|for|each|gender",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "for",
+            "each",
+            "gender"
+        ],
+        "original_sql": "SELECT avg(weight) ,  min(weight) ,  sex FROM people GROUP BY sex"
+    },
+    {
+        "original_nl": "What are the average and minimum weights for people of each sex?",
+        "generalized_nl": "What|are|the|average|and|minimal [minimum]|{COLUMN} [weights]|for|{TABLE} [people]|of|each|{COLUMN} [sex]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(weight) ,  min(weight) ,  sex FROM people GROUP BY sex"
+    },
+    {
+        "original_nl": "Find the name and gender of the candidate who got the highest support rate.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|gender|of|the|{TABLE} [candidate]|who|get [got]|the|high [highest]|{COLUMN} [support rate]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "gender",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "get",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.name ,  t1.sex FROM people AS t1 JOIN candidate AS t2 ON t1.people_id  =  t2.people_id ORDER BY t2.support_rate DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name and sex of the candidate with the highest support rate?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [sex]|of|the|{TABLE} [candidate]|with|the|high [highest]|{COLUMN} [support rate]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.name ,  t1.sex FROM people AS t1 JOIN candidate AS t2 ON t1.people_id  =  t2.people_id ORDER BY t2.support_rate DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the candidates whose oppose percentage is the lowest for each sex.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [candidates]|whose|{COLUMN_PART} [oppose]|percentage|is|the|low [lowest]|for|each|{COLUMN} [sex]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "percentage",
+            "is",
+            "the",
+            "low",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.name ,  t1.sex ,  min(oppose_rate) FROM people AS t1 JOIN candidate AS t2 ON t1.people_id  =  t2.people_id GROUP BY t1.sex"
+    },
+    {
+        "original_nl": "For each sex, what is the name and sex of the candidate with the oppose rate for their sex?",
+        "generalized_nl": "For|each|{COLUMN} [sex]|what|is|the|{COLUMN} [name]|and|{COLUMN} [sex]|of|the|{TABLE} [candidate]|with|the|{COLUMN} [oppose rate]|for|their|{COLUMN} [sex]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "what",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "for",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.name ,  t1.sex ,  min(oppose_rate) FROM people AS t1 JOIN candidate AS t2 ON t1.people_id  =  t2.people_id GROUP BY t1.sex"
+    },
+    {
+        "original_nl": "which gender got the highest average uncertain ratio.",
+        "generalized_nl": "which|gender|get [got]|the|high [highest]|average|uncertain|ratio",
+        "generalized_tokens": [
+            "which",
+            "gender",
+            "get",
+            "the",
+            "high",
+            "average",
+            "uncertain",
+            "ratio"
+        ],
+        "original_sql": "SELECT t1.sex FROM people AS t1 JOIN candidate AS t2 ON t1.people_id  =  t2.people_id GROUP BY t1.sex ORDER BY avg(t2.unsure_rate) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the sex of the candidate who had the highest unsure rate?",
+        "generalized_nl": "What|is|the|{COLUMN} [sex]|of|the|{TABLE} [candidate]|who|have [had]|the|high [highest]|{COLUMN} [unsure rate]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.sex FROM people AS t1 JOIN candidate AS t2 ON t1.people_id  =  t2.people_id GROUP BY t1.sex ORDER BY avg(t2.unsure_rate) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "what are the names of people who did not participate in the candidate election.",
+        "generalized_nl": "what|are|the|{COLUMN} [names]|of|{TABLE} [people]|who|did|not|participate|in|the|{TABLE} [candidate]|election",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "not",
+            "participate",
+            "in",
+            "the",
+            "{TABLE}",
+            "election"
+        ],
+        "original_sql": "SELECT name FROM people WHERE people_id NOT IN (SELECT people_id FROM candidate)"
+    },
+    {
+        "original_nl": "Give the names of people who did not participate in the candidate election.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [names]|of|{TABLE} [people]|who|did|not|participate|in|the|{TABLE} [candidate]|election",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "not",
+            "participate",
+            "in",
+            "the",
+            "{TABLE}",
+            "election"
+        ],
+        "original_sql": "SELECT name FROM people WHERE people_id NOT IN (SELECT people_id FROM candidate)"
+    },
+    {
+        "original_nl": "Find the names of the candidates whose support percentage is lower than their oppose rate.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|{TABLE} [candidates]|whose|{COLUMN_PART} [support]|percentage|is|low [lower]|than|their|{COLUMN} [oppose rate]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "percentage",
+            "is",
+            "low",
+            "than",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.name FROM people AS t1 JOIN candidate AS t2 ON t1.people_id  =  t2.people_id WHERE t2.support_rate  <  t2.oppose_rate"
+    },
+    {
+        "original_nl": "What are the names of candidates who have a lower support rate than oppose rate?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [candidates]|who|have|a|low [lower]|{COLUMN} [support rate]|than|{COLUMN} [oppose rate]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "a",
+            "low",
+            "{COLUMN}",
+            "than",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.name FROM people AS t1 JOIN candidate AS t2 ON t1.people_id  =  t2.people_id WHERE t2.support_rate  <  t2.oppose_rate"
+    },
+    {
+        "original_nl": "how many people are there whose weight is higher than 85 for each gender?",
+        "generalized_nl": "how|many|{TABLE} [people]|be [are]|there|whose|{COLUMN} [weight]|is|high [higher]|than|{VALUE} [85]|for|each|gender",
+        "generalized_tokens": [
+            "how",
+            "many",
+            "{TABLE}",
+            "be",
+            "there",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "high",
+            "than",
+            "{VALUE}",
+            "for",
+            "each",
+            "gender"
+        ],
+        "original_sql": "SELECT count(*) ,  sex FROM people WHERE weight  >  85 GROUP BY sex"
+    },
+    {
+        "original_nl": "Count the number of people of each sex who have a weight higher than 85.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [people]|of|each|{COLUMN} [sex]|who|have|a|{COLUMN} [weight]|high [higher]|than|{VALUE} [85]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "of",
+            "each",
+            "{COLUMN}",
+            "who",
+            "have",
+            "a",
+            "{COLUMN}",
+            "high",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) ,  sex FROM people WHERE weight  >  85 GROUP BY sex"
+    },
+    {
+        "original_nl": "find the highest support percentage, lowest consider rate and oppose rate of all candidates.",
+        "generalized_nl": "find|the|high [highest]|{COLUMN_PART} [support]|percentage|low [lowest]|{COLUMN} [consider rate]|and|{COLUMN} [oppose rate]|of|all|{TABLE} [candidates]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "high",
+            "{COLUMN_PART}",
+            "percentage",
+            "low",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(support_rate) ,  min(consider_rate) ,  min(oppose_rate) FROM candidate"
+    },
+    {
+        "original_nl": "Return the maximum support rate, minimum consider rate, and minimum oppose rate across all candidates?",
+        "generalized_nl": "return [Return]|the|maximal [maximum]|{COLUMN} [support rate]|minimal [minimum]|{COLUMN} [consider rate]|and|minimal [minimum]|{COLUMN} [oppose rate]|across|all|{TABLE} [candidates]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "minimal",
+            "{COLUMN}",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(support_rate) ,  min(consider_rate) ,  min(oppose_rate) FROM candidate"
+    },
+    {
+        "original_nl": "list all female (sex is F) candidate names in the alphabetical order.",
+        "generalized_nl": "list|all|female|{COLUMN} [sex]|is|{VALUE} [F]|{TABLE} [candidate]|{COLUMN} [names]|in|the|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "female",
+            "{COLUMN}",
+            "is",
+            "{VALUE}",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "the",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT t1.name FROM people AS t1 JOIN candidate AS t2 ON t1.people_id  =  t2.people_id WHERE t1.sex  =  'F' ORDER BY t1.name"
+    },
+    {
+        "original_nl": "What are the names of all female candidates in alphabetical order (sex is F)?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|female|{TABLE} [candidates]|in|alphabetic [alphabetical]|order|{COLUMN} [sex]|is|{VALUE} [F]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "female",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order",
+            "{COLUMN}",
+            "is",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT t1.name FROM people AS t1 JOIN candidate AS t2 ON t1.people_id  =  t2.people_id WHERE t1.sex  =  'F' ORDER BY t1.name"
+    },
+    {
+        "original_nl": "find the name of people whose height is lower than the average.",
+        "generalized_nl": "find|the|{COLUMN} [name]|of|{TABLE} [people]|whose|{COLUMN} [height]|is|low [lower]|than|the|average",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "low",
+            "than",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT name FROM people WHERE height  <  (SELECT avg(height) FROM people)"
+    },
+    {
+        "original_nl": "What are the names of people who are shorter than average?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [people]|who|are|short [shorter]|than|average",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "short",
+            "than",
+            "average"
+        ],
+        "original_sql": "SELECT name FROM people WHERE height  <  (SELECT avg(height) FROM people)"
+    },
+    {
+        "original_nl": "List all info about all people.",
+        "generalized_nl": "list [List]|all|information [info]|about|all|{TABLE} [people]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "information",
+            "about",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT * FROM people"
+    },
+    {
+        "original_nl": "What is all the information about all people?",
+        "generalized_nl": "What|is|all|the|information|about|all|{TABLE} [people]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "all",
+            "the",
+            "information",
+            "about",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT * FROM people"
+    }
+]

@@ -1,0 +1,6 @@
+inflect==4.1.0
+matplotlib==3.2.2
+nltk==3.5
+notebook==6.0.3
+sentence-transformers==0.2.6.1
+stanza==1.0.1

@@ -1,0 +1,282 @@
+[
+    {
+        "original_nl": "How many addresses are there in country USA?",
+        "generalized_nl": "How|many|{TABLE} [addresses]|are|there|in|{COLUMN} [country]|{NE} [USA]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM addresses WHERE country  =  'USA'"
+    },
+    {
+        "original_nl": "Show all distinct cities in the address record.",
+        "generalized_nl": "show [Show]|all|distinct|{COLUMN} [cities]|in|the|{TABLE} [address]|record",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "distinct",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{TABLE}",
+            "record"
+        ],
+        "original_sql": "SELECT DISTINCT city FROM addresses"
+    },
+    {
+        "original_nl": "Show each state and the number of addresses in each state.",
+        "generalized_nl": "show [Show]|each|{COLUMN_PART} [state]|and|the|{COLUMN_PART} [number]|of|{TABLE} [addresses]|in|each|{COLUMN_PART} [state]",
+        "generalized_tokens": [
+            "show",
+            "each",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT state_province_county ,  count(*) FROM addresses GROUP BY state_province_county"
+    },
+    {
+        "original_nl": "Show names and phones of customers who do not have address information.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [names]|and|{COLUMN_PART} [phones]|of|{TABLE} [customers]|who|do|not|have|{TABLE} [address]|information",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "have",
+            "{TABLE}",
+            "information"
+        ],
+        "original_sql": "SELECT customer_name ,  customer_phone FROM customers WHERE customer_id NOT IN (SELECT customer_id FROM customer_address_history)"
+    },
+    {
+        "original_nl": "Show the name of the customer who has the most orders.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|who|have [has]|the|most|order [orders]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "order"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN customer_orders AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the product type codes which have at least two products.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [product type codes]|which|have|{NUMBER} [at least two]|{TABLE} [products]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "which",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT product_type_code FROM products GROUP BY product_type_code HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the names of customers who have both an order in completed status and an order in part status.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|have|both|an|{COLUMN_PART} [order]|in|complete [completed]|{COLUMN_PART} [status]|and|an|{COLUMN_PART} [order]|in|part|{COLUMN_PART} [status]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "both",
+            "an",
+            "{COLUMN_PART}",
+            "in",
+            "complete",
+            "{COLUMN_PART}",
+            "and",
+            "an",
+            "{COLUMN_PART}",
+            "in",
+            "part",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN customer_orders AS T2 ON T1.customer_id  =  T2.customer_id WHERE T2.order_status_code  =  'Completed' INTERSECT SELECT T1.customer_name FROM customers AS T1 JOIN customer_orders AS T2 ON T1.customer_id  =  T2.customer_id WHERE T2.order_status_code  =  'Part'"
+    },
+    {
+        "original_nl": "Show the name, phone, and payment method code for all customers in descending order of customer number.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|{COLUMN_PART} [phone]|and|{COLUMN} [payment method code]|for|all|{TABLE} [customers]|in|descend [descending]|{COLUMN_PART} [order]|of|{COLUMN} [customer number]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "in",
+            "descend",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT customer_name ,  customer_phone ,  payment_method_code FROM customers ORDER BY customer_number DESC"
+    },
+    {
+        "original_nl": "Show the product name and total order quantity for each product.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [product name]|and|entire [total]|{COLUMN} [order quantity]|for|each|{TABLE} [product]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "entire",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.product_name ,  sum(T2.order_quantity) FROM products AS T1 JOIN order_items AS T2 ON T1.product_id  =  T2.product_id GROUP BY T1.product_id"
+    },
+    {
+        "original_nl": "Show the minimum, maximum, average price for all products.",
+        "generalized_nl": "show [Show]|the|minimal [minimum]|maximal [maximum]|average|{COLUMN_PART} [price]|for|all|{TABLE} [products]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "minimal",
+            "maximal",
+            "average",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT min(product_price) ,  max(product_price) ,  avg(product_price) FROM products"
+    },
+    {
+        "original_nl": "How many products have a price higher than the average?",
+        "generalized_nl": "How|many|{TABLE} [products]|have|a|{COLUMN_PART} [price]|high [higher]|than|the|average",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "a",
+            "{COLUMN_PART}",
+            "high",
+            "than",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT count(*) FROM products WHERE product_price  >  (SELECT avg(product_price) FROM products)"
+    },
+    {
+        "original_nl": "Show the customer name, customer address city, date from, and date to for each customer address history.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [customer name]|{COLUMN} [customer address]|{COLUMN} [city]|{COLUMN} [date from]|and|{COLUMN} [date to]|for|each|{COLUMN} [customer address]|history",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}",
+            "history"
+        ],
+        "original_sql": "SELECT T2.customer_name ,  T3.city ,  T1.date_from ,  T1.date_to FROM customer_address_history AS T1 JOIN customers AS T2 ON T1.customer_id  =  T2.customer_id JOIN addresses AS T3 ON T1.address_id  =  T3.address_id"
+    },
+    {
+        "original_nl": "Show the names of customers who use Credit Card payment method and have more than 2 orders.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|use|{NE} [Credit Card]|{COLUMN_PART} [payment]|{COLUMN_PART} [method]|and|have|{NUMBER} [more than 2]|order [orders]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "use",
+            "{NE}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "have",
+            "{NUMBER}",
+            "order"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN customer_orders AS T2 ON T1.customer_id  =  T2.customer_id WHERE T1.payment_method_code  =  'Credit Card' GROUP BY T1.customer_id HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "What are the name and phone of the customer with the most ordered product quantity?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [phone]|of|the|{TABLE} [customer]|with|the|most|order [ordered]|{TABLE} [product]|{COLUMN_PART} [quantity]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "order",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT  T1.customer_name ,  T1.customer_phone FROM customers AS T1 JOIN customer_orders AS T2 ON T1.customer_id  =  T2.customer_id JOIN order_items AS T3 ON T3.order_id  =  T2.order_id GROUP BY T1.customer_id ORDER BY sum(T3.order_quantity) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the product type and name for the products with price higher than 1000 or lower than 500.",
+        "generalized_nl": "show [Show]|the|{TABLE} [product]|{COLUMN_PART} [type]|and|{COLUMN_PART} [name]|for|the|{TABLE} [products]|with|{COLUMN_PART} [price]|high [higher]|than|{NUMBER} [1000]|or|{NUMBER} [lower than 500]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "high",
+            "than",
+            "{NUMBER}",
+            "or",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT product_type_code ,  product_name FROM products WHERE product_price  >  1000 OR product_price  <  500"
+    }
+]

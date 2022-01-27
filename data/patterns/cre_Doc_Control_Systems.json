@@ -1,0 +1,398 @@
+[
+    {
+        "original_nl": "What document status codes do we have?",
+        "generalized_nl": "What|{COLUMN} [document status codes]|do|we|have",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT document_status_code FROM Ref_Document_Status;"
+    },
+    {
+        "original_nl": "What is the description of document status code 'working'?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|of|{COLUMN} [document status code]|work [working]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "work"
+        ],
+        "original_sql": "SELECT document_status_description FROM Ref_Document_Status WHERE document_status_code = \"working\";"
+    },
+    {
+        "original_nl": "What document type codes do we have?",
+        "generalized_nl": "What|{COLUMN} [document type codes]|do|we|have",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT document_type_code FROM Ref_Document_Types;"
+    },
+    {
+        "original_nl": "What is the description of document type 'Paper'?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|of|{TABLE} [document]|{COLUMN_PART} [type]|paper [Paper]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "paper"
+        ],
+        "original_sql": "SELECT document_type_description FROM Ref_Document_Types WHERE document_type_code = \"Paper\";"
+    },
+    {
+        "original_nl": "What are the shipping agent names?",
+        "generalized_nl": "What|are|the|{COLUMN} [shipping agent names]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT shipping_agent_name FROM Ref_Shipping_Agents;"
+    },
+    {
+        "original_nl": "What is the shipping agent code of shipping agent UPS?",
+        "generalized_nl": "What|is|the|{COLUMN} [shipping agent code]|of|{COLUMN_PART} [shipping]|{COLUMN_PART} [agent]|{NE} [UPS]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT shipping_agent_code FROM Ref_Shipping_Agents WHERE shipping_agent_name = \"UPS\";"
+    },
+    {
+        "original_nl": "What are all role codes?",
+        "generalized_nl": "What|are|all|{COLUMN} [role codes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT role_code FROM ROLES;"
+    },
+    {
+        "original_nl": "What is the description of role code ED?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|of|{COLUMN} [role code]|ED",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "ED"
+        ],
+        "original_sql": "SELECT role_description FROM ROLES WHERE role_code = \"ED\";"
+    },
+    {
+        "original_nl": "How many employees do we have?",
+        "generalized_nl": "How|many|{TABLE} [employees]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Employees;"
+    },
+    {
+        "original_nl": "What is the role of the employee named Koby?",
+        "generalized_nl": "What|is|the|{TABLE} [role]|of|the|{TABLE} [employee]|name [named]|{NE} [Koby]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.role_description FROM ROLES AS T1 JOIN Employees AS T2 ON T1.role_code = T2.role_code WHERE T2.employee_name = \"Koby\";"
+    },
+    {
+        "original_nl": "List all document ids and receipt dates of documents.",
+        "generalized_nl": "list [List]|all|{COLUMN} [document ids]|and|{COLUMN} [receipt dates]|of|{TABLE} [documents]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT document_id ,  receipt_date FROM Documents;"
+    },
+    {
+        "original_nl": "What is the document status description of the document with id 1?",
+        "generalized_nl": "What|is|the|{COLUMN} [document status description]|of|the|{TABLE} [document]|with|{COLUMN_PART} [id]|{VALUE} [1]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Ref_Document_Status.document_status_description FROM Ref_Document_Status JOIN Documents ON Documents.document_status_code = Ref_Document_Status.document_status_code WHERE Documents.document_id = 1;"
+    },
+    {
+        "original_nl": "How many documents have the status code done?",
+        "generalized_nl": "How|many|{TABLE} [documents]|have|the|{COLUMN_PART} [status]|{COLUMN_PART} [code]|do [done]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "do"
+        ],
+        "original_sql": "SELECT count(*) FROM Documents WHERE document_status_code = \"done\";"
+    },
+    {
+        "original_nl": "List the document type code for the document with the id 2.",
+        "generalized_nl": "list [List]|the|{COLUMN} [document type code]|for|the|{TABLE} [document]|with|the|{COLUMN_PART} [id]|{VALUE} [2]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT document_type_code FROM Documents WHERE document_id = 2;"
+    },
+    {
+        "original_nl": "List the document ids for any documents with the status code done and the type code paper.",
+        "generalized_nl": "list [List]|the|{COLUMN} [document ids]|for|any|{TABLE} [documents]|with|the|{COLUMN_PART} [status]|{COLUMN_PART} [code]|do [done]|and|the|{COLUMN_PART} [type]|{COLUMN_PART} [code]|paper",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "for",
+            "any",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "do",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "paper"
+        ],
+        "original_sql": "SELECT document_id FROM Documents WHERE document_status_code = \"done\" AND document_type_code = \"Paper\";"
+    },
+    {
+        "original_nl": "What is the name of the shipping agent of the document with id 2?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{COLUMN_PART} [shipping]|{COLUMN_PART} [agent]|of|the|{TABLE} [document]|with|{COLUMN_PART} [id]|{VALUE} [2]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Ref_Shipping_Agents.shipping_agent_name FROM Ref_Shipping_Agents JOIN Documents ON Documents.shipping_agent_code = Ref_Shipping_Agents.shipping_agent_code WHERE Documents.document_id = 2;"
+    },
+    {
+        "original_nl": "How many documents were shipped by USPS?",
+        "generalized_nl": "How|many|{TABLE} [documents]|were|ship [shipped]|by|{NE} [USPS]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "were",
+            "ship",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Ref_Shipping_Agents JOIN Documents ON Documents.shipping_agent_code = Ref_Shipping_Agents.shipping_agent_code WHERE Ref_Shipping_Agents.shipping_agent_name = \"USPS\";"
+    },
+    {
+        "original_nl": "What is the receipt date of the document with id 3?",
+        "generalized_nl": "What|is|the|{COLUMN} [receipt date]|of|the|{TABLE} [document]|with|{COLUMN_PART} [id]|{NUMBER} [3]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT receipt_date FROM Documents WHERE document_id = 3;"
+    },
+    {
+        "original_nl": "What address was the document with id 4 mailed to?",
+        "generalized_nl": "What|{TABLE} [address]|was|the|{TABLE} [document]|with|{COLUMN_PART} [id]|{VALUE} [4]|{COLUMN_PART} [mailed]|to",
+        "generalized_tokens": [
+            "What",
+            "{TABLE}",
+            "was",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{VALUE}",
+            "{COLUMN_PART}",
+            "to"
+        ],
+        "original_sql": "SELECT Addresses.address_details FROM Addresses JOIN Documents_Mailed ON Documents_Mailed.mailed_to_address_id = Addresses.address_id WHERE document_id = 4;"
+    },
+    {
+        "original_nl": "What is the mail date of the document with id 7?",
+        "generalized_nl": "What|is|the|mail|{COLUMN_PART} [date]|of|the|{TABLE} [document]|with|{COLUMN_PART} [id]|{NUMBER} [7]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "mail",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT mailing_date FROM Documents_Mailed WHERE document_id = 7;"
+    },
+    {
+        "original_nl": "List the document ids of documents with the status done and type Paper, which not shipped by the shipping agent named USPS.",
+        "generalized_nl": "list [List]|the|{COLUMN} [document ids]|of|{TABLE} [documents]|with|the|{COLUMN_PART} [status]|do [done]|and|{COLUMN_PART} [type]|{NE} [Paper]|which|not|ship [shipped]|by|the|{COLUMN_PART} [shipping]|{COLUMN_PART} [agent]|name [named]|{NE} [USPS]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "do",
+            "and",
+            "{COLUMN_PART}",
+            "{NE}",
+            "which",
+            "not",
+            "ship",
+            "by",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT document_id FROM Documents WHERE document_status_code  =  \"done\" AND document_type_code = \"Paper\" EXCEPT SELECT document_id FROM Documents JOIN Ref_Shipping_Agents ON Documents.shipping_agent_code = Ref_Shipping_Agents.shipping_agent_code WHERE Ref_Shipping_Agents.shipping_agent_name = \"USPS\";"
+    },
+    {
+        "original_nl": "List document id of documents status is done and document type is Paper and the document is shipped by shipping agent named USPS.",
+        "generalized_nl": "list [List]|{COLUMN} [document id]|of|{TABLE} [documents]|{COLUMN_PART} [status]|is|do [done]|and|{TABLE} [document]|{COLUMN_PART} [type]|is|paper [Paper]|and|the|{TABLE} [document]|is|ship [shipped]|by|{COLUMN_PART} [shipping]|{COLUMN_PART} [agent]|name [named]|{NE} [USPS]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "is",
+            "do",
+            "and",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "is",
+            "paper",
+            "and",
+            "the",
+            "{TABLE}",
+            "is",
+            "ship",
+            "by",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT document_id FROM Documents WHERE document_status_code  =  \"done\" AND document_type_code = \"Paper\" INTERSECT SELECT document_id FROM Documents JOIN Ref_Shipping_Agents ON Documents.shipping_agent_code = Ref_Shipping_Agents.shipping_agent_code WHERE Ref_Shipping_Agents.shipping_agent_name = \"USPS\";"
+    },
+    {
+        "original_nl": "What is draft detail of the document with id 7?",
+        "generalized_nl": "What|is|{COLUMN} [draft detail]|of|the|{TABLE} [document]|with|{COLUMN_PART} [id]|{NUMBER} [7]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT draft_details FROM Document_Drafts WHERE document_id = 7;"
+    },
+    {
+        "original_nl": "How many draft copies does the document with id 2 have?",
+        "generalized_nl": "How|many|{TABLE} [draft copies]|does|the|{TABLE} [document]|with|{COLUMN_PART} [id]|{VALUE} [2]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{VALUE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Draft_Copies WHERE document_id = 2;"
+    }
+]

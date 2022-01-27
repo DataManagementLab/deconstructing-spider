@@ -1,0 +1,545 @@
+[
+    {
+        "original_nl": "How many technicians are there?",
+        "generalized_nl": "How|many|{TABLE} [technicians]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM technician"
+    },
+    {
+        "original_nl": "What is the number of technicians?",
+        "generalized_nl": "What|is|the|number|of|{TABLE} [technicians]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM technician"
+    },
+    {
+        "original_nl": "List the names of technicians in ascending order of age.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [technicians]|in|ascend [ascending]|order|of|{COLUMN} [age]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM technician ORDER BY Age ASC"
+    },
+    {
+        "original_nl": "What are the names of the technicians by ascending order of age?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [technicians]|by|ascend [ascending]|order|of|{COLUMN} [age]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "by",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM technician ORDER BY Age ASC"
+    },
+    {
+        "original_nl": "What are the team and starting year of technicians?",
+        "generalized_nl": "What|are|the|{COLUMN} [team]|and|{COLUMN} [starting year]|of|{TABLE} [technicians]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Team ,  Starting_Year FROM technician"
+    },
+    {
+        "original_nl": "What is the team and starting year for each technician?",
+        "generalized_nl": "What|is|the|{COLUMN} [team]|and|{COLUMN} [starting year]|for|each|{TABLE} [technician]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Team ,  Starting_Year FROM technician"
+    },
+    {
+        "original_nl": "List the name of technicians whose team is not \"NYY\".",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [technicians]|whose|{COLUMN} [team]|is|not|{VALUE} [NYY]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM technician WHERE Team != \"NYY\""
+    },
+    {
+        "original_nl": "What is the name of the technician whose team is not 'NYY'?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [technician]|whose|{COLUMN} [team]|is|not|{VALUE} [NYY]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM technician WHERE Team != \"NYY\""
+    },
+    {
+        "original_nl": "Show the name of technicians aged either 36 or 37",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|of|{TABLE} [technicians]|aged|either|{VALUE} [36]|or|{VALUE} [37]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "aged",
+            "either",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM technician WHERE Age  =  36 OR Age  =  37"
+    },
+    {
+        "original_nl": "What are the names of the technicians aged either 36 or 37?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [technicians]|age [aged]|either|{VALUE} [36]|or|{VALUE} [37]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "age",
+            "either",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM technician WHERE Age  =  36 OR Age  =  37"
+    },
+    {
+        "original_nl": "What is the starting year of the oldest technicians?",
+        "generalized_nl": "What|is|{NE} [the starting year]|of|the|old [oldest]|{TABLE} [technicians]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{NE}",
+            "of",
+            "the",
+            "old",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Starting_Year FROM technician ORDER BY Age DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the starting year for the oldest technician?",
+        "generalized_nl": "What|is|{NE} [the starting year]|for|the|old [oldest]|{TABLE} [technician]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{NE}",
+            "for",
+            "the",
+            "old",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Starting_Year FROM technician ORDER BY Age DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different teams of technicians and the number of technicians in each team.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [teams]|of|{TABLE} [technicians]|and|the|number|of|{TABLE} [technicians]|in|each|{COLUMN} [team]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Team ,  COUNT(*) FROM technician GROUP BY Team"
+    },
+    {
+        "original_nl": "For each team, how many technicians are there?",
+        "generalized_nl": "For|each|{COLUMN} [team]|how|many|{TABLE} [technicians]|are|there",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT Team ,  COUNT(*) FROM technician GROUP BY Team"
+    },
+    {
+        "original_nl": "Please show the team that has the most number of technicians.",
+        "generalized_nl": "Please|show|the|{COLUMN} [team]|that|have [has]|the|most|number|of|{TABLE} [technicians]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Team FROM technician GROUP BY Team ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the teams with the most technicians?",
+        "generalized_nl": "What|are|the|{COLUMN} [teams]|with|the|most|{TABLE} [technicians]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Team FROM technician GROUP BY Team ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the team that have at least two technicians.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [team]|that|have|{NUMBER} [at least two]|{TABLE} [technicians]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Team FROM technician GROUP BY Team HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "What is the team with at least 2 technicians?",
+        "generalized_nl": "What|is|the|{COLUMN} [team]|with|{NUMBER} [at least 2]|{TABLE} [technicians]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Team FROM technician GROUP BY Team HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Show names of technicians and series of machines they are assigned to repair.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [technicians]|and|{COLUMN_PART} [series]|of|{TABLE} [machines]|they|are|assign [assigned]|to|{TABLE} [repair]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "they",
+            "are",
+            "assign",
+            "to",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Name ,  T2.Machine_series FROM repair_assignment AS T1 JOIN machine AS T2 ON T1.machine_id  =  T2.machine_id JOIN technician AS T3 ON T1.technician_ID  =  T3.technician_ID"
+    },
+    {
+        "original_nl": "What are the names of technicians and the machine series that they repair?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [technicians]|and|the|{COLUMN} [machine series]|that|they|{TABLE} [repair]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "that",
+            "they",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Name ,  T2.Machine_series FROM repair_assignment AS T1 JOIN machine AS T2 ON T1.machine_id  =  T2.machine_id JOIN technician AS T3 ON T1.technician_ID  =  T3.technician_ID"
+    },
+    {
+        "original_nl": "Show names of technicians in ascending order of quality rank of the machine they are assigned.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [technicians]|in|ascend [ascending]|order|of|{COLUMN} [quality rank]|of|the|{TABLE} [machine]|they|are|assign [assigned]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "they",
+            "are",
+            "assign"
+        ],
+        "original_sql": "SELECT T3.Name FROM repair_assignment AS T1 JOIN machine AS T2 ON T1.machine_id  =  T2.machine_id JOIN technician AS T3 ON T1.technician_ID  =  T3.technician_ID ORDER BY T2.quality_rank"
+    },
+    {
+        "original_nl": "What are the names of the technicians by ascending order of quality rank for the machine they are assigned?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [technicians]|by|ascend [ascending]|order|of|{COLUMN} [quality rank]|for|the|{TABLE} [machine]|they|are|assign [assigned]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "by",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "they",
+            "are",
+            "assign"
+        ],
+        "original_sql": "SELECT T3.Name FROM repair_assignment AS T1 JOIN machine AS T2 ON T1.machine_id  =  T2.machine_id JOIN technician AS T3 ON T1.technician_ID  =  T3.technician_ID ORDER BY T2.quality_rank"
+    },
+    {
+        "original_nl": "Show names of technicians who are assigned to repair machines with value point more than 70.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [technicians]|who|are|assign [assigned]|to|{TABLE} [repair]|{TABLE} [machines]|with|{COLUMN} [value point]|{NUMBER} [more than 70]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "assign",
+            "to",
+            "{TABLE}",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T3.Name FROM repair_assignment AS T1 JOIN machine AS T2 ON T1.machine_id  =  T2.machine_id JOIN technician AS T3 ON T1.technician_ID  =  T3.technician_ID WHERE T2.value_points  >  70"
+    },
+    {
+        "original_nl": "What are the names of the technicians that are assigned to repair machines with more point values than 70?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [technicians]|that|are|assign [assigned]|to|{TABLE} [repair]|{TABLE} [machines]|with|more|{COLUMN_PART} [point]|value [values]|than|{NUMBER} [70]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "assign",
+            "to",
+            "{TABLE}",
+            "{TABLE}",
+            "with",
+            "more",
+            "{COLUMN_PART}",
+            "value",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T3.Name FROM repair_assignment AS T1 JOIN machine AS T2 ON T1.machine_id  =  T2.machine_id JOIN technician AS T3 ON T1.technician_ID  =  T3.technician_ID WHERE T2.value_points  >  70"
+    },
+    {
+        "original_nl": "Show names of technicians and the number of machines they are assigned to repair.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [technicians]|and|the|number|of|{TABLE} [machines]|they|are|assign [assigned]|to|{TABLE} [repair]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "they",
+            "are",
+            "assign",
+            "to",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name ,  COUNT(*) FROM repair_assignment AS T1 JOIN technician AS T2 ON T1.technician_ID  =  T2.technician_ID GROUP BY T2.Name"
+    },
+    {
+        "original_nl": "What are the names of the technicians  and how many machines are they assigned to repair?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [technicians]|and|how|many|{TABLE} [machines]|are|they|assign [assigned]|to|{TABLE} [repair]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "and",
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "they",
+            "assign",
+            "to",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name ,  COUNT(*) FROM repair_assignment AS T1 JOIN technician AS T2 ON T1.technician_ID  =  T2.technician_ID GROUP BY T2.Name"
+    },
+    {
+        "original_nl": "List the names of technicians who have not been assigned to repair machines.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [technicians]|who|have|not|been|assign [assigned]|to|{TABLE} [repair]|{TABLE} [machines]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "not",
+            "been",
+            "assign",
+            "to",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM technician WHERE technician_id NOT IN (SELECT technician_id FROM repair_assignment)"
+    },
+    {
+        "original_nl": "What are the names of the technicians that have not been assigned to repair machines?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [technicians]|that|have|not|been|assign [assigned]|to|{TABLE} [repair]|{TABLE} [machines]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "not",
+            "been",
+            "assign",
+            "to",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM technician WHERE technician_id NOT IN (SELECT technician_id FROM repair_assignment)"
+    },
+    {
+        "original_nl": "Show the starting years shared by technicians from team \"CLE\" and \"CWS\".",
+        "generalized_nl": "show [Show]|{NE} [the starting years]|share [shared]|by|{TABLE} [technicians]|from|{COLUMN} [team]|{VALUE} [CLE]|and|{VALUE} [CWS]",
+        "generalized_tokens": [
+            "show",
+            "{NE}",
+            "share",
+            "by",
+            "{TABLE}",
+            "from",
+            "{COLUMN}",
+            "{VALUE}",
+            "and",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Starting_Year FROM technician WHERE Team  =  \"CLE\" INTERSECT SELECT Starting_Year FROM technician WHERE Team  =  \"CWS\""
+    },
+    {
+        "original_nl": "What are the starting years shared by the technicians from the team \"CLE\" or \"CWS\"?",
+        "generalized_nl": "What|are|{NE} [the starting years]|share [shared]|by|the|{TABLE} [technicians]|from|the|{COLUMN} [team]|{VALUE} [CLE]|or|{VALUE} [CWS]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{NE}",
+            "share",
+            "by",
+            "the",
+            "{TABLE}",
+            "from",
+            "the",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Starting_Year FROM technician WHERE Team  =  \"CLE\" INTERSECT SELECT Starting_Year FROM technician WHERE Team  =  \"CWS\""
+    }
+]

@@ -1,0 +1,1062 @@
+[
+    {
+        "original_nl": "How many counties are there in total?",
+        "generalized_nl": "How|many|{TABLE} [counties]|are|there|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM county"
+    },
+    {
+        "original_nl": "Count the total number of counties.",
+        "generalized_nl": "count [Count]|the|entire [total]|number|of|{TABLE} [counties]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM county"
+    },
+    {
+        "original_nl": "Show the county name and population of all counties.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [county name]|and|{COLUMN} [population]|of|all|{TABLE} [counties]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT County_name ,  Population FROM county"
+    },
+    {
+        "original_nl": "What are the name and population of each county?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN} [population]|of|each|{TABLE} [county]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT County_name ,  Population FROM county"
+    },
+    {
+        "original_nl": "Show the average population of all counties.",
+        "generalized_nl": "show [Show]|the|average|{COLUMN} [population]|of|all|{TABLE} [counties]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Population) FROM county"
+    },
+    {
+        "original_nl": "On average how large is the population of the counties?",
+        "generalized_nl": "On|average|how|large|is|the|{COLUMN} [population]|of|the|{TABLE} [counties]",
+        "generalized_tokens": [
+            "On",
+            "average",
+            "how",
+            "large",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Population) FROM county"
+    },
+    {
+        "original_nl": "Return the maximum and minimum population among all counties.",
+        "generalized_nl": "return [Return]|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [population]|among|all|{TABLE} [counties]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "among",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Population) ,  min(Population) FROM county"
+    },
+    {
+        "original_nl": "What are the maximum and minimum population of the counties?",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [population]|of|the|{TABLE} [counties]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Population) ,  min(Population) FROM county"
+    },
+    {
+        "original_nl": "Show all the distinct districts for elections.",
+        "generalized_nl": "show [Show]|all|the|distinct|{COLUMN} [districts]|for|{TABLE} [elections]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT District FROM election"
+    },
+    {
+        "original_nl": "What are the distinct districts for elections?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [districts]|for|{TABLE} [elections]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT District FROM election"
+    },
+    {
+        "original_nl": "Show the zip code of the county with name \"Howard\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [zip code]|of|the|{TABLE} [county]|with|{COLUMN_PART} [name]|{VALUE} [Howard]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Zip_code FROM county WHERE County_name  =  \"Howard\""
+    },
+    {
+        "original_nl": "What is the zip code the county named \"Howard\" is located in?",
+        "generalized_nl": "What|is|the|{COLUMN} [zip code]|the|{TABLE} [county]|name [named]|{VALUE} [Howard]|is|locate [located]|in",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}",
+            "is",
+            "locate",
+            "in"
+        ],
+        "original_sql": "SELECT Zip_code FROM county WHERE County_name  =  \"Howard\""
+    },
+    {
+        "original_nl": "Show the delegate from district 1 in election.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [delegate]|from|{COLUMN} [district]|{VALUE} [1]|in|{TABLE} [election]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "from",
+            "{COLUMN}",
+            "{VALUE}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Delegate FROM election WHERE District  =  1"
+    },
+    {
+        "original_nl": "Who is the delegate of district 1 in the elections?",
+        "generalized_nl": "Who|is|the|{COLUMN} [delegate]|of|{COLUMN} [district]|{VALUE} [1]|in|the|{TABLE} [elections]",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "{VALUE}",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Delegate FROM election WHERE District  =  1"
+    },
+    {
+        "original_nl": "Show the delegate and committee information of elections.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [delegate]|and|{COLUMN} [committee]|information|of|{TABLE} [elections]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "information",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Delegate ,  Committee FROM election"
+    },
+    {
+        "original_nl": "What are the delegate and committee information for each election record?",
+        "generalized_nl": "What|are|the|{COLUMN} [delegate]|and|{COLUMN} [committee]|information|for|each|{TABLE} [election]|record",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "information",
+            "for",
+            "each",
+            "{TABLE}",
+            "record"
+        ],
+        "original_sql": "SELECT Delegate ,  Committee FROM election"
+    },
+    {
+        "original_nl": "How many distinct governors are there?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [governors]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT Governor) FROM party"
+    },
+    {
+        "original_nl": "Count the number of distinct governors.",
+        "generalized_nl": "count [Count]|the|number|of|distinct|{COLUMN} [governors]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT Governor) FROM party"
+    },
+    {
+        "original_nl": "Show the lieutenant governor and comptroller from the democratic party.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [lieutenant governor]|and|{COLUMN} [comptroller]|from|the|democratic|{COLUMN} [party]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "from",
+            "the",
+            "democratic",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Lieutenant_Governor ,  Comptroller FROM party WHERE Party  =  \"Democratic\""
+    },
+    {
+        "original_nl": "Who are the lieutenant governor and comptroller from the democratic party?",
+        "generalized_nl": "Who|are|the|{COLUMN} [lieutenant governor]|and|{COLUMN} [comptroller]|from|{NE} [the democratic party]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Lieutenant_Governor ,  Comptroller FROM party WHERE Party  =  \"Democratic\""
+    },
+    {
+        "original_nl": "In which distinct years was the governor \"Eliot Spitzer\"?",
+        "generalized_nl": "In|{NE} [which distinct years]|was|the|{COLUMN} [governor]|{VALUE} [Eliot Spitzer]",
+        "generalized_tokens": [
+            "In",
+            "{NE}",
+            "was",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT YEAR FROM party WHERE Governor  =  \"Eliot Spitzer\""
+    },
+    {
+        "original_nl": "Find the distinct years when the governor was named \"Eliot Spitzer\".",
+        "generalized_nl": "find [Find]|{NE} [the distinct years]|when|the|{COLUMN} [governor]|was|name [named]|{VALUE} [Eliot Spitzer]",
+        "generalized_tokens": [
+            "find",
+            "{NE}",
+            "when",
+            "the",
+            "{COLUMN}",
+            "was",
+            "name",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT YEAR FROM party WHERE Governor  =  \"Eliot Spitzer\""
+    },
+    {
+        "original_nl": "Show all the information about election.",
+        "generalized_nl": "show [Show]|all|the|information|about|{TABLE} [election]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "the",
+            "information",
+            "about",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT * FROM election"
+    },
+    {
+        "original_nl": "Return all the information for each election record.",
+        "generalized_nl": "return [Return]|all|the|information|for|each|{TABLE} [election]|record",
+        "generalized_tokens": [
+            "return",
+            "all",
+            "the",
+            "information",
+            "for",
+            "each",
+            "{TABLE}",
+            "record"
+        ],
+        "original_sql": "SELECT * FROM election"
+    },
+    {
+        "original_nl": "Show the delegates and the names of county they belong to.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [delegates]|and|the|{COLUMN_PART} [names]|of|{TABLE} [county]|they|belong|to",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "they",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T2.Delegate ,  T1.County_name FROM county AS T1 JOIN election AS T2 ON T1.County_id  =  T2.District"
+    },
+    {
+        "original_nl": "What are the delegate and name of the county they belong to, for each county?",
+        "generalized_nl": "What|are|the|{COLUMN} [delegate]|and|{COLUMN_PART} [name]|of|the|{TABLE} [county]|they|belong|to|for|each|{TABLE} [county]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "they",
+            "belong",
+            "to",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Delegate ,  T1.County_name FROM county AS T1 JOIN election AS T2 ON T1.County_id  =  T2.District"
+    },
+    {
+        "original_nl": "Which delegates are from counties with population smaller than 100000?",
+        "generalized_nl": "Which|{COLUMN} [delegates]|are|from|{TABLE} [counties]|with|{COLUMN} [population]|small [smaller]|than|{NUMBER} [100000]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "are",
+            "from",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "small",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Delegate FROM county AS T1 JOIN election AS T2 ON T1.County_id  =  T2.District WHERE T1.Population  <  100000"
+    },
+    {
+        "original_nl": "Find the delegates who are from counties with population below 100000.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [delegates]|who|are|from|{TABLE} [counties]|with|{COLUMN} [population]|below|{NUMBER} [100000]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "who",
+            "are",
+            "from",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "below",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Delegate FROM county AS T1 JOIN election AS T2 ON T1.County_id  =  T2.District WHERE T1.Population  <  100000"
+    },
+    {
+        "original_nl": "How many distinct delegates are from counties with population larger than 50000?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [delegates]|are|from|{TABLE} [counties]|with|{COLUMN} [population]|{NUMBER} [larger than 50000]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "from",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(DISTINCT T2.Delegate) FROM county AS T1 JOIN election AS T2 ON T1.County_id  =  T2.District WHERE T1.Population  >  50000"
+    },
+    {
+        "original_nl": "Count the number of distinct delegates who are from counties with population above 50000.",
+        "generalized_nl": "count [Count]|the|number|of|distinct|{COLUMN} [delegates]|who|are|from|{TABLE} [counties]|with|{COLUMN} [population]|above|{NUMBER} [50000]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{COLUMN}",
+            "who",
+            "are",
+            "from",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(DISTINCT T2.Delegate) FROM county AS T1 JOIN election AS T2 ON T1.County_id  =  T2.District WHERE T1.Population  >  50000"
+    },
+    {
+        "original_nl": "What are the names of the county that the delegates on \"Appropriations\" committee belong to?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [county]|that|the|{COLUMN} [delegates]|on|{VALUE} [Appropriations]|{COLUMN} [committee]|belong|to",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "the",
+            "{COLUMN}",
+            "on",
+            "{VALUE}",
+            "{COLUMN}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T1.County_name FROM county AS T1 JOIN election AS T2 ON T1.County_id  =  T2.District WHERE T2.Committee  =  \"Appropriations\""
+    },
+    {
+        "original_nl": "Show the delegates and the names of the party they belong to.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [delegates]|and|the|{COLUMN_PART} [names]|of|the|{COLUMN} [party]|they|belong|to",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "they",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T1.Delegate ,  T2.Party FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID"
+    },
+    {
+        "original_nl": "For each delegate, find the names of the party they are part of.",
+        "generalized_nl": "For|each|{COLUMN} [delegate]|find|the|{COLUMN_PART} [names]|of|the|{COLUMN} [party]|they|are|part|of",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "they",
+            "are",
+            "part",
+            "of"
+        ],
+        "original_sql": "SELECT T1.Delegate ,  T2.Party FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID"
+    },
+    {
+        "original_nl": "Who were the governors of the parties associated with delegates from district 1?",
+        "generalized_nl": "Who|were|the|{COLUMN} [governors]|of|the|{COLUMN} [parties]|associate [associated]|with|{COLUMN} [delegates]|from|{COLUMN} [district]|{VALUE} [1]",
+        "generalized_tokens": [
+            "Who",
+            "were",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "{COLUMN}",
+            "from",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.Governor FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T1.District  =  1"
+    },
+    {
+        "original_nl": "Who were the comptrollers of the parties associated with the delegates from district 1 or district 2?",
+        "generalized_nl": "Who|were|the|{COLUMN} [comptrollers]|of|the|{COLUMN} [parties]|associate [associated]|with|the|{COLUMN} [delegates]|from|{COLUMN} [district]|{VALUE} [1]|or|{COLUMN} [district]|{VALUE} [2]",
+        "generalized_tokens": [
+            "Who",
+            "were",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "the",
+            "{COLUMN}",
+            "from",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.Comptroller FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T1.District  =  1 OR T1.District  =  2"
+    },
+    {
+        "original_nl": "Return all the committees that have delegates from Democratic party.",
+        "generalized_nl": "return [Return]|all|the|{COLUMN} [committees]|that|have|{COLUMN} [delegates]|from|{VALUE} [Democratic]|{COLUMN} [party]",
+        "generalized_tokens": [
+            "return",
+            "all",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "from",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Committee FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T2.Party  =  \"Democratic\""
+    },
+    {
+        "original_nl": "Which committees have delegates from the Democratic party?",
+        "generalized_nl": "Which|{COLUMN} [committees]|have|{COLUMN} [delegates]|from|{NE} [the Democratic party]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{COLUMN}",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.Committee FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T2.Party  =  \"Democratic\""
+    },
+    {
+        "original_nl": "Show the name of each county along with the corresponding number of delegates from that county.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|of|each|{TABLE} [county]|along|with|the|match [corresponding]|number|of|{COLUMN} [delegates]|from|that|{TABLE} [county]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "along",
+            "with",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{COLUMN}",
+            "from",
+            "that",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.County_name ,  COUNT(*) FROM county AS T1 JOIN election AS T2 ON T1.County_id  =  T2.District GROUP BY T1.County_id"
+    },
+    {
+        "original_nl": "For each county, find the name of the county and the number of delegates from that county.",
+        "generalized_nl": "For|each|{TABLE} [county]|find|the|{COLUMN_PART} [name]|of|the|{TABLE} [county]|and|the|number|of|{COLUMN} [delegates]|from|that|{TABLE} [county]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "from",
+            "that",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.County_name ,  COUNT(*) FROM county AS T1 JOIN election AS T2 ON T1.County_id  =  T2.District GROUP BY T1.County_id"
+    },
+    {
+        "original_nl": "Show the name of each party and the corresponding number of delegates from that party.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|of|each|{COLUMN} [party]|and|the|match [corresponding]|number|of|{COLUMN} [delegates]|from|that|{COLUMN} [party]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{COLUMN}",
+            "from",
+            "that",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Party ,  COUNT(*) FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID GROUP BY T1.Party"
+    },
+    {
+        "original_nl": "For each party, return the name of the party and the number of delegates from that party.",
+        "generalized_nl": "For|each|{COLUMN} [party]|return|the|{COLUMN_PART} [name]|of|the|{COLUMN} [party]|and|the|number|of|{COLUMN} [delegates]|from|that|{COLUMN} [party]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "from",
+            "that",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Party ,  COUNT(*) FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID GROUP BY T1.Party"
+    },
+    {
+        "original_nl": "Return the names of all counties sorted by population in ascending order.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [names]|of|all|{TABLE} [counties]|screen [sorted]|by|{COLUMN} [population]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT County_name FROM county ORDER BY Population ASC"
+    },
+    {
+        "original_nl": "Sort the names of all counties in ascending order of population.",
+        "generalized_nl": "screen [Sort]|the|{COLUMN_PART} [names]|of|all|{TABLE} [counties]|in|ascend [ascending]|order|of|{COLUMN} [population]",
+        "generalized_tokens": [
+            "screen",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT County_name FROM county ORDER BY Population ASC"
+    },
+    {
+        "original_nl": "Return the names of all counties sorted by county name in descending alphabetical order.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [names]|of|all|{TABLE} [counties]|screen [sorted]|by|{COLUMN} [county name]|in|descend [descending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT County_name FROM county ORDER BY County_name DESC"
+    },
+    {
+        "original_nl": "Sort the names of all counties in descending alphabetical order.",
+        "generalized_nl": "screen [Sort]|the|{COLUMN_PART} [names]|of|all|{TABLE} [counties]|in|descend [descending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "screen",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "descend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT County_name FROM county ORDER BY County_name DESC"
+    },
+    {
+        "original_nl": "Show the name of the county with the biggest population.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|of|the|{TABLE} [county]|with|the|big [biggest]|{COLUMN} [population]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "big",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT County_name FROM county ORDER BY Population DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the 3 counties with the smallest population.",
+        "generalized_nl": "show [Show]|the|{VALUE} [3]|{TABLE} [counties]|with|the|small [smallest]|{COLUMN} [population]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{VALUE}",
+            "{TABLE}",
+            "with",
+            "the",
+            "small",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT County_name FROM county ORDER BY Population ASC LIMIT 3"
+    },
+    {
+        "original_nl": "Show the names of counties that have at least two delegates.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [counties]|that|have|{NUMBER} [at least two]|{COLUMN} [delegates]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.County_name FROM county AS T1 JOIN election AS T2 ON T1.County_id  =  T2.District GROUP BY T1.County_id HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the name of the party that has at least two records.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|of|the|{COLUMN} [party]|that|have [has]|{NUMBER} [at least two]|record [records]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "record"
+        ],
+        "original_sql": "SELECT Party FROM party GROUP BY Party HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Which party has two or more records?",
+        "generalized_nl": "Which|{COLUMN} [party]|have [has]|{NUMBER} [two]|or|more|record [records]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{NUMBER}",
+            "or",
+            "more",
+            "record"
+        ],
+        "original_sql": "SELECT Party FROM party GROUP BY Party HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the name of the party that has the most delegates.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|of|the|{COLUMN} [party]|that|have [has]|the|most|{COLUMN} [delegates]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Party FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID GROUP BY T1.Party ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which party has the largest number of delegates?",
+        "generalized_nl": "Which|{COLUMN} [party]|have [has]|the|large [largest]|number|of|{COLUMN} [delegates]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Party FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID GROUP BY T1.Party ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the people that have been governor the most times.",
+        "generalized_nl": "show [Show]|the|people|that|have|been|{COLUMN} [governor]|the|most|time [times]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "people",
+            "that",
+            "have",
+            "been",
+            "{COLUMN}",
+            "the",
+            "most",
+            "time"
+        ],
+        "original_sql": "SELECT Governor FROM party GROUP BY Governor ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which people severed as governor most frequently?",
+        "generalized_nl": "Which|people|sever [severed]|as|{COLUMN} [governor]|most|frequently",
+        "generalized_tokens": [
+            "Which",
+            "people",
+            "sever",
+            "as",
+            "{COLUMN}",
+            "most",
+            "frequently"
+        ],
+        "original_sql": "SELECT Governor FROM party GROUP BY Governor ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the people that have been comptroller the most times and the corresponding number of times.",
+        "generalized_nl": "show [Show]|the|people|that|have|been|{COLUMN} [comptroller]|the|most|time [times]|and|the|match [corresponding]|number|of|time [times]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "people",
+            "that",
+            "have",
+            "been",
+            "{COLUMN}",
+            "the",
+            "most",
+            "time",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "time"
+        ],
+        "original_sql": "SELECT Comptroller ,  COUNT(*) FROM party GROUP BY Comptroller ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the names of parties that do not have delegates in election?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{COLUMN} [parties]|that|do|not|have|{COLUMN} [delegates]|in|{TABLE} [election]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Party FROM party WHERE Party_ID NOT IN (SELECT Party FROM election)"
+    },
+    {
+        "original_nl": "Which parties did not have any delegates in elections?",
+        "generalized_nl": "Which|{COLUMN} [parties]|did|not|have|any|{COLUMN} [delegates]|in|{TABLE} [elections]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "did",
+            "not",
+            "have",
+            "any",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Party FROM party WHERE Party_ID NOT IN (SELECT Party FROM election)"
+    },
+    {
+        "original_nl": "What are the names of parties that have both delegates on \"Appropriations\" committee and",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{COLUMN} [parties]|that|have|both|{COLUMN} [delegates]|on|{VALUE} [Appropriations]|{COLUMN} [committee]|and",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{COLUMN}",
+            "on",
+            "{VALUE}",
+            "{COLUMN}",
+            "and"
+        ],
+        "original_sql": "SELECT T2.Party FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T1.Committee  =  \"Appropriations\" INTERSECT SELECT T2.Party FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T1.Committee  =  \"Economic Matters\""
+    },
+    {
+        "original_nl": "Which parties have delegates in both the \"Appropriations\" committee and the \"Economic Matters\" committee?",
+        "generalized_nl": "Which|{COLUMN} [parties]|have|{COLUMN} [delegates]|in|both|the|{VALUE} [Appropriations]|{COLUMN} [committee]|and|{NE} [the \" Economic Matters \"]|{COLUMN} [committee]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{COLUMN}",
+            "in",
+            "both",
+            "the",
+            "{VALUE}",
+            "{COLUMN}",
+            "and",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Party FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T1.Committee  =  \"Appropriations\" INTERSECT SELECT T2.Party FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T1.Committee  =  \"Economic Matters\""
+    },
+    {
+        "original_nl": "Which committees have delegates from both democratic party and liberal party?",
+        "generalized_nl": "Which|{COLUMN} [committees]|have|{COLUMN} [delegates]|from|both|democratic|{COLUMN} [party]|and|liberal|{COLUMN} [party]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{COLUMN}",
+            "from",
+            "both",
+            "democratic",
+            "{COLUMN}",
+            "and",
+            "liberal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Committee FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T2.Party  =  \"Democratic\" INTERSECT SELECT T1.Committee FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T2.Party  =  \"Liberal\""
+    },
+    {
+        "original_nl": "Find the committees that have delegates both from from the democratic party and the liberal party.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [committees]|that|have|{COLUMN} [delegates]|both|from|from|the|democratic|{COLUMN} [party]|and|the|liberal|{COLUMN} [party]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "both",
+            "from",
+            "from",
+            "the",
+            "democratic",
+            "{COLUMN}",
+            "and",
+            "the",
+            "liberal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Committee FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T2.Party  =  \"Democratic\" INTERSECT SELECT T1.Committee FROM election AS T1 JOIN party AS T2 ON T1.Party  =  T2.Party_ID WHERE T2.Party  =  \"Liberal\""
+    }
+]

@@ -1,0 +1,317 @@
+[
+    {
+        "original_nl": "How many furniture components are there in total?",
+        "generalized_nl": "How|many|{TABLE} [furniture]|component [components]|are|there|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "component",
+            "are",
+            "there",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT sum(num_of_component) FROM furniture"
+    },
+    {
+        "original_nl": "Return the name and id of the furniture with the highest market rate.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [name]|and|{COLUMN_PART} [id]|of|the|{TABLE} [furniture]|with|the|high [highest]|{COLUMN} [market rate]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  furniture_id FROM furniture ORDER BY market_rate DESC LIMIT 1"
+    },
+    {
+        "original_nl": "find the total market rate of the furnitures that have the top 2 market shares.",
+        "generalized_nl": "find|the|entire [total]|{COLUMN} [market rate]|of|the|{TABLE} [furnitures]|that|have|the|top|{VALUE} [2]|{COLUMN_PART} [market]|share [shares]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "top",
+            "{VALUE}",
+            "{COLUMN_PART}",
+            "share"
+        ],
+        "original_sql": "SELECT sum(market_rate) FROM furniture ORDER BY market_rate DESC LIMIT 2"
+    },
+    {
+        "original_nl": "Find the component amounts and names of all furnitures that have more than 10 components.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [component]|sum [amounts]|and|{COLUMN} [names]|of|all|{TABLE} [furnitures]|that|have|{NUMBER} [more than 10]|component [components]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "sum",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "component"
+        ],
+        "original_sql": "SELECT Num_of_Component ,  name FROM furniture WHERE Num_of_Component  >  10"
+    },
+    {
+        "original_nl": "Find the name and component amount of the least popular furniture.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN_PART} [component]|sum [amount]|of|the|least|popular|{TABLE} [furniture]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "sum",
+            "of",
+            "the",
+            "least",
+            "popular",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  Num_of_Component FROM furniture ORDER BY market_rate LIMIT 1"
+    },
+    {
+        "original_nl": "Find the names of furnitures whose prices are lower than the highest price.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [furnitures]|whose|{COLUMN_PART} [prices]|are|low [lower]|than|the|high [highest]|{COLUMN_PART} [price]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "are",
+            "low",
+            "than",
+            "the",
+            "high",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.name FROM furniture AS t1 JOIN furniture_manufacte AS t2 ON t1.Furniture_ID  =  t2.Furniture_ID WHERE t2.Price_in_Dollar  <  (SELECT max(Price_in_Dollar) FROM furniture_manufacte)"
+    },
+    {
+        "original_nl": "Find the average number of factories for the manufacturers that have more than 20 shops.",
+        "generalized_nl": "find [Find]|the|average|number|of|{COLUMN_PART} [factories]|for|the|{TABLE} [manufacturers]|that|have|{NUMBER} [more than 20]|{COLUMN_PART} [shops]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(Num_of_Factories) FROM manufacturer WHERE num_of_shops  >  20"
+    },
+    {
+        "original_nl": "List all manufacturer names and ids ordered by their opening year.",
+        "generalized_nl": "list [List]|all|{TABLE} [manufacturer]|{COLUMN} [names]|and|{COLUMN_PART} [ids]|order [ordered]|by|{NE} [their opening year]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "order",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name ,  manufacturer_id FROM manufacturer ORDER BY open_year"
+    },
+    {
+        "original_nl": "Give me the name and year of opening of the manufacturers that have either less than 10 factories or more than 10 shops.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN} [name]|and|{COLUMN_PART} [year]|of|opening|of|the|{TABLE} [manufacturers]|that|have|either|{NUMBER} [less than 10]|{COLUMN_PART} [factories]|or|{NUMBER} [more than 10]|{COLUMN_PART} [shops]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "opening",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "either",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "or",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT name ,  open_year FROM manufacturer WHERE num_of_shops  >  10 OR Num_of_Factories  <  10"
+    },
+    {
+        "original_nl": "what is the average number of factories and maximum number of shops for manufacturers that opened before 1990.",
+        "generalized_nl": "what|is|the|average|number|of|{COLUMN_PART} [factories]|and|maximal [maximum]|number|of|{COLUMN_PART} [shops]|for|{TABLE} [manufacturers]|that|open [opened]|before|{VALUE} [1990]",
+        "generalized_tokens": [
+            "what",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "and",
+            "maximal",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "that",
+            "open",
+            "before",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT max(num_of_shops) ,  avg(Num_of_Factories) FROM manufacturer WHERE open_year  <  1990"
+    },
+    {
+        "original_nl": "Find the id and number of shops for the company that produces the most expensive furniture.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|and|number|of|{COLUMN_PART} [shops]|for|the|company|that|produce [produces]|the|most|expensive|{TABLE} [furniture]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "company",
+            "that",
+            "produce",
+            "the",
+            "most",
+            "expensive",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.manufacturer_id ,  t1.num_of_shops FROM manufacturer AS t1 JOIN furniture_manufacte AS t2 ON t1.manufacturer_id  =  t2.manufacturer_id ORDER BY t2.Price_in_Dollar DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the number of funiture types produced by each manufacturer as well as the company names.",
+        "generalized_nl": "find [Find]|the|number|of|funiture|type [types]|produce [produced]|by|each|{TABLE} [manufacturer]|equally [as]|well|as|the|company|{COLUMN} [names]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "funiture",
+            "type",
+            "produce",
+            "by",
+            "each",
+            "{TABLE}",
+            "equally",
+            "well",
+            "as",
+            "the",
+            "company",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  t1.name FROM manufacturer AS t1 JOIN furniture_manufacte AS t2 ON t1.manufacturer_id  =  t2.manufacturer_id GROUP BY t1.manufacturer_id"
+    },
+    {
+        "original_nl": "Give me the names and prices of furnitures which some companies are manufacturing.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN} [names]|and|{COLUMN_PART} [prices]|of|{TABLE} [furnitures]|which|some|company [companies]|are|manufacture [manufacturing]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "which",
+            "some",
+            "company",
+            "are",
+            "manufacture"
+        ],
+        "original_sql": "SELECT t1.name ,  t2.price_in_dollar FROM furniture AS t1 JOIN furniture_manufacte AS t2 ON t1.Furniture_ID  =  t2.Furniture_ID"
+    },
+    {
+        "original_nl": "Find the market shares and names of furnitures which no any company is producing in our records.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [market]|share [shares]|and|{COLUMN} [names]|of|{TABLE} [furnitures]|which|no|any|company|is|produce [producing]|in|our|record [records]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "share",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "which",
+            "no",
+            "any",
+            "company",
+            "is",
+            "produce",
+            "in",
+            "our",
+            "record"
+        ],
+        "original_sql": "SELECT Market_Rate ,  name FROM furniture WHERE Furniture_ID NOT IN (SELECT Furniture_ID FROM furniture_manufacte)"
+    },
+    {
+        "original_nl": "Find the name of the company that produces both furnitures with less than 6 components and furnitures with more than 10 components.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|company|that|produce [produces]|both|{TABLE} [furnitures]|with|{NUMBER} [less than 6]|component [components]|and|{TABLE} [furnitures]|with|{NUMBER} [more than 10]|component [components]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "company",
+            "that",
+            "produce",
+            "both",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "component",
+            "and",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "component"
+        ],
+        "original_sql": "SELECT t3.name FROM furniture AS t1 JOIN furniture_manufacte AS t2 ON t1.Furniture_ID  =  t2.Furniture_ID JOIN manufacturer AS t3 ON t2.manufacturer_id  =  t3.manufacturer_id WHERE t1.num_of_component  <  6 INTERSECT SELECT t3.name FROM furniture AS t1 JOIN furniture_manufacte AS t2 ON t1.Furniture_ID  =  t2.Furniture_ID JOIN manufacturer AS t3 ON t2.manufacturer_id  =  t3.manufacturer_id WHERE t1.num_of_component  >  10"
+    }
+]

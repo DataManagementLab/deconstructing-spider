@@ -1,0 +1,669 @@
+[
+    {
+        "original_nl": "What is id of the city that hosted events in the most recent year?",
+        "generalized_nl": "What|is|{COLUMN_PART} [id]|of|the|{COLUMN} [city]|that|host [hosted]|event [events]|in|{NE} [the most recent year]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "host",
+            "event",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT host_city FROM hosting_city ORDER BY YEAR DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the match ids of the cities that hosted competition \"1994 FIFA World Cup qualification\"?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [match ids]|of|the|{COLUMN} [cities]|that|host [hosted]|{COLUMN} [competition]|{VALUE} [1994 FIFA World Cup qualification]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "host",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT match_id FROM MATCH WHERE competition = \"1994 FIFA World Cup qualification\""
+    },
+    {
+        "original_nl": "What is the match id of the competition called \"1994 FIFA World Cup qualification\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [match id]|of|the|{COLUMN} [competition]|call [called]|{VALUE} [1994 FIFA World Cup qualification]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "call",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT match_id FROM MATCH WHERE competition = \"1994 FIFA World Cup qualification\""
+    },
+    {
+        "original_nl": "Find the cities which were once a host city after 2010?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [cities]|which|were|once|a|{COLUMN} [host city]|after|{VALUE} [2010]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "which",
+            "were",
+            "once",
+            "a",
+            "{COLUMN}",
+            "after",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN hosting_city AS T2 ON T1.city_id = T2.host_city WHERE T2.year  >  2010"
+    },
+    {
+        "original_nl": "Which cities served as a host city after 2010?",
+        "generalized_nl": "Which|{COLUMN} [cities]|serve [served]|as|a|{COLUMN} [host city]|after|{VALUE} [2010]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "serve",
+            "as",
+            "a",
+            "{COLUMN}",
+            "after",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN hosting_city AS T2 ON T1.city_id = T2.host_city WHERE T2.year  >  2010"
+    },
+    {
+        "original_nl": "Which city has hosted the most events?",
+        "generalized_nl": "Which|{COLUMN} [city]|has|host [hosted]|the|most|event [events]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "has",
+            "host",
+            "the",
+            "most",
+            "event"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN hosting_city AS T2 ON T1.city_id  =  T2.host_city GROUP BY T2.host_city ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the city that hosted the most events.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [city]|that|host [hosted]|the|most|event [events]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "host",
+            "the",
+            "most",
+            "event"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN hosting_city AS T2 ON T1.city_id  =  T2.host_city GROUP BY T2.host_city ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the venue of the competition \"1994 FIFA World Cup qualification\" hosted by \"Nanjing ( Jiangsu )\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [venue]|of|the|{COLUMN} [competition]|{VALUE} [1994 FIFA World Cup qualification]|host [hosted]|by|{VALUE} [Nanjing ( Jiangsu )]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "{VALUE}",
+            "host",
+            "by",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T3.venue FROM city AS T1 JOIN hosting_city AS T2 ON T1.city_id = T2.host_city JOIN MATCH AS T3 ON T2.match_id = T3.match_id WHERE T1.city = \"Nanjing ( Jiangsu )\" AND T3.competition = \"1994 FIFA World Cup qualification\""
+    },
+    {
+        "original_nl": "Find the venue of the competition \"1994 FIFA World Cup qualification\" which was hosted by \"Nanjing ( Jiangsu )\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [venue]|of|the|{COLUMN} [competition]|{VALUE} [1994 FIFA World Cup qualification]|which|was|host [hosted]|by|{VALUE} [Nanjing ( Jiangsu )]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "{VALUE}",
+            "which",
+            "was",
+            "host",
+            "by",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T3.venue FROM city AS T1 JOIN hosting_city AS T2 ON T1.city_id = T2.host_city JOIN MATCH AS T3 ON T2.match_id = T3.match_id WHERE T1.city = \"Nanjing ( Jiangsu )\" AND T3.competition = \"1994 FIFA World Cup qualification\""
+    },
+    {
+        "original_nl": "Give me the temperature of Shanghai in January.",
+        "generalized_nl": "give [Give]|me|the|{TABLE} [temperature]|of|{VALUE} [Shanghai]|in|{NE} [January]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{TABLE}",
+            "of",
+            "{VALUE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Jan FROM city AS T1 JOIN temperature AS T2 ON T1.city_id = T2.city_id WHERE T1.city = \"Shanghai\""
+    },
+    {
+        "original_nl": "What is the temperature of \"Shanghai\" city in January?",
+        "generalized_nl": "What|is|the|{TABLE} [temperature]|of|{VALUE} [Shanghai]|{COLUMN} [city]|in|{NE} [January]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{TABLE}",
+            "of",
+            "{VALUE}",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Jan FROM city AS T1 JOIN temperature AS T2 ON T1.city_id = T2.city_id WHERE T1.city = \"Shanghai\""
+    },
+    {
+        "original_nl": "What is the host year of city \"Taizhou ( Zhejiang )\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [host]|{COLUMN} [year]|of|{COLUMN} [city]|{VALUE} [Taizhou ( Zhejiang )]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.year FROM city AS T1 JOIN hosting_city AS T2 ON T1.city_id  =  T2.host_city WHERE T1.city  =  \"Taizhou ( Zhejiang )\""
+    },
+    {
+        "original_nl": "IN which year did city \"Taizhou ( Zhejiang )\" serve as a host city?",
+        "generalized_nl": "IN|which|{COLUMN} [year]|did|{COLUMN} [city]|{VALUE} [Taizhou ( Zhejiang )]|serve|as|a|{COLUMN} [host city]",
+        "generalized_tokens": [
+            "IN",
+            "which",
+            "{COLUMN}",
+            "did",
+            "{COLUMN}",
+            "{VALUE}",
+            "serve",
+            "as",
+            "a",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.year FROM city AS T1 JOIN hosting_city AS T2 ON T1.city_id  =  T2.host_city WHERE T1.city  =  \"Taizhou ( Zhejiang )\""
+    },
+    {
+        "original_nl": "Which three cities have the largest regional population?",
+        "generalized_nl": "Which|{NUMBER} [three]|{COLUMN} [cities]|have|the|large [largest]|{COLUMN} [regional population]",
+        "generalized_tokens": [
+            "Which",
+            "{NUMBER}",
+            "{COLUMN}",
+            "have",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT city FROM city ORDER BY regional_population DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What are the three largest cities in terms of regional population?",
+        "generalized_nl": "What|are|the|{NUMBER} [three]|large [largest]|{COLUMN} [cities]|in|term [terms]|of|{COLUMN} [regional population]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{NUMBER}",
+            "large",
+            "{COLUMN}",
+            "in",
+            "term",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT city FROM city ORDER BY regional_population DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Which city has the highest temperature in February?",
+        "generalized_nl": "Which|{COLUMN} [city]|have [has]|the|high [highest]|{TABLE} [temperature]|in|{NE} [February]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "high",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN temperature AS T2 ON T1.city_id  =  T2.city_id ORDER BY T2.Feb DESC LIMIT 1"
+    },
+    {
+        "original_nl": "In February, which city marks the highest temperature?",
+        "generalized_nl": "In|{NE} [February]|which|{COLUMN} [city]|mark [marks]|the|high [highest]|{TABLE} [temperature]",
+        "generalized_tokens": [
+            "In",
+            "{NE}",
+            "which",
+            "{COLUMN}",
+            "mark",
+            "the",
+            "high",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN temperature AS T2 ON T1.city_id  =  T2.city_id ORDER BY T2.Feb DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Give me a list of cities whose temperature in March is lower than that in July or higher than that in Oct?",
+        "generalized_nl": "give [Give]|me|a|list|of|{COLUMN} [cities]|whose|{TABLE} [temperature]|in|{NE} [March]|is|low [lower]|than|that|in|{NE} [July]|or|high [higher]|than|that|in|{COLUMN} [Oct]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "is",
+            "low",
+            "than",
+            "that",
+            "in",
+            "{NE}",
+            "or",
+            "high",
+            "than",
+            "that",
+            "in",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN temperature AS T2 ON T1.city_id  =  T2.city_id WHERE T2.Mar  <  T2.Jul OR T2.Mar  >  T2.Oct"
+    },
+    {
+        "original_nl": "Which cities' temperature in March is lower than that in July or higher than that in Oct?",
+        "generalized_nl": "Which|{COLUMN} [cities]|'|{TABLE} [temperature]|in|{NE} [March]|is|low [lower]|than|that|in|{NE} [July]|or|high [higher]|than|that|in|{COLUMN} [Oct]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "'",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "is",
+            "low",
+            "than",
+            "that",
+            "in",
+            "{NE}",
+            "or",
+            "high",
+            "than",
+            "that",
+            "in",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN temperature AS T2 ON T1.city_id  =  T2.city_id WHERE T2.Mar  <  T2.Jul OR T2.Mar  >  T2.Oct"
+    },
+    {
+        "original_nl": "Give me a list of cities whose temperature in Mar is lower than that in July and which have also served as host cities?",
+        "generalized_nl": "give [Give]|me|a|list|of|{COLUMN} [cities]|whose|{TABLE} [temperature]|in|{COLUMN} [Mar]|is|low [lower]|than|that|in|{NE} [July]|and|which|have|besides [also]|serve [served]|as|{COLUMN} [host cities]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "is",
+            "low",
+            "than",
+            "that",
+            "in",
+            "{NE}",
+            "and",
+            "which",
+            "have",
+            "besides",
+            "serve",
+            "as",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN temperature AS T2 ON T1.city_id  =  T2.city_id WHERE T2.Mar  <  T2.Jul INTERSECT SELECT T3.city FROM city AS T3 JOIN hosting_city AS T4 ON T3.city_id  =  T4.host_city"
+    },
+    {
+        "original_nl": "Which cities have lower temperature in March than in July and have been once host cities?",
+        "generalized_nl": "Which|{COLUMN} [cities]|have|low [lower]|{TABLE} [temperature]|in|{NE} [March]|than|in|{NE} [July]|and|have|been|once|{COLUMN} [host cities]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "low",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "than",
+            "in",
+            "{NE}",
+            "and",
+            "have",
+            "been",
+            "once",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN temperature AS T2 ON T1.city_id  =  T2.city_id WHERE T2.Mar  <  T2.Jul INTERSECT SELECT T3.city FROM city AS T3 JOIN hosting_city AS T4 ON T3.city_id  =  T4.host_city"
+    },
+    {
+        "original_nl": "Give me a list of cities whose temperature in Mar is lower than that in Dec and which have never been host cities.",
+        "generalized_nl": "give [Give]|me|a|list|of|{COLUMN} [cities]|whose|{TABLE} [temperature]|in|{COLUMN} [Mar]|is|low [lower]|than|that|in|{COLUMN} [Dec]|and|which|have|never|been|{COLUMN} [host cities]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "is",
+            "low",
+            "than",
+            "that",
+            "in",
+            "{COLUMN}",
+            "and",
+            "which",
+            "have",
+            "never",
+            "been",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN temperature AS T2 ON T1.city_id  =  T2.city_id WHERE T2.Mar  <  T2.Dec EXCEPT SELECT T3.city FROM city AS T3 JOIN hosting_city AS T4 ON T3.city_id  =  T4.host_city"
+    },
+    {
+        "original_nl": "Which cities have lower temperature in March than in Dec and have never served as host cities?",
+        "generalized_nl": "Which|{COLUMN} [cities]|have|low [lower]|{TABLE} [temperature]|in|{NE} [March]|than|in|{COLUMN} [Dec]|and|have|never|serve [served]|as|{COLUMN} [host cities]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "low",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "than",
+            "in",
+            "{COLUMN}",
+            "and",
+            "have",
+            "never",
+            "serve",
+            "as",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN temperature AS T2 ON T1.city_id  =  T2.city_id WHERE T2.Mar  <  T2.Dec EXCEPT SELECT T3.city FROM city AS T3 JOIN hosting_city AS T4 ON T3.city_id  =  T4.host_city"
+    },
+    {
+        "original_nl": "Give me a list of cities whose temperature in Feb is higher than that in Jun or cities that were once host cities?",
+        "generalized_nl": "give [Give]|me|a|list|of|{COLUMN} [cities]|whose|{TABLE} [temperature]|in|{COLUMN} [Feb]|is|high [higher]|than|that|in|{COLUMN} [Jun]|or|{COLUMN} [cities]|that|were|once|{COLUMN} [host cities]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "is",
+            "high",
+            "than",
+            "that",
+            "in",
+            "{COLUMN}",
+            "or",
+            "{COLUMN}",
+            "that",
+            "were",
+            "once",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN temperature AS T2 ON T1.city_id  =  T2.city_id WHERE T2.Feb  >  T2.Jun UNION SELECT T3.city FROM city AS T3 JOIN hosting_city AS T4 ON T3.city_id  =  T4.host_city"
+    },
+    {
+        "original_nl": "Which cities have higher temperature in Feb than in Jun or have once served as host cities?",
+        "generalized_nl": "Which|{COLUMN} [cities]|have|high [higher]|{TABLE} [temperature]|in|{COLUMN} [Feb]|than|in|{COLUMN} [Jun]|or|have|once|serve [served]|as|{COLUMN} [host cities]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "high",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "than",
+            "in",
+            "{COLUMN}",
+            "or",
+            "have",
+            "once",
+            "serve",
+            "as",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.city FROM city AS T1 JOIN temperature AS T2 ON T1.city_id  =  T2.city_id WHERE T2.Feb  >  T2.Jun UNION SELECT T3.city FROM city AS T3 JOIN hosting_city AS T4 ON T3.city_id  =  T4.host_city"
+    },
+    {
+        "original_nl": "Please give me a list of cities whose regional population is over 10000000.",
+        "generalized_nl": "Please|give|me|a|list|of|{COLUMN} [cities]|whose|{COLUMN} [regional population]|is|over|{NUMBER} [10000000]",
+        "generalized_tokens": [
+            "Please",
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "over",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT city FROM city WHERE regional_population  >  10000000"
+    },
+    {
+        "original_nl": "Which cities have regional population above 10000000?",
+        "generalized_nl": "Which|{COLUMN} [cities]|have|{COLUMN} [regional population]|above|{NUMBER} [10000000]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT city FROM city WHERE regional_population  >  10000000"
+    },
+    {
+        "original_nl": "Please give me a list of cities whose regional population is over 8000000 or under 5000000.",
+        "generalized_nl": "Please|give|me|a|list|of|{COLUMN} [cities]|whose|{COLUMN} [regional population]|is|over|{NUMBER} [8000000]|or|under|{NUMBER} [5000000]",
+        "generalized_tokens": [
+            "Please",
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "over",
+            "{NUMBER}",
+            "or",
+            "under",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT city FROM city WHERE regional_population  >  10000000 UNION SELECT city FROM city WHERE regional_population  <  5000000"
+    },
+    {
+        "original_nl": "Which cities have regional population above 8000000 or below 5000000?",
+        "generalized_nl": "Which|{COLUMN} [cities]|have|{COLUMN} [regional population]|above|{NUMBER} [8000000]|or|below|{NUMBER} [5000000]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}",
+            "or",
+            "below",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT city FROM city WHERE regional_population  >  10000000 UNION SELECT city FROM city WHERE regional_population  <  5000000"
+    },
+    {
+        "original_nl": "Find the number of matches in different competitions.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [matches]|in|different|{COLUMN} [competitions]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  Competition FROM MATCH GROUP BY Competition"
+    },
+    {
+        "original_nl": "For each competition, count the number of matches.",
+        "generalized_nl": "For|each|{COLUMN} [competition]|count|the|number|of|{TABLE} [matches]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  Competition FROM MATCH GROUP BY Competition"
+    },
+    {
+        "original_nl": "List venues of all matches in the order of their dates starting from the most recent one.",
+        "generalized_nl": "list [List]|{COLUMN} [venues]|of|all|{TABLE} [matches]|in|the|order|of|their|{COLUMN} [dates]|start [starting]|from|the|most|recent|one",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "order",
+            "of",
+            "their",
+            "{COLUMN}",
+            "start",
+            "from",
+            "the",
+            "most",
+            "recent",
+            "one"
+        ],
+        "original_sql": "SELECT venue FROM MATCH ORDER BY date DESC"
+    },
+    {
+        "original_nl": "what is the GDP of the city with the largest population.",
+        "generalized_nl": "what|is|the|{COLUMN} [GDP]|of|the|{COLUMN} [city]|with|the|large [largest]|{COLUMN_PART} [population]",
+        "generalized_tokens": [
+            "what",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT gdp FROM city ORDER BY Regional_Population DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the GDP of the city with the largest regional population.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [GDP]|of|the|{COLUMN} [city]|with|the|large [largest]|{COLUMN} [regional population]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT gdp FROM city ORDER BY Regional_Population DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the GDP and population of the city that already served as a host more than once?",
+        "generalized_nl": "What|are|the|{COLUMN} [GDP]|and|{COLUMN_PART} [population]|of|the|{COLUMN} [city]|that|already|serve [served]|as|a|{COLUMN_PART} [host]|more|than|once",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "already",
+            "serve",
+            "as",
+            "a",
+            "{COLUMN_PART}",
+            "more",
+            "than",
+            "once"
+        ],
+        "original_sql": "SELECT t1.gdp ,  t1.Regional_Population FROM city AS T1 JOIN hosting_city AS T2 ON T1.city_id  =  T2.host_city GROUP BY t2.Host_City HAVING count(*)  >  1"
+    }
+]

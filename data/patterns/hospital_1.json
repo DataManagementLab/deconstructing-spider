@@ -1,0 +1,1671 @@
+[
+    {
+        "original_nl": "Which department has the largest number of employees?",
+        "generalized_nl": "Which|{COLUMN} [department]|have [has]|the|large [largest]|number|of|employee [employees]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "large",
+            "number",
+            "of",
+            "employee"
+        ],
+        "original_sql": "SELECT name FROM department GROUP BY departmentID ORDER BY count(departmentID) DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "Find the department with the most employees.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [department]|with|the|most|employee [employees]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "employee"
+        ],
+        "original_sql": "SELECT name FROM department GROUP BY departmentID ORDER BY count(departmentID) DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "What is the employee id of the head whose department has the least number of employees?",
+        "generalized_nl": "What|is|the|{COLUMN} [employee id]|of|the|{COLUMN} [head]|whose|{COLUMN} [department]|have [has]|the|least|number|of|employee [employees]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "have",
+            "the",
+            "least",
+            "number",
+            "of",
+            "employee"
+        ],
+        "original_sql": "SELECT head FROM department GROUP BY departmentID ORDER BY count(departmentID) LIMIT 1;"
+    },
+    {
+        "original_nl": "Tell me the employee id of the head of the department with the least employees.",
+        "generalized_nl": "tell [Tell]|me|the|{COLUMN} [employee id]|of|the|{COLUMN} [head]|of|the|{COLUMN} [department]|with|the|least|employee [employees]",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "least",
+            "employee"
+        ],
+        "original_sql": "SELECT head FROM department GROUP BY departmentID ORDER BY count(departmentID) LIMIT 1;"
+    },
+    {
+        "original_nl": "what is the name and position of the head whose department has least number of employees?",
+        "generalized_nl": "what|is|the|{COLUMN} [name]|and|{COLUMN} [position]|of|the|{COLUMN} [head]|whose|{COLUMN} [department]|have [has]|least|number|of|employee [employees]",
+        "generalized_tokens": [
+            "what",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "have",
+            "least",
+            "number",
+            "of",
+            "employee"
+        ],
+        "original_sql": "SELECT T2.name ,  T2.position FROM department AS T1 JOIN physician AS T2 ON T1.head  =  T2.EmployeeID GROUP BY departmentID ORDER BY count(departmentID) LIMIT 1;"
+    },
+    {
+        "original_nl": "Find the name and position of the head of the department with the least employees.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [position]|of|the|{COLUMN} [head]|of|the|{COLUMN} [department]|with|the|least|employee [employees]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "least",
+            "employee"
+        ],
+        "original_sql": "SELECT T2.name ,  T2.position FROM department AS T1 JOIN physician AS T2 ON T1.head  =  T2.EmployeeID GROUP BY departmentID ORDER BY count(departmentID) LIMIT 1;"
+    },
+    {
+        "original_nl": "What are names of patients who made an appointment?",
+        "generalized_nl": "What|are|{COLUMN} [names]|of|{COLUMN} [patients]|who|make [made]|an|{COLUMN} [appointment]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "make",
+            "an",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM appointment AS T1 JOIN patient AS T2 ON T1.patient  =  T2.ssn"
+    },
+    {
+        "original_nl": "List the names of patients who have made appointments.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{COLUMN} [patients]|who|have|make [made]|{COLUMN} [appointments]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "have",
+            "make",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM appointment AS T1 JOIN patient AS T2 ON T1.patient  =  T2.ssn"
+    },
+    {
+        "original_nl": "what are name and phone number of patients who had more than one appointment?",
+        "generalized_nl": "what|are|{COLUMN} [name]|and|{COLUMN} [phone]|number|of|{COLUMN} [patients]|who|have [had]|{NUMBER} [more than one]|{COLUMN} [appointment]",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "number",
+            "of",
+            "{COLUMN}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  phone FROM appointment AS T1 JOIN patient AS T2 ON T1.patient  =  T2.ssn GROUP BY T1.patient HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the id of the appointment with the most recent start date?",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|of|the|{COLUMN} [appointment]|with|the|most|recent|{COLUMN} [start]|{COLUMN} [date]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "recent",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT appointmentid FROM appointment ORDER BY START DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the id of the appointment that started most recently?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|the|{COLUMN} [appointment]|that|start [started]|most|recently",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "start",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT appointmentid FROM appointment ORDER BY START DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the name of physicians who took some appointment.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{COLUMN} [physicians]|who|take [took]|some|{COLUMN} [appointment]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "take",
+            "some",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.name FROM appointment AS T1 JOIN physician AS T2 ON T1.Physician  =  T2.EmployeeID"
+    },
+    {
+        "original_nl": "What are the names of all the physicians who took appointments.",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|the|{COLUMN} [physicians]|who|take [took]|{COLUMN} [appointments]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{COLUMN}",
+            "who",
+            "take",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.name FROM appointment AS T1 JOIN physician AS T2 ON T1.Physician  =  T2.EmployeeID"
+    },
+    {
+        "original_nl": "List the name of physicians who never took any appointment.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{COLUMN} [physicians]|who|never|take [took]|any|{COLUMN} [appointment]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "never",
+            "take",
+            "any",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM physician EXCEPT SELECT T2.name FROM appointment AS T1 JOIN physician AS T2 ON T1.Physician  =  T2.EmployeeID"
+    },
+    {
+        "original_nl": "Find the names of all physicians and their primary affiliated departments' names.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{COLUMN} [physicians]|and|their|{COLUMN_PART} [primary]|consort [affiliated]|{COLUMN} [departments]|'|{COLUMN} [names]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "and",
+            "their",
+            "{COLUMN_PART}",
+            "consort",
+            "{COLUMN}",
+            "'",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name ,  T3.name FROM physician AS T1 JOIN affiliated_with AS T2 ON T1.EmployeeID  =  T2.physician JOIN department AS T3 ON T2.department  =  T3.DepartmentID WHERE T2.PrimaryAffiliation  =  1"
+    },
+    {
+        "original_nl": "What are the name and primarily affiliated department name of each physician?",
+        "generalized_nl": "What|are|the|{COLUMN} [name]|and|chiefly [primarily]|consort [affiliated]|{COLUMN} [department]|{COLUMN} [name]|of|each|{COLUMN} [physician]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "chiefly",
+            "consort",
+            "{COLUMN}",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name ,  T3.name FROM physician AS T1 JOIN affiliated_with AS T2 ON T1.EmployeeID  =  T2.physician JOIN department AS T3 ON T2.department  =  T3.DepartmentID WHERE T2.PrimaryAffiliation  =  1"
+    },
+    {
+        "original_nl": "What is the name of the patient who made the most recent appointment?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{COLUMN} [patient]|who|make [made]|the|most|recent|{COLUMN} [appointment]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "who",
+            "make",
+            "the",
+            "most",
+            "recent",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name FROM patient AS T1 JOIN appointment AS T2 ON T1.ssn = T2.patient ORDER BY T2.start DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the patient who made the appointment with the most recent start date.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{COLUMN} [patient]|who|make [made]|the|{COLUMN} [appointment]|with|the|most|recent|{COLUMN} [start]|{COLUMN} [date]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "who",
+            "make",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "recent",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name FROM patient AS T1 JOIN appointment AS T2 ON T1.ssn = T2.patient ORDER BY T2.start DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many patients stay in room 112?",
+        "generalized_nl": "How|many|{COLUMN} [patients]|{COLUMN} [stay]|in|{COLUMN} [room]|{NUMBER} [112]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(patient) FROM stay WHERE room  =  112"
+    },
+    {
+        "original_nl": "Count the number of patients who stayed in room 112.",
+        "generalized_nl": "count [Count]|the|number|of|{COLUMN} [patients]|who|stay [stayed]|in|{COLUMN} [room]|{NUMBER} [112]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "who",
+            "stay",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(patient) FROM stay WHERE room  =  112"
+    },
+    {
+        "original_nl": "How many patients' prescriptions are made by physician John Dorian?",
+        "generalized_nl": "How|many|{COLUMN} [patients]|'|prescription [prescriptions]|are|make [made]|by|{COLUMN} [physician]|{NE} [John Dorian]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "'",
+            "prescription",
+            "are",
+            "make",
+            "by",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(T1.SSN) FROM patient AS T1 JOIN prescribes AS T2 ON T1.SSN  =  T2.patient JOIN physician AS T3 ON T2.physician  =  T3.employeeid WHERE T3.name = \"John Dorian\""
+    },
+    {
+        "original_nl": "Find the number of patients' prescriptions physician John Dorian made.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [patients]|'|prescription [prescriptions]|{COLUMN} [physician]|{NE} [John Dorian]|make [made]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "'",
+            "prescription",
+            "{COLUMN}",
+            "{NE}",
+            "make"
+        ],
+        "original_sql": "SELECT count(T1.SSN) FROM patient AS T1 JOIN prescribes AS T2 ON T1.SSN  =  T2.patient JOIN physician AS T3 ON T2.physician  =  T3.employeeid WHERE T3.name = \"John Dorian\""
+    },
+    {
+        "original_nl": "Find the name of medication used on the patient who stays in room 111?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{COLUMN} [medication]|use [used]|on|the|{COLUMN} [patient]|who|{COLUMN} [stays]|in|{COLUMN} [room]|{NUMBER} [111]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "use",
+            "on",
+            "the",
+            "{COLUMN}",
+            "who",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T4.name FROM stay AS T1 JOIN patient AS T2 ON T1.Patient  =  T2.SSN JOIN Prescribes AS T3 ON T3.Patient  =  T2.SSN JOIN Medication AS T4 ON T3.Medication  =  T4.Code WHERE room  =  111"
+    },
+    {
+        "original_nl": "What is the name of the medication used for the patient staying in room 111?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{COLUMN} [medication]|use [used]|for|the|{COLUMN} [patient]|stay [staying]|in|{COLUMN} [room]|{NUMBER} [111]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "use",
+            "for",
+            "the",
+            "{COLUMN}",
+            "stay",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T4.name FROM stay AS T1 JOIN patient AS T2 ON T1.Patient  =  T2.SSN JOIN Prescribes AS T3 ON T3.Patient  =  T2.SSN JOIN Medication AS T4 ON T3.Medication  =  T4.Code WHERE room  =  111"
+    },
+    {
+        "original_nl": "Find the patient who most recently stayed in room 111.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [patient]|who|most|recently|stay [stayed]|in|{COLUMN} [room]|{NUMBER} [111]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "who",
+            "most",
+            "recently",
+            "stay",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT patient FROM stay WHERE room  =  111 ORDER BY staystart DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the id of the patient who stayed in room 111 most recently?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|the|{COLUMN} [patient]|who|stay [stayed]|in|{COLUMN} [room]|{NUMBER} [111]|most|recently",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "who",
+            "stay",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT patient FROM stay WHERE room  =  111 ORDER BY staystart DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the nurse has the most appointments?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{COLUMN} [nurse]|have [has]|the|most|{COLUMN} [appointments]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name FROM nurse AS T1 JOIN appointment AS T2 ON T1.employeeid  =  T2.prepnurse GROUP BY T1.employeeid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the nurse who has the largest number of appointments.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{COLUMN} [nurse]|who|have [has]|the|large [largest]|number|of|{COLUMN} [appointments]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name FROM nurse AS T1 JOIN appointment AS T2 ON T1.employeeid  =  T2.prepnurse GROUP BY T1.employeeid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the name of each physician and the number of patients he or she treats.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [name]|of|each|{COLUMN} [physician]|and|the|number|of|{COLUMN} [patients]|he|or|she|treat [treats]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "he",
+            "or",
+            "she",
+            "treat"
+        ],
+        "original_sql": "SELECT T1.name ,  count(*) FROM physician AS T1 JOIN patient AS T2 ON T1.employeeid  =  T2.PCP GROUP BY T1.employeeid"
+    },
+    {
+        "original_nl": "Find the name of physicians who are in charge of more than one patient.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{COLUMN} [physicians]|who|are|in|charge|of|{NUMBER} [more than one]|{COLUMN} [patient]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "are",
+            "in",
+            "charge",
+            "of",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name FROM physician AS T1 JOIN patient AS T2 ON T1.employeeid  =  T2.PCP GROUP BY T1.employeeid HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the number of rooms located on each block floor.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [rooms]|locate [located]|on|each|{COLUMN} [block floor]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "locate",
+            "on",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.blockfloor FROM BLOCK AS T1 JOIN room AS T2 ON T1.blockfloor  =  T2.blockfloor AND T1.blockcode  =  T2.blockcode GROUP BY T1.blockfloor"
+    },
+    {
+        "original_nl": "How many rooms does each block floor have?",
+        "generalized_nl": "How|many|{COLUMN} [rooms]|does|each|{COLUMN} [block floor]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "does",
+            "each",
+            "{COLUMN}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.blockfloor FROM BLOCK AS T1 JOIN room AS T2 ON T1.blockfloor  =  T2.blockfloor AND T1.blockcode  =  T2.blockcode GROUP BY T1.blockfloor"
+    },
+    {
+        "original_nl": "Find the number of rooms for different block code?",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [rooms]|for|different|{COLUMN} [block code]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.blockcode FROM BLOCK AS T1 JOIN room AS T2 ON T1.blockfloor  =  T2.blockfloor AND T1.blockcode  =  T2.blockcode GROUP BY T1.blockcode"
+    },
+    {
+        "original_nl": "How many rooms are located for each block code?",
+        "generalized_nl": "How|many|{COLUMN} [rooms]|are|locate [located]|for|each|{COLUMN} [block code]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "locate",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.blockcode FROM BLOCK AS T1 JOIN room AS T2 ON T1.blockfloor  =  T2.blockfloor AND T1.blockcode  =  T2.blockcode GROUP BY T1.blockcode"
+    },
+    {
+        "original_nl": "What are the unique block codes that have available rooms?",
+        "generalized_nl": "What|are|the|unique|{COLUMN} [block codes]|that|have|available|{COLUMN} [rooms]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "unique",
+            "{COLUMN}",
+            "that",
+            "have",
+            "available",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT blockcode FROM room WHERE unavailable  =  0"
+    },
+    {
+        "original_nl": "Tell me the distinct block codes where some rooms are available.",
+        "generalized_nl": "tell [Tell]|me|the|distinct|{COLUMN} [block codes]|where|some|{COLUMN} [rooms]|are|available",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "where",
+            "some",
+            "{COLUMN}",
+            "are",
+            "available"
+        ],
+        "original_sql": "SELECT DISTINCT blockcode FROM room WHERE unavailable  =  0"
+    },
+    {
+        "original_nl": "How many different types of rooms are there?",
+        "generalized_nl": "How|many|different|{COLUMN_PART} [types]|of|{COLUMN} [rooms]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT roomtype) FROM room"
+    },
+    {
+        "original_nl": "Find the number of distinct room types available.",
+        "generalized_nl": "find [Find]|the|number|of|distinct|{COLUMN} [room]|{COLUMN_PART} [types]|available",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "available"
+        ],
+        "original_sql": "SELECT count(DISTINCT roomtype) FROM room"
+    },
+    {
+        "original_nl": "What is the names of the physicians who prescribe medication Thesisin?",
+        "generalized_nl": "What|is|the|{COLUMN} [names]|of|the|{COLUMN} [physicians]|who|{TABLE} [prescribe]|{COLUMN} [medication]|Thesisin",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "who",
+            "{TABLE}",
+            "{COLUMN}",
+            "Thesisin"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name FROM physician AS T1 JOIN prescribes AS T2 ON T1.employeeid = T2.physician JOIN medication AS T3 ON T3.code = T2.medication WHERE T3.name  =  \"Thesisin\""
+    },
+    {
+        "original_nl": "List the names of all the physicians who prescribe Thesisin as medication.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|all|the|{COLUMN} [physicians]|who|{TABLE} [prescribe]|{NE} [Thesisin]|as|{COLUMN} [medication]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{COLUMN}",
+            "who",
+            "{TABLE}",
+            "{NE}",
+            "as",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name FROM physician AS T1 JOIN prescribes AS T2 ON T1.employeeid = T2.physician JOIN medication AS T3 ON T3.code = T2.medication WHERE T3.name  =  \"Thesisin\""
+    },
+    {
+        "original_nl": "Find the name and position of physicians who prescribe some medication whose brand is X?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [position]|of|{COLUMN} [physicians]|who|{TABLE} [prescribe]|some|{COLUMN} [medication]|whose|{COLUMN} [brand]|is|ten [X]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "{TABLE}",
+            "some",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "ten"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name ,  T1.position FROM physician AS T1 JOIN prescribes AS T2 ON T1.employeeid = T2.physician JOIN medication AS T3 ON T3.code = T2.medication WHERE T3.Brand  =  \"X\""
+    },
+    {
+        "original_nl": "Find the number of medications prescribed for each brand.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [medications]|order [prescribed]|for|each|{COLUMN} [brand]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "order",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.name FROM medication AS T1 JOIN prescribes AS T2 ON T1.code = T2.medication GROUP BY T1.brand"
+    },
+    {
+        "original_nl": "How many medications are prescribed for each brand?",
+        "generalized_nl": "How|many|{COLUMN} [medications]|are|order [prescribed]|for|each|{COLUMN} [brand]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "order",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.name FROM medication AS T1 JOIN prescribes AS T2 ON T1.code = T2.medication GROUP BY T1.brand"
+    },
+    {
+        "original_nl": "Find the name of physicians whose position title contains the word 'senior'.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{COLUMN} [physicians]|whose|{COLUMN} [position]|title|contain [contains]|the|word|senior",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "title",
+            "contain",
+            "the",
+            "word",
+            "senior"
+        ],
+        "original_sql": "SELECT name FROM physician WHERE POSITION LIKE '%senior%'"
+    },
+    {
+        "original_nl": "What are the names of the physicians who have 'senior' in their titles.",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{COLUMN} [physicians]|who|have|senior|in|their|title [titles]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "senior",
+            "in",
+            "their",
+            "title"
+        ],
+        "original_sql": "SELECT name FROM physician WHERE POSITION LIKE '%senior%'"
+    },
+    {
+        "original_nl": "Find the patient who has the most recent undergoing treatment?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [patient]|who|have [has]|the|most|recent|undergoing|{COLUMN} [treatment]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "recent",
+            "undergoing",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT patient FROM undergoes ORDER BY dateundergoes LIMIT 1"
+    },
+    {
+        "original_nl": "Which patient is undergoing the most recent treatment?",
+        "generalized_nl": "Which|{COLUMN} [patient]|is|undergo [undergoing]|the|most|recent|{COLUMN} [treatment]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "undergo",
+            "the",
+            "most",
+            "recent",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT patient FROM undergoes ORDER BY dateundergoes LIMIT 1"
+    },
+    {
+        "original_nl": "Find the names of all patients who have an undergoing treatment and are staying in room 111.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{COLUMN} [patients]|who|have|an|undergoing|{COLUMN} [treatment]|and|are|stay [staying]|in|{COLUMN} [room]|{NUMBER} [111]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "who",
+            "have",
+            "an",
+            "undergoing",
+            "{COLUMN}",
+            "and",
+            "are",
+            "stay",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.name FROM undergoes AS T1 JOIN patient AS T2 ON T1.patient = T2.SSN JOIN stay AS T3 ON T1.Stay  =  T3.StayID WHERE T3.room  =  111"
+    },
+    {
+        "original_nl": "What are the names of patients who are staying in room 111 and have an undergoing treatment?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{COLUMN} [patients]|who|are|stay [staying]|in|{COLUMN} [room]|{NUMBER} [111]|and|have|an|undergoing|{COLUMN} [treatment]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "are",
+            "stay",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}",
+            "and",
+            "have",
+            "an",
+            "undergoing",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.name FROM undergoes AS T1 JOIN patient AS T2 ON T1.patient = T2.SSN JOIN stay AS T3 ON T1.Stay  =  T3.StayID WHERE T3.room  =  111"
+    },
+    {
+        "original_nl": "List the names of all distinct nurses ordered by alphabetical order?",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|all|distinct|{COLUMN} [nurses]|order [ordered]|by|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "distinct",
+            "{COLUMN}",
+            "order",
+            "by",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT DISTINCT name FROM nurse ORDER BY name"
+    },
+    {
+        "original_nl": "What is the alphabetically ordered list of all the distinct names of nurses?",
+        "generalized_nl": "What|is|the|alphabetically|order [ordered]|list|of|all|the|distinct|{COLUMN} [names]|of|{COLUMN} [nurses]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "alphabetically",
+            "order",
+            "list",
+            "of",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT name FROM nurse ORDER BY name"
+    },
+    {
+        "original_nl": "Find the names of nurses who are nursing an undergoing treatment.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{COLUMN} [nurses]|who|are|nurse [nursing]|an|undergoing|{COLUMN} [treatment]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "are",
+            "nurse",
+            "an",
+            "undergoing",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.name FROM undergoes AS T1 JOIN nurse AS T2 ON T1.AssistingNurse  =  T2.EmployeeID"
+    },
+    {
+        "original_nl": "Which nurses are in charge of patients undergoing treatments?",
+        "generalized_nl": "Which|{COLUMN} [nurses]|are|in|charge|of|{COLUMN} [patients]|undergo [undergoing]|{COLUMN} [treatments]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "are",
+            "in",
+            "charge",
+            "of",
+            "{COLUMN}",
+            "undergo",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.name FROM undergoes AS T1 JOIN nurse AS T2 ON T1.AssistingNurse  =  T2.EmployeeID"
+    },
+    {
+        "original_nl": "List the names of all distinct medications, ordered in an alphabetical order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|all|distinct|{COLUMN} [medications]|order [ordered]|in|an|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "distinct",
+            "{COLUMN}",
+            "order",
+            "in",
+            "an",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT DISTINCT name FROM medication ORDER BY name"
+    },
+    {
+        "original_nl": "What is the alphabetically ordered list of all distinct medications?",
+        "generalized_nl": "What|is|the|alphabetically|order [ordered]|list|of|all|distinct|{COLUMN} [medications]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "alphabetically",
+            "order",
+            "list",
+            "of",
+            "all",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT name FROM medication ORDER BY name"
+    },
+    {
+        "original_nl": "What are the names of the physician who prescribed the highest dose?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{COLUMN} [physician]|who|order [prescribed]|the|high [highest]|{COLUMN} [dose]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "who",
+            "order",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name FROM physician AS T1 JOIN prescribes AS T2 ON T1.employeeid = T2.physician ORDER BY T2.dose DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the physicians' employee ids together with their primary affiliation departments' ids.",
+        "generalized_nl": "list [List]|the|{COLUMN} [physicians]|'|{COLUMN} [employee ids]|together|with|their|{COLUMN} [primary affiliation]|{COLUMN} [departments]|'|{COLUMN_PART} [ids]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "'",
+            "{COLUMN}",
+            "together",
+            "with",
+            "their",
+            "{COLUMN}",
+            "{COLUMN}",
+            "'",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT physician ,  department FROM affiliated_with WHERE primaryaffiliation  =  1"
+    },
+    {
+        "original_nl": "What are each physician's employee id and department id primarily affiliated.",
+        "generalized_nl": "What|are|each|{COLUMN} [physician]|'s|{COLUMN} [employee id]|and|{COLUMN} [department]|{COLUMN_PART} [id]|chiefly [primarily]|consort [affiliated]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "each",
+            "{COLUMN}",
+            "'s",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "chiefly",
+            "consort"
+        ],
+        "original_sql": "SELECT physician ,  department FROM affiliated_with WHERE primaryaffiliation  =  1"
+    },
+    {
+        "original_nl": "List the names of departments where some physicians are primarily affiliated with.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{COLUMN} [departments]|where|some|{COLUMN} [physicians]|are|chiefly [primarily]|{TABLE} [affiliated with]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "where",
+            "some",
+            "{COLUMN}",
+            "are",
+            "chiefly",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.name FROM affiliated_with AS T1 JOIN department AS T2 ON T1.department = T2.departmentid WHERE PrimaryAffiliation  =  1"
+    },
+    {
+        "original_nl": "What are the names of departments that have primarily affiliated physicians.",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{COLUMN} [departments]|that|have|chiefly [primarily]|consort [affiliated]|{COLUMN} [physicians]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "chiefly",
+            "consort",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.name FROM affiliated_with AS T1 JOIN department AS T2 ON T1.department = T2.departmentid WHERE PrimaryAffiliation  =  1"
+    },
+    {
+        "original_nl": "Find the ids of the nurses who are on call in block floor 1 and block code 1.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [ids]|of|the|{COLUMN} [nurses]|who|are|{TABLE} [on call]|in|{COLUMN} [block floor]|{NUMBER} [1]|and|{COLUMN} [block code]|{NUMBER} [1]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "who",
+            "are",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}",
+            "and",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT nurse FROM on_call WHERE blockfloor  =  1 AND blockcode  =  1"
+    },
+    {
+        "original_nl": "What are the highest cost, lowest cost and average cost of procedures?",
+        "generalized_nl": "What|are|the|high [highest]|{COLUMN} [cost]|low [lowest]|{COLUMN} [cost]|and|average|{COLUMN} [cost]|of|{COLUMN} [procedures]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "high",
+            "{COLUMN}",
+            "low",
+            "{COLUMN}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT MAX(cost) ,  MIN(cost) ,  AVG(cost) FROM procedures"
+    },
+    {
+        "original_nl": "Tell me the highest, lowest, and average cost of procedures.",
+        "generalized_nl": "tell [Tell]|me|the|high [highest]|low [lowest]|and|average|{COLUMN} [cost]|of|{COLUMN} [procedures]",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "high",
+            "low",
+            "and",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT MAX(cost) ,  MIN(cost) ,  AVG(cost) FROM procedures"
+    },
+    {
+        "original_nl": "List the name and cost of all procedures sorted by the cost from the highest to the lowest.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|and|{COLUMN} [cost]|of|all|{COLUMN} [procedures]|screen [sorted]|by|the|{COLUMN} [cost]|from|the|high [highest]|to|the|low [lowest]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "the",
+            "{COLUMN}",
+            "from",
+            "the",
+            "high",
+            "to",
+            "the",
+            "low"
+        ],
+        "original_sql": "SELECT name ,  cost FROM procedures ORDER BY cost DESC"
+    },
+    {
+        "original_nl": "Sort the list of names and costs of all procedures in the descending order of cost.",
+        "generalized_nl": "screen [Sort]|the|list|of|{COLUMN} [names]|and|{COLUMN} [costs]|of|all|{COLUMN} [procedures]|in|the|descend [descending]|order|of|{COLUMN} [cost]",
+        "generalized_tokens": [
+            "screen",
+            "the",
+            "list",
+            "of",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "in",
+            "the",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  cost FROM procedures ORDER BY cost DESC"
+    },
+    {
+        "original_nl": "Find the three most expensive procedures.",
+        "generalized_nl": "find [Find]|the|{NUMBER} [three]|most|expensive|{COLUMN} [procedures]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{NUMBER}",
+            "most",
+            "expensive",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM procedures ORDER BY cost LIMIT 3"
+    },
+    {
+        "original_nl": "What are the three most costly procedures?",
+        "generalized_nl": "What|are|the|{NUMBER} [three]|most|dearly-won [costly]|{COLUMN} [procedures]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{NUMBER}",
+            "most",
+            "dearly-won",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM procedures ORDER BY cost LIMIT 3"
+    },
+    {
+        "original_nl": "Find the physicians who are trained in a procedure that costs more than 5000.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [physicians]|who|are|{TABLE} [trained in]|a|{COLUMN} [procedure]|that|{COLUMN} [costs]|{NUMBER} [more than 5000]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "who",
+            "are",
+            "{TABLE}",
+            "a",
+            "{COLUMN}",
+            "that",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T3.cost  >  5000"
+    },
+    {
+        "original_nl": "Which physicians are trained in procedures that are more expensive than 5000?",
+        "generalized_nl": "Which|{COLUMN} [physicians]|are|{TABLE} [trained in]|{COLUMN} [procedures]|that|are|more|expensive|than|{NUMBER} [5000]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "are",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "are",
+            "more",
+            "expensive",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T3.cost  >  5000"
+    },
+    {
+        "original_nl": "Find the physician who was trained in the most expensive procedure?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [physician]|who|was|{TABLE} [trained in]|the|most|expensive|{COLUMN} [procedure]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "who",
+            "was",
+            "{TABLE}",
+            "the",
+            "most",
+            "expensive",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment ORDER BY T3.cost DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which physician was trained in the procedure that costs the most.",
+        "generalized_nl": "Which|{COLUMN} [physician]|was|{TABLE} [trained in]|the|{COLUMN} [procedure]|that|{COLUMN} [costs]|the|most",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "was",
+            "{TABLE}",
+            "the",
+            "{COLUMN}",
+            "that",
+            "{COLUMN}",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT T1.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment ORDER BY T3.cost DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the average cost of procedures that physician John Wen was trained in?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [cost]|of|{COLUMN} [procedures]|that|{COLUMN} [physician]|{NE} [John Wen]|was|{TABLE} [trained in]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "{COLUMN}",
+            "{NE}",
+            "was",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(T3.cost) FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T1.name  =  \"John Wen\""
+    },
+    {
+        "original_nl": "Compute the mean price of procedures physician John Wen was trained in.",
+        "generalized_nl": "calculate [Compute]|the|mean|price|of|{COLUMN} [procedures]|{COLUMN} [physician]|{NE} [John Wen]|was|{TABLE} [trained in]",
+        "generalized_tokens": [
+            "calculate",
+            "the",
+            "mean",
+            "price",
+            "of",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{NE}",
+            "was",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(T3.cost) FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T1.name  =  \"John Wen\""
+    },
+    {
+        "original_nl": "Find the names of procedures which physician John Wen was trained in.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{COLUMN} [procedures]|which|{COLUMN} [physician]|{NE} [John Wen]|was|{TABLE} [trained in]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "which",
+            "{COLUMN}",
+            "{NE}",
+            "was",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T1.name  =  \"John Wen\""
+    },
+    {
+        "original_nl": "What are the names of procedures physician John Wen was trained in?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{COLUMN} [procedures]|{COLUMN} [physician]|{NE} [John Wen]|was|{TABLE} [trained in]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{NE}",
+            "was",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T1.name  =  \"John Wen\""
+    },
+    {
+        "original_nl": "Find all procedures which cost more than 1000 or which physician John Wen was trained in.",
+        "generalized_nl": "find [Find]|all|{COLUMN} [procedures]|which|{COLUMN} [cost]|{NUMBER} [more than 1000]|or|which|{COLUMN} [physician]|{NE} [John Wen]|was|{TABLE} [trained in]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "{COLUMN}",
+            "which",
+            "{COLUMN}",
+            "{NUMBER}",
+            "or",
+            "which",
+            "{COLUMN}",
+            "{NE}",
+            "was",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM procedures WHERE cost  >  1000 UNION SELECT T3.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T1.name  =  \"John Wen\""
+    },
+    {
+        "original_nl": "What are the procedures that cost more than 1000 or are specialized in by physician John Wen?",
+        "generalized_nl": "What|are|the|{COLUMN} [procedures]|that|{COLUMN} [cost]|{NUMBER} [more than 1000]|or|are|specialize [specialized]|in|by|{COLUMN} [physician]|{NE} [John Wen]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "{COLUMN}",
+            "{NUMBER}",
+            "or",
+            "are",
+            "specialize",
+            "in",
+            "by",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM procedures WHERE cost  >  1000 UNION SELECT T3.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T1.name  =  \"John Wen\""
+    },
+    {
+        "original_nl": "Find the names of all procedures which cost more than 1000 but which physician John Wen was not trained in?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{COLUMN} [procedures]|which|{COLUMN} [cost]|{NUMBER} [more than 1000]|but|which|{COLUMN} [physician]|{NE} [John Wen]|was|not|{TABLE} [trained in]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "which",
+            "{COLUMN}",
+            "{NUMBER}",
+            "but",
+            "which",
+            "{COLUMN}",
+            "{NE}",
+            "was",
+            "not",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM procedures WHERE cost  >  1000 EXCEPT SELECT T3.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T1.name  =  \"John Wen\""
+    },
+    {
+        "original_nl": "Among the procedures that cost more than 1000, which were not specialized in by physician John Wen?",
+        "generalized_nl": "Among|the|{COLUMN} [procedures]|that|{COLUMN} [cost]|{NUMBER} [more than 1000]|which|were|not|specialize [specialized]|in|by|{COLUMN} [physician]|{NE} [John Wen]",
+        "generalized_tokens": [
+            "Among",
+            "the",
+            "{COLUMN}",
+            "that",
+            "{COLUMN}",
+            "{NUMBER}",
+            "which",
+            "were",
+            "not",
+            "specialize",
+            "in",
+            "by",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM procedures WHERE cost  >  1000 EXCEPT SELECT T3.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T1.name  =  \"John Wen\""
+    },
+    {
+        "original_nl": "Find the names of all procedures such that the cost is less than 5000 and physician John Wen was trained in.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{COLUMN} [procedures]|such|that|the|{COLUMN} [cost]|is|{NUMBER} [less than 5000]|and|{COLUMN} [physician]|{NE} [John Wen]|was|{TABLE} [trained in]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "such",
+            "that",
+            "the",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}",
+            "and",
+            "{COLUMN}",
+            "{NE}",
+            "was",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM procedures WHERE cost  <  5000 INTERSECT SELECT T3.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T1.name  =  \"John Wen\""
+    },
+    {
+        "original_nl": "What procedures cost less than 5000 and have John Wen as a trained physician?",
+        "generalized_nl": "What|{COLUMN} [procedures]|{COLUMN} [cost]|{NUMBER} [less than 5000]|and|have|{NE} [John Wen]|as|a|train [trained]|{COLUMN} [physician]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{NUMBER}",
+            "and",
+            "have",
+            "{NE}",
+            "as",
+            "a",
+            "train",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM procedures WHERE cost  <  5000 INTERSECT SELECT T3.name FROM physician AS T1 JOIN trained_in AS T2 ON T1.employeeid  =  T2.physician JOIN procedures AS T3 ON T3.code  =  T2.treatment WHERE T1.name  =  \"John Wen\""
+    },
+    {
+        "original_nl": "Find the name of physicians who are affiliated with both Surgery and Psychiatry departments.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{COLUMN} [physicians]|who|are|{TABLE} [affiliated with]|both|{NE} [Surgery and Psychiatry]|{COLUMN} [departments]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "are",
+            "{TABLE}",
+            "both",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name FROM physician AS T1 JOIN affiliated_with AS T2 ON T1.EmployeeID  =  T2.physician JOIN department AS T3 ON T2.department  =  T3.DepartmentID WHERE T3.name  =  'Surgery' INTERSECT SELECT T1.name FROM physician AS T1 JOIN affiliated_with AS T2 ON T1.EmployeeID  =  T2.physician JOIN department AS T3 ON T2.department  =  T3.DepartmentID WHERE T3.name  =  'Psychiatry'"
+    },
+    {
+        "original_nl": "Find the name of physicians who are affiliated with Surgery or Psychiatry department.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{COLUMN} [physicians]|who|are|{TABLE} [affiliated with]|{NE} [Surgery]|or|{NE} [Psychiatry]|{COLUMN} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "are",
+            "{TABLE}",
+            "{NE}",
+            "or",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name FROM physician AS T1 JOIN affiliated_with AS T2 ON T1.EmployeeID  =  T2.physician JOIN department AS T3 ON T2.department  =  T3.DepartmentID WHERE T3.name  =  'Surgery' OR T3.name  =  'Psychiatry'"
+    },
+    {
+        "original_nl": "Find the names of patients who are not using the medication of Procrastin-X.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{COLUMN} [patients]|who|are|not|use [using]|the|{COLUMN} [medication]|of|Procrastin|X",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "are",
+            "not",
+            "use",
+            "the",
+            "{COLUMN}",
+            "of",
+            "Procrastin",
+            "X"
+        ],
+        "original_sql": "SELECT name FROM patient EXCEPT SELECT T1.name FROM patient AS T1 JOIN Prescribes AS T2 ON T2.Patient  =  T1.SSN JOIN Medication AS T3 ON T2.Medication  =  T3.Code WHERE T3.name  =  'Procrastin-X'"
+    },
+    {
+        "original_nl": "What are the names of patients who are not taking the medication of Procrastin-X.",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{COLUMN} [patients]|who|are|not|take [taking]|the|{COLUMN} [medication]|of|Procrastin|X",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "are",
+            "not",
+            "take",
+            "the",
+            "{COLUMN}",
+            "of",
+            "Procrastin",
+            "X"
+        ],
+        "original_sql": "SELECT name FROM patient EXCEPT SELECT T1.name FROM patient AS T1 JOIN Prescribes AS T2 ON T2.Patient  =  T1.SSN JOIN Medication AS T3 ON T2.Medication  =  T3.Code WHERE T3.name  =  'Procrastin-X'"
+    },
+    {
+        "original_nl": "Find the number of patients who are not using the medication of Procrastin-X.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [patients]|who|are|not|use [using]|the|{COLUMN} [medication]|of|Procrastin|X",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "who",
+            "are",
+            "not",
+            "use",
+            "the",
+            "{COLUMN}",
+            "of",
+            "Procrastin",
+            "X"
+        ],
+        "original_sql": "SELECT count(*) FROM patient WHERE SSN NOT IN ( SELECT T1.patient FROM Prescribes AS T1 JOIN Medication AS T2 ON T1.Medication  =  T2.Code WHERE T2.name  =  'Procrastin-X' )"
+    },
+    {
+        "original_nl": "How many patients are not using Procrastin-X as medication?",
+        "generalized_nl": "How|many|{COLUMN} [patients]|are|not|use [using]|{NE} [Procrastin - X]|as|{COLUMN} [medication]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "not",
+            "use",
+            "{NE}",
+            "as",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM patient WHERE SSN NOT IN ( SELECT T1.patient FROM Prescribes AS T1 JOIN Medication AS T2 ON T1.Medication  =  T2.Code WHERE T2.name  =  'Procrastin-X' )"
+    },
+    {
+        "original_nl": "How many appointments are there?",
+        "generalized_nl": "How|many|{COLUMN} [appointments]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM appointment"
+    },
+    {
+        "original_nl": "Count how many appointments have been made in total.",
+        "generalized_nl": "count [Count]|how|many|{COLUMN} [appointments]|have|been|make [made]|in|entire [total]",
+        "generalized_tokens": [
+            "count",
+            "how",
+            "many",
+            "{COLUMN}",
+            "have",
+            "been",
+            "make",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM appointment"
+    },
+    {
+        "original_nl": "Find the names of nurses who are on call.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{COLUMN} [nurses]|who|are|{TABLE} [on call]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "are",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name FROM nurse AS T1 JOIN on_call AS T2 ON T1.EmployeeID  =  T2.nurse"
+    },
+    {
+        "original_nl": "What are the distinct names of nurses on call?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [names]|of|{COLUMN} [nurses]|{TABLE} [on call]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name FROM nurse AS T1 JOIN on_call AS T2 ON T1.EmployeeID  =  T2.nurse"
+    }
+]

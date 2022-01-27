@@ -1,0 +1,1497 @@
+[
+    {
+        "original_nl": "Find the name of all customers.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|all|{TABLE} [customers]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT customer_name FROM customers"
+    },
+    {
+        "original_nl": "What are the names of all the customers?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [customers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT customer_name FROM customers"
+    },
+    {
+        "original_nl": "How many customers are there?",
+        "generalized_nl": "How|many|{TABLE} [customers]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM customers"
+    },
+    {
+        "original_nl": "Return the total number of distinct customers.",
+        "generalized_nl": "return [Return]|the|entire [total]|{COLUMN_PART} [number]|of|distinct|{TABLE} [customers]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "distinct",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers"
+    },
+    {
+        "original_nl": "What is the average amount of items ordered in each order?",
+        "generalized_nl": "What|is|the|average|sum [amount]|of|item [items]|order [ordered]|in|each|{COLUMN_PART} [order]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "sum",
+            "of",
+            "item",
+            "order",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(order_quantity) FROM order_items"
+    },
+    {
+        "original_nl": "Find the average order quantity per order.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [order quantity]|per|{COLUMN_PART} [order]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "per",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(order_quantity) FROM order_items"
+    },
+    {
+        "original_nl": "What are the names of customers who use payment method \"Cash\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|use|{COLUMN} [payment method]|cash [Cash]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "use",
+            "{COLUMN}",
+            "cash"
+        ],
+        "original_sql": "SELECT customer_name FROM customers WHERE payment_method  =  \"Cash\""
+    },
+    {
+        "original_nl": "Find the \"date became customers\" of the customers whose ID is between 10 and 20.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [date became customers]|of|the|{TABLE} [customers]|whose|{COLUMN_PART} [ID]|is|{NUMBER} [between 10 and 20]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT date_became_customer FROM customers WHERE customer_id BETWEEN 10 AND 20"
+    },
+    {
+        "original_nl": "What are the dates when customers with ids between 10 and 20 became customers?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [dates]|when|{TABLE} [customers]|with|{COLUMN_PART} [ids]|{NE} [between 10 and 20]|{COLUMN_PART} [became]|{TABLE} [customers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "when",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT date_became_customer FROM customers WHERE customer_id BETWEEN 10 AND 20"
+    },
+    {
+        "original_nl": "Which payment method is used by most customers?",
+        "generalized_nl": "Which|{COLUMN} [payment method]|is|use [used]|by|most|{TABLE} [customers]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "use",
+            "by",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT payment_method FROM customers GROUP BY payment_method ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the payment method that is used most frequently.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [payment method]|that|is|use [used]|most|frequently",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "use",
+            "most",
+            "frequently"
+        ],
+        "original_sql": "SELECT payment_method FROM customers GROUP BY payment_method ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the names of customers using the most popular payment method?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|use [using]|the|most|popular|{COLUMN} [payment method]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "use",
+            "the",
+            "most",
+            "popular",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT customer_name FROM customers WHERE payment_method  =  (SELECT payment_method FROM customers GROUP BY payment_method ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Find the name of the customers who use the most frequently used payment method.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [customers]|who|use|the|most|frequently|use [used]|{COLUMN} [payment method]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "use",
+            "the",
+            "most",
+            "frequently",
+            "use",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT customer_name FROM customers WHERE payment_method  =  (SELECT payment_method FROM customers GROUP BY payment_method ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "What are all the payment methods?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [payment methods]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT payment_method FROM customers"
+    },
+    {
+        "original_nl": "Return all the distinct payment methods used by customers.",
+        "generalized_nl": "return [Return]|all|the|distinct|{COLUMN} [payment methods]|use [used]|by|{TABLE} [customers]",
+        "generalized_tokens": [
+            "return",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "use",
+            "by",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT payment_method FROM customers"
+    },
+    {
+        "original_nl": "What are the details of all products?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|of|all|{TABLE} [products]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT product_details FROM products"
+    },
+    {
+        "original_nl": "Return the the details of all products.",
+        "generalized_nl": "return [Return]|the|the|{COLUMN_PART} [details]|of|all|{TABLE} [products]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT product_details FROM products"
+    },
+    {
+        "original_nl": "Find the name of all customers whose name contains \"Alex\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|all|{TABLE} [customers]|whose|{COLUMN_PART} [name]|contain [contains]|{NE} [Alex]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "contain",
+            "{NE}"
+        ],
+        "original_sql": "SELECT customer_name FROM customers WHERE customer_name LIKE \"%Alex%\""
+    },
+    {
+        "original_nl": "Find the detail of products whose detail contains the word \"Latte\" or the word \"Americano\"",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [detail]|of|{TABLE} [products]|whose|{COLUMN_PART} [detail]|contain [contains]|the|word|caffe_latte [Latte]|or|the|word|Americano",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "contain",
+            "the",
+            "word",
+            "caffe_latte",
+            "or",
+            "the",
+            "word",
+            "Americano"
+        ],
+        "original_sql": "SELECT product_details FROM products WHERE product_details LIKE \"%Latte%\" OR product_details LIKE \"%Americano%\""
+    },
+    {
+        "original_nl": "What is the address content of the customer named \"Maudie Kertzmann\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [address content]|of|the|{TABLE} [customer]|name [named]|{NE} [Maudie Kertzmann]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t3.address_content FROM customers AS t1 JOIN customer_addresses AS t2 ON t1.customer_id  =  t2.customer_id JOIN addresses AS t3 ON t2.address_id  =  t3.address_id WHERE t1.customer_name  =  \"Maudie Kertzmann\""
+    },
+    {
+        "original_nl": "Return the address content for the customer whose name is \"Maudie Kertzmann\".",
+        "generalized_nl": "return [Return]|the|{COLUMN} [address content]|for|the|{TABLE} [customer]|whose|{COLUMN_PART} [name]|is|{NE} [Maudie Kertzmann \"]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t3.address_content FROM customers AS t1 JOIN customer_addresses AS t2 ON t1.customer_id  =  t2.customer_id JOIN addresses AS t3 ON t2.address_id  =  t3.address_id WHERE t1.customer_name  =  \"Maudie Kertzmann\""
+    },
+    {
+        "original_nl": "How many customers are living in city \"Lake Geovannyton\"?",
+        "generalized_nl": "How|many|{TABLE} [customers]|are|live [living]|in|{COLUMN} [city]|Lake|Geovannyton",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "live",
+            "in",
+            "{COLUMN}",
+            "Lake",
+            "Geovannyton"
+        ],
+        "original_sql": "SELECT count(*) FROM customers AS t1 JOIN customer_addresses AS t2 ON t1.customer_id  =  t2.customer_id JOIN addresses AS t3 ON t2.address_id  =  t3.address_id WHERE t3.city  =  \"Lake Geovannyton\""
+    },
+    {
+        "original_nl": "Find the number of customers who live in the city called Lake Geovannyton.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [customers]|who|live|in|the|{COLUMN} [city]|call [called]|{NE} [Lake Geovannyton]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "live",
+            "in",
+            "the",
+            "{COLUMN}",
+            "call",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers AS t1 JOIN customer_addresses AS t2 ON t1.customer_id  =  t2.customer_id JOIN addresses AS t3 ON t2.address_id  =  t3.address_id WHERE t3.city  =  \"Lake Geovannyton\""
+    },
+    {
+        "original_nl": "Find the name of customers who are living in Colorado?",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [customers]|who|are|live [living]|in|{NE} [Colorado]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN customer_addresses AS t2 ON t1.customer_id  =  t2.customer_id JOIN addresses AS t3 ON t2.address_id  =  t3.address_id WHERE t3.state_province_county  =  \"Colorado\""
+    },
+    {
+        "original_nl": "What are the names of customers who live in Colorado state?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|live|in|{NE} [Colorado]|{COLUMN_PART} [state]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "live",
+            "in",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN customer_addresses AS t2 ON t1.customer_id  =  t2.customer_id JOIN addresses AS t3 ON t2.address_id  =  t3.address_id WHERE t3.state_province_county  =  \"Colorado\""
+    },
+    {
+        "original_nl": "Find the list of cities that no customer is living in.",
+        "generalized_nl": "find [Find]|the|list|of|{COLUMN} [cities]|that|no|{TABLE} [customer]|is|live [living]|in",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "list",
+            "of",
+            "{COLUMN}",
+            "that",
+            "no",
+            "{TABLE}",
+            "is",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT city FROM addresses WHERE city NOT IN ( SELECT DISTINCT t3.city FROM customers AS t1 JOIN customer_addresses AS t2 ON t1.customer_id  =  t2.customer_id JOIN addresses AS t3 ON t2.address_id  =  t3.address_id)"
+    },
+    {
+        "original_nl": "What are the cities no customers live in?",
+        "generalized_nl": "What|are|the|{COLUMN} [cities]|no|{TABLE} [customers]|live|in",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "no",
+            "{TABLE}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT city FROM addresses WHERE city NOT IN ( SELECT DISTINCT t3.city FROM customers AS t1 JOIN customer_addresses AS t2 ON t1.customer_id  =  t2.customer_id JOIN addresses AS t3 ON t2.address_id  =  t3.address_id)"
+    },
+    {
+        "original_nl": "Which city has the most customers living in?",
+        "generalized_nl": "Which|{COLUMN} [city]|have [has]|the|most|{TABLE} [customers]|live [living]|in",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "{TABLE}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT t3.city FROM customers AS t1 JOIN customer_addresses AS t2 ON t1.customer_id  =  t2.customer_id JOIN addresses AS t3 ON t2.address_id  =  t3.address_id GROUP BY t3.city ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the city where the most customers live.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [city]|where|the|most|{TABLE} [customers]|live",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "where",
+            "the",
+            "most",
+            "{TABLE}",
+            "live"
+        ],
+        "original_sql": "SELECT t3.city FROM customers AS t1 JOIN customer_addresses AS t2 ON t1.customer_id  =  t2.customer_id JOIN addresses AS t3 ON t2.address_id  =  t3.address_id GROUP BY t3.city ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Retrieve the list of all cities.",
+        "generalized_nl": "retrieve [Retrieve]|the|list|of|all|{COLUMN} [cities]",
+        "generalized_tokens": [
+            "retrieve",
+            "the",
+            "list",
+            "of",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT city FROM addresses"
+    },
+    {
+        "original_nl": "List all the distinct cities",
+        "generalized_nl": "list [List]|all|the|distinct|{COLUMN} [cities]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT city FROM addresses"
+    },
+    {
+        "original_nl": "Find the city with post code 255.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [city]|with|post|{COLUMN_PART} [code]|{NUMBER} [255]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "with",
+            "post",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT city FROM addresses WHERE zip_postcode  =  255"
+    },
+    {
+        "original_nl": "Which city is post code 255 located in?",
+        "generalized_nl": "Which|{COLUMN} [city]|is|post|{COLUMN_PART} [code]|{NUMBER} [255]|locate [located]|in",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "post",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "locate",
+            "in"
+        ],
+        "original_sql": "SELECT city FROM addresses WHERE zip_postcode  =  255"
+    },
+    {
+        "original_nl": "Find the state and country of all cities with post code starting with 4.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [state]|and|{COLUMN} [country]|of|all|{COLUMN} [cities]|with|post|{COLUMN_PART} [code]|start [starting]|with|{NUMBER} [4]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "with",
+            "post",
+            "{COLUMN_PART}",
+            "start",
+            "with",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT state_province_county ,  country FROM addresses WHERE zip_postcode LIKE \"4%\""
+    },
+    {
+        "original_nl": "What are the state and country of all the cities that have post codes starting with 4.\\",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [state]|and|{COLUMN} [country]|of|all|the|{COLUMN} [cities]|that|have|post|{COLUMN_PART} [codes]|start [starting]|with|{NUMBER} [4]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "post",
+            "{COLUMN_PART}",
+            "start",
+            "with",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT state_province_county ,  country FROM addresses WHERE zip_postcode LIKE \"4%\""
+    },
+    {
+        "original_nl": "List the countries having more than 4 addresses listed.",
+        "generalized_nl": "list [List]|the|{COLUMN} [countries]|have [having]|{NUMBER} [more than 4]|{TABLE} [addresses]|list [listed]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "have",
+            "{NUMBER}",
+            "{TABLE}",
+            "list"
+        ],
+        "original_sql": "SELECT country FROM addresses GROUP BY country HAVING count(address_id)  >  4"
+    },
+    {
+        "original_nl": "For which countries are there more than four distinct addresses listed?",
+        "generalized_nl": "For|which|{COLUMN} [countries]|are|there|{NUMBER} [more than four]|distinct|{TABLE} [addresses]|list [listed]",
+        "generalized_tokens": [
+            "For",
+            "which",
+            "{COLUMN}",
+            "are",
+            "there",
+            "{NUMBER}",
+            "distinct",
+            "{TABLE}",
+            "list"
+        ],
+        "original_sql": "SELECT country FROM addresses GROUP BY country HAVING count(address_id)  >  4"
+    },
+    {
+        "original_nl": "List all the contact channel codes that were used less than 5 times.",
+        "generalized_nl": "list [List]|all|the|{COLUMN_PART} [contact]|{COLUMN} [channel codes]|that|were|use [used]|{NUMBER} [less than 5]|time [times]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "that",
+            "were",
+            "use",
+            "{NUMBER}",
+            "time"
+        ],
+        "original_sql": "SELECT channel_code FROM customer_contact_channels GROUP BY channel_code HAVING count(customer_id)  <  5"
+    },
+    {
+        "original_nl": "Which contact channel codes were used less than 5 times?",
+        "generalized_nl": "Which|{COLUMN_PART} [contact]|{COLUMN} [channel codes]|were|use [used]|{NUMBER} [less than 5]|time [times]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "were",
+            "use",
+            "{NUMBER}",
+            "time"
+        ],
+        "original_sql": "SELECT channel_code FROM customer_contact_channels GROUP BY channel_code HAVING count(customer_id)  <  5"
+    },
+    {
+        "original_nl": "Which contact channel has been used by the customer with name \"Tillman Ernser\"?",
+        "generalized_nl": "Which|{COLUMN_PART} [contact]|{COLUMN_PART} [channel]|has|been|use [used]|by|the|{TABLE} [customer]|with|{COLUMN_PART} [name]|Tillman|Ernser",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "has",
+            "been",
+            "use",
+            "by",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "Tillman",
+            "Ernser"
+        ],
+        "original_sql": "SELECT DISTINCT channel_code FROM customers AS t1 JOIN customer_contact_channels AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.customer_name  =  \"Tillman Ernser\""
+    },
+    {
+        "original_nl": "Find the contact channel code that was used by the customer named \"Tillman Ernser\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [contact]|{COLUMN} [channel code]|that|was|use [used]|by|the|{TABLE} [customer]|name [named]|Tillman|Ernser",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "that",
+            "was",
+            "use",
+            "by",
+            "the",
+            "{TABLE}",
+            "name",
+            "Tillman",
+            "Ernser"
+        ],
+        "original_sql": "SELECT DISTINCT channel_code FROM customers AS t1 JOIN customer_contact_channels AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.customer_name  =  \"Tillman Ernser\""
+    },
+    {
+        "original_nl": "What is the \"active to date\" of the latest contact channel used by \"Tillman Ernser\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [active to date]|of|the|late [latest]|{COLUMN_PART} [contact]|{COLUMN_PART} [channel]|use [used]|by|Tillman|Ernser",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "late",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "use",
+            "by",
+            "Tillman",
+            "Ernser"
+        ],
+        "original_sql": "SELECT max(t2.active_to_date) FROM customers AS t1 JOIN customer_contact_channels AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.customer_name  =  \"Tillman Ernser\""
+    },
+    {
+        "original_nl": "Return the the \"active to date\" of the latest contact channel used by the customer named \"Tillman Ernser\".",
+        "generalized_nl": "return [Return]|the|the|{COLUMN} [active to date]|of|the|late [latest]|{COLUMN_PART} [contact]|{COLUMN_PART} [channel]|use [used]|by|the|{TABLE} [customer]|name [named]|Tillman|Ernser",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "late",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "use",
+            "by",
+            "the",
+            "{TABLE}",
+            "name",
+            "Tillman",
+            "Ernser"
+        ],
+        "original_sql": "SELECT max(t2.active_to_date) FROM customers AS t1 JOIN customer_contact_channels AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.customer_name  =  \"Tillman Ernser\""
+    },
+    {
+        "original_nl": "What is the average time span of contact channels in the database?",
+        "generalized_nl": "What|is|the|average|time|span|of|{COLUMN_PART} [contact]|channel [channels]|in|the|database",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "time",
+            "span",
+            "of",
+            "{COLUMN_PART}",
+            "channel",
+            "in",
+            "the",
+            "database"
+        ],
+        "original_sql": "SELECT avg(active_to_date - active_from_date) FROM customer_contact_channels"
+    },
+    {
+        "original_nl": "Compute the average active time span of contact channels.",
+        "generalized_nl": "calculate [Compute]|the|average|{COLUMN_PART} [active]|time|span|of|{COLUMN_PART} [contact]|channel [channels]",
+        "generalized_tokens": [
+            "calculate",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "time",
+            "span",
+            "of",
+            "{COLUMN_PART}",
+            "channel"
+        ],
+        "original_sql": "SELECT avg(active_to_date - active_from_date) FROM customer_contact_channels"
+    },
+    {
+        "original_nl": "What is the channel code and contact number of the customer contact channel that was active for the longest time?",
+        "generalized_nl": "What|is|the|{COLUMN} [channel code]|and|{COLUMN} [contact number]|of|the|{TABLE} [customer]|{COLUMN_PART} [contact]|{COLUMN_PART} [channel]|that|was|{COLUMN_PART} [active]|for|the|long [longest]|time",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "that",
+            "was",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "long",
+            "time"
+        ],
+        "original_sql": "SELECT channel_code ,  contact_number FROM customer_contact_channels WHERE active_to_date - active_from_date  =  (SELECT active_to_date - active_from_date FROM customer_contact_channels ORDER BY (active_to_date - active_from_date) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Return the channel code and contact number of the customer contact channel whose active duration was the longest.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [channel code]|and|{COLUMN} [contact number]|of|the|{TABLE} [customer]|{COLUMN_PART} [contact]|{COLUMN_PART} [channel]|whose|{COLUMN_PART} [active]|duration|was|the|long [longest]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "whose",
+            "{COLUMN_PART}",
+            "duration",
+            "was",
+            "the",
+            "long"
+        ],
+        "original_sql": "SELECT channel_code ,  contact_number FROM customer_contact_channels WHERE active_to_date - active_from_date  =  (SELECT active_to_date - active_from_date FROM customer_contact_channels ORDER BY (active_to_date - active_from_date) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Find the name and active date of the customer that use email as the contact channel.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [active]|{COLUMN_PART} [date]|of|the|{TABLE} [customer]|that|use|electronic_mail [email]|as|the|{COLUMN_PART} [contact]|{COLUMN_PART} [channel]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "use",
+            "electronic_mail",
+            "as",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.customer_name ,  t2.active_from_date FROM customers AS t1 JOIN customer_contact_channels AS t2 ON t1.customer_id  =  t2.customer_id WHERE t2.channel_code  =  'Email'"
+    },
+    {
+        "original_nl": "What are the name and active date of the customers whose contact channel code is email?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [active]|{COLUMN_PART} [date]|of|the|{TABLE} [customers]|whose|{COLUMN_PART} [contact]|{COLUMN} [channel code]|is|electronic_mail [email]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "is",
+            "electronic_mail"
+        ],
+        "original_sql": "SELECT t1.customer_name ,  t2.active_from_date FROM customers AS t1 JOIN customer_contact_channels AS t2 ON t1.customer_id  =  t2.customer_id WHERE t2.channel_code  =  'Email'"
+    },
+    {
+        "original_nl": "What is the name of the customer that made the order with the largest quantity?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|that|make [made]|the|{COLUMN_PART} [order]|with|the|large [largest]|{COLUMN_PART} [quantity]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "make",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id WHERE t3.order_quantity  =  ( SELECT max(order_quantity) FROM order_items)"
+    },
+    {
+        "original_nl": "Find the name of the customer who made the order of the largest amount of goods.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|who|make [made]|the|{COLUMN_PART} [order]|of|the|large [largest]|sum [amount]|of|good [goods]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "make",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "large",
+            "sum",
+            "of",
+            "good"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id WHERE t3.order_quantity  =  ( SELECT max(order_quantity) FROM order_items)"
+    },
+    {
+        "original_nl": "What is the name of the customer that has purchased the most items?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|that|has|buy [purchased]|the|most|item [items]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "buy",
+            "the",
+            "most",
+            "item"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id GROUP BY t1.customer_name ORDER BY sum(t3.order_quantity) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Give me the name of the customer who ordered the most items in total.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|who|order [ordered]|the|most|item [items]|in|entire [total]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "order",
+            "the",
+            "most",
+            "item",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id GROUP BY t1.customer_name ORDER BY sum(t3.order_quantity) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the payment method of the customer that has purchased the least quantity of items?",
+        "generalized_nl": "What|is|the|{COLUMN} [payment method]|of|the|{TABLE} [customer]|that|has|buy [purchased]|the|least|{COLUMN_PART} [quantity]|of|item [items]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "buy",
+            "the",
+            "least",
+            "{COLUMN_PART}",
+            "of",
+            "item"
+        ],
+        "original_sql": "SELECT t1.payment_method FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id GROUP BY t1.customer_name ORDER BY sum(t3.order_quantity) LIMIT 1"
+    },
+    {
+        "original_nl": "Tell me the payment method used by the customer who ordered the least amount of goods in total.",
+        "generalized_nl": "tell [Tell]|me|the|{COLUMN} [payment method]|use [used]|by|the|{TABLE} [customer]|who|order [ordered]|the|least|sum [amount]|of|good [goods]|in|entire [total]",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "{COLUMN}",
+            "use",
+            "by",
+            "the",
+            "{TABLE}",
+            "who",
+            "order",
+            "the",
+            "least",
+            "sum",
+            "of",
+            "good",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT t1.payment_method FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id GROUP BY t1.customer_name ORDER BY sum(t3.order_quantity) LIMIT 1"
+    },
+    {
+        "original_nl": "How many types of products have Rodrick Heaney bought in total?",
+        "generalized_nl": "How|many|{COLUMN_PART} [types]|of|{TABLE} [products]|have|{NE} [Rodrick Heaney]|buy [bought]|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "have",
+            "{NE}",
+            "buy",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(DISTINCT t3.product_id) FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id WHERE t1.customer_name  =  \"Rodrick Heaney\""
+    },
+    {
+        "original_nl": "Find the number of distinct products Rodrick Heaney has bought so far.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|distinct|{TABLE} [products]|{NE} [Rodrick Heaney]|has|buy [bought]|so|far",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "distinct",
+            "{TABLE}",
+            "{NE}",
+            "has",
+            "buy",
+            "so",
+            "far"
+        ],
+        "original_sql": "SELECT count(DISTINCT t3.product_id) FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id WHERE t1.customer_name  =  \"Rodrick Heaney\""
+    },
+    {
+        "original_nl": "What is the total quantity of products purchased by \"Rodrick Heaney\"?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [quantity]|of|{TABLE} [products]|buy [purchased]|by|{NE} [Rodrick Heaney \"]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "buy",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(t3.order_quantity) FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id WHERE t1.customer_name  =  \"Rodrick Heaney\""
+    },
+    {
+        "original_nl": "Tell me the total quantity of products bought by the customer called \"Rodrick Heaney\".",
+        "generalized_nl": "tell [Tell]|me|the|entire [total]|{COLUMN_PART} [quantity]|of|{TABLE} [products]|buy [bought]|by|the|{TABLE} [customer]|call [called]|Rodrick|Heaney",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "buy",
+            "by",
+            "the",
+            "{TABLE}",
+            "call",
+            "Rodrick",
+            "Heaney"
+        ],
+        "original_sql": "SELECT sum(t3.order_quantity) FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id WHERE t1.customer_name  =  \"Rodrick Heaney\""
+    },
+    {
+        "original_nl": "How many customers have at least one order with status \"Cancelled\"?",
+        "generalized_nl": "How|many|{TABLE} [customers]|have|{NUMBER} [at least one]|{COLUMN_PART} [order]|with|{COLUMN_PART} [status]|cancel [Cancelled]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "cancel"
+        ],
+        "original_sql": "SELECT count(DISTINCT customer_id) FROM customer_orders WHERE order_status  =  \"Cancelled\""
+    },
+    {
+        "original_nl": "Return the number of customers who have at least one order with \"Cancelled\" status.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [number]|of|{TABLE} [customers]|who|have|{NUMBER} [at least one]|{COLUMN_PART} [order]|with|cancel [Cancelled]|{COLUMN_PART} [status]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "with",
+            "cancel",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(DISTINCT customer_id) FROM customer_orders WHERE order_status  =  \"Cancelled\""
+    },
+    {
+        "original_nl": "How many orders have detail \"Second time\"?",
+        "generalized_nl": "How|many|order [orders]|have|{COLUMN_PART} [detail]|{NE} [Second]|time",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "order",
+            "have",
+            "{COLUMN_PART}",
+            "{NE}",
+            "time"
+        ],
+        "original_sql": "SELECT count(*) FROM customer_orders WHERE order_details  =  \"Second time\""
+    },
+    {
+        "original_nl": "Tell me the number of orders with \"Second time\" as order detail.",
+        "generalized_nl": "tell [Tell]|me|the|{COLUMN_PART} [number]|of|order [orders]|with|{NE} [Second]|time|as|{COLUMN} [order detail]",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "order",
+            "with",
+            "{NE}",
+            "time",
+            "as",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM customer_orders WHERE order_details  =  \"Second time\""
+    },
+    {
+        "original_nl": "Find the customer name and date of the orders that have the status \"Delivered\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [customer name]|and|{COLUMN_PART} [date]|of|the|order [orders]|that|have|the|{COLUMN_PART} [status]|deliver [Delivered]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "order",
+            "that",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "deliver"
+        ],
+        "original_sql": "SELECT t1.customer_name ,  t2.order_date FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id WHERE order_status  =  \"Delivered\""
+    },
+    {
+        "original_nl": "What are the customer name and date of the orders whose status is \"Delivered\".",
+        "generalized_nl": "What|are|the|{COLUMN} [customer name]|and|{COLUMN_PART} [date]|of|the|order [orders]|whose|{COLUMN_PART} [status]|is|deliver [Delivered]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "order",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "deliver"
+        ],
+        "original_sql": "SELECT t1.customer_name ,  t2.order_date FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id WHERE order_status  =  \"Delivered\""
+    },
+    {
+        "original_nl": "What is the total number of products that are in orders with status \"Cancelled\"?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [number]|of|{TABLE} [products]|that|are|in|order [orders]|with|{COLUMN_PART} [status]|cancel [Cancelled]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "in",
+            "order",
+            "with",
+            "{COLUMN_PART}",
+            "cancel"
+        ],
+        "original_sql": "SELECT sum(t2.order_quantity) FROM customer_orders AS t1 JOIN order_items AS t2 ON t1.order_id  =  t2.order_id WHERE t1.order_status  =  \"Cancelled\""
+    },
+    {
+        "original_nl": "Find the total quantity of products associated with the orders in the \"Cancelled\" status.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN_PART} [quantity]|of|{TABLE} [products]|associate [associated]|with|the|order [orders]|in|the|cancel [Cancelled]|{COLUMN_PART} [status]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "associate",
+            "with",
+            "the",
+            "order",
+            "in",
+            "the",
+            "cancel",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT sum(t2.order_quantity) FROM customer_orders AS t1 JOIN order_items AS t2 ON t1.order_id  =  t2.order_id WHERE t1.order_status  =  \"Cancelled\""
+    },
+    {
+        "original_nl": "Find the total amount of products ordered before 2018-03-17 07:13:53.",
+        "generalized_nl": "find [Find]|the|entire [total]|sum [amount]|of|{TABLE} [products]|order [ordered]|before|{NE} [2018 - 03-17]|{NE} [07:13:53]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "sum",
+            "of",
+            "{TABLE}",
+            "order",
+            "before",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(t2.order_quantity) FROM customer_orders AS t1 JOIN order_items AS t2 ON t1.order_id  =  t2.order_id WHERE t1.order_date  <  \"2018-03-17 07:13:53\""
+    },
+    {
+        "original_nl": "What is the total amount of products purchased before 2018-03-17 07:13:53?",
+        "generalized_nl": "What|is|the|entire [total]|sum [amount]|of|{TABLE} [products]|buy [purchased]|before|{NE} [2018 - 03-17]|{NE} [07:13:53]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "sum",
+            "of",
+            "{TABLE}",
+            "buy",
+            "before",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(t2.order_quantity) FROM customer_orders AS t1 JOIN order_items AS t2 ON t1.order_id  =  t2.order_id WHERE t1.order_date  <  \"2018-03-17 07:13:53\""
+    },
+    {
+        "original_nl": "Who made the latest order?",
+        "generalized_nl": "Who|make [made]|the|late [latest]|{COLUMN_PART} [order]",
+        "generalized_tokens": [
+            "Who",
+            "make",
+            "the",
+            "late",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id ORDER BY t2.order_date DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the customer who made an order most recently.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|who|make [made]|an|{COLUMN_PART} [order]|most|recently",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "make",
+            "an",
+            "{COLUMN_PART}",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id ORDER BY t2.order_date DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which product has been ordered most number of times?",
+        "generalized_nl": "Which|{TABLE} [product]|has|been|order [ordered]|most|{COLUMN_PART} [number]|of|time [times]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "has",
+            "been",
+            "order",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "time"
+        ],
+        "original_sql": "SELECT t2.product_details FROM order_items AS t1 JOIN products AS t2 ON t1.product_id  =  t2.product_id GROUP BY t1.product_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name and ID of the product whose total order quantity is the largest.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [ID]|of|the|{TABLE} [product]|whose|entire [total]|{COLUMN} [order quantity]|is|the|large [largest]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "entire",
+            "{COLUMN}",
+            "is",
+            "the",
+            "large"
+        ],
+        "original_sql": "SELECT t2.product_details ,  t2.product_id FROM order_items AS t1 JOIN products AS t2 ON t1.product_id  =  t2.product_id GROUP BY t1.product_id ORDER BY sum(t1.order_quantity) LIMIT 1"
+    },
+    {
+        "original_nl": "What are the name and ID of the product bought the most.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [ID]|of|the|{TABLE} [product]|buy [bought]|the|most",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "buy",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT t2.product_details ,  t2.product_id FROM order_items AS t1 JOIN products AS t2 ON t1.product_id  =  t2.product_id GROUP BY t1.product_id ORDER BY sum(t1.order_quantity) LIMIT 1"
+    },
+    {
+        "original_nl": "Find all the addresses in East Julianaside, Texas or in Gleasonmouth, Arizona.",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [addresses]|in|{NE} [East Julianaside]|{NE} [Texas]|or|in|{NE} [Gleasonmouth]|{NE} [Arizona]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "{NE}",
+            "or",
+            "in",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT address_content FROM addresses WHERE city  =  \"East Julianaside\" AND state_province_county  =  \"Texas\" UNION SELECT address_content FROM addresses WHERE city  =  \"Gleasonmouth\" AND state_province_county  =  \"Arizona\""
+    },
+    {
+        "original_nl": "What are all the addresses in East Julianaside, Texas or in Gleasonmouth, Arizona.",
+        "generalized_nl": "What|are|all|the|{TABLE} [addresses]|in|{NE} [East Julianaside]|{NE} [Texas]|or|in|{NE} [Gleasonmouth]|{NE} [Arizona]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "{NE}",
+            "or",
+            "in",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT address_content FROM addresses WHERE city  =  \"East Julianaside\" AND state_province_county  =  \"Texas\" UNION SELECT address_content FROM addresses WHERE city  =  \"Gleasonmouth\" AND state_province_county  =  \"Arizona\""
+    },
+    {
+        "original_nl": "Find the name of customers who did not pay with Cash.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [customers]|who|did|not|pay|with|{NE} [Cash]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "not",
+            "pay",
+            "with",
+            "{NE}"
+        ],
+        "original_sql": "SELECT customer_name FROM customers WHERE payment_method != 'Cash'"
+    },
+    {
+        "original_nl": "What is the name of customers who do not use Cash as payment method.",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|{TABLE} [customers]|who|do|not|use|{NE} [Cash]|as|{COLUMN} [payment method]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "use",
+            "{NE}",
+            "as",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT customer_name FROM customers WHERE payment_method != 'Cash'"
+    },
+    {
+        "original_nl": "Find the names of customers who never ordered product Latte.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|never|order [ordered]|{TABLE} [product]|{NE} [Latte]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "never",
+            "order",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT customer_name FROM customers EXCEPT SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id JOIN products AS t4 ON t3.product_id  =  t4.product_id WHERE t4.product_details  =  'Latte'"
+    },
+    {
+        "original_nl": "What are names of customers who never ordered product Latte.",
+        "generalized_nl": "What|are|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|never|order [ordered]|{TABLE} [product]|{NE} [Latte]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "never",
+            "order",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT customer_name FROM customers EXCEPT SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id JOIN products AS t4 ON t3.product_id  =  t4.product_id WHERE t4.product_details  =  'Latte'"
+    },
+    {
+        "original_nl": "Find the names of customers who never placed an order.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|never|place [placed]|an|{COLUMN_PART} [order]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "never",
+            "place",
+            "an",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT customer_name FROM customers EXCEPT SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id"
+    },
+    {
+        "original_nl": "What are the names of customers who never made an order.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|never|make [made]|an|{COLUMN_PART} [order]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "never",
+            "make",
+            "an",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT customer_name FROM customers EXCEPT SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id"
+    },
+    {
+        "original_nl": "Find the names of customers who ordered both products Latte and Americano.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|order [ordered]|both|{TABLE} [products]|{NE} [Latte]|and|{NE} [Americano]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "order",
+            "both",
+            "{TABLE}",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id JOIN products AS t4 ON t3.product_id  =  t4.product_id WHERE t4.product_details  =  'Latte' INTERSECT SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id JOIN products AS t4 ON t3.product_id  =  t4.product_id WHERE t4.product_details  =  'Americano'"
+    },
+    {
+        "original_nl": "What are the names of customers who have purchased both products Latte and Americano?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|have|buy [purchased]|both|{TABLE} [products]|Latte|and|{NE} [Americano]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "buy",
+            "both",
+            "{TABLE}",
+            "Latte",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id JOIN products AS t4 ON t3.product_id  =  t4.product_id WHERE t4.product_details  =  'Latte' INTERSECT SELECT t1.customer_name FROM customers AS t1 JOIN customer_orders AS t2 ON t1.customer_id  =  t2.customer_id JOIN order_items AS t3 ON t2.order_id  =  t3.order_id JOIN products AS t4 ON t3.product_id  =  t4.product_id WHERE t4.product_details  =  'Americano'"
+    }
+]

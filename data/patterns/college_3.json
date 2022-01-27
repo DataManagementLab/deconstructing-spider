@@ -1,0 +1,1380 @@
+[
+    {
+        "original_nl": "How many courses are there in total?",
+        "generalized_nl": "How|many|{TABLE} [courses]|are|there|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM COURSE"
+    },
+    {
+        "original_nl": "Count the number of courses.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [courses]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM COURSE"
+    },
+    {
+        "original_nl": "How many courses have more than 2 credits?",
+        "generalized_nl": "How|many|{TABLE} [courses]|have|{NUMBER} [more than 2]|{COLUMN} [credits]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM COURSE WHERE Credits  >  2"
+    },
+    {
+        "original_nl": "Count the number of courses with more than 2 credits.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [courses]|with|{NUMBER} [more than 2]|{COLUMN} [credits]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM COURSE WHERE Credits  >  2"
+    },
+    {
+        "original_nl": "List all names of courses with 1 credit?",
+        "generalized_nl": "list [List]|all|{COLUMN_PART} [names]|of|{TABLE} [courses]|with|{NUMBER} [1]|{COLUMN} [credit]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT CName FROM COURSE WHERE Credits  =  1"
+    },
+    {
+        "original_nl": "What are the names of courses with 1 credit?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [courses]|with|{NUMBER} [1]|{COLUMN} [credit]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT CName FROM COURSE WHERE Credits  =  1"
+    },
+    {
+        "original_nl": "Which courses are taught on days MTW?",
+        "generalized_nl": "Which|{TABLE} [courses]|are|teach [taught]|on|{COLUMN} [days]|MTW",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "are",
+            "teach",
+            "on",
+            "{COLUMN}",
+            "MTW"
+        ],
+        "original_sql": "SELECT CName FROM COURSE WHERE Days  =  \"MTW\""
+    },
+    {
+        "original_nl": "What are the course names for courses taught on MTW?",
+        "generalized_nl": "What|are|the|{COLUMN} [course names]|for|{TABLE} [courses]|teach [taught]|on|MTW",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "teach",
+            "on",
+            "MTW"
+        ],
+        "original_sql": "SELECT CName FROM COURSE WHERE Days  =  \"MTW\""
+    },
+    {
+        "original_nl": "What is the number of departments in Division \"AS\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [number]|of|{TABLE} [departments]|in|{COLUMN} [Division]|AS",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "AS"
+        ],
+        "original_sql": "SELECT count(*) FROM DEPARTMENT WHERE Division  =  \"AS\""
+    },
+    {
+        "original_nl": "How many departments are in the division AS?",
+        "generalized_nl": "How|many|{TABLE} [departments]|are|in|the|{COLUMN} [division]|AS",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "the",
+            "{COLUMN}",
+            "AS"
+        ],
+        "original_sql": "SELECT count(*) FROM DEPARTMENT WHERE Division  =  \"AS\""
+    },
+    {
+        "original_nl": "What are the phones of departments in Room 268?",
+        "generalized_nl": "What|are|the|{COLUMN} [phones]|of|{TABLE} [departments]|in|{COLUMN} [Room]|{NUMBER} [268]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DPhone FROM DEPARTMENT WHERE Room  =  268"
+    },
+    {
+        "original_nl": "Give the phones for departments in room 268.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [phones]|for|{TABLE} [departments]|in|{COLUMN} [room]|{NUMBER} [268]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DPhone FROM DEPARTMENT WHERE Room  =  268"
+    },
+    {
+        "original_nl": "Find the number of students that have at least one grade \"B\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [students]|that|have|{NUMBER} [at least one]|{COLUMN} [grade]|b [B]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}",
+            "b"
+        ],
+        "original_sql": "SELECT COUNT(DISTINCT StuID) FROM ENROLLED_IN WHERE Grade  =  \"B\""
+    },
+    {
+        "original_nl": "How many students have had at least one \"B\" grade?",
+        "generalized_nl": "How|many|{TABLE} [students]|have|have [had]|{NUMBER} [at least one]|b [B]|{COLUMN} [grade]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "have",
+            "{NUMBER}",
+            "b",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT COUNT(DISTINCT StuID) FROM ENROLLED_IN WHERE Grade  =  \"B\""
+    },
+    {
+        "original_nl": "Find the max and min grade point for all letter grade.",
+        "generalized_nl": "find [Find]|the|soap [max]|and|min|{COLUMN} [grade point]|for|all|{COLUMN} [letter grade]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "soap",
+            "and",
+            "min",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(gradepoint) ,  min(gradepoint) FROM GRADECONVERSION"
+    },
+    {
+        "original_nl": "What are the maximum and minumum grade points?",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minumum|{COLUMN} [grade points]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minumum",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(gradepoint) ,  min(gradepoint) FROM GRADECONVERSION"
+    },
+    {
+        "original_nl": "Find the first names of students whose first names contain letter \"a\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|{TABLE} [students]|whose|{COLUMN} [first names]|contain|{COLUMN_PART} [letter]|a",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "contain",
+            "{COLUMN_PART}",
+            "a"
+        ],
+        "original_sql": "SELECT DISTINCT Fname FROM STUDENT WHERE Fname LIKE '%a%'"
+    },
+    {
+        "original_nl": "What are the first names for students who have an \"a\" in their first name?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|for|{TABLE} [students]|who|have|an|a|in|their|{COLUMN} [first name]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "who",
+            "have",
+            "an",
+            "a",
+            "in",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Fname FROM STUDENT WHERE Fname LIKE '%a%'"
+    },
+    {
+        "original_nl": "Find the first names and last names of male (sex is M) faculties who live in building NEB.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|and|{COLUMN} [last names]|of|male|{COLUMN} [sex]|is|megabyte [M]|{TABLE} [faculties]|who|live|in|{COLUMN} [building]|{NE} [NEB]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "male",
+            "{COLUMN}",
+            "is",
+            "megabyte",
+            "{TABLE}",
+            "who",
+            "live",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Fname ,  Lname FROM FACULTY WHERE sex  =  \"M\" AND Building  =  \"NEB\""
+    },
+    {
+        "original_nl": "What are the full names of faculties with sex M and who live in building NEB?",
+        "generalized_nl": "What|are|the|full|{COLUMN_PART} [names]|of|{TABLE} [faculties]|with|{COLUMN} [sex]|megabyte [M]|and|who|live|in|{COLUMN} [building]|{NE} [NEB]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "megabyte",
+            "and",
+            "who",
+            "live",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Fname ,  Lname FROM FACULTY WHERE sex  =  \"M\" AND Building  =  \"NEB\""
+    },
+    {
+        "original_nl": "Find the rooms of faculties with rank professor who live in building NEB.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [rooms]|of|{TABLE} [faculties]|with|{COLUMN} [rank]|professor|who|live|in|{COLUMN} [building]|{NE} [NEB]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "professor",
+            "who",
+            "live",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Room FROM FACULTY WHERE Rank  =  \"Professor\" AND Building  =  \"NEB\""
+    },
+    {
+        "original_nl": "What are the rooms for members of the faculty who are professors and who live in building NEB?",
+        "generalized_nl": "What|are|the|{COLUMN} [rooms]|for|member [members]|of|the|{TABLE} [faculty]|who|are|professor [professors]|and|who|live|in|{COLUMN} [building]|{NE} [NEB]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "member",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "professor",
+            "and",
+            "who",
+            "live",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Room FROM FACULTY WHERE Rank  =  \"Professor\" AND Building  =  \"NEB\""
+    },
+    {
+        "original_nl": "Find the department name that is in Building \"Mergenthaler\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [department name]|that|is|in|{COLUMN} [Building]|{NE} [Mergenthaler]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DName FROM DEPARTMENT WHERE Building  =  \"Mergenthaler\""
+    },
+    {
+        "original_nl": "What is the name of the department in the Building Mergenthaler?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|in|{NE} [the Building Mergenthaler]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DName FROM DEPARTMENT WHERE Building  =  \"Mergenthaler\""
+    },
+    {
+        "original_nl": "List all information about courses sorted by credits in the ascending order.",
+        "generalized_nl": "list [List]|all|information|about|{TABLE} [courses]|screen [sorted]|by|{COLUMN} [credits]|in|the|ascend [ascending]|order",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "information",
+            "about",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "in",
+            "the",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT * FROM COURSE ORDER BY Credits"
+    },
+    {
+        "original_nl": "What is all the information about courses, ordered by credits ascending?",
+        "generalized_nl": "What|is|all|the|information|about|{TABLE} [courses]|order [ordered]|by|{COLUMN} [credits]|ascend [ascending]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "all",
+            "the",
+            "information",
+            "about",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}",
+            "ascend"
+        ],
+        "original_sql": "SELECT * FROM COURSE ORDER BY Credits"
+    },
+    {
+        "original_nl": "List the course name of courses sorted by credits.",
+        "generalized_nl": "list [List]|the|{COLUMN} [course name]|of|{TABLE} [courses]|screen [sorted]|by|{COLUMN} [credits]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT CName FROM COURSE ORDER BY Credits"
+    },
+    {
+        "original_nl": "What are the course names, ordered by credits?",
+        "generalized_nl": "What|are|the|{COLUMN} [course names]|order [ordered]|by|{COLUMN} [credits]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT CName FROM COURSE ORDER BY Credits"
+    },
+    {
+        "original_nl": "Find the first name of students in the descending order of age.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|of|{TABLE} [students]|in|the|descend [descending]|order|of|{COLUMN} [age]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Fname FROM STUDENT ORDER BY Age DESC"
+    },
+    {
+        "original_nl": "What are the first names of students, ordered by age from greatest to least?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|of|{TABLE} [students]|order [ordered]|by|{COLUMN} [age]|from|great [greatest]|to|least",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}",
+            "from",
+            "great",
+            "to",
+            "least"
+        ],
+        "original_sql": "SELECT Fname FROM STUDENT ORDER BY Age DESC"
+    },
+    {
+        "original_nl": "Find the last name of female (sex is F) students in the descending order of age.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last name]|of|female|{COLUMN} [sex]|is|F|{TABLE} [students]|in|the|descend [descending]|order|of|{COLUMN} [age]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "female",
+            "{COLUMN}",
+            "is",
+            "F",
+            "{TABLE}",
+            "in",
+            "the",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT LName FROM STUDENT WHERE Sex  =  \"F\" ORDER BY Age DESC"
+    },
+    {
+        "original_nl": "What are the last names of female students, ordered by age descending?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|of|female|{TABLE} [students]|order [ordered]|by|{COLUMN} [age]|descending",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "female",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}",
+            "descending"
+        ],
+        "original_sql": "SELECT LName FROM STUDENT WHERE Sex  =  \"F\" ORDER BY Age DESC"
+    },
+    {
+        "original_nl": "Find the last names of faculties in building Barton in alphabetic order.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last names]|of|{TABLE} [faculties]|in|{COLUMN} [building]|{NE} [Barton]|in|alphabetic|order",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{NE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Lname FROM FACULTY WHERE Building  =  \"Barton\" ORDER BY Lname"
+    },
+    {
+        "original_nl": "What are the last names of faculty in building Barton, sorted by last name?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|of|{TABLE} [faculty]|in|{COLUMN} [building]|{NE} [Barton]|screen [sorted]|by|{COLUMN} [last name]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{NE}",
+            "screen",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Lname FROM FACULTY WHERE Building  =  \"Barton\" ORDER BY Lname"
+    },
+    {
+        "original_nl": "Find the first names of faculties of rank Professor in alphabetic order.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|{TABLE} [faculties]|of|{COLUMN} [rank]|professor [Professor]|in|alphabetic|order",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "of",
+            "{COLUMN}",
+            "professor",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Fname FROM FACULTY WHERE Rank  =  \"Professor\" ORDER BY Fname"
+    },
+    {
+        "original_nl": "What are the first names for all faculty professors, ordered by first name?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|for|all|{TABLE} [faculty]|professor [professors]|order [ordered]|by|{COLUMN} [first name]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "professor",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Fname FROM FACULTY WHERE Rank  =  \"Professor\" ORDER BY Fname"
+    },
+    {
+        "original_nl": "Find the name of the department that has the biggest number of students minored in?",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|that|have [has]|the|big [biggest]|{COLUMN_PART} [number]|of|{TABLE} [students]|minored|in",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "big",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "minored",
+            "in"
+        ],
+        "original_sql": "SELECT T1.DName FROM DEPARTMENT AS T1 JOIN MINOR_IN AS T2 ON T1.DNO  =  T2.DNO GROUP BY T2.DNO ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the department with the most students minoring in it?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|with|the|most|{TABLE} [students]|minoring|in|it",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}",
+            "minoring",
+            "in",
+            "it"
+        ],
+        "original_sql": "SELECT T1.DName FROM DEPARTMENT AS T1 JOIN MINOR_IN AS T2 ON T1.DNO  =  T2.DNO GROUP BY T2.DNO ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the department that has no students minored in?",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|that|have [has]|no|{TABLE} [students]|minored|in",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "no",
+            "{TABLE}",
+            "minored",
+            "in"
+        ],
+        "original_sql": "SELECT DName FROM DEPARTMENT EXCEPT SELECT T1.DName FROM DEPARTMENT AS T1 JOIN MINOR_IN AS T2 ON T1.DNO  =  T2.DNO"
+    },
+    {
+        "original_nl": "What is the name of the department htat has no students minoring in it?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|htat|have [has]|no|{TABLE} [students]|minoring|in|it",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "htat",
+            "have",
+            "no",
+            "{TABLE}",
+            "minoring",
+            "in",
+            "it"
+        ],
+        "original_sql": "SELECT DName FROM DEPARTMENT EXCEPT SELECT T1.DName FROM DEPARTMENT AS T1 JOIN MINOR_IN AS T2 ON T1.DNO  =  T2.DNO"
+    },
+    {
+        "original_nl": "Find the name of the department that has the fewest members.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|that|have [has]|the|fewest|member [members]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "fewest",
+            "member"
+        ],
+        "original_sql": "SELECT T1.DName FROM DEPARTMENT AS T1 JOIN MEMBER_OF AS T2 ON T1.DNO  =  T2.DNO GROUP BY T2.DNO ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the department with the fewest members?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|with|the|fewest|member [members]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "fewest",
+            "member"
+        ],
+        "original_sql": "SELECT T1.DName FROM DEPARTMENT AS T1 JOIN MEMBER_OF AS T2 ON T1.DNO  =  T2.DNO GROUP BY T2.DNO ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the rank of the faculty that the fewest faculties belong to.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [rank]|of|the|{TABLE} [faculty]|that|the|fewest|{TABLE} [faculties]|belong|to",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "the",
+            "fewest",
+            "{TABLE}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT Rank FROM FACULTY GROUP BY Rank ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the least common faculty rank?",
+        "generalized_nl": "What|is|the|least|common|{TABLE} [faculty]|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "least",
+            "common",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Rank FROM FACULTY GROUP BY Rank ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the first and last names of the instructors who teach the top 3 number of courses?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|the|{COLUMN} [instructors]|who|teach|the|top|{NUMBER} [3]|{COLUMN_PART} [number]|of|{TABLE} [courses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "who",
+            "teach",
+            "the",
+            "top",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Fname ,  T2.Lname FROM COURSE AS T1 JOIN FACULTY AS T2 ON T1.Instructor  =  T2.FacID GROUP BY T1.Instructor ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What are the full names of the 3 instructors who teach the most courses?",
+        "generalized_nl": "What|are|the|full|{COLUMN_PART} [names]|of|the|{NUMBER} [3]|{COLUMN} [instructors]|who|teach|the|most|{TABLE} [courses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{NUMBER}",
+            "{COLUMN}",
+            "who",
+            "teach",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Fname ,  T2.Lname FROM COURSE AS T1 JOIN FACULTY AS T2 ON T1.Instructor  =  T2.FacID GROUP BY T1.Instructor ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Which building does the instructor who teaches the most number of courses live in?",
+        "generalized_nl": "Which|{COLUMN} [building]|does|the|{COLUMN} [instructor]|who|teach [teaches]|the|most|{COLUMN_PART} [number]|of|{TABLE} [courses]|live|in",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "does",
+            "the",
+            "{COLUMN}",
+            "who",
+            "teach",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT T2.Building FROM COURSE AS T1 JOIN FACULTY AS T2 ON T1.Instructor  =  T2.FacID GROUP BY T1.Instructor ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Give the building that the instructor who teaches the greatest number of courses lives in.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [building]|that|the|{COLUMN} [instructor]|who|teach [teaches]|the|great [greatest]|{COLUMN_PART} [number]|of|{TABLE} [courses]|life [lives]|in",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "that",
+            "the",
+            "{COLUMN}",
+            "who",
+            "teach",
+            "the",
+            "great",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "life",
+            "in"
+        ],
+        "original_sql": "SELECT T2.Building FROM COURSE AS T1 JOIN FACULTY AS T2 ON T1.Instructor  =  T2.FacID GROUP BY T1.Instructor ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the name of courses that have at least five enrollments?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|of|{TABLE} [courses]|that|have|{NUMBER} [at least five]|registration [enrollments]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "registration"
+        ],
+        "original_sql": "SELECT T1.CName FROM COURSE AS T1 JOIN ENROLLED_IN AS T2 ON T1.CID  =  T2.CID GROUP BY T2.CID HAVING COUNT(*)  >=  5"
+    },
+    {
+        "original_nl": "Give the names of the courses with at least five enrollments.",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [names]|of|the|{TABLE} [courses]|with|{NUMBER} [at least five]|registration [enrollments]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "registration"
+        ],
+        "original_sql": "SELECT T1.CName FROM COURSE AS T1 JOIN ENROLLED_IN AS T2 ON T1.CID  =  T2.CID GROUP BY T2.CID HAVING COUNT(*)  >=  5"
+    },
+    {
+        "original_nl": "Find the first name and last name of the instructor of course that has course name",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|and|{COLUMN} [last name]|of|the|{COLUMN} [instructor]|of|{TABLE} [course]|that|have [has]|{COLUMN} [course name]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Fname ,  T2.Lname FROM COURSE AS T1 JOIN FACULTY AS T2 ON T1.Instructor  =  T2.FacID WHERE T1.CName  =  \"COMPUTER LITERACY\""
+    },
+    {
+        "original_nl": "What is the full name of the instructor who has a course named COMPUTER LITERACY?",
+        "generalized_nl": "What|is|the|full|{COLUMN_PART} [name]|of|the|{COLUMN} [instructor]|who|have [has]|a|{TABLE} [course]|name [named]|computer [COMPUTER]|literacy [LITERACY]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "a",
+            "{TABLE}",
+            "name",
+            "computer",
+            "literacy"
+        ],
+        "original_sql": "SELECT T2.Fname ,  T2.Lname FROM COURSE AS T1 JOIN FACULTY AS T2 ON T1.Instructor  =  T2.FacID WHERE T1.CName  =  \"COMPUTER LITERACY\""
+    },
+    {
+        "original_nl": "Find the department name and room of the course INTRODUCTION TO COMPUTER SCIENCE.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [department name]|and|{COLUMN} [room]|of|the|{TABLE} [course]|introduction [INTRODUCTION]|TO|COMPUTER|SCIENCE",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "introduction",
+            "TO",
+            "COMPUTER",
+            "SCIENCE"
+        ],
+        "original_sql": "SELECT T2.Dname ,  T2.Room FROM COURSE AS T1 JOIN DEPARTMENT AS T2 ON T1.DNO  =  T2.DNO WHERE T1.CName  =  \"INTRODUCTION TO COMPUTER SCIENCE\""
+    },
+    {
+        "original_nl": "What are the department name and room for the course INTRODUCTION TO COMPUTER SCIENCE?",
+        "generalized_nl": "What|are|the|{COLUMN} [department name]|and|{COLUMN} [room]|for|the|{TABLE} [course]|introduction [INTRODUCTION]|TO|COMPUTER|SCIENCE",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "introduction",
+            "TO",
+            "COMPUTER",
+            "SCIENCE"
+        ],
+        "original_sql": "SELECT T2.Dname ,  T2.Room FROM COURSE AS T1 JOIN DEPARTMENT AS T2 ON T1.DNO  =  T2.DNO WHERE T1.CName  =  \"INTRODUCTION TO COMPUTER SCIENCE\""
+    },
+    {
+        "original_nl": "Find the student first and last names and grade points of all enrollments.",
+        "generalized_nl": "find [Find]|the|{TABLE} [student]|{COLUMN_PART} [first]|and|{COLUMN} [last names]|and|{COLUMN} [grade points]|of|all|registration [enrollments]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "registration"
+        ],
+        "original_sql": "SELECT T3.Fname ,  T3.LName ,  T2.gradepoint FROM ENROLLED_IN AS T1 JOIN GRADECONVERSION AS T2 JOIN STUDENT AS T3 ON T1.Grade  =  T2.lettergrade AND T1.StuID  =  T3.StuID"
+    },
+    {
+        "original_nl": "What are the full names and gradepoints for all enrollments?",
+        "generalized_nl": "What|are|the|full|{COLUMN_PART} [names]|and|{COLUMN} [gradepoints]|for|all|registration [enrollments]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "registration"
+        ],
+        "original_sql": "SELECT T3.Fname ,  T3.LName ,  T2.gradepoint FROM ENROLLED_IN AS T1 JOIN GRADECONVERSION AS T2 JOIN STUDENT AS T3 ON T1.Grade  =  T2.lettergrade AND T1.StuID  =  T3.StuID"
+    },
+    {
+        "original_nl": "Find the distinct student first names of all students that have grade point at least 3.8 in one course.",
+        "generalized_nl": "find [Find]|the|distinct|{TABLE} [student]|{COLUMN} [first names]|of|all|{TABLE} [students]|that|have|{COLUMN} [grade point]|{NUMBER} [at least 3.8]|in|{NUMBER} [one]|{TABLE} [course]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{TABLE}",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "{NUMBER}",
+            "in",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T3.Fname FROM ENROLLED_IN AS T1 JOIN GRADECONVERSION AS T2 JOIN STUDENT AS T3 ON T1.Grade  =  T2.lettergrade AND T1.StuID  =  T3.StuID WHERE T2.gradepoint  >=  3.8"
+    },
+    {
+        "original_nl": "What are the distinct first names for students with a grade point of 3.8 or above in at least one course?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [first names]|for|{TABLE} [students]|with|a|{COLUMN} [grade point]|of|{NUMBER} [3.8]|or|above|in|{NUMBER} [at least one]|{TABLE} [course]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "a",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}",
+            "or",
+            "above",
+            "in",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T3.Fname FROM ENROLLED_IN AS T1 JOIN GRADECONVERSION AS T2 JOIN STUDENT AS T3 ON T1.Grade  =  T2.lettergrade AND T1.StuID  =  T3.StuID WHERE T2.gradepoint  >=  3.8"
+    },
+    {
+        "original_nl": "Find the full names of faculties who are members of department with department number 520.",
+        "generalized_nl": "find [Find]|the|full|{COLUMN_PART} [names]|of|{TABLE} [faculties]|who|are|member [members]|of|{TABLE} [department]|with|{COLUMN} [department number]|{NUMBER} [520]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "member",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.Fname ,  T1.Lname FROM FACULTY AS T1 JOIN MEMBER_OF AS T2 ON T1.FacID  =  T2.FacID WHERE T2.DNO  =  520"
+    },
+    {
+        "original_nl": "What are the full names of faculty members who are a part of department 520?",
+        "generalized_nl": "What|are|the|full|{COLUMN_PART} [names]|of|{TABLE} [faculty]|member [members]|who|are|a|part|of|{TABLE} [department]|{NUMBER} [520]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "member",
+            "who",
+            "are",
+            "a",
+            "part",
+            "of",
+            "{TABLE}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.Fname ,  T1.Lname FROM FACULTY AS T1 JOIN MEMBER_OF AS T2 ON T1.FacID  =  T2.FacID WHERE T2.DNO  =  520"
+    },
+    {
+        "original_nl": "What are the first names and last names of the students that minor in the department with DNO 140.",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|and|{COLUMN} [last names]|of|the|{TABLE} [students]|that|{TABLE} [minor in]|the|{TABLE} [department]|with|{COLUMN} [DNO]|{NUMBER} [140]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "{TABLE}",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Fname ,  T2.Lname FROM MINOR_IN AS T1 JOIN STUDENT AS T2 ON T1.StuID  =  T2.StuID WHERE T1.DNO  =  140"
+    },
+    {
+        "original_nl": "What are the full names of students minoring in department 140?",
+        "generalized_nl": "What|are|the|full|{COLUMN_PART} [names]|of|{TABLE} [students]|minoring|in|{TABLE} [department]|{NUMBER} [140]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "minoring",
+            "in",
+            "{TABLE}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Fname ,  T2.Lname FROM MINOR_IN AS T1 JOIN STUDENT AS T2 ON T1.StuID  =  T2.StuID WHERE T1.DNO  =  140"
+    },
+    {
+        "original_nl": "Find the last names of faculties who are members of computer science department.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last names]|of|{TABLE} [faculties]|who|are|member [members]|of|computer|science|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "member",
+            "of",
+            "computer",
+            "science",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Lname FROM DEPARTMENT AS T1 JOIN FACULTY AS T2 ON T1.DNO  =  T3.DNO JOIN MEMBER_OF AS T3 ON T2.FacID  =  T3.FacID WHERE T1.DName  =  \"Computer Science\""
+    },
+    {
+        "original_nl": "What are the last names of faculty who are part of the computer science department?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|of|{TABLE} [faculty]|who|are|part|of|the|computer|science|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "part",
+            "of",
+            "the",
+            "computer",
+            "science",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Lname FROM DEPARTMENT AS T1 JOIN FACULTY AS T2 ON T1.DNO  =  T3.DNO JOIN MEMBER_OF AS T3 ON T2.FacID  =  T3.FacID WHERE T1.DName  =  \"Computer Science\""
+    },
+    {
+        "original_nl": "Find the average grade point of student whose last name is Smith.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [grade point]|of|{TABLE} [student]|whose|{COLUMN} [last name]|is|{NE} [Smith]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(T2.gradepoint) FROM ENROLLED_IN AS T1 JOIN GRADECONVERSION AS T2 JOIN STUDENT AS T3 ON T1.Grade  =  T2.lettergrade AND T1.StuID  =  T3.StuID WHERE T3.LName  =  \"Smith\""
+    },
+    {
+        "original_nl": "What is the average gradepoint for students with the last name Smith?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [gradepoint]|for|{TABLE} [students]|with|the|{COLUMN} [last name]|{NE} [Smith]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(T2.gradepoint) FROM ENROLLED_IN AS T1 JOIN GRADECONVERSION AS T2 JOIN STUDENT AS T3 ON T1.Grade  =  T2.lettergrade AND T1.StuID  =  T3.StuID WHERE T3.LName  =  \"Smith\""
+    },
+    {
+        "original_nl": "What is the maximum and minimum grade point of students who live in NYC?",
+        "generalized_nl": "What|is|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [grade point]|of|{TABLE} [students]|who|live|in|{NE} [NYC]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT max(T2.gradepoint) ,  min(T2.gradepoint) FROM ENROLLED_IN AS T1 JOIN GRADECONVERSION AS T2 JOIN STUDENT AS T3 ON T1.Grade  =  T2.lettergrade AND T1.StuID  =  T3.StuID WHERE T3.city_code  =  \"NYC\""
+    },
+    {
+        "original_nl": "Give the maximum and minimum gradepoints for students living in NYC?",
+        "generalized_nl": "give [Give]|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [gradepoints]|for|{TABLE} [students]|live [living]|in|{NE} [NYC]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT max(T2.gradepoint) ,  min(T2.gradepoint) FROM ENROLLED_IN AS T1 JOIN GRADECONVERSION AS T2 JOIN STUDENT AS T3 ON T1.Grade  =  T2.lettergrade AND T1.StuID  =  T3.StuID WHERE T3.city_code  =  \"NYC\""
+    },
+    {
+        "original_nl": "Find the names of courses that have either 3 credits or 1 credit but 4 hours.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [courses]|that|have|either|{NUMBER} [3]|{COLUMN} [credits]|or|{NUMBER} [1]|{COLUMN} [credit]|but|{NE} [4 hours]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "either",
+            "{NUMBER}",
+            "{COLUMN}",
+            "or",
+            "{NUMBER}",
+            "{COLUMN}",
+            "but",
+            "{NE}"
+        ],
+        "original_sql": "SELECT CName FROM COURSE WHERE Credits  =  3 UNION SELECT CName FROM COURSE WHERE Credits  =  1 AND Hours  =  4"
+    },
+    {
+        "original_nl": "What are the names of courses that give either 3 credits, or 1 credit and 4 hours?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [courses]|that|give|either|{NUMBER} [3]|{COLUMN} [credits]|or|{NUMBER} [1]|{COLUMN} [credit]|and|{NE} [4 hours]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "give",
+            "either",
+            "{NUMBER}",
+            "{COLUMN}",
+            "or",
+            "{NUMBER}",
+            "{COLUMN}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT CName FROM COURSE WHERE Credits  =  3 UNION SELECT CName FROM COURSE WHERE Credits  =  1 AND Hours  =  4"
+    },
+    {
+        "original_nl": "Find the names of departments that are either in division AS or in division EN and in Building NEB.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [departments]|that|are|either|in|{COLUMN} [division]|AS|or|in|{COLUMN} [division]|{NE} [EN]|and|in|{COLUMN} [Building]|NEB",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "either",
+            "in",
+            "{COLUMN}",
+            "AS",
+            "or",
+            "in",
+            "{COLUMN}",
+            "{NE}",
+            "and",
+            "in",
+            "{COLUMN}",
+            "NEB"
+        ],
+        "original_sql": "SELECT DName FROM DEPARTMENT WHERE Division  =  \"AS\" UNION SELECT DName FROM DEPARTMENT WHERE Division  =  \"EN\" AND Building  =  \"NEB\""
+    },
+    {
+        "original_nl": "What are the names of departments either in division AS, or in division EN and in building NEB?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [departments]|either|in|{COLUMN} [division]|AS|or|in|{COLUMN} [division]|en [EN]|and|in|{COLUMN} [building]|{NE} [NEB]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "either",
+            "in",
+            "{COLUMN}",
+            "AS",
+            "or",
+            "in",
+            "{COLUMN}",
+            "en",
+            "and",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DName FROM DEPARTMENT WHERE Division  =  \"AS\" UNION SELECT DName FROM DEPARTMENT WHERE Division  =  \"EN\" AND Building  =  \"NEB\""
+    },
+    {
+        "original_nl": "Find the first name of students not enrolled in any course.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|of|{TABLE} [students]|not|{TABLE} [enrolled in]|any|{TABLE} [course]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "not",
+            "{TABLE}",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Fname FROM STUDENT WHERE StuID NOT IN (SELECT StuID FROM ENROLLED_IN)"
+    },
+    {
+        "original_nl": "What are the first names of all students that are not enrolled in courses?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|of|all|{TABLE} [students]|that|are|not|{TABLE} [enrolled in]|{TABLE} [courses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Fname FROM STUDENT WHERE StuID NOT IN (SELECT StuID FROM ENROLLED_IN)"
+    }
+]

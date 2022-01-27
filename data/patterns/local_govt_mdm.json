@@ -1,0 +1,221 @@
+[
+    {
+        "original_nl": "what are the details of the cmi masters that have the cross reference code 'Tax'?",
+        "generalized_nl": "what|are|the|{COLUMN_PART} [details]|of|the|{COLUMN_PART} [cmi]|master [masters]|that|have|the|{COLUMN_PART} [cross]|{COLUMN_PART} [reference]|{COLUMN_PART} [code]|{COLUMN_PART} [Tax]",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "master",
+            "that",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.cmi_details FROM Customer_Master_Index AS T1 JOIN CMI_Cross_References AS T2 ON T1.master_customer_id  =  T2.master_customer_id WHERE T2.source_system_code  =  'Tax'"
+    },
+    {
+        "original_nl": "Wat is the tax source system code and master customer id of the taxes related to each parking fine id?",
+        "generalized_nl": "Wat|is|the|{COLUMN_PART} [tax]|{COLUMN} [source system code]|and|{COLUMN} [master customer id]|of|the|taxis [taxes]|related|to|each|{TABLE} [parking fine]|{COLUMN_PART} [id]",
+        "generalized_tokens": [
+            "Wat",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "taxis",
+            "related",
+            "to",
+            "each",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.source_system_code ,  T1.master_customer_id ,  T2.council_tax_id FROM CMI_Cross_References AS T1 JOIN Parking_Fines AS T2 ON T1.cmi_cross_ref_id  =  T2.cmi_cross_ref_id"
+    },
+    {
+        "original_nl": "What are the renting arrears tax ids related to the customer master index whose detail is not 'Schmidt, Kertzmann and Lubowitz'?",
+        "generalized_nl": "What|are|the|rent [renting]|arrears|{COLUMN_PART} [tax]|{COLUMN_PART} [ids]|related|to|the|{TABLE} [customer master index]|whose|{COLUMN_PART} [detail]|is|not|{NE} [Schmidt]|{NE} [Kertzmann]|and|{NE} [Lubowitz]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "rent",
+            "arrears",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "related",
+            "to",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "not",
+            "{NE}",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.council_tax_id FROM Rent_Arrears AS T1 JOIN CMI_Cross_References AS T2 ON T1.cmi_cross_ref_id  =  T2.cmi_cross_ref_id JOIN Customer_Master_Index AS T3 ON T3.master_customer_id  =  T2.master_customer_id WHERE T3.cmi_details != 'Schmidt ,  Kertzmann and Lubowitz'"
+    },
+    {
+        "original_nl": "What are the register ids of electoral registries that have the cross reference source system code 'Electoral' or 'Tax'?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [register]|{COLUMN_PART} [ids]|of|{COLUMN_PART} [electoral]|register [registries]|that|have|the|{COLUMN_PART} [cross]|{COLUMN_PART} [reference]|{COLUMN} [source system code]|{COLUMN_PART} [Electoral]|or|{COLUMN_PART} [Tax]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "register",
+            "that",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "or",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.electoral_register_id FROM Electoral_Register AS T1 JOIN CMI_Cross_References AS T2 ON T1.cmi_cross_ref_id  =  T2.cmi_cross_ref_id WHERE T2.source_system_code  =  'Electoral' OR T2.source_system_code  =  'Tax'"
+    },
+    {
+        "original_nl": "How many different source system code for the cmi cross references are there?",
+        "generalized_nl": "How|many|different|{COLUMN} [source system code]|for|the|{TABLE} [cmi cross references]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT source_system_code) FROM CMI_cross_references"
+    },
+    {
+        "original_nl": "List all information about customer master index, and sort them by details in descending order.",
+        "generalized_nl": "list [List]|all|information|about|{TABLE} [customer master index]|and|screen [sort]|them|by|{COLUMN_PART} [details]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "information",
+            "about",
+            "{TABLE}",
+            "and",
+            "screen",
+            "them",
+            "by",
+            "{COLUMN_PART}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT * FROM customer_master_index ORDER BY cmi_details DESC"
+    },
+    {
+        "original_nl": "List the council tax ids and their related cmi cross references of all the parking fines.",
+        "generalized_nl": "list [List]|the|{COLUMN} [council tax ids]|and|their|related|{TABLE} [cmi cross references]|of|all|the|{TABLE} [parking fines]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "their",
+            "related",
+            "{TABLE}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT council_tax_id ,  cmi_cross_ref_id FROM parking_fines"
+    },
+    {
+        "original_nl": "How many council taxes are collected for renting arrears ?",
+        "generalized_nl": "How|many|{TABLE} [council taxes]|are|collect [collected]|for|rent [renting]|arrears",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "collect",
+            "for",
+            "rent",
+            "arrears"
+        ],
+        "original_sql": "SELECT count(*) FROM rent_arrears"
+    },
+    {
+        "original_nl": "What are the distinct cross reference source system codes which are related to the master customer details 'Gottlieb, Becker and Wyman'?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN_PART} [cross]|{COLUMN_PART} [reference]|{COLUMN} [source system codes]|which|are|related|to|the|{COLUMN_PART} [master]|{COLUMN_PART} [customer]|{COLUMN_PART} [details]|{NE} [Gottlieb]|{NE} [Becker]|and|{NE} [Wyman]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "which",
+            "are",
+            "related",
+            "to",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NE}",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.source_system_code FROM customer_master_index AS T1 JOIN cmi_cross_references AS T2 ON T1.master_customer_id  =  T2.master_customer_id WHERE T1.cmi_details  =  'Gottlieb ,  Becker and Wyman'"
+    },
+    {
+        "original_nl": "Which cmi cross reference id is not related to any parking taxes?",
+        "generalized_nl": "Which|{COLUMN} [cmi cross reference id]|is|not|related|to|any|parking|taxis [taxes]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "not",
+            "related",
+            "to",
+            "any",
+            "parking",
+            "taxis"
+        ],
+        "original_sql": "SELECT cmi_cross_ref_id FROM cmi_cross_references EXCEPT SELECT cmi_cross_ref_id FROM parking_fines"
+    },
+    {
+        "original_nl": "Which distinct source system code includes the substring 'en'?",
+        "generalized_nl": "Which|distinct|{COLUMN} [source system code]|include [includes]|the|substring|en",
+        "generalized_tokens": [
+            "Which",
+            "distinct",
+            "{COLUMN}",
+            "include",
+            "the",
+            "substring",
+            "en"
+        ],
+        "original_sql": "SELECT DISTINCT source_system_code FROM cmi_cross_references WHERE source_system_code LIKE '%en%'"
+    }
+]

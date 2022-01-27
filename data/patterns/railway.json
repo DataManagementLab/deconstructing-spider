@@ -1,0 +1,372 @@
+[
+    {
+        "original_nl": "How many railways are there?",
+        "generalized_nl": "How|many|{COLUMN} [railways]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM railway"
+    },
+    {
+        "original_nl": "List the builders of railways in ascending alphabetical order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [builders]|of|{COLUMN} [railways]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Builder FROM railway ORDER BY Builder ASC"
+    },
+    {
+        "original_nl": "List the wheels and locations of the railways.",
+        "generalized_nl": "list [List]|the|{COLUMN} [wheels]|and|{COLUMN} [locations]|of|the|{COLUMN} [railways]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Wheels ,  LOCATION FROM railway"
+    },
+    {
+        "original_nl": "What is the maximum level of managers in countries that are not \"Australia\"?",
+        "generalized_nl": "What|is|the|maximal [maximum]|{COLUMN} [level]|of|{TABLE} [managers]|in|{COLUMN} [countries]|that|are|not|{VALUE} [Australia]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "that",
+            "are",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT max(LEVEL) FROM manager WHERE Country != \"Australia\t\""
+    },
+    {
+        "original_nl": "What is the average age for all managers?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [age]|for|all|{TABLE} [managers]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Age) FROM manager"
+    },
+    {
+        "original_nl": "What are the names of managers in ascending order of level?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [managers]|in|ascend [ascending]|order|of|{COLUMN} [level]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM manager ORDER BY LEVEL ASC"
+    },
+    {
+        "original_nl": "What are the names and arrival times of trains?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [arrival]|time [times]|of|{TABLE} [trains]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "time",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name ,  Arrival FROM train"
+    },
+    {
+        "original_nl": "What is the name of the oldest manager?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|old [oldest]|{TABLE} [manager]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "old",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM manager ORDER BY Age DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the names of trains and locations of railways they are in.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [trains]|and|{COLUMN} [locations]|of|{COLUMN} [railways]|they|are|in",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "they",
+            "are",
+            "in"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.Location FROM railway AS T1 JOIN train AS T2 ON T1.Railway_ID  =  T2.Railway_ID"
+    },
+    {
+        "original_nl": "Show the builder of railways associated with the trains named \"Andaman Exp\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [builder]|of|{COLUMN} [railways]|associate [associated]|with|the|{TABLE} [trains]|name [named]|{VALUE} [Andaman Exp]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.Builder FROM railway AS T1 JOIN train AS T2 ON T1.Railway_ID  =  T2.Railway_ID WHERE T2.Name  =  \"Andaman Exp\""
+    },
+    {
+        "original_nl": "Show id and location of railways that are associated with more than one train.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [id]|and|{COLUMN} [location]|of|{COLUMN} [railways]|that|are|associate [associated]|with|{NUMBER} [more than one]|{TABLE} [train]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "are",
+            "associate",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Railway_ID ,  T1.Location FROM railway AS T1 JOIN train AS T2 ON T1.Railway_ID  =  T2.Railway_ID GROUP BY T2.Railway_ID HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "Show the id and builder of the railway that are associated with the most trains.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|and|{COLUMN} [builder]|of|the|{COLUMN} [railway]|that|are|associate [associated]|with|the|most|{TABLE} [trains]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "are",
+            "associate",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Railway_ID ,  T1.Builder FROM railway AS T1 JOIN train AS T2 ON T1.Railway_ID  =  T2.Railway_ID GROUP BY T2.Railway_ID ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different builders of railways, along with the corresponding number of railways using each builder.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [builders]|of|{COLUMN} [railways]|along|with|the|match [corresponding]|number|of|{COLUMN} [railways]|use [using]|each|{COLUMN} [builder]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{COLUMN}",
+            "use",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Builder ,  COUNT(*) FROM railway GROUP BY Builder"
+    },
+    {
+        "original_nl": "Show the most common builder of railways.",
+        "generalized_nl": "show [Show]|the|most|common|{COLUMN} [builder]|of|{COLUMN} [railways]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Builder FROM railway GROUP BY Builder ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different locations of railways along with the corresponding number of railways at each location.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [locations]|of|{COLUMN} [railways]|along|with|the|match [corresponding]|number|of|{COLUMN} [railways]|at|each|{COLUMN} [location]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{COLUMN}",
+            "at",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT LOCATION ,  COUNT(*) FROM railway GROUP BY LOCATION"
+    },
+    {
+        "original_nl": "Show the locations that have more than one railways.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [locations]|that|have|{NUMBER} [more than one]|{COLUMN} [railways]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT LOCATION FROM railway GROUP BY LOCATION HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "List the object number of railways that do not have any trains.",
+        "generalized_nl": "list [List]|the|object|number|of|{COLUMN} [railways]|that|do|not|have|any|{TABLE} [trains]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "object",
+            "number",
+            "of",
+            "{COLUMN}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT ObjectNumber FROM railway WHERE Railway_ID NOT IN (SELECT Railway_ID FROM train)"
+    },
+    {
+        "original_nl": "Show the countries that have both managers of age above 50 and managers of age below 46.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [countries]|that|have|both|{TABLE} [managers]|of|{COLUMN} [age]|above|{NUMBER} [50]|and|{TABLE} [managers]|of|{COLUMN} [age]|below|{VALUE} [46]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "of",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}",
+            "and",
+            "{TABLE}",
+            "of",
+            "{COLUMN}",
+            "below",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Country FROM manager WHERE Age  >  50 INTERSECT SELECT Country FROM manager WHERE Age  <  46"
+    },
+    {
+        "original_nl": "Show the distinct countries of managers.",
+        "generalized_nl": "show [Show]|the|distinct|{COLUMN} [countries]|of|{TABLE} [managers]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT Country FROM manager"
+    },
+    {
+        "original_nl": "Show the working years of managers in descending order of their level.",
+        "generalized_nl": "show [Show]|{NE} [the working years]|of|{TABLE} [managers]|in|descend [descending]|order|of|their|{COLUMN} [level]",
+        "generalized_tokens": [
+            "show",
+            "{NE}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Working_year_starts FROM manager ORDER BY LEVEL DESC"
+    },
+    {
+        "original_nl": "Show the countries that have managers of age above 50 or below 46.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [countries]|that|have|{TABLE} [managers]|of|{COLUMN} [age]|above|{NUMBER} [50]|or|below|{VALUE} [46]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{TABLE}",
+            "of",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}",
+            "or",
+            "below",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Country FROM manager WHERE Age  >  50 OR Age  <  46"
+    }
+]

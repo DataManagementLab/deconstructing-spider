@@ -1,0 +1,288 @@
+[
+    {
+        "original_nl": "How many premises are there?",
+        "generalized_nl": "How|many|{TABLE} [premises]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM premises"
+    },
+    {
+        "original_nl": "What are all the distinct premise types?",
+        "generalized_nl": "What|are|all|the|distinct|{TABLE} [premise]|{COLUMN_PART} [types]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "distinct",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT premises_type FROM premises"
+    },
+    {
+        "original_nl": "Find the types and details for all premises and order by the premise type.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [types]|and|{COLUMN_PART} [details]|for|all|{TABLE} [premises]|and|{COLUMN_PART} [order]|by|the|{TABLE} [premise]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "and",
+            "{COLUMN_PART}",
+            "by",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT premises_type ,  premise_details FROM premises ORDER BY premises_type"
+    },
+    {
+        "original_nl": "Show each premise type and the number of premises in that type.",
+        "generalized_nl": "show [Show]|each|{TABLE} [premise]|{COLUMN_PART} [type]|and|the|number|of|{TABLE} [premises]|in|that|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "show",
+            "each",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "that",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT premises_type ,  count(*) FROM premises GROUP BY premises_type"
+    },
+    {
+        "original_nl": "Show all distinct product categories along with the number of mailshots in each category.",
+        "generalized_nl": "show [Show]|all|distinct|{COLUMN} [product categories]|along|with|the|number|of|mailshots|in|each|{COLUMN_PART} [category]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "distinct",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "number",
+            "of",
+            "mailshots",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT product_category ,  count(*) FROM mailshot_campaigns GROUP BY product_category"
+    },
+    {
+        "original_nl": "Show the name and phone of the customer without any mailshot.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [phone]|of|the|{TABLE} [customer]|without|any|{COLUMN_PART} [mailshot]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "without",
+            "any",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT customer_name ,  customer_phone FROM customers WHERE customer_id NOT IN (SELECT customer_id FROM mailshot_customers)"
+    },
+    {
+        "original_nl": "Show the name and phone for customers with a mailshot with outcome code 'No Response'.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [phone]|for|{TABLE} [customers]|with|a|{COLUMN_PART} [mailshot]|with|{COLUMN} [outcome code]|No|response [Response]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "with",
+            "a",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN}",
+            "No",
+            "response"
+        ],
+        "original_sql": "SELECT T1.customer_name ,  T1.customer_phone FROM customers AS T1 JOIN mailshot_customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T2.outcome_code  =  'No Response'"
+    },
+    {
+        "original_nl": "Show the outcome code of mailshots along with the number of mailshots in each outcome code.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [outcome code]|of|mailshots|along|with|the|number|of|mailshots|in|each|{COLUMN} [outcome code]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "mailshots",
+            "along",
+            "with",
+            "the",
+            "number",
+            "of",
+            "mailshots",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT outcome_code ,  count(*) FROM mailshot_customers GROUP BY outcome_code"
+    },
+    {
+        "original_nl": "Show the names of customers who have at least 2 mailshots with outcome code 'Order'.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|have|{NUMBER} [at least 2]|mailshots|with|{COLUMN} [outcome code]|{COLUMN_PART} [Order]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "mailshots",
+            "with",
+            "{COLUMN}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.customer_name FROM mailshot_customers AS T1 JOIN customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE outcome_code  =  'Order' GROUP BY T1.customer_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the names of customers who have the most mailshots.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|have|the|most|mailshots",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "mailshots"
+        ],
+        "original_sql": "SELECT T2.customer_name FROM mailshot_customers AS T1 JOIN customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the name and payment method of customers who have both mailshots in 'Order' outcome and mailshots in 'No Response' outcome.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN} [payment method]|of|{TABLE} [customers]|who|have|both|mailshots|in|{COLUMN_PART} [Order]|{COLUMN_PART} [outcome]|and|mailshots|in|No|response [Response]|{COLUMN_PART} [outcome]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "both",
+            "mailshots",
+            "in",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "mailshots",
+            "in",
+            "No",
+            "response",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.customer_name ,  T2.payment_method FROM mailshot_customers AS T1 JOIN customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T1.outcome_code  =  'Order' INTERSECT SELECT T2.customer_name ,  T2.payment_method FROM mailshot_customers AS T1 JOIN customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T1.outcome_code  =  'No Response'"
+    },
+    {
+        "original_nl": "Show the premise type and address type code for all customer addresses.",
+        "generalized_nl": "show [Show]|the|{TABLE} [premise]|{COLUMN_PART} [type]|and|{COLUMN} [address type code]|for|all|{COLUMN} [customer addresses]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.premises_type ,  T1.address_type_code FROM customer_addresses AS T1 JOIN premises AS T2 ON T1.premise_id  =  T2.premise_id"
+    },
+    {
+        "original_nl": "What are the distinct address type codes for all customer addresses?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [address type codes]|for|all|{COLUMN} [customer addresses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT address_type_code FROM customer_addresses"
+    },
+    {
+        "original_nl": "Show the shipping charge and customer id for customer orders with order status Cancelled or Paid.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [shipping]|{COLUMN_PART} [charge]|and|{COLUMN} [customer id]|for|{TABLE} [customer]|order [orders]|with|{COLUMN_PART} [order]|{COLUMN_PART} [status]|cancel [Cancelled]|or|pay [Paid]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "order",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "cancel",
+            "or",
+            "pay"
+        ],
+        "original_sql": "SELECT order_shipping_charges ,  customer_id FROM customer_orders WHERE order_status_code  =  'Cancelled' OR order_status_code  =  'Paid'"
+    },
+    {
+        "original_nl": "Show the names of customers having an order with shipping method FedEx and order status Paid.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|have [having]|an|{COLUMN_PART} [order]|with|{COLUMN_PART} [shipping]|{COLUMN_PART} [method]|{NE} [FedEx]|and|{COLUMN_PART} [order]|{COLUMN_PART} [status]|pay [Paid]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "have",
+            "an",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NE}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "pay"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN customer_orders AS T2 ON T1.customer_id  =  T2.customer_id WHERE shipping_method_code  =  'FedEx' AND order_status_code  =  'Paid'"
+    }
+]

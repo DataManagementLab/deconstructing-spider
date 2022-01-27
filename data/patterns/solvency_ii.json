@@ -1,0 +1,279 @@
+[
+    {
+        "original_nl": "How many products are there?",
+        "generalized_nl": "How|many|{TABLE} [products]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Products"
+    },
+    {
+        "original_nl": "List the name of products in ascending order of price.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|of|{TABLE} [products]|in|ascend [ascending]|order|of|{COLUMN_PART} [price]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Product_Name FROM Products ORDER BY Product_Price ASC"
+    },
+    {
+        "original_nl": "What are the names and type codes of products?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [type]|{COLUMN_PART} [codes]|of|{TABLE} [products]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Product_Name ,  Product_Type_Code FROM Products"
+    },
+    {
+        "original_nl": "Show the prices of the products named \"Dining\" or \"Trading Policy\".",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [prices]|of|the|{TABLE} [products]|name [named]|dining [Dining]|or|trading [Trading]|policy [Policy]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "dining",
+            "or",
+            "trading",
+            "policy"
+        ],
+        "original_sql": "SELECT Product_Price FROM Products WHERE Product_Name  =  \"Dining\" OR Product_Name  =  \"Trading Policy\""
+    },
+    {
+        "original_nl": "What is the average price for products?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [price]|for|{TABLE} [products]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Product_Price) FROM Products"
+    },
+    {
+        "original_nl": "What is the name of the product with the highest price?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [product]|with|the|high [highest]|{COLUMN_PART} [price]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Product_Name FROM Products ORDER BY Product_Price DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different type codes of products and the number of products with each type code.",
+        "generalized_nl": "show [Show]|different|{COLUMN_PART} [type]|{COLUMN_PART} [codes]|of|{TABLE} [products]|and|the|number|of|{TABLE} [products]|with|each|{COLUMN_PART} [type]|{COLUMN_PART} [code]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "with",
+            "each",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Product_Type_Code ,  COUNT(*) FROM Products GROUP BY Product_Type_Code"
+    },
+    {
+        "original_nl": "Show the most common type code across products.",
+        "generalized_nl": "show [Show]|the|most|common|{COLUMN_PART} [type]|{COLUMN_PART} [code]|across|{TABLE} [products]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "across",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Product_Type_Code FROM Products GROUP BY Product_Type_Code ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the product type codes that have at least two products.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [product type codes]|that|have|{NUMBER} [at least two]|{TABLE} [products]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Product_Type_Code FROM Products GROUP BY Product_Type_Code HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the product type codes that have both products with price higher than 4500 and products with price lower than 3000.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [product type codes]|that|have|both|{TABLE} [products]|with|{COLUMN_PART} [price]|{NUMBER} [higher than 4500]|and|{TABLE} [products]|with|{COLUMN_PART} [price]|low [lower]|than|{NUMBER} [3000]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "and",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "low",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Product_Type_Code FROM Products WHERE Product_Price  >  4500 INTERSECT SELECT Product_Type_Code FROM Products WHERE Product_Price  <  3000"
+    },
+    {
+        "original_nl": "Show the names of products and the number of events they are in.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [products]|and|the|number|of|{TABLE} [events]|they|are|in",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "they",
+            "are",
+            "in"
+        ],
+        "original_sql": "SELECT T1.Product_Name ,  COUNT(*) FROM Products AS T1 JOIN Products_in_Events AS T2 ON T1.Product_ID  =  T2.Product_ID GROUP BY T1.Product_Name"
+    },
+    {
+        "original_nl": "Show the names of products and the number of events they are in, sorted by the number of events in descending order.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [products]|and|the|number|of|{TABLE} [events]|they|are|in|screen [sorted]|by|the|number|of|{TABLE} [events]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "they",
+            "are",
+            "in",
+            "screen",
+            "by",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT T1.Product_Name ,  COUNT(*) FROM Products AS T1 JOIN Products_in_Events AS T2 ON T1.Product_ID  =  T2.Product_ID GROUP BY T1.Product_Name ORDER BY COUNT(*) DESC"
+    },
+    {
+        "original_nl": "Show the names of products that are in at least two events.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [products]|that|are|in|{NUMBER} [at least two]|{TABLE} [events]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "in",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Product_Name FROM Products AS T1 JOIN Products_in_Events AS T2 ON T1.Product_ID  =  T2.Product_ID GROUP BY T1.Product_Name HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the names of products that are in at least two events in ascending alphabetical order of product name.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [products]|that|are|in|{NUMBER} [at least two]|{TABLE} [events]|in|ascend [ascending]|alphabetic [alphabetical]|order|of|{COLUMN} [product name]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "in",
+            "{NUMBER}",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Product_Name FROM Products AS T1 JOIN Products_in_Events AS T2 ON T1.Product_ID  =  T2.Product_ID GROUP BY T1.Product_Name HAVING COUNT(*)  >=  2 ORDER BY T1.Product_Name"
+    },
+    {
+        "original_nl": "List the names of products that are not in any event.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|{TABLE} [products]|that|are|not|in|any|{TABLE} [event]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Product_Name FROM Products WHERE Product_ID NOT IN (SELECT Product_ID FROM Products_in_Events)"
+    }
+]

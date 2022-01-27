@@ -1,0 +1,474 @@
+[
+    {
+        "original_nl": "How many submissions are there?",
+        "generalized_nl": "How|many|{TABLE} [submissions]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM submission"
+    },
+    {
+        "original_nl": "Count the number of submissions.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [submissions]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM submission"
+    },
+    {
+        "original_nl": "List the authors of submissions in ascending order of scores.",
+        "generalized_nl": "list [List]|the|{COLUMN} [authors]|of|{TABLE} [submissions]|in|ascend [ascending]|order|of|{COLUMN} [scores]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Author FROM submission ORDER BY Scores ASC"
+    },
+    {
+        "original_nl": "Find the author for each submission and list them in ascending order of submission score.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [author]|for|each|{TABLE} [submission]|and|list|them|in|ascend [ascending]|order|of|{TABLE} [submission]|{COLUMN} [score]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}",
+            "and",
+            "list",
+            "them",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Author FROM submission ORDER BY Scores ASC"
+    },
+    {
+        "original_nl": "What are the authors of submissions and their colleges?",
+        "generalized_nl": "What|are|the|{COLUMN} [authors]|of|{TABLE} [submissions]|and|their|{COLUMN} [colleges]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Author ,  College FROM submission"
+    },
+    {
+        "original_nl": "For each submission, show the author and their affiliated college.",
+        "generalized_nl": "For|each|{TABLE} [submission]|show|the|{COLUMN} [author]|and|their|consort [affiliated]|{COLUMN} [college]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "their",
+            "consort",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Author ,  College FROM submission"
+    },
+    {
+        "original_nl": "Show the names of authors from college \"Florida\" or \"Temple\"",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{COLUMN} [authors]|from|{COLUMN} [college]|{VALUE} [Florida]|or|{VALUE} [Temple]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "from",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Author FROM submission WHERE College  =  \"Florida\" OR College  =  \"Temple\""
+    },
+    {
+        "original_nl": "Which authors with submissions are from college \"Florida\" or \"Temple\"?",
+        "generalized_nl": "Which|{COLUMN} [authors]|with|{TABLE} [submissions]|are|from|{COLUMN} [college]|{VALUE} [Florida]|or|{VALUE} [Temple]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "with",
+            "{TABLE}",
+            "are",
+            "from",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Author FROM submission WHERE College  =  \"Florida\" OR College  =  \"Temple\""
+    },
+    {
+        "original_nl": "What is the average score of submissions?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [score]|of|{TABLE} [submissions]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Scores) FROM submission"
+    },
+    {
+        "original_nl": "Compute the average score of submissions.",
+        "generalized_nl": "calculate [Compute]|the|average|{COLUMN} [score]|of|{TABLE} [submissions]",
+        "generalized_tokens": [
+            "calculate",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Scores) FROM submission"
+    },
+    {
+        "original_nl": "What is the author of the submission with the highest score?",
+        "generalized_nl": "What|is|the|{COLUMN} [author]|of|the|{TABLE} [submission]|with|the|high [highest]|{COLUMN} [score]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Author FROM submission ORDER BY Scores DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the author who achieved the highest score in a submission.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [author]|who|achieve [achieved]|the|high [highest]|{COLUMN} [score]|in|a|{TABLE} [submission]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "who",
+            "achieve",
+            "the",
+            "high",
+            "{COLUMN}",
+            "in",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Author FROM submission ORDER BY Scores DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different colleges along with the number of authors of submission from each college.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [colleges]|along|with|the|number|of|{COLUMN} [authors]|of|{TABLE} [submission]|from|each|{COLUMN} [college]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "from",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT College ,  COUNT(*) FROM submission GROUP BY College"
+    },
+    {
+        "original_nl": "For each college, return the college name and the count of authors with submissions from that college.",
+        "generalized_nl": "For|each|{COLUMN} [college]|return|the|{COLUMN} [college]|{COLUMN} [name]|and|the|count|of|{COLUMN} [authors]|with|{TABLE} [submissions]|from|that|{COLUMN} [college]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "return",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "the",
+            "count",
+            "of",
+            "{COLUMN}",
+            "with",
+            "{TABLE}",
+            "from",
+            "that",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT College ,  COUNT(*) FROM submission GROUP BY College"
+    },
+    {
+        "original_nl": "Show the most common college of authors of submissions.",
+        "generalized_nl": "show [Show]|the|most|common|{COLUMN} [college]|of|{COLUMN} [authors]|of|{TABLE} [submissions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT College FROM submission GROUP BY College ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which college has the most authors with submissions?",
+        "generalized_nl": "Which|{COLUMN} [college]|have [has]|the|most|{COLUMN} [authors]|with|{TABLE} [submissions]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "{COLUMN}",
+            "with",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT College FROM submission GROUP BY College ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the colleges that have both authors with submission score larger than 90 and authors with submission score smaller than 80.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [colleges]|that|have|both|{COLUMN} [authors]|with|{TABLE} [submission]|{COLUMN} [score]|{NUMBER} [larger than 90]|and|{COLUMN} [authors]|with|{TABLE} [submission]|{COLUMN} [score]|{NUMBER} [smaller than 80]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{COLUMN}",
+            "with",
+            "{TABLE}",
+            "{COLUMN}",
+            "{NUMBER}",
+            "and",
+            "{COLUMN}",
+            "with",
+            "{TABLE}",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT College FROM submission WHERE Scores  >  90 INTERSECT SELECT College FROM submission WHERE Scores  <  80"
+    },
+    {
+        "original_nl": "Which colleges have both authors with submission score above 90 and authors with submission score below 80?",
+        "generalized_nl": "Which|{COLUMN} [colleges]|have|both|{COLUMN} [authors]|with|{TABLE} [submission]|{COLUMN} [score]|above|{NUMBER} [90]|and|{COLUMN} [authors]|with|{TABLE} [submission]|{COLUMN} [score]|below|{NUMBER} [80]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "both",
+            "{COLUMN}",
+            "with",
+            "{TABLE}",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}",
+            "and",
+            "{COLUMN}",
+            "with",
+            "{TABLE}",
+            "{COLUMN}",
+            "below",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT College FROM submission WHERE Scores  >  90 INTERSECT SELECT College FROM submission WHERE Scores  <  80"
+    },
+    {
+        "original_nl": "Show the authors of submissions and the acceptance results of their submissions.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [authors]|of|{TABLE} [submissions]|and|the|{TABLE} [acceptance]|{COLUMN} [results]|of|their|{TABLE} [submissions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "of",
+            "their",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Author ,  T1.Result FROM acceptance AS T1 JOIN submission AS T2 ON T1.Submission_ID  =  T2.Submission_ID"
+    },
+    {
+        "original_nl": "For each submission, find its author and acceptance result.",
+        "generalized_nl": "For|each|{TABLE} [submission]|find|its|{COLUMN} [author]|and|{TABLE} [acceptance]|{COLUMN} [result]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "find",
+            "its",
+            "{COLUMN}",
+            "and",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Author ,  T1.Result FROM acceptance AS T1 JOIN submission AS T2 ON T1.Submission_ID  =  T2.Submission_ID"
+    },
+    {
+        "original_nl": "Show the result of the submission with the highest score.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [result]|of|the|{TABLE} [submission]|with|the|high [highest]|{COLUMN} [score]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Result FROM acceptance AS T1 JOIN submission AS T2 ON T1.Submission_ID  =  T2.Submission_ID ORDER BY T2.Scores DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show each author and the number of workshops they submitted to.",
+        "generalized_nl": "show [Show]|each|{COLUMN} [author]|and|the|number|of|{TABLE} [workshops]|they|submit [submitted]|to",
+        "generalized_tokens": [
+            "show",
+            "each",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "they",
+            "submit",
+            "to"
+        ],
+        "original_sql": "SELECT T2.Author ,  COUNT(DISTINCT T1.workshop_id) FROM acceptance AS T1 JOIN submission AS T2 ON T1.Submission_ID  =  T2.Submission_ID GROUP BY T2.Author"
+    },
+    {
+        "original_nl": "Show the authors who have submissions to more than one workshop.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [authors]|who|have|{TABLE} [submissions]|to|{NUMBER} [more than one]|{TABLE} [workshop]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "{TABLE}",
+            "to",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Author FROM acceptance AS T1 JOIN submission AS T2 ON T1.Submission_ID  =  T2.Submission_ID GROUP BY T2.Author HAVING COUNT(DISTINCT T1.workshop_id)  >  1"
+    },
+    {
+        "original_nl": "Which authors have submitted to more than one workshop?",
+        "generalized_nl": "Which|{COLUMN} [authors]|have|submit [submitted]|to|{NUMBER} [more than one]|{TABLE} [workshop]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "submit",
+            "to",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Author FROM acceptance AS T1 JOIN submission AS T2 ON T1.Submission_ID  =  T2.Submission_ID GROUP BY T2.Author HAVING COUNT(DISTINCT T1.workshop_id)  >  1"
+    },
+    {
+        "original_nl": "Show the date and venue of each workshop in ascending alphabetical order of the venue.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [date]|and|{COLUMN} [venue]|of|each|{TABLE} [workshop]|in|ascend [ascending]|alphabetic [alphabetical]|order|of|the|{COLUMN} [venue]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order",
+            "of",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Date ,  Venue FROM workshop ORDER BY Venue"
+    },
+    {
+        "original_nl": "List the authors who do not have submission to any workshop.",
+        "generalized_nl": "list [List]|the|{COLUMN} [authors]|who|do|not|have|{TABLE} [submission]|to|any|{TABLE} [workshop]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "who",
+            "do",
+            "not",
+            "have",
+            "{TABLE}",
+            "to",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Author FROM submission WHERE Submission_ID NOT IN (SELECT Submission_ID FROM acceptance)"
+    },
+    {
+        "original_nl": "Which authors did not submit to any workshop?",
+        "generalized_nl": "Which|{COLUMN} [authors]|did|not|submit|to|any|{TABLE} [workshop]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "did",
+            "not",
+            "submit",
+            "to",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Author FROM submission WHERE Submission_ID NOT IN (SELECT Submission_ID FROM acceptance)"
+    }
+]

@@ -1,0 +1,1678 @@
+[
+    {
+        "original_nl": "List all vehicle id",
+        "generalized_nl": "list [List]|all|{COLUMN} [vehicle id]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT vehicle_id FROM Vehicles;"
+    },
+    {
+        "original_nl": "What are the ids of all vehicles?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|{TABLE} [vehicles]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT vehicle_id FROM Vehicles;"
+    },
+    {
+        "original_nl": "How many vehicle in total?",
+        "generalized_nl": "How|many|{TABLE} [vehicle]|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM Vehicles;"
+    },
+    {
+        "original_nl": "How many vehicles exist?",
+        "generalized_nl": "How|many|{TABLE} [vehicles]|exist",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "exist"
+        ],
+        "original_sql": "SELECT count(*) FROM Vehicles;"
+    },
+    {
+        "original_nl": "Show the detail of vehicle with id 1.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [detail]|of|{TABLE} [vehicle]|with|{COLUMN_PART} [id]|{COLUMN_PART} [1]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT vehicle_details FROM Vehicles WHERE vehicle_id = 1;"
+    },
+    {
+        "original_nl": "What are the details of the car with id 1?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|of|the|car|with|{COLUMN_PART} [id]|{COLUMN_PART} [1]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "car",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT vehicle_details FROM Vehicles WHERE vehicle_id = 1;"
+    },
+    {
+        "original_nl": "List the first name middle name and last name of all staff.",
+        "generalized_nl": "list [List]|the|{COLUMN} [first name]|{COLUMN} [middle name]|and|{COLUMN} [last name]|of|all|{TABLE} [staff]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT first_name ,  middle_name ,  last_name FROM Staff;"
+    },
+    {
+        "original_nl": "What are the first, middle, and last names of all staff?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [middle]|and|{COLUMN} [last names]|of|all|{TABLE} [staff]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT first_name ,  middle_name ,  last_name FROM Staff;"
+    },
+    {
+        "original_nl": "What is the birthday of the staff member with first name as Janessa and last name as Sawayn?",
+        "generalized_nl": "What|is|the|birthday|of|the|{TABLE} [staff]|member|with|{COLUMN} [first name]|as|{NE} [Janessa]|and|{COLUMN} [last name]|as|{NE} [Sawayn]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "birthday",
+            "of",
+            "the",
+            "{TABLE}",
+            "member",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}"
+        ],
+        "original_sql": "SELECT date_of_birth FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "What is the date of birth for the staff member named Janessa Sawayn?",
+        "generalized_nl": "What|is|the|{COLUMN} [date of birth]|for|the|{TABLE} [staff]|member|name [named]|{NE} [Janessa Sawayn]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "member",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT date_of_birth FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "When did the staff member with first name as Janessa and last name as Sawayn join the company?",
+        "generalized_nl": "When|did|the|{TABLE} [staff]|member|with|{COLUMN} [first name]|as|{NE} [Janessa]|and|{COLUMN} [last name]|as|{NE} [Sawayn]|join|the|company",
+        "generalized_tokens": [
+            "When",
+            "did",
+            "the",
+            "{TABLE}",
+            "member",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "join",
+            "the",
+            "company"
+        ],
+        "original_sql": "SELECT date_joined_staff FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "When did the staff member named Janessa Sawayn join the company?",
+        "generalized_nl": "When|did|the|{TABLE} [staff]|member|name [named]|{NE} [Janessa Sawayn]|join|the|company",
+        "generalized_tokens": [
+            "When",
+            "did",
+            "the",
+            "{TABLE}",
+            "member",
+            "name",
+            "{NE}",
+            "join",
+            "the",
+            "company"
+        ],
+        "original_sql": "SELECT date_joined_staff FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "When did the staff member with first name as Janessa and last name as Sawayn leave the company?",
+        "generalized_nl": "When|did|the|{TABLE} [staff]|member|with|{COLUMN} [first name]|as|{NE} [Janessa]|and|{COLUMN} [last name]|as|{NE} [Sawayn]|leave|the|company",
+        "generalized_tokens": [
+            "When",
+            "did",
+            "the",
+            "{TABLE}",
+            "member",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "leave",
+            "the",
+            "company"
+        ],
+        "original_sql": "SELECT date_left_staff FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "When did the staff member Janessa Sawayn leave the company?",
+        "generalized_nl": "When|did|the|{TABLE} [staff]|member|{NE} [Janessa Sawayn]|leave|the|company",
+        "generalized_tokens": [
+            "When",
+            "did",
+            "the",
+            "{TABLE}",
+            "member",
+            "{NE}",
+            "leave",
+            "the",
+            "company"
+        ],
+        "original_sql": "SELECT date_left_staff FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "How many staff have the first name Ludie?",
+        "generalized_nl": "How|many|{TABLE} [staff]|have|the|{COLUMN} [first name]|{NE} [Ludie]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "the",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Staff WHERE first_name = \"Ludie\";"
+    },
+    {
+        "original_nl": "How many employees have a first name of Ludie?",
+        "generalized_nl": "How|many|employee [employees]|have|a|{COLUMN} [first name]|of|{NE} [Ludie]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "employee",
+            "have",
+            "a",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Staff WHERE first_name = \"Ludie\";"
+    },
+    {
+        "original_nl": "What is the nickname of staff with first name as Janessa and last name as Sawayn?",
+        "generalized_nl": "What|is|the|{COLUMN} [nickname]|of|{TABLE} [staff]|with|{COLUMN} [first name]|as|{NE} [Janessa]|and|{COLUMN} [last name]|as|{NE} [Sawayn]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}"
+        ],
+        "original_sql": "SELECT nickname FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "What is the nickname of the employee named Janessa Sawayn?",
+        "generalized_nl": "What|is|the|{COLUMN} [nickname]|of|the|employee|name [named]|{NE} [Janessa Sawayn]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "employee",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT nickname FROM Staff WHERE first_name = \"Janessa\" AND last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "How many staff in total?",
+        "generalized_nl": "How|many|{TABLE} [staff]|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM Staff;"
+    },
+    {
+        "original_nl": "How many employees are there?",
+        "generalized_nl": "How|many|employee [employees]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "employee",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Staff;"
+    },
+    {
+        "original_nl": "Which city does staff with first name as Janessa and last name as Sawayn live?",
+        "generalized_nl": "Which|{COLUMN} [city]|does|{TABLE} [staff]|with|{COLUMN} [first name]|as|{NE} [Janessa]|and|{COLUMN} [last name]|as|{NE} [Sawayn]|live",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "does",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "live"
+        ],
+        "original_sql": "SELECT T1.city FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "In what city does Janessa Sawayn live?",
+        "generalized_nl": "In|what|{COLUMN} [city]|does|{NE} [Janessa Sawayn]|live",
+        "generalized_tokens": [
+            "In",
+            "what",
+            "{COLUMN}",
+            "does",
+            "{NE}",
+            "live"
+        ],
+        "original_sql": "SELECT T1.city FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "Which country and state does staff with first name as Janessa and last name as Sawayn lived?",
+        "generalized_nl": "Which|{COLUMN} [country]|and|{COLUMN_PART} [state]|does|{TABLE} [staff]|with|{COLUMN} [first name]|as|{NE} [Janessa]|and|{COLUMN} [last name]|as|{NE} [Sawayn]|live [lived]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "does",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "live"
+        ],
+        "original_sql": "SELECT T1.country ,  T1.state_province_county FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "In which country and state does Janessa Sawayn live?",
+        "generalized_nl": "In|which|{COLUMN} [country]|and|{COLUMN_PART} [state]|does|{NE} [Janessa Sawayn]|live",
+        "generalized_tokens": [
+            "In",
+            "which",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "does",
+            "{NE}",
+            "live"
+        ],
+        "original_sql": "SELECT T1.country ,  T1.state_province_county FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "How long is the total lesson time took by customer with first name as Rylan and last name as Goodwin?",
+        "generalized_nl": "How|long|is|the|entire [total]|{COLUMN} [lesson time]|take [took]|by|{TABLE} [customer]|with|{COLUMN} [first name]|as|{NE} [Rylan]|and|{COLUMN} [last name]|as|{NE} [Goodwin]",
+        "generalized_tokens": [
+            "How",
+            "long",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "take",
+            "by",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(T1.lesson_time) FROM Lessons AS T1 JOIN Customers AS T2 ON T1.customer_id  = T2.customer_id WHERE T2.first_name = \"Rylan\" AND T2.last_name = \"Goodwin\";"
+    },
+    {
+        "original_nl": "How long is the total lesson time took by the customer named Rylan Goodwin?",
+        "generalized_nl": "How|long|is|the|entire [total]|{COLUMN} [lesson time]|take [took]|by|the|{TABLE} [customer]|name [named]|{NE} [Rylan Goodwin]",
+        "generalized_tokens": [
+            "How",
+            "long",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "take",
+            "by",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(T1.lesson_time) FROM Lessons AS T1 JOIN Customers AS T2 ON T1.customer_id  = T2.customer_id WHERE T2.first_name = \"Rylan\" AND T2.last_name = \"Goodwin\";"
+    },
+    {
+        "original_nl": "What is the zip code of staff with first name as Janessa and last name as Sawayn lived?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [zip]|{COLUMN_PART} [code]|of|{TABLE} [staff]|with|{COLUMN} [first name]|as|{NE} [Janessa]|and|{COLUMN} [last name]|as|{NE} [Sawayn]|live [lived]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "live"
+        ],
+        "original_sql": "SELECT T1.zip_postcode FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "What is the zip code of the hosue of the employee named Janessa Sawayn?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [zip]|{COLUMN_PART} [code]|of|the|hosue|of|the|employee|name [named]|{NE} [Janessa Sawayn]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "hosue",
+            "of",
+            "the",
+            "employee",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.zip_postcode FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "How many staff live in state Georgia?",
+        "generalized_nl": "How|many|{TABLE} [staff]|live|in|{COLUMN_PART} [state]|{NE} [Georgia]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "live",
+            "in",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Addresses WHERE state_province_county = \"Georgia\";"
+    },
+    {
+        "original_nl": "How many employees live in Georgia?",
+        "generalized_nl": "How|many|employee [employees]|live|in|{NE} [Georgia]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "employee",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Addresses WHERE state_province_county = \"Georgia\";"
+    },
+    {
+        "original_nl": "Find out the first name and last name of staff lived in city Damianfort.",
+        "generalized_nl": "find [Find]|out|the|{COLUMN} [first name]|and|{COLUMN} [last name]|of|{TABLE} [staff]|live [lived]|in|{COLUMN} [city]|{NE} [Damianfort]",
+        "generalized_tokens": [
+            "find",
+            "out",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "live",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.first_name ,  T2.last_name FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id WHERE T1.city = \"Damianfort\";"
+    },
+    {
+        "original_nl": "What is the first and last name of all employees who live in the city Damianfort?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|all|employee [employees]|who|live|in|the|{COLUMN} [city]|{NE} [Damianfort]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "employee",
+            "who",
+            "live",
+            "in",
+            "the",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.first_name ,  T2.last_name FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id WHERE T1.city = \"Damianfort\";"
+    },
+    {
+        "original_nl": "In which city do the most employees live and how many of them live there?",
+        "generalized_nl": "In|which|{COLUMN} [city]|do|the|most|employee [employees]|live|and|how|many|of|them|live|there",
+        "generalized_tokens": [
+            "In",
+            "which",
+            "{COLUMN}",
+            "do",
+            "the",
+            "most",
+            "employee",
+            "live",
+            "and",
+            "how",
+            "many",
+            "of",
+            "them",
+            "live",
+            "there"
+        ],
+        "original_sql": "SELECT T1.city ,  count(*) FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id GROUP BY T1.city ORDER BY count(*) DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "List the states which have between 2 to 4 staffs living there.",
+        "generalized_nl": "list [List]|the|state [states]|which|have|{NUMBER} [between 2 to 4]|{TABLE} [staffs]|live [living]|there",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "state",
+            "which",
+            "have",
+            "{NUMBER}",
+            "{TABLE}",
+            "live",
+            "there"
+        ],
+        "original_sql": "SELECT T1.state_province_county FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id GROUP BY T1.state_province_county HAVING count(*) BETWEEN 2 AND 4;"
+    },
+    {
+        "original_nl": "What are the names of the states that have 2 to 4 employees living there?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|state [states]|that|have|{NUMBER} [2 to 4]|employee [employees]|live [living]|there",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "state",
+            "that",
+            "have",
+            "{NUMBER}",
+            "employee",
+            "live",
+            "there"
+        ],
+        "original_sql": "SELECT T1.state_province_county FROM Addresses AS T1 JOIN Staff AS T2 ON T1.address_id = T2.staff_address_id GROUP BY T1.state_province_county HAVING count(*) BETWEEN 2 AND 4;"
+    },
+    {
+        "original_nl": "List the first name and last name of all customers.",
+        "generalized_nl": "list [List]|the|{COLUMN} [first name]|and|{COLUMN} [last name]|of|all|{TABLE} [customers]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT first_name ,  last_name FROM Customers;"
+    },
+    {
+        "original_nl": "What are the first and last names for all customers?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|for|all|{TABLE} [customers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT first_name ,  last_name FROM Customers;"
+    },
+    {
+        "original_nl": "List email address and birthday of customer whose first name as Carole.",
+        "generalized_nl": "list [List]|{COLUMN} [email address]|and|birthday|of|{TABLE} [customer]|whose|{COLUMN} [first name]|as|{NE} [Carole]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "and",
+            "birthday",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "as",
+            "{NE}"
+        ],
+        "original_sql": "SELECT email_address ,  date_of_birth FROM Customers WHERE first_name = \"Carole\""
+    },
+    {
+        "original_nl": "What are the email addresses and date of births for all customers who have a first name of Carole?",
+        "generalized_nl": "What|are|the|{COLUMN} [email addresses]|and|{COLUMN_PART} [date]|of|birth [births]|for|all|{TABLE} [customers]|who|have|a|{COLUMN} [first name]|of|{NE} [Carole]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "birth",
+            "for",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "a",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT email_address ,  date_of_birth FROM Customers WHERE first_name = \"Carole\""
+    },
+    {
+        "original_nl": "List phone number and email address of customer with more than 2000 outstanding balance.",
+        "generalized_nl": "list [List]|{COLUMN} [phone number]|and|{COLUMN} [email address]|of|{TABLE} [customer]|with|{NUMBER} [more than 2000]|{COLUMN_PART} [outstanding]|balance",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "balance"
+        ],
+        "original_sql": "SELECT phone_number ,  email_address FROM Customers WHERE amount_outstanding  >  2000;"
+    },
+    {
+        "original_nl": "What are the phone numbers and email addresses of all customers who have an outstanding balance of more than 2000?",
+        "generalized_nl": "What|are|the|{COLUMN} [phone numbers]|and|{COLUMN} [email addresses]|of|all|{TABLE} [customers]|who|have|an|{COLUMN_PART} [outstanding]|balance|of|{NUMBER} [more than 2000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "an",
+            "{COLUMN_PART}",
+            "balance",
+            "of",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT phone_number ,  email_address FROM Customers WHERE amount_outstanding  >  2000;"
+    },
+    {
+        "original_nl": "What is the status code, mobile phone number and email address of customer with last name as Kohler or first name as Marina?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [status]|{COLUMN_PART} [code]|{COLUMN_PART} [mobile]|{COLUMN} [phone number]|and|{COLUMN} [email address]|of|{TABLE} [customer]|with|{COLUMN} [last name]|as|{NE} [Kohler]|or|{COLUMN} [first name]|as|{NE} [Marina]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "or",
+            "{COLUMN}",
+            "as",
+            "{NE}"
+        ],
+        "original_sql": "SELECT customer_status_code ,  cell_mobile_phone_number ,  email_address FROM Customers WHERE first_name = \"Marina\" OR last_name  =  \"Kohler\""
+    },
+    {
+        "original_nl": "What is the status code, phone number, and email address of the customer whose last name is Kohler or whose first name is Marina?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [status]|{COLUMN_PART} [code]|{COLUMN} [phone number]|and|{COLUMN} [email address]|of|the|{TABLE} [customer]|whose|{COLUMN} [last name]|is|{NE} [Kohler]|or|whose|{COLUMN} [first name]|is|{NE} [Marina]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}",
+            "or",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT customer_status_code ,  cell_mobile_phone_number ,  email_address FROM Customers WHERE first_name = \"Marina\" OR last_name  =  \"Kohler\""
+    },
+    {
+        "original_nl": "When are the birthdays of customer who are classified as 'Good Customer' status?",
+        "generalized_nl": "When|are|the|birthday [birthdays]|of|{TABLE} [customer]|who|are|classify [classified]|as|good [Good]|{TABLE} [Customer]|{COLUMN_PART} [status]",
+        "generalized_tokens": [
+            "When",
+            "are",
+            "the",
+            "birthday",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "classify",
+            "as",
+            "good",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT date_of_birth FROM Customers WHERE customer_status_code  =  'Good Customer'"
+    },
+    {
+        "original_nl": "What is the date of birth of every customer whose status code is 'Good Customer'?",
+        "generalized_nl": "What|is|the|{COLUMN} [date of birth]|of|every|{TABLE} [customer]|whose|{COLUMN_PART} [status]|{COLUMN_PART} [code]|is|good [Good]|{TABLE} [Customer]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "every",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "good",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT date_of_birth FROM Customers WHERE customer_status_code  =  'Good Customer'"
+    },
+    {
+        "original_nl": "When did customer with first name as Carole and last name as Bernhard became a customer?",
+        "generalized_nl": "When|did|{TABLE} [customer]|with|{COLUMN} [first name]|as|{NE} [Carole]|and|{COLUMN} [last name]|as|{NE} [Bernhard]|{COLUMN_PART} [became]|a|{TABLE} [customer]",
+        "generalized_tokens": [
+            "When",
+            "did",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "{COLUMN_PART}",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT date_became_customer FROM Customers WHERE first_name = \"Carole\" AND last_name = \"Bernhard\";"
+    },
+    {
+        "original_nl": "When did Carole Bernhard first become a customer?",
+        "generalized_nl": "When|did|{NE} [Carole Bernhard]|{COLUMN_PART} [first]|become|a|{TABLE} [customer]",
+        "generalized_tokens": [
+            "When",
+            "did",
+            "{NE}",
+            "{COLUMN_PART}",
+            "become",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT date_became_customer FROM Customers WHERE first_name = \"Carole\" AND last_name = \"Bernhard\";"
+    },
+    {
+        "original_nl": "How many customers in total?",
+        "generalized_nl": "How|many|{TABLE} [customers]|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM Customers;"
+    },
+    {
+        "original_nl": "How many customers are there?",
+        "generalized_nl": "How|many|{TABLE} [customers]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Customers;"
+    },
+    {
+        "original_nl": "List all customer status codes and the number of customers having each status code.",
+        "generalized_nl": "list [List]|all|{COLUMN} [customer status codes]|and|the|{COLUMN_PART} [number]|of|{TABLE} [customers]|have [having]|each|{COLUMN_PART} [status]|{COLUMN_PART} [code]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "have",
+            "each",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT customer_status_code , count(*) FROM Customers GROUP BY customer_status_code;"
+    },
+    {
+        "original_nl": "For each customer status code, how many customers are classified that way?",
+        "generalized_nl": "For|each|{COLUMN} [customer status code]|how|many|{TABLE} [customers]|are|classify [classified]|that|way",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "classify",
+            "that",
+            "way"
+        ],
+        "original_sql": "SELECT customer_status_code , count(*) FROM Customers GROUP BY customer_status_code;"
+    },
+    {
+        "original_nl": "Which customer status code has least number of customers?",
+        "generalized_nl": "Which|{COLUMN} [customer status code]|have [has]|least|{COLUMN_PART} [number]|of|{TABLE} [customers]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "least",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT customer_status_code FROM Customers GROUP BY customer_status_code ORDER BY count(*) ASC LIMIT 1;"
+    },
+    {
+        "original_nl": "What is the status code with the least number of customers?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [status]|{COLUMN_PART} [code]|with|the|least|{COLUMN_PART} [number]|of|{TABLE} [customers]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "least",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT customer_status_code FROM Customers GROUP BY customer_status_code ORDER BY count(*) ASC LIMIT 1;"
+    },
+    {
+        "original_nl": "How many lessons taken by customer with first name as Rylan and last name as Goodwin were completed?",
+        "generalized_nl": "How|many|{TABLE} [lessons]|take [taken]|by|{TABLE} [customer]|with|{COLUMN} [first name]|as|{NE} [Rylan]|and|{COLUMN} [last name]|as|{NE} [Goodwin]|were|complete [completed]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "take",
+            "by",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "were",
+            "complete"
+        ],
+        "original_sql": "SELECT count(*) FROM Lessons AS T1 JOIN Customers AS T2 ON T1.customer_id  = T2.customer_id WHERE T2.first_name = \"Rylan\" AND T2.last_name = \"Goodwin\" AND T1.lesson_status_code = \"Completed\";"
+    },
+    {
+        "original_nl": "How many lessons did the customer Ryan Goodwin complete?",
+        "generalized_nl": "How|many|{TABLE} [lessons]|did|the|{TABLE} [customer]|{NE} [Ryan Goodwin]|complete",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "did",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "complete"
+        ],
+        "original_sql": "SELECT count(*) FROM Lessons AS T1 JOIN Customers AS T2 ON T1.customer_id  = T2.customer_id WHERE T2.first_name = \"Rylan\" AND T2.last_name = \"Goodwin\" AND T1.lesson_status_code = \"Completed\";"
+    },
+    {
+        "original_nl": "What is maximum, minimum and average amount of outstanding of customer?",
+        "generalized_nl": "What|is|maximal [maximum]|minimal [minimum]|and|average|{COLUMN_PART} [amount]|of|{COLUMN_PART} [outstanding]|of|{TABLE} [customer]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "maximal",
+            "minimal",
+            "and",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(amount_outstanding) ,  min(amount_outstanding) ,  avg(amount_outstanding) FROM Customers;"
+    },
+    {
+        "original_nl": "What is the maximum, minimum, and average amount of money outsanding for all customers?",
+        "generalized_nl": "What|is|the|maximal [maximum]|minimal [minimum]|and|average|{COLUMN_PART} [amount]|of|money|outsanding|for|all|{TABLE} [customers]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "minimal",
+            "and",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "money",
+            "outsanding",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(amount_outstanding) ,  min(amount_outstanding) ,  avg(amount_outstanding) FROM Customers;"
+    },
+    {
+        "original_nl": "List the first name and last name of customers have the amount of outstanding between 1000 and 3000.",
+        "generalized_nl": "list [List]|the|{COLUMN} [first name]|and|{COLUMN} [last name]|of|{TABLE} [customers]|have|the|{COLUMN_PART} [amount]|of|{COLUMN_PART} [outstanding]|{NUMBER} [between 1000 and 3000]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT first_name ,  last_name FROM Customers WHERE amount_outstanding BETWEEN 1000 AND 3000;"
+    },
+    {
+        "original_nl": "What are the first and last names of all customers with between 1000 and 3000 dollars outstanding?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|all|{TABLE} [customers]|with|{NE} [between 1000 and 3000 dollars]|{COLUMN_PART} [outstanding]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "with",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT first_name ,  last_name FROM Customers WHERE amount_outstanding BETWEEN 1000 AND 3000;"
+    },
+    {
+        "original_nl": "List first name and last name of customers lived in city Lockmanfurt.",
+        "generalized_nl": "list [List]|{COLUMN} [first name]|and|{COLUMN} [last name]|of|{TABLE} [customers]|live [lived]|in|{COLUMN} [city]|{NE} [Lockmanfurt]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "live",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.first_name ,  T1.last_name FROM Customers AS T1 JOIN Addresses AS T2 ON T1.customer_address_id = T2.address_id WHERE T2.city = \"Lockmanfurt\";"
+    },
+    {
+        "original_nl": "What are the first and last names of all customers who lived in Lockmanfurt?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|all|{TABLE} [customers]|who|live [lived]|in|{NE} [Lockmanfurt]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "live",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.first_name ,  T1.last_name FROM Customers AS T1 JOIN Addresses AS T2 ON T1.customer_address_id = T2.address_id WHERE T2.city = \"Lockmanfurt\";"
+    },
+    {
+        "original_nl": "Which country does customer with first name as Carole and last name as Bernhard lived in?",
+        "generalized_nl": "Which|{COLUMN} [country]|does|{TABLE} [customer]|with|{COLUMN} [first name]|as|{NE} [Carole]|and|{COLUMN} [last name]|as|{NE} [Bernhard]|live [lived]|in",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "does",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT T2.country FROM Customers AS T1 JOIN Addresses AS T2 ON T1.customer_address_id = T2.address_id WHERE T1.first_name = \"Carole\" AND T1.last_name = \"Bernhard\""
+    },
+    {
+        "original_nl": "What is the country in which the customer Carole Bernhard lived?",
+        "generalized_nl": "What|is|the|{COLUMN} [country]|in|which|the|{TABLE} [customer]|{NE} [Carole Bernhard]|live [lived]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "in",
+            "which",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "live"
+        ],
+        "original_sql": "SELECT T2.country FROM Customers AS T1 JOIN Addresses AS T2 ON T1.customer_address_id = T2.address_id WHERE T1.first_name = \"Carole\" AND T1.last_name = \"Bernhard\""
+    },
+    {
+        "original_nl": "What is zip code of customer with first name as Carole and last name as Bernhard?",
+        "generalized_nl": "What|is|{COLUMN_PART} [zip]|{COLUMN_PART} [code]|of|{TABLE} [customer]|with|{COLUMN} [first name]|as|{NE} [Carole]|and|{COLUMN} [last name]|as|{NE} [Bernhard]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.zip_postcode FROM Customers AS T1 JOIN Addresses AS T2 ON T1.customer_address_id = T2.address_id WHERE T1.first_name = \"Carole\" AND T1.last_name = \"Bernhard\""
+    },
+    {
+        "original_nl": "What is the zip code of the customer Carole Bernhard?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [zip]|{COLUMN_PART} [code]|of|the|{TABLE} [customer]|{NE} [Carole Bernhard]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.zip_postcode FROM Customers AS T1 JOIN Addresses AS T2 ON T1.customer_address_id = T2.address_id WHERE T1.first_name = \"Carole\" AND T1.last_name = \"Bernhard\""
+    },
+    {
+        "original_nl": "Which city does has most number of customers?",
+        "generalized_nl": "Which|{COLUMN} [city]|does|have [has]|most|{COLUMN_PART} [number]|of|{TABLE} [customers]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "does",
+            "have",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.city FROM Customers AS T1 JOIN Addresses AS T2 ON T1.customer_address_id = T2.address_id GROUP BY T2.city ORDER BY count(*) DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "What is the city with the most customers?",
+        "generalized_nl": "What|is|the|{COLUMN} [city]|with|the|most|{TABLE} [customers]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.city FROM Customers AS T1 JOIN Addresses AS T2 ON T1.customer_address_id = T2.address_id GROUP BY T2.city ORDER BY count(*) DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "How much in total does customer with first name as Carole and last name as Bernhard paid?",
+        "generalized_nl": "How|much|in|sum [total]|does|{TABLE} [customer]|with|{COLUMN} [first name]|as|{NE} [Carole]|and|{COLUMN} [last name]|as|{NE} [Bernhard]|pay [paid]",
+        "generalized_tokens": [
+            "How",
+            "much",
+            "in",
+            "sum",
+            "does",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "pay"
+        ],
+        "original_sql": "SELECT sum(T1.amount_payment) FROM Customer_Payments AS T1 JOIN Customers AS T2 ON T1.customer_id = T2.customer_id WHERE T2.first_name = \"Carole\" AND T2.last_name = \"Bernhard\""
+    },
+    {
+        "original_nl": "What is the total amount of moeny paid by the customer Carole Bernhard?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [amount]|of|moeny|pay [paid]|by|the|{TABLE} [customer]|{NE} [Carole Bernhard]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "moeny",
+            "pay",
+            "by",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(T1.amount_payment) FROM Customer_Payments AS T1 JOIN Customers AS T2 ON T1.customer_id = T2.customer_id WHERE T2.first_name = \"Carole\" AND T2.last_name = \"Bernhard\""
+    },
+    {
+        "original_nl": "List the number of customers that did not have any payment history.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [number]|of|{TABLE} [customers]|that|did|not|have|any|{COLUMN_PART} [payment]|history",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "did",
+            "not",
+            "have",
+            "any",
+            "{COLUMN_PART}",
+            "history"
+        ],
+        "original_sql": "SELECT count(*) FROM Customers WHERE customer_id NOT IN ( SELECT customer_id FROM Customer_Payments );"
+    },
+    {
+        "original_nl": "How many customers have no payment histories?",
+        "generalized_nl": "How|many|{TABLE} [customers]|have|no|{COLUMN_PART} [payment]|history [histories]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "no",
+            "{COLUMN_PART}",
+            "history"
+        ],
+        "original_sql": "SELECT count(*) FROM Customers WHERE customer_id NOT IN ( SELECT customer_id FROM Customer_Payments );"
+    },
+    {
+        "original_nl": "List first name and last name of customers that have more than 2 payments.",
+        "generalized_nl": "list [List]|{COLUMN} [first name]|and|{COLUMN} [last name]|of|{TABLE} [customers]|that|have|{NUMBER} [more than 2]|{COLUMN_PART} [payments]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.first_name ,  T2.last_name FROM Customer_Payments AS T1 JOIN Customers AS T2 ON T1.customer_id = T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >  2;"
+    },
+    {
+        "original_nl": "What are the first and last names of all customers with more than 2 payments?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|all|{TABLE} [customers]|with|{NUMBER} [more than 2]|{COLUMN_PART} [payments]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.first_name ,  T2.last_name FROM Customer_Payments AS T1 JOIN Customers AS T2 ON T1.customer_id = T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >  2;"
+    },
+    {
+        "original_nl": "List all payment methods and number of payments using each payment methods.",
+        "generalized_nl": "list [List]|all|{COLUMN_PART} [payment]|method [methods]|and|{COLUMN_PART} [number]|of|{COLUMN_PART} [payments]|use [using]|each|{COLUMN_PART} [payment]|method [methods]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN_PART}",
+            "method",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "use",
+            "each",
+            "{COLUMN_PART}",
+            "method"
+        ],
+        "original_sql": "SELECT payment_method_code ,  count(*) FROM Customer_Payments GROUP BY payment_method_code;"
+    },
+    {
+        "original_nl": "For each payment method, how many payments were made?",
+        "generalized_nl": "For|each|{COLUMN_PART} [payment]|{COLUMN_PART} [method]|how|many|{COLUMN_PART} [payments]|were|make [made]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "how",
+            "many",
+            "{COLUMN_PART}",
+            "were",
+            "make"
+        ],
+        "original_sql": "SELECT payment_method_code ,  count(*) FROM Customer_Payments GROUP BY payment_method_code;"
+    },
+    {
+        "original_nl": "How many lessons were in cancelled state?",
+        "generalized_nl": "How|many|{TABLE} [lessons]|were|in|cancel [cancelled]|{COLUMN_PART} [state]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "were",
+            "in",
+            "cancel",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM Lessons WHERE lesson_status_code = \"Cancelled\";"
+    },
+    {
+        "original_nl": "How many lessons have been cancelled?",
+        "generalized_nl": "How|many|{TABLE} [lessons]|have|been|cancel [cancelled]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "been",
+            "cancel"
+        ],
+        "original_sql": "SELECT count(*) FROM Lessons WHERE lesson_status_code = \"Cancelled\";"
+    },
+    {
+        "original_nl": "List lesson id of all lessons taught by staff with first name as Janessa, last name as Sawayn and nickname containing letter 's'.",
+        "generalized_nl": "list [List]|{COLUMN} [lesson id]|of|all|{TABLE} [lessons]|teach [taught]|by|{TABLE} [staff]|with|{COLUMN} [first name]|as|{NE} [Janessa]|{COLUMN} [last name]|as|{NE} [Sawayn]|and|{COLUMN} [nickname]|contain [containing]|letter|s",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "teach",
+            "by",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "contain",
+            "letter",
+            "s"
+        ],
+        "original_sql": "SELECT T1.lesson_id FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\" AND nickname LIKE \"%s%\";"
+    },
+    {
+        "original_nl": "What are the the lesson ids of all staff taught by Janessa Sawayn whose nickname has the letter s?",
+        "generalized_nl": "What|are|the|the|{COLUMN} [lesson ids]|of|all|{TABLE} [staff]|teach [taught]|by|{NE} [Janessa Sawayn]|whose|{COLUMN} [nickname]|have [has]|the|letter|s",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "teach",
+            "by",
+            "{NE}",
+            "whose",
+            "{COLUMN}",
+            "have",
+            "the",
+            "letter",
+            "s"
+        ],
+        "original_sql": "SELECT T1.lesson_id FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\" AND nickname LIKE \"%s%\";"
+    },
+    {
+        "original_nl": "How many lessons taught by staff whose first name has letter 'a' in it?",
+        "generalized_nl": "How|many|{TABLE} [lessons]|teach [taught]|by|{TABLE} [staff]|whose|{COLUMN} [first name]|has|letter|a|in|it",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "teach",
+            "by",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "has",
+            "letter",
+            "a",
+            "in",
+            "it"
+        ],
+        "original_sql": "SELECT count(*) FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name LIKE \"%a%\""
+    },
+    {
+        "original_nl": "How many lessons were taught by a staff member whose first name has the letter 'a' in it?",
+        "generalized_nl": "How|many|{TABLE} [lessons]|were|teach [taught]|by|a|{TABLE} [staff]|member|whose|{COLUMN} [first name]|have [has]|the|letter|a|in|it",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "were",
+            "teach",
+            "by",
+            "a",
+            "{TABLE}",
+            "member",
+            "whose",
+            "{COLUMN}",
+            "have",
+            "the",
+            "letter",
+            "a",
+            "in",
+            "it"
+        ],
+        "original_sql": "SELECT count(*) FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name LIKE \"%a%\""
+    },
+    {
+        "original_nl": "How long is the total lesson time taught by staff with first name as Janessa and last name as Sawayn?",
+        "generalized_nl": "How|long|is|the|entire [total]|{COLUMN} [lesson time]|teach [taught]|by|{TABLE} [staff]|with|{COLUMN} [first name]|as|{NE} [Janessa]|and|{COLUMN} [last name]|as|{NE} [Sawayn]",
+        "generalized_tokens": [
+            "How",
+            "long",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "teach",
+            "by",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(lesson_time) FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "What is the total time for all lessons taught by Janessa Sawayn?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [time]|for|all|{TABLE} [lessons]|teach [taught]|by|{NE} [Janessa Sawayn]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "teach",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(lesson_time) FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "What is average lesson price taught by staff with first name as Janessa and last name as Sawayn?",
+        "generalized_nl": "What|is|average|{TABLE} [lesson]|{COLUMN} [price]|teach [taught]|by|{TABLE} [staff]|with|{COLUMN} [first name]|as|{NE} [Janessa]|and|{COLUMN} [last name]|as|{NE} [Sawayn]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "average",
+            "{TABLE}",
+            "{COLUMN}",
+            "teach",
+            "by",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "as",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "as",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(price) FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "What is the average price for a lesson taught by Janessa Sawayn?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [price]|for|a|{TABLE} [lesson]|teach [taught]|by|{NE} [Janessa Sawayn]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "a",
+            "{TABLE}",
+            "teach",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(price) FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id = T2.staff_id WHERE T2.first_name = \"Janessa\" AND T2.last_name = \"Sawayn\";"
+    },
+    {
+        "original_nl": "How many lesson does customer with first name Ray took?",
+        "generalized_nl": "How|many|{TABLE} [lesson]|does|{TABLE} [customer]|with|{COLUMN} [first name]|{NE} [Ray]|take [took]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "take"
+        ],
+        "original_sql": "SELECT count(*) FROM Lessons AS T1 JOIN Customers AS T2 ON T1.customer_id  = T2.customer_id WHERE T2.first_name = \"Ray\""
+    },
+    {
+        "original_nl": "How many lessons did the customer with the first name Ray take?",
+        "generalized_nl": "How|many|{TABLE} [lessons]|do [did]|the|{TABLE} [customer]|with|the|{COLUMN} [first name]|{NE} [Ray]|take",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "take"
+        ],
+        "original_sql": "SELECT count(*) FROM Lessons AS T1 JOIN Customers AS T2 ON T1.customer_id  = T2.customer_id WHERE T2.first_name = \"Ray\""
+    },
+    {
+        "original_nl": "Which last names are both used by customers and by staff?",
+        "generalized_nl": "Which|{COLUMN} [last names]|are|both|use [used]|by|{TABLE} [customers]|and|by|{TABLE} [staff]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "are",
+            "both",
+            "use",
+            "by",
+            "{TABLE}",
+            "and",
+            "by",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT last_name FROM Customers INTERSECT SELECT last_name FROM Staff"
+    },
+    {
+        "original_nl": "What are the last names that are used by customers and staff?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|that|are|use [used]|by|{TABLE} [customers]|and|{TABLE} [staff]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "are",
+            "use",
+            "by",
+            "{TABLE}",
+            "and",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT last_name FROM Customers INTERSECT SELECT last_name FROM Staff"
+    },
+    {
+        "original_nl": "What is the first name of the staff who did not give any lesson?",
+        "generalized_nl": "What|is|the|{COLUMN} [first name]|of|the|{TABLE} [staff]|who|did|not|give|any|{TABLE} [lesson]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "did",
+            "not",
+            "give",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT first_name FROM Staff EXCEPT SELECT T2.first_name FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id  =  T2.staff_id"
+    },
+    {
+        "original_nl": "What is the first name of all employees who do not give any lessons?",
+        "generalized_nl": "What|is|the|{COLUMN} [first name]|of|all|employee [employees]|who|do|not|give|any|{TABLE} [lessons]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "employee",
+            "who",
+            "do",
+            "not",
+            "give",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT first_name FROM Staff EXCEPT SELECT T2.first_name FROM Lessons AS T1 JOIN Staff AS T2 ON T1.staff_id  =  T2.staff_id"
+    },
+    {
+        "original_nl": "What is the id and detail of the vehicle used in lessons for most of the times?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|and|{COLUMN_PART} [detail]|of|the|{TABLE} [vehicle]|use [used]|in|{TABLE} [lessons]|for|most|of|the|{COLUMN_PART} [times]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "use",
+            "in",
+            "{TABLE}",
+            "for",
+            "most",
+            "of",
+            "the",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.vehicle_id ,  T1.vehicle_details FROM Vehicles AS T1 JOIN Lessons AS T2 ON T1.vehicle_id  =  T2.vehicle_id GROUP BY T1.vehicle_id ORDER BY count(*) DESC LIMIT 1"
+    }
+]

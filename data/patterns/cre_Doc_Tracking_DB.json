@@ -1,0 +1,1428 @@
+[
+    {
+        "original_nl": "How many calendar items do we have?",
+        "generalized_nl": "How|many|{COLUMN_PART} [calendar]|item [items]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "item",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Ref_calendar"
+    },
+    {
+        "original_nl": "Count the number of all the calendar items.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|all|the|{COLUMN_PART} [calendar]|item [items]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "item"
+        ],
+        "original_sql": "SELECT count(*) FROM Ref_calendar"
+    },
+    {
+        "original_nl": "Show all calendar dates and day Numbers.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [calendar dates]|and|{COLUMN} [day Numbers]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT calendar_date ,  day_Number FROM Ref_calendar"
+    },
+    {
+        "original_nl": "What are all the calendar dates and day Numbers?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [calendar dates]|and|{COLUMN} [day Numbers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT calendar_date ,  day_Number FROM Ref_calendar"
+    },
+    {
+        "original_nl": "Show the number of document types.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [number]|of|{COLUMN_PART} [document]|type [types]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "type"
+        ],
+        "original_sql": "SELECT count(*) FROM Ref_document_types"
+    },
+    {
+        "original_nl": "How many document types are there?",
+        "generalized_nl": "How|many|{COLUMN_PART} [document]|type [types]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "type",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Ref_document_types"
+    },
+    {
+        "original_nl": "List all document type codes and document type names.",
+        "generalized_nl": "list [List]|{TABLE} [all document]|{COLUMN_PART} [type]|{COLUMN_PART} [codes]|and|{COLUMN} [document type names]",
+        "generalized_tokens": [
+            "list",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT document_type_code ,  document_type_name FROM Ref_document_types"
+    },
+    {
+        "original_nl": "What are all the document type codes and document type names?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [document type codes]|and|{COLUMN} [document type names]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT document_type_code ,  document_type_name FROM Ref_document_types"
+    },
+    {
+        "original_nl": "What is the name and description for document type code RV?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [description]|for|{COLUMN} [document type code]|recreational_vehicle [RV]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "{COLUMN}",
+            "recreational_vehicle"
+        ],
+        "original_sql": "SELECT document_type_name ,  document_type_description FROM Ref_document_types WHERE document_type_code  =  \"RV\""
+    },
+    {
+        "original_nl": "Give me the name and description of the document type code RV.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [description]|of|the|{COLUMN} [document type code]|recreational_vehicle [RV]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "recreational_vehicle"
+        ],
+        "original_sql": "SELECT document_type_name ,  document_type_description FROM Ref_document_types WHERE document_type_code  =  \"RV\""
+    },
+    {
+        "original_nl": "What is the document type code for document type \"Paper\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [document type code]|for|{COLUMN_PART} [document]|{COLUMN_PART} [type]|paper [Paper]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "paper"
+        ],
+        "original_sql": "SELECT document_type_code FROM Ref_document_types WHERE document_type_name  =  \"Paper\""
+    },
+    {
+        "original_nl": "Find the code of the document type \"Paper\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [code]|of|the|{COLUMN_PART} [document]|{COLUMN_PART} [type]|paper [Paper]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "paper"
+        ],
+        "original_sql": "SELECT document_type_code FROM Ref_document_types WHERE document_type_name  =  \"Paper\""
+    },
+    {
+        "original_nl": "Show the number of documents with document type code CV or BK.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [number]|of|document [documents]|with|{COLUMN} [document type code]|curriculum_vitae [CV]|or|{NE} [BK]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "document",
+            "with",
+            "{COLUMN}",
+            "curriculum_vitae",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM All_documents WHERE document_type_code  =  \"CV\" OR document_type_code  =  \"BK\""
+    },
+    {
+        "original_nl": "How many documents have document type code CV or BK?",
+        "generalized_nl": "How|many|document [documents]|have|{COLUMN} [document type code]|curriculum_vitae [CV]|or|berkelium [BK]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "document",
+            "have",
+            "{COLUMN}",
+            "curriculum_vitae",
+            "or",
+            "berkelium"
+        ],
+        "original_sql": "SELECT count(*) FROM All_documents WHERE document_type_code  =  \"CV\" OR document_type_code  =  \"BK\""
+    },
+    {
+        "original_nl": "What is the date when the document \"Marry CV\" was stored?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [date]|when|the|{COLUMN_PART} [document]|marry [Marry]|curriculum_vitae [CV]|was|{COLUMN_PART} [stored]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "when",
+            "the",
+            "{COLUMN_PART}",
+            "marry",
+            "curriculum_vitae",
+            "was",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT date_stored FROM All_documents WHERE Document_name  =  \"Marry CV\""
+    },
+    {
+        "original_nl": "What is the day Number and date of all the documents?",
+        "generalized_nl": "What|is|{NE} [the day Number and date]|of|all|the|document [documents]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{NE}",
+            "of",
+            "all",
+            "the",
+            "document"
+        ],
+        "original_sql": "SELECT T2.day_Number ,  T1.Date_Stored FROM All_documents AS T1 JOIN Ref_calendar AS T2 ON T1.date_stored  =  T2.calendar_date"
+    },
+    {
+        "original_nl": "Return the day Number and stored date for all the documents.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [day Number]|and|{COLUMN_PART} [stored]|{COLUMN_PART} [date]|for|all|the|document [documents]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "document"
+        ],
+        "original_sql": "SELECT T2.day_Number ,  T1.Date_Stored FROM All_documents AS T1 JOIN Ref_calendar AS T2 ON T1.date_stored  =  T2.calendar_date"
+    },
+    {
+        "original_nl": "What is the document type name for the document with name \"How to read a book\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [document type name]|for|the|{COLUMN_PART} [document]|with|{COLUMN_PART} [name]|How|to|read|a|book",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "How",
+            "to",
+            "read",
+            "a",
+            "book"
+        ],
+        "original_sql": "SELECT T2.document_type_name FROM All_documents AS T1 JOIN Ref_document_types AS T2 ON T1.document_type_code  =  T2.document_type_code WHERE T1.document_name  =  \"How to read a book\""
+    },
+    {
+        "original_nl": "Find the document type name of the document named \"How to read a book\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [document type name]|of|the|{COLUMN_PART} [document]|name [named]|How|to|read|a|book",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "name",
+            "How",
+            "to",
+            "read",
+            "a",
+            "book"
+        ],
+        "original_sql": "SELECT T2.document_type_name FROM All_documents AS T1 JOIN Ref_document_types AS T2 ON T1.document_type_code  =  T2.document_type_code WHERE T1.document_name  =  \"How to read a book\""
+    },
+    {
+        "original_nl": "Show the number of locations.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [number]|of|location [locations]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "location"
+        ],
+        "original_sql": "SELECT count(*) FROM Ref_locations"
+    },
+    {
+        "original_nl": "How many locations are listed in the database?",
+        "generalized_nl": "How|many|location [locations]|are|list [listed]|in|the|database",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "location",
+            "are",
+            "list",
+            "in",
+            "the",
+            "database"
+        ],
+        "original_sql": "SELECT count(*) FROM Ref_locations"
+    },
+    {
+        "original_nl": "List all location codes and location names.",
+        "generalized_nl": "list [List]|all|{COLUMN} [location codes]|and|{COLUMN} [location names]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT location_code ,  location_name FROM Ref_locations"
+    },
+    {
+        "original_nl": "What are all the location codes and location names?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [location codes]|and|{COLUMN} [location names]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT location_code ,  location_name FROM Ref_locations"
+    },
+    {
+        "original_nl": "What are the name and description for location code x?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [description]|for|{COLUMN} [location code]|ten [x]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "{COLUMN}",
+            "ten"
+        ],
+        "original_sql": "SELECT location_name ,  location_description FROM Ref_locations WHERE location_code  =  \"x\""
+    },
+    {
+        "original_nl": "Give me the name and description of the location with code x.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [description]|of|the|{COLUMN_PART} [location]|with|{COLUMN_PART} [code]|ten [x]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "ten"
+        ],
+        "original_sql": "SELECT location_name ,  location_description FROM Ref_locations WHERE location_code  =  \"x\""
+    },
+    {
+        "original_nl": "What is the location code for the country \"Canada\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [location code]|for|the|country|{NE} [Canada]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "country",
+            "{NE}"
+        ],
+        "original_sql": "SELECT location_code FROM Ref_locations WHERE location_name  =  \"Canada\""
+    },
+    {
+        "original_nl": "Show the location code of the country \"Canada\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [location code]|of|the|country|{NE} [Canada]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "country",
+            "{NE}"
+        ],
+        "original_sql": "SELECT location_code FROM Ref_locations WHERE location_name  =  \"Canada\""
+    },
+    {
+        "original_nl": "How many roles are there?",
+        "generalized_nl": "How|many|{TABLE} [roles]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM ROLES"
+    },
+    {
+        "original_nl": "Count the total number of roles listed.",
+        "generalized_nl": "count [Count]|the|entire [total]|{COLUMN_PART} [number]|of|{TABLE} [roles]|list [listed]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "list"
+        ],
+        "original_sql": "SELECT count(*) FROM ROLES"
+    },
+    {
+        "original_nl": "List all role codes, role names, and role descriptions.",
+        "generalized_nl": "list [List]|all|{COLUMN} [role codes]|{COLUMN} [role names]|and|{COLUMN} [role descriptions]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT role_code ,  role_name ,  role_description FROM ROLES"
+    },
+    {
+        "original_nl": "What are all the role codes, role names, and role descriptions?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [role codes]|{COLUMN} [role names]|and|{COLUMN} [role descriptions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT role_code ,  role_name ,  role_description FROM ROLES"
+    },
+    {
+        "original_nl": "What are the name and description for role code \"MG\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [description]|for|{COLUMN} [role code]|milligram [MG]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "{COLUMN}",
+            "milligram"
+        ],
+        "original_sql": "SELECT role_name ,  role_description FROM ROLES WHERE role_code  =  \"MG\""
+    },
+    {
+        "original_nl": "Find the name and description of the role with code \"MG\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [description]|of|the|{TABLE} [role]|with|{COLUMN_PART} [code]|milligram [MG]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "milligram"
+        ],
+        "original_sql": "SELECT role_name ,  role_description FROM ROLES WHERE role_code  =  \"MG\""
+    },
+    {
+        "original_nl": "Show the description for role name \"Proof Reader\".",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [description]|for|{COLUMN} [role name]|proof [Proof]|reader [Reader]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "{COLUMN}",
+            "proof",
+            "reader"
+        ],
+        "original_sql": "SELECT role_description FROM ROLES WHERE role_name  =  \"Proof Reader\""
+    },
+    {
+        "original_nl": "What is the description of the role named \"Proof Reader\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|of|the|{TABLE} [role]|name [named]|{NE} [Proof Reader \"]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT role_description FROM ROLES WHERE role_name  =  \"Proof Reader\""
+    },
+    {
+        "original_nl": "How many employees do we have?",
+        "generalized_nl": "How|many|{TABLE} [employees]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Employees"
+    },
+    {
+        "original_nl": "Find the number of employees we have.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [employees]|we|have",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Employees"
+    },
+    {
+        "original_nl": "Show the name, role code, and date of birth for the employee with name 'Armani'.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|{COLUMN} [role code]|and|{COLUMN} [date of birth]|for|the|{TABLE} [employee]|with|{COLUMN_PART} [name]|{NE} [Armani]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT employee_name ,  role_code ,  date_of_birth FROM Employees WHERE employee_Name  =  'Armani'"
+    },
+    {
+        "original_nl": "What are the name, role code, and date of birth of the employee named 'Armani'?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|{COLUMN} [role code]|and|{COLUMN} [date of birth]|of|the|{TABLE} [employee]|name [named]|{NE} [Armani]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT employee_name ,  role_code ,  date_of_birth FROM Employees WHERE employee_Name  =  'Armani'"
+    },
+    {
+        "original_nl": "What is the id for the employee called Ebba?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|for|the|{TABLE} [employee]|call [called]|{NE} [Ebba]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "call",
+            "{NE}"
+        ],
+        "original_sql": "SELECT employee_ID FROM Employees WHERE employee_name  =  \"Ebba\""
+    },
+    {
+        "original_nl": "Show the id of the employee named Ebba.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|of|the|{TABLE} [employee]|name [named]|{NE} [Ebba]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT employee_ID FROM Employees WHERE employee_name  =  \"Ebba\""
+    },
+    {
+        "original_nl": "Show the names of all the employees with role \"HR\".",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [employees]|with|{TABLE} [role]|hour [HR]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "with",
+            "{TABLE}",
+            "hour"
+        ],
+        "original_sql": "SELECT employee_name FROM Employees WHERE role_code  =  \"HR\""
+    },
+    {
+        "original_nl": "Show all role codes and the number of employees in each role.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [role codes]|and|the|{COLUMN_PART} [number]|of|{TABLE} [employees]|in|each|{TABLE} [role]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT role_code ,  count(*) FROM Employees GROUP BY role_code"
+    },
+    {
+        "original_nl": "What is the code of each role and the number of employees in each role?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [code]|of|each|{TABLE} [role]|and|the|{COLUMN_PART} [number]|of|{TABLE} [employees]|in|each|{TABLE} [role]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT role_code ,  count(*) FROM Employees GROUP BY role_code"
+    },
+    {
+        "original_nl": "What is the role code with the largest number of employees?",
+        "generalized_nl": "What|is|the|{COLUMN} [role code]|with|the|large [largest]|{COLUMN_PART} [number]|of|{TABLE} [employees]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT role_code FROM Employees GROUP BY role_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the code of the role that have the most employees.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [code]|of|the|{TABLE} [role]|that|have|the|most|{TABLE} [employees]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT role_code FROM Employees GROUP BY role_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show all role codes with at least 3 employees.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [role codes]|with|{NUMBER} [at least 3]|{TABLE} [employees]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT role_code FROM Employees GROUP BY role_code HAVING count(*)  >=  3"
+    },
+    {
+        "original_nl": "Show the role code with the least employees.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [role code]|with|the|least|{TABLE} [employees]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "least",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT role_code FROM Employees GROUP BY role_code ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the role name and role description for employee called Ebba?",
+        "generalized_nl": "What|is|the|{COLUMN} [role name]|and|{COLUMN} [role description]|for|{TABLE} [employee]|call [called]|{NE} [Ebba]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "call",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.role_name ,  T2.role_description FROM Employees AS T1 JOIN ROLES AS T2 ON T1.role_code  =  T2.role_code WHERE T1.employee_name  =  \"Ebba\""
+    },
+    {
+        "original_nl": "Show the name and description of the role played by the employee named Ebba.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [description]|of|the|{TABLE} [role]|play [played]|by|the|{TABLE} [employee]|name [named]|{NE} [Ebba]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "play",
+            "by",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.role_name ,  T2.role_description FROM Employees AS T1 JOIN ROLES AS T2 ON T1.role_code  =  T2.role_code WHERE T1.employee_name  =  \"Ebba\""
+    },
+    {
+        "original_nl": "Show the names of employees with role name Editor.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [employees]|with|{COLUMN} [role name]|editor [Editor]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "editor"
+        ],
+        "original_sql": "SELECT T1.employee_name FROM Employees AS T1 JOIN ROLES AS T2 ON T1.role_code  =  T2.role_code WHERE T2.role_name  =  \"Editor\""
+    },
+    {
+        "original_nl": "Find the names of all the employees whose the role name is \"Editor\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [employees]|whose|the|{COLUMN} [role name]|is|editor [Editor]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "whose",
+            "the",
+            "{COLUMN}",
+            "is",
+            "editor"
+        ],
+        "original_sql": "SELECT T1.employee_name FROM Employees AS T1 JOIN ROLES AS T2 ON T1.role_code  =  T2.role_code WHERE T2.role_name  =  \"Editor\""
+    },
+    {
+        "original_nl": "Show the employee ids for all employees with role name \"Human Resource\" or \"Manager\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [employee ids]|for|all|{TABLE} [employees]|with|{COLUMN} [role name]|human [Human]|resource [Resource]|or|director [Manager]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "human",
+            "resource",
+            "or",
+            "director"
+        ],
+        "original_sql": "SELECT T1.employee_id FROM Employees AS T1 JOIN ROLES AS T2 ON T1.role_code  =  T2.role_code WHERE T2.role_name  =  \"Human Resource\" OR T2.role_name  =  \"Manager\""
+    },
+    {
+        "original_nl": "What are the employee ids of the employees whose role name is \"Human Resource\" or \"Manager\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [employee ids]|of|the|{TABLE} [employees]|whose|{COLUMN} [role name]|is|human [Human]|resource [Resource]|or|director [Manager]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "human",
+            "resource",
+            "or",
+            "director"
+        ],
+        "original_sql": "SELECT T1.employee_id FROM Employees AS T1 JOIN ROLES AS T2 ON T1.role_code  =  T2.role_code WHERE T2.role_name  =  \"Human Resource\" OR T2.role_name  =  \"Manager\""
+    },
+    {
+        "original_nl": "What are the different location codes for documents?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [location codes]|for|document [documents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "document"
+        ],
+        "original_sql": "SELECT DISTINCT location_code FROM Document_locations"
+    },
+    {
+        "original_nl": "Give me all the distinct location codes for documents.",
+        "generalized_nl": "give [Give]|me|all|the|distinct|{COLUMN} [location codes]|for|document [documents]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "for",
+            "document"
+        ],
+        "original_sql": "SELECT DISTINCT location_code FROM Document_locations"
+    },
+    {
+        "original_nl": "Show the location name for document \"Robin CV\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [location name]|for|{COLUMN_PART} [document]|{NE} [Robin]|CV",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{COLUMN_PART}",
+            "{NE}",
+            "CV"
+        ],
+        "original_sql": "SELECT T3.location_name FROM All_documents AS T1 JOIN Document_locations AS T2 ON T1.document_id  =  T2.document_id JOIN Ref_locations AS T3 ON T2.location_code  =  T3.location_code WHERE T1.document_name  =  \"Robin CV\""
+    },
+    {
+        "original_nl": "What is the location name of the document \"Robin CV\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [location name]|of|the|{COLUMN_PART} [document]|{NE} [Robin CV \"]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T3.location_name FROM All_documents AS T1 JOIN Document_locations AS T2 ON T1.document_id  =  T2.document_id JOIN Ref_locations AS T3 ON T2.location_code  =  T3.location_code WHERE T1.document_name  =  \"Robin CV\""
+    },
+    {
+        "original_nl": "Show the location code, the starting date and ending data in that location for all the documents.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [location code]|the|start [starting]|{COLUMN_PART} [date]|and|end [ending]|data|in|that|{COLUMN_PART} [location]|for|all|the|document [documents]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "the",
+            "start",
+            "{COLUMN_PART}",
+            "and",
+            "end",
+            "data",
+            "in",
+            "that",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "document"
+        ],
+        "original_sql": "SELECT location_code ,  date_in_location_from ,  date_in_locaton_to FROM Document_locations"
+    },
+    {
+        "original_nl": "What are each document's location code, and starting date and ending data in that location?",
+        "generalized_nl": "What|are|each|{COLUMN_PART} [document]|'s|{COLUMN} [location code]|and|start [starting]|{COLUMN_PART} [date]|and|end [ending]|data|in|that|{COLUMN_PART} [location]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "each",
+            "{COLUMN_PART}",
+            "'s",
+            "{COLUMN}",
+            "and",
+            "start",
+            "{COLUMN_PART}",
+            "and",
+            "end",
+            "data",
+            "in",
+            "that",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT location_code ,  date_in_location_from ,  date_in_locaton_to FROM Document_locations"
+    },
+    {
+        "original_nl": "What is \"the date in location from\" and \"the date in location to\" for the document with name \"Robin CV\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [date in location from]|and|the|{COLUMN_PART} [date]|in|{COLUMN_PART} [location]|to|for|the|{COLUMN_PART} [document]|with|{COLUMN_PART} [name]|{NE} [Robin]|CV",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "in",
+            "{COLUMN_PART}",
+            "to",
+            "for",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}",
+            "CV"
+        ],
+        "original_sql": "SELECT T1.date_in_location_from ,  T1.date_in_locaton_to FROM Document_locations AS T1 JOIN All_documents AS T2 ON T1.document_id  =  T2.document_id WHERE T2.document_name  =  \"Robin CV\""
+    },
+    {
+        "original_nl": "Find the starting date and ending data in location for the document named \"Robin CV\".",
+        "generalized_nl": "find [Find]|the|start [starting]|{COLUMN_PART} [date]|and|end [ending]|data|in|{COLUMN_PART} [location]|for|the|{COLUMN_PART} [document]|name [named]|Robin|CV",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "start",
+            "{COLUMN_PART}",
+            "and",
+            "end",
+            "data",
+            "in",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{COLUMN_PART}",
+            "name",
+            "Robin",
+            "CV"
+        ],
+        "original_sql": "SELECT T1.date_in_location_from ,  T1.date_in_locaton_to FROM Document_locations AS T1 JOIN All_documents AS T2 ON T1.document_id  =  T2.document_id WHERE T2.document_name  =  \"Robin CV\""
+    },
+    {
+        "original_nl": "Show the location codes and the number of documents in each location.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [location codes]|and|the|{COLUMN_PART} [number]|of|document [documents]|in|each|{COLUMN_PART} [location]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "document",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT location_code ,  count(*) FROM Document_locations GROUP BY location_code"
+    },
+    {
+        "original_nl": "What is the code of each location and the number of documents in that location?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [code]|of|each|{COLUMN_PART} [location]|and|the|{COLUMN_PART} [number]|of|document [documents]|in|that|{COLUMN_PART} [location]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "document",
+            "in",
+            "that",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT location_code ,  count(*) FROM Document_locations GROUP BY location_code"
+    },
+    {
+        "original_nl": "What is the location code with the most documents?",
+        "generalized_nl": "What|is|the|{COLUMN} [location code]|with|the|most|document [documents]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "document"
+        ],
+        "original_sql": "SELECT location_code FROM Document_locations GROUP BY location_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the code of the location with the largest number of documents.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [code]|of|the|{COLUMN_PART} [location]|with|the|large [largest]|{COLUMN_PART} [number]|of|document [documents]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "document"
+        ],
+        "original_sql": "SELECT location_code FROM Document_locations GROUP BY location_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the location codes with at least 3 documents.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [location codes]|with|{NUMBER} [at least 3]|document [documents]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "document"
+        ],
+        "original_sql": "SELECT location_code FROM Document_locations GROUP BY location_code HAVING count(*)  >=  3"
+    },
+    {
+        "original_nl": "What are the codes of the locations with at least three documents?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [codes]|of|the|location [locations]|with|{NUMBER} [at least three]|document [documents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "location",
+            "with",
+            "{NUMBER}",
+            "document"
+        ],
+        "original_sql": "SELECT location_code FROM Document_locations GROUP BY location_code HAVING count(*)  >=  3"
+    },
+    {
+        "original_nl": "Show the location name and code with the least documents.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [location name]|and|{COLUMN_PART} [code]|with|the|least|document [documents]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "least",
+            "document"
+        ],
+        "original_sql": "SELECT T2.location_name ,  T1.location_code FROM Document_locations AS T1 JOIN Ref_locations AS T2 ON T1.location_code  =  T2.location_code GROUP BY T1.location_code ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the name and code of the location with the smallest number of documents?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [code]|of|the|{COLUMN_PART} [location]|with|the|small [smallest]|{COLUMN_PART} [number]|of|document [documents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "small",
+            "{COLUMN_PART}",
+            "of",
+            "document"
+        ],
+        "original_sql": "SELECT T2.location_name ,  T1.location_code FROM Document_locations AS T1 JOIN Ref_locations AS T2 ON T1.location_code  =  T2.location_code GROUP BY T1.location_code ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the names of the employees who authorised the destruction and the employees who destroyed the corresponding documents?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [employees]|who|{COLUMN_PART} [authorised]|the|{COLUMN_PART} [destruction]|and|the|{TABLE} [employees]|who|{COLUMN_PART} [destroyed]|the|match [corresponding]|document [documents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "the",
+            "match",
+            "document"
+        ],
+        "original_sql": "SELECT T2.employee_name ,  T3.employee_name FROM Documents_to_be_destroyed AS T1 JOIN Employees AS T2 ON T1.Destruction_Authorised_by_Employee_ID = T2.employee_id JOIN Employees AS T3 ON T1.Destroyed_by_Employee_ID = T3.employee_id;"
+    },
+    {
+        "original_nl": "List the names of the employees who authorized the destruction of documents and the employees who destroyed the corresponding documents.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|the|{TABLE} [employees]|who|authorize [authorized]|the|{COLUMN_PART} [destruction]|of|document [documents]|and|the|{TABLE} [employees]|who|{COLUMN_PART} [destroyed]|the|match [corresponding]|document [documents]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "authorize",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "document",
+            "and",
+            "the",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "the",
+            "match",
+            "document"
+        ],
+        "original_sql": "SELECT T2.employee_name ,  T3.employee_name FROM Documents_to_be_destroyed AS T1 JOIN Employees AS T2 ON T1.Destruction_Authorised_by_Employee_ID = T2.employee_id JOIN Employees AS T3 ON T1.Destroyed_by_Employee_ID = T3.employee_id;"
+    },
+    {
+        "original_nl": "Show the id of each employee and the number of document destruction authorised by that employee.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|of|each|{TABLE} [employee]|and|the|{COLUMN_PART} [number]|of|{COLUMN_PART} [document]|{COLUMN_PART} [destruction]|{COLUMN_PART} [authorised]|by|that|{TABLE} [employee]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "by",
+            "that",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Destruction_Authorised_by_Employee_ID ,  count(*) FROM Documents_to_be_destroyed GROUP BY Destruction_Authorised_by_Employee_ID"
+    },
+    {
+        "original_nl": "What are the id of each employee and the number of document destruction authorised by that employee?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [id]|of|each|{TABLE} [employee]|and|the|{COLUMN_PART} [number]|of|{COLUMN_PART} [document]|{COLUMN_PART} [destruction]|{COLUMN_PART} [authorised]|by|that|{TABLE} [employee]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "by",
+            "that",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Destruction_Authorised_by_Employee_ID ,  count(*) FROM Documents_to_be_destroyed GROUP BY Destruction_Authorised_by_Employee_ID"
+    },
+    {
+        "original_nl": "Show the employee ids and the number of documents destroyed by each employee.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [employee ids]|and|the|{COLUMN_PART} [number]|of|document [documents]|{COLUMN_PART} [destroyed]|by|each|{TABLE} [employee]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "document",
+            "{COLUMN_PART}",
+            "by",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Destroyed_by_Employee_ID ,  count(*) FROM Documents_to_be_destroyed GROUP BY Destroyed_by_Employee_ID"
+    },
+    {
+        "original_nl": "What are the id of each employee and the number of document destroyed by that employee?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [id]|of|each|{TABLE} [employee]|and|the|{COLUMN_PART} [number]|of|{COLUMN_PART} [document]|{COLUMN_PART} [destroyed]|by|that|{TABLE} [employee]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "by",
+            "that",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Destroyed_by_Employee_ID ,  count(*) FROM Documents_to_be_destroyed GROUP BY Destroyed_by_Employee_ID"
+    },
+    {
+        "original_nl": "Show the ids of the employees who don't authorize destruction for any document.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|of|the|{TABLE} [employees]|who|do|n't|authorize|{COLUMN_PART} [destruction]|for|any|{COLUMN_PART} [document]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "do",
+            "n't",
+            "authorize",
+            "{COLUMN_PART}",
+            "for",
+            "any",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT employee_id FROM Employees EXCEPT SELECT Destruction_Authorised_by_Employee_ID FROM Documents_to_be_destroyed"
+    },
+    {
+        "original_nl": "Show the ids of all employees who have authorized destruction.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|of|all|{TABLE} [employees]|who|have|authorize [authorized]|{COLUMN_PART} [destruction]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "authorize",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT Destruction_Authorised_by_Employee_ID FROM Documents_to_be_destroyed"
+    },
+    {
+        "original_nl": "What are the ids of all the employees who authorize document destruction?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|the|{TABLE} [employees]|who|authorize|{COLUMN_PART} [document]|{COLUMN_PART} [destruction]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "who",
+            "authorize",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT Destruction_Authorised_by_Employee_ID FROM Documents_to_be_destroyed"
+    },
+    {
+        "original_nl": "Show the ids of all employees who have destroyed a document.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|of|all|{TABLE} [employees]|who|have|{COLUMN_PART} [destroyed]|a|{COLUMN_PART} [document]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN_PART}",
+            "a",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT Destroyed_by_Employee_ID FROM Documents_to_be_destroyed"
+    },
+    {
+        "original_nl": "What are the ids of all the employees who have destroyed documents?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|all|the|{TABLE} [employees]|who|have|{COLUMN_PART} [destroyed]|document [documents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN_PART}",
+            "document"
+        ],
+        "original_sql": "SELECT DISTINCT Destroyed_by_Employee_ID FROM Documents_to_be_destroyed"
+    },
+    {
+        "original_nl": "Show the ids of all employees who don't destroy any document.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|of|all|{TABLE} [employees]|who|do|n't|destroy|any|{COLUMN_PART} [document]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "do",
+            "n't",
+            "destroy",
+            "any",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT employee_id FROM Employees EXCEPT SELECT Destroyed_by_Employee_ID FROM Documents_to_be_destroyed"
+    },
+    {
+        "original_nl": "Show the ids of all employees who have either destroyed a document or made an authorization to do this.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|of|all|{TABLE} [employees]|who|have|either|{COLUMN_PART} [destroyed]|a|{COLUMN_PART} [document]|or|make [made]|an|authority [authorization]|to|do|this",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "either",
+            "{COLUMN_PART}",
+            "a",
+            "{COLUMN_PART}",
+            "or",
+            "make",
+            "an",
+            "authority",
+            "to",
+            "do",
+            "this"
+        ],
+        "original_sql": "SELECT Destroyed_by_Employee_ID FROM Documents_to_be_destroyed UNION SELECT Destruction_Authorised_by_Employee_ID FROM Documents_to_be_destroyed"
+    }
+]

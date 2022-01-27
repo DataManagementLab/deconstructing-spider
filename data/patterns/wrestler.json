@@ -1,0 +1,679 @@
+[
+    {
+        "original_nl": "How many wrestlers are there?",
+        "generalized_nl": "How|many|{TABLE} [wrestlers]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM wrestler"
+    },
+    {
+        "original_nl": "Count the number of wrestlers.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [wrestlers]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM wrestler"
+    },
+    {
+        "original_nl": "List the names of wrestlers in descending order of days held.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [wrestlers]|in|descend [descending]|order|of|{COLUMN} [days held]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM wrestler ORDER BY Days_held DESC"
+    },
+    {
+        "original_nl": "What are the names of the wrestlers, ordered descending by days held?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [wrestlers]|order [ordered]|descend [descending]|by|{COLUMN} [days held]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "order",
+            "descend",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM wrestler ORDER BY Days_held DESC"
+    },
+    {
+        "original_nl": "What is the name of the wrestler with the fewest days held?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [wrestler]|with|{NE} [the fewest days]|{COLUMN_PART} [held]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Name FROM wrestler ORDER BY Days_held ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the name of the wrestler who had the lowest number of days held.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [name]|of|the|{TABLE} [wrestler]|who|have [had]|the|low [lowest]|number|of|{COLUMN} [days held]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "low",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM wrestler ORDER BY Days_held ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the distinct reigns of wrestlers whose location is not \"Tokyo,Japan\" ?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [reigns]|of|{TABLE} [wrestlers]|whose|{COLUMN} [location]|is|not|{NE} [Tokyo]|{NE} [Japan]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT Reign FROM wrestler WHERE LOCATION != \"Tokyo , Japan\""
+    },
+    {
+        "original_nl": "Give the different reigns of wrestlers who are not located in Tokyo, Japan.",
+        "generalized_nl": "give [Give]|the|different|{COLUMN} [reigns]|of|{TABLE} [wrestlers]|who|are|not|locate [located]|in|{NE} [Tokyo]|{NE} [Japan]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "locate",
+            "in",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT Reign FROM wrestler WHERE LOCATION != \"Tokyo , Japan\""
+    },
+    {
+        "original_nl": "What are the names and location of the wrestlers?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [location]|of|the|{TABLE} [wrestlers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name ,  LOCATION FROM wrestler"
+    },
+    {
+        "original_nl": "Give the names and locations of all wrestlers.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [names]|and|{COLUMN} [locations]|of|all|{TABLE} [wrestlers]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name ,  LOCATION FROM wrestler"
+    },
+    {
+        "original_nl": "What are the elimination moves of wrestlers whose team is \"Team Orton\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [elimination moves]|of|{TABLE} [wrestlers]|whose|{COLUMN} [team]|is|{COLUMN} [Team]|{VALUE} [Orton]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Elimination_Move FROM Elimination WHERE Team  =  \"Team Orton\""
+    },
+    {
+        "original_nl": "Return the elimination movies of wrestlers on Team Orton.",
+        "generalized_nl": "return [Return]|the|{TABLE} [elimination]|movie [movies]|of|{TABLE} [wrestlers]|on|{COLUMN} [Team]|{VALUE} [Orton]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{TABLE}",
+            "movie",
+            "of",
+            "{TABLE}",
+            "on",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Elimination_Move FROM Elimination WHERE Team  =  \"Team Orton\""
+    },
+    {
+        "original_nl": "What are the names of wrestlers and the elimination moves?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wrestlers]|and|the|{COLUMN} [elimination moves]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.Elimination_Move FROM elimination AS T1 JOIN wrestler AS T2 ON T1.Wrestler_ID  =  T2.Wrestler_ID"
+    },
+    {
+        "original_nl": "Give the names of wrestlers and their elimination moves.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [names]|of|{TABLE} [wrestlers]|and|their|{COLUMN} [elimination moves]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.Elimination_Move FROM elimination AS T1 JOIN wrestler AS T2 ON T1.Wrestler_ID  =  T2.Wrestler_ID"
+    },
+    {
+        "original_nl": "List the names of wrestlers and the teams in elimination in descending order of days held.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [wrestlers]|and|the|{COLUMN} [teams]|in|{TABLE} [elimination]|in|descend [descending]|order|of|{COLUMN} [days held]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "in",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.Team FROM elimination AS T1 JOIN wrestler AS T2 ON T1.Wrestler_ID  =  T2.Wrestler_ID ORDER BY T2.Days_held DESC"
+    },
+    {
+        "original_nl": "What are the names of wrestlers and their teams in elimination, ordered descending by days held?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wrestlers]|and|their|{COLUMN} [teams]|in|{TABLE} [elimination]|order [ordered]|descend [descending]|by|{COLUMN} [days held]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "their",
+            "{COLUMN}",
+            "in",
+            "{TABLE}",
+            "order",
+            "descend",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.Team FROM elimination AS T1 JOIN wrestler AS T2 ON T1.Wrestler_ID  =  T2.Wrestler_ID ORDER BY T2.Days_held DESC"
+    },
+    {
+        "original_nl": "List the time of elimination of the wrestlers with largest days held.",
+        "generalized_nl": "list [List]|the|{COLUMN} [time]|of|{TABLE} [elimination]|of|the|{TABLE} [wrestlers]|with|{NE} [largest days]|{COLUMN_PART} [held]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.Time FROM elimination AS T1 JOIN wrestler AS T2 ON T1.Wrestler_ID  =  T2.Wrestler_ID ORDER BY T2.Days_held DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the time of elimination for the wrestler with the most days held?",
+        "generalized_nl": "What|is|the|{COLUMN} [time]|of|{TABLE} [elimination]|for|the|{TABLE} [wrestler]|with|{NE} [the most days]|{COLUMN_PART} [held]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.Time FROM elimination AS T1 JOIN wrestler AS T2 ON T1.Wrestler_ID  =  T2.Wrestler_ID ORDER BY T2.Days_held DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show times of elimination of wrestlers with days held more than 50.",
+        "generalized_nl": "show [Show]|{COLUMN} [times]|of|{TABLE} [elimination]|of|{TABLE} [wrestlers]|with|{COLUMN} [days held]|{NUMBER} [more than 50]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.Time FROM elimination AS T1 JOIN wrestler AS T2 ON T1.Wrestler_ID  =  T2.Wrestler_ID WHERE T2.Days_held  >  50"
+    },
+    {
+        "original_nl": "What are the times of elimination for wrestlers with over 50 days held?",
+        "generalized_nl": "What|are|the|{COLUMN} [times]|of|{TABLE} [elimination]|for|{TABLE} [wrestlers]|with|{NE} [over 50 days]|{COLUMN_PART} [held]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.Time FROM elimination AS T1 JOIN wrestler AS T2 ON T1.Wrestler_ID  =  T2.Wrestler_ID WHERE T2.Days_held  >  50"
+    },
+    {
+        "original_nl": "Show different teams in eliminations and the number of eliminations from each team.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [teams]|in|{TABLE} [eliminations]|and|the|number|of|{TABLE} [eliminations]|from|each|{COLUMN} [team]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "in",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "from",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Team ,  COUNT(*) FROM elimination GROUP BY Team"
+    },
+    {
+        "original_nl": "How many eliminations did each team have?",
+        "generalized_nl": "How|many|{TABLE} [eliminations]|did|each|{COLUMN} [team]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "did",
+            "each",
+            "{COLUMN}",
+            "have"
+        ],
+        "original_sql": "SELECT Team ,  COUNT(*) FROM elimination GROUP BY Team"
+    },
+    {
+        "original_nl": "Show teams that have suffered more than three eliminations.",
+        "generalized_nl": "show [Show]|{COLUMN} [teams]|that|have|suffer [suffered]|{NUMBER} [more than three]|{TABLE} [eliminations]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "that",
+            "have",
+            "suffer",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Team FROM elimination GROUP BY Team HAVING COUNT(*)  >  3"
+    },
+    {
+        "original_nl": "Which teams had more than 3 eliminations?",
+        "generalized_nl": "Which|{COLUMN} [teams]|have [had]|{NUMBER} [more than 3]|{TABLE} [eliminations]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Team FROM elimination GROUP BY Team HAVING COUNT(*)  >  3"
+    },
+    {
+        "original_nl": "Show the reign and days held of wrestlers.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [reign]|and|{COLUMN} [days held]|of|{TABLE} [wrestlers]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Reign ,  Days_held FROM wrestler"
+    },
+    {
+        "original_nl": "What are the reigns and days held of all wrestlers?",
+        "generalized_nl": "What|are|the|{COLUMN} [reigns]|and|{COLUMN} [days held]|of|all|{TABLE} [wrestlers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Reign ,  Days_held FROM wrestler"
+    },
+    {
+        "original_nl": "What are the names of wrestlers days held less than 100?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wrestlers]|{COLUMN} [days held]|{NUMBER} [less than 100]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Name FROM wrestler WHERE Days_held  <  100"
+    },
+    {
+        "original_nl": "Return the names of wrestlers with fewer than 100 days held.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [names]|of|{TABLE} [wrestlers]|with|{NE} [fewer than 100 days]|{COLUMN_PART} [held]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Name FROM wrestler WHERE Days_held  <  100"
+    },
+    {
+        "original_nl": "Please show the most common reigns of wrestlers.",
+        "generalized_nl": "Please|show|the|most|common|{COLUMN} [reigns]|of|{TABLE} [wrestlers]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Reign FROM wrestler GROUP BY Reign ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which reign is the most common among wrestlers?",
+        "generalized_nl": "Which|{COLUMN} [reign]|is|the|most|common|among|{TABLE} [wrestlers]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "the",
+            "most",
+            "common",
+            "among",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Reign FROM wrestler GROUP BY Reign ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the locations that are shared by more than two wrestlers.",
+        "generalized_nl": "list [List]|the|{COLUMN} [locations]|that|are|share [shared]|by|{NUMBER} [more than two]|{TABLE} [wrestlers]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "that",
+            "are",
+            "share",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT LOCATION FROM wrestler GROUP BY LOCATION HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "Which locations are shared by more than two wrestlers?",
+        "generalized_nl": "Which|{COLUMN} [locations]|are|share [shared]|by|{NUMBER} [more than two]|{TABLE} [wrestlers]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "are",
+            "share",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT LOCATION FROM wrestler GROUP BY LOCATION HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "List the names of wrestlers that have not been eliminated.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [wrestlers]|that|have|not|been|{COLUMN_PART} [eliminated]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "not",
+            "been",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Name FROM wrestler WHERE Wrestler_ID NOT IN (SELECT Wrestler_ID FROM elimination)"
+    },
+    {
+        "original_nl": "What are the names of wrestlers who have never been eliminated?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wrestlers]|who|have|never|been|{COLUMN_PART} [eliminated]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "never",
+            "been",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Name FROM wrestler WHERE Wrestler_ID NOT IN (SELECT Wrestler_ID FROM elimination)"
+    },
+    {
+        "original_nl": "Show the teams that have both wrestlers eliminated by \"Orton\" and wrestlers eliminated by \"Benjamin\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [teams]|that|have|both|{TABLE} [wrestlers]|{COLUMN} [eliminated by]|{VALUE} [Orton]|and|{TABLE} [wrestlers]|{COLUMN} [eliminated by]|{VALUE} [Benjamin]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "{COLUMN}",
+            "{VALUE}",
+            "and",
+            "{TABLE}",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Team FROM Elimination WHERE Eliminated_By  =  \"Orton\" INTERSECT SELECT Team FROM Elimination WHERE Eliminated_By  =  \"Benjamin\""
+    },
+    {
+        "original_nl": "What are the teams that have both wrestlers eliminated by Orton and wrestlers eliminated by Benjamin?",
+        "generalized_nl": "What|are|the|{COLUMN} [teams]|that|have|both|{TABLE} [wrestlers]|{COLUMN} [eliminated by]|{VALUE} [Orton]|and|{TABLE} [wrestlers]|{COLUMN} [eliminated by]|{VALUE} [Benjamin]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "{COLUMN}",
+            "{VALUE}",
+            "and",
+            "{TABLE}",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Team FROM Elimination WHERE Eliminated_By  =  \"Orton\" INTERSECT SELECT Team FROM Elimination WHERE Eliminated_By  =  \"Benjamin\""
+    },
+    {
+        "original_nl": "What is the number of distinct teams that suffer elimination?",
+        "generalized_nl": "What|is|the|number|of|distinct|{COLUMN} [teams]|that|suffer|{TABLE} [elimination]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{COLUMN}",
+            "that",
+            "suffer",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT COUNT (DISTINCT team) FROM elimination"
+    },
+    {
+        "original_nl": "How many different teams have had eliminated wrestlers?",
+        "generalized_nl": "How|many|different|{COLUMN} [teams]|have|had|{COLUMN_PART} [eliminated]|{TABLE} [wrestlers]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "have",
+            "had",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT COUNT (DISTINCT team) FROM elimination"
+    },
+    {
+        "original_nl": "Show the times of elimination by \"Punk\" or \"Orton\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [times]|of|{TABLE} [elimination]|by|{VALUE} [Punk]|or|{VALUE} [Orton]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "by",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT TIME FROM elimination WHERE Eliminated_By  =  \"Punk\" OR Eliminated_By  =  \"Orton\""
+    },
+    {
+        "original_nl": "What are the times of elimination for any instances in which the elimination was done by Punk or Orton?",
+        "generalized_nl": "What|are|the|{COLUMN} [times]|of|{TABLE} [elimination]|for|any|case [instances]|in|which|the|{TABLE} [elimination]|was|do [done]|by|{VALUE} [Punk]|or|{VALUE} [Orton]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "for",
+            "any",
+            "case",
+            "in",
+            "which",
+            "the",
+            "{TABLE}",
+            "was",
+            "do",
+            "by",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT TIME FROM elimination WHERE Eliminated_By  =  \"Punk\" OR Eliminated_By  =  \"Orton\""
+    }
+]

@@ -1,0 +1,647 @@
+[
+    {
+        "original_nl": "How many schools are there?",
+        "generalized_nl": "How|many|{COLUMN} [schools]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM school"
+    },
+    {
+        "original_nl": "Count the number of schools.",
+        "generalized_nl": "count [Count]|the|number|of|{COLUMN} [schools]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM school"
+    },
+    {
+        "original_nl": "List the locations of schools in ascending order of enrollment.",
+        "generalized_nl": "list [List]|the|{COLUMN} [locations]|of|{COLUMN} [schools]|in|ascend [ascending]|order|of|{COLUMN} [enrollment]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT LOCATION FROM school ORDER BY Enrollment ASC"
+    },
+    {
+        "original_nl": "What is the list of school locations sorted in ascending order of school enrollment?",
+        "generalized_nl": "What|is|the|list|of|{COLUMN} [school]|{COLUMN} [locations]|screen [sorted]|in|ascend [ascending]|order|of|{COLUMN} [school]|{COLUMN} [enrollment]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "list",
+            "of",
+            "{COLUMN}",
+            "{COLUMN}",
+            "screen",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT LOCATION FROM school ORDER BY Enrollment ASC"
+    },
+    {
+        "original_nl": "List the locations of schools in descending order of founded year.",
+        "generalized_nl": "list [List]|the|{COLUMN} [locations]|of|{COLUMN} [schools]|in|descend [descending]|order|of|{COLUMN} [founded]|{COLUMN_PART} [year]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT LOCATION FROM school ORDER BY Founded DESC"
+    },
+    {
+        "original_nl": "What is the list of school locations sorted in descending order of school foundation year?",
+        "generalized_nl": "What|is|the|list|of|{COLUMN} [school]|{COLUMN} [locations]|screen [sorted]|in|descend [descending]|order|of|{COLUMN} [school]|foundation|{COLUMN_PART} [year]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "list",
+            "of",
+            "{COLUMN}",
+            "{COLUMN}",
+            "screen",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}",
+            "foundation",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT LOCATION FROM school ORDER BY Founded DESC"
+    },
+    {
+        "original_nl": "What are the enrollments of schools whose denomination is not \"Catholic\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [enrollments]|of|{COLUMN} [schools]|whose|{COLUMN} [denomination]|is|not|{VALUE} [Catholic]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Enrollment FROM school WHERE Denomination != \"Catholic\""
+    },
+    {
+        "original_nl": "List the enrollment for each school that does not have \"Catholic\" as denomination.",
+        "generalized_nl": "list [List]|the|{COLUMN} [enrollment]|for|each|{COLUMN} [school]|that|does|not|have|{VALUE} [Catholic]|as|{COLUMN} [denomination]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}",
+            "that",
+            "does",
+            "not",
+            "have",
+            "{VALUE}",
+            "as",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Enrollment FROM school WHERE Denomination != \"Catholic\""
+    },
+    {
+        "original_nl": "What is the average enrollment of schools?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [enrollment]|of|{COLUMN} [schools]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(Enrollment) FROM school"
+    },
+    {
+        "original_nl": "Take the average of the school enrollment.",
+        "generalized_nl": "take [Take]|the|average|of|the|{COLUMN} [school]|{COLUMN} [enrollment]",
+        "generalized_tokens": [
+            "take",
+            "the",
+            "average",
+            "of",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(Enrollment) FROM school"
+    },
+    {
+        "original_nl": "What are the teams of the players, sorted in ascending alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN} [teams]|of|the|{COLUMN} [players]|screen [sorted]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "screen",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Team FROM player ORDER BY Team ASC"
+    },
+    {
+        "original_nl": "Find the team of each player and sort them in ascending alphabetical order.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [team]|of|each|{COLUMN} [player]|and|screen [sort]|them|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}",
+            "and",
+            "screen",
+            "them",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Team FROM player ORDER BY Team ASC"
+    },
+    {
+        "original_nl": "How many different positions of players are there?",
+        "generalized_nl": "How|many|different|{COLUMN} [positions]|of|{COLUMN} [players]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT POSITION) FROM player"
+    },
+    {
+        "original_nl": "Count the number of distinct player positions.",
+        "generalized_nl": "count [Count]|the|number|of|distinct|{COLUMN} [player]|{COLUMN} [positions]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT POSITION) FROM player"
+    },
+    {
+        "original_nl": "Find the team of the player of the highest age.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [team]|of|the|{COLUMN} [player]|of|the|high [highest]|{COLUMN} [age]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Team FROM player ORDER BY Age DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which team has the oldest player?",
+        "generalized_nl": "Which|{COLUMN} [team]|have [has]|the|old [oldest]|{COLUMN} [player]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "old",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Team FROM player ORDER BY Age DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the teams of the players with the top 5 largest ages.",
+        "generalized_nl": "list [List]|the|{COLUMN} [teams]|of|the|{COLUMN} [players]|with|the|top|{VALUE} [5]|large [largest]|{COLUMN} [ages]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "top",
+            "{VALUE}",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Team FROM player ORDER BY Age DESC LIMIT 5"
+    },
+    {
+        "original_nl": "What are the teams that have the 5 oldest players?",
+        "generalized_nl": "What|are|the|{COLUMN} [teams]|that|have|the|{VALUE} [5]|old [oldest]|{COLUMN} [players]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "{VALUE}",
+            "old",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Team FROM player ORDER BY Age DESC LIMIT 5"
+    },
+    {
+        "original_nl": "For each player, show the team and the location of school they belong to.",
+        "generalized_nl": "For|each|{COLUMN} [player]|show|the|{COLUMN} [team]|and|the|{COLUMN} [location]|of|{COLUMN} [school]|they|belong|to",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "they",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T1.Team ,  T2.Location FROM player AS T1 JOIN school AS T2 ON T1.School_ID  =  T2.School_ID"
+    },
+    {
+        "original_nl": "What are the team and the location of school each player belongs to?",
+        "generalized_nl": "What|are|the|{COLUMN} [team]|and|the|{COLUMN} [location]|of|{COLUMN} [school]|each|{COLUMN} [player]|belong [belongs]|to",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "each",
+            "{COLUMN}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T1.Team ,  T2.Location FROM player AS T1 JOIN school AS T2 ON T1.School_ID  =  T2.School_ID"
+    },
+    {
+        "original_nl": "Show the locations of schools that have more than 1 player.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [locations]|of|{COLUMN} [schools]|that|have|{NUMBER} [more than 1]|{COLUMN} [player]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Location FROM player AS T1 JOIN school AS T2 ON T1.School_ID  =  T2.School_ID GROUP BY T1.School_ID HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "Show the denomination of the school that has the most players.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [denomination]|of|the|{COLUMN} [school]|that|have [has]|the|most|{COLUMN} [players]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Denomination FROM player AS T1 JOIN school AS T2 ON T1.School_ID  =  T2.School_ID GROUP BY T1.School_ID ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the denomination of the school the most players belong to?",
+        "generalized_nl": "What|is|the|{COLUMN} [denomination]|of|the|{COLUMN} [school]|the|most|{COLUMN} [players]|belong|to",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "the",
+            "most",
+            "{COLUMN}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T2.Denomination FROM player AS T1 JOIN school AS T2 ON T1.School_ID  =  T2.School_ID GROUP BY T1.School_ID ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show locations and nicknames of schools.",
+        "generalized_nl": "show [Show]|{COLUMN} [locations]|and|{COLUMN} [nicknames]|of|{COLUMN} [schools]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Location ,  T2.Nickname FROM school AS T1 JOIN school_details AS T2 ON T1.School_ID  =  T2.School_ID"
+    },
+    {
+        "original_nl": "What are the location and nickname of each school?",
+        "generalized_nl": "What|are|the|{COLUMN} [location]|and|{COLUMN} [nickname]|of|each|{COLUMN} [school]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Location ,  T2.Nickname FROM school AS T1 JOIN school_details AS T2 ON T1.School_ID  =  T2.School_ID"
+    },
+    {
+        "original_nl": "Please show different denominations and the corresponding number of schools.",
+        "generalized_nl": "Please|show|different|{COLUMN} [denominations]|and|the|match [corresponding]|number|of|{COLUMN} [schools]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "different",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Denomination ,  COUNT(*) FROM school GROUP BY Denomination"
+    },
+    {
+        "original_nl": "For each denomination, return the denomination and the count of schools with that denomination.",
+        "generalized_nl": "For|each|{COLUMN} [denomination]|return|the|{COLUMN} [denomination]|and|the|count|of|{COLUMN} [schools]|with|that|{COLUMN} [denomination]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "count",
+            "of",
+            "{COLUMN}",
+            "with",
+            "that",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Denomination ,  COUNT(*) FROM school GROUP BY Denomination"
+    },
+    {
+        "original_nl": "Please show different denominations and the corresponding number of schools in descending order.",
+        "generalized_nl": "Please|show|different|{COLUMN} [denominations]|and|the|match [corresponding]|number|of|{COLUMN} [schools]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "different",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT Denomination ,  COUNT(*) FROM school GROUP BY Denomination ORDER BY COUNT(*) DESC"
+    },
+    {
+        "original_nl": "List the school color of the school that has the largest enrollment.",
+        "generalized_nl": "list [List]|the|{COLUMN} [school color]|of|the|{COLUMN} [school]|that|have [has]|the|large [largest]|{COLUMN} [enrollment]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT School_Colors FROM school ORDER BY Enrollment DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the school color of the school with the largest enrollment?",
+        "generalized_nl": "What|is|the|{COLUMN} [school color]|of|the|{COLUMN} [school]|with|the|large [largest]|{COLUMN} [enrollment]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT School_Colors FROM school ORDER BY Enrollment DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the locations of schools that do not have any player.",
+        "generalized_nl": "list [List]|the|{COLUMN} [locations]|of|{COLUMN} [schools]|that|do|not|have|any|{COLUMN} [player]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT LOCATION FROM school WHERE School_ID NOT IN (SELECT School_ID FROM Player)"
+    },
+    {
+        "original_nl": "Show the denomination shared by schools founded before 1890 and schools founded after 1900",
+        "generalized_nl": "show [Show]|the|{COLUMN} [denomination]|share [shared]|by|{COLUMN} [schools]|{COLUMN} [founded]|before|{VALUE} [1890]|and|{COLUMN} [schools]|{COLUMN} [founded]|after|{NE} [1900]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "{COLUMN}",
+            "{COLUMN}",
+            "before",
+            "{VALUE}",
+            "and",
+            "{COLUMN}",
+            "{COLUMN}",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Denomination FROM school WHERE Founded  <  1890 INTERSECT SELECT Denomination FROM school WHERE Founded  >  1900"
+    },
+    {
+        "original_nl": "What are the denominations used by both schools founded before 1890 and schools founded  after 1900?",
+        "generalized_nl": "What|are|the|{COLUMN} [denominations]|use [used]|by|both|{COLUMN} [schools]|{COLUMN} [founded]|before|{VALUE} [1890]|and|{COLUMN} [schools]|{COLUMN} [founded]|after|{NE} [1900]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "use",
+            "by",
+            "both",
+            "{COLUMN}",
+            "{COLUMN}",
+            "before",
+            "{VALUE}",
+            "and",
+            "{COLUMN}",
+            "{COLUMN}",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Denomination FROM school WHERE Founded  <  1890 INTERSECT SELECT Denomination FROM school WHERE Founded  >  1900"
+    },
+    {
+        "original_nl": "Show the nicknames of schools that are not in division 1.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [nicknames]|of|{COLUMN} [schools]|that|are|not|in|{COLUMN} [division]|{VALUE} [1]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "are",
+            "not",
+            "in",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Nickname FROM school_details WHERE Division != \"Division 1\""
+    },
+    {
+        "original_nl": "What are the nicknames of schools whose division is not 1?",
+        "generalized_nl": "What|are|the|{COLUMN} [nicknames]|of|{COLUMN} [schools]|whose|{COLUMN} [division]|is|not|{VALUE} [1]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Nickname FROM school_details WHERE Division != \"Division 1\""
+    },
+    {
+        "original_nl": "Show the denomination shared by more than one school.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [denomination]|share [shared]|by|{NUMBER} [more than one]|{COLUMN} [school]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Denomination FROM school GROUP BY Denomination HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "What are the denomination more than one school have?",
+        "generalized_nl": "What|are|the|{COLUMN} [denomination]|{NUMBER} [more than one]|{COLUMN} [school]|have",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{NUMBER}",
+            "{COLUMN}",
+            "have"
+        ],
+        "original_sql": "SELECT Denomination FROM school GROUP BY Denomination HAVING COUNT(*)  >  1"
+    }
+]

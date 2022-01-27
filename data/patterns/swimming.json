@@ -1,0 +1,543 @@
+[
+    {
+        "original_nl": "How many events are there?",
+        "generalized_nl": "How|many|{TABLE} [events]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM event"
+    },
+    {
+        "original_nl": "List all the event names by year from the most recent to the oldest.",
+        "generalized_nl": "list [List]|all|the|{TABLE} [event]|{COLUMN} [names]|by|{COLUMN} [year]|from|the|most|recent|to|the|old [oldest]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "by",
+            "{COLUMN}",
+            "from",
+            "the",
+            "most",
+            "recent",
+            "to",
+            "the",
+            "old"
+        ],
+        "original_sql": "SELECT name FROM event ORDER BY YEAR DESC"
+    },
+    {
+        "original_nl": "What is the name of the event that happened in the most recent year?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [event]|that|happen [happened]|in|{NE} [the most recent year]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "happen",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM event ORDER BY YEAR DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many stadiums are there?",
+        "generalized_nl": "How|many|{TABLE} [stadiums]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM stadium"
+    },
+    {
+        "original_nl": "Find the name of the stadium that has the maximum capacity.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [stadium]|that|have [has]|the|maximal [maximum]|{COLUMN} [capacity]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "maximal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM stadium ORDER BY capacity DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the names of stadiums whose capacity is smaller than the average capacity.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [stadiums]|whose|{COLUMN} [capacity]|is|small [smaller]|than|the|average|{COLUMN} [capacity]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "small",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM stadium WHERE capacity  <  (SELECT avg(capacity) FROM stadium)"
+    },
+    {
+        "original_nl": "Find the country that has the most stadiums.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [country]|that|have [has]|the|most|{TABLE} [stadiums]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT country FROM stadium GROUP BY country ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which country has at most 3 stadiums listed?",
+        "generalized_nl": "Which|{COLUMN} [country]|have [has]|at|most|{VALUE} [3]|{TABLE} [stadiums]|list [listed]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "at",
+            "most",
+            "{VALUE}",
+            "{TABLE}",
+            "list"
+        ],
+        "original_sql": "SELECT country FROM stadium GROUP BY country HAVING count(*)  <=  3"
+    },
+    {
+        "original_nl": "Which country has both stadiums with capacity greater than 60000 and stadiums with capacity less than 50000?",
+        "generalized_nl": "Which|{COLUMN} [country]|have [has]|both|{TABLE} [stadiums]|with|{COLUMN} [capacity]|great [greater]|than|{NUMBER} [60000]|and|{TABLE} [stadiums]|with|{COLUMN} [capacity]|{NUMBER} [less than 50000]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "both",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "great",
+            "than",
+            "{NUMBER}",
+            "and",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT country FROM stadium WHERE capacity  >  60000 INTERSECT SELECT country FROM stadium WHERE capacity  <  50000"
+    },
+    {
+        "original_nl": "How many cities have a stadium that was opened before the year of 2006?",
+        "generalized_nl": "How|many|{COLUMN} [cities]|have|a|{TABLE} [stadium]|that|was|open [opened]|before|{NE} [the year of 2006]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "have",
+            "a",
+            "{TABLE}",
+            "that",
+            "was",
+            "open",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT city) FROM stadium WHERE opening_year  <  2006"
+    },
+    {
+        "original_nl": "How many stadiums does each country have?",
+        "generalized_nl": "How|many|{TABLE} [stadiums]|does|each|{COLUMN} [country]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "each",
+            "{COLUMN}",
+            "have"
+        ],
+        "original_sql": "SELECT country ,  count(*) FROM stadium GROUP BY country"
+    },
+    {
+        "original_nl": "Which countries do not have a stadium that was opened after 2006?",
+        "generalized_nl": "Which|{COLUMN} [countries]|do|not|have|a|{TABLE} [stadium]|that|was|open [opened]|after|{VALUE} [2006]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "do",
+            "not",
+            "have",
+            "a",
+            "{TABLE}",
+            "that",
+            "was",
+            "open",
+            "after",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT country FROM stadium EXCEPT SELECT country FROM stadium WHERE opening_year  >  2006"
+    },
+    {
+        "original_nl": "How many stadiums are not in country \"Russia\"?",
+        "generalized_nl": "How|many|{TABLE} [stadiums]|are|not|in|{COLUMN} [country]|{VALUE} [Russia]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "not",
+            "in",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) FROM stadium WHERE country != 'Russia'"
+    },
+    {
+        "original_nl": "Find the names of all swimmers, sorted by their 100 meter scores in ascending order.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{TABLE} [swimmers]|screen [sorted]|by|their|{COLUMN_PART} [100]|{COLUMN_PART} [meter]|score [scores]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "screen",
+            "by",
+            "their",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "score",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT name FROM swimmer ORDER BY meter_100"
+    },
+    {
+        "original_nl": "How many different countries are all the swimmers from?",
+        "generalized_nl": "How|many|different|{COLUMN} [countries]|are|all|the|{TABLE} [swimmers]|from",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "all",
+            "the",
+            "{TABLE}",
+            "from"
+        ],
+        "original_sql": "SELECT count(DISTINCT nationality) FROM swimmer"
+    },
+    {
+        "original_nl": "List countries that have more than one swimmer.",
+        "generalized_nl": "list [List]|{COLUMN} [countries]|that|have|{NUMBER} [more than one]|{TABLE} [swimmer]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT nationality ,  count(*) FROM swimmer GROUP BY nationality HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find all 200 meter and 300 meter results of swimmers with nationality \"Australia\".",
+        "generalized_nl": "find [Find]|all|{COLUMN_PART} [200]|{COLUMN_PART} [meter]|and|{COLUMN_PART} [300]|{COLUMN_PART} [meter]|{COLUMN} [results]|of|{TABLE} [swimmers]|with|{COLUMN} [nationality]|{VALUE} [Australia]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT meter_200 ,  meter_300 FROM swimmer WHERE nationality  =  'Australia'"
+    },
+    {
+        "original_nl": "Find the names of swimmers who has a result of \"win\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [swimmers]|who|have [has]|a|{COLUMN} [result]|of|win",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "a",
+            "{COLUMN}",
+            "of",
+            "win"
+        ],
+        "original_sql": "SELECT t1.name FROM swimmer AS t1 JOIN record AS t2 ON t1.id  =  t2.swimmer_id WHERE RESULT  =  'Win'"
+    },
+    {
+        "original_nl": "What is the name of the stadium which held the most events?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [stadium]|which|hold [held]|the|most|{TABLE} [events]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "hold",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.name FROM stadium AS t1 JOIN event AS t2 ON t1.id  =  t2.stadium_id GROUP BY t2.stadium_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name and capacity of the stadium where the event named \"World Junior\" happened.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [capacity]|of|the|{TABLE} [stadium]|where|the|{TABLE} [event]|name [named]|{VALUE} [World Junior]|happen [happened]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "where",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}",
+            "happen"
+        ],
+        "original_sql": "SELECT t1.name ,  t1.capacity FROM stadium AS t1 JOIN event AS t2 ON t1.id  =  t2.stadium_id WHERE t2.name  =  'World Junior'"
+    },
+    {
+        "original_nl": "Find the names of stadiums which have never had any event.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [stadiums]|which|have|never|have [had]|any|{TABLE} [event]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "which",
+            "have",
+            "never",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM stadium WHERE id NOT IN (SELECT stadium_id FROM event)"
+    },
+    {
+        "original_nl": "Find the name of the swimmer who has the most records.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [swimmer]|who|have [has]|the|most|{TABLE} [records]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.name FROM swimmer AS t1 JOIN record AS t2 ON t1.id  =  t2.swimmer_id GROUP BY t2.swimmer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the swimmer who has at least 2 records.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [swimmer]|who|have [has]|{NUMBER} [at least 2]|{TABLE} [records]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.name FROM swimmer AS t1 JOIN record AS t2 ON t1.id  =  t2.swimmer_id GROUP BY t2.swimmer_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Find the name and nationality of the swimmer who has won (i.e., has a result of \"win\") more than 1 time.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [nationality]|of|the|{TABLE} [swimmer]|who|has|win [won]|i.e.|have [has]|a|{COLUMN} [result]|of|win|more|than|{VALUE} [1]|{COLUMN} [time]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "has",
+            "win",
+            "i.e.",
+            "have",
+            "a",
+            "{COLUMN}",
+            "of",
+            "win",
+            "more",
+            "than",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.name ,  t1.nationality FROM swimmer AS t1 JOIN record AS t2 ON t1.id  =  t2.swimmer_id WHERE RESULT  =  'Win' GROUP BY t2.swimmer_id HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the names of the swimmers who have no record.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|{TABLE} [swimmers]|who|have|no|{TABLE} [record]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "no",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM swimmer WHERE id NOT IN (SELECT swimmer_id FROM record)"
+    },
+    {
+        "original_nl": "Find the names of the swimmers who have both \"win\" and \"loss\" results in the record.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|{TABLE} [swimmers]|who|have|both|win|and|loss|{COLUMN} [results]|in|the|{TABLE} [record]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "both",
+            "win",
+            "and",
+            "loss",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.name FROM swimmer AS t1 JOIN record AS t2 ON t1.id  =  t2.swimmer_id WHERE RESULT  =  'Win' INTERSECT SELECT t1.name FROM swimmer AS t1 JOIN record AS t2 ON t1.id  =  t2.swimmer_id WHERE RESULT  =  'Loss'"
+    },
+    {
+        "original_nl": "Find the names of stadiums that some Australian swimmers have been to.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [stadiums]|that|some|{NE} [Australian]|{TABLE} [swimmers]|have|been|to",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "some",
+            "{NE}",
+            "{TABLE}",
+            "have",
+            "been",
+            "to"
+        ],
+        "original_sql": "SELECT t4.name FROM swimmer AS t1 JOIN record AS t2 ON t1.id  =  t2.swimmer_id JOIN event AS t3 ON t2.event_id  =  t3.id JOIN stadium AS t4 ON t4.id  =  t3.stadium_id WHERE t1.nationality  =  'Australia'"
+    },
+    {
+        "original_nl": "Find the names of stadiums that the most swimmers have been to.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [stadiums]|that|the|most|{TABLE} [swimmers]|have|been|to",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "the",
+            "most",
+            "{TABLE}",
+            "have",
+            "been",
+            "to"
+        ],
+        "original_sql": "SELECT t3.name FROM record AS t1 JOIN event AS t2 ON t1.event_id  =  t2.id JOIN stadium AS t3 ON t3.id  =  t2.stadium_id GROUP BY t2.stadium_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find all details for each swimmer.",
+        "generalized_nl": "find [Find]|all|detail [details]|for|each|{TABLE} [swimmer]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "detail",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT * FROM swimmer"
+    },
+    {
+        "original_nl": "What is the average capacity of the stadiums that were opened in year 2005?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [capacity]|of|the|{TABLE} [stadiums]|that|were|open [opened]|in|{COLUMN} [year]|{VALUE} [2005]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "were",
+            "open",
+            "in",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT avg(capacity) FROM stadium WHERE opening_year  =  2005"
+    }
+]

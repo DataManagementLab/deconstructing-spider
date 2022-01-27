@@ -1,0 +1,381 @@
+[
+    {
+        "original_nl": "How many games are held after season 2007?",
+        "generalized_nl": "How|many|{TABLE} [games]|are|hold [held]|after|{COLUMN} [season]|{VALUE} [2007]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "hold",
+            "after",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) FROM game WHERE season  >  2007"
+    },
+    {
+        "original_nl": "List the dates of games by the home team name in descending order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [dates]|of|{TABLE} [games]|by|the|{COLUMN} [home team]|{COLUMN} [name]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "by",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT Date FROM game ORDER BY home_team DESC"
+    },
+    {
+        "original_nl": "List the season, home team, away team of all the games.",
+        "generalized_nl": "list [List]|the|{COLUMN} [season]|{COLUMN} [home team]|{COLUMN} [away team]|of|all|the|{TABLE} [games]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT season ,  home_team ,  away_team FROM game"
+    },
+    {
+        "original_nl": "What are the maximum, minimum and average home games each stadium held?",
+        "generalized_nl": "What|are|the|maximal [maximum]|minimal [minimum]|and|{COLUMN_PART} [average]|{COLUMN} [home games]|each|{TABLE} [stadium]|hold [held]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "minimal",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "each",
+            "{TABLE}",
+            "hold"
+        ],
+        "original_sql": "SELECT max(home_games) ,  min(home_games) ,  avg(home_games) FROM stadium"
+    },
+    {
+        "original_nl": "What is the average attendance of stadiums with capacity percentage higher than 100%?",
+        "generalized_nl": "What|is|the|{COLUMN} [average attendance]|of|{TABLE} [stadiums]|with|{COLUMN} [capacity percentage]|{NE} [higher than 100 %]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT average_attendance FROM stadium WHERE capacity_percentage  >  100"
+    },
+    {
+        "original_nl": "What are the player name, number of matches, and information source for players who do not suffer from injury of 'Knee problem'?",
+        "generalized_nl": "What|are|the|{COLUMN} [player]|{COLUMN} [name]|{COLUMN} [number of matches]|and|information|{COLUMN} [source]|for|{COLUMN} [players]|who|do|not|suffer|from|{COLUMN} [injury]|of|{VALUE} [Knee problem]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "information",
+            "{COLUMN}",
+            "for",
+            "{COLUMN}",
+            "who",
+            "do",
+            "not",
+            "suffer",
+            "from",
+            "{COLUMN}",
+            "of",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT player ,  number_of_matches ,  SOURCE FROM injury_accident WHERE injury != 'Knee problem'"
+    },
+    {
+        "original_nl": "What is the season of the game which causes the player 'Walter Samuel' to get injured?",
+        "generalized_nl": "What|is|the|{COLUMN} [season]|of|the|{TABLE} [game]|which|cause [causes]|the|{COLUMN} [player]|{VALUE} [Walter Samuel]|to|get|hurt [injured]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "cause",
+            "the",
+            "{COLUMN}",
+            "{VALUE}",
+            "to",
+            "get",
+            "hurt"
+        ],
+        "original_sql": "SELECT T1.season FROM game AS T1 JOIN injury_accident AS T2 ON T1.id  =  T2.game_id WHERE T2.player  =  'Walter Samuel'"
+    },
+    {
+        "original_nl": "What are the ids, scores, and dates of the games which caused at least two injury accidents?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|{COLUMN} [scores]|and|{COLUMN} [dates]|of|the|{TABLE} [games]|which|cause [caused]|{NUMBER} [at least two]|{COLUMN} [injury]|accident [accidents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "cause",
+            "{NUMBER}",
+            "{COLUMN}",
+            "accident"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.score ,  T1.date FROM game AS T1 JOIN injury_accident AS T2 ON T2.game_id  =  T1.id GROUP BY T1.id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the id and name of the stadium where the most injury accidents happened?",
+        "generalized_nl": "What|are|the|{COLUMN} [id]|and|{COLUMN} [name]|of|the|{TABLE} [stadium]|where|the|most|{COLUMN} [injury]|accident [accidents]|happen [happened]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "where",
+            "the",
+            "most",
+            "{COLUMN}",
+            "accident",
+            "happen"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.name FROM stadium AS T1 JOIN game AS T2 ON T1.id  =  T2.stadium_id JOIN injury_accident AS T3 ON T2.id  =  T3.game_id GROUP BY T1.id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the id and name of the stadium where the largest number of injury accidents occurred.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [id]|and|{COLUMN} [name]|of|the|{TABLE} [stadium]|where|the|large [largest]|{COLUMN_PART} [number]|of|{COLUMN} [injury]|accident [accidents]|occur [occurred]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "where",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "accident",
+            "occur"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.name FROM stadium AS T1 JOIN game AS T2 ON T1.id  =  T2.stadium_id JOIN injury_accident AS T3 ON T2.id  =  T3.game_id GROUP BY T1.id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "In which season and which stadium did any player have an injury of 'Foot injury' or 'Knee problem'?",
+        "generalized_nl": "In|{NE} [which season]|and|which|{TABLE} [stadium]|do [did]|any|{COLUMN} [player]|have|an|{COLUMN} [injury]|of|{VALUE} [Foot injury]|or|{VALUE} [Knee problem]",
+        "generalized_tokens": [
+            "In",
+            "{NE}",
+            "and",
+            "which",
+            "{TABLE}",
+            "do",
+            "any",
+            "{COLUMN}",
+            "have",
+            "an",
+            "{COLUMN}",
+            "of",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.season ,  T2.name FROM game AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.id JOIN injury_accident AS T3 ON T1.id  =  T3.game_id WHERE T3.injury  =  'Foot injury' OR T3.injury  =  'Knee problem'"
+    },
+    {
+        "original_nl": "How many different kinds of information sources are there for injury accidents?",
+        "generalized_nl": "How|many|different|kind [kinds]|of|information|{COLUMN} [sources]|are|there|for|{COLUMN} [injury]|accident [accidents]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "kind",
+            "of",
+            "information",
+            "{COLUMN}",
+            "are",
+            "there",
+            "for",
+            "{COLUMN}",
+            "accident"
+        ],
+        "original_sql": "SELECT count(DISTINCT SOURCE) FROM injury_accident"
+    },
+    {
+        "original_nl": "How many games are free of injury accidents?",
+        "generalized_nl": "How|many|{TABLE} [games]|are|free|of|{COLUMN} [injury]|accident [accidents]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "free",
+            "of",
+            "{COLUMN}",
+            "accident"
+        ],
+        "original_sql": "SELECT count(*) FROM game WHERE id NOT IN ( SELECT game_id FROM injury_accident )"
+    },
+    {
+        "original_nl": "How many distinct kinds of injuries happened after season 2010?",
+        "generalized_nl": "How|many|distinct|kind [kinds]|of|{COLUMN} [injuries]|happen [happened]|after|{COLUMN} [season]|{VALUE} [2010]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "kind",
+            "of",
+            "{COLUMN}",
+            "happen",
+            "after",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT T1.injury) FROM injury_accident AS T1 JOIN game AS T2 ON T1.game_id  =  T2.id WHERE T2.season  >  2010"
+    },
+    {
+        "original_nl": "List the name of the stadium where both the player 'Walter Samuel' and the player 'Thiago Motta' got injured.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|the|{TABLE} [stadium]|where|both|the|{COLUMN} [player]|{VALUE} [Walter Samuel]|and|the|{COLUMN} [player]|{VALUE} [Thiago Motta]|got|hurt [injured]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "where",
+            "both",
+            "the",
+            "{COLUMN}",
+            "{VALUE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "{VALUE}",
+            "got",
+            "hurt"
+        ],
+        "original_sql": "SELECT T2.name FROM game AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.id JOIN injury_accident AS T3 ON T1.id  =  T3.game_id WHERE T3.player  =  'Walter Samuel' INTERSECT SELECT T2.name FROM game AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.id JOIN injury_accident AS T3 ON T1.id  =  T3.game_id WHERE T3.player  =  'Thiago Motta'"
+    },
+    {
+        "original_nl": "Show the name, average attendance, total attendance for stadiums where no accidents happened.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|{COLUMN} [average attendance]|{COLUMN} [total attendance]|for|{TABLE} [stadiums]|where|no|accident [accidents]|happen [happened]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "where",
+            "no",
+            "accident",
+            "happen"
+        ],
+        "original_sql": "SELECT name ,  average_attendance ,  total_attendance FROM stadium EXCEPT SELECT T2.name ,  T2.average_attendance ,  T2.total_attendance FROM game AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.id JOIN injury_accident AS T3 ON T1.id  =  T3.game_id"
+    },
+    {
+        "original_nl": "Which stadium name contains the substring \"Bank\"?",
+        "generalized_nl": "Which|{TABLE} [stadium]|{COLUMN} [name]|contain [contains]|the|substring|Bank",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "substring",
+            "Bank"
+        ],
+        "original_sql": "SELECT name FROM stadium WHERE name LIKE \"%Bank%\""
+    },
+    {
+        "original_nl": "How many games has each stadium held?",
+        "generalized_nl": "How|many|{TABLE} [games]|have [has]|each|{TABLE} [stadium]|hold [held]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "each",
+            "{TABLE}",
+            "hold"
+        ],
+        "original_sql": "SELECT T1.id ,  count(*) FROM stadium AS T1 JOIN game AS T2 ON T1.id  =  T2.stadium_id GROUP BY T1.id"
+    },
+    {
+        "original_nl": "For each injury accident, find the date of the game and the name of the injured player in the game, and sort the results in descending order of game season.",
+        "generalized_nl": "For|each|{COLUMN} [injury]|accident|find|the|{COLUMN} [date]|of|the|{TABLE} [game]|and|the|{COLUMN} [name]|of|the|hurt [injured]|{COLUMN} [player]|in|the|{TABLE} [game]|and|screen [sort]|the|consequence [results]|in|descend [descending]|order|of|{TABLE} [game]|{COLUMN} [season]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "accident",
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "hurt",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{TABLE}",
+            "and",
+            "screen",
+            "the",
+            "consequence",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.date ,  T2.player FROM game AS T1 JOIN injury_accident AS T2 ON T1.id  =  T2.game_id ORDER BY T1.season DESC"
+    }
+]

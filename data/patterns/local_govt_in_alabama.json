@@ -1,0 +1,237 @@
+[
+    {
+        "original_nl": "what are the event details of the services that have the type code 'Marriage'?",
+        "generalized_nl": "what|are|the|{COLUMN} [event details]|of|the|{TABLE} [services]|that|have|the|{COLUMN_PART} [type]|{COLUMN_PART} [code]|marriage [Marriage]",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "marriage"
+        ],
+        "original_sql": "SELECT T1.event_details FROM EVENTS AS T1 JOIN Services AS T2 ON T1.Service_ID  =  T2.Service_ID WHERE T2.Service_Type_Code  =  'Marriage'"
+    },
+    {
+        "original_nl": "What are the ids and details of events that have more than one participants?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|and|{COLUMN_PART} [details]|of|{TABLE} [events]|that|have|{NUMBER} [more than one]|{TABLE} [participants]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.event_id ,  T1.event_details FROM EVENTS AS T1 JOIN Participants_in_Events AS T2 ON T1.Event_ID  =  T2.Event_ID GROUP BY T1.Event_ID HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "What are all the the participant ids, type code and details?",
+        "generalized_nl": "What|are|all|the|the|{COLUMN} [participant ids]|{COLUMN_PART} [type]|{COLUMN_PART} [code]|and|{COLUMN_PART} [details]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Participant_ID ,  Participant_Type_Code ,  Participant_Details FROM  Participants"
+    },
+    {
+        "original_nl": "How many participants belong to the type 'Organizer'?",
+        "generalized_nl": "How|many|{TABLE} [participants]|belong|to|the|{COLUMN_PART} [type]|organizer [Organizer]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "belong",
+            "to",
+            "the",
+            "{COLUMN_PART}",
+            "organizer"
+        ],
+        "original_sql": "SELECT count(*) FROM participants WHERE participant_type_code  =  'Organizer'"
+    },
+    {
+        "original_nl": "List the type of the services in alphabetical order.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [type]|of|the|{TABLE} [services]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT service_type_code FROM services ORDER BY service_type_code"
+    },
+    {
+        "original_nl": "List the service id and details for the events.",
+        "generalized_nl": "list [List]|the|{COLUMN} [service id]|and|{COLUMN_PART} [details]|for|the|{TABLE} [events]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT service_id ,  event_details FROM EVENTS"
+    },
+    {
+        "original_nl": "How many events had participants whose details had the substring 'Dr.'",
+        "generalized_nl": "How|many|{TABLE} [events]|have [had]|{TABLE} [participants]|whose|{COLUMN_PART} [details]|have [had]|the|substring|Dr.",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "have",
+            "the",
+            "substring",
+            "Dr."
+        ],
+        "original_sql": "SELECT count(*) FROM participants AS T1 JOIN Participants_in_Events AS T2 ON T1.Participant_ID  =  T2.Participant_ID WHERE T1.participant_details LIKE '%Dr.%'"
+    },
+    {
+        "original_nl": "What is the most common participant type?",
+        "generalized_nl": "What|is|the|most|common|{TABLE} [participant]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "common",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT participant_type_code FROM participants GROUP BY participant_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which service id and type has the least number of participants?",
+        "generalized_nl": "Which|{COLUMN} [service id]|and|{COLUMN_PART} [type]|have [has]|the|least|number|of|{TABLE} [participants]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "have",
+            "the",
+            "least",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.service_id ,  T4.Service_Type_Code FROM participants AS T1 JOIN Participants_in_Events AS T2 ON T1.Participant_ID  =  T2.Participant_ID JOIN EVENTS AS T3 ON T2.Event_ID   =  T3.Event_ID JOIN services AS T4 ON T3.service_id  =  T4.service_id GROUP BY T3.service_id ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the id of the event with the most participants?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|the|{TABLE} [event]|with|the|most|{TABLE} [participants]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Event_ID FROM Participants_in_Events GROUP BY Event_ID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which events id does not have any participant with detail 'Kenyatta Kuhn'?",
+        "generalized_nl": "Which|{TABLE} [events]|{COLUMN_PART} [id]|does|not|have|any|{TABLE} [participant]|with|{COLUMN_PART} [detail]|{NE} [Kenyatta Kuhn ']",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "does",
+            "not",
+            "have",
+            "any",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT event_id FROM EVENTS EXCEPT SELECT T1.event_id FROM Participants_in_Events AS T1 JOIN Participants AS T2 ON T1.Participant_ID  =  T2.Participant_ID WHERE Participant_Details  =  'Kenyatta Kuhn'"
+    },
+    {
+        "original_nl": "Which services type had both successful and failure event details?",
+        "generalized_nl": "Which|{TABLE} [services]|{COLUMN_PART} [type]|have [had]|both|successful|and|failure|{COLUMN} [event details]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "have",
+            "both",
+            "successful",
+            "and",
+            "failure",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.service_type_code FROM services AS T1 JOIN EVENTS AS T2 ON T1.service_id  =  T2.service_id WHERE T2.event_details  =  'Success' INTERSECT SELECT T1.service_type_code FROM services AS T1 JOIN EVENTS AS T2 ON T1.service_id  =  T2.service_id WHERE T2.event_details  =  'Fail'"
+    },
+    {
+        "original_nl": "How many events did not have any participants?",
+        "generalized_nl": "How|many|{TABLE} [events]|did|not|have|any|{TABLE} [participants]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "did",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM EVENTS WHERE event_id NOT IN (SELECT event_id FROM Participants_in_Events)"
+    },
+    {
+        "original_nl": "What are all the distinct participant ids who attended any events?",
+        "generalized_nl": "What|are|all|the|distinct|{COLUMN} [participant ids]|who|attend [attended]|any|{TABLE} [events]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "who",
+            "attend",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT participant_id) FROM participants_in_Events"
+    }
+]

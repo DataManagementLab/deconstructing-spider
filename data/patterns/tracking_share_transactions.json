@@ -1,0 +1,719 @@
+[
+    {
+        "original_nl": "Find the number of investors in total.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [investors]|in|entire [total]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM INVESTORS"
+    },
+    {
+        "original_nl": "Show all investor details.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [investor details]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Investor_details FROM INVESTORS"
+    },
+    {
+        "original_nl": "Show all distinct lot details.",
+        "generalized_nl": "show [Show]|all|distinct|{COLUMN} [lot details]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT lot_details FROM LOTS"
+    },
+    {
+        "original_nl": "Show the maximum amount of transaction.",
+        "generalized_nl": "show [Show]|the|maximal [maximum]|{COLUMN} [amount of transaction]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "maximal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(amount_of_transaction) FROM TRANSACTIONS"
+    },
+    {
+        "original_nl": "Show all date and share count of transactions.",
+        "generalized_nl": "show [Show]|all|{COLUMN_PART} [date]|and|{COLUMN} [share count]|of|{TABLE} [transactions]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT date_of_transaction ,  share_count FROM TRANSACTIONS"
+    },
+    {
+        "original_nl": "What is the total share of transactions?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [share]|of|{TABLE} [transactions]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(share_count) FROM TRANSACTIONS"
+    },
+    {
+        "original_nl": "Show all transaction ids with transaction code 'PUR'.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [transaction ids]|with|{TABLE} [transaction]|{COLUMN_PART} [code]|PUR",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "with",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "PUR"
+        ],
+        "original_sql": "SELECT transaction_id FROM TRANSACTIONS WHERE transaction_type_code  =  'PUR'"
+    },
+    {
+        "original_nl": "Show all dates of transactions whose type code is \"SALE\".",
+        "generalized_nl": "show [Show]|all|{COLUMN_PART} [dates]|of|{TABLE} [transactions]|whose|{COLUMN_PART} [type]|{COLUMN_PART} [code]|is|{TABLE} [SALE]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT date_of_transaction FROM TRANSACTIONS WHERE transaction_type_code  =  \"SALE\""
+    },
+    {
+        "original_nl": "Show the average amount of transactions with type code \"SALE\".",
+        "generalized_nl": "show [Show]|the|average|{COLUMN_PART} [amount]|of|{TABLE} [transactions]|with|{COLUMN_PART} [type]|{COLUMN_PART} [code]|{TABLE} [SALE]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(amount_of_transaction) FROM TRANSACTIONS WHERE transaction_type_code  =  \"SALE\""
+    },
+    {
+        "original_nl": "Show the description of transaction type with code \"PUR\".",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [description]|of|{TABLE} [transaction]|{COLUMN_PART} [type]|with|{COLUMN_PART} [code]|PUR",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "PUR"
+        ],
+        "original_sql": "SELECT transaction_type_description FROM Ref_Transaction_Types WHERE transaction_type_code\t  =  \"PUR\""
+    },
+    {
+        "original_nl": "Show the minimum amount of transactions whose type code is \"PUR\" and whose share count is bigger than 50.",
+        "generalized_nl": "show [Show]|the|minimal [minimum]|{COLUMN_PART} [amount]|of|{TABLE} [transactions]|whose|{COLUMN_PART} [type]|{COLUMN_PART} [code]|is|PUR|and|whose|{COLUMN} [share count]|is|{NUMBER} [bigger than 50]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "PUR",
+            "and",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT min(amount_of_transaction) FROM TRANSACTIONS WHERE transaction_type_code  =  \"PUR\" AND share_count  >  50"
+    },
+    {
+        "original_nl": "Show the maximum share count of transactions where the amount is smaller than 10000",
+        "generalized_nl": "show [Show]|the|maximal [maximum]|{COLUMN} [share count]|of|{TABLE} [transactions]|where|the|{COLUMN_PART} [amount]|is|small [smaller]|than|{NUMBER} [10000]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "where",
+            "the",
+            "{COLUMN_PART}",
+            "is",
+            "small",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT max(share_count) FROM TRANSACTIONS WHERE amount_of_transaction  <  10000"
+    },
+    {
+        "original_nl": "Show the dates of transactions if the share count is bigger than 100 or the amount is bigger than 1000.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [dates]|of|{TABLE} [transactions]|if|the|{COLUMN} [share count]|is|{NUMBER} [bigger than 100]|or|the|{COLUMN_PART} [amount]|is|{NUMBER} [bigger than 1000]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "if",
+            "the",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}",
+            "or",
+            "the",
+            "{COLUMN_PART}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT date_of_transaction FROM TRANSACTIONS WHERE share_count  >  100 OR amount_of_transaction  >  1000"
+    },
+    {
+        "original_nl": "Show the transaction type descriptions and dates if the share count is smaller than 10.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [transaction type descriptions]|and|{COLUMN_PART} [dates]|if|the|{COLUMN} [share count]|is|{NUMBER} [smaller than 10]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "if",
+            "the",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.transaction_type_description ,  T2.date_of_transaction FROM Ref_Transaction_Types AS T1 JOIN TRANSACTIONS AS T2 ON T1.transaction_type_code  =  T2.transaction_type_code WHERE T2.share_count  <  10"
+    },
+    {
+        "original_nl": "Show details of all investors if they make any transaction with share count greater than 100.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [details]|of|all|{TABLE} [investors]|if|they|make|any|{TABLE} [transaction]|with|{COLUMN} [share count]|{NUMBER} [greater than 100]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "if",
+            "they",
+            "make",
+            "any",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.Investor_details FROM  INVESTORS AS T1 JOIN TRANSACTIONS AS T2 ON T1.investor_id  =  T2.investor_id WHERE T2.share_count  >  100"
+    },
+    {
+        "original_nl": "How many distinct transaction types are used in the transactions?",
+        "generalized_nl": "How|many|distinct|{TABLE} [transaction]|type [types]|are|use [used]|in|the|{TABLE} [transactions]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{TABLE}",
+            "type",
+            "are",
+            "use",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT COUNT(DISTINCT transaction_type_code) FROM TRANSACTIONS"
+    },
+    {
+        "original_nl": "Return the lot details and investor ids.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [lot details]|and|{COLUMN} [investor ids]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT lot_details ,  investor_id FROM LOTS"
+    },
+    {
+        "original_nl": "Return the lot details of lots that belong to investors with details \"l\"?",
+        "generalized_nl": "return [Return]|the|{COLUMN} [lot details]|of|{TABLE} [lots]|that|belong|to|{TABLE} [investors]|with|{COLUMN_PART} [details]|liter [l]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "belong",
+            "to",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "liter"
+        ],
+        "original_sql": "SELECT T2.lot_details FROM INVESTORS AS T1 JOIN LOTS AS T2 ON  T1.investor_id  =  T2.investor_id WHERE T1.Investor_details  =  \"l\""
+    },
+    {
+        "original_nl": "What are the purchase details of transactions with amount bigger than 10000?",
+        "generalized_nl": "What|are|the|{COLUMN} [purchase details]|of|{TABLE} [transactions]|with|{COLUMN_PART} [amount]|{NUMBER} [bigger than 10000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.purchase_details FROM PURCHASES AS T1 JOIN TRANSACTIONS AS T2 ON T1.purchase_transaction_id  =  T2.transaction_id WHERE T2.amount_of_transaction  >  10000"
+    },
+    {
+        "original_nl": "What are the sale details and dates of transactions with amount smaller than 3000?",
+        "generalized_nl": "What|are|the|{TABLE} [sale]|{COLUMN_PART} [details]|and|{COLUMN_PART} [dates]|of|{TABLE} [transactions]|with|{COLUMN_PART} [amount]|{NUMBER} [smaller than 3000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.sales_details ,  T2.date_of_transaction FROM SALES AS T1 JOIN TRANSACTIONS AS T2 ON T1.sales_transaction_id  =  T2.transaction_id WHERE T2.amount_of_transaction  <  3000"
+    },
+    {
+        "original_nl": "What are the lot details of lots associated with transactions with share count smaller than 50?",
+        "generalized_nl": "What|are|the|{COLUMN} [lot details]|of|{TABLE} [lots]|associate [associated]|with|{TABLE} [transactions]|with|{COLUMN} [share count]|{NUMBER} [smaller than 50]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "associate",
+            "with",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.lot_details FROM LOTS AS T1 JOIN TRANSACTIONS_LOTS AS T2 ON T1.lot_id  =  T2.transaction_id JOIN TRANSACTIONS AS T3 ON T2.transaction_id  =  T3.transaction_id WHERE T3.share_count  <  50"
+    },
+    {
+        "original_nl": "What are the lot details of lots associated with transactions whose share count is bigger than 100 and whose type code is \"PUR\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [lot details]|of|{TABLE} [lots]|associate [associated]|with|{TABLE} [transactions]|whose|{COLUMN} [share count]|is|{NUMBER} [bigger than 100]|and|whose|{COLUMN_PART} [type]|{COLUMN_PART} [code]|is|PUR",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "associate",
+            "with",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}",
+            "and",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "PUR"
+        ],
+        "original_sql": "SELECT T1.lot_details FROM LOTS AS T1 JOIN TRANSACTIONS_LOTS AS T2 ON  T1.lot_id  =  T2.transaction_id JOIN TRANSACTIONS AS T3 ON T2.transaction_id  =  T3.transaction_id WHERE T3.share_count  >  100 AND T3.transaction_type_code  =  \"PUR\""
+    },
+    {
+        "original_nl": "Show the average transaction amount for different transaction types.",
+        "generalized_nl": "show [Show]|the|average|{TABLE} [transaction]|{COLUMN_PART} [amount]|for|different|{TABLE} [transaction]|type [types]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "for",
+            "different",
+            "{TABLE}",
+            "type"
+        ],
+        "original_sql": "SELECT transaction_type_code ,  avg(amount_of_transaction) FROM TRANSACTIONS GROUP BY transaction_type_code"
+    },
+    {
+        "original_nl": "Show the maximum and minimum share count of different transaction types.",
+        "generalized_nl": "show [Show]|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [share count]|of|different|{TABLE} [transaction]|type [types]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "of",
+            "different",
+            "{TABLE}",
+            "type"
+        ],
+        "original_sql": "SELECT transaction_type_code ,  max(share_count) ,  min(share_count) FROM TRANSACTIONS GROUP BY transaction_type_code"
+    },
+    {
+        "original_nl": "Show the average share count of transactions for different investors.",
+        "generalized_nl": "show [Show]|the|average|{COLUMN} [share count]|of|{TABLE} [transactions]|for|different|{TABLE} [investors]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "for",
+            "different",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT investor_id ,  avg(share_count) FROM TRANSACTIONS GROUP BY investor_id"
+    },
+    {
+        "original_nl": "Show the average share count of transactions each each investor, ordered by average share count.",
+        "generalized_nl": "show [Show]|the|average|{COLUMN} [share count]|of|{TABLE} [transactions]|each|each|{TABLE} [investor]|order [ordered]|by|average|{COLUMN} [share count]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "each",
+            "each",
+            "{TABLE}",
+            "order",
+            "by",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT investor_id ,  avg(share_count) FROM TRANSACTIONS GROUP BY investor_id ORDER BY avg(share_count)"
+    },
+    {
+        "original_nl": "Show the average amount of transactions for different investors.",
+        "generalized_nl": "show [Show]|the|average|{COLUMN_PART} [amount]|of|{TABLE} [transactions]|for|different|{TABLE} [investors]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "different",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT investor_id ,  avg(amount_of_transaction) FROM TRANSACTIONS GROUP BY investor_id"
+    },
+    {
+        "original_nl": "Show the average amount of transactions for different lots.",
+        "generalized_nl": "show [Show]|the|average|{COLUMN_PART} [amount]|of|{TABLE} [transactions]|for|different|{TABLE} [lots]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "different",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.lot_id ,  avg(amount_of_transaction) FROM TRANSACTIONS AS T1 JOIN Transactions_Lots AS T2 ON T1.transaction_id  =  T2.transaction_id GROUP BY T2.lot_id"
+    },
+    {
+        "original_nl": "Show the average amount of transactions for different lots, ordered by average amount of transactions.",
+        "generalized_nl": "show [Show]|the|average|{COLUMN_PART} [amount]|of|{TABLE} [transactions]|for|different|{TABLE} [lots]|order [ordered]|by|average|{COLUMN_PART} [amount]|of|{TABLE} [transactions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "different",
+            "{TABLE}",
+            "order",
+            "by",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.lot_id ,  avg(amount_of_transaction) FROM TRANSACTIONS AS T1 JOIN Transactions_Lots AS T2 ON T1.transaction_id  =  T2.transaction_id GROUP BY T2.lot_id ORDER BY avg(amount_of_transaction)"
+    },
+    {
+        "original_nl": "Show the number of transactions with transaction type code \"SALE\" for different investors if it is larger than 0.",
+        "generalized_nl": "show [Show]|the|number|of|{TABLE} [transactions]|with|{COLUMN} [transaction type code]|{TABLE} [SALE]|for|different|{TABLE} [investors]|if|it|is|{NUMBER} [larger than 0]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{TABLE}",
+            "for",
+            "different",
+            "{TABLE}",
+            "if",
+            "it",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT investor_id ,  COUNT(*) FROM TRANSACTIONS WHERE transaction_type_code  =  \"SALE\" GROUP BY investor_id"
+    },
+    {
+        "original_nl": "Show the number of transactions for different investors.",
+        "generalized_nl": "show [Show]|the|number|of|{TABLE} [transactions]|for|different|{TABLE} [investors]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "different",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT investor_id ,  COUNT(*) FROM TRANSACTIONS GROUP BY investor_id"
+    },
+    {
+        "original_nl": "Show the transaction type code that occurs the fewest times.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [transaction type code]|that|occur [occurs]|the|fewest|time [times]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "occur",
+            "the",
+            "fewest",
+            "time"
+        ],
+        "original_sql": "SELECT transaction_type_code FROM TRANSACTIONS GROUP BY transaction_type_code ORDER BY COUNT(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the transaction type code that occurs the most frequently.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [transaction type code]|that|occur [occurs]|the|most|frequently",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "occur",
+            "the",
+            "most",
+            "frequently"
+        ],
+        "original_sql": "SELECT transaction_type_code FROM TRANSACTIONS GROUP BY transaction_type_code ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the description of the transaction type that occurs most frequently.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [description]|of|the|{TABLE} [transaction]|{COLUMN_PART} [type]|that|occur [occurs]|most|frequently",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "that",
+            "occur",
+            "most",
+            "frequently"
+        ],
+        "original_sql": "SELECT T1.transaction_type_description FROM Ref_Transaction_Types AS T1 JOIN TRANSACTIONS AS T2 ON T1.transaction_type_code  =  T2.transaction_type_code GROUP BY T1.transaction_type_code ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the id and details of the investor that has the largest number of transactions.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|and|{COLUMN_PART} [details]|of|the|{TABLE} [investor]|that|have [has]|the|large [largest]|number|of|{TABLE} [transactions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.investor_id ,  T1.Investor_details FROM INVESTORS AS T1 JOIN TRANSACTIONS AS T2 ON T1.investor_id  =  T2.investor_id GROUP BY T2.investor_id ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the id and details for the investors who have the top 3 number of transactions.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|and|{COLUMN_PART} [details]|for|the|{TABLE} [investors]|who|have|the|top|{VALUE} [3]|number|of|{TABLE} [transactions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "top",
+            "{VALUE}",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.investor_id ,  T1.Investor_details FROM INVESTORS AS T1 JOIN TRANSACTIONS AS T2 ON T1.investor_id  =  T2.investor_id GROUP BY T2.investor_id ORDER BY COUNT(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Show the ids of the investors who have at least two transactions.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|of|the|{TABLE} [investors]|who|have|{NUMBER} [at least two]|{TABLE} [transactions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.investor_id FROM INVESTORS AS T1 JOIN TRANSACTIONS AS T2 ON T1.investor_id  =  T2.investor_id GROUP BY T2.investor_id HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the ids and details of the investors who have at least two transactions with type code \"SALE\".",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|and|{COLUMN_PART} [details]|of|the|{TABLE} [investors]|who|have|{NUMBER} [at least two]|{TABLE} [transactions]|with|{COLUMN_PART} [type]|{COLUMN_PART} [code]|{TABLE} [SALE]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.investor_id ,  T1.Investor_details FROM INVESTORS AS T1 JOIN TRANSACTIONS AS T2 ON T1.investor_id  =  T2.investor_id WHERE T2.transaction_type_code  =  \"SALE\" GROUP BY T2.investor_id HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the dates of transactions with at least 100 share count or amount bigger than 100?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [dates]|of|{TABLE} [transactions]|with|{NUMBER} [at least 100]|{COLUMN} [share count]|or|{COLUMN_PART} [amount]|{NUMBER} [bigger than 100]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}",
+            "or",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT date_of_transaction FROM TRANSACTIONS WHERE share_count  >=  100 OR amount_of_transaction  >=  100"
+    },
+    {
+        "original_nl": "What are the details of all sales and purchases?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|of|all|{TABLE} [sales]|and|{TABLE} [purchases]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "and",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sales_details FROM sales UNION SELECT purchase_details FROM purchases"
+    },
+    {
+        "original_nl": "What are the details of the lots which are not used in any transactions?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|of|the|{TABLE} [lots]|which|are|not|use [used]|in|any|{TABLE} [transactions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "are",
+            "not",
+            "use",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT lot_details FROM Lots EXCEPT SELECT T1.lot_details FROM Lots AS T1 JOIN transactions_lots AS T2 ON T1.lot_id  =  T2.lot_id"
+    }
+]

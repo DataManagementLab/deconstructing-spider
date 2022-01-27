@@ -1,0 +1,1064 @@
+[
+    {
+        "original_nl": "How many countries are there in total?",
+        "generalized_nl": "How|many|{COLUMN} [countries]|are|there|in|{COLUMN_PART} [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "there",
+            "in",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM country"
+    },
+    {
+        "original_nl": "Count the number of countries.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{COLUMN} [countries]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM country"
+    },
+    {
+        "original_nl": "Show the country name and capital of all countries.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [country name]|and|{COLUMN} [capital]|of|all|{COLUMN} [countries]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Country_name ,  Capital FROM country"
+    },
+    {
+        "original_nl": "What are the names and capitals of each country?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [capitals]|of|each|{COLUMN} [country]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Country_name ,  Capital FROM country"
+    },
+    {
+        "original_nl": "Show all official native languages that contain the word \"English\".",
+        "generalized_nl": "show [Show]|all|{COLUMN} [official native languages]|that|contain|the|word|{VALUE} [English]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "that",
+            "contain",
+            "the",
+            "word",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Official_native_language FROM country WHERE Official_native_language LIKE \"%English%\""
+    },
+    {
+        "original_nl": "What are the official native languages that contain the string \"English\".",
+        "generalized_nl": "What|are|the|{COLUMN} [official native languages]|that|contain|the|string|{VALUE} [English]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "contain",
+            "the",
+            "string",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Official_native_language FROM country WHERE Official_native_language LIKE \"%English%\""
+    },
+    {
+        "original_nl": "Show all distinct positions of matches.",
+        "generalized_nl": "show [Show]|all|distinct|{COLUMN} [positions]|of|match [matches]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "match"
+        ],
+        "original_sql": "SELECT DISTINCT POSITION FROM match_season"
+    },
+    {
+        "original_nl": "What are the different positions for match season?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [positions]|for|{TABLE} [match season]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT POSITION FROM match_season"
+    },
+    {
+        "original_nl": "Show the players from college UCLA.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [players]|from|{COLUMN} [college]|{VALUE} [UCLA]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "from",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Player FROM match_season WHERE College  =  \"UCLA\""
+    },
+    {
+        "original_nl": "Who are the players from UCLA?",
+        "generalized_nl": "Who|are|the|{COLUMN} [players]|from|{VALUE} [UCLA]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "{COLUMN}",
+            "from",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Player FROM match_season WHERE College  =  \"UCLA\""
+    },
+    {
+        "original_nl": "Show the distinct position of players from college UCLA or Duke.",
+        "generalized_nl": "show [Show]|the|distinct|{COLUMN} [position]|of|{COLUMN} [players]|from|{COLUMN} [college]|{VALUE} [UCLA]|or|{VALUE} [Duke]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "from",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT POSITION FROM match_season WHERE College  =  \"UCLA\" OR College  =  \"Duke\""
+    },
+    {
+        "original_nl": "What are the different positions of players from UCLA or Duke colleges?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [positions]|of|{COLUMN} [players]|from|{VALUE} [UCLA]|or|{VALUE} [Duke]|{COLUMN} [colleges]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "from",
+            "{VALUE}",
+            "or",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT POSITION FROM match_season WHERE College  =  \"UCLA\" OR College  =  \"Duke\""
+    },
+    {
+        "original_nl": "Show the draft pick numbers and draft classes of players whose positions are defenders.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [draft pick numbers]|and|{COLUMN} [draft classes]|of|{COLUMN} [players]|whose|{COLUMN} [positions]|are|defender [defenders]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "defender"
+        ],
+        "original_sql": "SELECT Draft_Pick_Number ,  Draft_Class FROM match_season WHERE POSITION  =  \"Defender\""
+    },
+    {
+        "original_nl": "What are the draft pick numbers and draft classes for players who play the Defender position?",
+        "generalized_nl": "What|are|the|{COLUMN} [draft pick numbers]|and|{COLUMN} [draft classes]|for|{COLUMN} [players]|who|play|the|{VALUE} [Defender]|{COLUMN} [position]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{COLUMN}",
+            "who",
+            "play",
+            "the",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Draft_Pick_Number ,  Draft_Class FROM match_season WHERE POSITION  =  \"Defender\""
+    },
+    {
+        "original_nl": "How many distinct teams are involved in match seasons?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [teams]|are|involved|in|{TABLE} [match seasons]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "involved",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT Team) FROM match_season"
+    },
+    {
+        "original_nl": "Count the number of different teams involved in match season.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|different|{COLUMN} [teams]|involve [involved]|in|{TABLE} [match season]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "different",
+            "{COLUMN}",
+            "involve",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT Team) FROM match_season"
+    },
+    {
+        "original_nl": "Show the players and the years played.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [players]|and|the|{COLUMN} [years played]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Player ,  Years_Played FROM player"
+    },
+    {
+        "original_nl": "Who are the different players and how many years has each played?",
+        "generalized_nl": "Who|are|the|different|{COLUMN} [players]|and|how|many|{COLUMN_PART} [years]|has|each|{COLUMN_PART} [played]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "how",
+            "many",
+            "{COLUMN_PART}",
+            "has",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Player ,  Years_Played FROM player"
+    },
+    {
+        "original_nl": "Show all team names.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [team]|{COLUMN} [names]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM Team"
+    },
+    {
+        "original_nl": "What are the names of all teams?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{COLUMN} [teams]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM Team"
+    },
+    {
+        "original_nl": "Show the season, the player, and the name of the country that player belongs to.",
+        "generalized_nl": "show [Show]|{NE} [the season]|the|{COLUMN} [player]|and|the|{COLUMN} [name]|of|the|{COLUMN} [country]|that|{COLUMN} [player]|belong [belongs]|to",
+        "generalized_tokens": [
+            "show",
+            "{NE}",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "{COLUMN}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T2.Season ,  T2.Player ,  T1.Country_name FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country"
+    },
+    {
+        "original_nl": "For each player, what are their name, season, and country that they belong to?",
+        "generalized_nl": "For|each|{COLUMN} [player]|what|are|their|{COLUMN} [name]|{COLUMN} [season]|and|{COLUMN} [country]|that|they|belong|to",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "what",
+            "are",
+            "their",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "that",
+            "they",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T2.Season ,  T2.Player ,  T1.Country_name FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country"
+    },
+    {
+        "original_nl": "Which players are from Indonesia?",
+        "generalized_nl": "Which|{COLUMN} [players]|are|from|{VALUE} [Indonesia]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "are",
+            "from",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.Player FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T1.Country_name  =  \"Indonesia\""
+    },
+    {
+        "original_nl": "Who are the players from Indonesia?",
+        "generalized_nl": "Who|are|the|{COLUMN} [players]|from|{VALUE} [Indonesia]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "{COLUMN}",
+            "from",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.Player FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T1.Country_name  =  \"Indonesia\""
+    },
+    {
+        "original_nl": "What are the distinct positions of the players from a country whose capital is Dublin?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [positions]|of|the|{COLUMN} [players]|from|a|{COLUMN} [country]|whose|{COLUMN} [capital]|is|{VALUE} [Dublin]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "from",
+            "a",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Position FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T1.Capital  =  \"Dublin\""
+    },
+    {
+        "original_nl": "Give the different positions of players who play for the country with the capital Dublin.",
+        "generalized_nl": "give [Give]|the|different|{COLUMN} [positions]|of|{COLUMN} [players]|who|play|for|the|{COLUMN} [country]|with|the|{COLUMN} [capital]|{VALUE} [Dublin]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "play",
+            "for",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Position FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T1.Capital  =  \"Dublin\""
+    },
+    {
+        "original_nl": "What are the official languages of the countries of players from Maryland or Duke college?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [official]|{COLUMN_PART} [languages]|of|the|{COLUMN} [countries]|of|{COLUMN} [players]|from|{VALUE} [Maryland]|or|{VALUE} [Duke]|{COLUMN} [college]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "from",
+            "{VALUE}",
+            "or",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Official_native_language FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T2.College  =  \"Maryland\" OR T2.College  =  \"Duke\""
+    },
+    {
+        "original_nl": "Return the official native languages of countries who have players from Maryland or Duke colleges.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [official native languages]|of|{COLUMN} [countries]|who|have|{COLUMN} [players]|from|{VALUE} [Maryland]|or|{VALUE} [Duke]|{COLUMN} [colleges]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "from",
+            "{VALUE}",
+            "or",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Official_native_language FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T2.College  =  \"Maryland\" OR T2.College  =  \"Duke\""
+    },
+    {
+        "original_nl": "How many distinct official languages are there among countries of players whose positions are defenders.",
+        "generalized_nl": "How|many|distinct|{COLUMN_PART} [official]|{COLUMN_PART} [languages]|are|there|among|{COLUMN} [countries]|of|{COLUMN} [players]|whose|{COLUMN} [positions]|are|defender [defenders]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "are",
+            "there",
+            "among",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "defender"
+        ],
+        "original_sql": "SELECT count(DISTINCT T1.Official_native_language) FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T2.Position  =  \"Defender\""
+    },
+    {
+        "original_nl": "Count the number of different official languages corresponding to countries that players who play Defender are from.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|different|{COLUMN_PART} [official]|{COLUMN_PART} [languages]|match [corresponding]|to|{COLUMN} [countries]|that|{COLUMN} [players]|who|play|{VALUE} [Defender]|are|from",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "different",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "match",
+            "to",
+            "{COLUMN}",
+            "that",
+            "{COLUMN}",
+            "who",
+            "play",
+            "{VALUE}",
+            "are",
+            "from"
+        ],
+        "original_sql": "SELECT count(DISTINCT T1.Official_native_language) FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T2.Position  =  \"Defender\""
+    },
+    {
+        "original_nl": "Show the season, the player, and the name of the team that players belong to.",
+        "generalized_nl": "show [Show]|{NE} [the season]|the|{COLUMN} [player]|and|the|{COLUMN} [name]|of|the|{COLUMN} [team]|that|{COLUMN} [players]|belong|to",
+        "generalized_tokens": [
+            "show",
+            "{NE}",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "{COLUMN}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T1.Season ,  T1.Player ,  T2.Name FROM match_season AS T1 JOIN team AS T2 ON T1.Team  =  T2.Team_id"
+    },
+    {
+        "original_nl": "Who are the different players, what season do they play in, and what is the name of the team they are on?",
+        "generalized_nl": "Who|are|the|different|{COLUMN} [players]|what|{COLUMN} [season]|do|they|play|in|and|what|is|the|{COLUMN} [name]|of|the|{COLUMN} [team]|they|are|on",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "what",
+            "{COLUMN}",
+            "do",
+            "they",
+            "play",
+            "in",
+            "and",
+            "what",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "they",
+            "are",
+            "on"
+        ],
+        "original_sql": "SELECT T1.Season ,  T1.Player ,  T2.Name FROM match_season AS T1 JOIN team AS T2 ON T1.Team  =  T2.Team_id"
+    },
+    {
+        "original_nl": "Show the positions of the players from the team with name \"Ryley Goldner\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [positions]|of|the|{COLUMN} [players]|from|the|{COLUMN} [team]|with|{COLUMN} [name]|{NE} [Ryley Goldner]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "from",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.Position FROM match_season AS T1 JOIN team AS T2 ON T1.Team  =  T2.Team_id WHERE T2.Name  =  \"Ryley Goldner\""
+    },
+    {
+        "original_nl": "Return the positions of players on the team Ryley Goldner.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [positions]|of|{COLUMN} [players]|on|the|{COLUMN} [team]|{NE} [Ryley Goldner]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "on",
+            "the",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.Position FROM match_season AS T1 JOIN team AS T2 ON T1.Team  =  T2.Team_id WHERE T2.Name  =  \"Ryley Goldner\""
+    },
+    {
+        "original_nl": "How many distinct colleges are associated with players from the team with name \"Columbus Crew\".",
+        "generalized_nl": "How|many|distinct|{COLUMN} [colleges]|are|associate [associated]|with|{COLUMN} [players]|from|the|{COLUMN} [team]|with|{COLUMN} [name]|Columbus|Crew",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "associate",
+            "with",
+            "{COLUMN}",
+            "from",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "Columbus",
+            "Crew"
+        ],
+        "original_sql": "SELECT count(DISTINCT T1.College) FROM match_season AS T1 JOIN team AS T2 ON T1.Team  =  T2.Team_id WHERE T2.Name  =  \"Columbus Crew\""
+    },
+    {
+        "original_nl": "Count the number of different colleges that players who play for Columbus Crew are from.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|different|{COLUMN} [colleges]|that|{COLUMN} [players]|who|play|for|{NE} [Columbus Crew]|are|from",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "different",
+            "{COLUMN}",
+            "that",
+            "{COLUMN}",
+            "who",
+            "play",
+            "for",
+            "{NE}",
+            "are",
+            "from"
+        ],
+        "original_sql": "SELECT count(DISTINCT T1.College) FROM match_season AS T1 JOIN team AS T2 ON T1.Team  =  T2.Team_id WHERE T2.Name  =  \"Columbus Crew\""
+    },
+    {
+        "original_nl": "Show the players and years played for players from team \"Columbus Crew\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [players]|and|{COLUMN} [years played]|for|{COLUMN} [players]|from|{COLUMN} [team]|Columbus|Crew",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{COLUMN}",
+            "from",
+            "{COLUMN}",
+            "Columbus",
+            "Crew"
+        ],
+        "original_sql": "SELECT T1.Player , T1.Years_Played FROM player AS T1 JOIN team AS T2 ON T1.Team  =  T2.Team_id WHERE T2.Name  =  \"Columbus Crew\""
+    },
+    {
+        "original_nl": "What are the players who played for Columbus Crew, and how many years did each play for?",
+        "generalized_nl": "What|are|the|{COLUMN} [players]|who|{COLUMN_PART} [played]|for|{NE} [Columbus Crew]|and|how|{NE} [many years]|do [did]|each|play|for",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "who",
+            "{COLUMN_PART}",
+            "for",
+            "{NE}",
+            "and",
+            "how",
+            "{NE}",
+            "do",
+            "each",
+            "play",
+            "for"
+        ],
+        "original_sql": "SELECT T1.Player , T1.Years_Played FROM player AS T1 JOIN team AS T2 ON T1.Team  =  T2.Team_id WHERE T2.Name  =  \"Columbus Crew\""
+    },
+    {
+        "original_nl": "Show the position of players and the corresponding number of players.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [position]|of|{COLUMN} [players]|and|the|match [corresponding]|{COLUMN_PART} [number]|of|{COLUMN} [players]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT POSITION ,  COUNT(*) FROM match_season GROUP BY POSITION"
+    },
+    {
+        "original_nl": "How many players played each position?",
+        "generalized_nl": "How|many|{COLUMN} [players]|{COLUMN_PART} [played]|each|{COLUMN} [position]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT POSITION ,  COUNT(*) FROM match_season GROUP BY POSITION"
+    },
+    {
+        "original_nl": "Show the country names and the corresponding number of players.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [country]|{COLUMN} [names]|and|the|match [corresponding]|{COLUMN_PART} [number]|of|{COLUMN} [players]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Country_name ,  COUNT(*) FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country GROUP BY T1.Country_name"
+    },
+    {
+        "original_nl": "How many players are from each country?",
+        "generalized_nl": "How|many|{COLUMN} [players]|are|from|each|{COLUMN} [country]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "from",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Country_name ,  COUNT(*) FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country GROUP BY T1.Country_name"
+    },
+    {
+        "original_nl": "Return all players sorted by college in ascending alphabetical order.",
+        "generalized_nl": "return [Return]|all|{COLUMN} [players]|screen [sorted]|by|{COLUMN} [college]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "return",
+            "all",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT player FROM match_season ORDER BY College ASC"
+    },
+    {
+        "original_nl": "What are all the players who played in match season, sorted by college in ascending alphabetical order?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [players]|who|{COLUMN_PART} [played]|in|{TABLE} [match season]|screen [sorted]|by|{COLUMN} [college]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "who",
+            "{COLUMN_PART}",
+            "in",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT player FROM match_season ORDER BY College ASC"
+    },
+    {
+        "original_nl": "Show the most common position of players in match seasons.",
+        "generalized_nl": "show [Show]|the|most|common|{COLUMN} [position]|of|{COLUMN} [players]|in|{TABLE} [match seasons]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT POSITION FROM match_season GROUP BY POSITION ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the position that is most common among players in match seasons?",
+        "generalized_nl": "What|is|the|{COLUMN} [position]|that|is|most|common|among|{COLUMN} [players]|in|{TABLE} [match seasons]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "most",
+            "common",
+            "among",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT POSITION FROM match_season GROUP BY POSITION ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the top 3 most common colleges of players in match seasons.",
+        "generalized_nl": "show [Show]|the|top|{VALUE} [3]|most|common|{COLUMN} [colleges]|of|{COLUMN} [players]|in|{TABLE} [match seasons]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "top",
+            "{VALUE}",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT College FROM match_season GROUP BY College ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What are the three colleges from which the most players are from?",
+        "generalized_nl": "What|are|the|{NUMBER} [three]|{COLUMN} [colleges]|from|which|the|most|{COLUMN} [players]|are|from",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{NUMBER}",
+            "{COLUMN}",
+            "from",
+            "which",
+            "the",
+            "most",
+            "{COLUMN}",
+            "are",
+            "from"
+        ],
+        "original_sql": "SELECT College FROM match_season GROUP BY College ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Show the name of colleges that have at least two players.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|of|{COLUMN} [colleges]|that|have|{NUMBER} [at least two]|{COLUMN} [players]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT College FROM match_season GROUP BY College HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the names of all colleges that have two or more players?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{COLUMN} [colleges]|that|have|{NUMBER} [two]|or|more|{COLUMN} [players]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT College FROM match_season GROUP BY College HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the name of colleges that have at least two players in descending alphabetical order.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|of|{COLUMN} [colleges]|that|have|{NUMBER} [at least two]|{COLUMN} [players]|in|descend [descending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT College FROM match_season GROUP BY College HAVING count(*)  >=  2 ORDER BY College DESC"
+    },
+    {
+        "original_nl": "What are the names of colleges that have two or more players, listed in descending alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{COLUMN} [colleges]|that|have|{NUMBER} [two]|or|more|{COLUMN} [players]|list [listed]|in|descend [descending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{COLUMN}",
+            "list",
+            "in",
+            "descend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT College FROM match_season GROUP BY College HAVING count(*)  >=  2 ORDER BY College DESC"
+    },
+    {
+        "original_nl": "What are the names of teams that do no have match season record?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{COLUMN} [teams]|that|do|no|have|{TABLE} [match season]|record",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "do",
+            "no",
+            "have",
+            "{TABLE}",
+            "record"
+        ],
+        "original_sql": "SELECT Name FROM team WHERE Team_id NOT IN (SELECT Team FROM match_season)"
+    },
+    {
+        "original_nl": "Return the names of teams that have no match season record.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [names]|of|{COLUMN} [teams]|that|have|no|{TABLE} [match season]|record",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "no",
+            "{TABLE}",
+            "record"
+        ],
+        "original_sql": "SELECT Name FROM team WHERE Team_id NOT IN (SELECT Team FROM match_season)"
+    },
+    {
+        "original_nl": "What are the names of countries that have both players with position forward and players with position defender?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{COLUMN} [countries]|that|have|both|{COLUMN} [players]|with|{COLUMN} [position]|ahead [forward]|and|{COLUMN} [players]|with|{COLUMN} [position]|defender",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "ahead",
+            "and",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "defender"
+        ],
+        "original_sql": "SELECT T1.Country_name FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T2.Position  =  \"Forward\" INTERSECT SELECT T1.Country_name FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T2.Position  =  \"Defender\""
+    },
+    {
+        "original_nl": "Return the names of countries that have players that play the Forward position, as well as players who play the Defender position.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [names]|of|{COLUMN} [countries]|that|have|{COLUMN} [players]|that|play|the|{VALUE} [Forward]|{COLUMN} [position]|equally [as]|well|as|{COLUMN} [players]|who|play|the|{VALUE} [Defender]|{COLUMN} [position]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "that",
+            "play",
+            "the",
+            "{VALUE}",
+            "{COLUMN}",
+            "equally",
+            "well",
+            "as",
+            "{COLUMN}",
+            "who",
+            "play",
+            "the",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Country_name FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T2.Position  =  \"Forward\" INTERSECT SELECT T1.Country_name FROM country AS T1 JOIN match_season AS T2 ON T1.Country_id  =  T2.Country WHERE T2.Position  =  \"Defender\""
+    },
+    {
+        "original_nl": "Which college have both players with position midfielder and players with position defender?",
+        "generalized_nl": "Which|{COLUMN} [college]|have|both|{COLUMN} [players]|with|{COLUMN} [position]|midfielder|and|{COLUMN} [players]|with|{COLUMN} [position]|defender",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "both",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "midfielder",
+            "and",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "defender"
+        ],
+        "original_sql": "SELECT College FROM match_season WHERE POSITION  =  \"Midfielder\" INTERSECT SELECT College FROM match_season WHERE POSITION  =  \"Defender\""
+    },
+    {
+        "original_nl": "Return the colleges that have players who play the Midfielder position, as well as players who play the Defender position.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [colleges]|that|have|{COLUMN} [players]|who|play|the|{VALUE} [Midfielder]|{COLUMN} [position]|equally [as]|well|as|{COLUMN} [players]|who|play|the|{VALUE} [Defender]|{COLUMN} [position]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "who",
+            "play",
+            "the",
+            "{VALUE}",
+            "{COLUMN}",
+            "equally",
+            "well",
+            "as",
+            "{COLUMN}",
+            "who",
+            "play",
+            "the",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT College FROM match_season WHERE POSITION  =  \"Midfielder\" INTERSECT SELECT College FROM match_season WHERE POSITION  =  \"Defender\""
+    }
+]

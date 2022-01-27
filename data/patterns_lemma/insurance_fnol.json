@@ -1,0 +1,647 @@
+[
+    {
+        "original_nl": "Find all the phone numbers.",
+        "generalized_nl": "find [Find]|all|the|{COLUMN_PART} [phone]|number [numbers]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "number"
+        ],
+        "original_sql": "SELECT customer_phone FROM available_policies"
+    },
+    {
+        "original_nl": "What are all the phone numbers?",
+        "generalized_nl": "What|are|all|the|{COLUMN_PART} [phone]|number [numbers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "number"
+        ],
+        "original_sql": "SELECT customer_phone FROM available_policies"
+    },
+    {
+        "original_nl": "What are the customer phone numbers under the policy \"Life Insurance\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [customer phone]|number [numbers]|under|the|{COLUMN_PART} [policy]|life [Life]|insurance [Insurance]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "number",
+            "under",
+            "the",
+            "{COLUMN_PART}",
+            "life",
+            "insurance"
+        ],
+        "original_sql": "SELECT customer_phone FROM available_policies WHERE policy_type_code  =  \"Life Insurance\""
+    },
+    {
+        "original_nl": "What are the phone numbers of customers using the policy with the code \"Life Insurance\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [phone]|number [numbers]|of|{TABLE} [customers]|use [using]|the|{COLUMN_PART} [policy]|with|the|{COLUMN_PART} [code]|life [Life]|insurance [Insurance]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "number",
+            "of",
+            "{TABLE}",
+            "use",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "life",
+            "insurance"
+        ],
+        "original_sql": "SELECT customer_phone FROM available_policies WHERE policy_type_code  =  \"Life Insurance\""
+    },
+    {
+        "original_nl": "Which policy type has the most records in the database?",
+        "generalized_nl": "Which|{COLUMN_PART} [policy]|{COLUMN_PART} [type]|have [has]|the|most|record [records]|in|the|database",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "have",
+            "the",
+            "most",
+            "record",
+            "in",
+            "the",
+            "database"
+        ],
+        "original_sql": "SELECT policy_type_code FROM available_policies GROUP BY policy_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which policy type appears most frequently in the available policies?",
+        "generalized_nl": "Which|{COLUMN_PART} [policy]|{COLUMN_PART} [type]|appear [appears]|most|frequently|in|the|{TABLE} [available policies]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "appear",
+            "most",
+            "frequently",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT policy_type_code FROM available_policies GROUP BY policy_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are all the customer phone numbers under the most popular policy type?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [customer phone]|number [numbers]|under|the|most|popular|{COLUMN_PART} [policy]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "number",
+            "under",
+            "the",
+            "most",
+            "popular",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT customer_phone FROM available_policies WHERE policy_type_code  =  (SELECT policy_type_code FROM available_policies GROUP BY policy_type_code ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Find the phone numbers of customers using the most common policy type among the available policies.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [phone]|number [numbers]|of|{TABLE} [customers]|use [using]|the|most|common|{COLUMN_PART} [policy]|{COLUMN_PART} [type]|among|the|{TABLE} [available policies]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "number",
+            "of",
+            "{TABLE}",
+            "use",
+            "the",
+            "most",
+            "common",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "among",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT customer_phone FROM available_policies WHERE policy_type_code  =  (SELECT policy_type_code FROM available_policies GROUP BY policy_type_code ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Find the policy type used by more than 4 customers.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [policy]|{COLUMN_PART} [type]|use [used]|by|{NUMBER} [more than 4]|{TABLE} [customers]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "use",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT policy_type_code FROM available_policies GROUP BY policy_type_code HAVING count(*)  >  4"
+    },
+    {
+        "original_nl": "Find the total and average amount of settlements.",
+        "generalized_nl": "find [Find]|the|entire [total]|and|average|{COLUMN_PART} [amount]|of|{TABLE} [settlements]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "and",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(settlement_amount) ,  avg(settlement_amount) FROM settlements"
+    },
+    {
+        "original_nl": "Return the sum and average of all settlement amounts.",
+        "generalized_nl": "return [Return]|the|sum|and|average|of|all|{COLUMN} [settlement amounts]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "sum",
+            "and",
+            "average",
+            "of",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(settlement_amount) ,  avg(settlement_amount) FROM settlements"
+    },
+    {
+        "original_nl": "Find the name of services that have been used for more than 2 times in first notification of loss.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [services]|that|have|been|use [used]|for|{NUMBER} [more than 2]|time [times]|in|{TABLE} [first notification of loss]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "been",
+            "use",
+            "for",
+            "{NUMBER}",
+            "time",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t2.service_name FROM first_notification_of_loss AS t1 JOIN services AS t2 ON t1.service_id  =  t2.service_id GROUP BY t1.service_id HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "What is the effective date of the claim that has the largest amount of total settlement?",
+        "generalized_nl": "What|is|the|{COLUMN} [effective date]|of|the|{TABLE} [claim]|that|have [has]|the|large [largest]|{COLUMN_PART} [amount]|of|entire [total]|{TABLE} [settlement]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "entire",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.Effective_Date FROM claims AS t1 JOIN settlements AS t2 ON t1.claim_id  =  t2.claim_id GROUP BY t1.claim_id ORDER BY sum(t2.settlement_amount) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many policies are listed for the customer named \"Dayana Robel\"?",
+        "generalized_nl": "How|many|policy [policies]|are|list [listed]|for|the|{TABLE} [customer]|name [named]|{NE} [Dayana Robel]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "policy",
+            "are",
+            "list",
+            "for",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers AS t1 JOIN customers_policies AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.customer_name  =  \"Dayana Robel\""
+    },
+    {
+        "original_nl": "Count the total number of policies used by the customer named \"Dayana Robel\".",
+        "generalized_nl": "count [Count]|the|entire [total]|number|of|policy [policies]|use [used]|by|the|{TABLE} [customer]|name [named]|{NE} [Dayana Robel \"]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "policy",
+            "use",
+            "by",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM customers AS t1 JOIN customers_policies AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.customer_name  =  \"Dayana Robel\""
+    },
+    {
+        "original_nl": "What is the name of the customer who has the most policies listed?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|who|have [has]|the|most|policy [policies]|list [listed]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "policy",
+            "list"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN customers_policies AS t2 ON t1.customer_id  =  t2.customer_id GROUP BY t1.customer_name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are all the policy types of the customer named \"Dayana Robel\"?",
+        "generalized_nl": "What|are|all|the|{COLUMN_PART} [policy]|type [types]|of|the|{TABLE} [customer]|name [named]|{NE} [Dayana Robel]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "type",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT t3.policy_type_code FROM customers AS t1 JOIN customers_policies AS t2 ON t1.customer_id  =  t2.customer_id JOIN available_policies AS t3 ON t2.policy_id  =  t3.policy_id WHERE t1.customer_name  =  \"Dayana Robel\""
+    },
+    {
+        "original_nl": "Tell me the types of the policy used by the customer named \"Dayana Robel\".",
+        "generalized_nl": "tell [Tell]|me|the|type [types]|of|the|{COLUMN_PART} [policy]|use [used]|by|the|{TABLE} [customer]|name [named]|{NE} [Dayana Robel]",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "type",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "use",
+            "by",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT t3.policy_type_code FROM customers AS t1 JOIN customers_policies AS t2 ON t1.customer_id  =  t2.customer_id JOIN available_policies AS t3 ON t2.policy_id  =  t3.policy_id WHERE t1.customer_name  =  \"Dayana Robel\""
+    },
+    {
+        "original_nl": "What are all the policy types of the customer that has the most policies listed?",
+        "generalized_nl": "What|are|all|the|{COLUMN_PART} [policy]|type [types]|of|the|{TABLE} [customer]|that|have [has]|the|most|policy [policies]|list [listed]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "type",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "policy",
+            "list"
+        ],
+        "original_sql": "SELECT DISTINCT t3.policy_type_code FROM customers AS t1 JOIN customers_policies AS t2 ON t1.customer_id  =  t2.customer_id JOIN available_policies AS t3 ON t2.policy_id  =  t3.policy_id WHERE t1.customer_name  =  (SELECT t1.customer_name FROM customers AS t1 JOIN customers_policies AS t2 ON t1.customer_id  =  t2.customer_id GROUP BY t1.customer_name ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "List all the policy types used by the customer enrolled in the most policies.",
+        "generalized_nl": "list [List]|all|the|{COLUMN_PART} [policy]|type [types]|use [used]|by|the|{TABLE} [customer]|enroll [enrolled]|in|the|most|policy [policies]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "type",
+            "use",
+            "by",
+            "the",
+            "{TABLE}",
+            "enroll",
+            "in",
+            "the",
+            "most",
+            "policy"
+        ],
+        "original_sql": "SELECT DISTINCT t3.policy_type_code FROM customers AS t1 JOIN customers_policies AS t2 ON t1.customer_id  =  t2.customer_id JOIN available_policies AS t3 ON t2.policy_id  =  t3.policy_id WHERE t1.customer_name  =  (SELECT t1.customer_name FROM customers AS t1 JOIN customers_policies AS t2 ON t1.customer_id  =  t2.customer_id GROUP BY t1.customer_name ORDER BY count(*) DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "List all the services in the alphabetical order.",
+        "generalized_nl": "list [List]|all|the|{TABLE} [services]|in|the|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT service_name FROM services ORDER BY service_name"
+    },
+    {
+        "original_nl": "Give me a list of all the service names sorted alphabetically.",
+        "generalized_nl": "give [Give]|me|a|list|of|all|the|{COLUMN} [service names]|screen [sorted]|alphabetically",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "all",
+            "the",
+            "{COLUMN}",
+            "screen",
+            "alphabetically"
+        ],
+        "original_sql": "SELECT service_name FROM services ORDER BY service_name"
+    },
+    {
+        "original_nl": "How many services are there?",
+        "generalized_nl": "How|many|{TABLE} [services]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM services"
+    },
+    {
+        "original_nl": "Count the total number of available services.",
+        "generalized_nl": "count [Count]|the|entire [total]|number|of|available|{TABLE} [services]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "available",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM services"
+    },
+    {
+        "original_nl": "Find the names of users who do not have a first notification of loss record.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|user [users]|who|do|not|have|a|{TABLE} [first notification of loss]|record",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "user",
+            "who",
+            "do",
+            "not",
+            "have",
+            "a",
+            "{TABLE}",
+            "record"
+        ],
+        "original_sql": "SELECT customer_name FROM customers EXCEPT SELECT t1.customer_name FROM customers AS t1 JOIN first_notification_of_loss AS t2 ON t1.customer_id  =  t2.customer_id"
+    },
+    {
+        "original_nl": "Find the names of customers who have used either the service \"Close a policy\" or the service \"Upgrade a policy\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|have|use [used]|either|the|{TABLE} [service]|close [Close]|a|{COLUMN_PART} [policy]|or|the|{TABLE} [service]|upgrade [Upgrade]|a|{COLUMN_PART} [policy]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "use",
+            "either",
+            "the",
+            "{TABLE}",
+            "close",
+            "a",
+            "{COLUMN_PART}",
+            "or",
+            "the",
+            "{TABLE}",
+            "upgrade",
+            "a",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN first_notification_of_loss AS t2 ON t1.customer_id  =  t2.customer_id JOIN services AS t3 ON t2.service_id  =  t3.service_id WHERE t3.service_name  =  \"Close a policy\" OR t3.service_name  =  \"Upgrade a policy\""
+    },
+    {
+        "original_nl": "Find the names of customers who have used both the service \"Close a policy\" and the service \"New policy application\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|have|use [used]|both|the|{TABLE} [service]|close [Close]|a|{COLUMN_PART} [policy]|and|the|{TABLE} [service]|new [New]|{COLUMN_PART} [policy]|application",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "use",
+            "both",
+            "the",
+            "{TABLE}",
+            "close",
+            "a",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{TABLE}",
+            "new",
+            "{COLUMN_PART}",
+            "application"
+        ],
+        "original_sql": "SELECT t1.customer_name FROM customers AS t1 JOIN first_notification_of_loss AS t2 ON t1.customer_id  =  t2.customer_id JOIN services AS t3 ON t2.service_id  =  t3.service_id WHERE t3.service_name  =  \"Close a policy\" INTERSECT SELECT t1.customer_name FROM customers AS t1 JOIN first_notification_of_loss AS t2 ON t1.customer_id  =  t2.customer_id JOIN services AS t3 ON t2.service_id  =  t3.service_id WHERE t3.service_name  =  \"New policy application\""
+    },
+    {
+        "original_nl": "Find the IDs of customers whose name contains \"Diana\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [IDs]|of|{TABLE} [customers]|whose|{COLUMN_PART} [name]|contain [contains]|{NE} [Diana]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "contain",
+            "{NE}"
+        ],
+        "original_sql": "SELECT customer_id FROM customers WHERE customer_name LIKE \"%Diana%\""
+    },
+    {
+        "original_nl": "What are the IDs of customers who have \"Diana\" in part of their names?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [IDs]|of|{TABLE} [customers]|who|have|{NE} [Diana]|in|part|of|their|{COLUMN_PART} [names]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NE}",
+            "in",
+            "part",
+            "of",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT customer_id FROM customers WHERE customer_name LIKE \"%Diana%\""
+    },
+    {
+        "original_nl": "What are the maximum and minimum settlement amount on record?",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [settlement amount]|on|record",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "on",
+            "record"
+        ],
+        "original_sql": "SELECT max(settlement_amount) ,  min(settlement_amount) FROM settlements"
+    },
+    {
+        "original_nl": "Find the maximum and minimum settlement amount.",
+        "generalized_nl": "find [Find]|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [settlement amount]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(settlement_amount) ,  min(settlement_amount) FROM settlements"
+    },
+    {
+        "original_nl": "List all the customers in increasing order of IDs.",
+        "generalized_nl": "list [List]|all|the|{TABLE} [customers]|in|increase [increasing]|order|of|{COLUMN_PART} [IDs]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "increase",
+            "order",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT customer_id ,  customer_name FROM customers ORDER BY customer_id ASC"
+    },
+    {
+        "original_nl": "What is the ordered list of customer ids?",
+        "generalized_nl": "What|is|the|order [ordered]|list|of|{COLUMN} [customer ids]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "order",
+            "list",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT customer_id ,  customer_name FROM customers ORDER BY customer_id ASC"
+    },
+    {
+        "original_nl": "Retrieve the open and close dates of all the policies associated with the customer whose name contains \"Diana\"",
+        "generalized_nl": "retrieve [Retrieve]|the|open|and|close|{COLUMN_PART} [dates]|of|all|the|policy [policies]|associate [associated]|with|the|{TABLE} [customer]|whose|{COLUMN_PART} [name]|contain [contains]|{NE} [Diana]",
+        "generalized_tokens": [
+            "retrieve",
+            "the",
+            "open",
+            "and",
+            "close",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "policy",
+            "associate",
+            "with",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "contain",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t2.date_opened ,  t2.date_closed FROM customers AS t1 JOIN customers_policies AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.customer_name LIKE \"%Diana%\""
+    },
+    {
+        "original_nl": "What are the open and close dates of all the policies used by the customer who have \"Diana\" in part of their names?",
+        "generalized_nl": "What|are|the|open|and|close|{COLUMN_PART} [dates]|of|all|the|policy [policies]|use [used]|by|the|{TABLE} [customer]|who|have|{NE} [Diana]|in|part|of|their|{COLUMN_PART} [names]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "open",
+            "and",
+            "close",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "policy",
+            "use",
+            "by",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NE}",
+            "in",
+            "part",
+            "of",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t2.date_opened ,  t2.date_closed FROM customers AS t1 JOIN customers_policies AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.customer_name LIKE \"%Diana%\""
+    }
+]

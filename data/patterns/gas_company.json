@@ -1,0 +1,900 @@
+[
+    {
+        "original_nl": "How many gas companies are there?",
+        "generalized_nl": "How|many|gas|{COLUMN} [companies]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "gas",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM company"
+    },
+    {
+        "original_nl": "What is the total number of companies?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{COLUMN} [companies]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM company"
+    },
+    {
+        "original_nl": "List the company name and rank for all companies in the decreasing order of their sales.",
+        "generalized_nl": "list [List]|the|{COLUMN} [company]|{COLUMN_PART} [name]|and|{COLUMN} [rank]|for|all|{COLUMN} [companies]|in|the|decrease [decreasing]|order|of|their|{COLUMN_PART} [sales]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN}",
+            "in",
+            "the",
+            "decrease",
+            "order",
+            "of",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT company ,  rank FROM company ORDER BY Sales_billion DESC"
+    },
+    {
+        "original_nl": "What is the name and rank of every company ordered by descending number of sales?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|and|{COLUMN} [rank]|of|every|{COLUMN} [company]|order [ordered]|by|descend [descending]|number|of|{COLUMN_PART} [sales]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "every",
+            "{COLUMN}",
+            "order",
+            "by",
+            "descend",
+            "number",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT company ,  rank FROM company ORDER BY Sales_billion DESC"
+    },
+    {
+        "original_nl": "Show the company name and the main industry for all companies whose headquarters are not from USA.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [company]|{COLUMN_PART} [name]|and|the|{COLUMN} [main industry]|for|all|{COLUMN} [companies]|whose|{COLUMN} [headquarters]|are|not|from|{VALUE} [USA]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "not",
+            "from",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT company ,  main_industry FROM company WHERE headquarters != 'USA'"
+    },
+    {
+        "original_nl": "What are the companies and main industries of all companies that are not headquartered in the United States?",
+        "generalized_nl": "What|are|the|{COLUMN} [companies]|and|{COLUMN} [main industries]|of|all|{COLUMN} [companies]|that|are|not|headquarter [headquartered]|in|{NE} [the United States]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "that",
+            "are",
+            "not",
+            "headquarter",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT company ,  main_industry FROM company WHERE headquarters != 'USA'"
+    },
+    {
+        "original_nl": "Show all company names and headquarters in the descending order of market value.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [company]|{COLUMN_PART} [names]|and|{COLUMN} [headquarters]|in|the|descend [descending]|order|of|{COLUMN} [market value]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "in",
+            "the",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT company ,  headquarters FROM company ORDER BY market_value DESC"
+    },
+    {
+        "original_nl": "What are the names and headquarters of all companies ordered by descending market value?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|{COLUMN} [headquarters]|of|all|{COLUMN} [companies]|order [ordered]|by|descend [descending]|{COLUMN} [market value]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "order",
+            "by",
+            "descend",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT company ,  headquarters FROM company ORDER BY market_value DESC"
+    },
+    {
+        "original_nl": "Show minimum, maximum, and average market value for all companies.",
+        "generalized_nl": "show [Show]|minimal [minimum]|maximal [maximum]|and|average|{COLUMN} [market value]|for|all|{COLUMN} [companies]",
+        "generalized_tokens": [
+            "show",
+            "minimal",
+            "maximal",
+            "and",
+            "average",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT min(market_value) ,  max(market_value) ,  avg(market_value) FROM company"
+    },
+    {
+        "original_nl": "What is the minimum, maximum, and average market value for every company?",
+        "generalized_nl": "What|is|the|minimal [minimum]|maximal [maximum]|and|average|{COLUMN} [market value]|for|every|{COLUMN} [company]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "minimal",
+            "maximal",
+            "and",
+            "average",
+            "{COLUMN}",
+            "for",
+            "every",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT min(market_value) ,  max(market_value) ,  avg(market_value) FROM company"
+    },
+    {
+        "original_nl": "Show all main industry for all companies.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [main industry]|for|all|{COLUMN} [companies]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT main_industry FROM company"
+    },
+    {
+        "original_nl": "What are the different main industries for all companies?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [main industries]|for|all|{COLUMN} [companies]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT main_industry FROM company"
+    },
+    {
+        "original_nl": "List all headquarters and the number of companies in each headquarter.",
+        "generalized_nl": "list [List]|all|{COLUMN} [headquarters]|and|the|number|of|{COLUMN} [companies]|in|each|headquarter",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "in",
+            "each",
+            "headquarter"
+        ],
+        "original_sql": "SELECT headquarters ,  count(*) FROM company GROUP BY headquarters"
+    },
+    {
+        "original_nl": "For each headquarter, what are the headquarter and how many companies are centered there?",
+        "generalized_nl": "For|each|headquarter|what|are|the|headquarter|and|how|many|{COLUMN} [companies]|are|focus_on [centered]|there",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "headquarter",
+            "what",
+            "are",
+            "the",
+            "headquarter",
+            "and",
+            "how",
+            "many",
+            "{COLUMN}",
+            "are",
+            "focus_on",
+            "there"
+        ],
+        "original_sql": "SELECT headquarters ,  count(*) FROM company GROUP BY headquarters"
+    },
+    {
+        "original_nl": "Show all main industry and total market value in each industry.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [main industry]|and|entire [total]|{COLUMN} [market value]|in|each|{COLUMN_PART} [industry]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "entire",
+            "{COLUMN}",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT main_industry ,  sum(market_value) FROM company GROUP BY main_industry"
+    },
+    {
+        "original_nl": "What are the main indstries and total market value for each industry?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [main]|indstries|and|entire [total]|{COLUMN} [market value]|for|each|{COLUMN_PART} [industry]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "indstries",
+            "and",
+            "entire",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT main_industry ,  sum(market_value) FROM company GROUP BY main_industry"
+    },
+    {
+        "original_nl": "List the main industry with highest total market value and its number of companies.",
+        "generalized_nl": "list [List]|the|{COLUMN} [main industry]|with|high [highest]|entire [total]|{COLUMN} [market value]|and|its|number|of|{COLUMN} [companies]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "with",
+            "high",
+            "entire",
+            "{COLUMN}",
+            "and",
+            "its",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT main_industry ,  count(*) FROM company GROUP BY main_industry ORDER BY sum(market_value) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "For each main industry, what is the total number of companies for the industry with the highest total market value?",
+        "generalized_nl": "For|each|{COLUMN} [main industry]|what|is|the|entire [total]|number|of|{COLUMN} [companies]|for|the|{COLUMN_PART} [industry]|with|the|high [highest]|entire [total]|{COLUMN} [market value]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "what",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "high",
+            "entire",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT main_industry ,  count(*) FROM company GROUP BY main_industry ORDER BY sum(market_value) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show headquarters with at least two companies in the banking industry.",
+        "generalized_nl": "show [Show]|{COLUMN} [headquarters]|with|{NUMBER} [at least two]|{COLUMN} [companies]|in|the|banking|{COLUMN_PART} [industry]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}",
+            "in",
+            "the",
+            "banking",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT headquarters FROM company WHERE main_industry  =  'Banking' GROUP BY headquarters HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the headquarters with at least two companies in the banking industry?",
+        "generalized_nl": "What|are|the|{COLUMN} [headquarters]|with|{NUMBER} [at least two]|{COLUMN} [companies]|in|the|banking|{COLUMN_PART} [industry]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}",
+            "in",
+            "the",
+            "banking",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT headquarters FROM company WHERE main_industry  =  'Banking' GROUP BY headquarters HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show gas station id, location, and manager_name for all gas stations ordered by open year.",
+        "generalized_nl": "show [Show]|{TABLE} [gas station]|{COLUMN_PART} [id]|{COLUMN} [location]|and|{COLUMN} [manager _ name]|for|all|{TABLE} [gas stations]|order [ordered]|by|{COLUMN} [open year]",
+        "generalized_tokens": [
+            "show",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT station_id ,  LOCATION ,  manager_name FROM gas_station ORDER BY open_year"
+    },
+    {
+        "original_nl": "What are the gas station ids, locations, and manager names for the gas stations ordered by opening year?",
+        "generalized_nl": "What|are|the|{TABLE} [gas station]|{COLUMN_PART} [ids]|{COLUMN} [locations]|and|{COLUMN} [manager names]|for|the|{TABLE} [gas stations]|order [ordered]|by|open [opening]|{COLUMN_PART} [year]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "order",
+            "by",
+            "open",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT station_id ,  LOCATION ,  manager_name FROM gas_station ORDER BY open_year"
+    },
+    {
+        "original_nl": "How many gas station are opened between 2000 and 2005?",
+        "generalized_nl": "How|many|{TABLE} [gas station]|are|open [opened]|{NE} [between 2000 and 2005]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "open",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM gas_station WHERE open_year BETWEEN 2000 AND 2005"
+    },
+    {
+        "original_nl": "What is the total number of gas stations that opened between 2000 and 2005?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{TABLE} [gas stations]|that|open [opened]|{NE} [between 2000 and 2005]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "open",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM gas_station WHERE open_year BETWEEN 2000 AND 2005"
+    },
+    {
+        "original_nl": "Show all locations and the number of gas stations in each location ordered by the count.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [locations]|and|the|number|of|{TABLE} [gas stations]|in|each|{COLUMN} [location]|order [ordered]|by|the|count",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN}",
+            "order",
+            "by",
+            "the",
+            "count"
+        ],
+        "original_sql": "SELECT LOCATION ,  count(*) FROM gas_station GROUP BY LOCATION ORDER BY count(*)"
+    },
+    {
+        "original_nl": "For each location, how many gas stations are there in order?",
+        "generalized_nl": "For|each|{COLUMN} [location]|how|many|{TABLE} [gas stations]|are|there|in|order",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "order"
+        ],
+        "original_sql": "SELECT LOCATION ,  count(*) FROM gas_station GROUP BY LOCATION ORDER BY count(*)"
+    },
+    {
+        "original_nl": "Show all headquarters with both a company in banking industry and a company in Oil and gas.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [headquarters]|with|both|a|{COLUMN} [company]|in|banking|{COLUMN_PART} [industry]|and|a|{COLUMN} [company]|in|{VALUE} [Oil and gas]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "with",
+            "both",
+            "a",
+            "{COLUMN}",
+            "in",
+            "banking",
+            "{COLUMN_PART}",
+            "and",
+            "a",
+            "{COLUMN}",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT headquarters FROM company WHERE main_industry  =  'Banking' INTERSECT SELECT headquarters FROM company WHERE main_industry  =  'Oil and gas'"
+    },
+    {
+        "original_nl": "What are the headquarters that have both a company in the banking and 'oil and gas' industries?",
+        "generalized_nl": "What|are|the|{COLUMN} [headquarters]|that|have|both|a|{COLUMN} [company]|in|the|banking|and|oil|and|gas|{COLUMN_PART} [industries]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "a",
+            "{COLUMN}",
+            "in",
+            "the",
+            "banking",
+            "and",
+            "oil",
+            "and",
+            "gas",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT headquarters FROM company WHERE main_industry  =  'Banking' INTERSECT SELECT headquarters FROM company WHERE main_industry  =  'Oil and gas'"
+    },
+    {
+        "original_nl": "Show all headquarters without a company in banking industry.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [headquarters]|without|a|{COLUMN} [company]|in|banking|{COLUMN_PART} [industry]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "without",
+            "a",
+            "{COLUMN}",
+            "in",
+            "banking",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT headquarters FROM company EXCEPT SELECT headquarters FROM company WHERE main_industry  =  'Banking'"
+    },
+    {
+        "original_nl": "What are the headquarters without companies that are in the banking industry?",
+        "generalized_nl": "What|are|the|{COLUMN} [headquarters]|without|{COLUMN} [companies]|that|are|in|the|banking|{COLUMN_PART} [industry]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "without",
+            "{COLUMN}",
+            "that",
+            "are",
+            "in",
+            "the",
+            "banking",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT headquarters FROM company EXCEPT SELECT headquarters FROM company WHERE main_industry  =  'Banking'"
+    },
+    {
+        "original_nl": "Show the company name with the number of gas station.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [company]|{COLUMN_PART} [name]|with|the|number|of|{TABLE} [gas station]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.company ,  count(*) FROM station_company AS T1 JOIN company AS T2 ON T1.company_id  =  T2.company_id GROUP BY T1.company_id"
+    },
+    {
+        "original_nl": "For each company id, what are the companies and how many gas stations does each one operate?",
+        "generalized_nl": "For|each|{COLUMN} [company]|{COLUMN_PART} [id]|what|are|the|{COLUMN} [companies]|and|how|many|{TABLE} [gas stations]|does|each|one|operate",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "how",
+            "many",
+            "{TABLE}",
+            "does",
+            "each",
+            "one",
+            "operate"
+        ],
+        "original_sql": "SELECT T2.company ,  count(*) FROM station_company AS T1 JOIN company AS T2 ON T1.company_id  =  T2.company_id GROUP BY T1.company_id"
+    },
+    {
+        "original_nl": "Show company name and main industry without a gas station.",
+        "generalized_nl": "show [Show]|{COLUMN} [company]|{COLUMN_PART} [name]|and|{COLUMN} [main industry]|without|a|{TABLE} [gas station]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "without",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT company ,  main_industry FROM company WHERE company_id NOT IN (SELECT company_id FROM station_company)"
+    },
+    {
+        "original_nl": "What are the main industries of the companies without gas stations and what are the companies?",
+        "generalized_nl": "What|are|the|{COLUMN} [main industries]|of|the|{COLUMN} [companies]|without|{TABLE} [gas stations]|and|what|are|the|{COLUMN} [companies]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "without",
+            "{TABLE}",
+            "and",
+            "what",
+            "are",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT company ,  main_industry FROM company WHERE company_id NOT IN (SELECT company_id FROM station_company)"
+    },
+    {
+        "original_nl": "Show the manager name for gas stations belonging to the ExxonMobil company.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [manager name]|for|{TABLE} [gas stations]|belong [belonging]|to|the|{VALUE} [ExxonMobil]|{COLUMN} [company]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "belong",
+            "to",
+            "the",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T3.manager_name FROM station_company AS T1 JOIN company AS T2 ON T1.company_id  =  T2.company_id JOIN gas_station AS T3 ON T1.station_id  =  T3.station_id WHERE T2.company  =  'ExxonMobil'"
+    },
+    {
+        "original_nl": "What are the names of the managers for gas stations that are operated by the ExxonMobil company?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|director [managers]|for|{TABLE} [gas stations]|that|are|operate [operated]|by|the|{VALUE} [ExxonMobil]|{COLUMN} [company]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "director",
+            "for",
+            "{TABLE}",
+            "that",
+            "are",
+            "operate",
+            "by",
+            "the",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T3.manager_name FROM station_company AS T1 JOIN company AS T2 ON T1.company_id  =  T2.company_id JOIN gas_station AS T3 ON T1.station_id  =  T3.station_id WHERE T2.company  =  'ExxonMobil'"
+    },
+    {
+        "original_nl": "Show all locations where a gas station for company with market value greater than 100 is located.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [locations]|where|a|{TABLE} [gas station]|for|{COLUMN} [company]|with|{COLUMN} [market value]|{NUMBER} [greater than 100]|is|locate [located]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "where",
+            "a",
+            "{TABLE}",
+            "for",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}",
+            "is",
+            "locate"
+        ],
+        "original_sql": "SELECT T3.location FROM station_company AS T1 JOIN company AS T2 ON T1.company_id  =  T2.company_id JOIN gas_station AS T3 ON T1.station_id  =  T3.station_id WHERE T2.market_value  >  100"
+    },
+    {
+        "original_nl": "What are the locations that have gas stations owned by a company with a market value greater than 100?",
+        "generalized_nl": "What|are|the|{COLUMN} [locations]|that|have|{TABLE} [gas stations]|own [owned]|by|a|{COLUMN} [company]|with|a|{COLUMN} [market value]|great [greater]|than|{NUMBER} [100]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{TABLE}",
+            "own",
+            "by",
+            "a",
+            "{COLUMN}",
+            "with",
+            "a",
+            "{COLUMN}",
+            "great",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T3.location FROM station_company AS T1 JOIN company AS T2 ON T1.company_id  =  T2.company_id JOIN gas_station AS T3 ON T1.station_id  =  T3.station_id WHERE T2.market_value  >  100"
+    },
+    {
+        "original_nl": "Show the manager name with most number of gas stations opened after 2000.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [manager name]|with|most|number|of|{TABLE} [gas stations]|open [opened]|after|{VALUE} [2000]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "with",
+            "most",
+            "number",
+            "of",
+            "{TABLE}",
+            "open",
+            "after",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT manager_name FROM gas_station WHERE open_year  >  2000 GROUP BY manager_name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the manager with the most gas stations that opened after 2000?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{COLUMN_PART} [manager]|with|the|most|{TABLE} [gas stations]|that|open [opened]|after|{VALUE} [2000]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}",
+            "that",
+            "open",
+            "after",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT manager_name FROM gas_station WHERE open_year  >  2000 GROUP BY manager_name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "order all gas station locations by the opening year.",
+        "generalized_nl": "order|all|{TABLE} [gas station]|{COLUMN} [locations]|by|{NE} [the opening year]",
+        "generalized_tokens": [
+            "order",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT LOCATION FROM gas_station ORDER BY open_year"
+    },
+    {
+        "original_nl": "What are the locations of all the gas stations ordered by opening year?",
+        "generalized_nl": "What|are|the|{COLUMN} [locations]|of|all|the|{TABLE} [gas stations]|order [ordered]|by|open [opening]|{COLUMN_PART} [year]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "order",
+            "by",
+            "open",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT LOCATION FROM gas_station ORDER BY open_year"
+    },
+    {
+        "original_nl": "find the rank, company names, market values of the companies in the banking industry order by their sales and profits in billion.",
+        "generalized_nl": "find|the|{COLUMN} [rank]|{COLUMN} [company]|{COLUMN_PART} [names]|{COLUMN} [market values]|of|the|{COLUMN} [companies]|in|the|banking|{COLUMN_PART} [industry]|order|by|their|{COLUMN_PART} [sales]|and|{COLUMN_PART} [profits]|in|{COLUMN_PART} [billion]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "in",
+            "the",
+            "banking",
+            "{COLUMN_PART}",
+            "order",
+            "by",
+            "their",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "in",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT rank ,  company ,  market_value FROM company WHERE main_industry  =  'Banking' ORDER BY sales_billion ,  profits_billion"
+    },
+    {
+        "original_nl": "What is the rank, company, and market value of every comapny in the banking industry ordered by sales and profits?",
+        "generalized_nl": "What|is|the|{COLUMN} [rank]|{COLUMN} [company]|and|{COLUMN} [market value]|of|every|comapny|in|the|banking|{COLUMN_PART} [industry]|order [ordered]|by|{COLUMN_PART} [sales]|and|{COLUMN_PART} [profits]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "every",
+            "comapny",
+            "in",
+            "the",
+            "banking",
+            "{COLUMN_PART}",
+            "order",
+            "by",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT rank ,  company ,  market_value FROM company WHERE main_industry  =  'Banking' ORDER BY sales_billion ,  profits_billion"
+    },
+    {
+        "original_nl": "find the location and Representative name of the gas stations owned by the companies with top 3 Asset amounts.",
+        "generalized_nl": "find|the|{COLUMN} [location]|and|{COLUMN} [Representative name]|of|the|{TABLE} [gas stations]|own [owned]|by|the|{COLUMN} [companies]|with|top|{VALUE} [3]|asset [Asset]|sum [amounts]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "own",
+            "by",
+            "the",
+            "{COLUMN}",
+            "with",
+            "top",
+            "{VALUE}",
+            "asset",
+            "sum"
+        ],
+        "original_sql": "SELECT T3.location ,  T3.Representative_Name FROM station_company AS T1 JOIN company AS T2 ON T1.company_id  =  T2.company_id JOIN gas_station AS T3 ON T1.station_id  =  T3.station_id ORDER BY T2.Assets_billion DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What are the locations and representatives' names of the gas stations owned by the companies with the 3 largest amounts of assets?",
+        "generalized_nl": "What|are|the|{COLUMN} [locations]|and|representative [representatives]|'|{COLUMN_PART} [names]|of|the|{TABLE} [gas stations]|own [owned]|by|the|{COLUMN} [companies]|with|the|{VALUE} [3]|large [largest]|sum [amounts]|of|{COLUMN_PART} [assets]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "representative",
+            "'",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "own",
+            "by",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "{VALUE}",
+            "large",
+            "sum",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T3.location ,  T3.Representative_Name FROM station_company AS T1 JOIN company AS T2 ON T1.company_id  =  T2.company_id JOIN gas_station AS T3 ON T1.station_id  =  T3.station_id ORDER BY T2.Assets_billion DESC LIMIT 3"
+    }
+]

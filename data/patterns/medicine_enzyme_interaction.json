@@ -1,0 +1,874 @@
+[
+    {
+        "original_nl": "How many kinds of enzymes are there?",
+        "generalized_nl": "How|many|kind [kinds]|of|{TABLE} [enzymes]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "kind",
+            "of",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM enzyme"
+    },
+    {
+        "original_nl": "What is the total count of enzymes?",
+        "generalized_nl": "What|is|the|entire [total]|count|of|{TABLE} [enzymes]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "count",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM enzyme"
+    },
+    {
+        "original_nl": "List the name of enzymes in descending lexicographical order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [enzymes]|in|descend [descending]|lexicographic [lexicographical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "lexicographic",
+            "order"
+        ],
+        "original_sql": "SELECT name FROM enzyme ORDER BY name DESC"
+    },
+    {
+        "original_nl": "What are the names of enzymes in descending order?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [enzymes]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT name FROM enzyme ORDER BY name DESC"
+    },
+    {
+        "original_nl": "List the names and the locations that the enzymes can make an effect.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|and|the|{COLUMN} [locations]|that|the|{TABLE} [enzymes]|can|make|an|effect",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "that",
+            "the",
+            "{TABLE}",
+            "can",
+            "make",
+            "an",
+            "effect"
+        ],
+        "original_sql": "SELECT name ,  LOCATION FROM enzyme"
+    },
+    {
+        "original_nl": "What are the names and locations of all enzymes listed?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [locations]|of|all|{TABLE} [enzymes]|list [listed]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "list"
+        ],
+        "original_sql": "SELECT name ,  LOCATION FROM enzyme"
+    },
+    {
+        "original_nl": "What is the maximum Online Mendelian Inheritance in Man (OMIM) value of the enzymes?",
+        "generalized_nl": "What|is|the|maximal [maximum]|on-line [Online]|mendelian [Mendelian]|inheritance [Inheritance]|in|man [Man]|{COLUMN} [OMIM]|value|of|the|{TABLE} [enzymes]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "on-line",
+            "mendelian",
+            "inheritance",
+            "in",
+            "man",
+            "{COLUMN}",
+            "value",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(OMIM) FROM enzyme"
+    },
+    {
+        "original_nl": "What is the maximum OMIM value in the database?",
+        "generalized_nl": "What|is|the|maximal [maximum]|{COLUMN} [OMIM]|value|in|the|database",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "value",
+            "in",
+            "the",
+            "database"
+        ],
+        "original_sql": "SELECT max(OMIM) FROM enzyme"
+    },
+    {
+        "original_nl": "What is the product, chromosome and porphyria related to the enzymes which take effect at the location 'Cytosol'?",
+        "generalized_nl": "What|is|the|{COLUMN} [product]|{COLUMN} [chromosome]|and|{COLUMN} [porphyria]|related|to|the|{TABLE} [enzymes]|which|take|effect|at|the|{COLUMN} [location]|{VALUE} [Cytosol]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "related",
+            "to",
+            "the",
+            "{TABLE}",
+            "which",
+            "take",
+            "effect",
+            "at",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT product ,  chromosome ,  porphyria FROM enzyme WHERE LOCATION  =  'Cytosol'"
+    },
+    {
+        "original_nl": "What is the product, chromosome, and porphyria of the enzymes located at 'Cytosol'?",
+        "generalized_nl": "What|is|the|{COLUMN} [product]|{COLUMN} [chromosome]|and|{COLUMN} [porphyria]|of|the|{TABLE} [enzymes]|locate [located]|at|{VALUE} [Cytosol]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "locate",
+            "at",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT product ,  chromosome ,  porphyria FROM enzyme WHERE LOCATION  =  'Cytosol'"
+    },
+    {
+        "original_nl": "What are the names of enzymes who does not produce 'Heme'?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [enzymes]|who|does|not|produce|{VALUE} [Heme]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "does",
+            "not",
+            "produce",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM enzyme WHERE product != 'Heme'"
+    },
+    {
+        "original_nl": "What are the names of enzymes whose product is not 'Heme'?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [enzymes]|whose|{COLUMN} [product]|is|not|{VALUE} [Heme]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM enzyme WHERE product != 'Heme'"
+    },
+    {
+        "original_nl": "What are the names and trade names of the medicines which has 'Yes' value in the FDA record?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [trade names]|of|the|{TABLE} [medicines]|which|have [has]|{VALUE} [Yes]|value|in|the|{COLUMN_PART} [FDA]|record",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "have",
+            "{VALUE}",
+            "value",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "record"
+        ],
+        "original_sql": "SELECT name ,  trade_name FROM medicine WHERE FDA_approved  =  'Yes'"
+    },
+    {
+        "original_nl": "What are the names and trade names of the medcines that are FDA approved?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [trade names]|of|the|medcines|that|are|{COLUMN} [FDA approved]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "medcines",
+            "that",
+            "are",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  trade_name FROM medicine WHERE FDA_approved  =  'Yes'"
+    },
+    {
+        "original_nl": "What are the names of enzymes in the medicine named 'Amisulpride' that can serve as an 'inhibitor'?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [enzymes]|in|the|{TABLE} [medicine]|name [named]|{VALUE} [Amisulpride]|that|can|serve|as|an|inhibitor",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}",
+            "that",
+            "can",
+            "serve",
+            "as",
+            "an",
+            "inhibitor"
+        ],
+        "original_sql": "SELECT T1.name FROM enzyme AS T1 JOIN medicine_enzyme_interaction AS T2 ON T1.id  =  T2.enzyme_id JOIN medicine AS T3 ON T2.medicine_id  =  T3.id WHERE T3.name  =  'Amisulpride' AND T2.interaction_type  =  'inhibitor'"
+    },
+    {
+        "original_nl": "What are the names of the enzymes used in the medicine  Amisulpride that acts as inhibitors?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [enzymes]|use [used]|in|the|{TABLE} [medicine]|{VALUE} [Amisulpride]|that|act [acts]|as|inhibitor [inhibitors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "use",
+            "in",
+            "the",
+            "{TABLE}",
+            "{VALUE}",
+            "that",
+            "act",
+            "as",
+            "inhibitor"
+        ],
+        "original_sql": "SELECT T1.name FROM enzyme AS T1 JOIN medicine_enzyme_interaction AS T2 ON T1.id  =  T2.enzyme_id JOIN medicine AS T3 ON T2.medicine_id  =  T3.id WHERE T3.name  =  'Amisulpride' AND T2.interaction_type  =  'inhibitor'"
+    },
+    {
+        "original_nl": "What are the ids and names of the medicine that can interact with two or more enzymes?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|and|{COLUMN} [names]|of|the|{TABLE} [medicine]|that|can|interact|with|{NUMBER} [two]|or|more|{TABLE} [enzymes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "can",
+            "interact",
+            "with",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.Name FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id GROUP BY T1.id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "For every medicine id, what are the names of the medicines that can interact with more than one enzyme?",
+        "generalized_nl": "For|every|{COLUMN} [medicine id]|what|are|the|{COLUMN} [names]|of|the|{TABLE} [medicines]|that|can|interact|with|{NUMBER} [more than one]|{TABLE} [enzyme]",
+        "generalized_tokens": [
+            "For",
+            "every",
+            "{COLUMN}",
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "can",
+            "interact",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.Name FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id GROUP BY T1.id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the ids, names and FDA approval status of medicines in descending order of the number of enzymes that it can interact with.",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|{COLUMN} [names]|and|{COLUMN_PART} [FDA]|approval|status|of|{TABLE} [medicines]|in|descend [descending]|order|of|the|number|of|{TABLE} [enzymes]|that|it|can|interact|with",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "approval",
+            "status",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "it",
+            "can",
+            "interact",
+            "with"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.Name ,  T1.FDA_approved FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id GROUP BY T1.id ORDER BY count(*) DESC"
+    },
+    {
+        "original_nl": "What are the ids, names, and FDA approval status for medicines ordered by descending number of possible enzyme interactions?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|{COLUMN} [names]|and|{COLUMN_PART} [FDA]|approval|status|for|{TABLE} [medicines]|order [ordered]|by|descend [descending]|number|of|possible|{TABLE} [enzyme]|interaction [interactions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "approval",
+            "status",
+            "for",
+            "{TABLE}",
+            "order",
+            "by",
+            "descend",
+            "number",
+            "of",
+            "possible",
+            "{TABLE}",
+            "interaction"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.Name ,  T1.FDA_approved FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id GROUP BY T1.id ORDER BY count(*) DESC"
+    },
+    {
+        "original_nl": "What is the id and name of the enzyme with most number of medicines that can interact as 'activator'?",
+        "generalized_nl": "What|is|the|{COLUMN} [id]|and|{COLUMN} [name]|of|the|{TABLE} [enzyme]|with|most|number|of|{TABLE} [medicines]|that|can|interact|as|activator",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "most",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "can",
+            "interact",
+            "as",
+            "activator"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.name FROM enzyme AS T1 JOIN medicine_enzyme_interaction AS T2 ON T1.id  =  T2.enzyme_id WHERE T2.interaction_type  =  'activitor' GROUP BY T1.id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the id and name of the enzyme that can interact with the most medicines as an activator?",
+        "generalized_nl": "What|is|the|{COLUMN} [id]|and|{COLUMN} [name]|of|the|{TABLE} [enzyme]|that|can|interact|with|the|most|{TABLE} [medicines]|as|an|activator",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "can",
+            "interact",
+            "with",
+            "the",
+            "most",
+            "{TABLE}",
+            "as",
+            "an",
+            "activator"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.name FROM enzyme AS T1 JOIN medicine_enzyme_interaction AS T2 ON T1.id  =  T2.enzyme_id WHERE T2.interaction_type  =  'activitor' GROUP BY T1.id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the interaction type of the enzyme named 'ALA synthase' and the medicine named 'Aripiprazole'?",
+        "generalized_nl": "What|is|the|{COLUMN} [interaction type]|of|the|{TABLE} [enzyme]|name [named]|{VALUE} [ALA synthase]|and|the|{TABLE} [medicine]|name [named]|{VALUE} [Aripiprazole]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}",
+            "and",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.interaction_type FROM medicine_enzyme_interaction AS T1 JOIN medicine AS T2 ON T1.medicine_id  =  T2.id JOIN enzyme AS T3 ON T1.enzyme_id  =  T3.id WHERE T3.name  =  'ALA synthase' AND T2.name  =  'Aripiprazole'"
+    },
+    {
+        "original_nl": "What is the type of interaction for the enzyme named 'ALA synthase' and the medicine named 'Aripiprazole'?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [type]|of|{COLUMN_PART} [interaction]|for|the|{TABLE} [enzyme]|name [named]|{VALUE} [ALA synthase]|and|the|{TABLE} [medicine]|name [named]|{VALUE} [Aripiprazole]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}",
+            "and",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.interaction_type FROM medicine_enzyme_interaction AS T1 JOIN medicine AS T2 ON T1.medicine_id  =  T2.id JOIN enzyme AS T3 ON T1.enzyme_id  =  T3.id WHERE T3.name  =  'ALA synthase' AND T2.name  =  'Aripiprazole'"
+    },
+    {
+        "original_nl": "What are the most common types of interactions between enzymes and medicine, and how many types are there?",
+        "generalized_nl": "What|are|the|most|common|{COLUMN_PART} [types]|of|interaction [interactions]|between|{TABLE} [enzymes]|and|{TABLE} [medicine]|and|how|many|{COLUMN_PART} [types]|are|there",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "most",
+            "common",
+            "{COLUMN_PART}",
+            "of",
+            "interaction",
+            "between",
+            "{TABLE}",
+            "and",
+            "{TABLE}",
+            "and",
+            "how",
+            "many",
+            "{COLUMN_PART}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT interaction_type ,  count(*) FROM medicine_enzyme_interaction GROUP BY interaction_type ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many medicines have the FDA approval status 'No' ?",
+        "generalized_nl": "How|many|{TABLE} [medicines]|have|the|{COLUMN_PART} [FDA]|approval|status|{VALUE} [No]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "the",
+            "{COLUMN_PART}",
+            "approval",
+            "status",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) FROM medicine WHERE FDA_approved  =  'No'"
+    },
+    {
+        "original_nl": "How many medicines were not approved by the FDA?",
+        "generalized_nl": "How|many|{TABLE} [medicines]|were|not|{COLUMN_PART} [approved]|by|the|{COLUMN_PART} [FDA]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "were",
+            "not",
+            "{COLUMN_PART}",
+            "by",
+            "the",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM medicine WHERE FDA_approved  =  'No'"
+    },
+    {
+        "original_nl": "How many enzymes do not have any interactions?",
+        "generalized_nl": "How|many|{TABLE} [enzymes]|do|not|have|any|interaction [interactions]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "not",
+            "have",
+            "any",
+            "interaction"
+        ],
+        "original_sql": "SELECT count(*) FROM enzyme WHERE id NOT IN ( SELECT enzyme_id FROM medicine_enzyme_interaction );"
+    },
+    {
+        "original_nl": "What is the count of enzymes without any interactions?",
+        "generalized_nl": "What|is|the|count|of|{TABLE} [enzymes]|without|any|interaction [interactions]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "count",
+            "of",
+            "{TABLE}",
+            "without",
+            "any",
+            "interaction"
+        ],
+        "original_sql": "SELECT count(*) FROM enzyme WHERE id NOT IN ( SELECT enzyme_id FROM medicine_enzyme_interaction );"
+    },
+    {
+        "original_nl": "What is the id and trade name of the medicines can interact with at least 3 enzymes?",
+        "generalized_nl": "What|is|the|{COLUMN} [id]|and|{COLUMN} [trade name]|of|the|{TABLE} [medicines]|can|interact|with|{NUMBER} [at least 3]|{TABLE} [enzymes]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "can",
+            "interact",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.trade_name FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id GROUP BY T1.id HAVING COUNT(*)  >=  3"
+    },
+    {
+        "original_nl": "What are the ids and trade names of the medicine that can interact with at least 3 enzymes?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|and|{COLUMN} [trade names]|of|the|{TABLE} [medicine]|that|can|interact|with|{NUMBER} [at least 3]|{TABLE} [enzymes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "can",
+            "interact",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.trade_name FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id GROUP BY T1.id HAVING COUNT(*)  >=  3"
+    },
+    {
+        "original_nl": "What are the distinct name, location and products of the enzymes which has any 'inhibitor' interaction?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [name]|{COLUMN} [location]|and|{COLUMN} [products]|of|the|{TABLE} [enzymes]|which|have [has]|any|inhibitor|{COLUMN_PART} [interaction]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "have",
+            "any",
+            "inhibitor",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name ,  T1.location ,  T1.product FROM enzyme AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.enzyme_id  =  T1.id WHERE T2.interaction_type  =  'inhibitor'"
+    },
+    {
+        "original_nl": "What are the different names, locations, and products of the enzymes that are capable inhibitor interactions?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [names]|{COLUMN} [locations]|and|{COLUMN} [products]|of|the|{TABLE} [enzymes]|that|are|capable|inhibitor|interaction [interactions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "capable",
+            "inhibitor",
+            "interaction"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name ,  T1.location ,  T1.product FROM enzyme AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.enzyme_id  =  T1.id WHERE T2.interaction_type  =  'inhibitor'"
+    },
+    {
+        "original_nl": "List the medicine name and trade name which can both interact as 'inhibitor' and 'activitor' with enzymes.",
+        "generalized_nl": "list [List]|the|{TABLE} [medicine]|{COLUMN} [name]|and|{COLUMN} [trade name]|which|can|both|interact|as|inhibitor|and|activitor|with|{TABLE} [enzymes]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "which",
+            "can",
+            "both",
+            "interact",
+            "as",
+            "inhibitor",
+            "and",
+            "activitor",
+            "with",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.trade_name FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id WHERE interaction_type  =  'inhibitor' INTERSECT SELECT T1.name ,  T1.trade_name FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id WHERE interaction_type  =  'activitor'"
+    },
+    {
+        "original_nl": "What are the medicine and trade names that can interact as an inhibitor and activitor with enzymes?",
+        "generalized_nl": "What|are|the|{TABLE} [medicine]|and|{COLUMN} [trade names]|that|can|interact|as|an|inhibitor|and|activitor|with|{TABLE} [enzymes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "that",
+            "can",
+            "interact",
+            "as",
+            "an",
+            "inhibitor",
+            "and",
+            "activitor",
+            "with",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.trade_name FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id WHERE interaction_type  =  'inhibitor' INTERSECT SELECT T1.name ,  T1.trade_name FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id WHERE interaction_type  =  'activitor'"
+    },
+    {
+        "original_nl": "Show the medicine names and trade names that cannot interact with the enzyme with product 'Heme'.",
+        "generalized_nl": "show [Show]|the|{TABLE} [medicine]|{COLUMN} [names]|and|{COLUMN} [trade names]|that|can|not|interact|with|the|{TABLE} [enzyme]|with|{COLUMN} [product]|{VALUE} [Heme]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "that",
+            "can",
+            "not",
+            "interact",
+            "with",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name ,  trade_name FROM medicine EXCEPT SELECT T1.name ,  T1.trade_name FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id JOIN enzyme AS T3 ON T3.id  =  T2.enzyme_id WHERE T3.product  =  'Protoporphyrinogen IX'"
+    },
+    {
+        "original_nl": "What are the medicine and trade names that cannot interact with the enzyme with the product 'Heme'?",
+        "generalized_nl": "What|are|the|{TABLE} [medicine]|and|{COLUMN} [trade names]|that|can|not|interact|with|the|{TABLE} [enzyme]|with|the|{COLUMN} [product]|{VALUE} [Heme]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "that",
+            "can",
+            "not",
+            "interact",
+            "with",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name ,  trade_name FROM medicine EXCEPT SELECT T1.name ,  T1.trade_name FROM medicine AS T1 JOIN medicine_enzyme_interaction AS T2 ON T2.medicine_id  =  T1.id JOIN enzyme AS T3 ON T3.id  =  T2.enzyme_id WHERE T3.product  =  'Protoporphyrinogen IX'"
+    },
+    {
+        "original_nl": "How many distinct FDA approval statuses are there for the medicines?",
+        "generalized_nl": "How|many|distinct|{COLUMN_PART} [FDA]|approval|status [statuses]|are|there|for|the|{TABLE} [medicines]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN_PART}",
+            "approval",
+            "status",
+            "are",
+            "there",
+            "for",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT FDA_approved) FROM medicine"
+    },
+    {
+        "original_nl": "How many different FDA approval statuses exist for medicines?",
+        "generalized_nl": "How|many|different|{COLUMN_PART} [FDA]|approval|status [statuses]|exist|for|{TABLE} [medicines]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN_PART}",
+            "approval",
+            "status",
+            "exist",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT FDA_approved) FROM medicine"
+    },
+    {
+        "original_nl": "Which enzyme names have the substring \"ALA\"?",
+        "generalized_nl": "Which|{TABLE} [enzyme]|{COLUMN} [names]|have|the|substring|ala [ALA]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN}",
+            "have",
+            "the",
+            "substring",
+            "ala"
+        ],
+        "original_sql": "SELECT name FROM enzyme WHERE name LIKE \"%ALA%\""
+    },
+    {
+        "original_nl": "What are the names of enzymes that include the string 'ALA'?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [enzymes]|that|include|the|string|{NE} [ALA]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "include",
+            "the",
+            "string",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM enzyme WHERE name LIKE \"%ALA%\""
+    },
+    {
+        "original_nl": "find the number of medicines offered by each trade.",
+        "generalized_nl": "find|the|number|of|{TABLE} [medicines]|offer [offered]|by|each|{COLUMN_PART} [trade]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "offer",
+            "by",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT trade_name ,  count(*) FROM medicine GROUP BY trade_name"
+    },
+    {
+        "original_nl": "How many medicines are offered by each trade name?",
+        "generalized_nl": "How|many|{TABLE} [medicines]|are|offer [offered]|by|each|{COLUMN} [trade name]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "offer",
+            "by",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT trade_name ,  count(*) FROM medicine GROUP BY trade_name"
+    }
+]

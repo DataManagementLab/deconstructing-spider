@@ -1,0 +1,309 @@
+[
+    {
+        "original_nl": "How many drivers are there?",
+        "generalized_nl": "How|many|{TABLE} [drivers]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM driver"
+    },
+    {
+        "original_nl": "Show the name, home city, and age for all drivers.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|{COLUMN} [home city]|and|{COLUMN} [age]|for|all|{TABLE} [drivers]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  home_city ,  age FROM driver"
+    },
+    {
+        "original_nl": "Show the party and the number of drivers in each party.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [party]|and|the|number|of|{TABLE} [drivers]|in|each|{COLUMN} [party]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT party ,  count(*) FROM driver GROUP BY party"
+    },
+    {
+        "original_nl": "Show the name of drivers in descending order of age.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|of|{TABLE} [drivers]|in|descend [descending]|order|of|{COLUMN} [age]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM driver ORDER BY age DESC"
+    },
+    {
+        "original_nl": "Show all different home cities.",
+        "generalized_nl": "show [Show]|all|different|{COLUMN} [home cities]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT home_city FROM driver"
+    },
+    {
+        "original_nl": "Show the home city with the most number of drivers.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [home city]|with|the|most|number|of|{TABLE} [drivers]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT home_city FROM driver GROUP BY home_city ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the party with drivers from Hartford and drivers older than 40.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [party]|with|{TABLE} [drivers]|from|{VALUE} [Hartford]|and|{TABLE} [drivers]|{NE} [older than 40]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{TABLE}",
+            "from",
+            "{VALUE}",
+            "and",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT party FROM driver WHERE home_city  =  'Hartford' AND age  >  40"
+    },
+    {
+        "original_nl": "Show home city where at least two drivers older than 40 are from.",
+        "generalized_nl": "show [Show]|{COLUMN} [home city]|where|{NUMBER} [at least two]|{TABLE} [drivers]|{NUMBER} [older than 40]|are|from",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "where",
+            "{NUMBER}",
+            "{TABLE}",
+            "{NUMBER}",
+            "are",
+            "from"
+        ],
+        "original_sql": "SELECT home_city FROM driver WHERE age  >  40 GROUP BY home_city HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show all home cities except for those having a driver older than 40.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [home cities]|except|for|those|have [having]|a|{TABLE} [driver]|old [older]|than|{VALUE} [40]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "except",
+            "for",
+            "those",
+            "have",
+            "a",
+            "{TABLE}",
+            "old",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT home_city FROM driver EXCEPT SELECT home_city FROM driver WHERE age  >  40"
+    },
+    {
+        "original_nl": "Show the names of the drivers without a school bus.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|the|{TABLE} [drivers]|without|a|{COLUMN} [school]|bus",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "without",
+            "a",
+            "{COLUMN}",
+            "bus"
+        ],
+        "original_sql": "SELECT name FROM driver WHERE driver_id NOT IN (SELECT driver_id FROM school_bus)"
+    },
+    {
+        "original_nl": "Show the types of schools that have two schools.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [types]|of|{COLUMN} [schools]|that|have|{NUMBER} [two]|{COLUMN} [schools]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TYPE FROM school GROUP BY TYPE HAVING count(*)  =  2"
+    },
+    {
+        "original_nl": "Show the school name and driver name for all school buses.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [school]|{COLUMN} [name]|and|{TABLE} [driver]|{COLUMN} [name]|for|all|{COLUMN} [school]|bus [buses]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{TABLE}",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN}",
+            "bus"
+        ],
+        "original_sql": "SELECT T2.school ,  T3.name FROM school_bus AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id JOIN driver AS T3 ON T1.driver_id  =  T3.driver_id"
+    },
+    {
+        "original_nl": "What is the maximum, minimum and average years spent working on a school bus?",
+        "generalized_nl": "What|is|the|maximal [maximum]|minimal [minimum]|and|average|{COLUMN_PART} [years]|spend [spent]|{COLUMN_PART} [working]|on|a|{COLUMN} [school]|bus",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "minimal",
+            "and",
+            "average",
+            "{COLUMN_PART}",
+            "spend",
+            "{COLUMN_PART}",
+            "on",
+            "a",
+            "{COLUMN}",
+            "bus"
+        ],
+        "original_sql": "SELECT max(years_working) ,  min(years_working) ,  avg(years_working) FROM school_bus"
+    },
+    {
+        "original_nl": "Show the school name and type for schools without a school bus.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [school]|{COLUMN} [name]|and|{COLUMN} [type]|for|{COLUMN} [schools]|without|a|{COLUMN} [school]|bus",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{COLUMN}",
+            "without",
+            "a",
+            "{COLUMN}",
+            "bus"
+        ],
+        "original_sql": "SELECT school ,  TYPE FROM school WHERE school_id NOT IN (SELECT school_id FROM school_bus)"
+    },
+    {
+        "original_nl": "Show the type of school and the number of buses for each type.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [type]|of|{COLUMN} [school]|and|the|number|of|bus [buses]|for|each|{COLUMN} [type]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "bus",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.type ,  count(*) FROM school_bus AS T1 JOIN school AS T2 ON T1.school_id  =  T2.school_id GROUP BY T2.type"
+    },
+    {
+        "original_nl": "How many drivers are from Hartford city or younger than 40?",
+        "generalized_nl": "How|many|{TABLE} [drivers]|are|from|{VALUE} [Hartford]|{COLUMN_PART} [city]|or|{NE} [younger than 40]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "from",
+            "{VALUE}",
+            "{COLUMN_PART}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM driver WHERE home_city  =  'Hartford' OR age  <  40"
+    },
+    {
+        "original_nl": "List names for drivers from Hartford city and younger than 40.",
+        "generalized_nl": "list [List]|{COLUMN} [names]|for|{TABLE} [drivers]|from|{VALUE} [Hartford]|{COLUMN_PART} [city]|and|{NE} [younger than 40]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "from",
+            "{VALUE}",
+            "{COLUMN_PART}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM driver WHERE home_city  =  'Hartford' AND age  <  40"
+    },
+    {
+        "original_nl": "find the name of driver who is driving the school bus with the longest working history.",
+        "generalized_nl": "find|the|{COLUMN} [name]|of|{TABLE} [driver]|who|is|drive [driving]|the|{COLUMN} [school]|bus|with|the|long [longest]|{COLUMN_PART} [working]|history",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "is",
+            "drive",
+            "the",
+            "{COLUMN}",
+            "bus",
+            "with",
+            "the",
+            "long",
+            "{COLUMN_PART}",
+            "history"
+        ],
+        "original_sql": "SELECT t1.name FROM driver AS t1 JOIN school_bus AS t2 ON t1.driver_id  =  t2.driver_id ORDER BY years_working DESC LIMIT 1"
+    }
+]

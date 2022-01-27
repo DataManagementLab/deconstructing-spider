@@ -1,0 +1,1350 @@
+[
+    {
+        "original_nl": "What are the distinct grant amount for the grants where the documents were sent before '1986-08-26 20:49:27' and grant were ended after '1989-03-16 18:27:16'?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [grant amount]|for|the|{TABLE} [grants]|where|the|{TABLE} [documents]|were|{COLUMN_PART} [sent]|before|{NE} [1986-08-26 20:49:27 ']|and|{TABLE} [grant]|were|end [ended]|after|{NE} [1989-03-16 18:27:16]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "where",
+            "the",
+            "{TABLE}",
+            "were",
+            "{COLUMN_PART}",
+            "before",
+            "{NE}",
+            "and",
+            "{TABLE}",
+            "were",
+            "end",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.grant_amount FROM Grants AS T1 JOIN Documents AS T2 ON T1.grant_id  =  T2.grant_id WHERE T2.sent_date  <  '1986-08-26 20:49:27' INTERSECT SELECT grant_amount FROM grants WHERE grant_end_date  >  '1989-03-16 18:27:16'"
+    },
+    {
+        "original_nl": "What are the different grant amounts for documents sent before '1986-08-26 20:49:27' and after the grant ended on '1989-03-16 18:27:16'?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [grant amounts]|for|{TABLE} [documents]|{COLUMN_PART} [sent]|before|{NE} [1986-08-26 20:49:27 ' and after the grant ended on ' 1989-03-16 18:27:16]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.grant_amount FROM Grants AS T1 JOIN Documents AS T2 ON T1.grant_id  =  T2.grant_id WHERE T2.sent_date  <  '1986-08-26 20:49:27' INTERSECT SELECT grant_amount FROM grants WHERE grant_end_date  >  '1989-03-16 18:27:16'"
+    },
+    {
+        "original_nl": "List the project details of the project both producing patent and paper as outcomes.",
+        "generalized_nl": "list [List]|the|{COLUMN} [project details]|of|the|{TABLE} [project]|both|produce [producing]|patent|and|paper|as|result [outcomes]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "both",
+            "produce",
+            "patent",
+            "and",
+            "paper",
+            "as",
+            "result"
+        ],
+        "original_sql": "SELECT T1.project_details FROM Projects AS T1 JOIN Project_outcomes AS T2 ON T1.project_id  =  T2.project_id WHERE T2.outcome_code  =  'Paper' INTERSECT SELECT T1.project_details FROM Projects AS T1 JOIN Project_outcomes AS T2 ON T1.project_id  =  T2.project_id WHERE T2.outcome_code  =  'Patent'"
+    },
+    {
+        "original_nl": "What are the details of the project that is producing both patents and papers as outcomes?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|of|the|{TABLE} [project]|that|is|produce [producing]|both|patent [patents]|and|paper [papers]|as|result [outcomes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "produce",
+            "both",
+            "patent",
+            "and",
+            "paper",
+            "as",
+            "result"
+        ],
+        "original_sql": "SELECT T1.project_details FROM Projects AS T1 JOIN Project_outcomes AS T2 ON T1.project_id  =  T2.project_id WHERE T2.outcome_code  =  'Paper' INTERSECT SELECT T1.project_details FROM Projects AS T1 JOIN Project_outcomes AS T2 ON T1.project_id  =  T2.project_id WHERE T2.outcome_code  =  'Patent'"
+    },
+    {
+        "original_nl": "What is the total grant amount of the organisations described as research?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN} [grant amount]|of|the|{TABLE} [organisations]|describe [described]|as|research",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "describe",
+            "as",
+            "research"
+        ],
+        "original_sql": "SELECT sum(grant_amount) FROM Grants AS T1 JOIN Organisations AS T2 ON T1.organisation_id  =  T2.organisation_id JOIN organisation_Types AS T3 ON T2.organisation_type  =  T3.organisation_type WHERE T3.organisation_type_description  =  'Research'"
+    },
+    {
+        "original_nl": "What is the total amount of grant money for research?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [amount]|of|{TABLE} [grant]|money|for|research",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "money",
+            "for",
+            "research"
+        ],
+        "original_sql": "SELECT sum(grant_amount) FROM Grants AS T1 JOIN Organisations AS T2 ON T1.organisation_id  =  T2.organisation_id JOIN organisation_Types AS T3 ON T2.organisation_type  =  T3.organisation_type WHERE T3.organisation_type_description  =  'Research'"
+    },
+    {
+        "original_nl": "List from which date and to which date these staff work: project staff of the project which hires the most staffs",
+        "generalized_nl": "list [List]|from|which|{COLUMN_PART} [date]|and|to|which|{COLUMN_PART} [date]|these|{COLUMN_PART} [staff]|work|{TABLE} [project]|{COLUMN_PART} [staff]|of|the|{TABLE} [project]|which|hire [hires]|the|most|staff [staffs]",
+        "generalized_tokens": [
+            "list",
+            "from",
+            "which",
+            "{COLUMN_PART}",
+            "and",
+            "to",
+            "which",
+            "{COLUMN_PART}",
+            "these",
+            "{COLUMN_PART}",
+            "work",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "hire",
+            "the",
+            "most",
+            "staff"
+        ],
+        "original_sql": "SELECT date_from ,  date_to FROM Project_Staff WHERE project_id IN( SELECT project_id FROM Project_Staff GROUP BY project_id ORDER BY count(*) DESC LIMIT 1 ) UNION SELECT date_from ,  date_to FROM Project_Staff WHERE role_code  =  'leader'"
+    },
+    {
+        "original_nl": "From what date and to what date do the staff work on a project that has the most staff and has staff in a leader role?",
+        "generalized_nl": "From|what|{COLUMN_PART} [date]|and|to|what|{COLUMN_PART} [date]|do|the|{COLUMN_PART} [staff]|work|on|a|{TABLE} [project]|that|have [has]|the|most|{COLUMN_PART} [staff]|and|have [has]|{COLUMN_PART} [staff]|in|a|leader|{COLUMN_PART} [role]",
+        "generalized_tokens": [
+            "From",
+            "what",
+            "{COLUMN_PART}",
+            "and",
+            "to",
+            "what",
+            "{COLUMN_PART}",
+            "do",
+            "the",
+            "{COLUMN_PART}",
+            "work",
+            "on",
+            "a",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "and",
+            "have",
+            "{COLUMN_PART}",
+            "in",
+            "a",
+            "leader",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT date_from ,  date_to FROM Project_Staff WHERE project_id IN( SELECT project_id FROM Project_Staff GROUP BY project_id ORDER BY count(*) DESC LIMIT 1 ) UNION SELECT date_from ,  date_to FROM Project_Staff WHERE role_code  =  'leader'"
+    },
+    {
+        "original_nl": "Find the organisation ids and details of the organisations which are involved in",
+        "generalized_nl": "find [Find]|the|{COLUMN} [organisation ids]|and|{COLUMN_PART} [details]|of|the|{TABLE} [organisations]|which|are|involved|in",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "are",
+            "involved",
+            "in"
+        ],
+        "original_sql": "SELECT T2.organisation_id ,  T2.organisation_details FROM Grants AS T1 JOIN Organisations AS T2 ON T1.organisation_id  =  T2.organisation_id GROUP BY T2.organisation_id HAVING sum(T1.grant_amount)  >  6000"
+    },
+    {
+        "original_nl": "What are the ids and details for all organizations that have grants of more than 6000 dollars?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|and|{COLUMN_PART} [details]|for|all|organization [organizations]|that|have|{TABLE} [grants]|of|{NE} [more than 6000 dollars]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "organization",
+            "that",
+            "have",
+            "{TABLE}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.organisation_id ,  T2.organisation_details FROM Grants AS T1 JOIN Organisations AS T2 ON T1.organisation_id  =  T2.organisation_id GROUP BY T2.organisation_id HAVING sum(T1.grant_amount)  >  6000"
+    },
+    {
+        "original_nl": "What is the organisation type and id of the organisation which has the most number of research staff?",
+        "generalized_nl": "What|is|the|{COLUMN} [organisation type]|and|{COLUMN_PART} [id]|of|the|{TABLE} [organisation]|which|have [has]|the|most|number|of|{TABLE} [research staff]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "have",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.organisation_type ,  T1.organisation_id FROM Organisations AS T1 JOIN Research_Staff AS T2 ON T1.organisation_id  =  T2.employer_organisation_id GROUP BY T1.organisation_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the type and id of the organization that has the most research staff?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [type]|and|{COLUMN_PART} [id]|of|the|organization|that|have [has]|the|most|{TABLE} [research staff]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "organization",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.organisation_type ,  T1.organisation_id FROM Organisations AS T1 JOIN Research_Staff AS T2 ON T1.organisation_id  =  T2.employer_organisation_id GROUP BY T1.organisation_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which organisation type hires most research staff?",
+        "generalized_nl": "Which|{COLUMN} [organisation type]|hire [hires]|most|{TABLE} [research staff]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "hire",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.organisation_type FROM Organisations AS T1 JOIN Research_Staff AS T2 ON T1.organisation_id  =  T2.employer_organisation_id GROUP BY T1.organisation_type ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the type of the organization with the most research staff?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [type]|of|the|organization|with|the|most|{TABLE} [research staff]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "organization",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.organisation_type FROM Organisations AS T1 JOIN Research_Staff AS T2 ON T1.organisation_id  =  T2.employer_organisation_id GROUP BY T1.organisation_type ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find out the send dates of the documents with the grant amount of more than 5000 were granted by organisation type described",
+        "generalized_nl": "find [Find]|out|the|send|{COLUMN_PART} [dates]|of|the|{TABLE} [documents]|with|the|{COLUMN} [grant amount]|of|{NUMBER} [more than 5000]|were|concede [granted]|by|{COLUMN} [organisation type]|describe [described]",
+        "generalized_tokens": [
+            "find",
+            "out",
+            "the",
+            "send",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}",
+            "were",
+            "concede",
+            "by",
+            "{COLUMN}",
+            "describe"
+        ],
+        "original_sql": "SELECT T1.sent_date FROM documents AS T1 JOIN Grants AS T2 ON T1.grant_id  =  T2.grant_id JOIN Organisations AS T3 ON T2.organisation_id  =  T3.organisation_id JOIN organisation_Types AS T4 ON T3.organisation_type  =  T4.organisation_type WHERE T2.grant_amount  >  5000 AND T4.organisation_type_description  =  'Research'"
+    },
+    {
+        "original_nl": "What are the send dates for all documents that have a grant amount of more than 5000 and are involved in research?",
+        "generalized_nl": "What|are|the|send|{COLUMN_PART} [dates]|for|all|{TABLE} [documents]|that|have|a|{COLUMN} [grant amount]|of|{NUMBER} [more than 5000]|and|are|involved|in|research",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "send",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}",
+            "and",
+            "are",
+            "involved",
+            "in",
+            "research"
+        ],
+        "original_sql": "SELECT T1.sent_date FROM documents AS T1 JOIN Grants AS T2 ON T1.grant_id  =  T2.grant_id JOIN Organisations AS T3 ON T2.organisation_id  =  T3.organisation_id JOIN organisation_Types AS T4 ON T3.organisation_type  =  T4.organisation_type WHERE T2.grant_amount  >  5000 AND T4.organisation_type_description  =  'Research'"
+    },
+    {
+        "original_nl": "What are the response received dates for the documents described as 'Regular' or granted with more than 100?",
+        "generalized_nl": "What|are|the|{COLUMN} [response received dates]|for|the|{TABLE} [documents]|describe [described]|as|regular [Regular]|or|concede [granted]|with|{NUMBER} [more than 100]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "describe",
+            "as",
+            "regular",
+            "or",
+            "concede",
+            "with",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.response_received_date FROM Documents AS T1 JOIN Document_Types AS T2 ON T1.document_type_code  =  T2.document_type_code JOIN Grants AS T3 ON T1.grant_id  =  T3.grant_id WHERE T2.document_description  =  'Regular' OR T3.grant_amount  >  100"
+    },
+    {
+        "original_nl": "What is the response received date for the document described as Regular that was granted more than 100 dollars?",
+        "generalized_nl": "What|is|the|{COLUMN} [response received date]|for|the|{TABLE} [document]|describe [described]|as|Regular|that|was|concede [granted]|{NE} [more than 100 dollars]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "describe",
+            "as",
+            "Regular",
+            "that",
+            "was",
+            "concede",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.response_received_date FROM Documents AS T1 JOIN Document_Types AS T2 ON T1.document_type_code  =  T2.document_type_code JOIN Grants AS T3 ON T1.grant_id  =  T3.grant_id WHERE T2.document_description  =  'Regular' OR T3.grant_amount  >  100"
+    },
+    {
+        "original_nl": "List the project details of the projects which did not hire any staff for a researcher role.",
+        "generalized_nl": "list [List]|the|{COLUMN} [project details]|of|the|{TABLE} [projects]|which|did|not|hire|any|{COLUMN_PART} [staff]|for|a|research_worker [researcher]|{COLUMN_PART} [role]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "did",
+            "not",
+            "hire",
+            "any",
+            "{COLUMN_PART}",
+            "for",
+            "a",
+            "research_worker",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT project_details FROM Projects WHERE project_id NOT IN ( SELECT project_id FROM Project_Staff WHERE role_code  =  'researcher' )"
+    },
+    {
+        "original_nl": "What are the details for all projects that did not hire any staff in a research role?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|for|all|{TABLE} [projects]|that|did|not|hire|any|{COLUMN_PART} [staff]|in|a|research|{COLUMN_PART} [role]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "that",
+            "did",
+            "not",
+            "hire",
+            "any",
+            "{COLUMN_PART}",
+            "in",
+            "a",
+            "research",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT project_details FROM Projects WHERE project_id NOT IN ( SELECT project_id FROM Project_Staff WHERE role_code  =  'researcher' )"
+    },
+    {
+        "original_nl": "What are the task details, task id and project id for the projects which are detailed as 'omnis' or  have more than 2 outcomes?",
+        "generalized_nl": "What|are|the|{COLUMN} [task details]|{COLUMN} [task id]|and|{COLUMN} [project id]|for|the|{TABLE} [projects]|which|are|detailed|as|omnis|or|have|{NUMBER} [more than 2]|result [outcomes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "which",
+            "are",
+            "detailed",
+            "as",
+            "omnis",
+            "or",
+            "have",
+            "{NUMBER}",
+            "result"
+        ],
+        "original_sql": "SELECT T1.task_details ,  T1.task_id ,  T2.project_id FROM Tasks AS T1 JOIN Projects AS T2 ON T1.project_id  =  T2.project_id WHERE T2.project_details  =  'omnis' UNION SELECT T1.task_details ,  T1.task_id ,  T2.project_id FROM Tasks AS T1 JOIN Projects AS T2 ON T1.project_id  =  T2.project_id JOIN Project_outcomes AS T3 ON T2.project_id  =  T3.project_id GROUP BY T2.project_id HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "What are the task details, task ids, and project ids for the progrects that are detailed as 'omnis' or have at least 3 outcomes?",
+        "generalized_nl": "What|are|the|{COLUMN} [task details]|{COLUMN} [task ids]|and|{COLUMN} [project ids]|for|the|progrects|that|are|detailed|as|omnis|or|have|{NUMBER} [at least 3]|result [outcomes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "progrects",
+            "that",
+            "are",
+            "detailed",
+            "as",
+            "omnis",
+            "or",
+            "have",
+            "{NUMBER}",
+            "result"
+        ],
+        "original_sql": "SELECT T1.task_details ,  T1.task_id ,  T2.project_id FROM Tasks AS T1 JOIN Projects AS T2 ON T1.project_id  =  T2.project_id WHERE T2.project_details  =  'omnis' UNION SELECT T1.task_details ,  T1.task_id ,  T2.project_id FROM Tasks AS T1 JOIN Projects AS T2 ON T1.project_id  =  T2.project_id JOIN Project_outcomes AS T3 ON T2.project_id  =  T3.project_id GROUP BY T2.project_id HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "When do all the researcher role staff start to work, and when do they stop working?",
+        "generalized_nl": "When|do|all|the|research_worker [researcher]|{COLUMN_PART} [role]|{COLUMN_PART} [staff]|{COLUMN_PART} [start]|to|work|and|when|do|they|stop|work [working]",
+        "generalized_tokens": [
+            "When",
+            "do",
+            "all",
+            "the",
+            "research_worker",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "to",
+            "work",
+            "and",
+            "when",
+            "do",
+            "they",
+            "stop",
+            "work"
+        ],
+        "original_sql": "SELECT date_from ,  date_to FROM Project_Staff WHERE role_code  =  'researcher'"
+    },
+    {
+        "original_nl": "When did researchers start and stop working?",
+        "generalized_nl": "When|did|research_worker [researchers]|{COLUMN_PART} [start]|and|stop|work [working]",
+        "generalized_tokens": [
+            "When",
+            "did",
+            "research_worker",
+            "{COLUMN_PART}",
+            "and",
+            "stop",
+            "work"
+        ],
+        "original_sql": "SELECT date_from ,  date_to FROM Project_Staff WHERE role_code  =  'researcher'"
+    },
+    {
+        "original_nl": "How many kinds of roles are there for the staff?",
+        "generalized_nl": "How|many|kind [kinds]|of|function [roles]|are|there|for|the|{COLUMN_PART} [staff]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "kind",
+            "of",
+            "function",
+            "are",
+            "there",
+            "for",
+            "the",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(DISTINCT role_code) FROM Project_Staff"
+    },
+    {
+        "original_nl": "How many different roles are there on the project staff?",
+        "generalized_nl": "How|many|different|function [roles]|are|there|on|the|{TABLE} [project]|{COLUMN_PART} [staff]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "function",
+            "are",
+            "there",
+            "on",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(DISTINCT role_code) FROM Project_Staff"
+    },
+    {
+        "original_nl": "What is the total amount of grant money given to each organization and what is its id?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [amount]|of|{TABLE} [grant]|money|give [given]|to|each|organization|and|what|is|it|s|{COLUMN_PART} [id]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "money",
+            "give",
+            "to",
+            "each",
+            "organization",
+            "and",
+            "what",
+            "is",
+            "it",
+            "s",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT sum(grant_amount) ,  organisation_id FROM Grants GROUP BY organisation_id"
+    },
+    {
+        "original_nl": "List the project details of the projects with the research outcome described with the substring 'Published'.",
+        "generalized_nl": "list [List]|the|{COLUMN} [project details]|of|the|{TABLE} [projects]|with|the|{TABLE} [research outcome]|describe [described]|with|the|substring|publish [Published]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{TABLE}",
+            "describe",
+            "with",
+            "the",
+            "substring",
+            "publish"
+        ],
+        "original_sql": "SELECT T1.project_details FROM Projects AS T1 JOIN Project_outcomes AS T2 ON T1.project_id  =  T2.project_id JOIN Research_outcomes AS T3 ON T2.outcome_code  =  T3.outcome_code WHERE T3.outcome_description LIKE '%Published%'"
+    },
+    {
+        "original_nl": "What are the details for the project whose research has been published?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|for|the|{TABLE} [project]|whose|research|has|been|publish [published]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "whose",
+            "research",
+            "has",
+            "been",
+            "publish"
+        ],
+        "original_sql": "SELECT T1.project_details FROM Projects AS T1 JOIN Project_outcomes AS T2 ON T1.project_id  =  T2.project_id JOIN Research_outcomes AS T3 ON T2.outcome_code  =  T3.outcome_code WHERE T3.outcome_description LIKE '%Published%'"
+    },
+    {
+        "original_nl": "What is the complete description of the researcher role.",
+        "generalized_nl": "What|is|the|complete|{COLUMN_PART} [description]|of|the|research_worker [researcher]|{COLUMN_PART} [role]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "complete",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "research_worker",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT role_description FROM Staff_Roles WHERE role_code  =  'researcher'"
+    },
+    {
+        "original_nl": "What is the complete description of the job of a researcher?",
+        "generalized_nl": "What|is|the|complete|{COLUMN_PART} [description]|of|the|job|of|a|research_worker [researcher]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "complete",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "job",
+            "of",
+            "a",
+            "research_worker"
+        ],
+        "original_sql": "SELECT role_description FROM Staff_Roles WHERE role_code  =  'researcher'"
+    },
+    {
+        "original_nl": "When did the first staff for the projects started working?",
+        "generalized_nl": "When|did|the|{NE} [first]|{COLUMN_PART} [staff]|for|the|{TABLE} [projects]|start [started]|work [working]",
+        "generalized_tokens": [
+            "When",
+            "did",
+            "the",
+            "{NE}",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "start",
+            "work"
+        ],
+        "original_sql": "SELECT date_from FROM Project_Staff ORDER BY date_from ASC LIMIT 1"
+    },
+    {
+        "original_nl": "When did the first staff member start working?",
+        "generalized_nl": "When|did|the|{NE} [first]|{COLUMN_PART} [staff]|member|{COLUMN_PART} [start]|work [working]",
+        "generalized_tokens": [
+            "When",
+            "did",
+            "the",
+            "{NE}",
+            "{COLUMN_PART}",
+            "member",
+            "{COLUMN_PART}",
+            "work"
+        ],
+        "original_sql": "SELECT date_from FROM Project_Staff ORDER BY date_from ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the details and id of the project with the most outcomes?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|and|{COLUMN_PART} [id]|of|the|{TABLE} [project]|with|the|most|result [outcomes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "result"
+        ],
+        "original_sql": "SELECT T1.project_details ,  T1.project_id FROM Projects AS T1 JOIN Project_outcomes AS T2 ON T1.project_id  =  T2.project_id GROUP BY T1.project_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the details of the project with no outcomes?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|of|the|{TABLE} [project]|with|no|result [outcomes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "no",
+            "result"
+        ],
+        "original_sql": "SELECT project_details FROM Projects WHERE project_id NOT IN ( SELECT project_id FROM Project_outcomes )"
+    },
+    {
+        "original_nl": "What are the ids, types, and details of the organization with the most research staff?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|{COLUMN_PART} [types]|and|{COLUMN_PART} [details]|of|the|organization|with|the|most|{TABLE} [research staff]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "organization",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.organisation_id ,  T1.organisation_type ,  T1.organisation_details FROM Organisations AS T1 JOIN Research_Staff AS T2 ON T1.organisation_id  =  T2.employer_organisation_id GROUP BY T1.organisation_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the role description and the id of the project staff involved in most number of project outcomes?",
+        "generalized_nl": "show [Show]|the|{COLUMN} [role description]|and|the|{COLUMN_PART} [id]|of|the|{TABLE} [project]|{COLUMN_PART} [staff]|involved|in|most|number|of|{TABLE} [project]|result [outcomes]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "involved",
+            "in",
+            "most",
+            "number",
+            "of",
+            "{TABLE}",
+            "result"
+        ],
+        "original_sql": "SELECT T1.role_description ,  T2.staff_id FROM Staff_Roles AS T1 JOIN Project_Staff AS T2 ON T1.role_code  =  T2.role_code JOIN Project_outcomes AS T3 ON T2.project_id  =  T3.project_id GROUP BY T2.staff_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "For each staff id, what is the description of the role that is involved with the most number of projects?",
+        "generalized_nl": "For|each|{COLUMN} [staff id]|what|is|the|{COLUMN_PART} [description]|of|the|{COLUMN_PART} [role]|that|is|involved|with|the|most|number|of|{TABLE} [projects]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "what",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "is",
+            "involved",
+            "with",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.role_description ,  T2.staff_id FROM Staff_Roles AS T1 JOIN Project_Staff AS T2 ON T1.role_code  =  T2.role_code JOIN Project_outcomes AS T3 ON T2.project_id  =  T3.project_id GROUP BY T2.staff_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which document type is described with the prefix 'Initial'?",
+        "generalized_nl": "Which|{TABLE} [document]|{COLUMN_PART} [type]|is|describe [described]|with|the|prefix|initial [Initial]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "is",
+            "describe",
+            "with",
+            "the",
+            "prefix",
+            "initial"
+        ],
+        "original_sql": "SELECT document_type_code FROM Document_Types WHERE document_description LIKE 'Initial%'"
+    },
+    {
+        "original_nl": "What is the type of the document whose description starts with the word 'Initial'?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [type]|of|the|{TABLE} [document]|whose|{COLUMN_PART} [description]|start [starts]|with|the|word|initial [Initial]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "start",
+            "with",
+            "the",
+            "word",
+            "initial"
+        ],
+        "original_sql": "SELECT document_type_code FROM Document_Types WHERE document_description LIKE 'Initial%'"
+    },
+    {
+        "original_nl": "For grants with both documents described as 'Regular' and documents described as 'Initial Application', list its start date.",
+        "generalized_nl": "For|{TABLE} [grants]|with|both|{TABLE} [documents]|describe [described]|as|regular [Regular]|and|{TABLE} [documents]|describe [described]|as|initial [Initial]|application [Application]|list|its|{COLUMN_PART} [start]|{COLUMN_PART} [date]",
+        "generalized_tokens": [
+            "For",
+            "{TABLE}",
+            "with",
+            "both",
+            "{TABLE}",
+            "describe",
+            "as",
+            "regular",
+            "and",
+            "{TABLE}",
+            "describe",
+            "as",
+            "initial",
+            "application",
+            "list",
+            "its",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.grant_start_date FROM Grants AS T1 JOIN Documents AS T2 ON T1.grant_id  =  T2.grant_id JOIN Document_Types AS T3 ON T2.document_type_code  =  T3.document_type_code WHERE T3.document_description  =  'Regular' INTERSECT SELECT T1.grant_start_date FROM Grants AS T1 JOIN Documents AS T2 ON T1.grant_id  =  T2.grant_id JOIN Document_Types AS T3 ON T2.document_type_code  =  T3.document_type_code WHERE T3.document_description  =  'Initial Application'"
+    },
+    {
+        "original_nl": "For grants that have descriptions of Regular and Initial Applications, what are their start dates?",
+        "generalized_nl": "For|{TABLE} [grants]|that|have|{COLUMN_PART} [descriptions]|of|regular [Regular]|and|initial [Initial]|application [Applications]|what|are|their|{COLUMN_PART} [start]|{COLUMN_PART} [dates]",
+        "generalized_tokens": [
+            "For",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN_PART}",
+            "of",
+            "regular",
+            "and",
+            "initial",
+            "application",
+            "what",
+            "are",
+            "their",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.grant_start_date FROM Grants AS T1 JOIN Documents AS T2 ON T1.grant_id  =  T2.grant_id JOIN Document_Types AS T3 ON T2.document_type_code  =  T3.document_type_code WHERE T3.document_description  =  'Regular' INTERSECT SELECT T1.grant_start_date FROM Grants AS T1 JOIN Documents AS T2 ON T1.grant_id  =  T2.grant_id JOIN Document_Types AS T3 ON T2.document_type_code  =  T3.document_type_code WHERE T3.document_description  =  'Initial Application'"
+    },
+    {
+        "original_nl": "For each grant id, how many documents does it have, and which one has the most?",
+        "generalized_nl": "For|each|{COLUMN} [grant id]|how|many|{TABLE} [documents]|does|it|have|and|which|one|have [has]|the|most",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "how",
+            "many",
+            "{TABLE}",
+            "does",
+            "it",
+            "have",
+            "and",
+            "which",
+            "one",
+            "have",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT grant_id ,  count(*) FROM Documents GROUP BY grant_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the organisation type description of the organisation detailed as 'quo'.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [organisation type description]|of|the|{TABLE} [organisation]|detailed|as|quo",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "detailed",
+            "as",
+            "quo"
+        ],
+        "original_sql": "SELECT T1.organisation_type_description FROM organisation_Types AS T1 JOIN Organisations AS T2 ON T1.organisation_type  =  T2.organisation_type WHERE T2.organisation_details  =  'quo'"
+    },
+    {
+        "original_nl": "What is the type description of the organization whose detail is listed as 'quo'?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [type]|{COLUMN_PART} [description]|of|the|organization|whose|{COLUMN_PART} [detail]|is|list [listed]|as|quo",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "organization",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "list",
+            "as",
+            "quo"
+        ],
+        "original_sql": "SELECT T1.organisation_type_description FROM organisation_Types AS T1 JOIN Organisations AS T2 ON T1.organisation_type  =  T2.organisation_type WHERE T2.organisation_details  =  'quo'"
+    },
+    {
+        "original_nl": "What are the details of all organizations that are described as Sponsors and sort the results in ascending order?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|of|all|organization [organizations]|that|are|describe [described]|as|patron [Sponsors]|and|screen [sort]|the|consequence [results]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "organization",
+            "that",
+            "are",
+            "describe",
+            "as",
+            "patron",
+            "and",
+            "screen",
+            "the",
+            "consequence",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT organisation_details FROM Organisations AS T1 JOIN organisation_Types AS T2 ON T1.organisation_type  =  T2.organisation_type WHERE T2.organisation_type_description  =  'Sponsor' ORDER BY organisation_details"
+    },
+    {
+        "original_nl": "How many Patent outcomes are generated from all the projects?",
+        "generalized_nl": "How|many|patent [Patent]|result [outcomes]|are|generate [generated]|from|all|the|{TABLE} [projects]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "patent",
+            "result",
+            "are",
+            "generate",
+            "from",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Project_outcomes WHERE outcome_code  =  'Patent'"
+    },
+    {
+        "original_nl": "How many patents outcomes were listed for all the projects?",
+        "generalized_nl": "How|many|patent [patents]|result [outcomes]|were|list [listed]|for|all|the|{TABLE} [projects]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "patent",
+            "result",
+            "were",
+            "list",
+            "for",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Project_outcomes WHERE outcome_code  =  'Patent'"
+    },
+    {
+        "original_nl": "How many project staff worked as leaders or started working before '1989-04-24 23:51:54'?",
+        "generalized_nl": "How|many|{TABLE} [project]|{COLUMN_PART} [staff]|work [worked]|as|leadership [leaders]|or|start [started]|work [working]|before|{NE} [1989-04-24 23:51:54]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "work",
+            "as",
+            "leadership",
+            "or",
+            "start",
+            "work",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Project_Staff WHERE role_code  =  'leader' OR date_from  <  '1989-04-24 23:51:54'"
+    },
+    {
+        "original_nl": "How many project members were leaders or started working before '1989-04-24 23:51:54'?",
+        "generalized_nl": "How|many|{TABLE} [project]|member [members]|were|leadership [leaders]|or|start [started]|work [working]|before|{NE} [1989-04-24 23:51:54]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "member",
+            "were",
+            "leadership",
+            "or",
+            "start",
+            "work",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Project_Staff WHERE role_code  =  'leader' OR date_from  <  '1989-04-24 23:51:54'"
+    },
+    {
+        "original_nl": "What is the last date of the staff leaving the projects?",
+        "generalized_nl": "What|is|the|last|{COLUMN_PART} [date]|of|the|{COLUMN_PART} [staff]|leave [leaving]|the|{TABLE} [projects]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "last",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "leave",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT date_to FROM Project_Staff ORDER BY date_to DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the last date that a staff member left a project?",
+        "generalized_nl": "What|is|the|last|{COLUMN_PART} [date]|that|a|{COLUMN_PART} [staff]|member|leave [left]|a|{TABLE} [project]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "last",
+            "{COLUMN_PART}",
+            "that",
+            "a",
+            "{COLUMN_PART}",
+            "member",
+            "leave",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT date_to FROM Project_Staff ORDER BY date_to DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the result description of the project whose detail is 'sint'?",
+        "generalized_nl": "What|are|the|consequence [result]|{COLUMN_PART} [description]|of|the|{TABLE} [project]|whose|{COLUMN_PART} [detail]|is|sint",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "consequence",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "sint"
+        ],
+        "original_sql": "SELECT T1.outcome_description FROM Research_outcomes AS T1 JOIN Project_outcomes AS T2 ON T1.outcome_code  =  T2.outcome_code JOIN Projects AS T3 ON T2.project_id  =  T3.project_id WHERE T3.project_details  =  'sint'"
+    },
+    {
+        "original_nl": "What is the description for the results whose project detail is 'sint'?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|for|the|consequence [results]|whose|{COLUMN} [project detail]|is|sint",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "consequence",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "sint"
+        ],
+        "original_sql": "SELECT T1.outcome_description FROM Research_outcomes AS T1 JOIN Project_outcomes AS T2 ON T1.outcome_code  =  T2.outcome_code JOIN Projects AS T3 ON T2.project_id  =  T3.project_id WHERE T3.project_details  =  'sint'"
+    },
+    {
+        "original_nl": "List the organisation id with the maximum outcome count, and the count.",
+        "generalized_nl": "list [List]|the|{COLUMN} [organisation id]|with|the|maximal [maximum]|{COLUMN_PART} [outcome]|count|and|the|count",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "maximal",
+            "{COLUMN_PART}",
+            "count",
+            "and",
+            "the",
+            "count"
+        ],
+        "original_sql": "SELECT T1.organisation_id ,  count(*) FROM Projects AS T1 JOIN Project_outcomes AS T2 ON T1.project_id  =  T2.project_id GROUP BY T1.organisation_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the id of the organization with the maximum number of outcomes and how many outcomes are there?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|the|organization|with|the|maximal [maximum]|number|of|result [outcomes]|and|how|many|result [outcomes]|are|there",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "organization",
+            "with",
+            "the",
+            "maximal",
+            "number",
+            "of",
+            "result",
+            "and",
+            "how",
+            "many",
+            "result",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT T1.organisation_id ,  count(*) FROM Projects AS T1 JOIN Project_outcomes AS T2 ON T1.project_id  =  T2.project_id GROUP BY T1.organisation_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the project details of the projects launched by the organisation",
+        "generalized_nl": "list [List]|the|{COLUMN} [project details]|of|the|{TABLE} [projects]|launch [launched]|by|the|{TABLE} [organisation]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "launch",
+            "by",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT project_details FROM Projects WHERE organisation_id IN ( SELECT organisation_id FROM Projects GROUP BY organisation_id ORDER BY count(*) DESC LIMIT 1 )"
+    },
+    {
+        "original_nl": "What are the details for the projects which were launched by the organization with the most projects?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|for|the|{TABLE} [projects]|which|were|launch [launched]|by|the|organization|with|the|most|{TABLE} [projects]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "which",
+            "were",
+            "launch",
+            "by",
+            "the",
+            "organization",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT project_details FROM Projects WHERE organisation_id IN ( SELECT organisation_id FROM Projects GROUP BY organisation_id ORDER BY count(*) DESC LIMIT 1 )"
+    },
+    {
+        "original_nl": "List the research staff details, and order in ascending order.",
+        "generalized_nl": "list [List]|the|{TABLE} [research staff]|{COLUMN_PART} [details]|and|order|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "order",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT staff_details FROM Research_Staff ORDER BY staff_details ASC"
+    },
+    {
+        "original_nl": "How many tasks are there in total?",
+        "generalized_nl": "How|many|{TABLE} [tasks]|are|there|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM Tasks"
+    },
+    {
+        "original_nl": "How many tasks are there?",
+        "generalized_nl": "How|many|{TABLE} [tasks]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Tasks"
+    },
+    {
+        "original_nl": "For each project id, how many tasks are there?",
+        "generalized_nl": "For|each|{COLUMN} [project id]|how|many|{TABLE} [tasks]|are|there",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.project_details FROM Projects AS T1 JOIN Tasks AS T2 ON T1.project_id  =  T2.project_id GROUP BY T1.project_id"
+    },
+    {
+        "original_nl": "What are the staff roles of the staff who",
+        "generalized_nl": "What|are|the|{TABLE} [staff roles]|of|the|{COLUMN_PART} [staff]|who",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "who"
+        ],
+        "original_sql": "SELECT role_code FROM Project_Staff WHERE date_from  >  '2003-04-19 15:06:20' AND date_to  <  '2016-03-15 00:33:18'"
+    },
+    {
+        "original_nl": "What roles did staff members play between '2003-04-19 15:06:20' and '2016-03-15 00:33:18'?",
+        "generalized_nl": "What|function [roles]|did|{COLUMN_PART} [staff]|member [members]|play|{NE} [between ' 2003- 04-19 15:06:20 ' and '2016-03-15 00:33:18]",
+        "generalized_tokens": [
+            "What",
+            "function",
+            "did",
+            "{COLUMN_PART}",
+            "member",
+            "play",
+            "{NE}"
+        ],
+        "original_sql": "SELECT role_code FROM Project_Staff WHERE date_from  >  '2003-04-19 15:06:20' AND date_to  <  '2016-03-15 00:33:18'"
+    },
+    {
+        "original_nl": "What are the descriptions of all the project outcomes?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [descriptions]|of|all|the|{TABLE} [project]|result [outcomes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "result"
+        ],
+        "original_sql": "SELECT T1.outcome_description FROM Research_outcomes AS T1 JOIN Project_outcomes AS T2 ON T1.outcome_code  =  T2.outcome_code"
+    },
+    {
+        "original_nl": "List the description of the outcomes for all projects.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [description]|of|the|result [outcomes]|for|all|{TABLE} [projects]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "result",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.outcome_description FROM Research_outcomes AS T1 JOIN Project_outcomes AS T2 ON T1.outcome_code  =  T2.outcome_code"
+    },
+    {
+        "original_nl": "Which role is most common for the staff?",
+        "generalized_nl": "Which|{COLUMN_PART} [role]|is|most|common|for|the|{COLUMN_PART} [staff]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "is",
+            "most",
+            "common",
+            "for",
+            "the",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT role_code FROM Project_Staff GROUP BY role_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the most common role for the staff?",
+        "generalized_nl": "What|is|the|most|common|{COLUMN_PART} [role]|for|the|{COLUMN_PART} [staff]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "common",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT role_code FROM Project_Staff GROUP BY role_code ORDER BY count(*) DESC LIMIT 1"
+    }
+]

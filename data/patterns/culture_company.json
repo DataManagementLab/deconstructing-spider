@@ -1,0 +1,681 @@
+[
+    {
+        "original_nl": "How many book clubs are there?",
+        "generalized_nl": "How|many|{TABLE} [book clubs]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM book_club"
+    },
+    {
+        "original_nl": "Count the number of book clubs.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [book clubs]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM book_club"
+    },
+    {
+        "original_nl": "show the titles, and authors or editors for all books made after the year 1989.",
+        "generalized_nl": "show|the|{COLUMN} [titles]|and|writer [authors]|or|{COLUMN_PART} [editors]|for|all|book [books]|make [made]|after|{NE} [the year 1989]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "writer",
+            "or",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "book",
+            "make",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT book_title ,  author_or_editor FROM book_club WHERE YEAR  >  1989"
+    },
+    {
+        "original_nl": "What are the titles and authors or editors that correspond to books made after 1989?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|and|writer [authors]|or|{COLUMN_PART} [editors]|that|match [correspond]|to|book [books]|make [made]|after|{VALUE} [1989]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "writer",
+            "or",
+            "{COLUMN_PART}",
+            "that",
+            "match",
+            "to",
+            "book",
+            "make",
+            "after",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT book_title ,  author_or_editor FROM book_club WHERE YEAR  >  1989"
+    },
+    {
+        "original_nl": "Show all distinct publishers for books.",
+        "generalized_nl": "show [Show]|all|distinct|{COLUMN} [publishers]|for|book [books]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "distinct",
+            "{COLUMN}",
+            "for",
+            "book"
+        ],
+        "original_sql": "SELECT DISTINCT publisher FROM book_club"
+    },
+    {
+        "original_nl": "What are all the different book publishers?",
+        "generalized_nl": "What|are|all|the|different|{COLUMN_PART} [book]|{COLUMN} [publishers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "different",
+            "{COLUMN_PART}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT publisher FROM book_club"
+    },
+    {
+        "original_nl": "Show the years, book titles, and publishers for all books, in descending order by year.",
+        "generalized_nl": "show [Show]|{NE} [the years]|{COLUMN} [book titles]|and|{COLUMN} [publishers]|for|all|book [books]|in|descend [descending]|order|by|{COLUMN} [year]",
+        "generalized_tokens": [
+            "show",
+            "{NE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "book",
+            "in",
+            "descend",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT YEAR ,  book_title ,  publisher FROM book_club ORDER BY YEAR DESC"
+    },
+    {
+        "original_nl": "What are the years, titles, and publishers for all books, ordered by year descending?",
+        "generalized_nl": "What|are|{NE} [the years]|{COLUMN} [titles]|and|{COLUMN} [publishers]|for|all|book [books]|order [ordered]|by|{COLUMN} [year]|descend [descending]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{NE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "book",
+            "order",
+            "by",
+            "{COLUMN}",
+            "descend"
+        ],
+        "original_sql": "SELECT YEAR ,  book_title ,  publisher FROM book_club ORDER BY YEAR DESC"
+    },
+    {
+        "original_nl": "Show all publishers and the number of books for each publisher.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [publishers]|and|the|number|of|book [books]|for|each|{COLUMN} [publisher]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "book",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT publisher ,  count(*) FROM book_club GROUP BY publisher"
+    },
+    {
+        "original_nl": "How many books are there for each publisher?",
+        "generalized_nl": "How|many|book [books]|are|there|for|each|{COLUMN} [publisher]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "book",
+            "are",
+            "there",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT publisher ,  count(*) FROM book_club GROUP BY publisher"
+    },
+    {
+        "original_nl": "What is the publisher with most number of books?",
+        "generalized_nl": "What|is|the|{COLUMN} [publisher]|with|most|number|of|book [books]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "with",
+            "most",
+            "number",
+            "of",
+            "book"
+        ],
+        "original_sql": "SELECT publisher FROM book_club GROUP BY publisher ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the publisher that has published the most books.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [publisher]|that|has|publish [published]|the|most|book [books]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "that",
+            "has",
+            "publish",
+            "the",
+            "most",
+            "book"
+        ],
+        "original_sql": "SELECT publisher FROM book_club GROUP BY publisher ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show all book categories and the number of books in each category.",
+        "generalized_nl": "show [Show]|all|{COLUMN_PART} [book]|{COLUMN} [categories]|and|the|number|of|book [books]|in|each|{COLUMN} [category]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "book",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT category ,  count(*) FROM book_club GROUP BY category"
+    },
+    {
+        "original_nl": "How many books fall into each category?",
+        "generalized_nl": "How|many|book [books]|fall|into|each|{COLUMN} [category]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "book",
+            "fall",
+            "into",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT category ,  count(*) FROM book_club GROUP BY category"
+    },
+    {
+        "original_nl": "List categories that have at least two books after year 1989.",
+        "generalized_nl": "list [List]|{COLUMN} [categories]|that|have|{NUMBER} [at least two]|book [books]|after|{COLUMN} [year]|{VALUE} [1989]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "book",
+            "after",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT category FROM book_club WHERE YEAR  >  1989 GROUP BY category HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What categories have two or more corresponding books that were made after 1989?",
+        "generalized_nl": "What|{COLUMN} [categories]|have|{NUMBER} [two]|or|more|match [corresponding]|book [books]|that|were|make [made]|after|{VALUE} [1989]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "have",
+            "{NUMBER}",
+            "or",
+            "more",
+            "match",
+            "book",
+            "that",
+            "were",
+            "make",
+            "after",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT category FROM book_club WHERE YEAR  >  1989 GROUP BY category HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show publishers with a book published in 1989 and a book in 1990.",
+        "generalized_nl": "show [Show]|{COLUMN} [publishers]|with|a|{COLUMN_PART} [book]|publish [published]|in|{VALUE} [1989]|and|a|{COLUMN_PART} [book]|in|{VALUE} [1990]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "with",
+            "a",
+            "{COLUMN_PART}",
+            "publish",
+            "in",
+            "{VALUE}",
+            "and",
+            "a",
+            "{COLUMN_PART}",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT publisher FROM book_club WHERE YEAR  =  1989 INTERSECT SELECT publisher FROM book_club WHERE YEAR  =  1990"
+    },
+    {
+        "original_nl": "What are the publishers who have published a book in both 1989 and 1990?",
+        "generalized_nl": "What|are|the|{COLUMN} [publishers]|who|have|publish [published]|a|{COLUMN_PART} [book]|in|both|{VALUE} [1989]|and|{VALUE} [1990]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "publish",
+            "a",
+            "{COLUMN_PART}",
+            "in",
+            "both",
+            "{VALUE}",
+            "and",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT publisher FROM book_club WHERE YEAR  =  1989 INTERSECT SELECT publisher FROM book_club WHERE YEAR  =  1990"
+    },
+    {
+        "original_nl": "Show all publishers which do not have a book in 1989.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [publishers]|which|do|not|have|a|{COLUMN_PART} [book]|in|{VALUE} [1989]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "which",
+            "do",
+            "not",
+            "have",
+            "a",
+            "{COLUMN_PART}",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT publisher FROM book_club EXCEPT SELECT publisher FROM book_club WHERE YEAR  =  1989"
+    },
+    {
+        "original_nl": "Which publishers did not publish a book in 1989?",
+        "generalized_nl": "Which|{COLUMN} [publishers]|did|not|publish|a|{COLUMN_PART} [book]|in|{VALUE} [1989]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "did",
+            "not",
+            "publish",
+            "a",
+            "{COLUMN_PART}",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT publisher FROM book_club EXCEPT SELECT publisher FROM book_club WHERE YEAR  =  1989"
+    },
+    {
+        "original_nl": "Show all movie titles, years, and directors, ordered by budget.",
+        "generalized_nl": "show [Show]|all|{TABLE} [movie]|{COLUMN} [titles]|{COLUMN} [years]|and|{COLUMN} [directors]|order [ordered]|by|{COLUMN_PART} [budget]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "order",
+            "by",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT title ,  YEAR ,  director FROM movie ORDER BY budget_million"
+    },
+    {
+        "original_nl": "What are the titles, years, and directors of all movies, ordered by budget in millions?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|{COLUMN} [years]|and|{COLUMN} [directors]|of|all|{TABLE} [movies]|order [ordered]|by|{COLUMN_PART} [budget]|in|{COLUMN_PART} [millions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN_PART}",
+            "in",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT title ,  YEAR ,  director FROM movie ORDER BY budget_million"
+    },
+    {
+        "original_nl": "How many movie directors are there?",
+        "generalized_nl": "How|many|{TABLE} [movie]|{COLUMN} [directors]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT COUNT (DISTINCT director) FROM movie"
+    },
+    {
+        "original_nl": "Count the number of different directors.",
+        "generalized_nl": "count [Count]|the|number|of|different|{COLUMN} [directors]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT COUNT (DISTINCT director) FROM movie"
+    },
+    {
+        "original_nl": "What is the title and director for the movie with highest worldwide gross in the year 2000 or before?",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|and|{COLUMN} [director]|for|the|{TABLE} [movie]|with|high [highest]|{COLUMN_PART} [worldwide]|{COLUMN_PART} [gross]|in|{NE} [the year 2000]|or|earlier [before]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "high",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "in",
+            "{NE}",
+            "or",
+            "earlier"
+        ],
+        "original_sql": "SELECT title ,  director FROM movie WHERE YEAR  <=  2000 ORDER BY gross_worldwide DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the title and director of the movie released in the year 2000 or earlier that had the highest worldwide gross.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [title]|and|{COLUMN} [director]|of|the|{TABLE} [movie]|free [released]|in|{NE} [the year 2000]|or|earlier|that|have [had]|the|high [highest]|{COLUMN_PART} [worldwide]|{COLUMN_PART} [gross]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "free",
+            "in",
+            "{NE}",
+            "or",
+            "earlier",
+            "that",
+            "have",
+            "the",
+            "high",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT title ,  director FROM movie WHERE YEAR  <=  2000 ORDER BY gross_worldwide DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show all director names who have a movie in both year 1999 and 2000.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [director]|{COLUMN_PART} [names]|who|have|a|{TABLE} [movie]|in|{NE} [both year 1999]|and|{VALUE} [2000]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "who",
+            "have",
+            "a",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "and",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT director FROM movie WHERE YEAR  =  2000 INTERSECT SELECT director FROM movie WHERE YEAR  =  1999"
+    },
+    {
+        "original_nl": "Which directors had a movie both in the year 1999 and 2000?",
+        "generalized_nl": "Which|{COLUMN} [directors]|have [had]|a|{TABLE} [movie]|both|in|{NE} [the year 1999]|and|{VALUE} [2000]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "a",
+            "{TABLE}",
+            "both",
+            "in",
+            "{NE}",
+            "and",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT director FROM movie WHERE YEAR  =  2000 INTERSECT SELECT director FROM movie WHERE YEAR  =  1999"
+    },
+    {
+        "original_nl": "Show all director names who have a movie in the year 1999 or 2000.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [director]|{COLUMN_PART} [names]|who|have|a|{TABLE} [movie]|in|{NE} [the year 1999]|or|{VALUE} [2000]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "who",
+            "have",
+            "a",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT director FROM movie WHERE YEAR  =  1999 OR YEAR  =  2000"
+    },
+    {
+        "original_nl": "Which directors had a movie in either 1999 or 2000?",
+        "generalized_nl": "Which|{COLUMN} [directors]|have [had]|a|{TABLE} [movie]|in|either|{VALUE} [1999]|or|{VALUE} [2000]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "a",
+            "{TABLE}",
+            "in",
+            "either",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT director FROM movie WHERE YEAR  =  1999 OR YEAR  =  2000"
+    },
+    {
+        "original_nl": "What is the average, maximum, and minimum budget for all movies before 2000.",
+        "generalized_nl": "What|is|the|average|maximal [maximum]|and|minimal [minimum]|{COLUMN_PART} [budget]|for|all|{TABLE} [movies]|before|{VALUE} [2000]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "before",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT avg(budget_million) ,  max(budget_million) ,  min(budget_million) FROM movie WHERE YEAR  <  2000"
+    },
+    {
+        "original_nl": "Return the average, maximum, and minimum budgets in millions for movies made before the year 2000.",
+        "generalized_nl": "return [Return]|the|average|maximal [maximum]|and|minimal [minimum]|budget [budgets]|in|{COLUMN_PART} [millions]|for|{TABLE} [movies]|make [made]|before|{NE} [the year 2000]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "average",
+            "maximal",
+            "and",
+            "minimal",
+            "budget",
+            "in",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "make",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(budget_million) ,  max(budget_million) ,  min(budget_million) FROM movie WHERE YEAR  <  2000"
+    },
+    {
+        "original_nl": "List all company names with a book published by Alyson.",
+        "generalized_nl": "list [List]|all|{COLUMN} [company names]|with|a|{COLUMN_PART} [book]|publish [published]|by|{VALUE} [Alyson]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "with",
+            "a",
+            "{COLUMN_PART}",
+            "publish",
+            "by",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.company_name FROM culture_company AS T1 JOIN book_club AS T2 ON T1.book_club_id  =  T2.book_club_id WHERE T2.publisher  =  'Alyson'"
+    },
+    {
+        "original_nl": "What are all the company names that have a book published by Alyson?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [company names]|that|have|a|{COLUMN_PART} [book]|publish [published]|by|{VALUE} [Alyson]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN_PART}",
+            "publish",
+            "by",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.company_name FROM culture_company AS T1 JOIN book_club AS T2 ON T1.book_club_id  =  T2.book_club_id WHERE T2.publisher  =  'Alyson'"
+    },
+    {
+        "original_nl": "Show the movie titles and book titles for all companies in China.",
+        "generalized_nl": "show [Show]|the|{TABLE} [movie]|{COLUMN} [titles]|and|{COLUMN} [book titles]|for|all|company [companies]|in|{VALUE} [China]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "company",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.title ,  T3.book_title FROM movie AS T1 JOIN culture_company AS T2 ON T1.movie_id  =  T2.movie_id JOIN book_club AS T3 ON T3.book_club_id  =  T2.book_club_id WHERE T2.incorporated_in  =  'China'"
+    },
+    {
+        "original_nl": "What are the titles of movies and books corresponding to companies incorporated in China?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|{TABLE} [movies]|and|book [books]|match [corresponding]|to|company [companies]|{COLUMN} [incorporated in]|{VALUE} [China]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "book",
+            "match",
+            "to",
+            "company",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.title ,  T3.book_title FROM movie AS T1 JOIN culture_company AS T2 ON T1.movie_id  =  T2.movie_id JOIN book_club AS T3 ON T3.book_club_id  =  T2.book_club_id WHERE T2.incorporated_in  =  'China'"
+    },
+    {
+        "original_nl": "Show all company names with a movie directed in year 1999.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [company names]|with|a|{TABLE} [movie]|direct [directed]|in|{COLUMN} [year]|{VALUE} [1999]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "with",
+            "a",
+            "{TABLE}",
+            "direct",
+            "in",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.company_name FROM movie AS T1 JOIN culture_company AS T2 ON T1.movie_id  =  T2.movie_id WHERE T1.year  =  1999"
+    },
+    {
+        "original_nl": "What are all company names that have a corresponding movie directed in the year 1999?",
+        "generalized_nl": "What|are|all|{COLUMN} [company names]|that|have|a|match [corresponding]|{TABLE} [movie]|direct [directed]|in|{NE} [the year 1999]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "{COLUMN}",
+            "that",
+            "have",
+            "a",
+            "match",
+            "{TABLE}",
+            "direct",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.company_name FROM movie AS T1 JOIN culture_company AS T2 ON T1.movie_id  =  T2.movie_id WHERE T1.year  =  1999"
+    }
+]

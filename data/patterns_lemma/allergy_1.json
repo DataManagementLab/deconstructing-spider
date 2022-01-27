@@ -1,0 +1,1521 @@
+[
+    {
+        "original_nl": "How many allergies are there?",
+        "generalized_nl": "How|many|{COLUMN} [allergies]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT allergy) FROM Allergy_type"
+    },
+    {
+        "original_nl": "How many allergy entries are there?",
+        "generalized_nl": "How|many|{COLUMN} [allergy]|entry [entries]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "entry",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT allergy) FROM Allergy_type"
+    },
+    {
+        "original_nl": "How many different allergy types exist?",
+        "generalized_nl": "How|many|different|{COLUMN} [allergy types]|exist",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "exist"
+        ],
+        "original_sql": "SELECT count(DISTINCT allergytype) FROM Allergy_type"
+    },
+    {
+        "original_nl": "How many distinct allergies are there?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [allergies]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT allergytype) FROM Allergy_type"
+    },
+    {
+        "original_nl": "Show all allergy types.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [allergy types]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT allergytype FROM Allergy_type"
+    },
+    {
+        "original_nl": "What are the different allergy types?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [allergy types]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT allergytype FROM Allergy_type"
+    },
+    {
+        "original_nl": "Show all allergies and their types.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [allergies]|and|their|{COLUMN_PART} [types]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT allergy ,  allergytype FROM Allergy_type"
+    },
+    {
+        "original_nl": "What are the allergies and their types?",
+        "generalized_nl": "What|are|the|{COLUMN} [allergies]|and|their|{COLUMN_PART} [types]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT allergy ,  allergytype FROM Allergy_type"
+    },
+    {
+        "original_nl": "Show all allergies with type food.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [allergies]|with|{COLUMN_PART} [type]|food",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "with",
+            "{COLUMN_PART}",
+            "food"
+        ],
+        "original_sql": "SELECT DISTINCT allergy FROM Allergy_type WHERE allergytype  =  \"food\""
+    },
+    {
+        "original_nl": "What are all the different food allergies?",
+        "generalized_nl": "What|are|all|the|different|food|{COLUMN} [allergies]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "different",
+            "food",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT allergy FROM Allergy_type WHERE allergytype  =  \"food\""
+    },
+    {
+        "original_nl": "What is the type of allergy Cat?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [type]|of|{COLUMN} [allergy]|{NE} [Cat]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT allergytype FROM Allergy_type WHERE allergy  =  \"Cat\""
+    },
+    {
+        "original_nl": "What is allergy type of a cat allergy?",
+        "generalized_nl": "What|is|{COLUMN} [allergy type]|of|a|cat|{COLUMN} [allergy]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{COLUMN}",
+            "of",
+            "a",
+            "cat",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT allergytype FROM Allergy_type WHERE allergy  =  \"Cat\""
+    },
+    {
+        "original_nl": "How many allergies have type animal?",
+        "generalized_nl": "How|many|{COLUMN} [allergies]|have|{COLUMN_PART} [type]|animal",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "have",
+            "{COLUMN_PART}",
+            "animal"
+        ],
+        "original_sql": "SELECT count(*) FROM Allergy_type WHERE allergytype  =  \"animal\""
+    },
+    {
+        "original_nl": "How many animal type allergies exist?",
+        "generalized_nl": "How|many|animal|{COLUMN_PART} [type]|{COLUMN} [allergies]|exist",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "animal",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "exist"
+        ],
+        "original_sql": "SELECT count(*) FROM Allergy_type WHERE allergytype  =  \"animal\""
+    },
+    {
+        "original_nl": "Show all allergy types and the number of allergies in each type.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [allergy types]|and|the|number|of|{COLUMN} [allergies]|in|each|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT allergytype ,  count(*) FROM Allergy_type GROUP BY allergytype"
+    },
+    {
+        "original_nl": "What are the allergy types and how many allergies correspond to each one?",
+        "generalized_nl": "What|are|the|{COLUMN} [allergy types]|and|how|many|{COLUMN} [allergies]|match [correspond]|to|each|one",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "how",
+            "many",
+            "{COLUMN}",
+            "match",
+            "to",
+            "each",
+            "one"
+        ],
+        "original_sql": "SELECT allergytype ,  count(*) FROM Allergy_type GROUP BY allergytype"
+    },
+    {
+        "original_nl": "Which allergy type has most number of allergies?",
+        "generalized_nl": "Which|{COLUMN} [allergy type]|have [has]|most|number|of|{COLUMN} [allergies]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "most",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT allergytype FROM Allergy_type GROUP BY allergytype ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which allergy type is most common?",
+        "generalized_nl": "Which|{COLUMN} [allergy type]|is|most|common",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "most",
+            "common"
+        ],
+        "original_sql": "SELECT allergytype FROM Allergy_type GROUP BY allergytype ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which allergy type has least number of allergies?",
+        "generalized_nl": "Which|{COLUMN} [allergy type]|have [has]|least|number|of|{COLUMN} [allergies]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "least",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT allergytype FROM Allergy_type GROUP BY allergytype ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Which allergy type is the least common?",
+        "generalized_nl": "Which|{COLUMN} [allergy type]|is|the|least|common",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "the",
+            "least",
+            "common"
+        ],
+        "original_sql": "SELECT allergytype FROM Allergy_type GROUP BY allergytype ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "How many students are there?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Student"
+    },
+    {
+        "original_nl": "What is the total number of students?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Student"
+    },
+    {
+        "original_nl": "Show first name and last name for all students.",
+        "generalized_nl": "show [Show]|{COLUMN} [first name]|and|{COLUMN} [last name]|for|all|{TABLE} [students]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Fname ,  Lname FROM Student"
+    },
+    {
+        "original_nl": "What are the full names of all students",
+        "generalized_nl": "What|are|the|full|{COLUMN_PART} [names]|of|all|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Fname ,  Lname FROM Student"
+    },
+    {
+        "original_nl": "How many different advisors are listed?",
+        "generalized_nl": "How|many|different|{COLUMN} [advisors]|are|list [listed]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "list"
+        ],
+        "original_sql": "SELECT count(DISTINCT advisor) FROM Student"
+    },
+    {
+        "original_nl": "How many advisors are there?",
+        "generalized_nl": "How|many|{COLUMN} [advisors]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT advisor) FROM Student"
+    },
+    {
+        "original_nl": "Show all majors.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [majors]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Major FROM Student"
+    },
+    {
+        "original_nl": "What are the different majors?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [majors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Major FROM Student"
+    },
+    {
+        "original_nl": "Show all cities where students live.",
+        "generalized_nl": "show [Show]|all|city [cities]|where|{TABLE} [students]|live",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "city",
+            "where",
+            "{TABLE}",
+            "live"
+        ],
+        "original_sql": "SELECT DISTINCT city_code FROM Student"
+    },
+    {
+        "original_nl": "What cities do students live in?",
+        "generalized_nl": "What|city [cities]|do|{TABLE} [students]|live|in",
+        "generalized_tokens": [
+            "What",
+            "city",
+            "do",
+            "{TABLE}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT DISTINCT city_code FROM Student"
+    },
+    {
+        "original_nl": "What are the full names and ages for all female students whose sex is F?",
+        "generalized_nl": "What|are|the|full|{COLUMN_PART} [names]|and|{COLUMN} [ages]|for|all|female|{TABLE} [students]|whose|{COLUMN} [sex]|is|F",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "female",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "F"
+        ],
+        "original_sql": "SELECT Fname ,  Lname ,  Age FROM Student WHERE Sex  =  'F'"
+    },
+    {
+        "original_nl": "Show student ids for all male students.",
+        "generalized_nl": "show [Show]|{TABLE} [student]|id [ids]|for|all|male|{TABLE} [students]",
+        "generalized_tokens": [
+            "show",
+            "{TABLE}",
+            "id",
+            "for",
+            "all",
+            "male",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE Sex  =  'M'"
+    },
+    {
+        "original_nl": "What are the student ids for all male students?",
+        "generalized_nl": "What|are|the|{TABLE} [student]|id [ids]|for|all|male|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "id",
+            "for",
+            "all",
+            "male",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE Sex  =  'M'"
+    },
+    {
+        "original_nl": "How many students are age 18?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|{COLUMN} [age]|{NUMBER} [18]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM Student WHERE age  =  18"
+    },
+    {
+        "original_nl": "How many students are 18 years old?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|{NE} [18 years old]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Student WHERE age  =  18"
+    },
+    {
+        "original_nl": "Show all student ids who are older than 20.",
+        "generalized_nl": "show [Show]|all|{TABLE} [student]|id [ids]|who|are|old [older]|than|{NE} [20]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{TABLE}",
+            "id",
+            "who",
+            "are",
+            "old",
+            "than",
+            "{NE}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE age  >  20"
+    },
+    {
+        "original_nl": "What are the student ids for students over 20 years old?",
+        "generalized_nl": "What|are|the|{TABLE} [student]|id [ids]|for|{TABLE} [students]|over|{NE} [20 years old]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "id",
+            "for",
+            "{TABLE}",
+            "over",
+            "{NE}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE age  >  20"
+    },
+    {
+        "original_nl": "Which city does the student whose last name is \"Kim\" live in?",
+        "generalized_nl": "Which|{COLUMN_PART} [city]|does|the|{TABLE} [student]|whose|{COLUMN} [last name]|is|{NE} [Kim]|live|in",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "does",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT city_code FROM Student WHERE LName  =  \"Kim\""
+    },
+    {
+        "original_nl": "Give the city that the student whose family name is Kim lives in.",
+        "generalized_nl": "give [Give]|the|{COLUMN_PART} [city]|that|the|{TABLE} [student]|whose|family|{COLUMN_PART} [name]|is|{NE} [Kim]|live [lives]|in",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "the",
+            "{TABLE}",
+            "whose",
+            "family",
+            "{COLUMN_PART}",
+            "is",
+            "{NE}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT city_code FROM Student WHERE LName  =  \"Kim\""
+    },
+    {
+        "original_nl": "Who is the advisor of student with ID 1004?",
+        "generalized_nl": "Who|is|the|{COLUMN} [advisor]|of|{TABLE} [student]|with|id [ID]|{NUMBER} [1004]",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "id",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Advisor FROM Student WHERE StuID  =  1004"
+    },
+    {
+        "original_nl": "Who advises student 1004?",
+        "generalized_nl": "Who|rede [advises]|{TABLE} [student]|{NUMBER} [1004]",
+        "generalized_tokens": [
+            "Who",
+            "rede",
+            "{TABLE}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Advisor FROM Student WHERE StuID  =  1004"
+    },
+    {
+        "original_nl": "How many students live in HKG or CHI?",
+        "generalized_nl": "How|many|{TABLE} [students]|live|in|{NE} [HKG]|or|{NE} [CHI]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "live",
+            "in",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Student WHERE city_code  =  \"HKG\" OR city_code  =  \"CHI\""
+    },
+    {
+        "original_nl": "Give the number of students living in either HKG or CHI.",
+        "generalized_nl": "give [Give]|the|number|of|{TABLE} [students]|live [living]|in|either|{NE} [HKG]|or|{NE} [CHI]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "live",
+            "in",
+            "either",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Student WHERE city_code  =  \"HKG\" OR city_code  =  \"CHI\""
+    },
+    {
+        "original_nl": "Show the minimum, average, and maximum age of all students.",
+        "generalized_nl": "show [Show]|the|minimum|average|and|maximal [maximum]|{COLUMN} [age]|of|all|{TABLE} [students]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "minimum",
+            "average",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT min(age) ,  avg(age) ,  max(age) FROM Student"
+    },
+    {
+        "original_nl": "What is the minimum, mean, and maximum age across all students?",
+        "generalized_nl": "What|is|the|minimum|mean|and|maximal [maximum]|{COLUMN} [age]|across|all|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "minimum",
+            "mean",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT min(age) ,  avg(age) ,  max(age) FROM Student"
+    },
+    {
+        "original_nl": "What is the last name of the youngest student?",
+        "generalized_nl": "What|is|the|{COLUMN} [last name]|of|the|young [youngest]|{TABLE} [student]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "young",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT LName FROM Student WHERE age  =  (SELECT min(age) FROM Student)"
+    },
+    {
+        "original_nl": "Provide the last name of the youngest student.",
+        "generalized_nl": "provide [Provide]|the|{COLUMN} [last name]|of|the|young [youngest]|{TABLE} [student]",
+        "generalized_tokens": [
+            "provide",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "young",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT LName FROM Student WHERE age  =  (SELECT min(age) FROM Student)"
+    },
+    {
+        "original_nl": "Show the student id of the oldest student.",
+        "generalized_nl": "show [Show]|the|{TABLE} [student]|id|of|the|old [oldest]|{TABLE} [student]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "id",
+            "of",
+            "the",
+            "old",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE age  =  (SELECT max(age) FROM Student)"
+    },
+    {
+        "original_nl": "What student id corresponds to the oldest student?",
+        "generalized_nl": "What|{TABLE} [student]|id|match [corresponds]|to|the|old [oldest]|{TABLE} [student]",
+        "generalized_tokens": [
+            "What",
+            "{TABLE}",
+            "id",
+            "match",
+            "to",
+            "the",
+            "old",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT StuID FROM Student WHERE age  =  (SELECT max(age) FROM Student)"
+    },
+    {
+        "original_nl": "Show all majors and corresponding number of students.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [majors]|and|match [corresponding]|number|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "match",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT major ,  count(*) FROM Student GROUP BY major"
+    },
+    {
+        "original_nl": "How many students are there for each major?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|there|for|each|{COLUMN} [major]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT major ,  count(*) FROM Student GROUP BY major"
+    },
+    {
+        "original_nl": "Which major has most number of students?",
+        "generalized_nl": "Which|{COLUMN} [major]|have [has]|most|number|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT major FROM Student GROUP BY major ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the largest major?",
+        "generalized_nl": "What|is|the|large [largest]|{COLUMN} [major]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT major FROM Student GROUP BY major ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show all ages and corresponding number of students.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [ages]|and|match [corresponding]|number|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "match",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT age ,  count(*) FROM Student GROUP BY age"
+    },
+    {
+        "original_nl": "How old is each student and how many students are each age?",
+        "generalized_nl": "How|old|is|each|{TABLE} [student]|and|how|many|{TABLE} [students]|are|each|{COLUMN} [age]",
+        "generalized_tokens": [
+            "How",
+            "old",
+            "is",
+            "each",
+            "{TABLE}",
+            "and",
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT age ,  count(*) FROM Student GROUP BY age"
+    },
+    {
+        "original_nl": "Show the average age for male and female students.",
+        "generalized_nl": "show [Show]|the|average|{COLUMN} [age]|for|male|and|female|{TABLE} [students]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "male",
+            "and",
+            "female",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(age) ,  sex FROM Student GROUP BY sex"
+    },
+    {
+        "original_nl": "What are the average ages for male and female students?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [ages]|for|male|and|female|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "male",
+            "and",
+            "female",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(age) ,  sex FROM Student GROUP BY sex"
+    },
+    {
+        "original_nl": "Show all cities and corresponding number of students.",
+        "generalized_nl": "show [Show]|all|city [cities]|and|match [corresponding]|number|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "city",
+            "and",
+            "match",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT city_code ,  count(*) FROM Student GROUP BY city_code"
+    },
+    {
+        "original_nl": "How many students live in each city?",
+        "generalized_nl": "How|many|{TABLE} [students]|live|in|each|{COLUMN_PART} [city]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "live",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT city_code ,  count(*) FROM Student GROUP BY city_code"
+    },
+    {
+        "original_nl": "Show all advisors and corresponding number of students.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [advisors]|and|match [corresponding]|number|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "match",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT advisor ,  count(*) FROM Student GROUP BY advisor"
+    },
+    {
+        "original_nl": "How many students does each advisor have?",
+        "generalized_nl": "How|many|{TABLE} [students]|does|each|{COLUMN} [advisor]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "each",
+            "{COLUMN}",
+            "have"
+        ],
+        "original_sql": "SELECT advisor ,  count(*) FROM Student GROUP BY advisor"
+    },
+    {
+        "original_nl": "Which advisor has most number of students?",
+        "generalized_nl": "Which|{COLUMN} [advisor]|have [has]|most|number|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT advisor FROM Student GROUP BY advisor ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Give the advisor with the most students.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [advisor]|with|the|most|{TABLE} [students]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT advisor FROM Student GROUP BY advisor ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many students have cat allergies?",
+        "generalized_nl": "How|many|{TABLE} [students]|have|cat|{COLUMN} [allergies]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "cat",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM Has_allergy WHERE Allergy  =  \"Cat\""
+    },
+    {
+        "original_nl": "How many students are affected by cat allergies?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|affect [affected]|by|cat|{COLUMN} [allergies]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "affect",
+            "by",
+            "cat",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM Has_allergy WHERE Allergy  =  \"Cat\""
+    },
+    {
+        "original_nl": "Show all student IDs who have at least two allergies.",
+        "generalized_nl": "show [Show]|all|{TABLE} [student]|id [IDs]|who|have|{NUMBER} [at least two]|{COLUMN} [allergies]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{TABLE}",
+            "id",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT StuID FROM Has_allergy GROUP BY StuID HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the students ids of students who have more than one allergy?",
+        "generalized_nl": "What|are|the|{TABLE} [students]|id [ids]|of|{TABLE} [students]|who|have|{NUMBER} [more than one]|{COLUMN} [allergy]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "id",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT StuID FROM Has_allergy GROUP BY StuID HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the student ids of students who don't have any allergies?",
+        "generalized_nl": "What|are|the|{TABLE} [student]|id [ids]|of|{TABLE} [students]|who|do|n't|have|any|{COLUMN} [allergies]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "id",
+            "of",
+            "{TABLE}",
+            "who",
+            "do",
+            "n't",
+            "have",
+            "any",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT StuID FROM Student EXCEPT SELECT StuID FROM Has_allergy"
+    },
+    {
+        "original_nl": "Which students are unaffected by allergies?",
+        "generalized_nl": "Which|{TABLE} [students]|are|unaffected|by|{COLUMN} [allergies]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "are",
+            "unaffected",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT StuID FROM Student EXCEPT SELECT StuID FROM Has_allergy"
+    },
+    {
+        "original_nl": "How many female students have milk or egg allergies?",
+        "generalized_nl": "How|many|female|{TABLE} [students]|have|milk|or|egg|{COLUMN} [allergies]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "female",
+            "{TABLE}",
+            "have",
+            "milk",
+            "or",
+            "egg",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM has_allergy AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID WHERE T2.sex  =  \"F\" AND T1.allergy  =  \"Milk\" OR T1.allergy  =  \"Eggs\""
+    },
+    {
+        "original_nl": "How many students who are female are allergic to milk or eggs?",
+        "generalized_nl": "How|many|{TABLE} [students]|who|are|female|are|allergic|to|milk|or|egg [eggs]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "who",
+            "are",
+            "female",
+            "are",
+            "allergic",
+            "to",
+            "milk",
+            "or",
+            "egg"
+        ],
+        "original_sql": "SELECT count(*) FROM has_allergy AS T1 JOIN Student AS T2 ON T1.StuID  =  T2.StuID WHERE T2.sex  =  \"F\" AND T1.allergy  =  \"Milk\" OR T1.allergy  =  \"Eggs\""
+    },
+    {
+        "original_nl": "How many students have a food allergy?",
+        "generalized_nl": "How|many|{TABLE} [students]|have|a|food|{COLUMN} [allergy]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "a",
+            "food",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM Has_allergy AS T1 JOIN Allergy_type AS T2 ON T1.allergy  =  T2.allergy WHERE T2.allergytype  =  \"food\""
+    },
+    {
+        "original_nl": "How many students are affected by food related allergies?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|affect [affected]|by|food|related|{COLUMN} [allergies]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "affect",
+            "by",
+            "food",
+            "related",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM Has_allergy AS T1 JOIN Allergy_type AS T2 ON T1.allergy  =  T2.allergy WHERE T2.allergytype  =  \"food\""
+    },
+    {
+        "original_nl": "Which allergy has most number of students affected?",
+        "generalized_nl": "Which|{COLUMN} [allergy]|have [has]|most|number|of|{TABLE} [students]|affect [affected]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "most",
+            "number",
+            "of",
+            "{TABLE}",
+            "affect"
+        ],
+        "original_sql": "SELECT Allergy FROM Has_allergy GROUP BY Allergy ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which allergy is the most common?",
+        "generalized_nl": "Which|{COLUMN} [allergy]|is|the|most|common",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "the",
+            "most",
+            "common"
+        ],
+        "original_sql": "SELECT Allergy FROM Has_allergy GROUP BY Allergy ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show all allergies with number of students affected.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [allergies]|with|number|of|{TABLE} [students]|affect [affected]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "with",
+            "number",
+            "of",
+            "{TABLE}",
+            "affect"
+        ],
+        "original_sql": "SELECT Allergy ,  count(*) FROM Has_allergy GROUP BY Allergy"
+    },
+    {
+        "original_nl": "How many students have each different allergy?",
+        "generalized_nl": "How|many|{TABLE} [students]|have|each|different|{COLUMN} [allergy]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "each",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Allergy ,  count(*) FROM Has_allergy GROUP BY Allergy"
+    },
+    {
+        "original_nl": "Show all allergy type with number of students affected.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [allergy type]|with|number|of|{TABLE} [students]|affect [affected]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "with",
+            "number",
+            "of",
+            "{TABLE}",
+            "affect"
+        ],
+        "original_sql": "SELECT T2.allergytype ,  count(*) FROM Has_allergy AS T1 JOIN Allergy_type AS T2 ON T1.allergy  =  T2.allergy GROUP BY T2.allergytype"
+    },
+    {
+        "original_nl": "How many students are affected by each allergy type?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|affect [affected]|by|each|{COLUMN} [allergy type]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "affect",
+            "by",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.allergytype ,  count(*) FROM Has_allergy AS T1 JOIN Allergy_type AS T2 ON T1.allergy  =  T2.allergy GROUP BY T2.allergytype"
+    },
+    {
+        "original_nl": "Find the last name and age of the student who has allergy to both milk and cat.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last name]|and|{COLUMN} [age]|of|the|{TABLE} [student]|who|{TABLE} [has allergy]|to|both|milk|and|cat",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "{TABLE}",
+            "to",
+            "both",
+            "milk",
+            "and",
+            "cat"
+        ],
+        "original_sql": "SELECT lname ,  age FROM Student WHERE StuID IN (SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Milk\" INTERSECT SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Cat\")"
+    },
+    {
+        "original_nl": "What are the last names and ages of the students who are allergic to milk and cat?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|and|{COLUMN} [ages]|of|the|{TABLE} [students]|who|are|allergic|to|milk|and|cat",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "allergic",
+            "to",
+            "milk",
+            "and",
+            "cat"
+        ],
+        "original_sql": "SELECT lname ,  age FROM Student WHERE StuID IN (SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Milk\" INTERSECT SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Cat\")"
+    },
+    {
+        "original_nl": "Find the first name and gender of the student who has allergy to milk but not cat.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|and|gender|of|the|{TABLE} [student]|who|{TABLE} [has allergy]|to|milk|but|not|cat",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "gender",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "{TABLE}",
+            "to",
+            "milk",
+            "but",
+            "not",
+            "cat"
+        ],
+        "original_sql": "SELECT fname ,  sex FROM Student WHERE StuID IN (SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Milk\" EXCEPT SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Cat\")"
+    },
+    {
+        "original_nl": "What are the first name and gender of the students who have allergy to milk but can put up with cats?",
+        "generalized_nl": "What|are|the|{COLUMN} [first name]|and|gender|of|the|{TABLE} [students]|who|{TABLE} [have allergy]|to|milk|but|can|put|up|with|cat [cats]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "gender",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "{TABLE}",
+            "to",
+            "milk",
+            "but",
+            "can",
+            "put",
+            "up",
+            "with",
+            "cat"
+        ],
+        "original_sql": "SELECT fname ,  sex FROM Student WHERE StuID IN (SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Milk\" EXCEPT SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Cat\")"
+    },
+    {
+        "original_nl": "Find the average age of the students who have allergies with food and animal types.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [age]|of|the|{TABLE} [students]|who|have|{COLUMN} [allergies]|with|food|and|animal|{COLUMN_PART} [types]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "with",
+            "food",
+            "and",
+            "animal",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(age) FROM Student WHERE StuID IN ( SELECT T1.StuID FROM Has_allergy AS T1 JOIN Allergy_Type AS T2 ON T1.Allergy  =  T2.Allergy WHERE T2.allergytype  =  \"food\" INTERSECT SELECT T1.StuID FROM Has_allergy AS T1 JOIN Allergy_Type AS T2 ON T1.Allergy  =  T2.Allergy WHERE T2.allergytype  =  \"animal\")"
+    },
+    {
+        "original_nl": "How old are the students with allergies to food and animal types on average?",
+        "generalized_nl": "How|old|are|the|{TABLE} [students]|with|{COLUMN} [allergies]|to|food|and|animal|{COLUMN_PART} [types]|on|average",
+        "generalized_tokens": [
+            "How",
+            "old",
+            "are",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "to",
+            "food",
+            "and",
+            "animal",
+            "{COLUMN_PART}",
+            "on",
+            "average"
+        ],
+        "original_sql": "SELECT avg(age) FROM Student WHERE StuID IN ( SELECT T1.StuID FROM Has_allergy AS T1 JOIN Allergy_Type AS T2 ON T1.Allergy  =  T2.Allergy WHERE T2.allergytype  =  \"food\" INTERSECT SELECT T1.StuID FROM Has_allergy AS T1 JOIN Allergy_Type AS T2 ON T1.Allergy  =  T2.Allergy WHERE T2.allergytype  =  \"animal\")"
+    },
+    {
+        "original_nl": "List the first and last name of the students who do not have any food type allergy.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [students]|who|do|not|have|any|food|{COLUMN_PART} [type]|{COLUMN} [allergy]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "have",
+            "any",
+            "food",
+            "{COLUMN_PART}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM Student WHERE StuID NOT IN (SELECT T1.StuID FROM Has_allergy AS T1 JOIN Allergy_Type AS T2 ON T1.Allergy  =  T2.Allergy WHERE T2.allergytype  =  \"food\")"
+    },
+    {
+        "original_nl": "What is the full name of each student who is not allergic to any type of food.",
+        "generalized_nl": "What|is|the|full|{COLUMN_PART} [name]|of|each|{TABLE} [student]|who|is|not|allergic|to|any|{COLUMN_PART} [type]|of|food",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "who",
+            "is",
+            "not",
+            "allergic",
+            "to",
+            "any",
+            "{COLUMN_PART}",
+            "of",
+            "food"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM Student WHERE StuID NOT IN (SELECT T1.StuID FROM Has_allergy AS T1 JOIN Allergy_Type AS T2 ON T1.Allergy  =  T2.Allergy WHERE T2.allergytype  =  \"food\")"
+    },
+    {
+        "original_nl": "Find the number of male (sex is 'M') students who have some food type allery.",
+        "generalized_nl": "find [Find]|the|number|of|male|{COLUMN} [sex]|is|megabyte [M]|{TABLE} [students]|who|have|some|food|{COLUMN_PART} [type]|allery",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "male",
+            "{COLUMN}",
+            "is",
+            "megabyte",
+            "{TABLE}",
+            "who",
+            "have",
+            "some",
+            "food",
+            "{COLUMN_PART}",
+            "allery"
+        ],
+        "original_sql": "SELECT count(*) FROM Student WHERE sex  =  \"M\" AND StuID IN (SELECT StuID FROM Has_allergy AS T1 JOIN Allergy_Type AS T2 ON T1.Allergy  =  T2.Allergy WHERE T2.allergytype  =  \"food\")"
+    },
+    {
+        "original_nl": "How many male students (sex is 'M') are allergic to any type of food?",
+        "generalized_nl": "How|many|male|{TABLE} [students]|{COLUMN} [sex]|is|megabyte [M]|are|allergic|to|any|{COLUMN_PART} [type]|of|food",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "male",
+            "{TABLE}",
+            "{COLUMN}",
+            "is",
+            "megabyte",
+            "are",
+            "allergic",
+            "to",
+            "any",
+            "{COLUMN_PART}",
+            "of",
+            "food"
+        ],
+        "original_sql": "SELECT count(*) FROM Student WHERE sex  =  \"M\" AND StuID IN (SELECT StuID FROM Has_allergy AS T1 JOIN Allergy_Type AS T2 ON T1.Allergy  =  T2.Allergy WHERE T2.allergytype  =  \"food\")"
+    },
+    {
+        "original_nl": "Find the different first names and cities of the students who have allergy to milk or cat.",
+        "generalized_nl": "find [Find]|the|different|{COLUMN} [first names]|and|city [cities]|of|the|{TABLE} [students]|who|{TABLE} [have allergy]|to|milk|or|cat",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "city",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "{TABLE}",
+            "to",
+            "milk",
+            "or",
+            "cat"
+        ],
+        "original_sql": "SELECT DISTINCT T1.fname ,  T1.city_code FROM Student AS T1 JOIN Has_Allergy AS T2 ON T1.stuid  =  T2.stuid WHERE T2.Allergy  =  \"Milk\" OR T2.Allergy  =  \"Cat\""
+    },
+    {
+        "original_nl": "What are the distinct first names and cities of the students who have allergy either to milk or to cat?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [first names]|and|city [cities]|of|the|{TABLE} [students]|who|{TABLE} [have allergy]|either|to|milk|or|to|cat",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "and",
+            "city",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "{TABLE}",
+            "either",
+            "to",
+            "milk",
+            "or",
+            "to",
+            "cat"
+        ],
+        "original_sql": "SELECT DISTINCT T1.fname ,  T1.city_code FROM Student AS T1 JOIN Has_Allergy AS T2 ON T1.stuid  =  T2.stuid WHERE T2.Allergy  =  \"Milk\" OR T2.Allergy  =  \"Cat\""
+    },
+    {
+        "original_nl": "Find the number of students who are older than 18 and do not have allergy to either food or animal.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [students]|who|are|old [older]|than|{NE} [18]|and|do|not|{TABLE} [have allergy]|to|either|food|or|animal",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "old",
+            "than",
+            "{NE}",
+            "and",
+            "do",
+            "not",
+            "{TABLE}",
+            "to",
+            "either",
+            "food",
+            "or",
+            "animal"
+        ],
+        "original_sql": "SELECT count(*) FROM Student WHERE age  >  18 AND StuID NOT IN ( SELECT StuID FROM Has_allergy AS T1 JOIN Allergy_Type AS T2 ON T1.Allergy  =  T2.Allergy WHERE T2.allergytype  =  \"food\" OR T2.allergytype  =  \"animal\")"
+    },
+    {
+        "original_nl": "How many students are over 18 and do not have allergy to food type or animal type?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|over|{NE} [18]|and|do|not|{TABLE} [have allergy]|to|food|{COLUMN_PART} [type]|or|animal|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "over",
+            "{NE}",
+            "and",
+            "do",
+            "not",
+            "{TABLE}",
+            "to",
+            "food",
+            "{COLUMN_PART}",
+            "or",
+            "animal",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM Student WHERE age  >  18 AND StuID NOT IN ( SELECT StuID FROM Has_allergy AS T1 JOIN Allergy_Type AS T2 ON T1.Allergy  =  T2.Allergy WHERE T2.allergytype  =  \"food\" OR T2.allergytype  =  \"animal\")"
+    },
+    {
+        "original_nl": "Find the first name and major of the students who are not allegry to soy.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first name]|and|{COLUMN} [major]|of|the|{TABLE} [students]|who|are|not|allegry|to|soy",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "allegry",
+            "to",
+            "soy"
+        ],
+        "original_sql": "SELECT fname ,  major FROM Student WHERE StuID NOT IN (SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Soy\")"
+    },
+    {
+        "original_nl": "What are the first name and major of the students who are able to consume soy?",
+        "generalized_nl": "What|are|the|{COLUMN} [first name]|and|{COLUMN} [major]|of|the|{TABLE} [students]|who|are|able|to|consume|soy",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "able",
+            "to",
+            "consume",
+            "soy"
+        ],
+        "original_sql": "SELECT fname ,  major FROM Student WHERE StuID NOT IN (SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Soy\")"
+    }
+]

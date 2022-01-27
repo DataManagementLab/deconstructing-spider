@@ -1,0 +1,594 @@
+[
+    {
+        "original_nl": "Find the names of channels that are not owned by CCTV.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [channels]|that|are|not|own [owned]|by|{VALUE} [CCTV]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "own",
+            "by",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM channel WHERE OWNER != 'CCTV'"
+    },
+    {
+        "original_nl": "List all channel names ordered by their rating in percent from big to small.",
+        "generalized_nl": "list [List]|all|{TABLE} [channel]|{COLUMN} [names]|order [ordered]|by|their|{COLUMN} [rating in percent]|from|big|to|small",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "order",
+            "by",
+            "their",
+            "{COLUMN}",
+            "from",
+            "big",
+            "to",
+            "small"
+        ],
+        "original_sql": "SELECT name FROM channel ORDER BY rating_in_percent DESC"
+    },
+    {
+        "original_nl": "Give me a list of all the channel names sorted by the channel rating in descending order.",
+        "generalized_nl": "give [Give]|me|a|list|of|all|the|{TABLE} [channel]|{COLUMN} [names]|screen [sorted]|by|the|{TABLE} [channel]|{COLUMN_PART} [rating]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT name FROM channel ORDER BY rating_in_percent DESC"
+    },
+    {
+        "original_nl": "What is the owner of the channel that has the highest rating ratio?",
+        "generalized_nl": "What|is|the|{COLUMN} [owner]|of|the|{TABLE} [channel]|that|have [has]|the|high [highest]|{COLUMN_PART} [rating]|ratio",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "high",
+            "{COLUMN_PART}",
+            "ratio"
+        ],
+        "original_sql": "SELECT OWNER FROM channel ORDER BY rating_in_percent DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show me the owner of the channel with the highest rating.",
+        "generalized_nl": "show [Show]|me|the|{COLUMN} [owner]|of|the|{TABLE} [channel]|with|the|high [highest]|{COLUMN_PART} [rating]",
+        "generalized_tokens": [
+            "show",
+            "me",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT OWNER FROM channel ORDER BY rating_in_percent DESC LIMIT 1"
+    },
+    {
+        "original_nl": "how many programs are there?",
+        "generalized_nl": "how|many|{TABLE} [programs]|are|there",
+        "generalized_tokens": [
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM program"
+    },
+    {
+        "original_nl": "Count the number of programs.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [programs]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM program"
+    },
+    {
+        "original_nl": "list all the names of programs, ordering by launch time.",
+        "generalized_nl": "list|all|the|{COLUMN} [names]|of|{TABLE} [programs]|order [ordering]|by|{COLUMN} [launch]|{COLUMN_PART} [time]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT name FROM program ORDER BY launch"
+    },
+    {
+        "original_nl": "What is the list of program names, sorted by the order of launch date?",
+        "generalized_nl": "What|is|the|list|of|{TABLE} [program]|{COLUMN} [names]|screen [sorted]|by|the|order|of|{COLUMN} [launch]|{COLUMN} [date]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "list",
+            "of",
+            "{TABLE}",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "the",
+            "order",
+            "of",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM program ORDER BY launch"
+    },
+    {
+        "original_nl": "List the name, origin and owner of each program.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|{COLUMN} [origin]|and|{COLUMN} [owner]|of|each|{TABLE} [program]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  origin ,  OWNER FROM program"
+    },
+    {
+        "original_nl": "What are the name, origin and owner of each program?",
+        "generalized_nl": "What|are|the|{COLUMN} [name]|{COLUMN} [origin]|and|{COLUMN} [owner]|of|each|{TABLE} [program]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  origin ,  OWNER FROM program"
+    },
+    {
+        "original_nl": "find the name of the program that was launched most recently.",
+        "generalized_nl": "find|the|{COLUMN} [name]|of|the|{TABLE} [program]|that|was|launch [launched]|most|recently",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "was",
+            "launch",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT name FROM program ORDER BY launch DESC LIMIT 1"
+    },
+    {
+        "original_nl": "find the total percentage share of all channels owned by CCTV.",
+        "generalized_nl": "find|the|entire [total]|percentage|{COLUMN_PART} [share]|of|all|{TABLE} [channels]|own [owned]|by|{VALUE} [CCTV]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "percentage",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "own",
+            "by",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT sum(Share_in_percent) FROM channel WHERE OWNER  =  'CCTV'"
+    },
+    {
+        "original_nl": "What is the total share (in percent) of all the channels owned by CCTV?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [share]|in|{COLUMN_PART} [percent]|of|all|the|{TABLE} [channels]|own [owned]|by|{VALUE} [CCTV]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "in",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "own",
+            "by",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT sum(Share_in_percent) FROM channel WHERE OWNER  =  'CCTV'"
+    },
+    {
+        "original_nl": "Find the names of the channels that are broadcast in the morning.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|{TABLE} [channels]|that|are|{TABLE} [broadcast]|in|{NE} [the morning]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t1.name FROM channel AS t1 JOIN broadcast AS t2 ON t1.channel_id  =  t2.channel_id WHERE t2.time_of_day  =  'Morning'"
+    },
+    {
+        "original_nl": "what are the names of the channels that broadcast in both morning and night?",
+        "generalized_nl": "what|are|the|{COLUMN} [names]|of|the|{TABLE} [channels]|that|{TABLE} [broadcast]|in|{NE} [both morning and night]",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t1.name FROM channel AS t1 JOIN broadcast AS t2 ON t1.channel_id  =  t2.channel_id WHERE t2.time_of_day  =  'Morning' INTERSECT SELECT t1.name FROM channel AS t1 JOIN broadcast AS t2 ON t1.channel_id  =  t2.channel_id WHERE t2.time_of_day  =  'Night'"
+    },
+    {
+        "original_nl": "how many programs are broadcast in each time section of the day?",
+        "generalized_nl": "how|many|{TABLE} [programs]|are|{TABLE} [broadcast]|in|each|{COLUMN_PART} [time]|section|of|the|{COLUMN_PART} [day]",
+        "generalized_tokens": [
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN_PART}",
+            "section",
+            "of",
+            "the",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) ,  time_of_day FROM broadcast GROUP BY time_of_day"
+    },
+    {
+        "original_nl": "Count the number of programs broadcast for each time section of a day.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [programs]|{TABLE} [broadcast]|for|each|{COLUMN_PART} [time]|section|of|a|{COLUMN_PART} [day]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN_PART}",
+            "section",
+            "of",
+            "a",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) ,  time_of_day FROM broadcast GROUP BY time_of_day"
+    },
+    {
+        "original_nl": "find the number of different programs that are broadcast during night time.",
+        "generalized_nl": "find|the|number|of|different|{TABLE} [programs]|that|are|{TABLE} [broadcast]|during|{NE} [night]|{COLUMN_PART} [time]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{TABLE}",
+            "that",
+            "are",
+            "{TABLE}",
+            "during",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(DISTINCT program_id) FROM broadcast WHERE time_of_day  =  'Night'"
+    },
+    {
+        "original_nl": "How many distinct programs are broadcast at \"Night\" time?",
+        "generalized_nl": "How|many|distinct|{TABLE} [programs]|are|{TABLE} [broadcast]|at|{VALUE} [Night]|{COLUMN_PART} [time]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{TABLE}",
+            "are",
+            "{TABLE}",
+            "at",
+            "{VALUE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(DISTINCT program_id) FROM broadcast WHERE time_of_day  =  'Night'"
+    },
+    {
+        "original_nl": "Find the names of programs that are never broadcasted in the morning.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [programs]|that|are|never|air [broadcasted]|in|{NE} [the morning]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "never",
+            "air",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM program EXCEPT SELECT t1.name FROM program AS t1 JOIN broadcast AS t2 ON t1.program_id  =  t2.program_id WHERE t2.Time_of_day  =  \"Morning\""
+    },
+    {
+        "original_nl": "find the program owners that have some programs in both morning and night time.",
+        "generalized_nl": "find|the|{TABLE} [program]|{COLUMN} [owners]|that|have|some|{TABLE} [programs]|in|both|dawn [morning]|and|{NE} [night]|{COLUMN_PART} [time]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "have",
+            "some",
+            "{TABLE}",
+            "in",
+            "both",
+            "dawn",
+            "and",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.owner FROM program AS t1 JOIN broadcast AS t2 ON t1.program_id  =  t2.program_id WHERE t2.Time_of_day  =  \"Morning\" INTERSECT SELECT t1.owner FROM program AS t1 JOIN broadcast AS t2 ON t1.program_id  =  t2.program_id WHERE t2.Time_of_day  =  \"Night\""
+    },
+    {
+        "original_nl": "Who are the owners of the programs that broadcast both in the morning and at night?",
+        "generalized_nl": "Who|are|the|{COLUMN} [owners]|of|the|{TABLE} [programs]|that|{TABLE} [broadcast]|both|in|the|dawn [morning]|and|at|{NE} [night]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "{TABLE}",
+            "both",
+            "in",
+            "the",
+            "dawn",
+            "and",
+            "at",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t1.owner FROM program AS t1 JOIN broadcast AS t2 ON t1.program_id  =  t2.program_id WHERE t2.Time_of_day  =  \"Morning\" INTERSECT SELECT t1.owner FROM program AS t1 JOIN broadcast AS t2 ON t1.program_id  =  t2.program_id WHERE t2.Time_of_day  =  \"Night\""
+    },
+    {
+        "original_nl": "List all program origins in the alphabetical order.",
+        "generalized_nl": "list [List]|all|{TABLE} [program]|{COLUMN} [origins]|in|the|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "the",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT origin FROM program ORDER BY origin"
+    },
+    {
+        "original_nl": "What is the list of program origins ordered alphabetically?",
+        "generalized_nl": "What|is|the|list|of|{TABLE} [program]|{COLUMN} [origins]|order [ordered]|alphabetically",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "list",
+            "of",
+            "{TABLE}",
+            "{COLUMN}",
+            "order",
+            "alphabetically"
+        ],
+        "original_sql": "SELECT origin FROM program ORDER BY origin"
+    },
+    {
+        "original_nl": "what is the number of different channel owners?",
+        "generalized_nl": "what|is|the|number|of|different|{TABLE} [channel]|{COLUMN} [owners]",
+        "generalized_tokens": [
+            "what",
+            "is",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT OWNER) FROM channel"
+    },
+    {
+        "original_nl": "Count the number of distinct channel owners.",
+        "generalized_nl": "count [Count]|the|number|of|distinct|{TABLE} [channel]|{COLUMN} [owners]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT OWNER) FROM channel"
+    },
+    {
+        "original_nl": "find the names of programs whose origin is not in Beijing.",
+        "generalized_nl": "find|the|{COLUMN} [names]|of|{TABLE} [programs]|whose|{COLUMN} [origin]|is|not|in|{VALUE} [Beijing]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM program WHERE origin != 'Beijing'"
+    },
+    {
+        "original_nl": "What are the names of the channels owned by CCTV or HBS?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [channels]|own [owned]|by|{VALUE} [CCTV]|or|{VALUE} [HBS]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "own",
+            "by",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM channel WHERE OWNER  =  'CCTV' OR OWNER  =  'HBS'"
+    },
+    {
+        "original_nl": "List the names of all the channels owned by either CCTV or HBS",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|all|the|{TABLE} [channels]|own [owned]|by|either|{VALUE} [CCTV]|or|{VALUE} [HBS]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "own",
+            "by",
+            "either",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM channel WHERE OWNER  =  'CCTV' OR OWNER  =  'HBS'"
+    },
+    {
+        "original_nl": "Find the total rating ratio for each channel owner.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN_PART} [rating]|ratio|for|each|{TABLE} [channel]|{COLUMN} [owner]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "ratio",
+            "for",
+            "each",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(Rating_in_percent) ,  OWNER FROM channel GROUP BY OWNER"
+    },
+    {
+        "original_nl": "What is the total rating of channel for each channel owner?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [rating]|of|{TABLE} [channel]|for|each|{TABLE} [channel]|{COLUMN} [owner]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(Rating_in_percent) ,  OWNER FROM channel GROUP BY OWNER"
+    },
+    {
+        "original_nl": "Find the name of the program that is broadcast most frequently.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [program]|that|is|{TABLE} [broadcast]|most|frequently",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "{TABLE}",
+            "most",
+            "frequently"
+        ],
+        "original_sql": "SELECT t1.name FROM program AS t1 JOIN broadcast AS t2 ON t1.program_id  =  t2.program_id GROUP BY t2.program_id ORDER BY count(*) DESC LIMIT 1"
+    }
+]

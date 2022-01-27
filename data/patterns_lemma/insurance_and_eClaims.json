@@ -1,0 +1,560 @@
+[
+    {
+        "original_nl": "List the names of all the customers in alphabetical order.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [customers]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT customer_details FROM customers ORDER BY customer_details"
+    },
+    {
+        "original_nl": "Sort the customer names in alphabetical order.",
+        "generalized_nl": "screen [Sort]|the|{TABLE} [customer]|{COLUMN_PART} [names]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "screen",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT customer_details FROM customers ORDER BY customer_details"
+    },
+    {
+        "original_nl": "Find all the policy type codes associated with the customer \"Dayana Robel\"",
+        "generalized_nl": "find [Find]|all|the|{COLUMN} [policy type codes]|associate [associated]|with|the|{TABLE} [customer]|Dayana|Robel",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "the",
+            "{TABLE}",
+            "Dayana",
+            "Robel"
+        ],
+        "original_sql": "SELECT policy_type_code FROM policies AS t1 JOIN customers AS t2 ON t1.customer_id  =  t2.customer_id WHERE t2.customer_details  =  \"Dayana Robel\""
+    },
+    {
+        "original_nl": "What are the type codes of the policies used by the customer \"Dayana Robel\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [type]|{COLUMN_PART} [codes]|of|the|{TABLE} [policies]|use [used]|by|the|{TABLE} [customer]|{NE} [Dayana Robel]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "use",
+            "by",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT policy_type_code FROM policies AS t1 JOIN customers AS t2 ON t1.customer_id  =  t2.customer_id WHERE t2.customer_details  =  \"Dayana Robel\""
+    },
+    {
+        "original_nl": "Find the type code of the most frequently used policy.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [type]|{COLUMN_PART} [code]|of|the|most|frequently|use [used]|{TABLE} [policy]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "most",
+            "frequently",
+            "use",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT policy_type_code FROM policies GROUP BY policy_type_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find all the policy types that are used by more than 2 customers.",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [policy]|type [types]|that|are|use [used]|by|{NUMBER} [more than 2]|{TABLE} [customers]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "type",
+            "that",
+            "are",
+            "use",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT policy_type_code FROM policies GROUP BY policy_type_code HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "Find the total and average amount paid in claim headers.",
+        "generalized_nl": "find [Find]|the|entire [total]|and|average|{COLUMN_PART} [amount]|pay [paid]|in|{TABLE} [claim headers]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "and",
+            "average",
+            "{COLUMN_PART}",
+            "pay",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(amount_piad) ,  avg(amount_piad) FROM claim_headers"
+    },
+    {
+        "original_nl": "What are the total amount and average amount paid in claim headers?",
+        "generalized_nl": "What|are|the|entire [total]|{COLUMN_PART} [amount]|and|average|{COLUMN_PART} [amount]|pay [paid]|in|{TABLE} [claim headers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "and",
+            "average",
+            "{COLUMN_PART}",
+            "pay",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(amount_piad) ,  avg(amount_piad) FROM claim_headers"
+    },
+    {
+        "original_nl": "Find the total amount claimed in the most recently created document.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN} [amount claimed]|in|the|most|recently|{COLUMN_PART} [created]|{COLUMN_PART} [document]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "in",
+            "the",
+            "most",
+            "recently",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT sum(t1.amount_claimed) FROM claim_headers AS t1 JOIN claims_documents AS t2 ON t1.claim_header_id  =  t2.claim_id WHERE t2.created_date  =  (SELECT created_date FROM claims_documents ORDER BY created_date LIMIT 1)"
+    },
+    {
+        "original_nl": "How much amount in total were claimed in the most recently created document?",
+        "generalized_nl": "How|much|{COLUMN_PART} [amount]|in|sum [total]|were|{COLUMN_PART} [claimed]|in|the|most|recently|{COLUMN_PART} [created]|{COLUMN_PART} [document]",
+        "generalized_tokens": [
+            "How",
+            "much",
+            "{COLUMN_PART}",
+            "in",
+            "sum",
+            "were",
+            "{COLUMN_PART}",
+            "in",
+            "the",
+            "most",
+            "recently",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT sum(t1.amount_claimed) FROM claim_headers AS t1 JOIN claims_documents AS t2 ON t1.claim_header_id  =  t2.claim_id WHERE t2.created_date  =  (SELECT created_date FROM claims_documents ORDER BY created_date LIMIT 1)"
+    },
+    {
+        "original_nl": "What is the name of the customer who has made the largest amount of claim in a single claim?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|who|has|make [made]|the|large [largest]|{COLUMN_PART} [amount]|of|{COLUMN_PART} [claim]|in|a|single|{COLUMN_PART} [claim]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "has",
+            "make",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "in",
+            "a",
+            "single",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t3.customer_details FROM claim_headers AS t1 JOIN policies AS t2 ON t1.policy_id  =  t2.policy_id JOIN customers AS t3 ON t2.customer_id  =  t3.customer_id WHERE t1.amount_claimed  =  (SELECT max(amount_claimed) FROM claim_headers)"
+    },
+    {
+        "original_nl": "What is the name of the customer who has made the minimum amount of payment in one claim?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|who|has|make [made]|the|minimal [minimum]|{COLUMN_PART} [amount]|of|payment|in|{NUMBER} [one]|{COLUMN_PART} [claim]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "has",
+            "make",
+            "the",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "payment",
+            "in",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t3.customer_details FROM claim_headers AS t1 JOIN policies AS t2 ON t1.policy_id  =  t2.policy_id JOIN customers AS t3 ON t2.customer_id  =  t3.customer_id WHERE t1.amount_piad  =  (SELECT min(amount_piad) FROM claim_headers)"
+    },
+    {
+        "original_nl": "Find the names of customers who have no policies associated.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|have|no|{TABLE} [policies]|associate [associated]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "no",
+            "{TABLE}",
+            "associate"
+        ],
+        "original_sql": "SELECT customer_details FROM customers EXCEPT SELECT t2.customer_details FROM policies AS t1 JOIN customers AS t2 ON t1.customer_id  =  t2.customer_id"
+    },
+    {
+        "original_nl": "What are the names of customers who do not have any policies?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|do|not|have|any|{TABLE} [policies]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT customer_details FROM customers EXCEPT SELECT t2.customer_details FROM policies AS t1 JOIN customers AS t2 ON t1.customer_id  =  t2.customer_id"
+    },
+    {
+        "original_nl": "How many claim processing stages are there in total?",
+        "generalized_nl": "How|many|{COLUMN_PART} [claim]|{COLUMN_PART} [processing]|stage [stages]|are|there|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "stage",
+            "are",
+            "there",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM claims_processing_stages"
+    },
+    {
+        "original_nl": "Find the number of distinct stages in claim processing.",
+        "generalized_nl": "find [Find]|the|number|of|distinct|stage [stages]|in|{COLUMN_PART} [claim]|{COLUMN_PART} [processing]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "stage",
+            "in",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM claims_processing_stages"
+    },
+    {
+        "original_nl": "What is the name of the claim processing stage that most of the claims are on?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{COLUMN_PART} [claim]|{COLUMN_PART} [processing]|{COLUMN_PART} [stage]|that|most|of|the|claim [claims]|are|on",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "that",
+            "most",
+            "of",
+            "the",
+            "claim",
+            "are",
+            "on"
+        ],
+        "original_sql": "SELECT t2.claim_status_name FROM claims_processing AS t1 JOIN claims_processing_stages AS t2 ON t1.claim_stage_id  =  t2.claim_stage_id GROUP BY t1.claim_stage_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the names of customers whose name contains \"Diana\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|whose|{COLUMN_PART} [name]|contain [contains]|{NE} [Diana]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "contain",
+            "{NE}"
+        ],
+        "original_sql": "SELECT customer_details FROM customers WHERE customer_details LIKE \"%Diana%\""
+    },
+    {
+        "original_nl": "Find the names of the customers who have an deputy policy.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|the|{TABLE} [customers]|who|have|an|deputy|{TABLE} [policy]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "an",
+            "deputy",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT t2.customer_details FROM policies AS t1 JOIN customers AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.policy_type_code  =  \"Deputy\""
+    },
+    {
+        "original_nl": "Find the names of customers who either have an deputy policy or uniformed policy.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|either|have|an|deputy|{TABLE} [policy]|or|uniformed|{TABLE} [policy]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "either",
+            "have",
+            "an",
+            "deputy",
+            "{TABLE}",
+            "or",
+            "uniformed",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT t2.customer_details FROM policies AS t1 JOIN customers AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.policy_type_code  =  \"Deputy\" OR t1.policy_type_code  =  \"Uniform\""
+    },
+    {
+        "original_nl": "Find the names of all the customers and staff members.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [customers]|and|{TABLE} [staff]|member [members]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "and",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT customer_details FROM customers UNION SELECT staff_details FROM staff"
+    },
+    {
+        "original_nl": "What are the names of the customers and staff members?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [customers]|and|{TABLE} [staff]|member [members]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "and",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT customer_details FROM customers UNION SELECT staff_details FROM staff"
+    },
+    {
+        "original_nl": "Find the number of records of each policy type and its type code.",
+        "generalized_nl": "find [Find]|the|number|of|record [records]|of|each|{TABLE} [policy]|{COLUMN_PART} [type]|and|it|s|{COLUMN_PART} [type]|{COLUMN_PART} [code]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "record",
+            "of",
+            "each",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "it",
+            "s",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT policy_type_code ,  count(*) FROM policies GROUP BY policy_type_code"
+    },
+    {
+        "original_nl": "For each policy type, return its type code and its count in the record.",
+        "generalized_nl": "For|each|{TABLE} [policy]|{COLUMN_PART} [type]|return|it|s|{COLUMN_PART} [type]|{COLUMN_PART} [code]|and|it|s|count|in|the|record",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "return",
+            "it",
+            "s",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "it",
+            "s",
+            "count",
+            "in",
+            "the",
+            "record"
+        ],
+        "original_sql": "SELECT policy_type_code ,  count(*) FROM policies GROUP BY policy_type_code"
+    },
+    {
+        "original_nl": "Find the name of the customer that has been involved in the most policies.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|that|has|been|involve [involved]|in|the|most|{TABLE} [policies]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "been",
+            "involve",
+            "in",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t2.customer_details FROM policies AS t1 JOIN customers AS t2 ON t1.customer_id  =  t2.customer_id GROUP BY t2.customer_details ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the description of the claim status \"Open\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|of|the|{COLUMN_PART} [claim]|{COLUMN_PART} [status]|open [Open]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "open"
+        ],
+        "original_sql": "SELECT claim_status_description FROM claims_processing_stages WHERE claim_status_name  =  \"Open\""
+    },
+    {
+        "original_nl": "Find the description of the claim status \"Open\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [description]|of|the|{COLUMN_PART} [claim]|{COLUMN_PART} [status]|open [Open]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "open"
+        ],
+        "original_sql": "SELECT claim_status_description FROM claims_processing_stages WHERE claim_status_name  =  \"Open\""
+    },
+    {
+        "original_nl": "How many distinct claim outcome codes are there?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [claim outcome codes]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT claim_outcome_code) FROM claims_processing"
+    },
+    {
+        "original_nl": "Count the number of distinct claim outcome codes.",
+        "generalized_nl": "count [Count]|the|number|of|distinct|{COLUMN} [claim outcome codes]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT claim_outcome_code) FROM claims_processing"
+    },
+    {
+        "original_nl": "Which customer is associated with the latest policy?",
+        "generalized_nl": "Which|{TABLE} [customer]|is|associate [associated]|with|the|late [latest]|{TABLE} [policy]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "is",
+            "associate",
+            "with",
+            "the",
+            "late",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t2.customer_details FROM policies AS t1 JOIN customers AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.start_date  =  (SELECT max(start_date) FROM policies)"
+    },
+    {
+        "original_nl": "Find the customer who started a policy most recently.",
+        "generalized_nl": "find [Find]|the|{TABLE} [customer]|who|start [started]|a|{TABLE} [policy]|most|recently",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{TABLE}",
+            "who",
+            "start",
+            "a",
+            "{TABLE}",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT t2.customer_details FROM policies AS t1 JOIN customers AS t2 ON t1.customer_id  =  t2.customer_id WHERE t1.start_date  =  (SELECT max(start_date) FROM policies)"
+    }
+]

@@ -1,0 +1,253 @@
+[
+    {
+        "original_nl": "How many pilots are there?",
+        "generalized_nl": "How|many|{TABLE} [pilots]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM pilot"
+    },
+    {
+        "original_nl": "List the names of pilots in ascending order of rank.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|{TABLE} [pilots]|in|ascend [ascending]|{COLUMN_PART} [order]|of|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Pilot_name FROM pilot ORDER BY Rank ASC"
+    },
+    {
+        "original_nl": "What are the positions and teams of pilots?",
+        "generalized_nl": "What|are|the|{COLUMN} [positions]|and|{COLUMN} [teams]|of|{TABLE} [pilots]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT POSITION ,  Team FROM pilot"
+    },
+    {
+        "original_nl": "List the distinct positions of pilots older than 30.",
+        "generalized_nl": "list [List]|the|distinct|{COLUMN} [positions]|of|{TABLE} [pilots]|{NUMBER} [older than 30]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT POSITION FROM pilot WHERE Age  >  30"
+    },
+    {
+        "original_nl": "Show the names of pilots from team \"Bradley\" or \"Fordham\".",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [pilots]|from|{COLUMN} [team]|{VALUE} [Bradley]|or|{VALUE} [Fordham]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "from",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Pilot_name FROM pilot WHERE Team  =  \"Bradley\" OR Team  =  \"Fordham\""
+    },
+    {
+        "original_nl": "What is the joined year of the pilot of the highest rank?",
+        "generalized_nl": "What|is|the|join [joined]|{COLUMN_PART} [year]|of|the|{TABLE} [pilot]|of|the|high [highest]|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "join",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "of",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Join_Year FROM pilot ORDER BY Rank ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the most common nationality of pilots.",
+        "generalized_nl": "show [Show]|the|most|common|{COLUMN} [nationality]|of|{TABLE} [pilots]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Nationality FROM pilot GROUP BY Nationality ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the pilot positions that have both pilots joining after year 2005 and pilots joining before 2000.",
+        "generalized_nl": "show [Show]|the|{TABLE} [pilot]|{COLUMN} [positions]|that|have|both|{TABLE} [pilots]|join [joining]|after|{COLUMN_PART} [year]|{NUMBER} [2005]|and|{TABLE} [pilots]|join [joining]|before|{VALUE} [2000]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "join",
+            "after",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "and",
+            "{TABLE}",
+            "join",
+            "before",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT POSITION FROM pilot WHERE Join_Year\t <  2000 INTERSECT SELECT POSITION FROM pilot WHERE Join_Year\t >  2005"
+    },
+    {
+        "original_nl": "Show the names of pilots and models of aircrafts they have flied with.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [pilots]|and|{COLUMN} [models]|of|aircraft [aircrafts]|they|have|flied|with",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "aircraft",
+            "they",
+            "have",
+            "flied",
+            "with"
+        ],
+        "original_sql": "SELECT T3.Pilot_name ,  T2.Model FROM pilot_record AS T1 JOIN aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN pilot AS T3 ON T1.Pilot_ID  =  T3.Pilot_ID"
+    },
+    {
+        "original_nl": "Show the names of pilots and fleet series of the aircrafts they have flied with in ascending order of the rank of the pilot.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [pilots]|and|{COLUMN} [fleet series]|of|the|aircraft [aircrafts]|they|have|flied|with|in|ascend [ascending]|{COLUMN_PART} [order]|of|the|{COLUMN} [rank]|of|the|{TABLE} [pilot]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "aircraft",
+            "they",
+            "have",
+            "flied",
+            "with",
+            "in",
+            "ascend",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Pilot_name ,  T2.Fleet_Series FROM pilot_record AS T1 JOIN aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN pilot AS T3 ON T1.Pilot_ID  =  T3.Pilot_ID ORDER BY T3.Rank"
+    },
+    {
+        "original_nl": "Show the fleet series of the aircrafts flied by pilots younger than 34",
+        "generalized_nl": "show [Show]|the|{COLUMN} [fleet series]|of|the|aircraft [aircrafts]|flied|by|{TABLE} [pilots]|{NE} [younger than 34]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "aircraft",
+            "flied",
+            "by",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Fleet_Series FROM pilot_record AS T1 JOIN aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN pilot AS T3 ON T1.Pilot_ID  =  T3.Pilot_ID WHERE T3.Age  <  34"
+    },
+    {
+        "original_nl": "Show the names of pilots and the number of records they have.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [pilots]|and|the|number|of|record [records]|they|have",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "record",
+            "they",
+            "have"
+        ],
+        "original_sql": "SELECT T2.Pilot_name ,  COUNT(*) FROM pilot_record AS T1 JOIN pilot AS T2 ON T1.pilot_ID  =  T2.pilot_ID GROUP BY T2.Pilot_name"
+    },
+    {
+        "original_nl": "Show names of pilots that have more than one record.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [names]|of|{TABLE} [pilots]|that|have|{NUMBER} [more than one]|{COLUMN_PART} [record]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.Pilot_name ,  COUNT(*) FROM pilot_record AS T1 JOIN pilot AS T2 ON T1.pilot_ID  =  T2.pilot_ID GROUP BY T2.Pilot_name HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "List the names of pilots that do not have any record.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|{TABLE} [pilots]|that|do|not|have|any|{COLUMN_PART} [record]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Pilot_name FROM pilot WHERE Pilot_ID NOT IN (SELECT Pilot_ID FROM pilot_record)"
+    }
+]

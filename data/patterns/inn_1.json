@@ -1,0 +1,1179 @@
+[
+    {
+        "original_nl": "Find the names of all modern rooms with a base price below $160 and two beds.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|all|modern|{COLUMN} [rooms]|with|a|{COLUMN} [base price]|below|$|{NE} [160]|and|{NUMBER} [two]|{COLUMN} [beds]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "modern",
+            "{COLUMN}",
+            "with",
+            "a",
+            "{COLUMN}",
+            "below",
+            "$",
+            "{NE}",
+            "and",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT roomName FROM Rooms WHERE basePrice  <  160 AND beds =  2 AND decor  =  'modern';"
+    },
+    {
+        "original_nl": "What are the names of modern rooms that have a base price lower than $160 and two beds.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|modern|{COLUMN} [rooms]|that|have|a|{COLUMN} [base price]|low [lower]|than|$|{NE} [160]|and|{NUMBER} [two]|{COLUMN} [beds]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "modern",
+            "{COLUMN}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "low",
+            "than",
+            "$",
+            "{NE}",
+            "and",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT roomName FROM Rooms WHERE basePrice  <  160 AND beds =  2 AND decor  =  'modern';"
+    },
+    {
+        "original_nl": "What are the room names and ids of all the rooms that cost more than 160 and can accommodate more than two people.",
+        "generalized_nl": "What|are|the|{COLUMN} [room names]|and|{COLUMN_PART} [ids]|of|all|the|{COLUMN} [rooms]|that|cost|{NUMBER} [more than 160]|and|can|accommodate|{NUMBER} [more than two]|people",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{COLUMN}",
+            "that",
+            "cost",
+            "{NUMBER}",
+            "and",
+            "can",
+            "accommodate",
+            "{NUMBER}",
+            "people"
+        ],
+        "original_sql": "SELECT roomName ,  RoomId FROM Rooms WHERE basePrice  >  160 AND maxOccupancy  >  2;"
+    },
+    {
+        "original_nl": "Which room has the largest number of reservations?",
+        "generalized_nl": "Which|{COLUMN} [room]|have [has]|the|large [largest]|number|of|{TABLE} [reservations]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.roomName FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId GROUP BY T1.Room ORDER BY count(*) DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "How many kids stay in the rooms reserved by ROY SWEAZY?",
+        "generalized_nl": "How|many|{COLUMN} [kids]|stay|in|the|{COLUMN} [rooms]|reserve [reserved]|by|ROY|SWEAZY",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "stay",
+            "in",
+            "the",
+            "{COLUMN}",
+            "reserve",
+            "by",
+            "ROY",
+            "SWEAZY"
+        ],
+        "original_sql": "SELECT kids FROM Reservations WHERE FirstName = \"ROY\" AND LastName  =  \"SWEAZY\";"
+    },
+    {
+        "original_nl": "Find the number of kids staying in the rooms reserved by a person called ROY SWEAZ.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [kids]|stay [staying]|in|the|{COLUMN} [rooms]|reserve [reserved]|by|a|person|call [called]|ROY|SWEAZ",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "stay",
+            "in",
+            "the",
+            "{COLUMN}",
+            "reserve",
+            "by",
+            "a",
+            "person",
+            "call",
+            "ROY",
+            "SWEAZ"
+        ],
+        "original_sql": "SELECT kids FROM Reservations WHERE FirstName = \"ROY\" AND LastName  =  \"SWEAZY\";"
+    },
+    {
+        "original_nl": "How many times does ROY SWEAZY has reserved a room.",
+        "generalized_nl": "How|many|time [times]|does|ROY|SWEAZY|has|reserve [reserved]|a|{COLUMN} [room]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "time",
+            "does",
+            "ROY",
+            "SWEAZY",
+            "has",
+            "reserve",
+            "a",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM Reservations WHERE FirstName = \"ROY\" AND LastName  =  \"SWEAZY\";"
+    },
+    {
+        "original_nl": "Find the number of times ROY SWEAZY has reserved a room.",
+        "generalized_nl": "find [Find]|the|number|of|time [times]|ROY|SWEAZY|has|reserve [reserved]|a|{COLUMN} [room]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "time",
+            "ROY",
+            "SWEAZY",
+            "has",
+            "reserve",
+            "a",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM Reservations WHERE FirstName = \"ROY\" AND LastName  =  \"SWEAZY\";"
+    },
+    {
+        "original_nl": "Return the name, rate, check in and check out date for the room with the highest rate.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [name]|{COLUMN} [rate]|{COLUMN} [check in]|and|{COLUMN} [check out]|date|for|the|{COLUMN} [room]|with|the|high [highest]|{COLUMN} [rate]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "date",
+            "for",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.roomName ,  T1.Rate ,  T1.CheckIn ,  T1.CheckOut FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId GROUP BY T1.Room ORDER BY T1.Rate DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "How many adults stay in the room CONRAD SELBIG checked in on Oct 23, 2010?",
+        "generalized_nl": "How|many|{COLUMN} [adults]|stay|in|the|{COLUMN} [room]|{NE} [CONRAD SELBIG]|check [checked]|in|on|{NE} [Oct 23 , 2010]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "stay",
+            "in",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "check",
+            "in",
+            "on",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Adults FROM Reservations WHERE CheckIn  =  \"2010-10-23\" AND FirstName  =  \"CONRAD\" AND LastName  =  \"SELBIG\";"
+    },
+    {
+        "original_nl": "Find the number of adults for the room reserved and checked in by CONRAD SELBIG on Oct 23, 2010.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [adults]|for|the|{COLUMN} [room]|reserve [reserved]|and|check [checked]|in|by|{NE} [CONRAD SELBIG]|on|{NE} [Oct 23 , 2010]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{COLUMN}",
+            "reserve",
+            "and",
+            "check",
+            "in",
+            "by",
+            "{NE}",
+            "on",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Adults FROM Reservations WHERE CheckIn  =  \"2010-10-23\" AND FirstName  =  \"CONRAD\" AND LastName  =  \"SELBIG\";"
+    },
+    {
+        "original_nl": "How many kids stay in the room DAMIEN TRACHSEL checked in on Sep 21, 2010?",
+        "generalized_nl": "How|many|{COLUMN} [kids]|stay|in|the|{COLUMN} [room]|DAMIEN|TRACHSEL|check [checked]|in|on|{NE} [Sep 21 , 2010]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "stay",
+            "in",
+            "the",
+            "{COLUMN}",
+            "DAMIEN",
+            "TRACHSEL",
+            "check",
+            "in",
+            "on",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Kids FROM Reservations WHERE CheckIn  =  \"2010-09-21\" AND FirstName  =  \"DAMIEN\" AND LastName  =  \"TRACHSEL\";"
+    },
+    {
+        "original_nl": "Return the number of kids for the room reserved and checked in by DAMIEN TRACHSEL on  Sep 21, 2010.",
+        "generalized_nl": "return [Return]|the|number|of|{COLUMN} [kids]|for|the|{COLUMN} [room]|reserve [reserved]|and|check [checked]|in|by|{NE} [DAMIEN TRACHSEL]|on|{NE} [Sep 21 , 2010]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{COLUMN}",
+            "reserve",
+            "and",
+            "check",
+            "in",
+            "by",
+            "{NE}",
+            "on",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Kids FROM Reservations WHERE CheckIn  =  \"2010-09-21\" AND FirstName  =  \"DAMIEN\" AND LastName  =  \"TRACHSEL\";"
+    },
+    {
+        "original_nl": "How many king beds are there?",
+        "generalized_nl": "How|many|king|{COLUMN} [beds]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "king",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT sum(beds) FROM Rooms WHERE bedtype  =  'King';"
+    },
+    {
+        "original_nl": "Find the total number of king beds available.",
+        "generalized_nl": "find [Find]|the|entire [total]|number|of|king|{COLUMN} [beds]|available",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "king",
+            "{COLUMN}",
+            "available"
+        ],
+        "original_sql": "SELECT sum(beds) FROM Rooms WHERE bedtype  =  'King';"
+    },
+    {
+        "original_nl": "What are the room name and base price of the room with the lowest base price?",
+        "generalized_nl": "What|are|the|{COLUMN} [room]|{COLUMN_PART} [name]|and|{COLUMN} [base price]|of|the|{COLUMN} [room]|with|the|low [lowest]|{COLUMN} [base price]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT roomName ,  basePrice FROM Rooms ORDER BY basePrice ASC LIMIT 1;"
+    },
+    {
+        "original_nl": "What is the decor of room Recluse and defiance?",
+        "generalized_nl": "What|is|the|{COLUMN} [decor]|of|{COLUMN} [room]|hermit [Recluse]|and|defiance",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "hermit",
+            "and",
+            "defiance"
+        ],
+        "original_sql": "SELECT decor FROM Rooms WHERE roomName  =  \"Recluse and defiance\";"
+    },
+    {
+        "original_nl": "Return the decor of the room named \"Recluse and defiance\".",
+        "generalized_nl": "return [Return]|the|{COLUMN} [decor]|of|the|{COLUMN} [room]|name [named]|Recluse|and|defiance",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "name",
+            "Recluse",
+            "and",
+            "defiance"
+        ],
+        "original_sql": "SELECT decor FROM Rooms WHERE roomName  =  \"Recluse and defiance\";"
+    },
+    {
+        "original_nl": "For each bed type, find the average base price of different bed type.",
+        "generalized_nl": "For|each|{COLUMN} [bed type]|find|the|average|{COLUMN} [base price]|of|different|{COLUMN} [bed type]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT bedType ,  avg(basePrice) FROM Rooms GROUP BY bedType;"
+    },
+    {
+        "original_nl": "What is the total number of people who could stay in the modern rooms in this inn?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|people|who|could|stay|in|the|modern|{COLUMN} [rooms]|in|this|hostel [inn]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "people",
+            "who",
+            "could",
+            "stay",
+            "in",
+            "the",
+            "modern",
+            "{COLUMN}",
+            "in",
+            "this",
+            "hostel"
+        ],
+        "original_sql": "SELECT sum(maxOccupancy) FROM Rooms WHERE decor  =  'modern';"
+    },
+    {
+        "original_nl": "How many people in total can stay in the modern rooms of this inn?",
+        "generalized_nl": "How|many|people|in|sum [total]|can|stay|in|the|modern|{COLUMN} [rooms]|of|this|hostel [inn]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "people",
+            "in",
+            "sum",
+            "can",
+            "stay",
+            "in",
+            "the",
+            "modern",
+            "{COLUMN}",
+            "of",
+            "this",
+            "hostel"
+        ],
+        "original_sql": "SELECT sum(maxOccupancy) FROM Rooms WHERE decor  =  'modern';"
+    },
+    {
+        "original_nl": "What kind of decor has the least number of reservations?",
+        "generalized_nl": "What|kind|of|{COLUMN} [decor]|have [has]|the|least|number|of|{TABLE} [reservations]",
+        "generalized_tokens": [
+            "What",
+            "kind",
+            "of",
+            "{COLUMN}",
+            "have",
+            "the",
+            "least",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.decor FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId GROUP BY T2.decor ORDER BY count(T2.decor) ASC LIMIT 1;"
+    },
+    {
+        "original_nl": "What is the least popular kind of decor?",
+        "generalized_nl": "What|is|the|least|popular|kind|of|{COLUMN} [decor]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "least",
+            "popular",
+            "kind",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.decor FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId GROUP BY T2.decor ORDER BY count(T2.decor) ASC LIMIT 1;"
+    },
+    {
+        "original_nl": "How many times the number of adults and kids staying in a room reached the maximum capacity of the room?",
+        "generalized_nl": "How|many|time [times]|the|number|of|{COLUMN} [adults]|and|{COLUMN} [kids]|stay [staying]|in|a|{COLUMN} [room]|reach [reached]|the|maximal [maximum]|capacity|of|the|{COLUMN} [room]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "time",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "stay",
+            "in",
+            "a",
+            "{COLUMN}",
+            "reach",
+            "the",
+            "maximal",
+            "capacity",
+            "of",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId WHERE T2.maxOccupancy  =  T1.Adults + T1.Kids;"
+    },
+    {
+        "original_nl": "Find the first and last names of people who payed more than the rooms' base prices.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|people|who|pay [payed]|more|than|the|{COLUMN} [rooms]|'|{COLUMN} [base prices]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "people",
+            "who",
+            "pay",
+            "more",
+            "than",
+            "the",
+            "{COLUMN}",
+            "'",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.firstname ,  T1.lastname FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId WHERE T1.Rate - T2.basePrice  >  0"
+    },
+    {
+        "original_nl": "What are the first and last names of people who payed more than the rooms' base prices?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|people|who|pay [payed]|more|than|the|{COLUMN} [rooms]|'|{COLUMN} [base prices]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "people",
+            "who",
+            "pay",
+            "more",
+            "than",
+            "the",
+            "{COLUMN}",
+            "'",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.firstname ,  T1.lastname FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId WHERE T1.Rate - T2.basePrice  >  0"
+    },
+    {
+        "original_nl": "How many rooms are there?",
+        "generalized_nl": "How|many|{COLUMN} [rooms]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Rooms;"
+    },
+    {
+        "original_nl": "What is the total number of rooms available in this inn?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{COLUMN} [rooms]|available|in|this|hostel [inn]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{COLUMN}",
+            "available",
+            "in",
+            "this",
+            "hostel"
+        ],
+        "original_sql": "SELECT count(*) FROM Rooms;"
+    },
+    {
+        "original_nl": "Find the number of rooms with a king bed.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [rooms]|with|a|king|{COLUMN} [bed]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "with",
+            "a",
+            "king",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM Rooms WHERE bedType  =  \"King\";"
+    },
+    {
+        "original_nl": "How many rooms have a king bed?",
+        "generalized_nl": "How|many|{COLUMN} [rooms]|have|a|king|{COLUMN} [bed]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "have",
+            "a",
+            "king",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM Rooms WHERE bedType  =  \"King\";"
+    },
+    {
+        "original_nl": "Find the number of rooms for each bed type.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [rooms]|for|each|{COLUMN} [bed type]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT bedType ,  count(*) FROM Rooms GROUP BY bedType;"
+    },
+    {
+        "original_nl": "What are the number of rooms for each bed type?",
+        "generalized_nl": "What|are|the|number|of|{COLUMN} [rooms]|for|each|{COLUMN} [bed type]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT bedType ,  count(*) FROM Rooms GROUP BY bedType;"
+    },
+    {
+        "original_nl": "Find the name of the room with the maximum occupancy.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{COLUMN} [room]|with|the|maximal [maximum]|{COLUMN_PART} [occupancy]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "maximal",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT roomName FROM Rooms ORDER BY maxOccupancy DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "What is the name of the room that can accommodate the most people?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{COLUMN} [room]|that|can|accommodate|the|most|people",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "can",
+            "accommodate",
+            "the",
+            "most",
+            "people"
+        ],
+        "original_sql": "SELECT roomName FROM Rooms ORDER BY maxOccupancy DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "Find the id and name of the most expensive base price room.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|and|{COLUMN_PART} [name]|of|the|most|expensive|{COLUMN} [base price]|{COLUMN} [room]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "most",
+            "expensive",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT RoomId ,  roomName FROM Rooms ORDER BY basePrice DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "Which room has the highest base price?",
+        "generalized_nl": "Which|{COLUMN} [room]|have [has]|the|high [highest]|{COLUMN} [base price]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT RoomId ,  roomName FROM Rooms ORDER BY basePrice DESC LIMIT 1;"
+    },
+    {
+        "original_nl": "List the type of bed and name of all traditional rooms.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [type]|of|{COLUMN} [bed]|and|{COLUMN_PART} [name]|of|all|traditional|{COLUMN} [rooms]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "traditional",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT roomName ,  bedType FROM Rooms WHERE decor = \"traditional\";"
+    },
+    {
+        "original_nl": "What are the bed type and name of all the rooms with traditional decor?",
+        "generalized_nl": "What|are|the|{COLUMN} [bed type]|and|{COLUMN_PART} [name]|of|all|the|{COLUMN} [rooms]|with|traditional|{COLUMN} [decor]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{COLUMN}",
+            "with",
+            "traditional",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT roomName ,  bedType FROM Rooms WHERE decor = \"traditional\";"
+    },
+    {
+        "original_nl": "Find the number of rooms with king bed for each decor type.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [rooms]|with|king|{COLUMN} [bed]|for|each|{COLUMN} [decor]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "with",
+            "king",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT decor ,  count(*) FROM Rooms WHERE bedType = \"King\" GROUP BY decor;"
+    },
+    {
+        "original_nl": "Find the average and minimum price of the rooms in different decor.",
+        "generalized_nl": "find [Find]|the|average|and|minimal [minimum]|{COLUMN_PART} [price]|of|the|{COLUMN} [rooms]|in|different|{COLUMN} [decor]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "in",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT decor , avg(basePrice) ,  min(basePrice) FROM Rooms GROUP BY decor;"
+    },
+    {
+        "original_nl": "What is the average minimum and price of the rooms for each different decor.",
+        "generalized_nl": "What|is|the|average|minimum|and|{COLUMN_PART} [price]|of|the|{COLUMN} [rooms]|for|each|different|{COLUMN} [decor]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "minimum",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "for",
+            "each",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT decor , avg(basePrice) ,  min(basePrice) FROM Rooms GROUP BY decor;"
+    },
+    {
+        "original_nl": "List the name of all rooms sorted by their prices.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|of|all|{COLUMN} [rooms]|screen [sorted]|by|their|{COLUMN_PART} [prices]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT roomName FROM Rooms ORDER BY basePrice;"
+    },
+    {
+        "original_nl": "Find the number of rooms with price higher than 120 for different decor.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [rooms]|with|{COLUMN_PART} [price]|{NUMBER} [higher than 120]|for|different|{COLUMN} [decor]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "for",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT decor , count(*) FROM Rooms WHERE basePrice  >  120 GROUP BY decor;"
+    },
+    {
+        "original_nl": "How many rooms cost more than 120, for each different decor?",
+        "generalized_nl": "How|many|{COLUMN} [rooms]|cost|{NUMBER} [more than 120]|for|each|different|{COLUMN} [decor]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "cost",
+            "{NUMBER}",
+            "for",
+            "each",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT decor , count(*) FROM Rooms WHERE basePrice  >  120 GROUP BY decor;"
+    },
+    {
+        "original_nl": "For each bed type, find the average room price.",
+        "generalized_nl": "For|each|{COLUMN} [bed type]|find|the|average|{COLUMN} [room]|{COLUMN_PART} [price]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT bedType ,  avg(basePrice) FROM Rooms GROUP BY bedType;"
+    },
+    {
+        "original_nl": "What is the average base price of rooms, for each bed type?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [base price]|of|{COLUMN} [rooms]|for|each|{COLUMN} [bed type]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT bedType ,  avg(basePrice) FROM Rooms GROUP BY bedType;"
+    },
+    {
+        "original_nl": "List the name of rooms with king or queen bed.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|of|{COLUMN} [rooms]|with|king|or|queen|{COLUMN} [bed]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "with",
+            "king",
+            "or",
+            "queen",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT roomName FROM Rooms WHERE bedType  =  \"King\" OR bedType  =  \"Queen\";"
+    },
+    {
+        "original_nl": "What are the names of rooms that have either king or queen bed?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{COLUMN} [rooms]|that|have|either|king|or|queen|{COLUMN} [bed]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "either",
+            "king",
+            "or",
+            "queen",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT roomName FROM Rooms WHERE bedType  =  \"King\" OR bedType  =  \"Queen\";"
+    },
+    {
+        "original_nl": "How many different types of beds are there?",
+        "generalized_nl": "How|many|different|{COLUMN_PART} [types]|of|{COLUMN} [beds]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT bedType) FROM Rooms;"
+    },
+    {
+        "original_nl": "Find the number of distinct bed types available in this inn.",
+        "generalized_nl": "find [Find]|the|number|of|distinct|{COLUMN} [bed]|{COLUMN_PART} [types]|available|in|this|hostel [inn]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "available",
+            "in",
+            "this",
+            "hostel"
+        ],
+        "original_sql": "SELECT count(DISTINCT bedType) FROM Rooms;"
+    },
+    {
+        "original_nl": "Find the name and id of the top 3 expensive rooms.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [id]|of|the|top|{NUMBER} [3]|expensive|{COLUMN} [rooms]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "top",
+            "{NUMBER}",
+            "expensive",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT RoomId ,  roomName FROM Rooms ORDER BY basePrice DESC LIMIT 3;"
+    },
+    {
+        "original_nl": "What are the name and id of the three highest priced rooms?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [id]|of|the|{NUMBER} [three]|high [highest]|price [priced]|{COLUMN} [rooms]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{NUMBER}",
+            "high",
+            "price",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT RoomId ,  roomName FROM Rooms ORDER BY basePrice DESC LIMIT 3;"
+    },
+    {
+        "original_nl": "Find the name of rooms whose price is higher than the average price.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{COLUMN} [rooms]|whose|{COLUMN_PART} [price]|is|high [higher]|than|the|average|{COLUMN_PART} [price]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "high",
+            "than",
+            "the",
+            "average",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT roomName FROM Rooms WHERE basePrice  >  ( SELECT avg(basePrice) FROM Rooms );"
+    },
+    {
+        "original_nl": "What are the name of rooms that cost more than the average.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|of|{COLUMN} [rooms]|that|cost|more|than|the|average",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "cost",
+            "more",
+            "than",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT roomName FROM Rooms WHERE basePrice  >  ( SELECT avg(basePrice) FROM Rooms );"
+    },
+    {
+        "original_nl": "Find the number of rooms that do not have any reservation.",
+        "generalized_nl": "find [Find]|the|number|of|{COLUMN} [rooms]|that|do|not|have|any|{TABLE} [reservation]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM rooms WHERE roomid NOT IN (SELECT DISTINCT room FROM reservations)"
+    },
+    {
+        "original_nl": "How many rooms have not had any reservation yet?",
+        "generalized_nl": "How|many|{COLUMN} [rooms]|have|not|have [had]|any|{TABLE} [reservation]|yet",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "have",
+            "not",
+            "have",
+            "any",
+            "{TABLE}",
+            "yet"
+        ],
+        "original_sql": "SELECT count(*) FROM rooms WHERE roomid NOT IN (SELECT DISTINCT room FROM reservations)"
+    },
+    {
+        "original_nl": "Return the name and number of reservations made for each of the rooms.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [name]|and|number|of|{TABLE} [reservations]|make [made]|for|each|of|the|{COLUMN} [rooms]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "number",
+            "of",
+            "{TABLE}",
+            "make",
+            "for",
+            "each",
+            "of",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.roomName ,  count(*) ,  T1.Room FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId GROUP BY T1.Room"
+    },
+    {
+        "original_nl": "For each room, find its name and the number of times reservations were made for it.",
+        "generalized_nl": "For|each|{COLUMN} [room]|find|its|{COLUMN_PART} [name]|and|the|number|of|time [times]|{TABLE} [reservations]|were|make [made]|for|it",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "find",
+            "its",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "time",
+            "{TABLE}",
+            "were",
+            "make",
+            "for",
+            "it"
+        ],
+        "original_sql": "SELECT T2.roomName ,  count(*) ,  T1.Room FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId GROUP BY T1.Room"
+    },
+    {
+        "original_nl": "Find the names of rooms that have been reserved for more than 60 times.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{COLUMN} [rooms]|that|have|been|reserve [reserved]|for|{NUMBER} [more than 60]|time [times]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "been",
+            "reserve",
+            "for",
+            "{NUMBER}",
+            "time"
+        ],
+        "original_sql": "SELECT T2.roomName FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId GROUP BY T1.Room HAVING count(*)  >  60"
+    },
+    {
+        "original_nl": "What are the names of rooms whose reservation frequency exceeds 60 times?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{COLUMN} [rooms]|whose|{TABLE} [reservation]|frequency|exceed [exceeds]|{NUMBER} [60]|time [times]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{TABLE}",
+            "frequency",
+            "exceed",
+            "{NUMBER}",
+            "time"
+        ],
+        "original_sql": "SELECT T2.roomName FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId GROUP BY T1.Room HAVING count(*)  >  60"
+    },
+    {
+        "original_nl": "Find the name of rooms whose base price is between 120 and 150.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{COLUMN} [rooms]|whose|{COLUMN} [base price]|is|{NUMBER} [between 120 and 150]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT roomname FROM rooms WHERE baseprice BETWEEN 120 AND 150"
+    },
+    {
+        "original_nl": "Find the name of rooms booked by some customers whose first name contains ROY.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{COLUMN} [rooms]|book [booked]|by|some|customer [customers]|whose|{COLUMN} [first name]|contain [contains]|ROY",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "book",
+            "by",
+            "some",
+            "customer",
+            "whose",
+            "{COLUMN}",
+            "contain",
+            "ROY"
+        ],
+        "original_sql": "SELECT T2.roomName FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId WHERE firstname LIKE '%ROY%'"
+    },
+    {
+        "original_nl": "What are the name of rooms booked by customers whose first name has \"ROY\" in part?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [name]|of|{COLUMN} [rooms]|book [booked]|by|customer [customers]|whose|{COLUMN} [first name]|has|ROY|in|part",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "book",
+            "by",
+            "customer",
+            "whose",
+            "{COLUMN}",
+            "has",
+            "ROY",
+            "in",
+            "part"
+        ],
+        "original_sql": "SELECT T2.roomName FROM Reservations AS T1 JOIN Rooms AS T2 ON T1.Room  =  T2.RoomId WHERE firstname LIKE '%ROY%'"
+    }
+]

@@ -1,0 +1,857 @@
+[
+    {
+        "original_nl": "List all schools and their nicknames in the order of founded year.",
+        "generalized_nl": "list [List]|all|{COLUMN} [schools]|and|their|{COLUMN} [nicknames]|in|the|order|of|{COLUMN} [founded]|year",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "and",
+            "their",
+            "{COLUMN}",
+            "in",
+            "the",
+            "order",
+            "of",
+            "{COLUMN}",
+            "year"
+        ],
+        "original_sql": "SELECT school ,  nickname FROM university ORDER BY founded"
+    },
+    {
+        "original_nl": "What are the different schools and their nicknames, ordered by their founding years?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [schools]|and|their|{COLUMN} [nicknames]|order [ordered]|by|{NE} [their founding years]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "their",
+            "{COLUMN}",
+            "order",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT school ,  nickname FROM university ORDER BY founded"
+    },
+    {
+        "original_nl": "List all public schools and their locations.",
+        "generalized_nl": "list [List]|all|public|{COLUMN} [schools]|and|their|{COLUMN} [locations]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "public",
+            "{COLUMN}",
+            "and",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT school ,  LOCATION FROM university WHERE affiliation  =  'Public'"
+    },
+    {
+        "original_nl": "What are the public schools and what are their locations?",
+        "generalized_nl": "What|are|the|public|{COLUMN} [schools]|and|what|are|their|{COLUMN} [locations]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "public",
+            "{COLUMN}",
+            "and",
+            "what",
+            "are",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT school ,  LOCATION FROM university WHERE affiliation  =  'Public'"
+    },
+    {
+        "original_nl": "When was the school with the largest enrollment founded?",
+        "generalized_nl": "When|was|the|{COLUMN} [school]|with|the|large [largest]|{COLUMN} [enrollment]|{COLUMN} [founded]",
+        "generalized_tokens": [
+            "When",
+            "was",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT founded FROM university ORDER BY enrollment DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the founded year for the school with the largest enrollment.",
+        "generalized_nl": "return [Return]|{NE} [the founded year]|for|the|{COLUMN} [school]|with|the|large [largest]|{COLUMN} [enrollment]",
+        "generalized_tokens": [
+            "return",
+            "{NE}",
+            "for",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT founded FROM university ORDER BY enrollment DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the founded year of the newest non public school.",
+        "generalized_nl": "find [Find]|{NE} [the founded year]|of|the|new [newest]|non|public|{COLUMN} [school]",
+        "generalized_tokens": [
+            "find",
+            "{NE}",
+            "of",
+            "the",
+            "new",
+            "non",
+            "public",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT founded FROM university WHERE affiliation != 'Public' ORDER BY founded DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the founded year of the non public school that was founded most recently?",
+        "generalized_nl": "What|is|{NE} [the founded year]|of|the|non|public|{COLUMN} [school]|that|was|{COLUMN} [founded]|most|recently",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{NE}",
+            "of",
+            "the",
+            "non",
+            "public",
+            "{COLUMN}",
+            "that",
+            "was",
+            "{COLUMN}",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT founded FROM university WHERE affiliation != 'Public' ORDER BY founded DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many schools are in the basketball match?",
+        "generalized_nl": "How|many|{COLUMN} [schools]|are|in|the|{TABLE} [basketball match]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT school_id) FROM basketball_match"
+    },
+    {
+        "original_nl": "Count the number of schools that have had basketball matches.",
+        "generalized_nl": "count [Count]|the|number|of|{COLUMN} [schools]|that|have|have [had]|{TABLE} [basketball matches]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "have",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT school_id) FROM basketball_match"
+    },
+    {
+        "original_nl": "What is the highest acc percent score in the competition?",
+        "generalized_nl": "What|is|the|high [highest]|{COLUMN} [acc percent]|score|in|the|competition",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "high",
+            "{COLUMN}",
+            "score",
+            "in",
+            "the",
+            "competition"
+        ],
+        "original_sql": "SELECT acc_percent FROM basketball_match ORDER BY acc_percent DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the highest acc percent across all basketball matches.",
+        "generalized_nl": "return [Return]|the|high [highest]|{COLUMN} [acc percent]|across|all|{TABLE} [basketball matches]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "high",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT acc_percent FROM basketball_match ORDER BY acc_percent DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the primary conference of the school that has the lowest acc percent score in the competition?",
+        "generalized_nl": "What|is|the|{COLUMN} [primary conference]|of|the|{COLUMN} [school]|that|have [has]|the|low [lowest]|{COLUMN} [acc percent]|score|in|the|competition",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "low",
+            "{COLUMN}",
+            "score",
+            "in",
+            "the",
+            "competition"
+        ],
+        "original_sql": "SELECT t1.Primary_conference FROM university AS t1 JOIN basketball_match AS t2 ON t1.school_id  =  t2.school_id ORDER BY t2.acc_percent LIMIT 1"
+    },
+    {
+        "original_nl": "Return the primary conference of the school with the lowest acc percentage score.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [primary conference]|of|the|{COLUMN} [school]|with|the|low [lowest]|{COLUMN_PART} [acc]|percentage|score",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "low",
+            "{COLUMN_PART}",
+            "percentage",
+            "score"
+        ],
+        "original_sql": "SELECT t1.Primary_conference FROM university AS t1 JOIN basketball_match AS t2 ON t1.school_id  =  t2.school_id ORDER BY t2.acc_percent LIMIT 1"
+    },
+    {
+        "original_nl": "What is the team name and acc regular season score of the school that was founded for the longest time?",
+        "generalized_nl": "What|is|the|{COLUMN} [team name]|and|{COLUMN} [acc regular season]|score|of|the|{COLUMN} [school]|that|was|{COLUMN} [founded]|for|the|long [longest]|time",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "score",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "was",
+            "{COLUMN}",
+            "for",
+            "the",
+            "long",
+            "time"
+        ],
+        "original_sql": "SELECT t2.team_name ,  t2.ACC_Regular_Season FROM university AS t1 JOIN basketball_match AS t2 ON t1.school_id  =  t2.school_id ORDER BY t1.founded LIMIT 1"
+    },
+    {
+        "original_nl": "Return the name of the team and the acc during the regular season for the school that was founded the earliest.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [name]|of|the|{COLUMN_PART} [team]|and|the|{COLUMN_PART} [acc]|during|{NE} [the regular season]|for|the|{COLUMN} [school]|that|was|{COLUMN} [founded]|the|early [earliest]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "during",
+            "{NE}",
+            "for",
+            "the",
+            "{COLUMN}",
+            "that",
+            "was",
+            "{COLUMN}",
+            "the",
+            "early"
+        ],
+        "original_sql": "SELECT t2.team_name ,  t2.ACC_Regular_Season FROM university AS t1 JOIN basketball_match AS t2 ON t1.school_id  =  t2.school_id ORDER BY t1.founded LIMIT 1"
+    },
+    {
+        "original_nl": "Find the location and all games score of the school that has Clemson as its team name.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [location]|and|{COLUMN} [all games]|score|of|the|{COLUMN} [school]|that|have [has]|{VALUE} [Clemson]|as|its|{COLUMN} [team name]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "score",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{VALUE}",
+            "as",
+            "its",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t2.All_Games ,  t1.location FROM university AS t1 JOIN basketball_match AS t2 ON t1.school_id  =  t2.school_id WHERE team_name  =  'Clemson'"
+    },
+    {
+        "original_nl": "What are the all games score and location of the school called Clemson?",
+        "generalized_nl": "What|are|the|{COLUMN} [all games]|score|and|{COLUMN} [location]|of|the|{COLUMN} [school]|call [called]|{VALUE} [Clemson]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "score",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "call",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT t2.All_Games ,  t1.location FROM university AS t1 JOIN basketball_match AS t2 ON t1.school_id  =  t2.school_id WHERE team_name  =  'Clemson'"
+    },
+    {
+        "original_nl": "What are the average enrollment size of the universities that are founded before 1850?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [enrollment]|size|of|the|{TABLE} [universities]|that|are|{COLUMN} [founded]|before|{NE} [1850]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "size",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "{COLUMN}",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(enrollment) FROM university WHERE founded  <  1850"
+    },
+    {
+        "original_nl": "Return the average enrollment of universities founded before 1850.",
+        "generalized_nl": "return [Return]|the|average|{COLUMN} [enrollment]|of|{TABLE} [universities]|{COLUMN} [founded]|before|{NE} [1850]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{COLUMN}",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(enrollment) FROM university WHERE founded  <  1850"
+    },
+    {
+        "original_nl": "Show the enrollment and primary_conference of the oldest college.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [enrollment]|and|{COLUMN} [primary _ conference]|of|the|old [oldest]|college",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "old",
+            "college"
+        ],
+        "original_sql": "SELECT enrollment ,  primary_conference FROM university ORDER BY founded LIMIT 1"
+    },
+    {
+        "original_nl": "What are the enrollment and primary conference for the university which was founded the earliest?",
+        "generalized_nl": "What|are|the|{COLUMN} [enrollment]|and|{COLUMN} [primary conference]|for|the|{TABLE} [university]|which|was|{COLUMN} [founded]|the|early [earliest]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "which",
+            "was",
+            "{COLUMN}",
+            "the",
+            "early"
+        ],
+        "original_sql": "SELECT enrollment ,  primary_conference FROM university ORDER BY founded LIMIT 1"
+    },
+    {
+        "original_nl": "What is the total and minimum enrollment of all schools?",
+        "generalized_nl": "What|is|the|entire [total]|and|minimal [minimum]|{COLUMN} [enrollment]|of|all|{COLUMN} [schools]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(enrollment) ,  min(enrollment) FROM university"
+    },
+    {
+        "original_nl": "Return the total and minimum enrollments across all schools.",
+        "generalized_nl": "return [Return]|the|entire [total]|and|minimal [minimum]|{COLUMN} [enrollments]|across|all|{COLUMN} [schools]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "entire",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(enrollment) ,  min(enrollment) FROM university"
+    },
+    {
+        "original_nl": "Find the total student enrollment for different affiliation type schools.",
+        "generalized_nl": "find [Find]|the|entire [total]|student|{COLUMN} [enrollment]|for|different|{COLUMN} [affiliation]|type|{COLUMN} [schools]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "student",
+            "{COLUMN}",
+            "for",
+            "different",
+            "{COLUMN}",
+            "type",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(enrollment) ,  affiliation FROM university GROUP BY affiliation"
+    },
+    {
+        "original_nl": "What are the total enrollments of universities of each affiliation type?",
+        "generalized_nl": "What|are|the|entire [total]|{COLUMN} [enrollments]|of|{TABLE} [universities]|of|each|{COLUMN} [affiliation]|type",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "of",
+            "each",
+            "{COLUMN}",
+            "type"
+        ],
+        "original_sql": "SELECT sum(enrollment) ,  affiliation FROM university GROUP BY affiliation"
+    },
+    {
+        "original_nl": "How many schools do not participate in the basketball match?",
+        "generalized_nl": "How|many|{COLUMN} [schools]|do|not|participate|in|the|{TABLE} [basketball match]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "do",
+            "not",
+            "participate",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM university WHERE school_id NOT IN (SELECT school_id FROM basketball_match)"
+    },
+    {
+        "original_nl": "Count the number of universities that do not participate in the baketball match.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [universities]|that|do|not|participate|in|the|baketball|match",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "participate",
+            "in",
+            "the",
+            "baketball",
+            "match"
+        ],
+        "original_sql": "SELECT count(*) FROM university WHERE school_id NOT IN (SELECT school_id FROM basketball_match)"
+    },
+    {
+        "original_nl": "Find the schools that were either founded after 1850 or public.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [schools]|that|were|either|{COLUMN} [founded]|after|{NE} [1850]|or|populace [public]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "were",
+            "either",
+            "{COLUMN}",
+            "after",
+            "{NE}",
+            "or",
+            "populace"
+        ],
+        "original_sql": "SELECT school FROM university WHERE founded  >  1850 OR affiliation  =  'Public'"
+    },
+    {
+        "original_nl": "What are the schools that were either founded before 1850 or are public?",
+        "generalized_nl": "What|are|the|{COLUMN} [schools]|that|were|either|{COLUMN} [founded]|before|{NE} [1850]|or|are|public",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "were",
+            "either",
+            "{COLUMN}",
+            "before",
+            "{NE}",
+            "or",
+            "are",
+            "public"
+        ],
+        "original_sql": "SELECT school FROM university WHERE founded  >  1850 OR affiliation  =  'Public'"
+    },
+    {
+        "original_nl": "Find how many different affiliation types there are.",
+        "generalized_nl": "find [Find]|how|many|different|{COLUMN} [affiliation]|type [types]|there|be [are]",
+        "generalized_tokens": [
+            "find",
+            "how",
+            "many",
+            "different",
+            "{COLUMN}",
+            "type",
+            "there",
+            "be"
+        ],
+        "original_sql": "SELECT count(DISTINCT affiliation) FROM university"
+    },
+    {
+        "original_nl": "Count the number of different affiliation types.",
+        "generalized_nl": "count [Count]|the|number|of|different|{COLUMN} [affiliation]|type [types]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{COLUMN}",
+            "type"
+        ],
+        "original_sql": "SELECT count(DISTINCT affiliation) FROM university"
+    },
+    {
+        "original_nl": "Find how many school locations have the word 'NY'.",
+        "generalized_nl": "find [Find]|how|many|{COLUMN} [school]|{COLUMN} [locations]|have|the|word|NY",
+        "generalized_tokens": [
+            "find",
+            "how",
+            "many",
+            "{COLUMN}",
+            "{COLUMN}",
+            "have",
+            "the",
+            "word",
+            "NY"
+        ],
+        "original_sql": "SELECT count(*) FROM university WHERE LOCATION LIKE \"%NY%\""
+    },
+    {
+        "original_nl": "How many universities have a location that contains NY?",
+        "generalized_nl": "How|many|{TABLE} [universities]|have|a|{COLUMN} [location]|that|contain [contains]|NY",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "a",
+            "{COLUMN}",
+            "that",
+            "contain",
+            "NY"
+        ],
+        "original_sql": "SELECT count(*) FROM university WHERE LOCATION LIKE \"%NY%\""
+    },
+    {
+        "original_nl": "Find the team names of the universities whose enrollments are smaller than the average enrollment size.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [team names]|of|the|{TABLE} [universities]|whose|{COLUMN} [enrollments]|are|small [smaller]|than|the|average|{COLUMN} [enrollment]|size",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "small",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}",
+            "size"
+        ],
+        "original_sql": "SELECT t2.team_name FROM university AS t1 JOIN basketball_match AS t2 ON t1.school_id  =  t2.school_id WHERE enrollment  <  (SELECT avg(enrollment) FROM university)"
+    },
+    {
+        "original_nl": "What are the names of teams from universities that have a below average enrollment?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|team [teams]|from|{TABLE} [universities]|that|have|a|below|average|{COLUMN} [enrollment]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "team",
+            "from",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "below",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t2.team_name FROM university AS t1 JOIN basketball_match AS t2 ON t1.school_id  =  t2.school_id WHERE enrollment  <  (SELECT avg(enrollment) FROM university)"
+    },
+    {
+        "original_nl": "Find the number of universities that have over a 20000 enrollment size for each affiliation type.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [universities]|that|have|over|a|{NUMBER} [20000]|{COLUMN} [enrollment]|size|for|each|{COLUMN} [affiliation]|type",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "over",
+            "a",
+            "{NUMBER}",
+            "{COLUMN}",
+            "size",
+            "for",
+            "each",
+            "{COLUMN}",
+            "type"
+        ],
+        "original_sql": "SELECT count(*) ,  affiliation FROM university WHERE enrollment  >  20000 GROUP BY affiliation"
+    },
+    {
+        "original_nl": "What are the different affiliations, and how many schools with each have an enrollment size of above 20000?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [affiliations]|and|how|many|{COLUMN} [schools]|with|each|have|an|{COLUMN} [enrollment]|size|of|above|{NUMBER} [20000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "how",
+            "many",
+            "{COLUMN}",
+            "with",
+            "each",
+            "have",
+            "an",
+            "{COLUMN}",
+            "size",
+            "of",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) ,  affiliation FROM university WHERE enrollment  >  20000 GROUP BY affiliation"
+    },
+    {
+        "original_nl": "Find the total number of students enrolled in the colleges that were founded after the year of 1850 for each affiliation type.",
+        "generalized_nl": "find [Find]|the|entire [total]|number|of|student [students]|enroll [enrolled]|in|the|college [colleges]|that|were|{COLUMN} [founded]|after|{NE} [the year of 1850]|for|each|{COLUMN} [affiliation]|type",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "student",
+            "enroll",
+            "in",
+            "the",
+            "college",
+            "that",
+            "were",
+            "{COLUMN}",
+            "after",
+            "{NE}",
+            "for",
+            "each",
+            "{COLUMN}",
+            "type"
+        ],
+        "original_sql": "SELECT sum(Enrollment) ,  affiliation FROM university WHERE founded  >  1850 GROUP BY affiliation"
+    },
+    {
+        "original_nl": "What are the different affiliations, and what is the total enrollment of schools founded after 1850 for each enrollment type?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [affiliations]|and|what|is|the|entire [total]|{COLUMN} [enrollment]|of|{COLUMN} [schools]|{COLUMN} [founded]|after|{NE} [1850]|for|each|{COLUMN} [enrollment]|type",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "what",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "{COLUMN}",
+            "after",
+            "{NE}",
+            "for",
+            "each",
+            "{COLUMN}",
+            "type"
+        ],
+        "original_sql": "SELECT sum(Enrollment) ,  affiliation FROM university WHERE founded  >  1850 GROUP BY affiliation"
+    },
+    {
+        "original_nl": "What is the maximum enrollment across all schools?",
+        "generalized_nl": "What|is|the|maximal [maximum]|{COLUMN} [enrollment]|across|all|{COLUMN} [schools]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(Enrollment) FROM university"
+    },
+    {
+        "original_nl": "Return the maximum enrollment across all schools.",
+        "generalized_nl": "return [Return]|the|maximal [maximum]|{COLUMN} [enrollment]|across|all|{COLUMN} [schools]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(Enrollment) FROM university"
+    },
+    {
+        "original_nl": "List all information regarding the basketball match.",
+        "generalized_nl": "list [List]|all|information|see [regarding]|the|{TABLE} [basketball match]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "information",
+            "see",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT * FROM basketball_match"
+    },
+    {
+        "original_nl": "What is all the information about the basketball match?",
+        "generalized_nl": "What|is|all|the|information|about|the|{TABLE} [basketball match]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "all",
+            "the",
+            "information",
+            "about",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT * FROM basketball_match"
+    },
+    {
+        "original_nl": "List names of all teams in the basketball competition, ordered by all home scores in descending order.",
+        "generalized_nl": "list [List]|{COLUMN_PART} [names]|of|all|team [teams]|in|the|basketball|competition|order [ordered]|by|{COLUMN} [all home]|score [scores]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "team",
+            "in",
+            "the",
+            "basketball",
+            "competition",
+            "order",
+            "by",
+            "{COLUMN}",
+            "score",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT team_name FROM basketball_match ORDER BY All_Home DESC"
+    },
+    {
+        "original_nl": "What are the names of all the teams in the basketball competition, sorted by all home scores in descending order?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|the|team [teams]|in|the|basketball|competition|screen [sorted]|by|{COLUMN} [all home]|score [scores]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "team",
+            "in",
+            "the",
+            "basketball",
+            "competition",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "score",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT team_name FROM basketball_match ORDER BY All_Home DESC"
+    }
+]

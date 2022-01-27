@@ -1,0 +1,397 @@
+[
+    {
+        "original_nl": "How many buildings are there?",
+        "generalized_nl": "How|many|{TABLE} [buildings]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM building"
+    },
+    {
+        "original_nl": "Show the name, street address, and number of floors for all buildings ordered by the number of floors.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|{COLUMN} [street address]|and|{COLUMN_PART} [number]|of|{COLUMN} [floors]|for|all|{TABLE} [buildings]|order [ordered]|by|the|{COLUMN_PART} [number]|of|{COLUMN} [floors]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "order",
+            "by",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  street_address ,  floors FROM building ORDER BY floors"
+    },
+    {
+        "original_nl": "What is the name of the tallest building?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{COLUMN_PART} [tallest]|{TABLE} [building]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM building ORDER BY height_feet DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the average, maximum, and minimum number of floors for all buildings?",
+        "generalized_nl": "What|are|the|average|maximal [maximum]|and|minimal [minimum]|{COLUMN_PART} [number]|of|{COLUMN} [floors]|for|all|{TABLE} [buildings]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(floors) ,  max(floors) ,  min(floors) FROM building"
+    },
+    {
+        "original_nl": "Show the number of buildings with a height above the average or a number of floors above the average.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [number]|of|{TABLE} [buildings]|with|a|{COLUMN_PART} [height]|above|the|average|or|a|{COLUMN_PART} [number]|of|{COLUMN} [floors]|above|the|average",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "a",
+            "{COLUMN_PART}",
+            "above",
+            "the",
+            "average",
+            "or",
+            "a",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "above",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT count(*) FROM building WHERE height_feet  >  (SELECT avg(height_feet) FROM building) OR floors  >  (SELECT avg(floors) FROM building)"
+    },
+    {
+        "original_nl": "List the names of buildings with at least 200 feet of height and with at least 20 floors.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [buildings]|with|{NE} [at least 200 feet]|of|{COLUMN_PART} [height]|and|with|{NUMBER} [at least 20]|{COLUMN} [floors]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NE}",
+            "of",
+            "{COLUMN_PART}",
+            "and",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM building WHERE height_feet  >=  200 AND floors  >=  20"
+    },
+    {
+        "original_nl": "Show the names and locations of institutions that are founded after 1990 and have the type \"Private\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|and|{COLUMN} [locations]|of|{COLUMN} [institutions]|that|are|{COLUMN} [founded]|after|{NE} [1990]|and|have|the|{COLUMN} [type]|{VALUE} [Private]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "are",
+            "{COLUMN}",
+            "after",
+            "{NE}",
+            "and",
+            "have",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT institution ,  LOCATION FROM institution WHERE founded  >  1990 AND TYPE  =  'Private'"
+    },
+    {
+        "original_nl": "Show institution types, along with the number of institutions and total enrollment for each type.",
+        "generalized_nl": "show [Show]|{COLUMN} [institution]|{COLUMN} [types]|along|with|the|{COLUMN_PART} [number]|of|{COLUMN} [institutions]|and|entire [total]|{COLUMN} [enrollment]|for|each|{COLUMN} [type]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "and",
+            "entire",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TYPE ,  count(*) ,  sum(enrollment) FROM institution GROUP BY TYPE"
+    },
+    {
+        "original_nl": "Show the institution type with the largest number of institutions.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [institution]|{COLUMN} [type]|with|the|large [largest]|{COLUMN_PART} [number]|of|{COLUMN} [institutions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TYPE FROM institution GROUP BY TYPE ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the institution type with an institution founded after 1990 and an institution with at least 1000 enrollment.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [institution]|{COLUMN} [type]|with|an|{COLUMN} [institution]|{COLUMN} [founded]|after|{NE} [1990]|and|an|{COLUMN} [institution]|with|{NUMBER} [at least 1000]|{COLUMN} [enrollment]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "with",
+            "an",
+            "{COLUMN}",
+            "{COLUMN}",
+            "after",
+            "{NE}",
+            "and",
+            "an",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TYPE FROM institution WHERE founded  >  1990 AND enrollment  >=  1000"
+    },
+    {
+        "original_nl": "Show the name of buildings that do not have any institution.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|of|{TABLE} [buildings]|that|do|not|have|any|{COLUMN} [institution]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM building WHERE building_id NOT IN (SELECT building_id FROM institution)"
+    },
+    {
+        "original_nl": "Show the names of buildings except for those having an institution founded in 2003.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [buildings]|except|for|those|have [having]|an|{COLUMN} [institution]|{COLUMN} [founded]|in|{VALUE} [2003]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "except",
+            "for",
+            "those",
+            "have",
+            "an",
+            "{COLUMN}",
+            "{COLUMN}",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM building EXCEPT SELECT T1.name FROM building AS T1 JOIN institution AS T2 ON T1.building_id  =  T2.building_id WHERE T2.founded  =  2003"
+    },
+    {
+        "original_nl": "For each building, show the name of the building and the number of institutions in it.",
+        "generalized_nl": "For|each|{TABLE} [building]|show|the|{COLUMN} [name]|of|the|{TABLE} [building]|and|the|{COLUMN_PART} [number]|of|{COLUMN} [institutions]|in|it",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "it"
+        ],
+        "original_sql": "SELECT T1.name ,  count(*) FROM building AS T1 JOIN institution AS T2 ON T1.building_id  =  T2.building_id GROUP BY T1.building_id"
+    },
+    {
+        "original_nl": "Show the names and heights of buildings with at least two institutions founded after 1880.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|and|high [heights]|of|{TABLE} [buildings]|with|{NUMBER} [at least two]|{COLUMN} [institutions]|{COLUMN} [founded]|after|{NE} [1880]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "high",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.height_feet FROM building AS T1 JOIN institution AS T2 ON T1.building_id  =  T2.building_id WHERE T2.founded  >  1880 GROUP BY T1.building_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show all the distinct institution types.",
+        "generalized_nl": "show [Show]|all|the|distinct|{COLUMN} [institution]|{COLUMN} [types]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT TYPE FROM institution"
+    },
+    {
+        "original_nl": "Show institution names along with the number of proteins for each institution.",
+        "generalized_nl": "show [Show]|{COLUMN} [institution]|{COLUMN} [names]|along|with|the|{COLUMN_PART} [number]|of|{TABLE} [proteins]|for|each|{COLUMN} [institution]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.institution ,  count(*) FROM institution AS T1 JOIN protein AS T2 ON T1.institution_id  =  T2.institution_id GROUP BY T1.institution_id"
+    },
+    {
+        "original_nl": "How many proteins are associated with an institution founded after 1880 or an institution with type \"Private\"?",
+        "generalized_nl": "How|many|{TABLE} [proteins]|are|associate [associated]|with|an|{COLUMN} [institution]|{COLUMN} [founded]|after|{NE} [1880]|or|an|{COLUMN} [institution]|with|{COLUMN} [type]|{VALUE} [Private]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "associate",
+            "with",
+            "an",
+            "{COLUMN}",
+            "{COLUMN}",
+            "after",
+            "{NE}",
+            "or",
+            "an",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) FROM institution AS T1 JOIN protein AS T2 ON T1.institution_id  =  T2.institution_id WHERE T1.founded  >  1880 OR T1.type  =  'Private'"
+    },
+    {
+        "original_nl": "Show the protein name and the institution name.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [protein name]|and|the|{COLUMN} [institution]|{COLUMN} [name]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.protein_name ,  T1.institution FROM institution AS T1 JOIN protein AS T2 ON T1.institution_id  =  T2.institution_id"
+    },
+    {
+        "original_nl": "How many proteins are associated with an institution in a building with at least 20 floors?",
+        "generalized_nl": "How|many|{TABLE} [proteins]|are|associate [associated]|with|an|{COLUMN} [institution]|in|a|{TABLE} [building]|with|{NUMBER} [at least 20]|{COLUMN} [floors]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "associate",
+            "with",
+            "an",
+            "{COLUMN}",
+            "in",
+            "a",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM institution AS T1 JOIN protein AS T2 ON T1.institution_id  =  T2.institution_id JOIN building AS T3 ON T3.building_id  =  T1.building_id WHERE T3.floors  >=  20"
+    },
+    {
+        "original_nl": "How many institutions do not have an associated protein in our record?",
+        "generalized_nl": "How|many|{COLUMN} [institutions]|do|not|have|an|associate [associated]|{TABLE} [protein]|in|our|record",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "do",
+            "not",
+            "have",
+            "an",
+            "associate",
+            "{TABLE}",
+            "in",
+            "our",
+            "record"
+        ],
+        "original_sql": "SELECT count(*) FROM institution WHERE institution_id NOT IN (SELECT institution_id FROM protein)"
+    }
+]

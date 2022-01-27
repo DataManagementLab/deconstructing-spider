@@ -1,0 +1,422 @@
+[
+    {
+        "original_nl": "How many train stations are there?",
+        "generalized_nl": "How|many|{TABLE} [train]|{TABLE} [stations]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM station"
+    },
+    {
+        "original_nl": "Show the name, location, and number of platforms for all stations.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|{COLUMN} [location]|and|{COLUMN} [number of platforms]|for|all|{TABLE} [stations]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  LOCATION ,  number_of_platforms FROM station"
+    },
+    {
+        "original_nl": "What are all locations of train stations?",
+        "generalized_nl": "What|are|all|{COLUMN} [locations]|of|{TABLE} [train]|{TABLE} [stations]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT LOCATION FROM station"
+    },
+    {
+        "original_nl": "Show the names and total passengers for all train stations not in London.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|and|{COLUMN} [total passengers]|for|all|{TABLE} [train]|{TABLE} [stations]|not|in|{VALUE} [London]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "{TABLE}",
+            "not",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name ,  total_passengers FROM station WHERE LOCATION != 'London'"
+    },
+    {
+        "original_nl": "Show the names and main services for train stations that have the top three total number of passengers.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|and|{COLUMN} [main services]|for|{TABLE} [train]|{TABLE} [stations]|that|have|the|top|{NUMBER} [three]|{COLUMN_PART} [total]|{COLUMN_PART} [number]|of|{COLUMN_PART} [passengers]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "top",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT name ,  main_services FROM station ORDER BY total_passengers DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What is the average and maximum number of total passengers for train stations in London or Glasgow?",
+        "generalized_nl": "What|is|the|average|and|maximal [maximum]|{COLUMN_PART} [number]|of|{COLUMN} [total passengers]|for|{TABLE} [train]|{TABLE} [stations]|in|{VALUE} [London]|or|{VALUE} [Glasgow]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "and",
+            "maximal",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "{TABLE}",
+            "in",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT avg(total_passengers) ,  max(total_passengers) FROM station WHERE LOCATION  =  'London' OR LOCATION  =  'Glasgow'"
+    },
+    {
+        "original_nl": "Show all locations and the total number of platforms and passengers for all train stations in each location.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [locations]|and|the|{COLUMN_PART} [total]|{COLUMN} [number of platforms]|and|{COLUMN_PART} [passengers]|for|all|{TABLE} [train]|{TABLE} [stations]|in|each|{COLUMN} [location]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT LOCATION ,  sum(number_of_platforms) ,  sum(total_passengers) FROM station GROUP BY LOCATION"
+    },
+    {
+        "original_nl": "Show all locations that have train stations with at least 15 platforms and train stations with more than 25 total passengers.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [locations]|that|have|{TABLE} [train]|{TABLE} [stations]|with|{NUMBER} [at least 15]|{COLUMN_PART} [platforms]|and|{TABLE} [train]|{TABLE} [stations]|with|{NUMBER} [more than 25]|{COLUMN} [total passengers]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{TABLE}",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "and",
+            "{TABLE}",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT LOCATION FROM station WHERE number_of_platforms  >=  15 AND total_passengers  >  25"
+    },
+    {
+        "original_nl": "Show all locations which don't have a train station with at least 15 platforms.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [locations]|which|do|n't|have|a|{TABLE} [train]|{TABLE} [station]|with|{NUMBER} [at least 15]|{COLUMN_PART} [platforms]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "which",
+            "do",
+            "n't",
+            "have",
+            "a",
+            "{TABLE}",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT LOCATION FROM station EXCEPT SELECT LOCATION FROM station WHERE number_of_platforms  >=  15"
+    },
+    {
+        "original_nl": "Show the location with most number of train stations.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [location]|with|most|{COLUMN_PART} [number]|of|{TABLE} [train]|{TABLE} [stations]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "with",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT LOCATION FROM station GROUP BY LOCATION ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the name, time, and service for all trains.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|{COLUMN} [time]|and|{COLUMN} [service]|for|all|{TABLE} [trains]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  TIME ,  service FROM train"
+    },
+    {
+        "original_nl": "Show the number of trains",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [number]|of|{TABLE} [trains]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM train"
+    },
+    {
+        "original_nl": "Show the name and service for all trains in order by time.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|and|{COLUMN} [service]|for|all|{TABLE} [trains]|in|order|by|{COLUMN} [time]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "in",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  service FROM train ORDER BY TIME"
+    },
+    {
+        "original_nl": "Show the station name and number of trains in each station.",
+        "generalized_nl": "show [Show]|the|{TABLE} [station]|{COLUMN} [name]|and|{COLUMN_PART} [number]|of|{TABLE} [trains]|in|each|{TABLE} [station]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name ,  count(*) FROM train_station AS T1 JOIN station AS T2 ON T1.station_id  =  T2.station_id GROUP BY T1.station_id"
+    },
+    {
+        "original_nl": "show the train name and station name for each train.",
+        "generalized_nl": "show|the|{TABLE} [train]|{COLUMN} [name]|and|{TABLE} [station]|{COLUMN} [name]|for|each|{TABLE} [train]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{TABLE}",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name ,  T3.name FROM train_station AS T1 JOIN station AS T2 ON T1.station_id  =  T2.station_id JOIN train AS T3 ON T3.train_id  =  T1.train_id"
+    },
+    {
+        "original_nl": "Show all train names and times in stations in London in descending order by train time.",
+        "generalized_nl": "show [Show]|all|{TABLE} [train]|{COLUMN} [names]|and|{COLUMN} [times]|in|{TABLE} [stations]|in|{VALUE} [London]|in|descend [descending]|order|by|{TABLE} [train]|{COLUMN} [time]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "in",
+            "{TABLE}",
+            "in",
+            "{VALUE}",
+            "in",
+            "descend",
+            "order",
+            "by",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T3.name ,  T3.time FROM train_station AS T1 JOIN station AS T2 ON T1.station_id  =  T2.station_id JOIN train AS T3 ON T3.train_id  =  T1.train_id WHERE T2.location  =  'London' ORDER BY T3.time DESC"
+    },
+    {
+        "original_nl": "Show the station name with greatest number of trains.",
+        "generalized_nl": "show [Show]|the|{TABLE} [station]|{COLUMN} [name]|with|great [greatest]|{COLUMN_PART} [number]|of|{TABLE} [trains]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "with",
+            "great",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name FROM train_station AS T1 JOIN station AS T2 ON T1.station_id  =  T2.station_id GROUP BY T1.station_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the station name with at least two trains.",
+        "generalized_nl": "show [Show]|the|{TABLE} [station]|{COLUMN} [name]|with|{NUMBER} [at least two]|{TABLE} [trains]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name FROM train_station AS T1 JOIN station AS T2 ON T1.station_id  =  T2.station_id GROUP BY T1.station_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show all locations with only 1 station.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [locations]|with|only|{VALUE} [1]|{TABLE} [station]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "with",
+            "only",
+            "{VALUE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT LOCATION FROM station GROUP BY LOCATION HAVING count(*)  =  1"
+    },
+    {
+        "original_nl": "Show station names without any trains.",
+        "generalized_nl": "show [Show]|{TABLE} [station]|{COLUMN} [names]|without|any|{TABLE} [trains]",
+        "generalized_tokens": [
+            "show",
+            "{TABLE}",
+            "{COLUMN}",
+            "without",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM station WHERE station_id NOT IN (SELECT station_id FROM train_station)"
+    },
+    {
+        "original_nl": "What are the names of the stations which serve both \"Ananthapuri Express\" and \"Guruvayur Express\" trains?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [stations]|which|serve|both|{VALUE} [Ananthapuri Express]|and|{VALUE} [Guruvayur Express]|{TABLE} [trains]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "serve",
+            "both",
+            "{VALUE}",
+            "and",
+            "{VALUE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name FROM train_station AS T1 JOIN station AS T2 ON T1.station_id  =  T2.station_id JOIN train AS T3 ON T3.train_id  =  T1.train_id WHERE T3.Name  =  \"Ananthapuri Express\" INTERSECT SELECT T2.name FROM train_station AS T1 JOIN station AS T2 ON T1.station_id  =  T2.station_id JOIN train AS T3 ON T3.train_id  =  T1.train_id WHERE T3.Name  =  \"Guruvayur Express\""
+    },
+    {
+        "original_nl": "Find the names of the trains that do not pass any station located in London.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|{TABLE} [trains]|that|do|not|pass|any|{TABLE} [station]|locate [located]|in|{VALUE} [London]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "pass",
+            "any",
+            "{TABLE}",
+            "locate",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.name FROM train_station AS T1 JOIN train AS T2 ON T1.train_id  =  T2.train_id WHERE T1.station_id NOT IN (SELECT T4.station_id FROM train_station AS T3 JOIN station AS T4 ON T3.station_id  =  T4.station_id WHERE t4.location  =  \"London\")"
+    },
+    {
+        "original_nl": "List the names and locations of all stations ordered by their yearly entry exit and interchange amounts.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|and|{COLUMN} [locations]|of|all|{TABLE} [stations]|order [ordered]|by|their|{NE} [yearly]|{COLUMN_PART} [entry]|{COLUMN_PART} [exit]|and|{COLUMN_PART} [interchange]|sum [amounts]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "order",
+            "by",
+            "their",
+            "{NE}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "sum"
+        ],
+        "original_sql": "SELECT name ,  LOCATION FROM station ORDER BY Annual_entry_exit ,  Annual_interchanges"
+    }
+]

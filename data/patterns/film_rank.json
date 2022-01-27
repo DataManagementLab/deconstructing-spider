@@ -1,0 +1,883 @@
+[
+    {
+        "original_nl": "How many film are there?",
+        "generalized_nl": "How|many|{TABLE} [film]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM film"
+    },
+    {
+        "original_nl": "Count the number of films.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [films]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM film"
+    },
+    {
+        "original_nl": "List the distinct director of all films.",
+        "generalized_nl": "list [List]|the|distinct|{COLUMN} [director]|of|all|{TABLE} [films]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT Director FROM film"
+    },
+    {
+        "original_nl": "What are the different film Directors?",
+        "generalized_nl": "What|are|the|different|{TABLE} [film]|{COLUMN} [Directors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Director FROM film"
+    },
+    {
+        "original_nl": "What is the average ticket sales gross in dollars of films?",
+        "generalized_nl": "What|is|the|average|ticket|sale [sales]|{COLUMN_PART} [gross]|in|dollar [dollars]|of|{TABLE} [films]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "ticket",
+            "sale",
+            "{COLUMN_PART}",
+            "in",
+            "dollar",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Gross_in_dollar) FROM film"
+    },
+    {
+        "original_nl": "Return the average gross sales in dollars across all films.",
+        "generalized_nl": "return [Return]|the|average|{COLUMN_PART} [gross]|sale [sales]|in|dollar [dollars]|across|all|{TABLE} [films]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "sale",
+            "in",
+            "dollar",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Gross_in_dollar) FROM film"
+    },
+    {
+        "original_nl": "What are the low and high estimates of film markets?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [low]|and|{COLUMN} [high estimates]|of|{TABLE} [film]|{TABLE} [markets]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Low_Estimate ,  High_Estimate FROM film_market_estimation"
+    },
+    {
+        "original_nl": "Return the low and high estimates for all film markets.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [low]|and|{COLUMN} [high estimates]|for|all|{TABLE} [film]|{TABLE} [markets]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Low_Estimate ,  High_Estimate FROM film_market_estimation"
+    },
+    {
+        "original_nl": "What are the types of film market estimations in year 1995?",
+        "generalized_nl": "What|are|the|{COLUMN} [types]|of|{TABLE} [film market estimations]|in|{COLUMN} [year]|{VALUE} [1995]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT TYPE FROM film_market_estimation WHERE YEAR  =  1995"
+    },
+    {
+        "original_nl": "Return the types of film market estimations in 1995.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [types]|of|{TABLE} [film market estimations]|in|{VALUE} [1995]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT TYPE FROM film_market_estimation WHERE YEAR  =  1995"
+    },
+    {
+        "original_nl": "What are the maximum and minimum number of cities in all markets.",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minimal [minimum]|{COLUMN_PART} [number]|of|{COLUMN_PART} [cities]|in|all|{TABLE} [markets]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "in",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Number_cities) ,  min(Number_cities) FROM market"
+    },
+    {
+        "original_nl": "Return the maximum and minimum number of cities across all markets.",
+        "generalized_nl": "return [Return]|the|maximal [maximum]|and|minimal [minimum]|{COLUMN_PART} [number]|of|{COLUMN_PART} [cities]|across|all|{TABLE} [markets]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Number_cities) ,  min(Number_cities) FROM market"
+    },
+    {
+        "original_nl": "How many markets have number of cities smaller than 300?",
+        "generalized_nl": "How|many|{TABLE} [markets]|have|{COLUMN_PART} [number]|of|{COLUMN_PART} [cities]|small [smaller]|than|{VALUE} [300]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "small",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) FROM market WHERE Number_cities  <  300"
+    },
+    {
+        "original_nl": "Count the number of markets that have a number of cities lower than 300.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [markets]|that|have|a|{COLUMN_PART} [number]|of|{COLUMN_PART} [cities]|low [lower]|than|{VALUE} [300]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "low",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) FROM market WHERE Number_cities  <  300"
+    },
+    {
+        "original_nl": "List all countries of markets in ascending alphabetical order.",
+        "generalized_nl": "list [List]|all|{COLUMN} [countries]|of|{TABLE} [markets]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Country FROM market ORDER BY Country ASC"
+    },
+    {
+        "original_nl": "What are the countries for each market, ordered alphabetically?",
+        "generalized_nl": "What|are|the|{COLUMN} [countries]|for|each|{TABLE} [market]|order [ordered]|alphabetically",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}",
+            "order",
+            "alphabetically"
+        ],
+        "original_sql": "SELECT Country FROM market ORDER BY Country ASC"
+    },
+    {
+        "original_nl": "List all countries of markets in descending order of number of cities.",
+        "generalized_nl": "list [List]|all|{COLUMN} [countries]|of|{TABLE} [markets]|in|descend [descending]|order|of|{COLUMN_PART} [number]|of|{COLUMN_PART} [cities]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Country FROM market ORDER BY Number_cities DESC"
+    },
+    {
+        "original_nl": "What are the countries for each market ordered by decreasing number of cities?",
+        "generalized_nl": "What|are|the|{COLUMN} [countries]|for|each|{TABLE} [market]|order [ordered]|by|decrease [decreasing]|{COLUMN_PART} [number]|of|{COLUMN_PART} [cities]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}",
+            "order",
+            "by",
+            "decrease",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Country FROM market ORDER BY Number_cities DESC"
+    },
+    {
+        "original_nl": "Please show the titles of films and the types of market estimations.",
+        "generalized_nl": "Please|show|the|{COLUMN} [titles]|of|{TABLE} [films]|and|the|{COLUMN} [types]|of|{TABLE} [market]|estimate [estimations]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "estimate"
+        ],
+        "original_sql": "SELECT T1.Title ,  T2.Type FROM film AS T1 JOIN film_market_estimation AS T2 ON T1.Film_ID  =  T2.Film_ID"
+    },
+    {
+        "original_nl": "What are the titles of films and corresponding types of market estimations?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|{TABLE} [films]|and|match [corresponding]|{COLUMN} [types]|of|{TABLE} [market]|estimate [estimations]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "match",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "estimate"
+        ],
+        "original_sql": "SELECT T1.Title ,  T2.Type FROM film AS T1 JOIN film_market_estimation AS T2 ON T1.Film_ID  =  T2.Film_ID"
+    },
+    {
+        "original_nl": "Show the distinct director of films with market estimation in the year of 1995.",
+        "generalized_nl": "show [Show]|the|distinct|{COLUMN} [director]|of|{TABLE} [films]|with|{TABLE} [market]|{COLUMN_PART} [estimation]|in|{NE} [the year of 1995]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Director FROM film AS T1 JOIN film_market_estimation AS T2 ON T1.Film_ID  =  T2.Film_ID WHERE T2.Year  =  1995"
+    },
+    {
+        "original_nl": "Who are the different directors of films which had market estimation in 1995?",
+        "generalized_nl": "Who|are|the|different|{COLUMN} [directors]|of|{TABLE} [films]|which|have [had]|{TABLE} [market]|{COLUMN_PART} [estimation]|in|{VALUE} [1995]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "which",
+            "have",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Director FROM film AS T1 JOIN film_market_estimation AS T2 ON T1.Film_ID  =  T2.Film_ID WHERE T2.Year  =  1995"
+    },
+    {
+        "original_nl": "What is the average number of cities of markets with low film market estimate bigger than 10000?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [number]|of|{COLUMN_PART} [cities]|of|{TABLE} [markets]|with|{COLUMN_PART} [low]|{TABLE} [film]|{TABLE} [market]|{COLUMN_PART} [estimate]|{NUMBER} [bigger than 10000]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT avg(T2.Number_cities) FROM film_market_estimation AS T1 JOIN market AS T2 ON T1.Market_ID  =  T2.Market_ID WHERE T1.Low_Estimate  >  10000"
+    },
+    {
+        "original_nl": "Give the average number of cities within markets that had a low market estimation larger than 10000?",
+        "generalized_nl": "give [Give]|the|average|{COLUMN_PART} [number]|of|{COLUMN_PART} [cities]|within|{TABLE} [markets]|that|have [had]|a|{COLUMN_PART} [low]|{TABLE} [market]|{COLUMN_PART} [estimation]|{NUMBER} [larger than 10000]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "within",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT avg(T2.Number_cities) FROM film_market_estimation AS T1 JOIN market AS T2 ON T1.Market_ID  =  T2.Market_ID WHERE T1.Low_Estimate  >  10000"
+    },
+    {
+        "original_nl": "Please list the countries and years of film market estimations.",
+        "generalized_nl": "Please|list|the|{COLUMN} [countries]|and|{COLUMN} [years]|of|{TABLE} [film market estimations]",
+        "generalized_tokens": [
+            "Please",
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Country ,  T1.Year FROM film_market_estimation AS T1 JOIN market AS T2 ON T1.Market_ID  =  T2.Market_ID"
+    },
+    {
+        "original_nl": "What are the countries of markets and their corresponding years of market estimation?",
+        "generalized_nl": "What|are|the|{COLUMN} [countries]|of|{TABLE} [markets]|and|their|match [corresponding]|{COLUMN} [years]|of|{TABLE} [market]|{COLUMN_PART} [estimation]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "their",
+            "match",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.Country ,  T1.Year FROM film_market_estimation AS T1 JOIN market AS T2 ON T1.Market_ID  =  T2.Market_ID"
+    },
+    {
+        "original_nl": "Please list the years of film market estimations when the market is in country \"Japan\" in descending order.",
+        "generalized_nl": "Please|list|{NE} [the years]|of|{TABLE} [film market estimations]|when|the|{TABLE} [market]|is|in|{COLUMN} [country]|{VALUE} [Japan]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "Please",
+            "list",
+            "{NE}",
+            "of",
+            "{TABLE}",
+            "when",
+            "the",
+            "{TABLE}",
+            "is",
+            "in",
+            "{COLUMN}",
+            "{VALUE}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT T1.Year FROM film_market_estimation AS T1 JOIN market AS T2 ON T1.Market_ID  =  T2.Market_ID WHERE T2.Country  =  \"Japan\" ORDER BY T1.Year DESC"
+    },
+    {
+        "original_nl": "What are the years of film market estimation for the market of Japan, ordered by year descending?",
+        "generalized_nl": "What|are|{NE} [the years]|of|{TABLE} [film market estimation]|for|the|{TABLE} [market]|of|{VALUE} [Japan]|order [ordered]|by|{COLUMN} [year]|descend [descending]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{NE}",
+            "of",
+            "{TABLE}",
+            "for",
+            "the",
+            "{TABLE}",
+            "of",
+            "{VALUE}",
+            "order",
+            "by",
+            "{COLUMN}",
+            "descend"
+        ],
+        "original_sql": "SELECT T1.Year FROM film_market_estimation AS T1 JOIN market AS T2 ON T1.Market_ID  =  T2.Market_ID WHERE T2.Country  =  \"Japan\" ORDER BY T1.Year DESC"
+    },
+    {
+        "original_nl": "List the studios of each film and the number of films produced by that studio.",
+        "generalized_nl": "list [List]|the|{COLUMN} [studios]|of|each|{TABLE} [film]|and|the|{COLUMN_PART} [number]|of|{TABLE} [films]|produce [produced]|by|that|{COLUMN} [studio]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "produce",
+            "by",
+            "that",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Studio ,  COUNT(*) FROM film GROUP BY Studio"
+    },
+    {
+        "original_nl": "How films are produced by each studio?",
+        "generalized_nl": "How|{TABLE} [films]|are|produce [produced]|by|each|{COLUMN} [studio]",
+        "generalized_tokens": [
+            "How",
+            "{TABLE}",
+            "are",
+            "produce",
+            "by",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Studio ,  COUNT(*) FROM film GROUP BY Studio"
+    },
+    {
+        "original_nl": "List the name of film studio that have the most number of films.",
+        "generalized_nl": "list [List]|the|name|of|{TABLE} [film]|{COLUMN} [studio]|that|have|the|most|{COLUMN_PART} [number]|of|{TABLE} [films]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "name",
+            "of",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Studio FROM film GROUP BY Studio ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of teh studio that created the most films?",
+        "generalized_nl": "What|is|the|name|of|teh|{COLUMN} [studio]|that|create [created]|the|most|{TABLE} [films]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "name",
+            "of",
+            "teh",
+            "{COLUMN}",
+            "that",
+            "create",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Studio FROM film GROUP BY Studio ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the names of studios that have at least two films.",
+        "generalized_nl": "list [List]|the|name [names]|of|{COLUMN} [studios]|that|have|{NUMBER} [at least two]|{TABLE} [films]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "name",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Studio FROM film GROUP BY Studio HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the names of studios that have made two or more films?",
+        "generalized_nl": "What|are|the|name [names]|of|{COLUMN} [studios]|that|have|make [made]|{NUMBER} [two]|or|more|{TABLE} [films]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "name",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "make",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Studio FROM film GROUP BY Studio HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "List the title of films that do not have any market estimation.",
+        "generalized_nl": "list [List]|the|{COLUMN} [title]|of|{TABLE} [films]|that|do|not|have|any|{TABLE} [market]|{COLUMN_PART} [estimation]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Title FROM film WHERE Film_ID NOT IN (SELECT Film_ID FROM film_market_estimation)"
+    },
+    {
+        "original_nl": "What are the titles of films that do not have a film market estimation?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|{TABLE} [films]|that|do|not|have|a|{TABLE} [film market estimation]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Title FROM film WHERE Film_ID NOT IN (SELECT Film_ID FROM film_market_estimation)"
+    },
+    {
+        "original_nl": "Show the studios that have produced films with director \"Nicholas Meyer\" and \"Walter Hill\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [studios]|that|have|produce [produced]|{TABLE} [films]|with|{COLUMN} [director]|{VALUE} [Nicholas Meyer]|and|{VALUE} [Walter Hill]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "produce",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}",
+            "and",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Studio FROM film WHERE Director  =  \"Nicholas Meyer\" INTERSECT SELECT Studio FROM film WHERE Director  =  \"Walter Hill\""
+    },
+    {
+        "original_nl": "What are the names of studios that have produced films with both Nicholas Meyer and Walter Hill?",
+        "generalized_nl": "What|are|the|name [names]|of|{COLUMN} [studios]|that|have|produce [produced]|{TABLE} [films]|with|both|{VALUE} [Nicholas Meyer]|and|{VALUE} [Walter Hill]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "name",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "produce",
+            "{TABLE}",
+            "with",
+            "both",
+            "{VALUE}",
+            "and",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Studio FROM film WHERE Director  =  \"Nicholas Meyer\" INTERSECT SELECT Studio FROM film WHERE Director  =  \"Walter Hill\""
+    },
+    {
+        "original_nl": "Find the titles and studios of the films that are produced by some film studios that contained the word \"Universal\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [titles]|and|{COLUMN} [studios]|of|the|{TABLE} [films]|that|are|produce [produced]|by|some|{TABLE} [film]|{COLUMN} [studios]|that|contain [contained]|the|word|{VALUE} [Universal]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "produce",
+            "by",
+            "some",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "contain",
+            "the",
+            "word",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT title ,  Studio FROM film WHERE Studio LIKE \"%Universal%\""
+    },
+    {
+        "original_nl": "What are the titles and studios of films that have been produced by a studio whose name contains \"Universal\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|and|{COLUMN} [studios]|of|{TABLE} [films]|that|have|been|produce [produced]|by|a|{COLUMN} [studio]|whose|name|contain [contains]|{VALUE} [Universal]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "been",
+            "produce",
+            "by",
+            "a",
+            "{COLUMN}",
+            "whose",
+            "name",
+            "contain",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT title ,  Studio FROM film WHERE Studio LIKE \"%Universal%\""
+    },
+    {
+        "original_nl": "Show the studios that have not produced films with director \"Walter Hill\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [studios]|that|have|not|produce [produced]|{TABLE} [films]|with|{COLUMN} [director]|{VALUE} [Walter Hill]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "not",
+            "produce",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Studio FROM film EXCEPT SELECT Studio FROM film WHERE Director  =  \"Walter Hill\""
+    },
+    {
+        "original_nl": "Which studios have never worked with the director Walter Hill?",
+        "generalized_nl": "Which|{COLUMN} [studios]|have|never|work [worked]|with|the|{COLUMN} [director]|{VALUE} [Walter Hill]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "never",
+            "work",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Studio FROM film EXCEPT SELECT Studio FROM film WHERE Director  =  \"Walter Hill\""
+    },
+    {
+        "original_nl": "List the studios which average gross is above 4500000.",
+        "generalized_nl": "list [List]|the|{COLUMN} [studios]|which|average|{COLUMN_PART} [gross]|is|above|{NUMBER} [4500000]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "which",
+            "average",
+            "{COLUMN_PART}",
+            "is",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Studio FROM film GROUP BY Studio HAVING avg(Gross_in_dollar)  >=  4500000"
+    },
+    {
+        "original_nl": "Which studios have an average gross of over 4500000?",
+        "generalized_nl": "Which|{COLUMN} [studios]|have|an|average|{COLUMN_PART} [gross]|of|{NUMBER} [over 4500000]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "an",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Studio FROM film GROUP BY Studio HAVING avg(Gross_in_dollar)  >=  4500000"
+    },
+    {
+        "original_nl": "What is the title of the film that has the highest high market estimation.",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|of|the|{TABLE} [film]|that|have [has]|the|high [highest]|{COLUMN_PART} [high]|{TABLE} [market]|{COLUMN_PART} [estimation]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "high",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.title FROM film AS T1 JOIN film_market_estimation AS T2  ON T1.Film_ID  =  T2.Film_ID ORDER BY high_estimate DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the title of the film with the highest high estimate?",
+        "generalized_nl": "return [Return]|the|{COLUMN} [title]|of|the|{TABLE} [film]|with|the|high [highest]|{COLUMN} [high estimate]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.title FROM film AS T1 JOIN film_market_estimation AS T2  ON T1.Film_ID  =  T2.Film_ID ORDER BY high_estimate DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the titles and directors of the films were never presented in China?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|and|{COLUMN} [directors]|of|the|{TABLE} [films]|were|never|present [presented]|in|{VALUE} [China]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "were",
+            "never",
+            "present",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT title ,  director FROM film WHERE film_id NOT IN (SELECT film_id FROM film_market_estimation AS T1 JOIN market AS T2 ON T1.market_id  =  T2.Market_ID WHERE country  =  'China')"
+    },
+    {
+        "original_nl": "Return the titles and directors of films that were never in the market of China.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [titles]|and|{COLUMN} [directors]|of|{TABLE} [films]|that|were|never|in|the|{TABLE} [market]|of|{VALUE} [China]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "were",
+            "never",
+            "in",
+            "the",
+            "{TABLE}",
+            "of",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT title ,  director FROM film WHERE film_id NOT IN (SELECT film_id FROM film_market_estimation AS T1 JOIN market AS T2 ON T1.market_id  =  T2.Market_ID WHERE country  =  'China')"
+    }
+]

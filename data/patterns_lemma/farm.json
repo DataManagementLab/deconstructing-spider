@@ -1,0 +1,728 @@
+[
+    {
+        "original_nl": "How many farms are there?",
+        "generalized_nl": "How|many|{TABLE} [farms]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM farm"
+    },
+    {
+        "original_nl": "Count the number of farms.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [farms]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM farm"
+    },
+    {
+        "original_nl": "List the total number of horses on farms in ascending order.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [total]|number|of|{COLUMN_PART} [horses]|on|{TABLE} [farms]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "on",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT Total_Horses FROM farm ORDER BY Total_Horses ASC"
+    },
+    {
+        "original_nl": "What is the total horses record for each farm, sorted ascending?",
+        "generalized_nl": "What|is|the|{COLUMN} [total horses]|record|for|each|{TABLE} [farm]|screen [sorted]|ascend [ascending]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "record",
+            "for",
+            "each",
+            "{TABLE}",
+            "screen",
+            "ascend"
+        ],
+        "original_sql": "SELECT Total_Horses FROM farm ORDER BY Total_Horses ASC"
+    },
+    {
+        "original_nl": "What are the hosts of competitions whose theme is not \"Aliens\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [hosts]|of|competition [competitions]|whose|{COLUMN} [theme]|is|not|{VALUE} [Aliens]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "competition",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Hosts FROM farm_competition WHERE Theme !=  'Aliens'"
+    },
+    {
+        "original_nl": "Return the hosts of competitions for which the theme is not Aliens?",
+        "generalized_nl": "return [Return]|the|{COLUMN} [hosts]|of|competition [competitions]|for|which|the|{COLUMN} [theme]|is|not|{VALUE} [Aliens]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "competition",
+            "for",
+            "which",
+            "the",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Hosts FROM farm_competition WHERE Theme !=  'Aliens'"
+    },
+    {
+        "original_nl": "What are the themes of farm competitions sorted by year in ascending order?",
+        "generalized_nl": "What|are|the|{COLUMN} [themes]|of|{TABLE} [farm competitions]|screen [sorted]|by|{COLUMN} [year]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT Theme FROM farm_competition ORDER BY YEAR ASC"
+    },
+    {
+        "original_nl": "Return the themes of farm competitions, sorted by year ascending.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [themes]|of|{TABLE} [farm competitions]|screen [sorted]|by|{COLUMN} [year]|ascend [ascending]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "ascend"
+        ],
+        "original_sql": "SELECT Theme FROM farm_competition ORDER BY YEAR ASC"
+    },
+    {
+        "original_nl": "What is the average number of working horses of farms with more than 5000 total number of horses?",
+        "generalized_nl": "What|is|the|average|number|of|{COLUMN} [working horses]|of|{TABLE} [farms]|with|{NUMBER} [more than 5000]|{COLUMN_PART} [total]|number|of|{COLUMN_PART} [horses]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "number",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(Working_Horses) FROM farm WHERE Total_Horses  >  5000"
+    },
+    {
+        "original_nl": "Give the average number of working horses on farms with more than 5000 total horses.",
+        "generalized_nl": "give [Give]|the|average|number|of|{COLUMN} [working horses]|on|{TABLE} [farms]|with|{NUMBER} [more than 5000]|{COLUMN} [total horses]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "on",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(Working_Horses) FROM farm WHERE Total_Horses  >  5000"
+    },
+    {
+        "original_nl": "What are the maximum and minimum number of cows across all farms.",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minimal [minimum]|number|of|{COLUMN} [cows]|across|all|{TABLE} [farms]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "number",
+            "of",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Cows) ,  min(Cows) FROM farm"
+    },
+    {
+        "original_nl": "Return the maximum and minimum number of cows across all farms.",
+        "generalized_nl": "return [Return]|the|maximal [maximum]|and|minimal [minimum]|number|of|{COLUMN} [cows]|across|all|{TABLE} [farms]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "number",
+            "of",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Cows) ,  min(Cows) FROM farm"
+    },
+    {
+        "original_nl": "How many different statuses do cities have?",
+        "generalized_nl": "How|many|different|{COLUMN} [statuses]|do|{TABLE} [cities]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "do",
+            "{TABLE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(DISTINCT Status) FROM city"
+    },
+    {
+        "original_nl": "Count the number of different statuses.",
+        "generalized_nl": "count [Count]|the|number|of|different|{COLUMN} [statuses]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT Status) FROM city"
+    },
+    {
+        "original_nl": "List official names of cities in descending order of population.",
+        "generalized_nl": "list [List]|{COLUMN} [official names]|of|{TABLE} [cities]|in|descend [descending]|order|of|{COLUMN} [population]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Official_Name FROM city ORDER BY Population DESC"
+    },
+    {
+        "original_nl": "What are the official names of cities, ordered descending by population?",
+        "generalized_nl": "What|are|the|{COLUMN} [official names]|of|{TABLE} [cities]|order [ordered]|descend [descending]|by|{COLUMN} [population]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "order",
+            "descend",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Official_Name FROM city ORDER BY Population DESC"
+    },
+    {
+        "original_nl": "List the official name and status of the city with the largest population.",
+        "generalized_nl": "list [List]|the|{COLUMN} [official name]|and|{COLUMN} [status]|of|the|{TABLE} [city]|with|the|large [largest]|{COLUMN} [population]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Official_Name ,  Status FROM city ORDER BY Population DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the official name and status of the city with the most residents?",
+        "generalized_nl": "What|is|the|{COLUMN} [official name]|and|{COLUMN} [status]|of|the|{TABLE} [city]|with|the|most|resident [residents]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "resident"
+        ],
+        "original_sql": "SELECT Official_Name ,  Status FROM city ORDER BY Population DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the years and the official names of the host cities of competitions.",
+        "generalized_nl": "show [Show]|{NE} [the years]|and|the|{COLUMN} [official names]|of|the|{COLUMN} [host]|{TABLE} [cities]|of|competition [competitions]",
+        "generalized_tokens": [
+            "show",
+            "{NE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "{TABLE}",
+            "of",
+            "competition"
+        ],
+        "original_sql": "SELECT T2.Year ,  T1.Official_Name FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID  =  T2.Host_city_ID"
+    },
+    {
+        "original_nl": "Give the years and official names of the cities of each competition.",
+        "generalized_nl": "give [Give]|{NE} [the years]|and|{COLUMN} [official names]|of|the|{TABLE} [cities]|of|each|{COLUMN_PART} [competition]",
+        "generalized_tokens": [
+            "give",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "of",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.Year ,  T1.Official_Name FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID  =  T2.Host_city_ID"
+    },
+    {
+        "original_nl": "Show the official names of the cities that have hosted more than one competition.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [official names]|of|the|{TABLE} [cities]|that|have|host [hosted]|{NUMBER} [more than one]|{COLUMN_PART} [competition]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "host",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.Official_Name FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID  =  T2.Host_city_ID GROUP BY T2.Host_city_ID HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "What are the official names of cities that have hosted more than one competition?",
+        "generalized_nl": "What|are|the|{COLUMN} [official names]|of|{TABLE} [cities]|that|have|host [hosted]|{NUMBER} [more than one]|{COLUMN_PART} [competition]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "host",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.Official_Name FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID  =  T2.Host_city_ID GROUP BY T2.Host_city_ID HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "Show the status of the city that has hosted the greatest number of competitions.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [status]|of|the|{TABLE} [city]|that|has|host [hosted]|the|great [greatest]|number|of|competition [competitions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "host",
+            "the",
+            "great",
+            "number",
+            "of",
+            "competition"
+        ],
+        "original_sql": "SELECT T1.Status FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID  =  T2.Host_city_ID GROUP BY T2.Host_city_ID ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the status of the city that has hosted the most competitions?",
+        "generalized_nl": "What|is|the|{COLUMN} [status]|of|the|{TABLE} [city]|that|has|host [hosted]|the|most|competition [competitions]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "host",
+            "the",
+            "most",
+            "competition"
+        ],
+        "original_sql": "SELECT T1.Status FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID  =  T2.Host_city_ID GROUP BY T2.Host_city_ID ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Please show the themes of competitions with host cities having populations larger than 1000.",
+        "generalized_nl": "Please|show|the|{COLUMN} [themes]|of|competition [competitions]|with|{COLUMN} [host]|{TABLE} [cities]|have [having]|{COLUMN} [populations]|{NUMBER} [larger than 1000]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "competition",
+            "with",
+            "{COLUMN}",
+            "{TABLE}",
+            "have",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Theme FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID  =  T2.Host_city_ID WHERE T1.Population  >  1000"
+    },
+    {
+        "original_nl": "What are the themes of competitions that have corresponding host cities with more than 1000 residents?",
+        "generalized_nl": "What|are|the|{COLUMN} [themes]|of|competition [competitions]|that|have|match [corresponding]|{COLUMN} [host]|{TABLE} [cities]|with|{NUMBER} [more than 1000]|resident [residents]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "competition",
+            "that",
+            "have",
+            "match",
+            "{COLUMN}",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "resident"
+        ],
+        "original_sql": "SELECT T2.Theme FROM city AS T1 JOIN farm_competition AS T2 ON T1.City_ID  =  T2.Host_city_ID WHERE T1.Population  >  1000"
+    },
+    {
+        "original_nl": "Please show the different statuses of cities and the average population of cities with each status.",
+        "generalized_nl": "Please|show|the|different|{COLUMN} [statuses]|of|{TABLE} [cities]|and|the|average|{COLUMN} [population]|of|{TABLE} [cities]|with|each|{COLUMN} [status]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Status ,  avg(Population) FROM city GROUP BY Status"
+    },
+    {
+        "original_nl": "What are the statuses and average populations of each city?",
+        "generalized_nl": "What|are|the|{COLUMN} [statuses]|and|average|{COLUMN} [populations]|of|each|{TABLE} [city]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Status ,  avg(Population) FROM city GROUP BY Status"
+    },
+    {
+        "original_nl": "Please show the different statuses, ordered by the number of cities that have each.",
+        "generalized_nl": "Please|show|the|different|{COLUMN} [statuses]|order [ordered]|by|the|number|of|{TABLE} [cities]|that|have|each",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "different",
+            "{COLUMN}",
+            "order",
+            "by",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "each"
+        ],
+        "original_sql": "SELECT Status FROM city GROUP BY Status ORDER BY COUNT(*) ASC"
+    },
+    {
+        "original_nl": "Return the different statuses of cities, ascending by frequency.",
+        "generalized_nl": "return [Return]|the|different|{COLUMN} [statuses]|of|{TABLE} [cities]|ascend [ascending]|by|frequency",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "ascend",
+            "by",
+            "frequency"
+        ],
+        "original_sql": "SELECT Status FROM city GROUP BY Status ORDER BY COUNT(*) ASC"
+    },
+    {
+        "original_nl": "List the most common type of Status across cities.",
+        "generalized_nl": "list [List]|the|most|common|type|of|{COLUMN} [Status]|across|{TABLE} [cities]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "most",
+            "common",
+            "type",
+            "of",
+            "{COLUMN}",
+            "across",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Status FROM city GROUP BY Status ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the most common status across all cities?",
+        "generalized_nl": "What|is|the|most|common|{COLUMN} [status]|across|all|{TABLE} [cities]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Status FROM city GROUP BY Status ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the official names of cities that have not held any competition.",
+        "generalized_nl": "list [List]|the|{COLUMN} [official names]|of|{TABLE} [cities]|that|have|not|hold [held]|any|{COLUMN_PART} [competition]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "not",
+            "hold",
+            "any",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Official_Name FROM city WHERE City_ID NOT IN (SELECT Host_city_ID FROM farm_competition)"
+    },
+    {
+        "original_nl": "What are the official names of cities that have not hosted a farm competition?",
+        "generalized_nl": "What|are|the|{COLUMN} [official names]|of|{TABLE} [cities]|that|have|not|host [hosted]|a|{TABLE} [farm]|{COLUMN_PART} [competition]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "not",
+            "host",
+            "a",
+            "{TABLE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Official_Name FROM city WHERE City_ID NOT IN (SELECT Host_city_ID FROM farm_competition)"
+    },
+    {
+        "original_nl": "Show the status shared by cities with population bigger than 1500 and smaller than 500.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [status]|share [shared]|by|{TABLE} [cities]|with|{COLUMN} [population]|{NUMBER} [bigger than 1500]|and|{NUMBER} [smaller than 500]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}",
+            "and",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Status FROM city WHERE Population  >  1500 INTERSECT SELECT Status FROM city WHERE Population  <  500"
+    },
+    {
+        "original_nl": "Which statuses correspond to both cities that have a population over 1500 and cities that have a population lower than 500?",
+        "generalized_nl": "Which|{COLUMN} [statuses]|match [correspond]|to|both|{TABLE} [cities]|that|have|a|{COLUMN} [population]|over|{NUMBER} [1500]|and|{TABLE} [cities]|that|have|a|{COLUMN} [population]|low [lower]|than|{NUMBER} [500]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "match",
+            "to",
+            "both",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "over",
+            "{NUMBER}",
+            "and",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "low",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Status FROM city WHERE Population  >  1500 INTERSECT SELECT Status FROM city WHERE Population  <  500"
+    },
+    {
+        "original_nl": "Find the official names of cities with population bigger than 1500 or smaller than 500.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [official names]|of|{TABLE} [cities]|with|{COLUMN} [population]|{NUMBER} [bigger than 1500]|or|{NUMBER} [smaller than 500]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}",
+            "or",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Official_Name FROM city WHERE Population  >  1500 OR Population  <  500"
+    },
+    {
+        "original_nl": "What are the official names of cities that have population over 1500 or less than 500?",
+        "generalized_nl": "What|are|the|{COLUMN} [official names]|of|{TABLE} [cities]|that|have|{COLUMN} [population]|over|{NUMBER} [1500]|or|{NUMBER} [less than 500]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "over",
+            "{NUMBER}",
+            "or",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Official_Name FROM city WHERE Population  >  1500 OR Population  <  500"
+    },
+    {
+        "original_nl": "Show the census ranking of cities whose status are not \"Village\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [census ranking]|of|{TABLE} [cities]|whose|{COLUMN} [status]|are|not|{VALUE} [Village]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Census_Ranking FROM city WHERE Status !=  \"Village\""
+    },
+    {
+        "original_nl": "What are the census rankings of cities that do not have the status \"Village\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [census rankings]|of|{TABLE} [cities]|that|do|not|have|the|{COLUMN} [status]|{VALUE} [Village]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Census_Ranking FROM city WHERE Status !=  \"Village\""
+    }
+]

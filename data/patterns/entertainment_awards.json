@@ -1,0 +1,403 @@
+[
+    {
+        "original_nl": "How many artworks are there?",
+        "generalized_nl": "How|many|{TABLE} [artworks]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM artwork"
+    },
+    {
+        "original_nl": "List the name of artworks in ascending alphabetical order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [artworks]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Name FROM artwork ORDER BY Name ASC"
+    },
+    {
+        "original_nl": "List the name of artworks whose type is not \"Program Talent Show\".",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [artworks]|whose|{COLUMN} [type]|is|not|{VALUE} [Program Talent Show]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM artwork WHERE TYPE != \"Program Talent Show\""
+    },
+    {
+        "original_nl": "What are the names and locations of festivals?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [locations]|of|festival [festivals]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "festival"
+        ],
+        "original_sql": "SELECT Festival_Name ,  LOCATION FROM festival_detail"
+    },
+    {
+        "original_nl": "What are the names of the chairs of festivals, sorted in ascending order of the year held?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|chair [chairs]|of|festival [festivals]|screen [sorted]|in|ascend [ascending]|order|of|{NE} [the year]|hold [held]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "chair",
+            "of",
+            "festival",
+            "screen",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{NE}",
+            "hold"
+        ],
+        "original_sql": "SELECT Chair_Name FROM festival_detail ORDER BY YEAR ASC"
+    },
+    {
+        "original_nl": "What is the location of the festival with the largest number of audience?",
+        "generalized_nl": "What|is|the|{COLUMN} [location]|of|the|{COLUMN_PART} [festival]|with|the|large [largest]|number|of|{COLUMN_PART} [audience]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT LOCATION FROM festival_detail ORDER BY Num_of_Audience DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the names of festivals held in year 2007?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|festival [festivals]|hold [held]|in|{COLUMN} [year]|{VALUE} [2007]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "festival",
+            "hold",
+            "in",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Festival_Name FROM festival_detail WHERE YEAR  =  2007"
+    },
+    {
+        "original_nl": "What is the average number of audience for festivals?",
+        "generalized_nl": "What|is|the|average|number|of|{COLUMN_PART} [audience]|for|festival [festivals]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "for",
+            "festival"
+        ],
+        "original_sql": "SELECT avg(Num_of_Audience) FROM festival_detail"
+    },
+    {
+        "original_nl": "Show the names of the three most recent festivals.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|the|{NUMBER} [three]|most|recent|festival [festivals]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{NUMBER}",
+            "most",
+            "recent",
+            "festival"
+        ],
+        "original_sql": "SELECT Festival_Name FROM festival_detail ORDER BY YEAR DESC LIMIT 3"
+    },
+    {
+        "original_nl": "For each nomination, show the name of the artwork and name of the festival where it is nominated.",
+        "generalized_nl": "For|each|{TABLE} [nomination]|show|the|{COLUMN} [name]|of|the|{TABLE} [artwork]|and|{COLUMN} [name]|of|the|{COLUMN_PART} [festival]|where|it|is|nominate [nominated]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "where",
+            "it",
+            "is",
+            "nominate"
+        ],
+        "original_sql": "SELECT T2.Name ,  T3.Festival_Name FROM nomination AS T1 JOIN artwork AS T2 ON T1.Artwork_ID  =  T2.Artwork_ID JOIN festival_detail AS T3 ON T1.Festival_ID  =  T3.Festival_ID"
+    },
+    {
+        "original_nl": "Show distinct types of artworks that are nominated in festivals in 2007.",
+        "generalized_nl": "show [Show]|distinct|{COLUMN} [types]|of|{TABLE} [artworks]|that|are|nominate [nominated]|in|festival [festivals]|in|{VALUE} [2007]",
+        "generalized_tokens": [
+            "show",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "nominate",
+            "in",
+            "festival",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Type FROM nomination AS T1 JOIN artwork AS T2 ON T1.Artwork_ID  =  T2.Artwork_ID JOIN festival_detail AS T3 ON T1.Festival_ID  =  T3.Festival_ID WHERE T3.Year  =  2007"
+    },
+    {
+        "original_nl": "Show the names of artworks in ascending order of the year they are nominated in.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [artworks]|in|ascend [ascending]|order|of|{NE} [the year]|they|are|nominate [nominated]|in",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{NE}",
+            "they",
+            "are",
+            "nominate",
+            "in"
+        ],
+        "original_sql": "SELECT T2.Name FROM nomination AS T1 JOIN artwork AS T2 ON T1.Artwork_ID  =  T2.Artwork_ID JOIN festival_detail AS T3 ON T1.Festival_ID  =  T3.Festival_ID ORDER BY T3.Year"
+    },
+    {
+        "original_nl": "Show the names of festivals that have nominated artworks of type \"Program Talent Show\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|festival [festivals]|that|have|nominate [nominated]|{TABLE} [artworks]|of|{COLUMN} [type]|{VALUE} [Program Talent Show]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "festival",
+            "that",
+            "have",
+            "nominate",
+            "{TABLE}",
+            "of",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T3.Festival_Name FROM nomination AS T1 JOIN artwork AS T2 ON T1.Artwork_ID  =  T2.Artwork_ID JOIN festival_detail AS T3 ON T1.Festival_ID  =  T3.Festival_ID WHERE T2.Type  =  \"Program Talent Show\""
+    },
+    {
+        "original_nl": "Show the ids and names of festivals that have at least two nominations for artworks.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|and|{COLUMN} [names]|of|festival [festivals]|that|have|{NUMBER} [at least two]|{TABLE} [nominations]|for|{TABLE} [artworks]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "festival",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Festival_ID ,  T3.Festival_Name FROM nomination AS T1 JOIN artwork AS T2 ON T1.Artwork_ID  =  T2.Artwork_ID JOIN festival_detail AS T3 ON T1.Festival_ID  =  T3.Festival_ID GROUP BY T1.Festival_ID HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the id, name of each festival and the number of artworks it has nominated.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|{COLUMN} [name]|of|each|{COLUMN_PART} [festival]|and|the|number|of|{TABLE} [artworks]|it|has|nominate [nominated]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "it",
+            "has",
+            "nominate"
+        ],
+        "original_sql": "SELECT T1.Festival_ID ,  T3.Festival_Name ,  COUNT(*) FROM nomination AS T1 JOIN artwork AS T2 ON T1.Artwork_ID  =  T2.Artwork_ID JOIN festival_detail AS T3 ON T1.Festival_ID  =  T3.Festival_ID GROUP BY T1.Festival_ID"
+    },
+    {
+        "original_nl": "Please show different types of artworks with the corresponding number of artworks of each type.",
+        "generalized_nl": "Please|show|different|{COLUMN} [types]|of|{TABLE} [artworks]|with|the|match [corresponding]|number|of|{TABLE} [artworks]|of|each|{COLUMN} [type]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{TABLE}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TYPE ,  COUNT(*) FROM artwork GROUP BY TYPE"
+    },
+    {
+        "original_nl": "List the most common type of artworks.",
+        "generalized_nl": "list [List]|the|most|common|{COLUMN} [type]|of|{TABLE} [artworks]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT TYPE FROM artwork GROUP BY TYPE ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the year in which there are more than one festivals.",
+        "generalized_nl": "list [List]|{NE} [the year]|in|which|there|be [are]|{NUMBER} [more than one]|festival [festivals]",
+        "generalized_tokens": [
+            "list",
+            "{NE}",
+            "in",
+            "which",
+            "there",
+            "be",
+            "{NUMBER}",
+            "festival"
+        ],
+        "original_sql": "SELECT YEAR FROM festival_detail GROUP BY YEAR HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "List the name of artworks that are not nominated.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [artworks]|that|are|not|nominate [nominated]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "nominate"
+        ],
+        "original_sql": "SELECT Name FROM Artwork WHERE Artwork_ID NOT IN (SELECT Artwork_ID FROM nomination)"
+    },
+    {
+        "original_nl": "Show the number of audience in year 2008 or 2010.",
+        "generalized_nl": "show [Show]|the|number|of|{COLUMN_PART} [audience]|in|{COLUMN} [year]|{VALUE} [2008]|or|{VALUE} [2010]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "in",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Num_of_Audience FROM festival_detail WHERE YEAR  =  2008 OR YEAR  =  2010"
+    },
+    {
+        "original_nl": "What are the total number of the audiences who visited any of the festivals?",
+        "generalized_nl": "What|are|the|entire [total]|number|of|the|audience [audiences]|who|visit [visited]|any|of|the|festival [festivals]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "the",
+            "audience",
+            "who",
+            "visit",
+            "any",
+            "of",
+            "the",
+            "festival"
+        ],
+        "original_sql": "SELECT sum(Num_of_Audience) FROM festival_detail"
+    },
+    {
+        "original_nl": "In which year are there festivals both inside the 'United States' and outside the 'United States'?",
+        "generalized_nl": "In|{NE} [which year]|be [are]|there|festival [festivals]|both|inside|{NE} [the ' United States ']|and|outside|{NE} [the ' United States ']",
+        "generalized_tokens": [
+            "In",
+            "{NE}",
+            "be",
+            "there",
+            "festival",
+            "both",
+            "inside",
+            "{NE}",
+            "and",
+            "outside",
+            "{NE}"
+        ],
+        "original_sql": "SELECT YEAR FROM festival_detail WHERE LOCATION  =  'United States' INTERSECT SELECT YEAR FROM festival_detail WHERE LOCATION != 'United States'"
+    }
+]

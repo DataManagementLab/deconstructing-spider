@@ -1,0 +1,1378 @@
+[
+    {
+        "original_nl": "How many faculty do we have?",
+        "generalized_nl": "How|many|{TABLE} [faculty]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Faculty"
+    },
+    {
+        "original_nl": "What is the total number of faculty members?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{TABLE} [faculty]|member [members]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT count(*) FROM Faculty"
+    },
+    {
+        "original_nl": "What ranks do we have for faculty?",
+        "generalized_nl": "What|{COLUMN} [ranks]|do|we|have|for|{TABLE} [faculty]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "do",
+            "we",
+            "have",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT rank FROM Faculty"
+    },
+    {
+        "original_nl": "Find the list of distinct ranks for faculty.",
+        "generalized_nl": "find [Find]|the|list|of|distinct|{COLUMN} [ranks]|for|{TABLE} [faculty]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "list",
+            "of",
+            "distinct",
+            "{COLUMN}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT rank FROM Faculty"
+    },
+    {
+        "original_nl": "Show all the distinct buildings that have faculty rooms.",
+        "generalized_nl": "show [Show]|all|the|distinct|{COLUMN} [buildings]|that|have|{TABLE} [faculty]|{COLUMN} [rooms]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT building FROM Faculty"
+    },
+    {
+        "original_nl": "What buildings have faculty offices?",
+        "generalized_nl": "What|{COLUMN} [buildings]|have|{TABLE} [faculty]|office [offices]",
+        "generalized_tokens": [
+            "What",
+            "{COLUMN}",
+            "have",
+            "{TABLE}",
+            "office"
+        ],
+        "original_sql": "SELECT DISTINCT building FROM Faculty"
+    },
+    {
+        "original_nl": "Show the rank, first name, and last name for all the faculty.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [rank]|{COLUMN} [first name]|and|{COLUMN} [last name]|for|all|the|{TABLE} [faculty]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT rank ,  Fname ,  Lname FROM Faculty"
+    },
+    {
+        "original_nl": "What are the rank, first name, and last name of the faculty members?",
+        "generalized_nl": "What|are|the|{COLUMN} [rank]|{COLUMN} [first name]|and|{COLUMN} [last name]|of|the|{TABLE} [faculty]|member [members]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT rank ,  Fname ,  Lname FROM Faculty"
+    },
+    {
+        "original_nl": "Show the first name, last name, and phone number for all female faculty members.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [first name]|{COLUMN} [last name]|and|{COLUMN} [phone]|number|for|all|female|{TABLE} [faculty]|member [members]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "number",
+            "for",
+            "all",
+            "female",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT Fname ,  Lname ,  phone FROM Faculty WHERE Sex  =  'F'"
+    },
+    {
+        "original_nl": "What are the first name, last name, and phone number of all the female faculty members?",
+        "generalized_nl": "What|are|the|{COLUMN} [first name]|{COLUMN} [last name]|and|{COLUMN} [phone]|number|of|all|the|female|{TABLE} [faculty]|member [members]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "number",
+            "of",
+            "all",
+            "the",
+            "female",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT Fname ,  Lname ,  phone FROM Faculty WHERE Sex  =  'F'"
+    },
+    {
+        "original_nl": "Show ids for all the male faculty.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|for|all|the|male|{TABLE} [faculty]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "male",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT FacID FROM Faculty WHERE Sex  =  'M'"
+    },
+    {
+        "original_nl": "What are the faculty ids of all the male faculty members?",
+        "generalized_nl": "What|are|the|{COLUMN} [faculty ids]|of|all|the|male|{TABLE} [faculty]|member [members]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "male",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT FacID FROM Faculty WHERE Sex  =  'M'"
+    },
+    {
+        "original_nl": "Count the number of female Professors we have.",
+        "generalized_nl": "count [Count]|the|number|of|female|professor [Professors]|we|have",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "female",
+            "professor",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Faculty WHERE Sex  =  'F' AND Rank  =  \"Professor\""
+    },
+    {
+        "original_nl": "Show the phone, room, and building for the faculty named Jerry Prince.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [phone]|{COLUMN} [room]|and|{COLUMN} [building]|for|the|{TABLE} [faculty]|name [named]|{NE} [Jerry Prince]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT phone ,  room ,  building FROM Faculty WHERE Fname  =  \"Jerry\" AND Lname  =  \"Prince\""
+    },
+    {
+        "original_nl": "What are the phone, room, and building of the faculty member called Jerry Prince?",
+        "generalized_nl": "What|are|the|{COLUMN} [phone]|{COLUMN} [room]|and|{COLUMN} [building]|of|the|{TABLE} [faculty]|member|call [called]|{NE} [Jerry Prince]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "member",
+            "call",
+            "{NE}"
+        ],
+        "original_sql": "SELECT phone ,  room ,  building FROM Faculty WHERE Fname  =  \"Jerry\" AND Lname  =  \"Prince\""
+    },
+    {
+        "original_nl": "How many Professors are in building NEB?",
+        "generalized_nl": "How|many|professor [Professors]|are|in|{COLUMN} [building]|{NE} [NEB]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "professor",
+            "are",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Faculty WHERE Rank  =  \"Professor\" AND building  =  \"NEB\""
+    },
+    {
+        "original_nl": "Count the number of Professors who have office in building NEB.",
+        "generalized_nl": "count [Count]|the|number|of|professor [Professors]|who|have|office|in|{COLUMN} [building]|{NE} [NEB]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "professor",
+            "who",
+            "have",
+            "office",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Faculty WHERE Rank  =  \"Professor\" AND building  =  \"NEB\""
+    },
+    {
+        "original_nl": "Show the first name and last name for all the instructors.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [first name]|and|{COLUMN} [last name]|for|all|the|teacher [instructors]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "the",
+            "teacher"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM Faculty WHERE Rank  =  \"Instructor\""
+    },
+    {
+        "original_nl": "What are the first name and last name of all the instructors?",
+        "generalized_nl": "What|are|the|{COLUMN} [first name]|and|{COLUMN} [last name]|of|all|the|teacher [instructors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "teacher"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM Faculty WHERE Rank  =  \"Instructor\""
+    },
+    {
+        "original_nl": "Show all the buildings along with the number of faculty members the buildings have.",
+        "generalized_nl": "show [Show]|all|the|{COLUMN} [buildings]|along|with|the|number|of|{TABLE} [faculty]|member [members]|the|{COLUMN} [buildings]|have",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "the",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "member",
+            "the",
+            "{COLUMN}",
+            "have"
+        ],
+        "original_sql": "SELECT building ,  count(*) FROM Faculty GROUP BY building"
+    },
+    {
+        "original_nl": "Which building has most faculty members?",
+        "generalized_nl": "Which|{COLUMN} [building]|have [has]|most|{TABLE} [faculty]|member [members]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "most",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT building FROM Faculty GROUP BY building ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the building that has the largest number of faculty members.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [building]|that|have [has]|the|large [largest]|number|of|{TABLE} [faculty]|member [members]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT building FROM Faculty GROUP BY building ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show all the buildings that have at least 10 professors.",
+        "generalized_nl": "show [Show]|all|the|{COLUMN} [buildings]|that|have|{NUMBER} [at least 10]|professor [professors]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "professor"
+        ],
+        "original_sql": "SELECT building FROM Faculty WHERE rank  =  \"Professor\" GROUP BY building HAVING count(*)  >=  10"
+    },
+    {
+        "original_nl": "In which buildings are there at least ten professors?",
+        "generalized_nl": "In|which|{COLUMN} [buildings]|are|there|{NUMBER} [at least ten]|professor [professors]",
+        "generalized_tokens": [
+            "In",
+            "which",
+            "{COLUMN}",
+            "are",
+            "there",
+            "{NUMBER}",
+            "professor"
+        ],
+        "original_sql": "SELECT building FROM Faculty WHERE rank  =  \"Professor\" GROUP BY building HAVING count(*)  >=  10"
+    },
+    {
+        "original_nl": "For each faculty rank, show the number of faculty members who have it.",
+        "generalized_nl": "For|each|{TABLE} [faculty]|{COLUMN} [rank]|show|the|number|of|{TABLE} [faculty]|member [members]|who|have|it",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "{COLUMN}",
+            "show",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "member",
+            "who",
+            "have",
+            "it"
+        ],
+        "original_sql": "SELECT rank ,  count(*) FROM Faculty GROUP BY rank"
+    },
+    {
+        "original_nl": "How many faculty members do we have for each faculty rank?",
+        "generalized_nl": "How|many|{TABLE} [faculty]|member [members]|do|we|have|for|each|{TABLE} [faculty]|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "member",
+            "do",
+            "we",
+            "have",
+            "for",
+            "each",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT rank ,  count(*) FROM Faculty GROUP BY rank"
+    },
+    {
+        "original_nl": "Show all the ranks and the number of male and female faculty for each rank.",
+        "generalized_nl": "show [Show]|all|the|{COLUMN} [ranks]|and|the|number|of|male|and|female|{TABLE} [faculty]|for|each|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "male",
+            "and",
+            "female",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT rank ,  sex ,  count(*) FROM Faculty GROUP BY rank ,  sex"
+    },
+    {
+        "original_nl": "How many faculty members do we have for each rank and gender?",
+        "generalized_nl": "How|many|{TABLE} [faculty]|member [members]|do|we|have|for|each|{COLUMN} [rank]|and|gender",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "member",
+            "do",
+            "we",
+            "have",
+            "for",
+            "each",
+            "{COLUMN}",
+            "and",
+            "gender"
+        ],
+        "original_sql": "SELECT rank ,  sex ,  count(*) FROM Faculty GROUP BY rank ,  sex"
+    },
+    {
+        "original_nl": "Which rank has the smallest number of faculty members?",
+        "generalized_nl": "Which|{COLUMN} [rank]|have [has]|the|small [smallest]|number|of|{TABLE} [faculty]|member [members]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "small",
+            "number",
+            "of",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT rank FROM Faculty GROUP BY rank ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the faculty rank that has the least members.",
+        "generalized_nl": "find [Find]|the|{TABLE} [faculty]|{COLUMN} [rank]|that|have [has]|the|least|member [members]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "least",
+            "member"
+        ],
+        "original_sql": "SELECT rank FROM Faculty GROUP BY rank ORDER BY count(*) ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the number of male and female assistant professors.",
+        "generalized_nl": "show [Show]|the|number|of|male|and|female|assistant|professor [professors]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "number",
+            "of",
+            "male",
+            "and",
+            "female",
+            "assistant",
+            "professor"
+        ],
+        "original_sql": "SELECT sex ,  count(*) FROM Faculty WHERE rank  =  \"AsstProf\" GROUP BY sex"
+    },
+    {
+        "original_nl": "How many male and female assistant professors do we have?",
+        "generalized_nl": "How|many|male|and|female|assistant|professor [professors]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "male",
+            "and",
+            "female",
+            "assistant",
+            "professor",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT sex ,  count(*) FROM Faculty WHERE rank  =  \"AsstProf\" GROUP BY sex"
+    },
+    {
+        "original_nl": "What are the first name and last name of Linda Smith's advisor?",
+        "generalized_nl": "What|are|the|{COLUMN} [first name]|and|{COLUMN} [last name]|of|{NE} [Linda Smith 's]|{COLUMN} [advisor]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.fname ,  T1.lname FROM Faculty AS T1 JOIN Student AS T2 ON T1.FacID  =  T2.advisor WHERE T2.fname  =  \"Linda\" AND T2.lname  =  \"Smith\""
+    },
+    {
+        "original_nl": "Show the ids of students whose advisors are professors.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|of|{TABLE} [students]|whose|{COLUMN} [advisors]|are|professor [professors]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "professor"
+        ],
+        "original_sql": "SELECT T2.StuID FROM Faculty AS T1 JOIN Student AS T2 ON T1.FacID  =  T2.advisor WHERE T1.rank  =  \"Professor\""
+    },
+    {
+        "original_nl": "Show first name and last name for all the students advised by Michael Goodrich.",
+        "generalized_nl": "show [Show]|{COLUMN} [first name]|and|{COLUMN} [last name]|for|all|the|{TABLE} [students]|rede [advised]|by|{NE} [Michael Goodrich]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}",
+            "rede",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.fname ,  T2.lname FROM Faculty AS T1 JOIN Student AS T2 ON T1.FacID  =  T2.advisor WHERE T1.fname  =  \"Michael\" AND T1.lname  =  \"Goodrich\""
+    },
+    {
+        "original_nl": "Show the faculty id of each faculty member, along with the number of students he or she advises.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [faculty id]|of|each|{TABLE} [faculty]|member|along|with|the|number|of|{TABLE} [students]|he|or|she|rede [advises]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}",
+            "member",
+            "along",
+            "with",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "he",
+            "or",
+            "she",
+            "rede"
+        ],
+        "original_sql": "SELECT T1.FacID ,  count(*) FROM Faculty AS T1 JOIN Student AS T2 ON T1.FacID  =  T2.advisor GROUP BY T1.FacID"
+    },
+    {
+        "original_nl": "What are the faculty id and the number of students each faculty has?",
+        "generalized_nl": "What|are|the|{COLUMN} [faculty id]|and|the|number|of|{TABLE} [students]|each|{TABLE} [faculty]|have [has]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "each",
+            "{TABLE}",
+            "have"
+        ],
+        "original_sql": "SELECT T1.FacID ,  count(*) FROM Faculty AS T1 JOIN Student AS T2 ON T1.FacID  =  T2.advisor GROUP BY T1.FacID"
+    },
+    {
+        "original_nl": "Show all the faculty ranks and the number of students advised by each rank.",
+        "generalized_nl": "show [Show]|all|the|{TABLE} [faculty]|{COLUMN} [ranks]|and|the|number|of|{TABLE} [students]|rede [advised]|by|each|{COLUMN} [rank]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "rede",
+            "by",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.rank ,  count(*) FROM Faculty AS T1 JOIN Student AS T2 ON T1.FacID  =  T2.advisor GROUP BY T1.rank"
+    },
+    {
+        "original_nl": "What are the first and last name of the faculty who has the most students?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [faculty]|who|have [has]|the|most|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.fname ,  T1.lname FROM Faculty AS T1 JOIN Student AS T2 ON T1.FacID  =  T2.advisor GROUP BY T1.FacID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Give me the the first and last name of the faculty who advises the most students.",
+        "generalized_nl": "give [Give]|me|the|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [faculty]|who|rede [advises]|the|most|{TABLE} [students]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "rede",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.fname ,  T1.lname FROM Faculty AS T1 JOIN Student AS T2 ON T1.FacID  =  T2.advisor GROUP BY T1.FacID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the ids for all the faculty members who have at least 2 students.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|for|all|the|{TABLE} [faculty]|member [members]|who|have|{NUMBER} [at least 2]|{TABLE} [students]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}",
+            "member",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.FacID FROM Faculty AS T1 JOIN Student AS T2 ON T1.FacID  =  T2.advisor GROUP BY T1.FacID HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show ids for the faculty members who don't advise any student.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|for|the|{TABLE} [faculty]|member [members]|who|do|n't|rede [advise]|any|{TABLE} [student]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "member",
+            "who",
+            "do",
+            "n't",
+            "rede",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT FacID FROM Faculty EXCEPT SELECT advisor FROM Student"
+    },
+    {
+        "original_nl": "What are the ids of the faculty members who do not advise any student.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|the|{TABLE} [faculty]|member [members]|who|do|not|rede [advise]|any|{TABLE} [student]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "member",
+            "who",
+            "do",
+            "not",
+            "rede",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT FacID FROM Faculty EXCEPT SELECT advisor FROM Student"
+    },
+    {
+        "original_nl": "What activities do we have?",
+        "generalized_nl": "What|{TABLE} [activities]|do|we|have",
+        "generalized_tokens": [
+            "What",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT activity_name FROM Activity"
+    },
+    {
+        "original_nl": "List all the activities we have.",
+        "generalized_nl": "list [List]|all|the|{TABLE} [activities]|we|have",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{TABLE}",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT activity_name FROM Activity"
+    },
+    {
+        "original_nl": "How many activities do we have?",
+        "generalized_nl": "How|many|{TABLE} [activities]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Activity"
+    },
+    {
+        "original_nl": "Find the number of activities available.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [activities]|available",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "available"
+        ],
+        "original_sql": "SELECT count(*) FROM Activity"
+    },
+    {
+        "original_nl": "How many faculty members participate in an activity?",
+        "generalized_nl": "How|many|{TABLE} [faculty]|member [members]|participate|in|an|{TABLE} [activity]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "member",
+            "participate",
+            "in",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT FacID) FROM Faculty_participates_in"
+    },
+    {
+        "original_nl": "Give me the number of faculty members who participate in an activity",
+        "generalized_nl": "give [Give]|me|the|number|of|{TABLE} [faculty]|member [members]|who|participate|in|an|{TABLE} [activity]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "member",
+            "who",
+            "participate",
+            "in",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT FacID) FROM Faculty_participates_in"
+    },
+    {
+        "original_nl": "Show the ids of the faculty who don't participate in any activity.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|of|the|{TABLE} [faculty]|who|do|n't|participate|in|any|{TABLE} [activity]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "do",
+            "n't",
+            "participate",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT FacID FROM Faculty EXCEPT SELECT FacID FROM Faculty_participates_in"
+    },
+    {
+        "original_nl": "Show the ids of all the faculty members who participate in an activity and advise a student.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|of|all|the|{TABLE} [faculty]|member [members]|who|participate|in|an|{TABLE} [activity]|and|rede [advise]|a|{TABLE} [student]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "member",
+            "who",
+            "participate",
+            "in",
+            "an",
+            "{TABLE}",
+            "and",
+            "rede",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT FacID FROM Faculty_participates_in INTERSECT SELECT advisor FROM Student"
+    },
+    {
+        "original_nl": "What are ids of the faculty members who not only participate in an activity but also advise a student.",
+        "generalized_nl": "What|are|{COLUMN_PART} [ids]|of|the|{TABLE} [faculty]|member [members]|who|not|only|participate|in|an|{TABLE} [activity]|but|besides [also]|rede [advise]|a|{TABLE} [student]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "member",
+            "who",
+            "not",
+            "only",
+            "participate",
+            "in",
+            "an",
+            "{TABLE}",
+            "but",
+            "besides",
+            "rede",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT FacID FROM Faculty_participates_in INTERSECT SELECT advisor FROM Student"
+    },
+    {
+        "original_nl": "How many activities does Mark Giuliano participate in?",
+        "generalized_nl": "How|many|{TABLE} [activities]|does|{NE} [Mark Giuliano]|participate|in",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "{NE}",
+            "participate",
+            "in"
+        ],
+        "original_sql": "SELECT count(*) FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID WHERE T1.fname  =  \"Mark\" AND T1.lname  =  \"Giuliano\""
+    },
+    {
+        "original_nl": "Find the number of activities Mark Giuliano is involved in.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [activities]|{NE} [Mark Giuliano]|is|involved|in",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "{NE}",
+            "is",
+            "involved",
+            "in"
+        ],
+        "original_sql": "SELECT count(*) FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID WHERE T1.fname  =  \"Mark\" AND T1.lname  =  \"Giuliano\""
+    },
+    {
+        "original_nl": "Show the names of all the activities Mark Giuliano participates in.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [activities]|{NE} [Mark Giuliano]|{TABLE} [participates in]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.activity_name FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID JOIN Activity AS T3 ON T3.actid  =  T2.actid WHERE T1.fname  =  \"Mark\" AND T1.lname  =  \"Giuliano\""
+    },
+    {
+        "original_nl": "What are the names of the activities Mark Giuliano is involved in",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [activities]|{NE} [Mark Giuliano]|is|involved|in",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "is",
+            "involved",
+            "in"
+        ],
+        "original_sql": "SELECT T3.activity_name FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID JOIN Activity AS T3 ON T3.actid  =  T2.actid WHERE T1.fname  =  \"Mark\" AND T1.lname  =  \"Giuliano\""
+    },
+    {
+        "original_nl": "Show the first and last name of all the faculty members who participated in some activity, together with the number of activities they participated in.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|all|the|{TABLE} [faculty]|member [members]|who|participate [participated]|in|some|{TABLE} [activity]|together|with|the|number|of|{TABLE} [activities]|they|participate [participated]|in",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "member",
+            "who",
+            "participate",
+            "in",
+            "some",
+            "{TABLE}",
+            "together",
+            "with",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "they",
+            "participate",
+            "in"
+        ],
+        "original_sql": "SELECT  T1.fname ,  T1.lname ,  count(*) ,  T1.FacID FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID GROUP BY T1.FacID"
+    },
+    {
+        "original_nl": "Show all the activity names and the number of faculty involved in each activity.",
+        "generalized_nl": "show [Show]|all|the|{COLUMN} [activity names]|and|the|number|of|{TABLE} [faculty]|involve [involved]|in|each|{TABLE} [activity]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "involve",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.activity_name ,  count(*) FROM Activity AS T1 JOIN Faculty_participates_in AS T2 ON T1.actID  =  T2.actID GROUP BY T1.actID"
+    },
+    {
+        "original_nl": "What is the first and last name of the faculty participating in the most activities?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [faculty]|participate [participating]|in|the|most|{TABLE} [activities]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "participate",
+            "in",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT  T1.fname ,  T1.lname FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID GROUP BY T1.FacID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the first and last name of the faculty who is involved in the largest number of activities.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [faculty]|who|is|involved|in|the|large [largest]|number|of|{TABLE} [activities]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "is",
+            "involved",
+            "in",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT  T1.fname ,  T1.lname FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID GROUP BY T1.FacID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the activity that has the most faculty members involved in?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [activity]|that|have [has]|the|most|{TABLE} [faculty]|member [members]|involve [involved]|in",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}",
+            "member",
+            "involve",
+            "in"
+        ],
+        "original_sql": "SELECT T1.activity_name FROM Activity AS T1 JOIN Faculty_participates_in AS T2 ON T1.actID  =  T2.actID GROUP BY T1.actID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the ids of the students who don't participate in any activity.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|of|the|{TABLE} [students]|who|do|n't|participate|in|any|{TABLE} [activity]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "do",
+            "n't",
+            "participate",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT StuID FROM Student EXCEPT SELECT StuID FROM Participates_in"
+    },
+    {
+        "original_nl": "What are the ids of the students who are not involved in any activity",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|the|{TABLE} [students]|who|are|not|involved|in|any|{TABLE} [activity]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "involved",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT StuID FROM Student EXCEPT SELECT StuID FROM Participates_in"
+    },
+    {
+        "original_nl": "Show the ids for all the students who participate in an activity and are under 20.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [ids]|for|all|the|{TABLE} [students]|who|participate|in|an|{TABLE} [activity]|and|are|{NE} [under 20]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}",
+            "who",
+            "participate",
+            "in",
+            "an",
+            "{TABLE}",
+            "and",
+            "are",
+            "{NE}"
+        ],
+        "original_sql": "SELECT StuID FROM Participates_in INTERSECT SELECT StuID FROM Student WHERE age  <  20"
+    },
+    {
+        "original_nl": "What are the ids of the students who are under 20 years old and are involved in at least one activity.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|of|the|{TABLE} [students]|who|are|under|{NE} [20 years old]|and|are|involved|in|{NUMBER} [at least one]|{TABLE} [activity]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "under",
+            "{NE}",
+            "and",
+            "are",
+            "involved",
+            "in",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT StuID FROM Participates_in INTERSECT SELECT StuID FROM Student WHERE age  <  20"
+    },
+    {
+        "original_nl": "What is the first and last name of the student participating in the most activities?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [student]|participate [participating]|in|the|most|{TABLE} [activities]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "participate",
+            "in",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.fname ,  T1.lname FROM Student AS T1 JOIN Participates_in AS T2 ON T1.StuID  =  T2.StuID GROUP BY T1.StuID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Tell me the first and last name of the student who has the most activities.",
+        "generalized_nl": "tell [Tell]|me|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [student]|who|have [has]|the|most|{TABLE} [activities]",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.fname ,  T1.lname FROM Student AS T1 JOIN Participates_in AS T2 ON T1.StuID  =  T2.StuID GROUP BY T1.StuID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the activity with the most students?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [activity]|with|the|most|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.activity_name FROM Activity AS T1 JOIN Participates_in AS T2 ON T1.actID  =  T2.actID GROUP BY T1.actID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the activity that has the largest number of student participants.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [activity]|that|have [has]|the|large [largest]|number|of|{TABLE} [student]|participant [participants]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{TABLE}",
+            "participant"
+        ],
+        "original_sql": "SELECT T1.activity_name FROM Activity AS T1 JOIN Participates_in AS T2 ON T1.actID  =  T2.actID GROUP BY T1.actID ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the first names of the faculty members who are playing Canoeing or Kayaking.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|the|{TABLE} [faculty]|member [members]|who|are|play [playing]|{NE} [Canoeing]|or|{NE} [Kayaking]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "member",
+            "who",
+            "are",
+            "play",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.lname FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID JOIN activity AS T3 ON T2.actid  =  T2.actid WHERE T3.activity_name  =  'Canoeing' OR T3.activity_name  =  'Kayaking'"
+    },
+    {
+        "original_nl": "Find the first names of professors who are not playing Canoeing or Kayaking.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|professor [professors]|who|are|not|play [playing]|Canoeing|or|{NE} [Kayaking]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "professor",
+            "who",
+            "are",
+            "not",
+            "play",
+            "Canoeing",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT lname FROM faculty WHERE rank  =  'Professor' EXCEPT SELECT DISTINCT T1.lname FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID JOIN activity AS T3 ON T2.actid  =  T2.actid WHERE T3.activity_name  =  'Canoeing' OR T3.activity_name  =  'Kayaking'"
+    },
+    {
+        "original_nl": "What are the first names of the professors who do not play Canoeing or Kayaking as activities?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|of|the|professor [professors]|who|do|not|play|Canoeing|or|{NE} [Kayaking]|as|{TABLE} [activities]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "professor",
+            "who",
+            "do",
+            "not",
+            "play",
+            "Canoeing",
+            "or",
+            "{NE}",
+            "as",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT lname FROM faculty WHERE rank  =  'Professor' EXCEPT SELECT DISTINCT T1.lname FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID JOIN activity AS T3 ON T2.actid  =  T2.actid WHERE T3.activity_name  =  'Canoeing' OR T3.activity_name  =  'Kayaking'"
+    },
+    {
+        "original_nl": "Find the first names of the faculty members who participate in Canoeing and Kayaking.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|the|{TABLE} [faculty]|member [members]|who|participate|in|{NE} [Canoeing]|and|{NE} [Kayaking]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "member",
+            "who",
+            "participate",
+            "in",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.lname FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID JOIN activity AS T3 ON T2.actid  =  T2.actid WHERE T3.activity_name  =  'Canoeing' INTERSECT SELECT T1.lname FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID JOIN activity AS T3 ON T2.actid  =  T2.actid WHERE T3.activity_name  =  'Kayaking'"
+    },
+    {
+        "original_nl": "What are the first names of the faculty members playing both Canoeing and Kayaking?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|of|the|{TABLE} [faculty]|member [members]|play [playing]|both|{NE} [Canoeing]|and|{NE} [Kayaking]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "member",
+            "play",
+            "both",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.lname FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID JOIN activity AS T3 ON T2.actid  =  T2.actid WHERE T3.activity_name  =  'Canoeing' INTERSECT SELECT T1.lname FROM Faculty AS T1 JOIN Faculty_participates_in AS T2 ON T1.facID  =  T2.facID JOIN activity AS T3 ON T2.actid  =  T2.actid WHERE T3.activity_name  =  'Kayaking'"
+    },
+    {
+        "original_nl": "Find the ids of the students who participate in Canoeing and Kayaking.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [ids]|of|the|{TABLE} [students]|who|participate|in|{NE} [Canoeing]|and|{NE} [Kayaking]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "participate",
+            "in",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.stuid FROM participates_in AS T1 JOIN activity AS T2 ON T2.actid  =  T2.actid WHERE T2.activity_name  =  'Canoeing' INTERSECT SELECT T1.stuid FROM participates_in AS T1 JOIN activity AS T2 ON T2.actid  =  T2.actid WHERE T2.activity_name  =  'Kayaking'"
+    }
+]

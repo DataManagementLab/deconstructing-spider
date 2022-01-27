@@ -1,0 +1,294 @@
+[
+    {
+        "original_nl": "How many phones are there?",
+        "generalized_nl": "How|many|{TABLE} [phones]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM phone"
+    },
+    {
+        "original_nl": "List the names of phones in ascending order of price.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [phones]|in|ascend [ascending]|order|of|{COLUMN} [price]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM phone ORDER BY Price ASC"
+    },
+    {
+        "original_nl": "What are the memories and carriers of phones?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [memories]|and|{COLUMN} [carriers]|of|{TABLE} [phones]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Memory_in_G ,  Carrier FROM phone"
+    },
+    {
+        "original_nl": "List the distinct carriers of phones with memories bigger than 32.",
+        "generalized_nl": "list [List]|the|distinct|{COLUMN} [carriers]|of|{TABLE} [phones]|with|{COLUMN_PART} [memories]|{NUMBER} [bigger than 32]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT Carrier FROM phone WHERE Memory_in_G  >  32"
+    },
+    {
+        "original_nl": "Show the names of phones with carrier either \"Sprint\" or \"TMobile\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [phones]|with|{COLUMN} [carrier]|either|{VALUE} [Sprint]|or|{VALUE} [TMobile]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "either",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM phone WHERE Carrier  =  \"Sprint\" OR Carrier  =  \"TMobile\""
+    },
+    {
+        "original_nl": "What is the carrier of the most expensive phone?",
+        "generalized_nl": "What|is|the|{COLUMN} [carrier]|of|the|most|expensive|{TABLE} [phone]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "most",
+            "expensive",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Carrier FROM phone ORDER BY Price DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different carriers of phones together with the number of phones with each carrier.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [carriers]|of|{TABLE} [phones]|together|with|the|number|of|{TABLE} [phones]|with|each|{COLUMN} [carrier]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "together",
+            "with",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "with",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Carrier ,  COUNT(*) FROM phone GROUP BY Carrier"
+    },
+    {
+        "original_nl": "Show the most frequently used carrier of the phones.",
+        "generalized_nl": "show [Show]|the|most|frequently|use [used]|{COLUMN} [carrier]|of|the|{TABLE} [phones]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "frequently",
+            "use",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Carrier FROM phone GROUP BY Carrier ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the carriers that have both phones with memory smaller than 32 and phones with memory bigger than 64.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [carriers]|that|have|both|{TABLE} [phones]|with|{COLUMN_PART} [memory]|{NUMBER} [smaller than 32]|and|{TABLE} [phones]|with|{COLUMN_PART} [memory]|big [bigger]|than|{VALUE} [64]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "and",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "big",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Carrier FROM phone WHERE Memory_in_G  <  32 INTERSECT SELECT Carrier FROM phone WHERE Memory_in_G  >  64"
+    },
+    {
+        "original_nl": "Show the names of phones and the districts of markets they are on.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [phones]|and|the|{COLUMN} [districts]|of|{TABLE} [markets]|they|are|on",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "they",
+            "are",
+            "on"
+        ],
+        "original_sql": "SELECT T3.Name ,  T2.District FROM phone_market AS T1 JOIN market AS T2 ON T1.Market_ID  =  T2.Market_ID JOIN phone AS T3 ON T1.Phone_ID  =  T3.Phone_ID"
+    },
+    {
+        "original_nl": "Show the names of phones and the districts of markets they are on, in ascending order of the ranking of the market.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [phones]|and|the|{COLUMN} [districts]|of|{TABLE} [markets]|they|are|on|in|ascend [ascending]|order|of|the|{COLUMN} [ranking]|of|the|{TABLE} [market]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "they",
+            "are",
+            "on",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Name ,  T2.District FROM phone_market AS T1 JOIN market AS T2 ON T1.Market_ID  =  T2.Market_ID JOIN phone AS T3 ON T1.Phone_ID  =  T3.Phone_ID ORDER BY T2.Ranking"
+    },
+    {
+        "original_nl": "Show the names of phones that are on market with number of shops greater than 50.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [phones]|that|are|on|{TABLE} [market]|with|number|of|{COLUMN_PART} [shops]|{NUMBER} [greater than 50]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "on",
+            "{TABLE}",
+            "with",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T3.Name FROM phone_market AS T1 JOIN market AS T2 ON T1.Market_ID  =  T2.Market_ID JOIN phone AS T3 ON T1.Phone_ID  =  T3.Phone_ID WHERE T2.Num_of_shops  >  50"
+    },
+    {
+        "original_nl": "For each phone, show its names and total number of stocks.",
+        "generalized_nl": "For|each|{TABLE} [phone]|show|it|s|{COLUMN} [names]|and|entire [total]|number|of|stock [stocks]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "show",
+            "it",
+            "s",
+            "{COLUMN}",
+            "and",
+            "entire",
+            "number",
+            "of",
+            "stock"
+        ],
+        "original_sql": "SELECT T2.Name ,  sum(T1.Num_of_stock) FROM phone_market AS T1 JOIN phone AS T2 ON T1.Phone_ID  =  T2.Phone_ID GROUP BY T2.Name"
+    },
+    {
+        "original_nl": "Show the names of phones that have total number of stocks bigger than 2000, in descending order of the total number of stocks.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [phones]|that|have|entire [total]|number|of|stock [stocks]|big [bigger]|than|{NE} [2000]|in|descend [descending]|order|of|the|entire [total]|number|of|stock [stocks]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "entire",
+            "number",
+            "of",
+            "stock",
+            "big",
+            "than",
+            "{NE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "stock"
+        ],
+        "original_sql": "SELECT T2.Name FROM phone_market AS T1 JOIN phone AS T2 ON T1.Phone_ID  =  T2.Phone_ID GROUP BY T2.Name HAVING sum(T1.Num_of_stock)  >=  2000 ORDER BY sum(T1.Num_of_stock) DESC"
+    },
+    {
+        "original_nl": "List the names of phones that are not on any market.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [phones]|that|are|not|on|any|{TABLE} [market]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "on",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM phone WHERE Phone_id NOT IN (SELECT Phone_ID FROM phone_market)"
+    }
+]

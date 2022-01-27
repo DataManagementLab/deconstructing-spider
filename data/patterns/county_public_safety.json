@@ -1,0 +1,754 @@
+[
+    {
+        "original_nl": "How many counties are there?",
+        "generalized_nl": "How|many|county [counties]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "county",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM county_public_safety"
+    },
+    {
+        "original_nl": "Count the number of countries.",
+        "generalized_nl": "count [Count]|the|number|of|country [countries]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "country"
+        ],
+        "original_sql": "SELECT count(*) FROM county_public_safety"
+    },
+    {
+        "original_nl": "List the names of counties in descending order of population.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|county [counties]|in|descend [descending]|order|of|{COLUMN} [population]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "county",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM county_public_safety ORDER BY Population DESC"
+    },
+    {
+        "original_nl": "What are the names of the counties of public safety, ordered by population descending?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|county [counties]|of|public|safety|order [ordered]|by|{COLUMN} [population]|descend [descending]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "county",
+            "of",
+            "public",
+            "safety",
+            "order",
+            "by",
+            "{COLUMN}",
+            "descend"
+        ],
+        "original_sql": "SELECT Name FROM county_public_safety ORDER BY Population DESC"
+    },
+    {
+        "original_nl": "List the distinct police forces of counties whose location is not on east side.",
+        "generalized_nl": "list [List]|the|distinct|{COLUMN} [police forces]|of|county [counties]|whose|{COLUMN} [location]|is|not|on|east|side",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "county",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "on",
+            "east",
+            "side"
+        ],
+        "original_sql": "SELECT DISTINCT Police_force FROM county_public_safety WHERE LOCATION != \"East\""
+    },
+    {
+        "original_nl": "What are the different police forces of counties that are not located in the East?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [police forces]|of|county [counties]|that|are|not|locate [located]|in|the|{VALUE} [East]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "county",
+            "that",
+            "are",
+            "not",
+            "locate",
+            "in",
+            "the",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT Police_force FROM county_public_safety WHERE LOCATION != \"East\""
+    },
+    {
+        "original_nl": "What are the minimum and maximum crime rate of counties?",
+        "generalized_nl": "What|are|the|minimal [minimum]|and|maximal [maximum]|{COLUMN} [crime rate]|of|county [counties]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "minimal",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "county"
+        ],
+        "original_sql": "SELECT min(Crime_rate) ,  max(Crime_rate) FROM county_public_safety"
+    },
+    {
+        "original_nl": "Return the minimum and maximum crime rates across all counties.",
+        "generalized_nl": "return [Return]|the|minimum|and|maximal [maximum]|{COLUMN} [crime rates]|across|all|county [counties]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "minimum",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "across",
+            "all",
+            "county"
+        ],
+        "original_sql": "SELECT min(Crime_rate) ,  max(Crime_rate) FROM county_public_safety"
+    },
+    {
+        "original_nl": "Show the crime rates of counties in ascending order of number of police officers.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [crime rates]|of|county [counties]|in|ascend [ascending]|order|of|number|of|{COLUMN} [police officers]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "county",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Crime_rate FROM county_public_safety ORDER BY Police_officers ASC"
+    },
+    {
+        "original_nl": "What are the crime rates of counties sorted by number of offices ascending?",
+        "generalized_nl": "What|are|the|{COLUMN} [crime rates]|of|county [counties]|screen [sorted]|by|number|of|office [offices]|ascend [ascending]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "county",
+            "screen",
+            "by",
+            "number",
+            "of",
+            "office",
+            "ascend"
+        ],
+        "original_sql": "SELECT Crime_rate FROM county_public_safety ORDER BY Police_officers ASC"
+    },
+    {
+        "original_nl": "What are the names of cities in ascending alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [cities]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Name FROM city ORDER BY Name ASC"
+    },
+    {
+        "original_nl": "Return the names of cities, ordered alphabetically.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [names]|of|{TABLE} [cities]|order [ordered]|alphabetically",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "order",
+            "alphabetically"
+        ],
+        "original_sql": "SELECT Name FROM city ORDER BY Name ASC"
+    },
+    {
+        "original_nl": "What are the percentage of hispanics in cities with the black percentage higher than 10?",
+        "generalized_nl": "What|are|the|percentage|of|{COLUMN} [hispanics]|in|{TABLE} [cities]|with|the|{COLUMN} [black]|percentage|high [higher]|than|{VALUE} [10]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "percentage",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "percentage",
+            "high",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Hispanic FROM city WHERE Black  >  10"
+    },
+    {
+        "original_nl": "Return the hispanic percentage for cities in which the black percentage is greater than 10.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [hispanic]|percentage|for|{TABLE} [cities]|in|which|the|{COLUMN} [black]|percentage|is|great [greater]|than|{VALUE} [10]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "percentage",
+            "for",
+            "{TABLE}",
+            "in",
+            "which",
+            "the",
+            "{COLUMN}",
+            "percentage",
+            "is",
+            "great",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Hispanic FROM city WHERE Black  >  10"
+    },
+    {
+        "original_nl": "List the name of the county with the largest population.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|the|{COLUMN_PART} [county]|with|the|large [largest]|{COLUMN} [population]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM county_public_safety ORDER BY Population DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the county with the greatest population?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{COLUMN_PART} [county]|with|the|great [greatest]|{COLUMN} [population]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "great",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM county_public_safety ORDER BY Population DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the names of the city with the top 5 white percentages.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|the|{TABLE} [city]|with|the|top|{VALUE} [5]|{COLUMN} [white]|percentage [percentages]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "top",
+            "{VALUE}",
+            "{COLUMN}",
+            "percentage"
+        ],
+        "original_sql": "SELECT Name FROM city ORDER BY White DESC LIMIT 5"
+    },
+    {
+        "original_nl": "What are the names of the five cities with the greatest proportion of white people?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{NUMBER} [five]|{TABLE} [cities]|with|the|great [greatest]|proportion|of|{COLUMN} [white]|people",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{NUMBER}",
+            "{TABLE}",
+            "with",
+            "the",
+            "great",
+            "proportion",
+            "of",
+            "{COLUMN}",
+            "people"
+        ],
+        "original_sql": "SELECT Name FROM city ORDER BY White DESC LIMIT 5"
+    },
+    {
+        "original_nl": "Show names of cities and names of counties they are in.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [cities]|and|{COLUMN} [names]|of|county [counties]|they|are|in",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "county",
+            "they",
+            "are",
+            "in"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Name FROM city AS T1 JOIN county_public_safety AS T2 ON T1.County_ID  =  T2.County_ID"
+    },
+    {
+        "original_nl": "What are the names of cities, as well as the names of the counties they correspond to?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [cities]|equally [as]|well|as|the|{COLUMN} [names]|of|the|county [counties]|they|match [correspond]|to",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "equally",
+            "well",
+            "as",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "county",
+            "they",
+            "match",
+            "to"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Name FROM city AS T1 JOIN county_public_safety AS T2 ON T1.County_ID  =  T2.County_ID"
+    },
+    {
+        "original_nl": "Show white percentages of cities and the crime rates of counties they are in.",
+        "generalized_nl": "show [Show]|{COLUMN} [white]|percentage [percentages]|of|{TABLE} [cities]|and|the|{COLUMN} [crime rates]|of|county [counties]|they|are|in",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "percentage",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "county",
+            "they",
+            "are",
+            "in"
+        ],
+        "original_sql": "SELECT T1.White ,  T2.Crime_rate FROM city AS T1 JOIN county_public_safety AS T2 ON T1.County_ID  =  T2.County_ID"
+    },
+    {
+        "original_nl": "What are the white percentages of cities, and the corresponding crime rates of the counties they correspond to?",
+        "generalized_nl": "What|are|the|{COLUMN} [white]|percentage [percentages]|of|{TABLE} [cities]|and|the|match [corresponding]|{COLUMN} [crime rates]|of|the|county [counties]|they|match [correspond]|to",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "percentage",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN}",
+            "of",
+            "the",
+            "county",
+            "they",
+            "match",
+            "to"
+        ],
+        "original_sql": "SELECT T1.White ,  T2.Crime_rate FROM city AS T1 JOIN county_public_safety AS T2 ON T1.County_ID  =  T2.County_ID"
+    },
+    {
+        "original_nl": "Show the name of cities in the county that has the largest number of police officers.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|of|{TABLE} [cities]|in|the|{COLUMN_PART} [county]|that|have [has]|the|large [largest]|number|of|{COLUMN} [police officers]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "that",
+            "have",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM city WHERE county_ID  =  (SELECT county_ID FROM county_public_safety ORDER BY Police_officers DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "What are the names of cities that are in the county with the most police officers?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [cities]|that|are|in|the|{COLUMN_PART} [county]|with|the|most|{COLUMN} [police officers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "in",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "most",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM city WHERE county_ID  =  (SELECT county_ID FROM county_public_safety ORDER BY Police_officers DESC LIMIT 1)"
+    },
+    {
+        "original_nl": "Show the number of cities in counties that have a population more than 20000.",
+        "generalized_nl": "show [Show]|the|number|of|{TABLE} [cities]|in|county [counties]|that|have|a|{COLUMN} [population]|{NUMBER} [more than 20000]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "county",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM city WHERE county_ID IN (SELECT county_ID FROM county_public_safety WHERE population  >  20000)"
+    },
+    {
+        "original_nl": "How many cities are in counties that have populations of over 20000?",
+        "generalized_nl": "How|many|{TABLE} [cities]|are|in|county [counties]|that|have|{COLUMN} [populations]|of|over|{NUMBER} [20000]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "county",
+            "that",
+            "have",
+            "{COLUMN}",
+            "of",
+            "over",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM city WHERE county_ID IN (SELECT county_ID FROM county_public_safety WHERE population  >  20000)"
+    },
+    {
+        "original_nl": "Show the crime rate of counties with a city having white percentage more than 90.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [crime rate]|of|county [counties]|with|a|{TABLE} [city]|have [having]|{COLUMN} [white]|percentage|{NUMBER} [more than 90]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "county",
+            "with",
+            "a",
+            "{TABLE}",
+            "have",
+            "{COLUMN}",
+            "percentage",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Crime_rate FROM city AS T1 JOIN county_public_safety AS T2 ON T1.County_ID  =  T2.County_ID WHERE T1.White  >  90"
+    },
+    {
+        "original_nl": "What are the crime rates of counties that contain cities that have white percentages of over 90?",
+        "generalized_nl": "What|are|the|{COLUMN} [crime rates]|of|county [counties]|that|contain|{TABLE} [cities]|that|have|{COLUMN} [white]|percentage [percentages]|of|over|{NUMBER} [90]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "county",
+            "that",
+            "contain",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "percentage",
+            "of",
+            "over",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Crime_rate FROM city AS T1 JOIN county_public_safety AS T2 ON T1.County_ID  =  T2.County_ID WHERE T1.White  >  90"
+    },
+    {
+        "original_nl": "Please show the police forces and the number of counties with each police force.",
+        "generalized_nl": "Please|show|the|{COLUMN} [police forces]|and|the|number|of|county [counties]|with|each|{COLUMN} [police force]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "county",
+            "with",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Police_force ,  COUNT(*) FROM county_public_safety GROUP BY Police_force"
+    },
+    {
+        "original_nl": "How many counties correspond to each police force?",
+        "generalized_nl": "How|many|county [counties]|match [correspond]|to|each|{COLUMN} [police force]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "county",
+            "match",
+            "to",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Police_force ,  COUNT(*) FROM county_public_safety GROUP BY Police_force"
+    },
+    {
+        "original_nl": "What is the location shared by most counties?",
+        "generalized_nl": "What|is|the|{COLUMN} [location]|share [shared]|by|most|county [counties]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "most",
+            "county"
+        ],
+        "original_sql": "SELECT LOCATION FROM county_public_safety GROUP BY LOCATION ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which location has the most corresponding counties?",
+        "generalized_nl": "Which|{COLUMN} [location]|have [has]|the|most|corresponding|county [counties]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "corresponding",
+            "county"
+        ],
+        "original_sql": "SELECT LOCATION FROM county_public_safety GROUP BY LOCATION ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the names of counties that do not have any cities.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|county [counties]|that|do|not|have|any|{TABLE} [cities]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "county",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM county_public_safety WHERE County_ID NOT IN (SELECT County_ID FROM city)"
+    },
+    {
+        "original_nl": "What are the names of counties that do not contain any cities?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|county [counties]|that|do|not|contain|any|{TABLE} [cities]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "county",
+            "that",
+            "do",
+            "not",
+            "contain",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM county_public_safety WHERE County_ID NOT IN (SELECT County_ID FROM city)"
+    },
+    {
+        "original_nl": "Show the police force shared by counties with location on the east and west.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [police force]|share [shared]|by|county [counties]|with|{COLUMN} [location]|on|the|east|and|west",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "county",
+            "with",
+            "{COLUMN}",
+            "on",
+            "the",
+            "east",
+            "and",
+            "west"
+        ],
+        "original_sql": "SELECT Police_force FROM county_public_safety WHERE LOCATION  =  \"East\" INTERSECT SELECT Police_force FROM county_public_safety WHERE LOCATION  =  \"West\""
+    },
+    {
+        "original_nl": "Which police forces operate in both counties that are located in the East and in the West?",
+        "generalized_nl": "Which|{COLUMN} [police forces]|operate|in|both|county [counties]|that|are|locate [located]|in|the|{VALUE} [East]|and|in|the|{VALUE} [West]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "operate",
+            "in",
+            "both",
+            "county",
+            "that",
+            "are",
+            "locate",
+            "in",
+            "the",
+            "{VALUE}",
+            "and",
+            "in",
+            "the",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Police_force FROM county_public_safety WHERE LOCATION  =  \"East\" INTERSECT SELECT Police_force FROM county_public_safety WHERE LOCATION  =  \"West\""
+    },
+    {
+        "original_nl": "Show the names of cities in counties that have a crime rate less than 100.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [cities]|in|county [counties]|that|have|a|{COLUMN} [crime rate]|{NUMBER} [less than 100]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "county",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT name FROM city WHERE county_id IN (SELECT county_id FROM county_public_safety WHERE Crime_rate  <  100)"
+    },
+    {
+        "original_nl": "What are the names of cities that are in counties that have a crime rate below 100?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [cities]|that|are|in|county [counties]|that|have|a|{COLUMN} [crime rate]|below|{VALUE} [100]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "in",
+            "county",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "below",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM city WHERE county_id IN (SELECT county_id FROM county_public_safety WHERE Crime_rate  <  100)"
+    },
+    {
+        "original_nl": "Show the case burden of counties in descending order of population.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [case burden]|of|county [counties]|in|descend [descending]|order|of|{COLUMN} [population]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "county",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Case_burden FROM county_public_safety ORDER BY Population DESC"
+    },
+    {
+        "original_nl": "What are the case burdens of counties, ordered descending by population?",
+        "generalized_nl": "What|are|the|{COLUMN} [case burdens]|of|county [counties]|order [ordered]|descend [descending]|by|{COLUMN} [population]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "county",
+            "order",
+            "descend",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Case_burden FROM county_public_safety ORDER BY Population DESC"
+    }
+]

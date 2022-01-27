@@ -1,0 +1,524 @@
+[
+    {
+        "original_nl": "Show all the locations where no cinema has capacity over 800.",
+        "generalized_nl": "{COLUMN_PART} [Show]|all|the|{COLUMN} [locations]|where|no|{TABLE} [cinema]|have [has]|{COLUMN} [capacity]|over|{NUMBER} [800]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "all",
+            "the",
+            "{COLUMN}",
+            "where",
+            "no",
+            "{TABLE}",
+            "have",
+            "{COLUMN}",
+            "over",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT LOCATION FROM cinema EXCEPT SELECT LOCATION FROM cinema WHERE capacity  >  800"
+    },
+    {
+        "original_nl": "Show all the locations where some cinemas were opened in both year 2010 and year 2011.",
+        "generalized_nl": "{COLUMN_PART} [Show]|all|the|{COLUMN} [locations]|where|some|{TABLE} [cinemas]|were|open [opened]|in|both|{COLUMN_PART} [year]|{VALUE} [2010]|and|{COLUMN_PART} [year]|{VALUE} [2011]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "all",
+            "the",
+            "{COLUMN}",
+            "where",
+            "some",
+            "{TABLE}",
+            "were",
+            "open",
+            "in",
+            "both",
+            "{COLUMN_PART}",
+            "{VALUE}",
+            "and",
+            "{COLUMN_PART}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT LOCATION FROM cinema WHERE openning_year  =  2010 INTERSECT SELECT LOCATION FROM cinema WHERE openning_year  =  2011"
+    },
+    {
+        "original_nl": "How many cinema do we have?",
+        "generalized_nl": "How|many|{TABLE} [cinema]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM cinema"
+    },
+    {
+        "original_nl": "Count the number of cinemas.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [cinemas]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM cinema"
+    },
+    {
+        "original_nl": "Show name, opening year, and capacity for each cinema.",
+        "generalized_nl": "{COLUMN_PART} [Show]|{COLUMN} [name]|{NE} [opening year]|and|{COLUMN} [capacity]|for|each|{TABLE} [cinema]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  openning_year ,  capacity FROM cinema"
+    },
+    {
+        "original_nl": "Show the cinema name and location for cinemas with capacity above average.",
+        "generalized_nl": "{COLUMN_PART} [Show]|the|{TABLE} [cinema]|{COLUMN} [name]|and|{COLUMN} [location]|for|{TABLE} [cinemas]|with|{COLUMN} [capacity]|above|average",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "above",
+            "average"
+        ],
+        "original_sql": "SELECT name ,  LOCATION FROM cinema WHERE capacity  >  (SELECT avg(capacity) FROM cinema)"
+    },
+    {
+        "original_nl": "What are all the locations with a cinema?",
+        "generalized_nl": "What|are|all|the|{COLUMN} [locations]|with|a|{TABLE} [cinema]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN}",
+            "with",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT LOCATION FROM cinema"
+    },
+    {
+        "original_nl": "Find the distinct locations that has a cinema.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [locations]|that|have [has]|a|{TABLE} [cinema]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "that",
+            "have",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT LOCATION FROM cinema"
+    },
+    {
+        "original_nl": "Show all the cinema names and opening years in descending order of opening year.",
+        "generalized_nl": "{COLUMN_PART} [Show]|all|the|{TABLE} [cinema]|{COLUMN} [names]|and|open [opening]|{COLUMN_PART} [years]|in|descend [descending]|order|of|{NE} [opening year]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "all",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "open",
+            "{COLUMN_PART}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name ,  openning_year FROM cinema ORDER BY openning_year DESC"
+    },
+    {
+        "original_nl": "What are the name and location of the cinema with the largest capacity?",
+        "generalized_nl": "What|are|the|{COLUMN} [name]|and|{COLUMN} [location]|of|the|{TABLE} [cinema]|with|the|large [largest]|{COLUMN} [capacity]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  LOCATION FROM cinema ORDER BY capacity DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the average, minimum, and maximum capacity for all the cinemas opened in year 2011 or later.",
+        "generalized_nl": "{COLUMN_PART} [Show]|the|average|minimal [minimum]|and|maximal [maximum]|{COLUMN} [capacity]|for|all|the|{TABLE} [cinemas]|open [opened]|in|{COLUMN_PART} [year]|{VALUE} [2011]|or|subsequently [later]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "the",
+            "average",
+            "minimal",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}",
+            "open",
+            "in",
+            "{COLUMN_PART}",
+            "{VALUE}",
+            "or",
+            "subsequently"
+        ],
+        "original_sql": "SELECT avg(capacity) ,  min(capacity) ,  max(capacity) FROM cinema WHERE openning_year  >=  2011"
+    },
+    {
+        "original_nl": "Show each location and the number of cinemas there.",
+        "generalized_nl": "{COLUMN_PART} [Show]|each|{COLUMN} [location]|and|the|{COLUMN_PART} [number]|of|{TABLE} [cinemas]|there",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "each",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "there"
+        ],
+        "original_sql": "SELECT LOCATION ,  count(*) FROM cinema GROUP BY LOCATION"
+    },
+    {
+        "original_nl": "What is the location with the most cinemas opened in year 2010 or later?",
+        "generalized_nl": "What|is|the|{COLUMN} [location]|with|the|most|{TABLE} [cinemas]|open [opened]|in|{COLUMN_PART} [year]|{VALUE} [2010]|or|subsequently [later]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}",
+            "open",
+            "in",
+            "{COLUMN_PART}",
+            "{VALUE}",
+            "or",
+            "subsequently"
+        ],
+        "original_sql": "SELECT LOCATION FROM cinema WHERE openning_year  >=  2010 GROUP BY LOCATION ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show all the locations with at least two cinemas with capacity above 300.",
+        "generalized_nl": "{COLUMN_PART} [Show]|all|the|{COLUMN} [locations]|with|{NUMBER} [at least two]|{TABLE} [cinemas]|with|{COLUMN} [capacity]|above|{NUMBER} [300]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "all",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT LOCATION FROM cinema WHERE capacity  >  300 GROUP BY LOCATION HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Which locations have 2 or more cinemas with capacity over 300?",
+        "generalized_nl": "Which|{COLUMN} [locations]|have|{VALUE} [2]|or|more|{TABLE} [cinemas]|with|{COLUMN} [capacity]|over|{NUMBER} [300]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "{VALUE}",
+            "or",
+            "more",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "over",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT LOCATION FROM cinema WHERE capacity  >  300 GROUP BY LOCATION HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the title and director for all films.",
+        "generalized_nl": "{COLUMN_PART} [Show]|the|{COLUMN} [title]|and|director|for|all|{TABLE} [films]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "the",
+            "{COLUMN}",
+            "and",
+            "director",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title ,  directed_by FROM film"
+    },
+    {
+        "original_nl": "What are the title and director of each film?",
+        "generalized_nl": "What|are|the|{COLUMN} [title]|and|director|of|each|{TABLE} [film]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "director",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title ,  directed_by FROM film"
+    },
+    {
+        "original_nl": "Show all directors.",
+        "generalized_nl": "{COLUMN_PART} [Show]|all|director [directors]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "all",
+            "director"
+        ],
+        "original_sql": "SELECT DISTINCT directed_by FROM film"
+    },
+    {
+        "original_nl": "Who are all the directors?",
+        "generalized_nl": "Who|are|all|the|director [directors]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "all",
+            "the",
+            "director"
+        ],
+        "original_sql": "SELECT DISTINCT directed_by FROM film"
+    },
+    {
+        "original_nl": "List all directors along with the number of films directed by each director.",
+        "generalized_nl": "list [List]|all|director [directors]|along|with|the|{COLUMN_PART} [number]|of|{TABLE} [films]|{COLUMN} [directed by]|each|director",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "director",
+            "along",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "{COLUMN}",
+            "each",
+            "director"
+        ],
+        "original_sql": "SELECT directed_by ,  count(*) FROM film GROUP BY directed_by"
+    },
+    {
+        "original_nl": "What is total number of show times per dat for each cinema?",
+        "generalized_nl": "What|is|entire [total]|{COLUMN_PART} [number]|of|{COLUMN_PART} [show]|{COLUMN_PART} [times]|{COLUMN_PART} [per]|digital_audiotape [dat]|for|each|{TABLE} [cinema]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "digital_audiotape",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name ,  sum(T1.show_times_per_day) FROM schedule AS T1 JOIN cinema AS T2 ON T1.cinema_id  =  T2.cinema_id GROUP BY T1.cinema_id"
+    },
+    {
+        "original_nl": "What are the title and maximum price of each film?",
+        "generalized_nl": "What|are|the|{COLUMN} [title]|and|maximal [maximum]|{COLUMN} [price]|of|each|{TABLE} [film]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.title ,  max(T1.price) FROM schedule AS T1 JOIN film AS T2 ON T1.film_id  =  T2.film_id GROUP BY T1.film_id"
+    },
+    {
+        "original_nl": "Give me the title and highest price for each film.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN} [title]|and|high [highest]|{COLUMN} [price]|for|each|{TABLE} [film]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN}",
+            "and",
+            "high",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.title ,  max(T1.price) FROM schedule AS T1 JOIN film AS T2 ON T1.film_id  =  T2.film_id GROUP BY T1.film_id"
+    },
+    {
+        "original_nl": "Show cinema name, film title, date, and price for each record in schedule.",
+        "generalized_nl": "{COLUMN_PART} [Show]|{TABLE} [cinema]|{COLUMN} [name]|{TABLE} [film]|{COLUMN} [title]|{COLUMN} [date]|and|{COLUMN} [price]|for|each|record|in|{TABLE} [schedule]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "{COLUMN}",
+            "{TABLE}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "each",
+            "record",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.name ,  T2.title ,  T1.date ,  T1.price FROM schedule AS T1 JOIN film AS T2 ON T1.film_id  =  T2.film_id JOIN cinema AS T3 ON T1.cinema_id  =  T3.cinema_id"
+    },
+    {
+        "original_nl": "What are the title and director of the films without any schedule?",
+        "generalized_nl": "What|are|the|{COLUMN} [title]|and|director|of|the|{TABLE} [films]|without|any|{TABLE} [schedule]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "director",
+            "of",
+            "the",
+            "{TABLE}",
+            "without",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title ,  directed_by FROM film WHERE film_id NOT IN (SELECT film_id FROM schedule)"
+    },
+    {
+        "original_nl": "Show director with the largest number of show times in total.",
+        "generalized_nl": "{COLUMN_PART} [Show]|director|with|the|large [largest]|{COLUMN_PART} [number]|of|{COLUMN_PART} [show]|{COLUMN_PART} [times]|in|entire [total]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "director",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT T2.directed_by FROM schedule AS T1 JOIN film AS T2 ON T1.film_id  =  T2.film_id GROUP BY T2.directed_by ORDER BY sum(T1.show_times_per_day) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the locations that have more than one movie theater with capacity above 300.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [locations]|that|have|{NUMBER} [more than one]|movie|theater|with|{COLUMN} [capacity]|above|{NUMBER} [300]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "movie",
+            "theater",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT LOCATION FROM cinema WHERE capacity  >  300 GROUP BY LOCATION HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "In which locations are there more than one movie theater with capacity above 300?",
+        "generalized_nl": "In|which|{COLUMN} [locations]|are|there|{NUMBER} [more than one]|movie|theater|with|{COLUMN} [capacity]|above|{NUMBER} [300]",
+        "generalized_tokens": [
+            "In",
+            "which",
+            "{COLUMN}",
+            "are",
+            "there",
+            "{NUMBER}",
+            "movie",
+            "theater",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT LOCATION FROM cinema WHERE capacity  >  300 GROUP BY LOCATION HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "How many films have the word 'Dummy' in their titles?",
+        "generalized_nl": "How|many|{TABLE} [films]|have|the|word|dummy [Dummy]|in|their|{COLUMN} [titles]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "the",
+            "word",
+            "dummy",
+            "in",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM film WHERE title LIKE \"%Dummy%\""
+    },
+    {
+        "original_nl": "Count the number of films whose title contains the word 'Dummy'.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [films]|whose|{COLUMN} [title]|contain [contains]|the|word|dummy [Dummy]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "word",
+            "dummy"
+        ],
+        "original_sql": "SELECT count(*) FROM film WHERE title LIKE \"%Dummy%\""
+    }
+]

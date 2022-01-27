@@ -1,0 +1,206 @@
+[
+    {
+        "original_nl": "Show me all the restaurants.",
+        "generalized_nl": "show [Show]|me|all|the|{TABLE} [restaurants]",
+        "generalized_tokens": [
+            "show",
+            "me",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT ResName FROM Restaurant;"
+    },
+    {
+        "original_nl": "What is the address of the restaurant Subway?",
+        "generalized_nl": "What|is|the|{COLUMN} [address]|of|the|{TABLE} [restaurant]|{NE} [Subway]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Address FROM Restaurant WHERE ResName = \"Subway\";"
+    },
+    {
+        "original_nl": "What is the rating of the restaurant Subway?",
+        "generalized_nl": "What|is|the|{COLUMN} [rating]|of|the|{TABLE} [restaurant]|{NE} [Subway]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Rating FROM Restaurant WHERE ResName = \"Subway\";"
+    },
+    {
+        "original_nl": "List all restaurant types.",
+        "generalized_nl": "list [List]|all|{TABLE} [restaurant]|type [types]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "type"
+        ],
+        "original_sql": "SELECT ResTypeName FROM Restaurant_Type;"
+    },
+    {
+        "original_nl": "What is the description of the restaurant type Sandwich?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|of|the|{TABLE} [restaurant]|{COLUMN_PART} [type]|sandwich [Sandwich]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "sandwich"
+        ],
+        "original_sql": "SELECT ResTypeDescription FROM Restaurant_Type WHERE ResTypeName = \"Sandwich\";"
+    },
+    {
+        "original_nl": "What is the age of student Linda Smith?",
+        "generalized_nl": "What|is|the|{COLUMN} [age]|of|{TABLE} [student]|{NE} [Linda Smith]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Age FROM Student WHERE Fname = \"Linda\" AND Lname = \"Smith\";"
+    },
+    {
+        "original_nl": "What is the gender of the student Linda Smith?",
+        "generalized_nl": "What|is|the|gender|of|the|{TABLE} [student]|{NE} [Linda Smith]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "gender",
+            "of",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Sex FROM Student WHERE Fname = \"Linda\" AND Lname = \"Smith\";"
+    },
+    {
+        "original_nl": "List all students' first names and last names who majored in 600.",
+        "generalized_nl": "list [List]|all|{TABLE} [students]|'|{COLUMN} [first names]|and|{COLUMN} [last names]|who|major [majored]|in|{NUMBER} [600]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "'",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "who",
+            "major",
+            "in",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Fname , Lname FROM Student WHERE Major  =  600;"
+    },
+    {
+        "original_nl": "Which city does student Linda Smith live in?",
+        "generalized_nl": "Which|{COLUMN_PART} [city]|does|{TABLE} [student]|{NE} [Linda Smith]|live|in",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "does",
+            "{TABLE}",
+            "{NE}",
+            "live",
+            "in"
+        ],
+        "original_sql": "SELECT city_code FROM Student WHERE Fname = \"Linda\" AND Lname = \"Smith\";"
+    },
+    {
+        "original_nl": "Advisor 1121 has how many students?",
+        "generalized_nl": "{COLUMN} [Advisor]|{NUMBER} [1121]|have [has]|how|many|{TABLE} [students]",
+        "generalized_tokens": [
+            "{COLUMN}",
+            "{NUMBER}",
+            "have",
+            "how",
+            "many",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Student WHERE Advisor =  1121;"
+    },
+    {
+        "original_nl": "How many restaurant is the Sandwich type restaurant?",
+        "generalized_nl": "How|many|{TABLE} [restaurant]|is|the|sandwich [Sandwich]|{COLUMN_PART} [type]|{TABLE} [restaurant]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "is",
+            "the",
+            "sandwich",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Restaurant JOIN Type_Of_Restaurant ON Restaurant.ResID =  Type_Of_Restaurant.ResID JOIN Restaurant_Type ON Type_Of_Restaurant.ResTypeID = Restaurant_Type.ResTypeID GROUP BY Type_Of_Restaurant.ResTypeID HAVING Restaurant_Type.ResTypeName = 'Sandwich'"
+    },
+    {
+        "original_nl": "How long does student Linda Smith spend on the restaurant in total?",
+        "generalized_nl": "How|long|does|{TABLE} [student]|{NE} [Linda Smith]|spend|on|the|{TABLE} [restaurant]|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "long",
+            "does",
+            "{TABLE}",
+            "{NE}",
+            "spend",
+            "on",
+            "the",
+            "{TABLE}",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT sum(Spent) FROM Student JOIN Visits_Restaurant ON Student.StuID = Visits_Restaurant.StuID WHERE Student.Fname = \"Linda\" AND Student.Lname = \"Smith\";"
+    },
+    {
+        "original_nl": "How many times has the student Linda Smith visited Subway?",
+        "generalized_nl": "How|many|{COLUMN} [times]|have [has]|the|{TABLE} [student]|{NE} [Linda Smith]|visit [visited]|{NE} [Subway]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "have",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "visit",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Student JOIN Visits_Restaurant ON Student.StuID = Visits_Restaurant.StuID JOIN Restaurant ON Visits_Restaurant.ResID = Restaurant.ResID WHERE Student.Fname = \"Linda\" AND Student.Lname = \"Smith\" AND Restaurant.ResName = \"Subway\";"
+    },
+    {
+        "original_nl": "When did Linda Smith visit Subway?",
+        "generalized_nl": "When|did|{NE} [Linda Smith]|visit|{NE} [Subway]",
+        "generalized_tokens": [
+            "When",
+            "did",
+            "{NE}",
+            "visit",
+            "{NE}"
+        ],
+        "original_sql": "SELECT TIME FROM Student JOIN Visits_Restaurant ON Student.StuID = Visits_Restaurant.StuID JOIN Restaurant ON Visits_Restaurant.ResID = Restaurant.ResID WHERE Student.Fname = \"Linda\" AND Student.Lname = \"Smith\" AND Restaurant.ResName = \"Subway\";"
+    }
+]

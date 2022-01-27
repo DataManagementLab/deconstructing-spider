@@ -1,0 +1,970 @@
+[
+    {
+        "original_nl": "How many clubs are there?",
+        "generalized_nl": "How|many|{TABLE} [clubs]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM club"
+    },
+    {
+        "original_nl": "What is the total number of clubs?",
+        "generalized_nl": "What|is|the|{COLUMN} [total]|number|of|{TABLE} [clubs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM club"
+    },
+    {
+        "original_nl": "List the distinct region of clubs in ascending alphabetical order.",
+        "generalized_nl": "list [List]|the|distinct|{COLUMN} [region]|of|{TABLE} [clubs]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT DISTINCT Region FROM club ORDER BY Region ASC"
+    },
+    {
+        "original_nl": "What are the different regions of clubs in ascending alphabetical order?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [regions]|of|{TABLE} [clubs]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT DISTINCT Region FROM club ORDER BY Region ASC"
+    },
+    {
+        "original_nl": "What is the average number of gold medals for clubs?",
+        "generalized_nl": "What|is|the|average|number|of|{COLUMN} [gold]|decoration [medals]|for|{TABLE} [clubs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "decoration",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Gold) FROM club_rank"
+    },
+    {
+        "original_nl": "What is the average number of gold medals for a club?",
+        "generalized_nl": "What|is|the|average|number|of|{COLUMN} [gold]|decoration [medals]|for|a|{TABLE} [club]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "decoration",
+            "for",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Gold) FROM club_rank"
+    },
+    {
+        "original_nl": "What are the types and countries of competitions?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [types]|and|{COLUMN} [countries]|of|{TABLE} [competitions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Competition_type ,  Country FROM competition"
+    },
+    {
+        "original_nl": "What are the types of every competition and in which countries are they located?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [types]|of|every|{TABLE} [competition]|and|in|which|{COLUMN} [countries]|are|they|locate [located]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "every",
+            "{TABLE}",
+            "and",
+            "in",
+            "which",
+            "{COLUMN}",
+            "are",
+            "they",
+            "locate"
+        ],
+        "original_sql": "SELECT Competition_type ,  Country FROM competition"
+    },
+    {
+        "original_nl": "What are the distinct years in which the competitions type is not \"Tournament\"?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [years]|in|which|the|{TABLE} [competitions]|{COLUMN_PART} [type]|is|not|{VALUE} [Tournament]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "in",
+            "which",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT YEAR FROM competition WHERE Competition_type != \"Tournament\""
+    },
+    {
+        "original_nl": "What are the different years for all competitions that are not of type equal to tournament?",
+        "generalized_nl": "What|are|{NE} [the different years]|for|all|{TABLE} [competitions]|that|are|not|of|{COLUMN_PART} [type]|equal|to|tournament",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{NE}",
+            "for",
+            "all",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "of",
+            "{COLUMN_PART}",
+            "equal",
+            "to",
+            "tournament"
+        ],
+        "original_sql": "SELECT DISTINCT YEAR FROM competition WHERE Competition_type != \"Tournament\""
+    },
+    {
+        "original_nl": "What are the maximum and minimum number of silver medals for clubs.",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minimal [minimum]|number|of|{COLUMN} [silver]|decoration [medals]|for|{TABLE} [clubs]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "number",
+            "of",
+            "{COLUMN}",
+            "decoration",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Silver) ,  min(Silver) FROM club_rank"
+    },
+    {
+        "original_nl": "What are the maximum and minimum number of silver medals for all the clubs?",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minimal [minimum]|number|of|{COLUMN} [silver]|decoration [medals]|for|all|the|{TABLE} [clubs]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "number",
+            "of",
+            "{COLUMN}",
+            "decoration",
+            "for",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Silver) ,  min(Silver) FROM club_rank"
+    },
+    {
+        "original_nl": "How many clubs have total medals less than 10?",
+        "generalized_nl": "How|many|{TABLE} [clubs]|have|{COLUMN} [total]|decoration [medals]|{NUMBER} [less than 10]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{COLUMN}",
+            "decoration",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM club_rank WHERE Total  <  10"
+    },
+    {
+        "original_nl": "What is the total number of clubs that have less than 10 medals in total?",
+        "generalized_nl": "What|is|the|{COLUMN} [total]|number|of|{TABLE} [clubs]|that|have|{NUMBER} [less than 10]|decoration [medals]|in|{COLUMN} [total]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "decoration",
+            "in",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM club_rank WHERE Total  <  10"
+    },
+    {
+        "original_nl": "List all club names in ascending order of start year.",
+        "generalized_nl": "list [List]|all|{TABLE} [club]|{COLUMN} [names]|in|ascend [ascending]|order|of|{COLUMN} [start year]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM club ORDER BY Start_year ASC"
+    },
+    {
+        "original_nl": "What are the names of all the clubs starting with the oldest?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|the|{TABLE} [clubs]|start [starting]|with|the|old [oldest]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "start",
+            "with",
+            "the",
+            "old"
+        ],
+        "original_sql": "SELECT name FROM club ORDER BY Start_year ASC"
+    },
+    {
+        "original_nl": "List all club names in descending alphabetical order.",
+        "generalized_nl": "list [List]|all|{TABLE} [club]|{COLUMN} [names]|in|descend [descending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT name FROM club ORDER BY name DESC"
+    },
+    {
+        "original_nl": "What are the names of all the clubs ordered in descending alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|the|{TABLE} [clubs]|order [ordered]|in|descend [descending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "order",
+            "in",
+            "descend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT name FROM club ORDER BY name DESC"
+    },
+    {
+        "original_nl": "Please show the names and the players of clubs.",
+        "generalized_nl": "Please|show|the|{COLUMN} [names]|and|the|{TABLE} [players]|of|{TABLE} [clubs]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{TABLE}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T2.Player_id FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID"
+    },
+    {
+        "original_nl": "What are the names and players of all the clubs?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{TABLE} [players]|of|all|the|{TABLE} [clubs]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{TABLE}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T2.Player_id FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID"
+    },
+    {
+        "original_nl": "Show the names of clubs that have players with position \"Right Wing\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [clubs]|that|have|{TABLE} [players]|with|{COLUMN} [position]|{VALUE} [Right Wing]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.name FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID WHERE T2.Position  =  \"Right Wing\""
+    },
+    {
+        "original_nl": "What are the names of the clubs that have players in the position of \"Right Wing\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [clubs]|that|have|{TABLE} [players]|in|the|{COLUMN} [position]|of|{VALUE} [Right Wing]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.name FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID WHERE T2.Position  =  \"Right Wing\""
+    },
+    {
+        "original_nl": "What is the average points of players from club with name \"AIB\".",
+        "generalized_nl": "What|is|the|average|{COLUMN} [points]|of|{TABLE} [players]|from|{TABLE} [club]|with|{COLUMN} [name]|{VALUE} [AIB]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "from",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT avg(T2.Points) FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID WHERE T1.name  =  \"AIB\""
+    },
+    {
+        "original_nl": "What is the average number of points for players from the \"AIB\" club?",
+        "generalized_nl": "What|is|the|average|number|of|{COLUMN} [points]|for|{TABLE} [players]|from|the|{VALUE} [AIB]|{TABLE} [club]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "from",
+            "the",
+            "{VALUE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(T2.Points) FROM club AS T1 JOIN player AS T2 ON T1.Club_ID  =  T2.Club_ID WHERE T1.name  =  \"AIB\""
+    },
+    {
+        "original_nl": "List the position of players and the average number of points of players of each position.",
+        "generalized_nl": "list [List]|the|{COLUMN} [position]|of|{TABLE} [players]|and|the|average|number|of|{COLUMN} [points]|of|{TABLE} [players]|of|each|{COLUMN} [position]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT POSITION ,  avg(Points) FROM player GROUP BY POSITION"
+    },
+    {
+        "original_nl": "For each position, what is the average number of points for players in that position?",
+        "generalized_nl": "For|each|{COLUMN} [position]|what|is|the|average|number|of|{COLUMN} [points]|for|{TABLE} [players]|in|that|{COLUMN} [position]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "what",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "in",
+            "that",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT POSITION ,  avg(Points) FROM player GROUP BY POSITION"
+    },
+    {
+        "original_nl": "List the position of players with average number of points scored by players of that position bigger than 20.",
+        "generalized_nl": "list [List]|the|{COLUMN} [position]|of|{TABLE} [players]|with|average|number|of|{COLUMN} [points]|score [scored]|by|{TABLE} [players]|of|that|{COLUMN} [position]|{NUMBER} [bigger than 20]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "score",
+            "by",
+            "{TABLE}",
+            "of",
+            "that",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT POSITION FROM player GROUP BY name HAVING avg(Points)  >=  20"
+    },
+    {
+        "original_nl": "What are the positions of players whose average number of points scored by that position is larger than 20?",
+        "generalized_nl": "What|are|the|{COLUMN} [positions]|of|{TABLE} [players]|whose|average|number|of|{COLUMN} [points]|score [scored]|by|that|{COLUMN} [position]|is|{NUMBER} [larger than 20]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "score",
+            "by",
+            "that",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT POSITION FROM player GROUP BY name HAVING avg(Points)  >=  20"
+    },
+    {
+        "original_nl": "List the types of competition and the number of competitions of each type.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [types]|of|{TABLE} [competition]|and|the|number|of|{TABLE} [competitions]|of|each|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "of",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Competition_type ,  COUNT(*) FROM competition GROUP BY Competition_type"
+    },
+    {
+        "original_nl": "What are the types of competition and number of competitions for that type?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [types]|of|{TABLE} [competition]|and|number|of|{TABLE} [competitions]|for|that|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "that",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Competition_type ,  COUNT(*) FROM competition GROUP BY Competition_type"
+    },
+    {
+        "original_nl": "List the most common type of competition.",
+        "generalized_nl": "list [List]|the|most|common|{COLUMN_PART} [type]|of|{TABLE} [competition]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "most",
+            "common",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Competition_type FROM competition GROUP BY Competition_type ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the most common competition type?",
+        "generalized_nl": "What|is|the|most|common|{COLUMN} [competition type]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Competition_type FROM competition GROUP BY Competition_type ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the types of competition that have at most five competitions of that type.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [types]|of|{TABLE} [competition]|that|have|at|most|{NUMBER} [five]|{TABLE} [competitions]|of|that|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "at",
+            "most",
+            "{NUMBER}",
+            "{TABLE}",
+            "of",
+            "that",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Competition_type FROM competition GROUP BY Competition_type HAVING COUNT(*)  <=  5"
+    },
+    {
+        "original_nl": "What are the types of competition that have most 5 competitions for that type?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [types]|of|{TABLE} [competition]|that|have|most|{VALUE} [5]|{TABLE} [competitions]|for|that|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "most",
+            "{VALUE}",
+            "{TABLE}",
+            "for",
+            "that",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Competition_type FROM competition GROUP BY Competition_type HAVING COUNT(*)  <=  5"
+    },
+    {
+        "original_nl": "List the names of clubs that do not have any players.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [clubs]|that|do|not|have|any|{TABLE} [players]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM CLub WHERE Club_ID NOT IN (SELECT Club_ID FROM player)"
+    },
+    {
+        "original_nl": "What are the names of all clubs that do not have any players?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [clubs]|that|do|not|have|any|{TABLE} [players]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM CLub WHERE Club_ID NOT IN (SELECT Club_ID FROM player)"
+    },
+    {
+        "original_nl": "What are the positions with both players having more than 20 points and less than 10 points.",
+        "generalized_nl": "What|are|the|{COLUMN} [positions]|with|both|{TABLE} [players]|have [having]|{NUMBER} [more than 20]|{COLUMN} [points]|and|{NUMBER} [less than 10]|{COLUMN} [points]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "with",
+            "both",
+            "{TABLE}",
+            "have",
+            "{NUMBER}",
+            "{COLUMN}",
+            "and",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT POSITION FROM player WHERE Points  >  20 INTERSECT SELECT POSITION FROM player WHERE Points  <  10"
+    },
+    {
+        "original_nl": "What are the positions of both players that have more than 20 20 points and less than 10 points?",
+        "generalized_nl": "What|are|the|{COLUMN} [positions]|of|both|{TABLE} [players]|that|have|{NUMBER} [more than 20]|{VALUE} [20]|{COLUMN} [points]|and|{NUMBER} [less than 10]|{COLUMN} [points]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "both",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{VALUE}",
+            "{COLUMN}",
+            "and",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT POSITION FROM player WHERE Points  >  20 INTERSECT SELECT POSITION FROM player WHERE Points  <  10"
+    },
+    {
+        "original_nl": "Show total points of all players.",
+        "generalized_nl": "show [Show]|{COLUMN} [total]|{COLUMN} [points]|of|all|{TABLE} [players]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(Points) FROM player"
+    },
+    {
+        "original_nl": "What is the total number of points for all players?",
+        "generalized_nl": "What|is|the|{COLUMN} [total]|number|of|{COLUMN} [points]|for|all|{TABLE} [players]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(Points) FROM player"
+    },
+    {
+        "original_nl": "how many different positions are there?",
+        "generalized_nl": "how|many|different|{COLUMN} [positions]|are|there",
+        "generalized_tokens": [
+            "how",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT POSITION) FROM player"
+    },
+    {
+        "original_nl": "How many different position for players are listed?",
+        "generalized_nl": "How|many|different|{COLUMN} [position]|for|{TABLE} [players]|are|list [listed]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "are",
+            "list"
+        ],
+        "original_sql": "SELECT count(DISTINCT POSITION) FROM player"
+    },
+    {
+        "original_nl": "what are the name of players who get more than the average points.",
+        "generalized_nl": "what|are|the|{COLUMN} [name]|of|{TABLE} [players]|who|get|more|than|the|average|{COLUMN} [points]",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "get",
+            "more",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM player WHERE points  >  (SELECT avg(points) FROM player)"
+    },
+    {
+        "original_nl": "What are the names of all players that got more than the average number of points?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [players]|that|get [got]|more|than|the|average|number|of|{COLUMN} [points]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "get",
+            "more",
+            "than",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM player WHERE points  >  (SELECT avg(points) FROM player)"
+    },
+    {
+        "original_nl": "find the number of players whose points are lower than 30 in each position.",
+        "generalized_nl": "find|the|number|of|{TABLE} [players]|whose|{COLUMN} [points]|are|{NUMBER} [lower than 30]|in|each|{COLUMN} [position]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "{NUMBER}",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  POSITION FROM player WHERE points  <  30 GROUP BY POSITION"
+    },
+    {
+        "original_nl": "What is the number of players who have points less than 30 for each position?",
+        "generalized_nl": "What|is|the|number|of|{TABLE} [players]|who|have|{COLUMN} [points]|{NUMBER} [less than 30]|for|each|{COLUMN} [position]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "{NUMBER}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  POSITION FROM player WHERE points  <  30 GROUP BY POSITION"
+    },
+    {
+        "original_nl": "which country did participated in the most number of Tournament competitions?",
+        "generalized_nl": "which|{COLUMN} [country]|did|participate [participated]|in|the|most|number|of|{VALUE} [Tournament]|{TABLE} [competitions]",
+        "generalized_tokens": [
+            "which",
+            "{COLUMN}",
+            "did",
+            "participate",
+            "in",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{VALUE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT country FROM competition WHERE competition_type  =  'Tournament' GROUP BY country ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "what is the name of the country that participated in the most tournament competitions?",
+        "generalized_nl": "what|is|the|{COLUMN} [name]|of|the|{COLUMN} [country]|that|participate [participated]|in|the|most|tournament|{TABLE} [competitions]",
+        "generalized_tokens": [
+            "what",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "participate",
+            "in",
+            "the",
+            "most",
+            "tournament",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT country FROM competition WHERE competition_type  =  'Tournament' GROUP BY country ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "which countries did participated in both Friendly and Tournament type competitions.",
+        "generalized_nl": "which|{COLUMN} [countries]|did|participate [participated]|in|both|{VALUE} [Friendly]|and|{VALUE} [Tournament]|{COLUMN_PART} [type]|{TABLE} [competitions]",
+        "generalized_tokens": [
+            "which",
+            "{COLUMN}",
+            "did",
+            "participate",
+            "in",
+            "both",
+            "{VALUE}",
+            "and",
+            "{VALUE}",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT country FROM competition WHERE competition_type  =  'Friendly' INTERSECT SELECT country FROM competition WHERE competition_type  =  'Tournament'"
+    },
+    {
+        "original_nl": "What are the countries that participated in both friendly and tournament type competitions?",
+        "generalized_nl": "What|are|the|{COLUMN} [countries]|that|participate [participated]|in|both|friendly|and|tournament|{COLUMN_PART} [type]|{TABLE} [competitions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "participate",
+            "in",
+            "both",
+            "friendly",
+            "and",
+            "tournament",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT country FROM competition WHERE competition_type  =  'Friendly' INTERSECT SELECT country FROM competition WHERE competition_type  =  'Tournament'"
+    },
+    {
+        "original_nl": "Find the countries that have never participated in any competition with Friendly type.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [countries]|that|have|never|participate [participated]|in|any|{TABLE} [competition]|with|{VALUE} [Friendly]|{COLUMN_PART} [type]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "never",
+            "participate",
+            "in",
+            "any",
+            "{TABLE}",
+            "with",
+            "{VALUE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT country FROM competition EXCEPT SELECT country FROM competition WHERE competition_type  =  'Friendly'"
+    },
+    {
+        "original_nl": "What are the countries that have never participated in any friendly-type competitions?",
+        "generalized_nl": "What|are|the|{COLUMN} [countries]|that|have|never|participate [participated]|in|any|friendly|{COLUMN_PART} [type]|{TABLE} [competitions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "never",
+            "participate",
+            "in",
+            "any",
+            "friendly",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT country FROM competition EXCEPT SELECT country FROM competition WHERE competition_type  =  'Friendly'"
+    }
+]

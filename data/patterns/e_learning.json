@@ -1,0 +1,1453 @@
+[
+    {
+        "original_nl": "How many courses are there in total?",
+        "generalized_nl": "How|many|{TABLE} [courses]|are|there|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM COURSES"
+    },
+    {
+        "original_nl": "Find the total number of courses offered.",
+        "generalized_nl": "find [Find]|the|entire [total]|number|of|{TABLE} [courses]|offer [offered]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{TABLE}",
+            "offer"
+        ],
+        "original_sql": "SELECT count(*) FROM COURSES"
+    },
+    {
+        "original_nl": "What are the descriptions of the courses with name \"database\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [descriptions]|of|the|{TABLE} [courses]|with|{COLUMN_PART} [name]|database",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "database"
+        ],
+        "original_sql": "SELECT course_description FROM COURSES WHERE course_name  =  \"database\""
+    },
+    {
+        "original_nl": "Return the description for the courses named \"database\".",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [description]|for|the|{TABLE} [courses]|name [named]|database",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "name",
+            "database"
+        ],
+        "original_sql": "SELECT course_description FROM COURSES WHERE course_name  =  \"database\""
+    },
+    {
+        "original_nl": "What are the addresses of the course authors or tutors with personal name \"Cathrine\"",
+        "generalized_nl": "What|are|the|address [addresses]|of|the|{TABLE} [course]|writer [authors]|or|coach [tutors]|with|{COLUMN} [personal name]|{NE} [Cathrine]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "address",
+            "of",
+            "the",
+            "{TABLE}",
+            "writer",
+            "or",
+            "coach",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT address_line_1 FROM Course_Authors_and_Tutors WHERE personal_name\t =  \"Cathrine\""
+    },
+    {
+        "original_nl": "Return the addresses of the course authors or tutors whose personal name is \"Cathrine\".",
+        "generalized_nl": "return [Return]|the|address [addresses]|of|the|{TABLE} [course]|writer [authors]|or|coach [tutors]|whose|{COLUMN} [personal name]|is|Cathrine",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "address",
+            "of",
+            "the",
+            "{TABLE}",
+            "writer",
+            "or",
+            "coach",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "Cathrine"
+        ],
+        "original_sql": "SELECT address_line_1 FROM Course_Authors_and_Tutors WHERE personal_name\t =  \"Cathrine\""
+    },
+    {
+        "original_nl": "List the addresses of all the course authors or tutors.",
+        "generalized_nl": "list [List]|the|address [addresses]|of|all|the|{TABLE} [course]|writer [authors]|or|coach [tutors]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "address",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "writer",
+            "or",
+            "coach"
+        ],
+        "original_sql": "SELECT address_line_1 FROM Course_Authors_and_Tutors"
+    },
+    {
+        "original_nl": "What is the address of each course author or tutor?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [address]|of|each|{TABLE} [course]|{COLUMN_PART} [author]|or|{COLUMN_PART} [tutor]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "or",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT address_line_1 FROM Course_Authors_and_Tutors"
+    },
+    {
+        "original_nl": "List all the login names and family names of course author and tutors.",
+        "generalized_nl": "list [List]|all|the|{COLUMN} [login names]|and|{COLUMN} [family names]|of|{TABLE} [course]|{COLUMN_PART} [author]|and|coach [tutors]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "coach"
+        ],
+        "original_sql": "SELECT login_name ,  family_name FROM Course_Authors_and_Tutors"
+    },
+    {
+        "original_nl": "What are the login names and family names of course author and tutors?",
+        "generalized_nl": "What|are|the|{COLUMN} [login names]|and|{COLUMN} [family names]|of|{TABLE} [course]|{COLUMN_PART} [author]|and|coach [tutors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "and",
+            "coach"
+        ],
+        "original_sql": "SELECT login_name ,  family_name FROM Course_Authors_and_Tutors"
+    },
+    {
+        "original_nl": "List all the dates of enrollment and completion of students.",
+        "generalized_nl": "list [List]|all|the|{COLUMN_PART} [dates]|of|registration [enrollment]|and|{COLUMN_PART} [completion]|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "registration",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT date_of_enrolment ,  date_of_completion FROM Student_Course_Enrolment"
+    },
+    {
+        "original_nl": "What are all the dates of enrollment and completion in record?",
+        "generalized_nl": "What|are|all|the|{COLUMN_PART} [dates]|of|registration [enrollment]|and|{COLUMN_PART} [completion]|in|record",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "registration",
+            "and",
+            "{COLUMN_PART}",
+            "in",
+            "record"
+        ],
+        "original_sql": "SELECT date_of_enrolment ,  date_of_completion FROM Student_Course_Enrolment"
+    },
+    {
+        "original_nl": "How many distinct students are enrolled in courses?",
+        "generalized_nl": "How|many|distinct|{TABLE} [students]|are|enroll [enrolled]|in|{TABLE} [courses]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{TABLE}",
+            "are",
+            "enroll",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT student_id) FROM Student_Course_Enrolment"
+    },
+    {
+        "original_nl": "Find the number of distinct students enrolled in courses.",
+        "generalized_nl": "find [Find]|the|number|of|distinct|{TABLE} [students]|enroll [enrolled]|in|{TABLE} [courses]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{TABLE}",
+            "enroll",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT student_id) FROM Student_Course_Enrolment"
+    },
+    {
+        "original_nl": "How many distinct courses are enrolled in by students?",
+        "generalized_nl": "How|many|distinct|{TABLE} [courses]|are|enroll [enrolled]|in|by|{TABLE} [students]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{TABLE}",
+            "are",
+            "enroll",
+            "in",
+            "by",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(course_id) FROM Student_Course_Enrolment"
+    },
+    {
+        "original_nl": "Find the number of distinct courses that have enrolled students.",
+        "generalized_nl": "find [Find]|the|number|of|distinct|{TABLE} [courses]|that|have|enroll [enrolled]|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{TABLE}",
+            "that",
+            "have",
+            "enroll",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(course_id) FROM Student_Course_Enrolment"
+    },
+    {
+        "original_nl": "Find the dates of the tests taken with result \"Pass\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [dates]|of|the|test [tests]|{COLUMN_PART} [taken]|with|{COLUMN_PART} [result]|pass [Pass]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "test",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "pass"
+        ],
+        "original_sql": "SELECT date_test_taken FROM Student_Tests_Taken WHERE test_result  =  \"Pass\""
+    },
+    {
+        "original_nl": "How many tests have result \"Fail\"?",
+        "generalized_nl": "How|many|test [tests]|have|{COLUMN_PART} [result]|Fail",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "test",
+            "have",
+            "{COLUMN_PART}",
+            "Fail"
+        ],
+        "original_sql": "SELECT count(*) FROM Student_Tests_Taken WHERE test_result  =  \"Fail\""
+    },
+    {
+        "original_nl": "Count the number of tests with \"Fail\" result.",
+        "generalized_nl": "count [Count]|the|number|of|test [tests]|with|Fail|{COLUMN_PART} [result]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "test",
+            "with",
+            "Fail",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM Student_Tests_Taken WHERE test_result  =  \"Fail\""
+    },
+    {
+        "original_nl": "What are the login names of the students with family name \"Ward\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [login names]|of|the|{TABLE} [students]|with|{COLUMN} [family name]|{NE} [Ward]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT login_name FROM Students WHERE family_name  =  \"Ward\""
+    },
+    {
+        "original_nl": "Return the login names of the students whose family name is \"Ward\".",
+        "generalized_nl": "return [Return]|the|{COLUMN} [login names]|of|the|{TABLE} [students]|whose|{COLUMN} [family name]|is|{NE} [Ward]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT login_name FROM Students WHERE family_name  =  \"Ward\""
+    },
+    {
+        "original_nl": "What are the dates of the latest logon of the students with family name \"Jaskolski\" or \"Langosh\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [dates]|of|the|{COLUMN_PART} [latest]|{COLUMN_PART} [logon]|of|the|{TABLE} [students]|with|{COLUMN} [family name]|{NE} [Jaskolski]|or|{NE} [Langosh]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT date_of_latest_logon FROM Students WHERE family_name  =  \"Jaskolski\" OR family_name  =  \"Langosh\""
+    },
+    {
+        "original_nl": "Find the latest logon date of the students whose family name is \"Jaskolski\" or \"Langosh\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [latest]|{COLUMN_PART} [logon]|{COLUMN_PART} [date]|of|the|{TABLE} [students]|whose|{COLUMN} [family name]|is|{NE} [Jaskolski]|or|{NE} [Langosh]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT date_of_latest_logon FROM Students WHERE family_name  =  \"Jaskolski\" OR family_name  =  \"Langosh\""
+    },
+    {
+        "original_nl": "How many students have personal names that contain the word \"son\"?",
+        "generalized_nl": "How|many|{TABLE} [students]|have|{COLUMN} [personal names]|that|contain|the|word|son",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{COLUMN}",
+            "that",
+            "contain",
+            "the",
+            "word",
+            "son"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM Students WHERE personal_name LIKE \"%son%\""
+    },
+    {
+        "original_nl": "Find the number of students who have the word \"son\" in their personal names.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [students]|who|have|the|word|son|in|their|{COLUMN} [personal names]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "word",
+            "son",
+            "in",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT COUNT(*) FROM Students WHERE personal_name LIKE \"%son%\""
+    },
+    {
+        "original_nl": "List all the subject names.",
+        "generalized_nl": "list [List]|all|the|{COLUMN} [subject names]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT subject_name FROM SUBJECTS"
+    },
+    {
+        "original_nl": "What are the names of all the subjects.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|the|{TABLE} [subjects]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT subject_name FROM SUBJECTS"
+    },
+    {
+        "original_nl": "List all the information about course authors and tutors in alphabetical order of the personal name.",
+        "generalized_nl": "list [List]|all|the|information|about|{TABLE} [course authors and tutors]|in|alphabetic [alphabetical]|order|of|the|{COLUMN} [personal name]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "information",
+            "about",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order",
+            "of",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT * FROM Course_Authors_and_Tutors ORDER BY personal_name"
+    },
+    {
+        "original_nl": "Sort the information about course authors and tutors in alphabetical order of the personal name.",
+        "generalized_nl": "screen [Sort]|the|information|about|{TABLE} [course authors and tutors]|in|alphabetic [alphabetical]|order|of|the|{COLUMN} [personal name]",
+        "generalized_tokens": [
+            "screen",
+            "the",
+            "information",
+            "about",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order",
+            "of",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT * FROM Course_Authors_and_Tutors ORDER BY personal_name"
+    },
+    {
+        "original_nl": "List the personal names and family names of all the students in alphabetical order of family name.",
+        "generalized_nl": "list [List]|the|{COLUMN} [personal names]|and|{COLUMN} [family names]|of|all|the|{TABLE} [students]|in|alphabetic [alphabetical]|order|of|{COLUMN} [family name]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT personal_name ,  family_name FROM Students ORDER BY family_name"
+    },
+    {
+        "original_nl": "List each test result and its count in descending order of count.",
+        "generalized_nl": "list [List]|each|{COLUMN} [test result]|and|it|s|count|in|descend [descending]|order|of|count",
+        "generalized_tokens": [
+            "list",
+            "each",
+            "{COLUMN}",
+            "and",
+            "it",
+            "s",
+            "count",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "count"
+        ],
+        "original_sql": "SELECT test_result ,  COUNT(*) FROM Student_Tests_Taken GROUP BY test_result ORDER BY COUNT(*) DESC"
+    },
+    {
+        "original_nl": "For each distinct test result, find the number of students who got the result.",
+        "generalized_nl": "For|each|distinct|{COLUMN} [test result]|find|the|number|of|{TABLE} [students]|who|get [got]|the|{COLUMN_PART} [result]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "distinct",
+            "{COLUMN}",
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "get",
+            "the",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT test_result ,  COUNT(*) FROM Student_Tests_Taken GROUP BY test_result ORDER BY COUNT(*) DESC"
+    },
+    {
+        "original_nl": "Find the login name of the course author that teaches the course with name \"advanced database\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [login name]|of|the|{TABLE} [course]|{COLUMN_PART} [author]|that|teach [teaches]|the|{TABLE} [course]|with|{COLUMN_PART} [name]|advanced|database",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "that",
+            "teach",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "advanced",
+            "database"
+        ],
+        "original_sql": "SELECT T1.login_name FROM Course_Authors_and_Tutors AS T1 JOIN Courses AS T2 ON T1.author_id  =  T2.author_id WHERE T2.course_name  =  \"advanced database\""
+    },
+    {
+        "original_nl": "Find the addresses of the course authors who teach the course with name \"operating system\" or \"data structure\".",
+        "generalized_nl": "find [Find]|the|address [addresses]|of|the|{TABLE} [course]|writer [authors]|who|teach|the|{TABLE} [course]|with|{COLUMN_PART} [name]|operating|system|or|data|structure",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "address",
+            "of",
+            "the",
+            "{TABLE}",
+            "writer",
+            "who",
+            "teach",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "operating",
+            "system",
+            "or",
+            "data",
+            "structure"
+        ],
+        "original_sql": "SELECT T1.address_line_1 FROM Course_Authors_and_Tutors AS T1 JOIN Courses AS T2 ON T1.author_id  =  T2.author_id WHERE T2.course_name  =  \"operating system\" OR T2.course_name  =  \"data structure\""
+    },
+    {
+        "original_nl": "What are the addresses of the course authors who teach either \"operating system\" or \"data structure\" course.",
+        "generalized_nl": "What|are|the|address [addresses]|of|the|{TABLE} [course]|writer [authors]|who|teach|either|operating|system|or|data|structure|{TABLE} [course]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "address",
+            "of",
+            "the",
+            "{TABLE}",
+            "writer",
+            "who",
+            "teach",
+            "either",
+            "operating",
+            "system",
+            "or",
+            "data",
+            "structure",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.address_line_1 FROM Course_Authors_and_Tutors AS T1 JOIN Courses AS T2 ON T1.author_id  =  T2.author_id WHERE T2.course_name  =  \"operating system\" OR T2.course_name  =  \"data structure\""
+    },
+    {
+        "original_nl": "Find the personal name, family name, and author ID of the course author that teaches the most courses.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [personal name]|{COLUMN} [family name]|and|{COLUMN} [author ID]|of|the|{TABLE} [course]|{COLUMN_PART} [author]|that|teach [teaches]|the|most|{TABLE} [courses]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "that",
+            "teach",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.personal_name ,  T1.family_name ,  T2.author_id FROM Course_Authors_and_Tutors AS T1 JOIN Courses AS T2 ON T1.author_id  =  T2.author_id GROUP BY T2.author_id ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the personal name, family name, and author ID of the course author who teaches the most courses?",
+        "generalized_nl": "What|are|the|{COLUMN} [personal name]|{COLUMN} [family name]|and|{COLUMN} [author ID]|of|the|{TABLE} [course]|{COLUMN_PART} [author]|who|teach [teaches]|the|most|{TABLE} [courses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "who",
+            "teach",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.personal_name ,  T1.family_name ,  T2.author_id FROM Course_Authors_and_Tutors AS T1 JOIN Courses AS T2 ON T1.author_id  =  T2.author_id GROUP BY T2.author_id ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the addresses and author IDs of the course authors that teach at least two courses.",
+        "generalized_nl": "find [Find]|the|address [addresses]|and|{COLUMN} [author IDs]|of|the|{TABLE} [course]|writer [authors]|that|teach|{NUMBER} [at least two]|{TABLE} [courses]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "address",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "writer",
+            "that",
+            "teach",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.address_line_1 ,  T2.author_id FROM Course_Authors_and_Tutors AS T1 JOIN Courses AS T2 ON T1.author_id  =  T2.author_id GROUP BY T2.author_id HAVING Count(*)  >=  2"
+    },
+    {
+        "original_nl": "Find the names of courses taught by the tutor who has personal name \"Julio\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|{TABLE} [courses]|teach [taught]|by|the|{COLUMN_PART} [tutor]|who|have [has]|{COLUMN} [personal name]|{NE} [Julio]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "teach",
+            "by",
+            "the",
+            "{COLUMN_PART}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.course_name FROM Course_Authors_and_Tutors AS T1 JOIN Courses AS T2 ON T1.author_id  =  T2.author_id WHERE T1.personal_name  =  \"Julio\""
+    },
+    {
+        "original_nl": "What are the names of the courses taught by the tutor whose personal name is \"Julio\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [courses]|teach [taught]|by|the|{COLUMN_PART} [tutor]|whose|{COLUMN} [personal name]|is|{NE} [Julio]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "teach",
+            "by",
+            "the",
+            "{COLUMN_PART}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.course_name FROM Course_Authors_and_Tutors AS T1 JOIN Courses AS T2 ON T1.author_id  =  T2.author_id WHERE T1.personal_name  =  \"Julio\""
+    },
+    {
+        "original_nl": "Find the names and descriptions of courses that belong to the subject named \"Computer Science\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [descriptions]|of|{TABLE} [courses]|that|belong|to|the|{TABLE} [subject]|name [named]|Computer|Science",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "belong",
+            "to",
+            "the",
+            "{TABLE}",
+            "name",
+            "Computer",
+            "Science"
+        ],
+        "original_sql": "SELECT T1.course_name ,  T1.course_description FROM Courses AS T1 JOIN Subjects AS T2 ON T1.subject_id  =  T2.subject_id WHERE T2.subject_name  =  \"Computer Science\""
+    },
+    {
+        "original_nl": "What are the names and descriptions of the all courses under the \"Computer Science\" subject?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [descriptions]|of|the|all|{TABLE} [courses]|under|the|Computer|Science|{TABLE} [subject]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "all",
+            "{TABLE}",
+            "under",
+            "the",
+            "Computer",
+            "Science",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.course_name ,  T1.course_description FROM Courses AS T1 JOIN Subjects AS T2 ON T1.subject_id  =  T2.subject_id WHERE T2.subject_name  =  \"Computer Science\""
+    },
+    {
+        "original_nl": "Find the subject ID, subject name, and the corresponding number of available courses for each subject.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [subject ID]|{COLUMN} [subject name]|and|the|match [corresponding]|number|of|available|{TABLE} [courses]|for|each|{TABLE} [subject]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "available",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.subject_id ,  T2.subject_name ,  COUNT(*) FROM Courses AS T1 JOIN Subjects AS T2 ON T1.subject_id  =  T2.subject_id GROUP BY T1.subject_id"
+    },
+    {
+        "original_nl": "What are the subject ID, subject name, and the number of available courses for each subject?",
+        "generalized_nl": "What|are|the|{COLUMN} [subject ID]|{COLUMN} [subject name]|and|the|number|of|available|{TABLE} [courses]|for|each|{TABLE} [subject]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "available",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.subject_id ,  T2.subject_name ,  COUNT(*) FROM Courses AS T1 JOIN Subjects AS T2 ON T1.subject_id  =  T2.subject_id GROUP BY T1.subject_id"
+    },
+    {
+        "original_nl": "Find the subject ID, name of subject and the corresponding number of courses for each subject, and sort by the course count in ascending order.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [subject ID]|{COLUMN_PART} [name]|of|{TABLE} [subject]|and|the|match [corresponding]|number|of|{TABLE} [courses]|for|each|{TABLE} [subject]|and|sort|by|the|{TABLE} [course]|count|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}",
+            "and",
+            "sort",
+            "by",
+            "the",
+            "{TABLE}",
+            "count",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT T1.subject_id ,  T2.subject_name ,  COUNT(*) FROM Courses AS T1 JOIN Subjects AS T2 ON T1.subject_id  =  T2.subject_id GROUP BY T1.subject_id ORDER BY COUNT(*) ASC"
+    },
+    {
+        "original_nl": "List the subject ID, name of subject and the number of courses available for each subject in ascending order of the course counts.",
+        "generalized_nl": "list [List]|the|{COLUMN} [subject ID]|{COLUMN_PART} [name]|of|{TABLE} [subject]|and|the|number|of|{TABLE} [courses]|available|for|each|{TABLE} [subject]|in|ascend [ascending]|order|of|the|{TABLE} [course]|count [counts]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "available",
+            "for",
+            "each",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "the",
+            "{TABLE}",
+            "count"
+        ],
+        "original_sql": "SELECT T1.subject_id ,  T2.subject_name ,  COUNT(*) FROM Courses AS T1 JOIN Subjects AS T2 ON T1.subject_id  =  T2.subject_id GROUP BY T1.subject_id ORDER BY COUNT(*) ASC"
+    },
+    {
+        "original_nl": "What is the date of enrollment of the course named \"Spanish\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [date]|of|registration [enrollment]|of|the|{TABLE} [course]|name [named]|{NE} [Spanish]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "registration",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.date_of_enrolment FROM Courses AS T1 JOIN Student_Course_Enrolment AS T2 ON T1.course_id  =  T2.course_id WHERE T1.course_name  =  \"Spanish\""
+    },
+    {
+        "original_nl": "Find the the date of enrollment of the \"Spanish\" course.",
+        "generalized_nl": "find [Find]|the|the|{COLUMN_PART} [date]|of|registration [enrollment]|of|the|{NE} [Spanish]|{TABLE} [course]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "registration",
+            "of",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.date_of_enrolment FROM Courses AS T1 JOIN Student_Course_Enrolment AS T2 ON T1.course_id  =  T2.course_id WHERE T1.course_name  =  \"Spanish\""
+    },
+    {
+        "original_nl": "What is the name of the course that has the most student enrollment?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [course]|that|have [has]|the|most|{TABLE} [student]|registration [enrollment]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "{TABLE}",
+            "registration"
+        ],
+        "original_sql": "SELECT T1.course_name FROM Courses AS T1 JOIN Student_Course_Enrolment AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_name ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the names of the courses that have exactly 1 student enrollment?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [courses]|that|have|precisely [exactly]|{COLUMN_PART} [1]|{TABLE} [student]|registration [enrollment]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "precisely",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "registration"
+        ],
+        "original_sql": "SELECT T1.course_name FROM Courses AS T1 JOIN Student_Course_Enrolment AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_name HAVING COUNT(*)  =  1"
+    },
+    {
+        "original_nl": "Find the names of the courses that have just one student enrollment.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|the|{TABLE} [courses]|that|have|just|{NUMBER} [one]|{TABLE} [student]|registration [enrollment]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "just",
+            "{NUMBER}",
+            "{TABLE}",
+            "registration"
+        ],
+        "original_sql": "SELECT T1.course_name FROM Courses AS T1 JOIN Student_Course_Enrolment AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_name HAVING COUNT(*)  =  1"
+    },
+    {
+        "original_nl": "What are the descriptions and names of the courses that have student enrollment bigger than 2?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [descriptions]|and|{COLUMN_PART} [names]|of|the|{TABLE} [courses]|that|have|{TABLE} [student]|registration [enrollment]|big [bigger]|than|{NUMBER} [2]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{TABLE}",
+            "registration",
+            "big",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.course_description ,  T1.course_name FROM Courses AS T1 JOIN Student_Course_Enrolment AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_name HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "Return the descriptions and names of the courses that have more than two students enrolled in.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [descriptions]|and|{COLUMN_PART} [names]|of|the|{TABLE} [courses]|that|have|{NUMBER} [more than two]|{TABLE} [students]|enroll [enrolled]|in",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}",
+            "enroll",
+            "in"
+        ],
+        "original_sql": "SELECT T1.course_description ,  T1.course_name FROM Courses AS T1 JOIN Student_Course_Enrolment AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_name HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "What is the name of each course and the corresponding number of student enrollment?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|each|{TABLE} [course]|and|the|match [corresponding]|number|of|{TABLE} [student]|registration [enrollment]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{TABLE}",
+            "registration"
+        ],
+        "original_sql": "SELECT T1.course_name ,  COUNT(*) FROM Courses AS T1 JOIN Student_Course_Enrolment AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_name"
+    },
+    {
+        "original_nl": "List the name and the number of enrolled student for each course.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|and|the|number|of|enroll [enrolled]|{TABLE} [student]|for|each|{TABLE} [course]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "enroll",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.course_name ,  COUNT(*) FROM Courses AS T1 JOIN Student_Course_Enrolment AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_name"
+    },
+    {
+        "original_nl": "What are the enrollment dates of all the tests that have result \"Pass\"?",
+        "generalized_nl": "What|are|the|registration [enrollment]|{COLUMN_PART} [dates]|of|all|the|test [tests]|that|have|{COLUMN_PART} [result]|pass [Pass]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "registration",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "test",
+            "that",
+            "have",
+            "{COLUMN_PART}",
+            "pass"
+        ],
+        "original_sql": "SELECT T1.date_of_enrolment FROM Student_Course_Enrolment AS T1 JOIN Student_Tests_Taken AS T2 ON T1.registration_id  =  T2.registration_id WHERE T2.test_result  =  \"Pass\""
+    },
+    {
+        "original_nl": "Find the enrollment date for all the tests that have \"Pass\" result.",
+        "generalized_nl": "find [Find]|the|registration [enrollment]|{COLUMN_PART} [date]|for|all|the|test [tests]|that|have|pass [Pass]|{COLUMN_PART} [result]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "registration",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "test",
+            "that",
+            "have",
+            "pass",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.date_of_enrolment FROM Student_Course_Enrolment AS T1 JOIN Student_Tests_Taken AS T2 ON T1.registration_id  =  T2.registration_id WHERE T2.test_result  =  \"Pass\""
+    },
+    {
+        "original_nl": "What are the completion dates of all the tests that have result \"Fail\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [completion]|{COLUMN_PART} [dates]|of|all|the|test [tests]|that|have|{COLUMN_PART} [result]|Fail",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "test",
+            "that",
+            "have",
+            "{COLUMN_PART}",
+            "Fail"
+        ],
+        "original_sql": "SELECT T1.date_of_completion FROM Student_Course_Enrolment AS T1 JOIN Student_Tests_Taken AS T2 ON T1.registration_id  =  T2.registration_id WHERE T2.test_result  =  \"Fail\""
+    },
+    {
+        "original_nl": "Return the completion date for all the tests that have \"Fail\" result.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [completion]|{COLUMN_PART} [date]|for|all|the|test [tests]|that|have|fail [Fail]|{COLUMN_PART} [result]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "the",
+            "test",
+            "that",
+            "have",
+            "fail",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.date_of_completion FROM Student_Course_Enrolment AS T1 JOIN Student_Tests_Taken AS T2 ON T1.registration_id  =  T2.registration_id WHERE T2.test_result  =  \"Fail\""
+    },
+    {
+        "original_nl": "List the dates of enrollment and completion of the student with personal name \"Karson\".",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [dates]|of|registration [enrollment]|and|{COLUMN_PART} [completion]|of|the|{TABLE} [student]|with|{COLUMN} [personal name]|{NE} [Karson]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "registration",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.date_of_enrolment ,  T1.date_of_completion FROM Student_Course_Enrolment AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id WHERE T2.personal_name  =  \"Karson\""
+    },
+    {
+        "original_nl": "On what dates did the student whose personal name is \"Karson\" enroll in and complete the courses?",
+        "generalized_nl": "On|what|{COLUMN_PART} [dates]|did|the|{TABLE} [student]|whose|{COLUMN} [personal name]|is|{NE} [Karson]|enroll|in|and|complete|the|{TABLE} [courses]",
+        "generalized_tokens": [
+            "On",
+            "what",
+            "{COLUMN_PART}",
+            "did",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}",
+            "enroll",
+            "in",
+            "and",
+            "complete",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.date_of_enrolment ,  T1.date_of_completion FROM Student_Course_Enrolment AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id WHERE T2.personal_name  =  \"Karson\""
+    },
+    {
+        "original_nl": "List the dates of enrollment and completion of the student with family name \"Zieme\" and personal name \"Bernie\".",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [dates]|of|registration [enrollment]|and|{COLUMN_PART} [completion]|of|the|{TABLE} [student]|with|{COLUMN} [family name]|{NE} [Zieme]|and|{COLUMN} [personal name]|{NE} [Bernie]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "registration",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.date_of_enrolment ,  T1.date_of_completion FROM Student_Course_Enrolment AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id WHERE T2.family_name  =  \"Zieme\" AND T2.personal_name  =  \"Bernie\""
+    },
+    {
+        "original_nl": "On what dates did the student with family name \"Zieme\" and personal name \"Bernie\" enroll in and complete the courses?",
+        "generalized_nl": "On|what|{COLUMN_PART} [dates]|do [did]|the|{TABLE} [student]|with|{COLUMN} [family name]|{NE} [Zieme]|and|{COLUMN} [personal name]|{NE} [Bernie]|enroll|in|and|complete|the|{TABLE} [courses]",
+        "generalized_tokens": [
+            "On",
+            "what",
+            "{COLUMN_PART}",
+            "do",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "{NE}",
+            "enroll",
+            "in",
+            "and",
+            "complete",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.date_of_enrolment ,  T1.date_of_completion FROM Student_Course_Enrolment AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id WHERE T2.family_name  =  \"Zieme\" AND T2.personal_name  =  \"Bernie\""
+    },
+    {
+        "original_nl": "Find the student ID and login name of the student with the most course enrollments",
+        "generalized_nl": "find [Find]|the|{COLUMN} [student ID]|and|{COLUMN} [login name]|of|the|{TABLE} [student]|with|the|most|{TABLE} [course]|registration [enrollments]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}",
+            "registration"
+        ],
+        "original_sql": "SELECT T1.student_id ,  T2.login_name FROM Student_Course_Enrolment AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the student ID and login name of the student who are enrolled in the most courses?",
+        "generalized_nl": "What|are|the|{COLUMN} [student ID]|and|{COLUMN} [login name]|of|the|{TABLE} [student]|who|are|enroll [enrolled]|in|the|most|{TABLE} [courses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "enroll",
+            "in",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.student_id ,  T2.login_name FROM Student_Course_Enrolment AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the student ID and personal name of the student with at least two enrollments.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [student ID]|and|{COLUMN} [personal name]|of|the|{TABLE} [student]|with|{NUMBER} [at least two]|registration [enrollments]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "registration"
+        ],
+        "original_sql": "SELECT T1.student_id ,  T2.personal_name FROM Student_Course_Enrolment AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Find the student ID and middle name for all the students with at most two enrollments.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [student ID]|and|{COLUMN} [middle name]|for|all|the|{TABLE} [students]|with|at|most|{NUMBER} [two]|registration [enrollments]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}",
+            "with",
+            "at",
+            "most",
+            "{NUMBER}",
+            "registration"
+        ],
+        "original_sql": "SELECT T1.student_id ,  T2.middle_name FROM Student_Course_Enrolment AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id HAVING COUNT(*)  <=  2"
+    },
+    {
+        "original_nl": "What are the student IDs and middle names of the students enrolled in at most two courses?",
+        "generalized_nl": "What|are|the|{COLUMN} [student IDs]|and|{COLUMN} [middle names]|of|the|{TABLE} [students]|enroll [enrolled]|in|at|most|{NUMBER} [two]|{TABLE} [courses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "enroll",
+            "in",
+            "at",
+            "most",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.student_id ,  T2.middle_name FROM Student_Course_Enrolment AS T1 JOIN Students AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id HAVING COUNT(*)  <=  2"
+    },
+    {
+        "original_nl": "Find the personal names of students not enrolled in any course.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [personal names]|of|{TABLE} [students]|not|enroll [enrolled]|in|any|{TABLE} [course]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "not",
+            "enroll",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT personal_name FROM Students EXCEPT SELECT T1.personal_name FROM Students AS T1 JOIN Student_Course_Enrolment AS T2 ON T1.student_id  =  T2.student_id"
+    },
+    {
+        "original_nl": "How many students did not have any course enrollment?",
+        "generalized_nl": "How|many|{TABLE} [students]|did|not|have|any|{TABLE} [course]|registration [enrollment]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "did",
+            "not",
+            "have",
+            "any",
+            "{TABLE}",
+            "registration"
+        ],
+        "original_sql": "SELECT count(*) FROM Students WHERE student_id NOT IN (SELECT student_id FROM Student_Course_Enrolment)"
+    },
+    {
+        "original_nl": "Count the number of students who did not enroll in any course.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [students]|who|did|not|enroll|in|any|{TABLE} [course]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "not",
+            "enroll",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Students WHERE student_id NOT IN (SELECT student_id FROM Student_Course_Enrolment)"
+    },
+    {
+        "original_nl": "Find the common login name of course authors and students.",
+        "generalized_nl": "find [Find]|the|common|{COLUMN} [login name]|of|{TABLE} [course]|writer [authors]|and|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "writer",
+            "and",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT login_name FROM Course_Authors_and_Tutors INTERSECT SELECT login_name FROM Students"
+    },
+    {
+        "original_nl": "What are the login names used both by some course authors and some students?",
+        "generalized_nl": "What|are|the|{COLUMN} [login names]|use [used]|both|by|some|{TABLE} [course]|writer [authors]|and|some|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "use",
+            "both",
+            "by",
+            "some",
+            "{TABLE}",
+            "writer",
+            "and",
+            "some",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT login_name FROM Course_Authors_and_Tutors INTERSECT SELECT login_name FROM Students"
+    },
+    {
+        "original_nl": "Find the common personal name of course authors and students.",
+        "generalized_nl": "find [Find]|the|common|{COLUMN} [personal name]|of|{TABLE} [course]|writer [authors]|and|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "writer",
+            "and",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT personal_name FROM Course_Authors_and_Tutors INTERSECT SELECT personal_name FROM Students"
+    },
+    {
+        "original_nl": "What are the personal names used both by some course authors and some students?",
+        "generalized_nl": "What|are|the|{COLUMN} [personal names]|use [used]|both|by|some|{TABLE} [course]|writer [authors]|and|some|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "use",
+            "both",
+            "by",
+            "some",
+            "{TABLE}",
+            "writer",
+            "and",
+            "some",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT personal_name FROM Course_Authors_and_Tutors INTERSECT SELECT personal_name FROM Students"
+    }
+]

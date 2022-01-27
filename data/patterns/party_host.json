@@ -1,0 +1,448 @@
+[
+    {
+        "original_nl": "How many parties are there?",
+        "generalized_nl": "How|many|{TABLE} [parties]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM party"
+    },
+    {
+        "original_nl": "Count the number of parties.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [parties]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM party"
+    },
+    {
+        "original_nl": "List the themes of parties in ascending order of number of hosts.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [themes]|of|{TABLE} [parties]|in|ascend [ascending]|order|of|{COLUMN} [number of hosts]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Party_Theme FROM party ORDER BY Number_of_hosts ASC"
+    },
+    {
+        "original_nl": "What are the themes of parties ordered by the number of hosts in ascending manner?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [themes]|of|{TABLE} [parties]|order [ordered]|by|the|{COLUMN} [number of hosts]|in|ascend [ascending]|manner",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "order",
+            "by",
+            "the",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "manner"
+        ],
+        "original_sql": "SELECT Party_Theme FROM party ORDER BY Number_of_hosts ASC"
+    },
+    {
+        "original_nl": "What are the themes and locations of parties?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [themes]|and|{COLUMN} [locations]|of|{TABLE} [parties]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Party_Theme ,  LOCATION FROM party"
+    },
+    {
+        "original_nl": "Give me the theme and location of each party.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN_PART} [theme]|and|{COLUMN} [location]|of|each|{TABLE} [party]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Party_Theme ,  LOCATION FROM party"
+    },
+    {
+        "original_nl": "Show the first year and last year of parties with theme \"Spring\" or \"Teqnology\".",
+        "generalized_nl": "show [Show]|{NE} [the first year]|and|{COLUMN} [last year]|of|{TABLE} [parties]|with|{COLUMN_PART} [theme]|{VALUE} [Spring]|or|{VALUE} [Teqnology]",
+        "generalized_tokens": [
+            "show",
+            "{NE}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT First_year ,  Last_year FROM party WHERE Party_Theme  =  \"Spring\" OR Party_Theme  =  \"Teqnology\""
+    },
+    {
+        "original_nl": "What are the first year and last year of the parties whose theme is \"Spring\" or \"Teqnology\"?",
+        "generalized_nl": "What|are|{NE} [the first year and last year]|of|the|{TABLE} [parties]|whose|{COLUMN_PART} [theme]|is|{VALUE} [Spring]|or|{VALUE} [Teqnology]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{NE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT First_year ,  Last_year FROM party WHERE Party_Theme  =  \"Spring\" OR Party_Theme  =  \"Teqnology\""
+    },
+    {
+        "original_nl": "What is the average number of hosts for parties?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [number of hosts]|for|{TABLE} [parties]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Number_of_hosts) FROM party"
+    },
+    {
+        "original_nl": "Compute the average number of hosts for parties.",
+        "generalized_nl": "calculate [Compute]|the|average|{COLUMN} [number of hosts]|for|{TABLE} [parties]",
+        "generalized_tokens": [
+            "calculate",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Number_of_hosts) FROM party"
+    },
+    {
+        "original_nl": "What is the location of the party with the most hosts?",
+        "generalized_nl": "What|is|the|{COLUMN} [location]|of|the|{TABLE} [party]|with|the|most|{TABLE} [hosts]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT LOCATION FROM party ORDER BY Number_of_hosts DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different nationalities along with the number of hosts of each nationality.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [nationalities]|along|with|the|{COLUMN} [number of hosts]|of|each|{COLUMN} [nationality]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Nationality ,  COUNT(*) FROM HOST GROUP BY Nationality"
+    },
+    {
+        "original_nl": "Show the most common nationality of hosts.",
+        "generalized_nl": "show [Show]|the|most|common|{COLUMN} [nationality]|of|{TABLE} [hosts]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Nationality FROM HOST GROUP BY Nationality ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which nationality has the most hosts?",
+        "generalized_nl": "Which|{COLUMN} [nationality]|have [has]|the|most|{TABLE} [hosts]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Nationality FROM HOST GROUP BY Nationality ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the nations that have both hosts older than 45 and hosts younger than 35.",
+        "generalized_nl": "show [Show]|the|nation [nations]|that|have|both|{TABLE} [hosts]|old [older]|than|{VALUE} [45]|and|{TABLE} [hosts]|young [younger]|than|{NE} [35]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "nation",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "old",
+            "than",
+            "{VALUE}",
+            "and",
+            "{TABLE}",
+            "young",
+            "than",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Nationality FROM HOST WHERE Age  >  45 INTERSECT SELECT Nationality FROM HOST WHERE Age  <  35"
+    },
+    {
+        "original_nl": "Which nations have both hosts of age above 45 and hosts of age below 35?",
+        "generalized_nl": "Which|nation [nations]|have|both|{TABLE} [hosts]|of|{COLUMN} [age]|above|{VALUE} [45]|and|{TABLE} [hosts]|of|{COLUMN} [age]|below|{NUMBER} [35]",
+        "generalized_tokens": [
+            "Which",
+            "nation",
+            "have",
+            "both",
+            "{TABLE}",
+            "of",
+            "{COLUMN}",
+            "above",
+            "{VALUE}",
+            "and",
+            "{TABLE}",
+            "of",
+            "{COLUMN}",
+            "below",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Nationality FROM HOST WHERE Age  >  45 INTERSECT SELECT Nationality FROM HOST WHERE Age  <  35"
+    },
+    {
+        "original_nl": "Show the themes of parties and the names of the party hosts.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [themes]|of|{TABLE} [parties]|and|the|{COLUMN} [names]|of|the|{TABLE} [party]|{TABLE} [hosts]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Party_Theme ,  T2.Name FROM party_host AS T1 JOIN HOST AS T2 ON T1.Host_ID  =  T2.Host_ID JOIN party AS T3 ON T1.Party_ID  =  T3.Party_ID"
+    },
+    {
+        "original_nl": "For each party, return its theme and the name of its host.",
+        "generalized_nl": "For|each|{TABLE} [party]|return|its|{COLUMN_PART} [theme]|and|the|{COLUMN} [name]|of|its|{TABLE} [host]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "return",
+            "its",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "its",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Party_Theme ,  T2.Name FROM party_host AS T1 JOIN HOST AS T2 ON T1.Host_ID  =  T2.Host_ID JOIN party AS T3 ON T1.Party_ID  =  T3.Party_ID"
+    },
+    {
+        "original_nl": "Show the locations of parties and the names of the party hosts in ascending order of the age of the host.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [locations]|of|{TABLE} [parties]|and|the|{COLUMN} [names]|of|the|{TABLE} [party]|{TABLE} [hosts]|in|ascend [ascending]|order|of|the|{COLUMN} [age]|of|the|{TABLE} [host]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Location ,  T2.Name FROM party_host AS T1 JOIN HOST AS T2 ON T1.Host_ID  =  T2.Host_ID JOIN party AS T3 ON T1.Party_ID  =  T3.Party_ID ORDER BY T2.Age"
+    },
+    {
+        "original_nl": "Show the locations of parties with hosts older than 50.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [locations]|of|{TABLE} [parties]|with|{TABLE} [hosts]|old [older]|than|{NE} [50]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{TABLE}",
+            "old",
+            "than",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T3.Location FROM party_host AS T1 JOIN HOST AS T2 ON T1.Host_ID  =  T2.Host_ID JOIN party AS T3 ON T1.Party_ID  =  T3.Party_ID WHERE T2.Age  >  50"
+    },
+    {
+        "original_nl": "Show the host names for parties with number of hosts greater than 20.",
+        "generalized_nl": "show [Show]|the|{TABLE} [host]|{COLUMN} [names]|for|{TABLE} [parties]|with|{COLUMN} [number of hosts]|{NUMBER} [greater than 20]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Name FROM party_host AS T1 JOIN HOST AS T2 ON T1.Host_ID  =  T2.Host_ID JOIN party AS T3 ON T1.Party_ID  =  T3.Party_ID WHERE T3.Number_of_hosts  >  20"
+    },
+    {
+        "original_nl": "Show the name and the nationality of the oldest host.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|and|the|{COLUMN} [nationality]|of|the|old [oldest]|{TABLE} [host]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "old",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name ,  Nationality FROM HOST ORDER BY Age DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the name and the nationality of the host of the highest age?",
+        "generalized_nl": "What|are|the|{COLUMN} [name]|and|the|{COLUMN} [nationality]|of|the|{TABLE} [host]|of|the|high [highest]|{COLUMN} [age]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "of",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name ,  Nationality FROM HOST ORDER BY Age DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the names of hosts who did not serve as a host of any party in our record.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [hosts]|who|did|not|serve|as|a|{TABLE} [host]|of|any|{TABLE} [party]|in|our|record",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "not",
+            "serve",
+            "as",
+            "a",
+            "{TABLE}",
+            "of",
+            "any",
+            "{TABLE}",
+            "in",
+            "our",
+            "record"
+        ],
+        "original_sql": "SELECT Name FROM HOST WHERE Host_ID NOT IN (SELECT Host_ID FROM party_host)"
+    },
+    {
+        "original_nl": "What are the names of hosts who did not host any party in our record?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [hosts]|who|did|not|{TABLE} [host]|any|{TABLE} [party]|in|our|record",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "not",
+            "{TABLE}",
+            "any",
+            "{TABLE}",
+            "in",
+            "our",
+            "record"
+        ],
+        "original_sql": "SELECT Name FROM HOST WHERE Host_ID NOT IN (SELECT Host_ID FROM party_host)"
+    }
+]

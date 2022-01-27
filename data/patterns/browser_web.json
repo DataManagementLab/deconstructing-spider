@@ -1,0 +1,361 @@
+[
+    {
+        "original_nl": "How many main stream browsers whose market share is at least 5 exist?",
+        "generalized_nl": "How|many|chief [main]|stream|{TABLE} [browsers]|whose|{COLUMN} [market share]|is|{NUMBER} [at least 5]|exist",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "chief",
+            "stream",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}",
+            "exist"
+        ],
+        "original_sql": "SELECT count(*) FROM browser WHERE market_share  >=  5"
+    },
+    {
+        "original_nl": "List the name of browsers in descending order by market share.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [browsers]|in|descend [descending]|order|by|{COLUMN} [market share]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM browser ORDER BY market_share DESC"
+    },
+    {
+        "original_nl": "List the ids, names and market shares of all browsers.",
+        "generalized_nl": "list [List]|the|{COLUMN} [ids]|{COLUMN} [names]|and|{COLUMN} [market shares]|of|all|{TABLE} [browsers]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT id ,  name ,  market_share FROM browser"
+    },
+    {
+        "original_nl": "What is the maximum, minimum and average market share of the listed browsers?",
+        "generalized_nl": "What|is|the|maximal [maximum]|minimal [minimum]|and|average|{COLUMN} [market share]|of|the|list [listed]|{TABLE} [browsers]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "minimal",
+            "and",
+            "average",
+            "{COLUMN}",
+            "of",
+            "the",
+            "list",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(market_share) ,  min(market_share) ,  avg(market_share) FROM browser"
+    },
+    {
+        "original_nl": "What is the id and market share of the browser Safari?",
+        "generalized_nl": "What|is|the|{COLUMN} [id]|and|{COLUMN} [market share]|of|the|{TABLE} [browser]|{NE} [Safari]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT id ,  market_share FROM browser WHERE name  =  'Safari'"
+    },
+    {
+        "original_nl": "What are the name and os of web client accelerators that do not work with only a 'Broadband' type connection?",
+        "generalized_nl": "What|are|the|{COLUMN} [name]|and|o [os]|of|{TABLE} [web client accelerators]|that|do|not|work|with|only|a|Broadband|type|{COLUMN} [connection]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "o",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "work",
+            "with",
+            "only",
+            "a",
+            "Broadband",
+            "type",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  operating_system FROM web_client_accelerator WHERE CONNECTION != 'Broadband'"
+    },
+    {
+        "original_nl": "What is the name of the browser that became compatible with the accelerator 'CProxy' after year 1998 ?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [browser]|that|become [became]|{COLUMN_PART} [compatible]|with|the|{COLUMN_PART} [accelerator]|CProxy|after|{COLUMN_PART} [year]|{NUMBER} [1998]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "become",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "CProxy",
+            "after",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.name FROM browser AS T1 JOIN accelerator_compatible_browser AS T2 ON T1.id  =  T2.browser_id JOIN web_client_accelerator AS T3 ON T2.accelerator_id  =  T3.id WHERE T3.name  =  'CProxy' AND T2.compatible_since_year  >  1998"
+    },
+    {
+        "original_nl": "What are the ids and names of the web accelerators that are compatible with two or more browsers?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|and|{COLUMN} [names]|of|the|web|accelerator [accelerators]|that|are|{COLUMN_PART} [compatible]|with|{NUMBER} [two]|or|more|{TABLE} [browsers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "web",
+            "accelerator",
+            "that",
+            "are",
+            "{COLUMN_PART}",
+            "with",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.Name FROM web_client_accelerator AS T1 JOIN accelerator_compatible_browser AS T2 ON T2.accelerator_id  =  T1.id GROUP BY T1.id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What is the id and name of the browser that is compatible with the most web accelerators?",
+        "generalized_nl": "What|is|the|{COLUMN} [id]|and|{COLUMN} [name]|of|the|{TABLE} [browser]|that|is|{COLUMN_PART} [compatible]|with|the|most|web|accelerator [accelerators]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "most",
+            "web",
+            "accelerator"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.name FROM browser AS T1 JOIN accelerator_compatible_browser AS T2 ON T1.id  =  T2.browser_id GROUP BY T1.id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "When did the web accelerator 'CACHEbox' and browser 'Internet Explorer' become compatible?",
+        "generalized_nl": "When|did|the|web|{COLUMN_PART} [accelerator]|{NE} [CACHEbox]|and|{TABLE} [browser]|internet [Internet]|{NE} [Explorer]|become|{COLUMN_PART} [compatible]",
+        "generalized_tokens": [
+            "When",
+            "did",
+            "the",
+            "web",
+            "{COLUMN_PART}",
+            "{NE}",
+            "and",
+            "{TABLE}",
+            "internet",
+            "{NE}",
+            "become",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.compatible_since_year FROM accelerator_compatible_browser AS T1 JOIN browser AS T2 ON T1.browser_id  =  T2.id JOIN web_client_accelerator AS T3 ON T1.accelerator_id  =  T3.id WHERE T3.name  =  'CACHEbox' AND T2.name  =  'Internet Explorer'"
+    },
+    {
+        "original_nl": "How many different kinds of clients are supported by the web clients accelerators?",
+        "generalized_nl": "How|many|different|kind [kinds]|of|{COLUMN} [clients]|are|support [supported]|by|the|web|{COLUMN} [clients]|accelerator [accelerators]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "kind",
+            "of",
+            "{COLUMN}",
+            "are",
+            "support",
+            "by",
+            "the",
+            "web",
+            "{COLUMN}",
+            "accelerator"
+        ],
+        "original_sql": "SELECT count(DISTINCT client) FROM web_client_accelerator"
+    },
+    {
+        "original_nl": "How many accelerators are not compatible with the browsers listed ?",
+        "generalized_nl": "How|many|accelerator [accelerators]|are|not|{COLUMN_PART} [compatible]|with|the|{TABLE} [browsers]|list [listed]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "accelerator",
+            "are",
+            "not",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "{TABLE}",
+            "list"
+        ],
+        "original_sql": "SELECT count(*) FROM web_client_accelerator WHERE id NOT IN ( SELECT accelerator_id FROM accelerator_compatible_browser );"
+    },
+    {
+        "original_nl": "What distinct accelerator names are compatible with the browswers that have market share higher than 15?",
+        "generalized_nl": "What|distinct|{COLUMN_PART} [accelerator]|{COLUMN} [names]|are|{COLUMN_PART} [compatible]|with|the|browswers|that|have|{COLUMN} [market share]|high [higher]|than|{NUMBER} [15]",
+        "generalized_tokens": [
+            "What",
+            "distinct",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "are",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "browswers",
+            "that",
+            "have",
+            "{COLUMN}",
+            "high",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name FROM web_client_accelerator AS T1 JOIN accelerator_compatible_browser AS T2 ON T2.accelerator_id  =  T1.id JOIN browser AS T3 ON T2.browser_id  =  T3.id WHERE T3.market_share  >  15;"
+    },
+    {
+        "original_nl": "List the names of the browser that are compatible with both 'CACHEbox' and 'Fasterfox'.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|the|{TABLE} [browser]|that|are|{COLUMN_PART} [compatible]|with|both|CACHEbox|and|{NE} [Fasterfox]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "{COLUMN_PART}",
+            "with",
+            "both",
+            "CACHEbox",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T3.name FROM web_client_accelerator AS T1 JOIN accelerator_compatible_browser AS T2 ON T2.accelerator_id  =  T1.id JOIN browser AS T3 ON T2.browser_id  =  T3.id WHERE T1.name  =  'CACHEbox' INTERSECT SELECT T3.name FROM web_client_accelerator AS T1 JOIN accelerator_compatible_browser AS T2 ON T2.accelerator_id  =  T1.id JOIN browser AS T3 ON T2.browser_id  =  T3.id WHERE T1.name  =  'Fasterfox'"
+    },
+    {
+        "original_nl": "Show the accelerator names and supporting operating systems that are not compatible with the browser named 'Opera'.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [accelerator]|{COLUMN} [names]|and|support [supporting]|{COLUMN} [operating systems]|that|are|not|{COLUMN_PART} [compatible]|with|the|{TABLE} [browser]|name [named]|{NE} [Opera]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "and",
+            "support",
+            "{COLUMN}",
+            "that",
+            "are",
+            "not",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name ,  operating_system FROM web_client_accelerator EXCEPT SELECT T1.name ,  T1.operating_system FROM web_client_accelerator AS T1 JOIN accelerator_compatible_browser AS T2 ON T2.accelerator_id  =  T1.id JOIN browser AS T3 ON T2.browser_id  =  T3.id WHERE T3.name  =  'Opera'"
+    },
+    {
+        "original_nl": "Which accelerator name contains substring \"Opera\"?",
+        "generalized_nl": "Which|{COLUMN_PART} [accelerator]|{COLUMN} [name]|contain [contains]|substring|opera [Opera]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "contain",
+            "substring",
+            "opera"
+        ],
+        "original_sql": "SELECT name FROM web_client_accelerator WHERE name LIKE \"%Opera%\""
+    },
+    {
+        "original_nl": "Find the number of web accelerators used for each Operating system.",
+        "generalized_nl": "find [Find]|the|number|of|web|accelerator [accelerators]|use [used]|for|each|{COLUMN} [Operating system]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "web",
+            "accelerator",
+            "use",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Operating_system ,  count(*) FROM web_client_accelerator GROUP BY Operating_system"
+    },
+    {
+        "original_nl": "give me names of all compatible browsers and accelerators in the descending order of compatible year",
+        "generalized_nl": "give|me|{COLUMN} [names]|of|all|{COLUMN_PART} [compatible]|{TABLE} [browsers]|and|accelerator [accelerators]|in|the|descend [descending]|order|of|{COLUMN_PART} [compatible]|{COLUMN_PART} [year]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "and",
+            "accelerator",
+            "in",
+            "the",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.name ,  T3.name FROM accelerator_compatible_browser AS T1 JOIN browser AS T2 ON T1.browser_id  =  T2.id JOIN web_client_accelerator AS T3 ON T1.accelerator_id  =  T3.id ORDER BY T1.compatible_since_year DESC"
+    }
+]

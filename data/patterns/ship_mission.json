@@ -1,0 +1,543 @@
+[
+    {
+        "original_nl": "How many ships are there?",
+        "generalized_nl": "How|many|{TABLE} [ships]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM ship"
+    },
+    {
+        "original_nl": "What is the number of ships?",
+        "generalized_nl": "What|is|the|number|of|{TABLE} [ships]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM ship"
+    },
+    {
+        "original_nl": "List the name of ships in ascending order of tonnage.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [ships]|in|ascend [ascending]|order|of|{COLUMN} [tonnage]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM ship ORDER BY Tonnage ASC"
+    },
+    {
+        "original_nl": "what are the names of the ships ordered by ascending tonnage?",
+        "generalized_nl": "what|are|the|{COLUMN} [names]|of|the|{TABLE} [ships]|order [ordered]|by|ascend [ascending]|{COLUMN} [tonnage]",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "order",
+            "by",
+            "ascend",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM ship ORDER BY Tonnage ASC"
+    },
+    {
+        "original_nl": "What are the type and nationality of ships?",
+        "generalized_nl": "What|are|the|{COLUMN} [type]|and|{COLUMN} [nationality]|of|{TABLE} [ships]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT TYPE ,  Nationality FROM ship"
+    },
+    {
+        "original_nl": "What are the types and nationalities of every ship?",
+        "generalized_nl": "What|are|the|{COLUMN} [types]|and|{COLUMN} [nationalities]|of|every|{TABLE} [ship]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "every",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT TYPE ,  Nationality FROM ship"
+    },
+    {
+        "original_nl": "List the name of ships whose nationality is not \"United States\".",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [ships]|whose|{COLUMN} [nationality]|is|not|{VALUE} [United States]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM ship WHERE Nationality != \"United States\""
+    },
+    {
+        "original_nl": "What are the names of the ships that are not from the United States?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [ships]|that|are|not|from|{NE} [the United States]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Name FROM ship WHERE Nationality != \"United States\""
+    },
+    {
+        "original_nl": "Show the name of ships whose nationality is either United States or United Kingdom.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|of|{TABLE} [ships]|whose|{COLUMN} [nationality]|is|either|{VALUE} [United States]|or|{VALUE} [United Kingdom]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "either",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM ship WHERE Nationality  =  \"United States\" OR Nationality  =  \"United Kingdom\""
+    },
+    {
+        "original_nl": "What are the names of the ships  that are from either the US or the UK?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [ships]|that|are|from|either|the|{NE} [US]|or|the|{NE} [UK]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "from",
+            "either",
+            "the",
+            "{NE}",
+            "or",
+            "the",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Name FROM ship WHERE Nationality  =  \"United States\" OR Nationality  =  \"United Kingdom\""
+    },
+    {
+        "original_nl": "What is the name of the ship with the largest tonnage?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [ship]|with|the|large [largest]|{COLUMN} [tonnage]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM ship ORDER BY Tonnage DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the ship with the largest amount of tonnage called?",
+        "generalized_nl": "What|is|the|{TABLE} [ship]|with|the|large [largest]|sum [amount]|of|{COLUMN} [tonnage]|call [called]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "sum",
+            "of",
+            "{COLUMN}",
+            "call"
+        ],
+        "original_sql": "SELECT Name FROM ship ORDER BY Tonnage DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different types of ships and the number of ships of each type.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [types]|of|{TABLE} [ships]|and|the|number|of|{TABLE} [ships]|of|each|{COLUMN} [type]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TYPE ,  COUNT(*) FROM ship GROUP BY TYPE"
+    },
+    {
+        "original_nl": "For each type, how many ships are there?",
+        "generalized_nl": "For|each|{COLUMN} [type]|how|many|{TABLE} [ships]|are|there",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT TYPE ,  COUNT(*) FROM ship GROUP BY TYPE"
+    },
+    {
+        "original_nl": "Please show the most common type of ships.",
+        "generalized_nl": "Please|show|the|most|common|{COLUMN} [type]|of|{TABLE} [ships]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT TYPE FROM ship GROUP BY TYPE ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the most common type of ships?",
+        "generalized_nl": "What|is|the|most|common|{COLUMN} [type]|of|{TABLE} [ships]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT TYPE FROM ship GROUP BY TYPE ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the nations that have more than two ships.",
+        "generalized_nl": "list [List]|the|nation [nations]|that|have|{NUMBER} [more than two]|{TABLE} [ships]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "nation",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Nationality FROM ship GROUP BY Nationality HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "What are the nations that have more than two ships?",
+        "generalized_nl": "What|are|the|nation [nations]|that|have|{NUMBER} [more than two]|{TABLE} [ships]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "nation",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Nationality FROM ship GROUP BY Nationality HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "Show different types of ships and the average tonnage of ships of each type.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [types]|of|{TABLE} [ships]|and|the|average|{COLUMN} [tonnage]|of|{TABLE} [ships]|of|each|{COLUMN} [type]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TYPE ,  avg(Tonnage) FROM ship GROUP BY TYPE"
+    },
+    {
+        "original_nl": "For each type, what is the average tonnage?",
+        "generalized_nl": "For|each|{COLUMN} [type]|what|is|the|average|{COLUMN} [tonnage]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "what",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT TYPE ,  avg(Tonnage) FROM ship GROUP BY TYPE"
+    },
+    {
+        "original_nl": "Show codes and fates of missions, and names of ships involved.",
+        "generalized_nl": "show [Show]|{COLUMN} [codes]|and|{COLUMN} [fates]|of|{TABLE} [missions]|and|{COLUMN} [names]|of|{TABLE} [ships]|involve [involved]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "involve"
+        ],
+        "original_sql": "SELECT T1.Code ,  T1.Fate ,  T2.Name FROM mission AS T1 JOIN ship AS T2 ON T1.Ship_ID  =  T2.Ship_ID"
+    },
+    {
+        "original_nl": "What are the mission codes, fates, and names of the ships involved?",
+        "generalized_nl": "What|are|the|{TABLE} [mission]|{COLUMN} [codes]|{COLUMN} [fates]|and|{COLUMN} [names]|of|the|{TABLE} [ships]|involved",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "involved"
+        ],
+        "original_sql": "SELECT T1.Code ,  T1.Fate ,  T2.Name FROM mission AS T1 JOIN ship AS T2 ON T1.Ship_ID  =  T2.Ship_ID"
+    },
+    {
+        "original_nl": "Show names of ships involved in a mission launched after 1928.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [ships]|involve [involved]|in|a|{TABLE} [mission]|{COLUMN_PART} [launched]|after|{NE} [1928]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "involve",
+            "in",
+            "a",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM mission AS T1 JOIN ship AS T2 ON T1.Ship_ID  =  T2.Ship_ID WHERE T1.Launched_Year  >  1928"
+    },
+    {
+        "original_nl": "What are the names of ships that were involved in a mission launched after 1928?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [ships]|that|were|involved|in|a|{TABLE} [mission]|{COLUMN_PART} [launched]|after|{NE} [1928]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "were",
+            "involved",
+            "in",
+            "a",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM mission AS T1 JOIN ship AS T2 ON T1.Ship_ID  =  T2.Ship_ID WHERE T1.Launched_Year  >  1928"
+    },
+    {
+        "original_nl": "Show the distinct fate of missions that involve ships with nationality \"United States\"",
+        "generalized_nl": "show [Show]|the|distinct|{COLUMN} [fate]|of|{TABLE} [missions]|that|involve|{TABLE} [ships]|with|{COLUMN} [nationality]|{VALUE} [United States]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "involve",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Fate FROM mission AS T1 JOIN ship AS T2 ON T1.Ship_ID  =  T2.Ship_ID WHERE T2.Nationality  =  \"United States\""
+    },
+    {
+        "original_nl": "What are the different fates of the mission that involved ships from the United States?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [fates]|of|the|{TABLE} [mission]|that|involved|{TABLE} [ships]|from|{NE} [the United States]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "involved",
+            "{TABLE}",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Fate FROM mission AS T1 JOIN ship AS T2 ON T1.Ship_ID  =  T2.Ship_ID WHERE T2.Nationality  =  \"United States\""
+    },
+    {
+        "original_nl": "List the name of ships that are not involved in any mission",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [ships]|that|are|not|involved|in|any|{TABLE} [mission]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "involved",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM ship WHERE Ship_ID NOT IN (SELECT Ship_ID FROM mission)"
+    },
+    {
+        "original_nl": "What are the names of the ships that are not involved in any missions?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [ships]|that|are|not|involved|in|any|{TABLE} [missions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "involved",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM ship WHERE Ship_ID NOT IN (SELECT Ship_ID FROM mission)"
+    },
+    {
+        "original_nl": "Show the types of ships that have both ships with tonnage larger than 6000 and ships with tonnage smaller than 4000.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [types]|of|{TABLE} [ships]|that|have|both|{TABLE} [ships]|with|{COLUMN} [tonnage]|{NUMBER} [larger than 6000]|and|{TABLE} [ships]|with|{COLUMN} [tonnage]|{NUMBER} [smaller than 4000]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}",
+            "and",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT TYPE FROM ship WHERE Tonnage  >  6000 INTERSECT SELECT TYPE FROM ship WHERE Tonnage  <  4000"
+    },
+    {
+        "original_nl": "What are the types of the ships that have both shiips with tonnage more than 6000 and those with tonnage less than 4000?",
+        "generalized_nl": "What|are|the|{COLUMN} [types]|of|the|{TABLE} [ships]|that|have|both|shiips|with|{COLUMN} [tonnage]|{NUMBER} [more than 6000]|and|those|with|{COLUMN} [tonnage]|{NUMBER} [less than 4000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "both",
+            "shiips",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}",
+            "and",
+            "those",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT TYPE FROM ship WHERE Tonnage  >  6000 INTERSECT SELECT TYPE FROM ship WHERE Tonnage  <  4000"
+    }
+]

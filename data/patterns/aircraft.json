@@ -1,0 +1,908 @@
+[
+    {
+        "original_nl": "How many aircrafts are there?",
+        "generalized_nl": "How|many|aircraft [aircrafts]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "aircraft",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM aircraft"
+    },
+    {
+        "original_nl": "What is the number of aircraft?",
+        "generalized_nl": "What|is|the|number|of|{COLUMN} [aircraft]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM aircraft"
+    },
+    {
+        "original_nl": "List the description of all aircrafts.",
+        "generalized_nl": "list [List]|the|{COLUMN} [description]|of|all|aircraft [aircrafts]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "aircraft"
+        ],
+        "original_sql": "SELECT Description FROM aircraft"
+    },
+    {
+        "original_nl": "What are the descriptions for the aircrafts?",
+        "generalized_nl": "What|are|the|{COLUMN} [descriptions]|for|the|aircraft [aircrafts]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "aircraft"
+        ],
+        "original_sql": "SELECT Description FROM aircraft"
+    },
+    {
+        "original_nl": "What is the average number of international passengers of all airports?",
+        "generalized_nl": "What|is|the|average|number|of|{COLUMN} [international passengers]|of|all|{TABLE} [airports]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(International_Passengers) FROM airport"
+    },
+    {
+        "original_nl": "What is the average number of international passengers for an airport?",
+        "generalized_nl": "What|is|the|average|number|of|{COLUMN} [international passengers]|for|an|{TABLE} [airport]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(International_Passengers) FROM airport"
+    },
+    {
+        "original_nl": "What are the number of international and domestic passengers of the airport named London \"Heathrow\"?",
+        "generalized_nl": "What|are|the|number|of|{COLUMN_PART} [international]|and|{COLUMN} [domestic passengers]|of|the|{TABLE} [airport]|name [named]|{NE} [London]|{NE} [Heathrow]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT International_Passengers ,  Domestic_Passengers FROM airport WHERE Airport_Name  =  \"London Heathrow\""
+    },
+    {
+        "original_nl": "How many international and domestic passengers are there in the airport London Heathrow?",
+        "generalized_nl": "How|many|{COLUMN_PART} [international]|and|{COLUMN} [domestic passengers]|are|there|in|the|{TABLE} [airport]|{VALUE} [London Heathrow]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "are",
+            "there",
+            "in",
+            "the",
+            "{TABLE}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT International_Passengers ,  Domestic_Passengers FROM airport WHERE Airport_Name  =  \"London Heathrow\""
+    },
+    {
+        "original_nl": "What are the total number of Domestic Passengers of airports that contain the word \"London\".",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [total]|number|of|{COLUMN} [Domestic Passengers]|of|{TABLE} [airports]|that|contain|the|word|{NE} [London]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "number",
+            "of",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "contain",
+            "the",
+            "word",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(Domestic_Passengers) FROM airport WHERE Airport_Name LIKE \"%London%\""
+    },
+    {
+        "original_nl": "What are the total number of domestic passengers at all London airports?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [total]|number|of|{COLUMN} [domestic passengers]|at|all|{NE} [London]|{TABLE} [airports]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "number",
+            "of",
+            "{COLUMN}",
+            "at",
+            "all",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(Domestic_Passengers) FROM airport WHERE Airport_Name LIKE \"%London%\""
+    },
+    {
+        "original_nl": "What are the maximum and minimum number of transit passengers of all aiports.",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|minimal [minimum]|number|of|{COLUMN} [transit passengers]|of|all|aiports",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "number",
+            "of",
+            "{COLUMN}",
+            "of",
+            "all",
+            "aiports"
+        ],
+        "original_sql": "SELECT max(Transit_Passengers) ,  min(Transit_Passengers) FROM airport"
+    },
+    {
+        "original_nl": "What is the maximum and mininum number of transit passengers for all airports?",
+        "generalized_nl": "What|is|the|maximal [maximum]|and|mininum|number|of|{COLUMN} [transit passengers]|for|all|{TABLE} [airports]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "and",
+            "mininum",
+            "number",
+            "of",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Transit_Passengers) ,  min(Transit_Passengers) FROM airport"
+    },
+    {
+        "original_nl": "What are the name of pilots aged 25 or older?",
+        "generalized_nl": "What|are|the|{COLUMN} [name]|of|{TABLE} [pilots]|aged|{NE} [25 or older]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "aged",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Name FROM pilot WHERE Age  >=  25"
+    },
+    {
+        "original_nl": "what is the name of every pilot who is at least 25 years old?",
+        "generalized_nl": "what|is|the|{COLUMN} [name]|of|every|{TABLE} [pilot]|who|is|{NE} [at least 25 years old]",
+        "generalized_tokens": [
+            "what",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "every",
+            "{TABLE}",
+            "who",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Name FROM pilot WHERE Age  >=  25"
+    },
+    {
+        "original_nl": "List all pilot names in ascending alphabetical order.",
+        "generalized_nl": "list [List]|all|{TABLE} [pilot]|{COLUMN} [names]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Name FROM pilot ORDER BY Name ASC"
+    },
+    {
+        "original_nl": "What are the names of the pilots in alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [pilots]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Name FROM pilot ORDER BY Name ASC"
+    },
+    {
+        "original_nl": "List names of all pilot aged 30 or younger in descending alphabetical order.",
+        "generalized_nl": "list [List]|{COLUMN} [names]|of|all|{TABLE} [pilot]|age [aged]|{NE} [30]|or|young [younger]|in|descend [descending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "age",
+            "{NE}",
+            "or",
+            "young",
+            "in",
+            "descend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Name FROM pilot WHERE Age  <=  30 ORDER BY Name DESC"
+    },
+    {
+        "original_nl": "What are the names of all pilots 30 years old or young in descending alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [pilots]|{NE} [30 years old]|or|young|in|descend [descending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "{NE}",
+            "or",
+            "young",
+            "in",
+            "descend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Name FROM pilot WHERE Age  <=  30 ORDER BY Name DESC"
+    },
+    {
+        "original_nl": "Please show the names of aircrafts associated with airport with name \"London Gatwick\".",
+        "generalized_nl": "Please|show|the|{COLUMN} [names]|of|aircraft [aircrafts]|associate [associated]|with|{TABLE} [airport]|with|{COLUMN} [name]|{VALUE} [London Gatwick]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "aircraft",
+            "associate",
+            "with",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.Aircraft FROM aircraft AS T1 JOIN airport_aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN airport AS T3 ON T2.Airport_ID  =  T3.Airport_ID WHERE T3.Airport_Name  =  \"London Gatwick\""
+    },
+    {
+        "original_nl": "What are the names of all the aircrafts associated with London Gatwick airport?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|the|aircraft [aircrafts]|associate [associated]|with|{VALUE} [London Gatwick]|{TABLE} [airport]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "aircraft",
+            "associate",
+            "with",
+            "{VALUE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Aircraft FROM aircraft AS T1 JOIN airport_aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN airport AS T3 ON T2.Airport_ID  =  T3.Airport_ID WHERE T3.Airport_Name  =  \"London Gatwick\""
+    },
+    {
+        "original_nl": "Please show the names and descriptions of aircrafts associated with airports that have a total number of passengers bigger than 10000000.",
+        "generalized_nl": "Please|show|the|{COLUMN} [names]|and|{COLUMN} [descriptions]|of|aircraft [aircrafts]|associate [associated]|with|{TABLE} [airports]|that|have|a|{COLUMN_PART} [total]|number|of|{COLUMN_PART} [passengers]|{NUMBER} [bigger than 10000000]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "aircraft",
+            "associate",
+            "with",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN_PART}",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.Aircraft ,  T1.Description FROM aircraft AS T1 JOIN airport_aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN airport AS T3 ON T2.Airport_ID  =  T3.Airport_ID WHERE T3.Total_Passengers  >  10000000"
+    },
+    {
+        "original_nl": "What are the names and descriptions of aircrafts associated with an airport that has more total passengers than 10000000?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [descriptions]|of|aircraft [aircrafts]|associate [associated]|with|an|{TABLE} [airport]|that|have [has]|more|{COLUMN} [total passengers]|than|{NUMBER} [10000000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "aircraft",
+            "associate",
+            "with",
+            "an",
+            "{TABLE}",
+            "that",
+            "have",
+            "more",
+            "{COLUMN}",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.Aircraft ,  T1.Description FROM aircraft AS T1 JOIN airport_aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN airport AS T3 ON T2.Airport_ID  =  T3.Airport_ID WHERE T3.Total_Passengers  >  10000000"
+    },
+    {
+        "original_nl": "What is the average total number of passengers of airports that are associated with aircraft \"Robinson R-22\"?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [total]|number|of|{COLUMN_PART} [passengers]|of|{TABLE} [airports]|that|are|associate [associated]|with|{COLUMN} [aircraft]|{VALUE} [Robinson R - 22]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "associate",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT avg(T3.Total_Passengers) FROM aircraft AS T1 JOIN airport_aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN airport AS T3 ON T2.Airport_ID  =  T3.Airport_ID WHERE T1.Aircraft  =  \"Robinson R-22\""
+    },
+    {
+        "original_nl": "What is the average total number of passengers for all airports that the aircraft \"Robinson R-22\" visits?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [total]|number|of|{COLUMN_PART} [passengers]|for|all|{TABLE} [airports]|that|the|{COLUMN} [aircraft]|{VALUE} [Robinson R - 22]|visit [visits]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "number",
+            "of",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "that",
+            "the",
+            "{COLUMN}",
+            "{VALUE}",
+            "visit"
+        ],
+        "original_sql": "SELECT avg(T3.Total_Passengers) FROM aircraft AS T1 JOIN airport_aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN airport AS T3 ON T2.Airport_ID  =  T3.Airport_ID WHERE T1.Aircraft  =  \"Robinson R-22\""
+    },
+    {
+        "original_nl": "Please list the location and the winning aircraft name.",
+        "generalized_nl": "Please|list|the|{COLUMN} [location]|and|the|{COLUMN} [winning aircraft]|{COLUMN} [name]",
+        "generalized_tokens": [
+            "Please",
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Location ,  T1.Aircraft FROM aircraft AS T1 JOIN MATCH AS T2 ON T1.Aircraft_ID  =  T2.Winning_Aircraft"
+    },
+    {
+        "original_nl": "What is the location and name of the winning aircraft?",
+        "generalized_nl": "What|is|the|{COLUMN} [location]|and|{COLUMN} [name]|of|the|{COLUMN} [winning aircraft]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Location ,  T1.Aircraft FROM aircraft AS T1 JOIN MATCH AS T2 ON T1.Aircraft_ID  =  T2.Winning_Aircraft"
+    },
+    {
+        "original_nl": "List the name of the aircraft that has been named winning aircraft the most number of times.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|the|{COLUMN} [aircraft]|that|has|been|name [named]|{COLUMN} [winning aircraft]|the|most|number|of|time [times]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "has",
+            "been",
+            "name",
+            "{COLUMN}",
+            "the",
+            "most",
+            "number",
+            "of",
+            "time"
+        ],
+        "original_sql": "SELECT T1.Aircraft FROM aircraft AS T1 JOIN MATCH AS T2 ON T1.Aircraft_ID  =  T2.Winning_Aircraft GROUP BY T2.Winning_Aircraft ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the aircraft that has won an award the most?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{COLUMN} [aircraft]|that|has|win [won]|an|award|the|most",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "has",
+            "win",
+            "an",
+            "award",
+            "the",
+            "most"
+        ],
+        "original_sql": "SELECT T1.Aircraft FROM aircraft AS T1 JOIN MATCH AS T2 ON T1.Aircraft_ID  =  T2.Winning_Aircraft GROUP BY T2.Winning_Aircraft ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the names of aircrafts and the number of times it won matches.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|aircraft [aircrafts]|and|the|number|of|time [times]|it|win [won]|{TABLE} [matches]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "aircraft",
+            "and",
+            "the",
+            "number",
+            "of",
+            "time",
+            "it",
+            "win",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Aircraft ,  COUNT(*) FROM aircraft AS T1 JOIN MATCH AS T2 ON T1.Aircraft_ID  =  T2.Winning_Aircraft GROUP BY T2.Winning_Aircraft"
+    },
+    {
+        "original_nl": "For each aircraft that has won an award, what is its name and how many time has it won?",
+        "generalized_nl": "For|each|{COLUMN} [aircraft]|that|has|win [won]|an|award|what|is|it|s|{COLUMN} [name]|and|how|many|time|has|it|win [won]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "that",
+            "has",
+            "win",
+            "an",
+            "award",
+            "what",
+            "is",
+            "it",
+            "s",
+            "{COLUMN}",
+            "and",
+            "how",
+            "many",
+            "time",
+            "has",
+            "it",
+            "win"
+        ],
+        "original_sql": "SELECT T1.Aircraft ,  COUNT(*) FROM aircraft AS T1 JOIN MATCH AS T2 ON T1.Aircraft_ID  =  T2.Winning_Aircraft GROUP BY T2.Winning_Aircraft"
+    },
+    {
+        "original_nl": "List names of all pilot in descending order of age.",
+        "generalized_nl": "list [List]|{COLUMN} [names]|of|all|{TABLE} [pilot]|in|descend [descending]|order|of|{COLUMN} [age]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM pilot ORDER BY Age DESC"
+    },
+    {
+        "original_nl": "What are the names of all pilots listed by descending age?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [pilots]|list [listed]|by|descend [descending]|{COLUMN} [age]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "list",
+            "by",
+            "descend",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM pilot ORDER BY Age DESC"
+    },
+    {
+        "original_nl": "List the names of aircrafts and that won matches at least twice.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|aircraft [aircrafts]|and|that|win [won]|{TABLE} [matches]|at|least|twice",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "aircraft",
+            "and",
+            "that",
+            "win",
+            "{TABLE}",
+            "at",
+            "least",
+            "twice"
+        ],
+        "original_sql": "SELECT T1.Aircraft FROM aircraft AS T1 JOIN MATCH AS T2 ON T1.Aircraft_ID  =  T2.Winning_Aircraft GROUP BY T2.Winning_Aircraft HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the names of all aircrafts that have won a match at least twice?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|aircraft [aircrafts]|that|have|win [won]|a|{TABLE} [match]|at|least|twice",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "aircraft",
+            "that",
+            "have",
+            "win",
+            "a",
+            "{TABLE}",
+            "at",
+            "least",
+            "twice"
+        ],
+        "original_sql": "SELECT T1.Aircraft FROM aircraft AS T1 JOIN MATCH AS T2 ON T1.Aircraft_ID  =  T2.Winning_Aircraft GROUP BY T2.Winning_Aircraft HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "List the names of aircrafts and that did not win any match.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|aircraft [aircrafts]|and|that|did|not|win|any|{TABLE} [match]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "aircraft",
+            "and",
+            "that",
+            "did",
+            "not",
+            "win",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Aircraft FROM aircraft WHERE Aircraft_ID NOT IN (SELECT Winning_Aircraft FROM MATCH)"
+    },
+    {
+        "original_nl": "What are the names of all aicrafts that have never won any match?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|aicrafts|that|have|never|win [won]|any|{TABLE} [match]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "aicrafts",
+            "that",
+            "have",
+            "never",
+            "win",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Aircraft FROM aircraft WHERE Aircraft_ID NOT IN (SELECT Winning_Aircraft FROM MATCH)"
+    },
+    {
+        "original_nl": "Show the names of aircrafts that are associated with both an airport named \"London Heathrow\" and an airport named \"London Gatwick\"",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|aircraft [aircrafts]|that|are|associate [associated]|with|both|an|{TABLE} [airport]|name [named]|{VALUE} [London Heathrow]|and|an|{TABLE} [airport]|name [named]|{VALUE} [London Gatwick]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "aircraft",
+            "that",
+            "are",
+            "associate",
+            "with",
+            "both",
+            "an",
+            "{TABLE}",
+            "name",
+            "{VALUE}",
+            "and",
+            "an",
+            "{TABLE}",
+            "name",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.Aircraft FROM aircraft AS T1 JOIN airport_aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN airport AS T3 ON T2.Airport_ID  =  T3.Airport_ID WHERE T3.Airport_Name  =  \"London Heathrow\" INTERSECT SELECT T1.Aircraft FROM aircraft AS T1 JOIN airport_aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN airport AS T3 ON T2.Airport_ID  =  T3.Airport_ID WHERE T3.Airport_Name  =  \"London Gatwick\""
+    },
+    {
+        "original_nl": "What are the names of all aircrafts that are associated with both London Heathrow and Gatwick airports?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|aircraft [aircrafts]|that|are|associate [associated]|with|both|{VALUE} [London Heathrow]|and|{NE} [Gatwick]|{TABLE} [airports]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "aircraft",
+            "that",
+            "are",
+            "associate",
+            "with",
+            "both",
+            "{VALUE}",
+            "and",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Aircraft FROM aircraft AS T1 JOIN airport_aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN airport AS T3 ON T2.Airport_ID  =  T3.Airport_ID WHERE T3.Airport_Name  =  \"London Heathrow\" INTERSECT SELECT T1.Aircraft FROM aircraft AS T1 JOIN airport_aircraft AS T2 ON T1.Aircraft_ID  =  T2.Aircraft_ID JOIN airport AS T3 ON T2.Airport_ID  =  T3.Airport_ID WHERE T3.Airport_Name  =  \"London Gatwick\""
+    },
+    {
+        "original_nl": "Show all information on the airport that has the largest number of international passengers.",
+        "generalized_nl": "show [Show]|all|information|on|the|{TABLE} [airport]|that|have [has]|the|large [largest]|number|of|{COLUMN} [international passengers]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "information",
+            "on",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT * FROM airport ORDER BY International_Passengers DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is all the information on the airport with the largest number of international passengers?",
+        "generalized_nl": "What|is|all|the|information|on|the|{TABLE} [airport]|with|the|large [largest]|number|of|{COLUMN} [international passengers]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "all",
+            "the",
+            "information",
+            "on",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT * FROM airport ORDER BY International_Passengers DESC LIMIT 1"
+    },
+    {
+        "original_nl": "find the name and age of the pilot who has won the most number of times among the pilots who are younger than 30.",
+        "generalized_nl": "find|the|{COLUMN} [name]|and|{COLUMN} [age]|of|the|{TABLE} [pilot]|who|has|win [won]|the|most|number|of|time [times]|among|the|{TABLE} [pilots]|who|are|young [younger]|than|{NE} [30]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "has",
+            "win",
+            "the",
+            "most",
+            "number",
+            "of",
+            "time",
+            "among",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "young",
+            "than",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t1.name ,  t1.age FROM pilot AS t1 JOIN MATCH AS t2 ON t1.pilot_id  =  t2.winning_pilot WHERE t1.age  <  30 GROUP BY t2.winning_pilot ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name and age of the pilot younger than 30 who has won the most number of times?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [age]|of|the|{TABLE} [pilot]|{NE} [younger than 30]|who|has|win [won]|the|most|number|of|time [times]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "who",
+            "has",
+            "win",
+            "the",
+            "most",
+            "number",
+            "of",
+            "time"
+        ],
+        "original_sql": "SELECT t1.name ,  t1.age FROM pilot AS t1 JOIN MATCH AS t2 ON t1.pilot_id  =  t2.winning_pilot WHERE t1.age  <  30 GROUP BY t2.winning_pilot ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "what is the name and age of the youngest winning pilot?",
+        "generalized_nl": "what|is|the|{COLUMN} [name]|and|{COLUMN} [age]|of|the|young [youngest]|{COLUMN} [winning pilot]",
+        "generalized_tokens": [
+            "what",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "young",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.name ,  t1.age FROM pilot AS t1 JOIN MATCH AS t2 ON t1.pilot_id  =  t2.winning_pilot ORDER BY t1.age LIMIT 1"
+    },
+    {
+        "original_nl": "How old is the youngest winning pilot and what is their name?",
+        "generalized_nl": "How|old|is|the|young [youngest]|{COLUMN} [winning pilot]|and|what|is|their|{COLUMN} [name]",
+        "generalized_tokens": [
+            "How",
+            "old",
+            "is",
+            "the",
+            "young",
+            "{COLUMN}",
+            "and",
+            "what",
+            "is",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT t1.name ,  t1.age FROM pilot AS t1 JOIN MATCH AS t2 ON t1.pilot_id  =  t2.winning_pilot ORDER BY t1.age LIMIT 1"
+    },
+    {
+        "original_nl": "find the name of pilots who did not win the matches held in the country of Australia.",
+        "generalized_nl": "find|the|{COLUMN} [name]|of|{TABLE} [pilots]|who|did|not|win|the|{TABLE} [matches]|hold [held]|in|the|{COLUMN} [country]|of|{VALUE} [Australia]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "not",
+            "win",
+            "the",
+            "{TABLE}",
+            "hold",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM pilot WHERE pilot_id NOT IN (SELECT Winning_Pilot  FROM MATCH WHERE country  =  'Australia')"
+    },
+    {
+        "original_nl": "What are the names of the pilots that have not won any matches in Australia?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [pilots]|that|have|not|win [won]|any|{TABLE} [matches]|in|{VALUE} [Australia]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "not",
+            "win",
+            "any",
+            "{TABLE}",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM pilot WHERE pilot_id NOT IN (SELECT Winning_Pilot  FROM MATCH WHERE country  =  'Australia')"
+    }
+]

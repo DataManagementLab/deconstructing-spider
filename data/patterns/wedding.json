@@ -1,0 +1,368 @@
+[
+    {
+        "original_nl": "How many churches opened before 1850 are there?",
+        "generalized_nl": "How|many|{TABLE} [churches]|open [opened]|before|{NE} [1850]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "open",
+            "before",
+            "{NE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Church WHERE Open_Date  <  1850"
+    },
+    {
+        "original_nl": "Show the name, open date, and organizer for all churches.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|{COLUMN} [open date]|and|organizer|for|all|{TABLE} [churches]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "organizer",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  open_date ,  organized_by FROM Church"
+    },
+    {
+        "original_nl": "List all church names in descending order of opening date.",
+        "generalized_nl": "list [List]|all|{TABLE} [church]|{COLUMN} [names]|in|descend [descending]|order|of|opening|{COLUMN_PART} [date]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "opening",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT name FROM church ORDER BY open_date DESC"
+    },
+    {
+        "original_nl": "Show the opening year in whcih at least two churches opened.",
+        "generalized_nl": "show [Show]|{NE} [the opening year]|in|whcih|{NUMBER} [at least two]|{TABLE} [churches]|open [opened]",
+        "generalized_tokens": [
+            "show",
+            "{NE}",
+            "in",
+            "whcih",
+            "{NUMBER}",
+            "{TABLE}",
+            "open"
+        ],
+        "original_sql": "SELECT open_date FROM church GROUP BY open_date HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the organizer and name for churches that opened between 1830 and 1840.",
+        "generalized_nl": "show [Show]|the|organizer|and|{COLUMN} [name]|for|{TABLE} [churches]|that|open [opened]|{NE} [between 1830 and 1840]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "organizer",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "that",
+            "open",
+            "{NE}"
+        ],
+        "original_sql": "SELECT organized_by ,  name FROM church WHERE open_date BETWEEN 1830 AND 1840"
+    },
+    {
+        "original_nl": "Show all opening years and the number of churches that opened in that year.",
+        "generalized_nl": "show [Show]|{NE} [all opening years]|and|the|number|of|{TABLE} [churches]|that|open [opened]|in|{NE} [that year]",
+        "generalized_tokens": [
+            "show",
+            "{NE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "open",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT open_date ,  count(*) FROM church GROUP BY open_date"
+    },
+    {
+        "original_nl": "Show the name and opening year for three churches that opened most recently.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|and|open [opening]|{COLUMN} [year]|for|{NUMBER} [three]|{TABLE} [churches]|that|open [opened]|most|recently",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "open",
+            "{COLUMN}",
+            "for",
+            "{NUMBER}",
+            "{TABLE}",
+            "that",
+            "open",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT name ,  open_date FROM church ORDER BY open_date DESC LIMIT 3"
+    },
+    {
+        "original_nl": "How many female people are older than 30 in our record?",
+        "generalized_nl": "How|many|{COLUMN_PART} [female]|{TABLE} [people]|are|old [older]|than|{VALUE} [30]|in|our|record",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "are",
+            "old",
+            "than",
+            "{VALUE}",
+            "in",
+            "our",
+            "record"
+        ],
+        "original_sql": "SELECT count(*) FROM people WHERE is_male  =  'F' AND age  >  30"
+    },
+    {
+        "original_nl": "Show the country where people older than 30 and younger than 25 are from.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [country]|where|{TABLE} [people]|old [older]|than|{VALUE} [30]|and|young [younger]|than|{VALUE} [25]|are|from",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "where",
+            "{TABLE}",
+            "old",
+            "than",
+            "{VALUE}",
+            "and",
+            "young",
+            "than",
+            "{VALUE}",
+            "are",
+            "from"
+        ],
+        "original_sql": "SELECT country FROM people WHERE age  <  25 INTERSECT SELECT country FROM people WHERE age  >  30"
+    },
+    {
+        "original_nl": "Show the minimum, maximum, and average age for all people.",
+        "generalized_nl": "show [Show]|the|minimal [minimum]|maximal [maximum]|and|average|{COLUMN} [age]|for|all|{TABLE} [people]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "minimal",
+            "maximal",
+            "and",
+            "average",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT min(age) ,  max(age) ,  avg(age) FROM people"
+    },
+    {
+        "original_nl": "Show the name and country for all people whose age is smaller than the average.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|and|{COLUMN} [country]|for|all|{TABLE} [people]|whose|{COLUMN} [age]|is|small [smaller]|than|the|average",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "small",
+            "than",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT name ,  country FROM people WHERE age  <  (SELECT avg(age) FROM people)"
+    },
+    {
+        "original_nl": "Show the pair of male and female names in all weddings after year 2014",
+        "generalized_nl": "show [Show]|the|pair|of|{COLUMN_PART} [male]|and|{COLUMN_PART} [female]|{COLUMN} [names]|in|all|{TABLE} [weddings]|after|{COLUMN} [year]|{VALUE} [2014]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "pair",
+            "of",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "in",
+            "all",
+            "{TABLE}",
+            "after",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.name ,  T3.name FROM wedding AS T1 JOIN people AS T2 ON T1.male_id  =  T2.people_id JOIN people AS T3 ON T1.female_id  =  T3.people_id WHERE T1.year  >  2014"
+    },
+    {
+        "original_nl": "Show the name and age for all male people who don't have a wedding.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|and|{COLUMN} [age]|for|all|{COLUMN_PART} [male]|{TABLE} [people]|who|do|n't|have|a|{TABLE} [wedding]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "who",
+            "do",
+            "n't",
+            "have",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  age FROM people WHERE is_male  =  'T' AND people_id NOT IN (SELECT male_id FROM wedding)"
+    },
+    {
+        "original_nl": "Show all church names except for those that had a wedding in year 2015.",
+        "generalized_nl": "show [Show]|all|{TABLE} [church]|{COLUMN} [names]|except|for|those|that|have [had]|a|{TABLE} [wedding]|in|{COLUMN} [year]|{VALUE} [2015]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "except",
+            "for",
+            "those",
+            "that",
+            "have",
+            "a",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM church EXCEPT SELECT T1.name FROM church AS T1 JOIN wedding AS T2 ON T1.church_id  =  T2.church_id WHERE T2.year  =  2015"
+    },
+    {
+        "original_nl": "Show all church names that have hosted least two weddings.",
+        "generalized_nl": "show [Show]|all|{TABLE} [church]|{COLUMN} [names]|that|have|host [hosted]|least|{NUMBER} [two]|{TABLE} [weddings]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "that",
+            "have",
+            "host",
+            "least",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM church AS T1 JOIN wedding AS T2 ON T1.church_id  =  T2.church_id GROUP BY T1.church_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the names for all females from Canada having a wedding in year 2016.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|for|all|female [females]|from|{VALUE} [Canada]|have [having]|a|{TABLE} [wedding]|in|{COLUMN} [year]|{VALUE} [2016]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "female",
+            "from",
+            "{VALUE}",
+            "have",
+            "a",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.name FROM wedding AS T1 JOIN people AS T2 ON T1.female_id  =  T2.people_id WHERE T1.year  =  2016 AND T2.is_male  =  'F' AND T2.country  =  'Canada'"
+    },
+    {
+        "original_nl": "How many weddings are there in year 2016?",
+        "generalized_nl": "How|many|{TABLE} [weddings]|are|there|in|{COLUMN} [year]|{VALUE} [2016]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) FROM wedding WHERE YEAR  =  2016"
+    },
+    {
+        "original_nl": "Show the church names for the weddings of all people older than 30.",
+        "generalized_nl": "show [Show]|the|{TABLE} [church]|{COLUMN} [names]|for|the|{TABLE} [weddings]|of|all|{TABLE} [people]|old [older]|than|{VALUE} [30]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "of",
+            "all",
+            "{TABLE}",
+            "old",
+            "than",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T4.name FROM wedding AS T1 JOIN people AS T2 ON T1.male_id  =  T2.people_id JOIN people AS T3 ON T1.female_id  =  T3.people_id JOIN church AS T4 ON T4.church_id  =  T1.church_id WHERE T2.age  >  30 OR T3.age  >  30"
+    },
+    {
+        "original_nl": "Show all countries and the number of people from each country.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [countries]|and|the|number|of|{TABLE} [people]|from|each|{COLUMN} [country]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "from",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT country ,  count(*) FROM people GROUP BY country"
+    },
+    {
+        "original_nl": "How many churches have a wedding in year 2016?",
+        "generalized_nl": "How|many|{TABLE} [churches]|have|a|{TABLE} [wedding]|in|{COLUMN} [year]|{VALUE} [2016]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "a",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT COUNT (DISTINCT church_id) FROM wedding WHERE YEAR  =  2016"
+    }
+]

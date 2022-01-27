@@ -1,0 +1,706 @@
+[
+    {
+        "original_nl": "How many actors are there?",
+        "generalized_nl": "How|many|{TABLE} [actors]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM actor"
+    },
+    {
+        "original_nl": "Count the number of actors.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [actors]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM actor"
+    },
+    {
+        "original_nl": "List the name of actors in ascending alphabetical order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [actors]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Name FROM actor ORDER BY Name ASC"
+    },
+    {
+        "original_nl": "What are the names of actors, ordered alphabetically?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [actors]|order [ordered]|alphabetically",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "order",
+            "alphabetically"
+        ],
+        "original_sql": "SELECT Name FROM actor ORDER BY Name ASC"
+    },
+    {
+        "original_nl": "What are the characters and duration of actors?",
+        "generalized_nl": "What|are|the|{COLUMN} [characters]|and|{COLUMN} [duration]|of|{TABLE} [actors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Character ,  Duration FROM actor"
+    },
+    {
+        "original_nl": "Return the characters and durations for each actor.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [characters]|and|{COLUMN} [durations]|for|each|{TABLE} [actor]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Character ,  Duration FROM actor"
+    },
+    {
+        "original_nl": "List the name of actors whose age is not 20.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [actors]|whose|{COLUMN} [age]|is|not|{VALUE} [20]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM actor WHERE Age != 20"
+    },
+    {
+        "original_nl": "What are the names of actors who are not 20 years old?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [actors]|who|are|not|{VALUE} [20]|{COLUMN} [years]|old",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "{VALUE}",
+            "{COLUMN}",
+            "old"
+        ],
+        "original_sql": "SELECT Name FROM actor WHERE Age != 20"
+    },
+    {
+        "original_nl": "What are the characters of actors in descending order of age?",
+        "generalized_nl": "What|are|the|{COLUMN} [characters]|of|{TABLE} [actors]|in|descend [descending]|order|of|{COLUMN} [age]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Character FROM actor ORDER BY age DESC"
+    },
+    {
+        "original_nl": "Return the characters for actors, ordered by age descending.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [characters]|for|{TABLE} [actors]|order [ordered]|by|{COLUMN} [age]|descending",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}",
+            "descending"
+        ],
+        "original_sql": "SELECT Character FROM actor ORDER BY age DESC"
+    },
+    {
+        "original_nl": "What is the duration of the oldest actor?",
+        "generalized_nl": "What|is|the|{COLUMN} [duration]|of|the|old [oldest]|{TABLE} [actor]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "old",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Duration FROM actor ORDER BY Age DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the duration of the actor with the greatest age.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [duration]|of|the|{TABLE} [actor]|with|the|great [greatest]|{COLUMN} [age]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "great",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Duration FROM actor ORDER BY Age DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the names of musicals with nominee \"Bob Fosse\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [musicals]|with|{COLUMN} [nominee]|{VALUE} [Bob Fosse]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM musical WHERE Nominee  =  \"Bob Fosse\""
+    },
+    {
+        "original_nl": "Return the names of musicals who have the nominee Bob Fosse.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [names]|of|{TABLE} [musicals]|who|have|the|{COLUMN} [nominee]|{VALUE} [Bob Fosse]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Name FROM musical WHERE Nominee  =  \"Bob Fosse\""
+    },
+    {
+        "original_nl": "What are the distinct nominees of the musicals with the award that is not \"Tony Award\"?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [nominees]|of|the|{TABLE} [musicals]|with|the|{COLUMN} [award]|that|is|not|{VALUE} [Tony Award]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT DISTINCT Nominee FROM musical WHERE Award != \"Tony Award\""
+    },
+    {
+        "original_nl": "Return the different nominees of musicals that have an award that is not the Tony Award.",
+        "generalized_nl": "return [Return]|the|different|{COLUMN} [nominees]|of|{TABLE} [musicals]|that|have|an|{COLUMN} [award]|that|is|not|{NE} [the Tony Award]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "different",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "an",
+            "{COLUMN}",
+            "that",
+            "is",
+            "not",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT Nominee FROM musical WHERE Award != \"Tony Award\""
+    },
+    {
+        "original_nl": "Show names of actors and names of musicals they are in.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [actors]|and|{COLUMN} [names]|of|{TABLE} [musicals]|they|are|in",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "they",
+            "are",
+            "in"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Name FROM actor AS T1 JOIN musical AS T2 ON T1.Musical_ID  =  T2.Musical_ID"
+    },
+    {
+        "original_nl": "What are the names of actors and the musicals that they are in?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [actors]|and|the|{TABLE} [musicals]|that|they|are|in",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{TABLE}",
+            "that",
+            "they",
+            "are",
+            "in"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Name FROM actor AS T1 JOIN musical AS T2 ON T1.Musical_ID  =  T2.Musical_ID"
+    },
+    {
+        "original_nl": "Show names of actors that have appeared in musical with name \"The Phantom of the Opera\".",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [actors]|that|have|appear [appeared]|in|{TABLE} [musical]|with|{COLUMN} [name]|{VALUE} [The Phantom of the Opera]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "appear",
+            "in",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM actor AS T1 JOIN musical AS T2 ON T1.Musical_ID  =  T2.Musical_ID WHERE T2.Name  =  \"The Phantom of the Opera\""
+    },
+    {
+        "original_nl": "What are the names of actors who have been in the musical titled The Phantom of the Opera?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [actors]|who|have|been|in|the|{TABLE} [musical]|entitle [titled]|{VALUE} [The Phantom of the Opera]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "been",
+            "in",
+            "the",
+            "{TABLE}",
+            "entitle",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM actor AS T1 JOIN musical AS T2 ON T1.Musical_ID  =  T2.Musical_ID WHERE T2.Name  =  \"The Phantom of the Opera\""
+    },
+    {
+        "original_nl": "Show names of actors in descending order of the year their musical is awarded.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [actors]|in|descend [descending]|order|of|{NE} [the year]|their|{TABLE} [musical]|is|award [awarded]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{NE}",
+            "their",
+            "{TABLE}",
+            "is",
+            "award"
+        ],
+        "original_sql": "SELECT T1.Name FROM actor AS T1 JOIN musical AS T2 ON T1.Musical_ID  =  T2.Musical_ID ORDER BY T2.Year DESC"
+    },
+    {
+        "original_nl": "What are the names of actors ordered descending by the year in which their musical was awarded?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [actors]|order [ordered]|descend [descending]|by|{NE} [the year]|in|which|their|{TABLE} [musical]|was|award [awarded]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "order",
+            "descend",
+            "by",
+            "{NE}",
+            "in",
+            "which",
+            "their",
+            "{TABLE}",
+            "was",
+            "award"
+        ],
+        "original_sql": "SELECT T1.Name FROM actor AS T1 JOIN musical AS T2 ON T1.Musical_ID  =  T2.Musical_ID ORDER BY T2.Year DESC"
+    },
+    {
+        "original_nl": "Show names of musicals and the number of actors who have appeared in the musicals.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [musicals]|and|the|number|of|{TABLE} [actors]|who|have|appear [appeared]|in|the|{TABLE} [musicals]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "appear",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name ,  COUNT(*) FROM actor AS T1 JOIN musical AS T2 ON T1.Musical_ID  =  T2.Musical_ID GROUP BY T1.Musical_ID"
+    },
+    {
+        "original_nl": "How many actors have appeared in each musical?",
+        "generalized_nl": "How|many|{TABLE} [actors]|have|appear [appeared]|in|each|{TABLE} [musical]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "appear",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name ,  COUNT(*) FROM actor AS T1 JOIN musical AS T2 ON T1.Musical_ID  =  T2.Musical_ID GROUP BY T1.Musical_ID"
+    },
+    {
+        "original_nl": "Show names of musicals which have at least three actors.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [musicals]|which|have|{NUMBER} [at least three]|{TABLE} [actors]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "which",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM actor AS T1 JOIN musical AS T2 ON T1.Musical_ID  =  T2.Musical_ID GROUP BY T1.Musical_ID HAVING COUNT(*)  >=  3"
+    },
+    {
+        "original_nl": "What are the names of musicals who have at 3 or more actors?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [musicals]|who|have|at|{VALUE} [3]|or|more|{TABLE} [actors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "at",
+            "{VALUE}",
+            "or",
+            "more",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM actor AS T1 JOIN musical AS T2 ON T1.Musical_ID  =  T2.Musical_ID GROUP BY T1.Musical_ID HAVING COUNT(*)  >=  3"
+    },
+    {
+        "original_nl": "Show different nominees and the number of musicals they have been nominated.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [nominees]|and|the|number|of|{TABLE} [musicals]|they|have|been|nominate [nominated]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "they",
+            "have",
+            "been",
+            "nominate"
+        ],
+        "original_sql": "SELECT Nominee ,  COUNT(*) FROM musical GROUP BY Nominee"
+    },
+    {
+        "original_nl": "How many musicals has each nominee been nominated for?",
+        "generalized_nl": "How|many|{TABLE} [musicals]|has|each|{COLUMN} [nominee]|been|nominate [nominated]|for",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "has",
+            "each",
+            "{COLUMN}",
+            "been",
+            "nominate",
+            "for"
+        ],
+        "original_sql": "SELECT Nominee ,  COUNT(*) FROM musical GROUP BY Nominee"
+    },
+    {
+        "original_nl": "Please show the nominee who has been nominated the greatest number of times.",
+        "generalized_nl": "Please|show|the|{COLUMN} [nominee]|who|has|been|nominate [nominated]|the|great [greatest]|number|of|time [times]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "who",
+            "has",
+            "been",
+            "nominate",
+            "the",
+            "great",
+            "number",
+            "of",
+            "time"
+        ],
+        "original_sql": "SELECT Nominee FROM musical GROUP BY Nominee ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Who is the nominee who has been nominated for the most musicals?",
+        "generalized_nl": "Who|is|the|{COLUMN} [nominee]|who|has|been|nominate [nominated]|for|the|most|{TABLE} [musicals]",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "{COLUMN}",
+            "who",
+            "has",
+            "been",
+            "nominate",
+            "for",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Nominee FROM musical GROUP BY Nominee ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the most common result of the musicals.",
+        "generalized_nl": "list [List]|the|most|common|{COLUMN} [result]|of|the|{TABLE} [musicals]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT RESULT FROM musical GROUP BY RESULT ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the most frequent result across all musicals.",
+        "generalized_nl": "return [Return]|the|most|frequent|{COLUMN} [result]|across|all|{TABLE} [musicals]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "most",
+            "frequent",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT RESULT FROM musical GROUP BY RESULT ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the nominees that have been nominated more than two musicals.",
+        "generalized_nl": "list [List]|the|{COLUMN} [nominees]|that|have|been|nominate [nominated]|{NUMBER} [more than two]|{TABLE} [musicals]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "been",
+            "nominate",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Nominee FROM musical GROUP BY Nominee HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "Who are the nominees who have been nominated more than two times?",
+        "generalized_nl": "Who|are|the|{COLUMN} [nominees]|who|have|been|nominate [nominated]|{NUMBER} [more than two]|time [times]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "been",
+            "nominate",
+            "{NUMBER}",
+            "time"
+        ],
+        "original_sql": "SELECT Nominee FROM musical GROUP BY Nominee HAVING COUNT(*)  >  2"
+    },
+    {
+        "original_nl": "List the name of musicals that do not have actors.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|of|{TABLE} [musicals]|that|do|not|have|{TABLE} [actors]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM musical WHERE Musical_ID NOT IN (SELECT Musical_ID FROM actor)"
+    },
+    {
+        "original_nl": "What are the names of musicals who have no actors?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [musicals]|who|have|no|{TABLE} [actors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "no",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM musical WHERE Musical_ID NOT IN (SELECT Musical_ID FROM actor)"
+    },
+    {
+        "original_nl": "Show the nominees that have nominated musicals for both \"Tony Award\" and \"Drama Desk Award\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [nominees]|that|have|nominate [nominated]|{TABLE} [musicals]|for|both|{VALUE} [Tony Award]|and|{VALUE} [Drama Desk Award]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "nominate",
+            "{TABLE}",
+            "for",
+            "both",
+            "{VALUE}",
+            "and",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Nominee FROM musical WHERE Award  =  \"Tony Award\" INTERSECT SELECT Nominee FROM musical WHERE Award  =  \"Drama Desk Award\""
+    },
+    {
+        "original_nl": "Who are the nominees who have been nominated for both a Tony Award and a Drama Desk Award?",
+        "generalized_nl": "Who|are|the|{COLUMN} [nominees]|who|have|been|nominate [nominated]|for|both|{NE} [a Tony Award]|and|{NE} [a Drama Desk Award]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "been",
+            "nominate",
+            "for",
+            "both",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Nominee FROM musical WHERE Award  =  \"Tony Award\" INTERSECT SELECT Nominee FROM musical WHERE Award  =  \"Drama Desk Award\""
+    },
+    {
+        "original_nl": "Show the musical nominee with award \"Bob Fosse\" or \"Cleavant Derricks\".",
+        "generalized_nl": "show [Show]|the|{TABLE} [musical]|{COLUMN} [nominee]|with|{COLUMN} [award]|{VALUE} [Bob Fosse]|or|{VALUE} [Cleavant Derricks]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Nominee FROM musical WHERE Award  =  \"Tony Award\" OR Award  =  \"Cleavant Derricks\""
+    },
+    {
+        "original_nl": "Who are the nominees who were nominated for either of the Bob Fosse or Cleavant Derricks awards?",
+        "generalized_nl": "Who|are|the|{COLUMN} [nominees]|who|were|nominate [nominated]|for|either|of|the|{VALUE} [Bob Fosse]|or|{VALUE} [Cleavant Derricks]|{COLUMN} [awards]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "{COLUMN}",
+            "who",
+            "were",
+            "nominate",
+            "for",
+            "either",
+            "of",
+            "the",
+            "{VALUE}",
+            "or",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Nominee FROM musical WHERE Award  =  \"Tony Award\" OR Award  =  \"Cleavant Derricks\""
+    }
+]

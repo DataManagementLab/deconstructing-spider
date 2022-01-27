@@ -1,0 +1,1414 @@
+[
+    {
+        "original_nl": "Show the number of accounts.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [number]|of|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Accounts"
+    },
+    {
+        "original_nl": "How many accounts are there?",
+        "generalized_nl": "How|many|{TABLE} [accounts]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM Accounts"
+    },
+    {
+        "original_nl": "How many customers have opened an account?",
+        "generalized_nl": "How|many|{TABLE} [customers]|have|{COLUMN_PART} [opened]|an|{TABLE} [account]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{COLUMN_PART}",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT customer_id) FROM Accounts"
+    },
+    {
+        "original_nl": "Count the number of customers who have an account.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [customers]|who|have|an|{TABLE} [account]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT customer_id) FROM Accounts"
+    },
+    {
+        "original_nl": "Show the id, the date of account opened, the account name, and other account detail for all accounts.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|the|{COLUMN_PART} [date]|of|{TABLE} [account]|{COLUMN_PART} [opened]|the|{COLUMN} [account name]|and|{COLUMN} [other account detail]|for|all|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT account_id ,  date_account_opened ,  account_name ,  other_account_details FROM Accounts"
+    },
+    {
+        "original_nl": "What are the ids, date opened, name, and other details for all accounts?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|{COLUMN_PART} [date]|{COLUMN_PART} [opened]|{COLUMN_PART} [name]|and|other|{COLUMN_PART} [details]|for|all|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "other",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT account_id ,  date_account_opened ,  account_name ,  other_account_details FROM Accounts"
+    },
+    {
+        "original_nl": "Show the id, the account name, and other account details for all accounts by the customer with first name 'Meaghan'.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|the|{COLUMN} [account name]|and|{COLUMN} [other account details]|for|all|{TABLE} [accounts]|by|the|{TABLE} [customer]|with|{COLUMN_PART} [first]|{COLUMN_PART} [name]|{NE} [Meaghan]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "by",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.account_id ,  T1.date_account_opened ,  T1.account_name ,  T1.other_account_details FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T2.customer_first_name  =  'Meaghan'"
+    },
+    {
+        "original_nl": "What are the ids, names, dates of opening, and other details for accounts corresponding to the customer with the first name \"Meaghan\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|{COLUMN_PART} [names]|{COLUMN_PART} [dates]|of|opening|and|other|{COLUMN_PART} [details]|for|{TABLE} [accounts]|match [corresponding]|to|the|{TABLE} [customer]|with|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|{NE} [Meaghan]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "opening",
+            "and",
+            "other",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "match",
+            "to",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.account_id ,  T1.date_account_opened ,  T1.account_name ,  T1.other_account_details FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T2.customer_first_name  =  'Meaghan'"
+    },
+    {
+        "original_nl": "Show the account name and other account detail for all accounts by the customer with first name Meaghan and last name Keeling.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [account name]|and|{COLUMN} [other account detail]|for|all|{TABLE} [accounts]|by|the|{TABLE} [customer]|with|{COLUMN_PART} [first]|{COLUMN_PART} [name]|{NE} [Meaghan]|and|{COLUMN_PART} [last]|{COLUMN_PART} [name]|{NE} [Keeling]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "by",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NE}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.account_name ,  T1.other_account_details FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T2.customer_first_name  =  \"Meaghan\" AND T2.customer_last_name  =  \"Keeling\""
+    },
+    {
+        "original_nl": "What are the names and other details for accounts corresponding to the customer named Meaghan Keeling?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|other|{COLUMN_PART} [details]|for|{TABLE} [accounts]|match [corresponding]|to|the|{TABLE} [customer]|name [named]|{NE} [Meaghan Keeling]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "other",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "match",
+            "to",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.account_name ,  T1.other_account_details FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T2.customer_first_name  =  \"Meaghan\" AND T2.customer_last_name  =  \"Keeling\""
+    },
+    {
+        "original_nl": "Show the first name and last name for the customer with account name 900.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|and|{COLUMN_PART} [last]|{COLUMN_PART} [name]|for|the|{TABLE} [customer]|with|{COLUMN} [account name]|{NUMBER} [900]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.customer_first_name ,  T2.customer_last_name FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T1.account_name  =  \"900\""
+    },
+    {
+        "original_nl": "What are the full names of customers with the account name 900?",
+        "generalized_nl": "What|are|the|full|{COLUMN_PART} [names]|of|{TABLE} [customers]|with|the|{COLUMN} [account name]|{NUMBER} [900]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.customer_first_name ,  T2.customer_last_name FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id WHERE T1.account_name  =  \"900\""
+    },
+    {
+        "original_nl": "How many customers don't have an account?",
+        "generalized_nl": "How|many|{TABLE} [customers]|do|n't|have|an|{TABLE} [account]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "n't",
+            "have",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Customers WHERE customer_id NOT IN (SELECT customer_id FROM Accounts)"
+    },
+    {
+        "original_nl": "Count the number of customers who do not have an account.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [customers]|who|do|not|have|an|{TABLE} [account]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "have",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Customers WHERE customer_id NOT IN (SELECT customer_id FROM Accounts)"
+    },
+    {
+        "original_nl": "Show the unique first names, last names, and phone numbers for all customers with any account.",
+        "generalized_nl": "show [Show]|the|unique|{COLUMN_PART} [first]|{COLUMN_PART} [names]|{COLUMN_PART} [last]|{COLUMN_PART} [names]|and|{COLUMN} [phone numbers]|for|all|{TABLE} [customers]|with|any|{TABLE} [account]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "unique",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "with",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.customer_first_name ,  T1.customer_last_name ,  T1.phone_number FROM Customers AS T1 JOIN Accounts AS T2 ON T1.customer_id  =  T2.customer_id"
+    },
+    {
+        "original_nl": "What are the distinct first names, last names, and phone numbers for customers with accounts?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN_PART} [first]|{COLUMN_PART} [names]|{COLUMN_PART} [last]|{COLUMN_PART} [names]|and|{COLUMN} [phone numbers]|for|{TABLE} [customers]|with|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.customer_first_name ,  T1.customer_last_name ,  T1.phone_number FROM Customers AS T1 JOIN Accounts AS T2 ON T1.customer_id  =  T2.customer_id"
+    },
+    {
+        "original_nl": "Show customer ids who don't have an account.",
+        "generalized_nl": "show [Show]|{COLUMN} [customer ids]|who|do|n't|have|an|{TABLE} [account]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "who",
+            "do",
+            "n't",
+            "have",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT customer_id FROM Customers EXCEPT SELECT customer_id FROM Accounts"
+    },
+    {
+        "original_nl": "What are the customer ids for customers who do not have an account?",
+        "generalized_nl": "What|are|the|{COLUMN} [customer ids]|for|{TABLE} [customers]|who|do|not|have|an|{TABLE} [account]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "have",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT customer_id FROM Customers EXCEPT SELECT customer_id FROM Accounts"
+    },
+    {
+        "original_nl": "Count the number of accounts corresponding to each customer id.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [accounts]|match [corresponding]|to|each|{COLUMN} [customer id]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "match",
+            "to",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  customer_id FROM Accounts GROUP BY customer_id"
+    },
+    {
+        "original_nl": "What is the customer id, first and last name with most number of accounts.",
+        "generalized_nl": "What|is|the|{COLUMN} [customer id]|{COLUMN_PART} [first]|and|{COLUMN_PART} [last]|{COLUMN_PART} [name]|with|most|{COLUMN_PART} [number]|of|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "with",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.customer_id ,  T2.customer_first_name ,  T2.customer_last_name FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the id and full name of the customer with the most accounts.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [id]|and|full|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|with|the|most|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "full",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.customer_id ,  T2.customer_first_name ,  T2.customer_last_name FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show id, first name and last name for all customers and the number of accounts.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [id]|{COLUMN_PART} [first]|{COLUMN_PART} [name]|and|{COLUMN_PART} [last]|{COLUMN_PART} [name]|for|all|{TABLE} [customers]|and|the|{COLUMN_PART} [number]|of|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.customer_id ,  T2.customer_first_name ,  T2.customer_last_name ,  count(*) FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id"
+    },
+    {
+        "original_nl": "What are the the full names and ids for all customers, and how many accounts does each have?",
+        "generalized_nl": "What|are|the|the|full|{COLUMN_PART} [names]|and|{COLUMN_PART} [ids]|for|all|{TABLE} [customers]|and|how|many|{TABLE} [accounts]|does|each|rich_person [have]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "the",
+            "full",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "and",
+            "how",
+            "many",
+            "{TABLE}",
+            "does",
+            "each",
+            "rich_person"
+        ],
+        "original_sql": "SELECT T1.customer_id ,  T2.customer_first_name ,  T2.customer_last_name ,  count(*) FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id"
+    },
+    {
+        "original_nl": "Show first name and id for all customers with at least 2 accounts.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [first]|{COLUMN_PART} [name]|and|{COLUMN_PART} [id]|for|all|{TABLE} [customers]|with|{NUMBER} [at least 2]|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.customer_first_name ,  T1.customer_id FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the first names and ids for customers who have two or more accounts?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|{COLUMN_PART} [ids]|for|{TABLE} [customers]|who|have|{NUMBER} [two]|or|more|{TABLE} [accounts]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.customer_first_name ,  T1.customer_id FROM Accounts AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the number of customers.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [number]|of|{TABLE} [customers]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Customers"
+    },
+    {
+        "original_nl": "Count the number of customers.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [customers]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Customers"
+    },
+    {
+        "original_nl": "Show the number of customers for each gender.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [number]|of|{TABLE} [customers]|for|each|{COLUMN} [gender]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT gender ,  count(*) FROM Customers GROUP BY gender"
+    },
+    {
+        "original_nl": "How many customers are there of each gender?",
+        "generalized_nl": "How|many|{TABLE} [customers]|are|there|of|each|{COLUMN} [gender]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT gender ,  count(*) FROM Customers GROUP BY gender"
+    },
+    {
+        "original_nl": "How many transactions do we have?",
+        "generalized_nl": "How|many|minutes [transactions]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "minutes",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Financial_transactions"
+    },
+    {
+        "original_nl": "Count the number of transactions.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|minutes [transactions]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "minutes"
+        ],
+        "original_sql": "SELECT count(*) FROM Financial_transactions"
+    },
+    {
+        "original_nl": "Count the number of financial transactions that correspond to each account id.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [financial transactions]|that|match [correspond]|to|each|{COLUMN} [account id]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "match",
+            "to",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  account_id FROM Financial_transactions"
+    },
+    {
+        "original_nl": "How many transaction does account with name 337 have?",
+        "generalized_nl": "How|many|{COLUMN_PART} [transaction]|does|{TABLE} [account]|with|{COLUMN_PART} [name]|{NUMBER} [337]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "does",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Financial_transactions AS T1 JOIN Accounts AS T2 ON T1.account_id  =  T2.account_id WHERE T2.account_name  =  \"337\""
+    },
+    {
+        "original_nl": "Count the number of financial transactions that the account with the name 337 has.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [financial transactions]|that|the|{TABLE} [account]|with|the|{COLUMN_PART} [name]|{NE} [337]|have [has]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Financial_transactions AS T1 JOIN Accounts AS T2 ON T1.account_id  =  T2.account_id WHERE T2.account_name  =  \"337\""
+    },
+    {
+        "original_nl": "What is the average, minimum, maximum, and total transaction amount?",
+        "generalized_nl": "What|is|the|average|minimal [minimum]|maximal [maximum]|and|{COLUMN_PART} [total]|{COLUMN} [transaction amount]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "minimal",
+            "maximal",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(transaction_amount) ,  min(transaction_amount) ,  max(transaction_amount) ,   sum(transaction_amount) FROM Financial_transactions"
+    },
+    {
+        "original_nl": "Return the average, minimum, maximum, and total transaction amounts.",
+        "generalized_nl": "return [Return]|the|average|minimal [minimum]|maximal [maximum]|and|{COLUMN_PART} [total]|{COLUMN} [transaction amounts]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "average",
+            "minimal",
+            "maximal",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(transaction_amount) ,  min(transaction_amount) ,  max(transaction_amount) ,   sum(transaction_amount) FROM Financial_transactions"
+    },
+    {
+        "original_nl": "Show ids for all transactions whose amounts are greater than the average.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [ids]|for|all|minutes [transactions]|whose|{COLUMN_PART} [amounts]|are|great [greater]|than|the|average",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "minutes",
+            "whose",
+            "{COLUMN_PART}",
+            "are",
+            "great",
+            "than",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT transaction_id FROM Financial_transactions WHERE transaction_amount  >  (SELECT avg(transaction_amount) FROM Financial_transactions)"
+    },
+    {
+        "original_nl": "What are the ids for transactions that have an amount greater than the average amount of a transaction?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|for|minutes [transactions]|that|have|an|{COLUMN_PART} [amount]|great [greater]|than|the|average|{COLUMN_PART} [amount]|of|a|{COLUMN_PART} [transaction]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "minutes",
+            "that",
+            "have",
+            "an",
+            "{COLUMN_PART}",
+            "great",
+            "than",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "a",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT transaction_id FROM Financial_transactions WHERE transaction_amount  >  (SELECT avg(transaction_amount) FROM Financial_transactions)"
+    },
+    {
+        "original_nl": "Show the transaction types and the total amount of transactions.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [transaction types]|and|the|{COLUMN_PART} [total]|{COLUMN_PART} [amount]|of|minutes [transactions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "minutes"
+        ],
+        "original_sql": "SELECT transaction_type ,  sum(transaction_amount) FROM Financial_transactions GROUP BY transaction_type"
+    },
+    {
+        "original_nl": "What are total transaction amounts for each transaction type?",
+        "generalized_nl": "What|are|{COLUMN_PART} [total]|{COLUMN} [transaction amounts]|for|each|{COLUMN} [transaction type]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT transaction_type ,  sum(transaction_amount) FROM Financial_transactions GROUP BY transaction_type"
+    },
+    {
+        "original_nl": "Show the account name, id and the number of transactions for each account.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [account name]|{COLUMN_PART} [id]|and|the|{COLUMN_PART} [number]|of|minutes [transactions]|for|each|{TABLE} [account]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "minutes",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.account_name ,  T1.account_id ,  count(*) FROM Financial_transactions AS T1 JOIN Accounts AS T2 ON T1.account_id  =  T2.account_id GROUP BY T1.account_id"
+    },
+    {
+        "original_nl": "Return the names and ids of each account, as well as the number of transactions.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [names]|and|{COLUMN_PART} [ids]|of|each|{TABLE} [account]|equally [as]|well|as|the|{COLUMN_PART} [number]|of|minutes [transactions]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "equally",
+            "well",
+            "as",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "minutes"
+        ],
+        "original_sql": "SELECT T2.account_name ,  T1.account_id ,  count(*) FROM Financial_transactions AS T1 JOIN Accounts AS T2 ON T1.account_id  =  T2.account_id GROUP BY T1.account_id"
+    },
+    {
+        "original_nl": "Show the account id with most number of transactions.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [account id]|with|most|{COLUMN_PART} [number]|of|minutes [transactions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "with",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "minutes"
+        ],
+        "original_sql": "SELECT account_id FROM Financial_transactions GROUP BY account_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the id of the account with the most transactions?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|the|{TABLE} [account]|with|the|most|minutes [transactions]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "minutes"
+        ],
+        "original_sql": "SELECT account_id FROM Financial_transactions GROUP BY account_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the account id and name with at least 4 transactions.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [account id]|and|{COLUMN_PART} [name]|with|{NUMBER} [at least 4]|minutes [transactions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "with",
+            "{NUMBER}",
+            "minutes"
+        ],
+        "original_sql": "SELECT T1.account_id ,  T2.account_name FROM Financial_transactions AS T1 JOIN Accounts AS T2 ON T1.account_id  =  T2.account_id GROUP BY T1.account_id HAVING count(*)  >=  4"
+    },
+    {
+        "original_nl": "What are the ids and names of accounts with 4 or more transactions?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [ids]|and|{COLUMN_PART} [names]|of|{TABLE} [accounts]|with|{NUMBER} [4]|or|more|minutes [transactions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "or",
+            "more",
+            "minutes"
+        ],
+        "original_sql": "SELECT T1.account_id ,  T2.account_name FROM Financial_transactions AS T1 JOIN Accounts AS T2 ON T1.account_id  =  T2.account_id GROUP BY T1.account_id HAVING count(*)  >=  4"
+    },
+    {
+        "original_nl": "Show all product sizes.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [product sizes]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT product_size FROM Products"
+    },
+    {
+        "original_nl": "What are the different product sizes?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [product sizes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT product_size FROM Products"
+    },
+    {
+        "original_nl": "Show all product colors.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [product colors]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT product_color FROM Products"
+    },
+    {
+        "original_nl": "What are the different product colors?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [product colors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT product_color FROM Products"
+    },
+    {
+        "original_nl": "Show the invoice number and the number of transactions for each invoice.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [invoice number]|and|the|{COLUMN_PART} [number]|of|minutes [transactions]|for|each|{TABLE} [invoice]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "minutes",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT invoice_number ,  count(*) FROM Financial_transactions GROUP BY invoice_number"
+    },
+    {
+        "original_nl": "How many transactions correspond to each invoice number?",
+        "generalized_nl": "How|many|minutes [transactions]|match [correspond]|to|each|{COLUMN} [invoice number]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "minutes",
+            "match",
+            "to",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT invoice_number ,  count(*) FROM Financial_transactions GROUP BY invoice_number"
+    },
+    {
+        "original_nl": "What is the invoice number and invoice date for the invoice with most number of transactions?",
+        "generalized_nl": "What|is|the|{COLUMN} [invoice number]|and|{COLUMN} [invoice date]|for|the|{TABLE} [invoice]|with|most|{COLUMN_PART} [number]|of|minutes [transactions]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "minutes"
+        ],
+        "original_sql": "SELECT T2.invoice_number ,  T2.invoice_date FROM Financial_transactions AS T1 JOIN Invoices AS T2 ON T1.invoice_number  =  T2.invoice_number GROUP BY T1.invoice_number ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the invoice number and invoice date corresponding to the invoice with the greatest number of transactions?",
+        "generalized_nl": "What|is|the|{COLUMN} [invoice number]|and|{COLUMN} [invoice date]|match [corresponding]|to|the|{TABLE} [invoice]|with|the|great [greatest]|{COLUMN_PART} [number]|of|minutes [transactions]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "match",
+            "to",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "great",
+            "{COLUMN_PART}",
+            "of",
+            "minutes"
+        ],
+        "original_sql": "SELECT T2.invoice_number ,  T2.invoice_date FROM Financial_transactions AS T1 JOIN Invoices AS T2 ON T1.invoice_number  =  T2.invoice_number GROUP BY T1.invoice_number ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many invoices do we have?",
+        "generalized_nl": "How|many|{TABLE} [invoices]|do|we|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "we",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM Invoices"
+    },
+    {
+        "original_nl": "Count the number of invoices.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Invoices"
+    },
+    {
+        "original_nl": "Show invoice dates and order id and details for all invoices.",
+        "generalized_nl": "show [Show]|{COLUMN} [invoice dates]|and|{COLUMN} [order id]|and|{COLUMN_PART} [details]|for|all|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.invoice_date ,  T1.order_id ,  T2.order_details FROM Invoices AS T1 JOIN Orders AS T2 ON T1.order_id  =  T2.order_id"
+    },
+    {
+        "original_nl": "What are the invoice dates, order ids, and order details for all invoices?",
+        "generalized_nl": "What|are|the|{COLUMN} [invoice dates]|{COLUMN} [order ids]|and|{COLUMN} [order details]|for|all|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.invoice_date ,  T1.order_id ,  T2.order_details FROM Invoices AS T1 JOIN Orders AS T2 ON T1.order_id  =  T2.order_id"
+    },
+    {
+        "original_nl": "Show the order ids and the number of invoices for each order.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [order ids]|and|the|{COLUMN_PART} [number]|of|{TABLE} [invoices]|for|each|{TABLE} [order]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT order_id ,  count(*) FROM Invoices GROUP BY order_id"
+    },
+    {
+        "original_nl": "How many invoices correspond to each order id?",
+        "generalized_nl": "How|many|{TABLE} [invoices]|match [correspond]|to|each|{COLUMN} [order id]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "match",
+            "to",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT order_id ,  count(*) FROM Invoices GROUP BY order_id"
+    },
+    {
+        "original_nl": "What is the order id and order details for the order more than two invoices.",
+        "generalized_nl": "What|is|the|{COLUMN} [order id]|and|{COLUMN} [order details]|for|the|{TABLE} [order]|{NUMBER} [more than two]|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.order_id ,  T2.order_details FROM Invoices AS T1 JOIN Orders AS T2 ON T1.order_id  =  T2.order_id GROUP BY T2.order_id HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "Return the order ids and details for orderes with two or more invoices.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [order ids]|and|{COLUMN_PART} [details]|for|orderes|with|{NUMBER} [two]|or|more|{TABLE} [invoices]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "orderes",
+            "with",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.order_id ,  T2.order_details FROM Invoices AS T1 JOIN Orders AS T2 ON T1.order_id  =  T2.order_id GROUP BY T2.order_id HAVING count(*)  >  2"
+    },
+    {
+        "original_nl": "What is the customer last name, id and phone number with most number of orders?",
+        "generalized_nl": "What|is|the|{COLUMN} [customer last name]|{COLUMN_PART} [id]|and|{COLUMN} [phone number]|with|most|{COLUMN_PART} [number]|of|{TABLE} [orders]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "with",
+            "most",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.customer_last_name ,  T1.customer_id ,  T2.phone_number FROM Orders AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the last name, id and phone number of the customer who has made the greatest number of orders.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|{COLUMN_PART} [id]|and|{COLUMN} [phone number]|of|the|{TABLE} [customer]|who|has|make [made]|the|great [greatest]|{COLUMN_PART} [number]|of|{TABLE} [orders]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "has",
+            "make",
+            "the",
+            "great",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.customer_last_name ,  T1.customer_id ,  T2.phone_number FROM Orders AS T1 JOIN Customers AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show all product names without an order.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [product names]|without|an|{TABLE} [order]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "without",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT product_name FROM Products EXCEPT SELECT T1.product_name FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id"
+    },
+    {
+        "original_nl": "What are the names of products that have never been ordered?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [products]|that|have|never|been|order [ordered]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "never",
+            "been",
+            "order"
+        ],
+        "original_sql": "SELECT product_name FROM Products EXCEPT SELECT T1.product_name FROM Products AS T1 JOIN Order_items AS T2 ON T1.product_id  =  T2.product_id"
+    },
+    {
+        "original_nl": "Show all product names and the total quantity ordered for each product name.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [product names]|and|the|{COLUMN_PART} [total]|{COLUMN_PART} [quantity]|order [ordered]|for|each|{COLUMN} [product name]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "order",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.product_name ,  sum(T1.product_quantity) FROM Order_items AS T1 JOIN Products AS T2 ON T1.product_id  =  T2.product_id GROUP BY T2.product_name"
+    },
+    {
+        "original_nl": "What are the different product names, and what is the sum of quantity ordered for each product?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [product names]|and|what|is|the|sum|of|{COLUMN_PART} [quantity]|order [ordered]|for|each|{TABLE} [product]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "what",
+            "is",
+            "the",
+            "sum",
+            "of",
+            "{COLUMN_PART}",
+            "order",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.product_name ,  sum(T1.product_quantity) FROM Order_items AS T1 JOIN Products AS T2 ON T1.product_id  =  T2.product_id GROUP BY T2.product_name"
+    },
+    {
+        "original_nl": "Show the order ids and the number of items in each order.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [order ids]|and|the|{COLUMN_PART} [number]|of|item [items]|in|each|{TABLE} [order]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "item",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT order_id ,  count(*) FROM Order_items GROUP BY order_id"
+    },
+    {
+        "original_nl": "How many order items correspond to each order id?",
+        "generalized_nl": "How|many|{TABLE} [order items]|match [correspond]|to|each|{COLUMN} [order id]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "match",
+            "to",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT order_id ,  count(*) FROM Order_items GROUP BY order_id"
+    },
+    {
+        "original_nl": "Show the product ids and the number of unique orders containing each product.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [product ids]|and|the|{COLUMN_PART} [number]|of|unique|{TABLE} [orders]|contain [containing]|each|{TABLE} [product]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "unique",
+            "{TABLE}",
+            "contain",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT product_id ,  count(DISTINCT order_id) FROM Order_items GROUP BY product_id"
+    },
+    {
+        "original_nl": "How many distinct order ids correspond to each product?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [order ids]|match [correspond]|to|each|{TABLE} [product]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "match",
+            "to",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT product_id ,  count(DISTINCT order_id) FROM Order_items GROUP BY product_id"
+    },
+    {
+        "original_nl": "Show all product names and the number of customers having an order on each product.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [product names]|and|the|{COLUMN_PART} [number]|of|{TABLE} [customers]|have [having]|an|{TABLE} [order]|on|each|{TABLE} [product]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "have",
+            "an",
+            "{TABLE}",
+            "on",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.product_name ,  count(*) FROM Order_items AS T1 JOIN Products AS T2 ON T1.product_id  =  T2.product_id JOIN Orders AS T3 ON T3.order_id  =  T1.order_id GROUP BY T2.product_name"
+    },
+    {
+        "original_nl": "What are teh names of the different products, as well as the number of customers who have ordered each product.",
+        "generalized_nl": "What|are|teh|{COLUMN_PART} [names]|of|the|different|{TABLE} [products]|equally [as]|well|as|the|{COLUMN_PART} [number]|of|{TABLE} [customers]|who|have|order [ordered]|each|{TABLE} [product]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "teh",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "different",
+            "{TABLE}",
+            "equally",
+            "well",
+            "as",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "order",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.product_name ,  count(*) FROM Order_items AS T1 JOIN Products AS T2 ON T1.product_id  =  T2.product_id JOIN Orders AS T3 ON T3.order_id  =  T1.order_id GROUP BY T2.product_name"
+    },
+    {
+        "original_nl": "Show order ids and the number of products in each order.",
+        "generalized_nl": "show [Show]|{COLUMN} [order ids]|and|the|{COLUMN_PART} [number]|of|{TABLE} [products]|in|each|{TABLE} [order]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT order_id ,  count(DISTINCT product_id) FROM Order_items GROUP BY order_id"
+    },
+    {
+        "original_nl": "How many different products correspond to each order id?",
+        "generalized_nl": "How|many|different|{TABLE} [products]|match [correspond]|to|each|{COLUMN} [order id]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "match",
+            "to",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT order_id ,  count(DISTINCT product_id) FROM Order_items GROUP BY order_id"
+    },
+    {
+        "original_nl": "Show order ids and the total quantity in each order.",
+        "generalized_nl": "show [Show]|{COLUMN} [order ids]|and|the|{COLUMN_PART} [total]|{COLUMN_PART} [quantity]|in|each|{TABLE} [order]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT order_id ,  sum(product_quantity) FROM Order_items GROUP BY order_id"
+    },
+    {
+        "original_nl": "Give the order ids for all orders, as well as the total product quantity in each.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [order ids]|for|all|{TABLE} [orders]|equally [as]|well|as|the|{COLUMN_PART} [total]|{COLUMN} [product quantity]|in|each",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{TABLE}",
+            "equally",
+            "well",
+            "as",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "in",
+            "each"
+        ],
+        "original_sql": "SELECT order_id ,  sum(product_quantity) FROM Order_items GROUP BY order_id"
+    },
+    {
+        "original_nl": "How many products were not included in any order?",
+        "generalized_nl": "How|many|{TABLE} [products]|were|not|include [included]|in|any|{TABLE} [order]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "were",
+            "not",
+            "include",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM products WHERE product_id NOT IN ( SELECT product_id FROM Order_items )"
+    },
+    {
+        "original_nl": "Count the number of products that were never ordered.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [products]|that|were|never|order [ordered]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "were",
+            "never",
+            "order"
+        ],
+        "original_sql": "SELECT count(*) FROM products WHERE product_id NOT IN ( SELECT product_id FROM Order_items )"
+    }
+]

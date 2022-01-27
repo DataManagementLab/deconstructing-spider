@@ -1,0 +1,682 @@
+[
+    {
+        "original_nl": "How many entrepreneurs are there?",
+        "generalized_nl": "How|many|{TABLE} [entrepreneurs]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM entrepreneur"
+    },
+    {
+        "original_nl": "Count the number of entrepreneurs.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM entrepreneur"
+    },
+    {
+        "original_nl": "List the companies of entrepreneurs in descending order of money requested.",
+        "generalized_nl": "list [List]|the|{COLUMN} [companies]|of|{TABLE} [entrepreneurs]|in|descend [descending]|order|of|{COLUMN} [money requested]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Company FROM entrepreneur ORDER BY Money_Requested DESC"
+    },
+    {
+        "original_nl": "What are the companies of entrepreneurs, ordered descending by amount of money requested?",
+        "generalized_nl": "What|are|the|{COLUMN} [companies]|of|{TABLE} [entrepreneurs]|order [ordered]|descend [descending]|by|sum [amount]|of|{COLUMN} [money requested]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "order",
+            "descend",
+            "by",
+            "sum",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Company FROM entrepreneur ORDER BY Money_Requested DESC"
+    },
+    {
+        "original_nl": "List the companies and the investors of entrepreneurs.",
+        "generalized_nl": "list [List]|the|{COLUMN} [companies]|and|the|{COLUMN} [investors]|of|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Company ,  Investor FROM entrepreneur"
+    },
+    {
+        "original_nl": "What are the companies and investors that correspond to each entrepreneur?",
+        "generalized_nl": "What|are|the|{COLUMN} [companies]|and|{COLUMN} [investors]|that|match [correspond]|to|each|{TABLE} [entrepreneur]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "that",
+            "match",
+            "to",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Company ,  Investor FROM entrepreneur"
+    },
+    {
+        "original_nl": "What is the average money requested by all entrepreneurs?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [money requested]|by|all|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "by",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Money_Requested) FROM entrepreneur"
+    },
+    {
+        "original_nl": "Return the average money requested across all entrepreneurs.",
+        "generalized_nl": "return [Return]|the|average|{COLUMN} [money requested]|across|all|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "average",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Money_Requested) FROM entrepreneur"
+    },
+    {
+        "original_nl": "What are the names of people in ascending order of weight?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [people]|in|ascend [ascending]|order|of|{COLUMN} [weight]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM People ORDER BY Weight ASC"
+    },
+    {
+        "original_nl": "Return the names of people, ordered by weight ascending.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [names]|of|{TABLE} [people]|order [ordered]|by|{COLUMN} [weight]|rise [ascending]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}",
+            "rise"
+        ],
+        "original_sql": "SELECT Name FROM People ORDER BY Weight ASC"
+    },
+    {
+        "original_nl": "What are the names of entrepreneurs?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID"
+    },
+    {
+        "original_nl": "Return the names of entrepreneurs.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [names]|of|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID"
+    },
+    {
+        "original_nl": "What are the names of entrepreneurs whose investor is not \"Rachel Elnaugh\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [entrepreneurs]|whose|{COLUMN} [investor]|is|not|{VALUE} [Rachel Elnaugh]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID WHERE T1.Investor != \"Rachel Elnaugh\""
+    },
+    {
+        "original_nl": "Return the names of entrepreneurs do no not have the investor Rachel Elnaugh.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [names]|of|{TABLE} [entrepreneurs]|do|no|not|have|the|{COLUMN} [investor]|{VALUE} [Rachel Elnaugh]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "do",
+            "no",
+            "not",
+            "have",
+            "the",
+            "{COLUMN}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID WHERE T1.Investor != \"Rachel Elnaugh\""
+    },
+    {
+        "original_nl": "What is the weight of the shortest person?",
+        "generalized_nl": "What|is|the|{COLUMN} [weight]|of|the|short [shortest]|{TABLE} [person]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "short",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Weight FROM people ORDER BY Height ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the weight of the shortest person.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [weight]|of|the|short [shortest]|{TABLE} [person]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "short",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Weight FROM people ORDER BY Height ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the entrepreneur with the greatest weight?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [entrepreneur]|with|the|great [greatest]|{COLUMN} [weight]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "great",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T2.Weight DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the name of the heaviest entrepreneur.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [name]|of|the|heavy [heaviest]|{TABLE} [entrepreneur]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "heavy",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T2.Weight DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the total money requested by entrepreneurs with height more than 1.85?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN} [money requested]|by|{TABLE} [entrepreneurs]|with|{COLUMN} [height]|{NUMBER} [more than 1.85]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "by",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT sum(T1.Money_Requested) FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID WHERE T2.Height  >  1.85"
+    },
+    {
+        "original_nl": "Give the total money requested by entrepreneurs who are taller than 1.85.",
+        "generalized_nl": "give [Give]|the|entire [total]|{COLUMN} [money requested]|by|{TABLE} [entrepreneurs]|who|are|tall [taller]|than|{NUMBER} [1.85]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "by",
+            "{TABLE}",
+            "who",
+            "are",
+            "tall",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT sum(T1.Money_Requested) FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID WHERE T2.Height  >  1.85"
+    },
+    {
+        "original_nl": "What are the dates of birth of entrepreneurs with investor \"Simon Woodroffe\" or \"Peter Jones\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [dates of birth]|of|{TABLE} [entrepreneurs]|with|{COLUMN} [investor]|{VALUE} [Simon Woodroffe]|or|{VALUE} [Peter Jones]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.Date_of_Birth FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID WHERE T1.Investor  =  \"Simon Woodroffe\" OR T1.Investor  =  \"Peter Jones\""
+    },
+    {
+        "original_nl": "Return the dates of birth for entrepreneurs who have either the investor Simon Woodroffe or Peter Jones.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [dates of birth]|for|{TABLE} [entrepreneurs]|who|have|either|the|{COLUMN} [investor]|{VALUE} [Simon Woodroffe]|or|{VALUE} [Peter Jones]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "who",
+            "have",
+            "either",
+            "the",
+            "{COLUMN}",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T2.Date_of_Birth FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID WHERE T1.Investor  =  \"Simon Woodroffe\" OR T1.Investor  =  \"Peter Jones\""
+    },
+    {
+        "original_nl": "What are the weights of entrepreneurs in descending order of money requested?",
+        "generalized_nl": "What|are|the|{COLUMN} [weights]|of|{TABLE} [entrepreneurs]|in|descend [descending]|order|of|{COLUMN} [money requested]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Weight FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T1.Money_Requested DESC"
+    },
+    {
+        "original_nl": "Return the weights of entrepreneurs, ordered descending by amount of money requested.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [weights]|of|{TABLE} [entrepreneurs]|order [ordered]|descend [descending]|by|sum [amount]|of|{COLUMN} [money requested]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "order",
+            "descend",
+            "by",
+            "sum",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Weight FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T1.Money_Requested DESC"
+    },
+    {
+        "original_nl": "What are the investors of entrepreneurs and the corresponding number of entrepreneurs invested by each investor?",
+        "generalized_nl": "What|are|the|{COLUMN} [investors]|of|{TABLE} [entrepreneurs]|and|the|match [corresponding]|number|of|{TABLE} [entrepreneurs]|invest [invested]|by|each|{COLUMN} [investor]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{TABLE}",
+            "invest",
+            "by",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Investor ,  COUNT(*) FROM entrepreneur GROUP BY Investor"
+    },
+    {
+        "original_nl": "How many entrepreneurs correspond to each investor?",
+        "generalized_nl": "How|many|{TABLE} [entrepreneurs]|match [correspond]|to|each|{COLUMN} [investor]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "match",
+            "to",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Investor ,  COUNT(*) FROM entrepreneur GROUP BY Investor"
+    },
+    {
+        "original_nl": "What is the investor that has invested in the most number of entrepreneurs?",
+        "generalized_nl": "What|is|the|{COLUMN} [investor]|that|has|invest [invested]|in|the|most|number|of|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "that",
+            "has",
+            "invest",
+            "in",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Investor FROM entrepreneur GROUP BY Investor ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Return the investor who have invested in the greatest number of entrepreneurs.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [investor]|who|have|invest [invested]|in|the|great [greatest]|number|of|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "invest",
+            "in",
+            "the",
+            "great",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Investor FROM entrepreneur GROUP BY Investor ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the investors that have invested in at least two entrepreneurs?",
+        "generalized_nl": "What|are|the|{COLUMN} [investors]|that|have|invest [invested]|in|{NUMBER} [at least two]|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "invest",
+            "in",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Investor FROM entrepreneur GROUP BY Investor HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Return the investors who have invested in two or more entrepreneurs.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [investors]|who|have|invest [invested]|in|{NUMBER} [two]|or|more|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "invest",
+            "in",
+            "{NUMBER}",
+            "or",
+            "more",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Investor FROM entrepreneur GROUP BY Investor HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "List the names of entrepreneurs and their companies in descending order of money requested?",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [entrepreneurs]|and|their|{COLUMN} [companies]|in|descend [descending]|order|of|{COLUMN} [money requested]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "their",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.Company FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T1.Money_Requested"
+    },
+    {
+        "original_nl": "What are the names of entrepreneurs and their corresponding investors, ordered descending by the amount of money requested?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [entrepreneurs]|and|their|match [corresponding]|{COLUMN} [investors]|order [ordered]|descend [descending]|by|the|sum [amount]|of|{COLUMN} [money requested]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "their",
+            "match",
+            "{COLUMN}",
+            "order",
+            "descend",
+            "by",
+            "the",
+            "sum",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name ,  T1.Company FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T1.Money_Requested"
+    },
+    {
+        "original_nl": "List the names of people that are not entrepreneurs.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [people]|that|are|not|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM people WHERE People_ID NOT IN (SELECT People_ID FROM entrepreneur)"
+    },
+    {
+        "original_nl": "What are the names of people who are not entrepreneurs?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [people]|who|are|not|{TABLE} [entrepreneurs]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "not",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM people WHERE People_ID NOT IN (SELECT People_ID FROM entrepreneur)"
+    },
+    {
+        "original_nl": "Show the investors shared by entrepreneurs that requested more than 140000 and entrepreneurs that requested less than 120000.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [investors]|share [shared]|by|{TABLE} [entrepreneurs]|that|{COLUMN_PART} [requested]|{NUMBER} [more than 140000]|and|{TABLE} [entrepreneurs]|that|{COLUMN_PART} [requested]|{NUMBER} [less than 120000]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "{TABLE}",
+            "that",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "and",
+            "{TABLE}",
+            "that",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Investor FROM entrepreneur WHERE Money_Requested  >  140000 INTERSECT SELECT Investor FROM entrepreneur WHERE Money_Requested  <  120000"
+    },
+    {
+        "original_nl": "What are the investors who have invested in both entrepreneurs who requested more than 140000 and entrepreneurs who requested less than 120000?",
+        "generalized_nl": "What|are|the|{COLUMN} [investors]|who|have|invest [invested]|in|both|{TABLE} [entrepreneurs]|who|{COLUMN_PART} [requested]|{NUMBER} [more than 140000]|and|{TABLE} [entrepreneurs]|who|{COLUMN_PART} [requested]|{NUMBER} [less than 120000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "who",
+            "have",
+            "invest",
+            "in",
+            "both",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "and",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Investor FROM entrepreneur WHERE Money_Requested  >  140000 INTERSECT SELECT Investor FROM entrepreneur WHERE Money_Requested  <  120000"
+    },
+    {
+        "original_nl": "How many distinct companies are there?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [companies]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT Company) FROM entrepreneur"
+    },
+    {
+        "original_nl": "Count the number of different companies.",
+        "generalized_nl": "count [Count]|the|number|of|different|{COLUMN} [companies]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT Company) FROM entrepreneur"
+    },
+    {
+        "original_nl": "Show the company of the tallest entrepreneur.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [company]|of|the|tall [tallest]|{TABLE} [entrepreneur]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "tall",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Company FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T2.Height DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which company was started by the entrepreneur with the greatest height?",
+        "generalized_nl": "Which|{COLUMN} [company]|was|start [started]|by|the|{TABLE} [entrepreneur]|with|the|great [greatest]|{COLUMN} [height]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "was",
+            "start",
+            "by",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "great",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Company FROM entrepreneur AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T2.Height DESC LIMIT 1"
+    }
+]

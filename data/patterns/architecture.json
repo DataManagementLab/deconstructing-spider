@@ -1,0 +1,354 @@
+[
+    {
+        "original_nl": "How many architects are female?",
+        "generalized_nl": "How|many|{TABLE} [architects]|are|{VALUE} [female]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) FROM architect WHERE gender  =  'female'"
+    },
+    {
+        "original_nl": "List the name, nationality and id of all male architects ordered by their names lexicographically.",
+        "generalized_nl": "list [List]|the|{COLUMN} [name]|{COLUMN} [nationality]|and|{COLUMN} [id]|of|all|{VALUE} [male]|{TABLE} [architects]|order [ordered]|by|their|{COLUMN} [names]|lexicographically",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{VALUE}",
+            "{TABLE}",
+            "order",
+            "by",
+            "their",
+            "{COLUMN}",
+            "lexicographically"
+        ],
+        "original_sql": "SELECT name ,  nationality ,  id FROM architect WHERE gender  =  'male' ORDER BY name"
+    },
+    {
+        "original_nl": "What is the maximum length in meters for the bridges and what are the architects' names?",
+        "generalized_nl": "What|is|the|maximal [maximum]|{COLUMN_PART} [length]|in|{COLUMN_PART} [meters]|for|the|{TABLE} [bridges]|and|what|are|the|{TABLE} [architects]|'|{COLUMN} [names]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "{COLUMN_PART}",
+            "in",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "and",
+            "what",
+            "are",
+            "the",
+            "{TABLE}",
+            "'",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(T1.length_meters) ,  T2.name FROM bridge AS T1 JOIN architect AS T2 ON T1.architect_id  =  T2.id"
+    },
+    {
+        "original_nl": "What is the average length in feet of the bridges?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [length]|in|{COLUMN_PART} [feet]|of|the|{TABLE} [bridges]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "in",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(length_feet) FROM bridge"
+    },
+    {
+        "original_nl": "What are the names and year of construction for the mills of 'Grondzeiler' type?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN_PART} [year]|of|construction|for|the|{TABLE} [mills]|of|{VALUE} [Grondzeiler]|{COLUMN} [type]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "construction",
+            "for",
+            "the",
+            "{TABLE}",
+            "of",
+            "{VALUE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  built_year FROM mill WHERE TYPE  =  'Grondzeiler'"
+    },
+    {
+        "original_nl": "What are the distinct names and nationalities of the architects who have ever built a mill?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [names]|and|{COLUMN} [nationalities]|of|the|{TABLE} [architects]|who|have|ever|{COLUMN_PART} [built]|a|{TABLE} [mill]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "ever",
+            "{COLUMN_PART}",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name ,  T1.nationality FROM architect AS T1 JOIN mill AS t2 ON T1.id  =  T2.architect_id"
+    },
+    {
+        "original_nl": "What are the names of the mills which are not located in 'Donceel'?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [mills]|which|are|not|locate [located]|in|{VALUE} [Donceel]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "are",
+            "not",
+            "locate",
+            "in",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT name FROM mill WHERE LOCATION != 'Donceel'"
+    },
+    {
+        "original_nl": "What are the distinct types of mills that are built by American or Canadian architects?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [types]|of|{TABLE} [mills]|that|are|{COLUMN_PART} [built]|by|{VALUE} [American]|or|{VALUE} [Canadian]|{TABLE} [architects]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "{COLUMN_PART}",
+            "by",
+            "{VALUE}",
+            "or",
+            "{VALUE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.type FROM mill AS T1 JOIN architect AS t2 ON T1.architect_id  =  T2.id WHERE T2.nationality  =  'American' OR T2.nationality  =  'Canadian'"
+    },
+    {
+        "original_nl": "What are the ids and names of the architects who built at least 3 bridges ?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|and|{COLUMN} [names]|of|the|{TABLE} [architects]|who|{COLUMN_PART} [built]|{NUMBER} [at least 3]|{TABLE} [bridges]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.name FROM architect AS T1 JOIN bridge AS T2 ON T1.id  =  T2.architect_id GROUP BY T1.id HAVING count(*)  >=  3"
+    },
+    {
+        "original_nl": "What is the id, name and nationality of the architect who built most mills?",
+        "generalized_nl": "What|is|the|{COLUMN} [id]|{COLUMN} [name]|and|{COLUMN} [nationality]|of|the|{TABLE} [architect]|who|{COLUMN_PART} [built]|most|{TABLE} [mills]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.name ,  T1.nationality FROM architect AS T1 JOIN mill AS T2 ON T1.id  =  T2.architect_id GROUP BY T1.id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the ids, names and genders of the architects who built two bridges or one mill?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|{COLUMN} [names]|and|{COLUMN} [genders]|of|the|{TABLE} [architects]|who|{COLUMN_PART} [built]|{NUMBER} [two]|{TABLE} [bridges]|or|{NUMBER} [one]|{TABLE} [mill]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "{TABLE}",
+            "or",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.name ,  T1.gender FROM architect AS T1 JOIN bridge AS T2 ON T1.id  =  T2.architect_id GROUP BY T1.id HAVING count(*)  =  2 UNION SELECT T1.id ,  T1.name ,  T1.gender FROM architect AS T1 JOIN mill AS T2 ON T1.id  =  T2.architect_id GROUP BY T1.id HAVING count(*)  =  1"
+    },
+    {
+        "original_nl": "What is the location of the bridge named 'Kolob Arch' or 'Rainbow Bridge'?",
+        "generalized_nl": "What|is|the|{COLUMN} [location]|of|the|{TABLE} [bridge]|name [named]|{VALUE} [Kolob Arch]|or|{VALUE} [Rainbow Bridge]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}",
+            "or",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT LOCATION FROM bridge WHERE name  =  'Kolob Arch' OR name  =  'Rainbow Bridge'"
+    },
+    {
+        "original_nl": "Which of the mill names contains the french word 'Moulin'?",
+        "generalized_nl": "Which|of|the|{TABLE} [mill]|{COLUMN} [names]|contain [contains]|the|french|word|{NE} [Moulin]",
+        "generalized_tokens": [
+            "Which",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "french",
+            "word",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM mill WHERE name LIKE '%Moulin%'"
+    },
+    {
+        "original_nl": "What are the distinct name of the mills built by the architects who have also built a bridge longer than 80 meters?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [name]|of|the|{TABLE} [mills]|{COLUMN_PART} [built]|by|the|{TABLE} [architects]|who|have|besides [also]|{COLUMN_PART} [built]|a|{TABLE} [bridge]|{NE} [longer than 80 meters]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "by",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "besides",
+            "{COLUMN_PART}",
+            "a",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name FROM mill AS T1 JOIN architect AS t2 ON T1.architect_id  =  T2.id JOIN bridge AS T3 ON T3.architect_id  =  T2.id WHERE T3.length_meters  >  80"
+    },
+    {
+        "original_nl": "What is the most common mill type, and how many are there?",
+        "generalized_nl": "What|is|the|most|common|{TABLE} [mill]|{COLUMN} [type]|and|how|many|are|there",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "most",
+            "common",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "how",
+            "many",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT TYPE ,  count(*) FROM mill GROUP BY TYPE ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many architects haven't built a mill before year 1850?",
+        "generalized_nl": "How|many|{TABLE} [architects]|have|n't|{COLUMN_PART} [built]|a|{TABLE} [mill]|before|{COLUMN_PART} [year]|{VALUE} [1850]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "n't",
+            "{COLUMN_PART}",
+            "a",
+            "{TABLE}",
+            "before",
+            "{COLUMN_PART}",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT count(*) FROM architect WHERE id NOT IN ( SELECT architect_id FROM mill WHERE built_year  <  1850 );"
+    },
+    {
+        "original_nl": "show the name of all bridges that was designed by american archtect, and sort the result by the bridge feet length.",
+        "generalized_nl": "show|the|{COLUMN} [name]|of|all|{TABLE} [bridges]|that|was|design [designed]|by|american|archtect|and|screen [sort]|the|consequence [result]|by|the|{TABLE} [bridge]|{COLUMN_PART} [feet]|{COLUMN_PART} [length]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "was",
+            "design",
+            "by",
+            "american",
+            "archtect",
+            "and",
+            "screen",
+            "the",
+            "consequence",
+            "by",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT t1.name FROM bridge AS t1 JOIN architect AS t2 ON t1.architect_id  =  t2.id WHERE t2.nationality  =  'American' ORDER BY t1.length_feet"
+    }
+]

@@ -1,0 +1,3185 @@
+[
+    {
+        "original_nl": "Find the number of professors in accounting department.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [professors]|in|accounting|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "accounting",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM professor AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code WHERE DEPT_NAME  =  \"Accounting\""
+    },
+    {
+        "original_nl": "How many professors are in the accounting dept?",
+        "generalized_nl": "How|many|{TABLE} [professors]|are|in|the|accounting|dept",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "the",
+            "accounting",
+            "dept"
+        ],
+        "original_sql": "SELECT count(*) FROM professor AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code WHERE DEPT_NAME  =  \"Accounting\""
+    },
+    {
+        "original_nl": "How many professors are teaching class with code ACCT-211?",
+        "generalized_nl": "How|many|{TABLE} [professors]|are|teach [teaching]|{TABLE} [class]|with|{COLUMN_PART} [code]|{NE} [ACCT - 211]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "teach",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT PROF_NUM) FROM CLASS WHERE CRS_CODE  =  \"ACCT-211\""
+    },
+    {
+        "original_nl": "How many professors teach a class with the code ACCT-211?",
+        "generalized_nl": "How|many|{TABLE} [professors]|teach|a|{TABLE} [class]|with|the|{COLUMN_PART} [code]|ACCT|{NUMBER} [211]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "teach",
+            "a",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "ACCT",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(DISTINCT PROF_NUM) FROM CLASS WHERE CRS_CODE  =  \"ACCT-211\""
+    },
+    {
+        "original_nl": "What is the first and last name of the professor in biology department?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|the|{TABLE} [professor]|in|biology|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "biology",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.EMP_FNAME ,  T3.EMP_LNAME FROM professor AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code JOIN employee AS T3 ON T1.EMP_NUM  =  T3.EMP_NUM WHERE DEPT_NAME  =  \"Biology\""
+    },
+    {
+        "original_nl": "What are the first and last name of all biology professors?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|all|biology|{TABLE} [professors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "biology",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.EMP_FNAME ,  T3.EMP_LNAME FROM professor AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code JOIN employee AS T3 ON T1.EMP_NUM  =  T3.EMP_NUM WHERE DEPT_NAME  =  \"Biology\""
+    },
+    {
+        "original_nl": "What are the first names and date of birth of professors teaching course ACCT-211?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|{COLUMN_PART} [date]|of|{COLUMN_PART} [birth]|of|{TABLE} [professors]|teach [teaching]|{TABLE} [course]|ACCT|{NUMBER} [211]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "teach",
+            "{TABLE}",
+            "ACCT",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.EMP_FNAME ,  T1.EMP_DOB FROM employee AS T1 JOIN CLASS AS T2 ON T1.EMP_NUM  =  T2.PROF_NUM WHERE CRS_CODE  =  \"ACCT-211\""
+    },
+    {
+        "original_nl": "What are the first names and birthdates of the professors in charge of ACCT-211?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|birthdates|of|the|{TABLE} [professors]|in|charge|of|{NE} [ACCT - 211]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "birthdates",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "charge",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.EMP_FNAME ,  T1.EMP_DOB FROM employee AS T1 JOIN CLASS AS T2 ON T1.EMP_NUM  =  T2.PROF_NUM WHERE CRS_CODE  =  \"ACCT-211\""
+    },
+    {
+        "original_nl": "How many classes are professor whose last name is Graztevski has?",
+        "generalized_nl": "How|many|{TABLE} [classes]|are|{TABLE} [professor]|whose|{COLUMN_PART} [last]|{COLUMN_PART} [name]|is|{NE} [Graztevski]|have [has]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM employee AS T1 JOIN CLASS AS T2 ON T1.EMP_NUM  =  T2.PROF_NUM WHERE T1.EMP_LNAME  =  'Graztevski'"
+    },
+    {
+        "original_nl": "How many classes does the professor whose last name is Graztevski teach?",
+        "generalized_nl": "How|many|{TABLE} [classes]|does|the|{TABLE} [professor]|whose|{COLUMN_PART} [last]|{COLUMN_PART} [name]|is|{NE} [Graztevski]|teach",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "{NE}",
+            "teach"
+        ],
+        "original_sql": "SELECT count(*) FROM employee AS T1 JOIN CLASS AS T2 ON T1.EMP_NUM  =  T2.PROF_NUM WHERE T1.EMP_LNAME  =  'Graztevski'"
+    },
+    {
+        "original_nl": "What is the code of the school where the accounting department belongs to?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [code]|of|the|{COLUMN_PART} [school]|where|the|accounting|{TABLE} [department]|belong [belongs]|to",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "where",
+            "the",
+            "accounting",
+            "{TABLE}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT school_code FROM department WHERE dept_name  =  \"Accounting\""
+    },
+    {
+        "original_nl": "What is the school code of the accounting department?",
+        "generalized_nl": "What|is|the|{COLUMN} [school code]|of|the|accounting|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "accounting",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT school_code FROM department WHERE dept_name  =  \"Accounting\""
+    },
+    {
+        "original_nl": "How many credits does course CIS-220 have, and what its description?",
+        "generalized_nl": "How|many|{COLUMN_PART} [credits]|does|{TABLE} [course]|{NE} [CIS - 220]|have|and|what|it|s|{COLUMN_PART} [description]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "does",
+            "{TABLE}",
+            "{NE}",
+            "have",
+            "and",
+            "what",
+            "it",
+            "s",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT crs_credit ,  crs_description FROM course WHERE crs_code  =  'CIS-220'"
+    },
+    {
+        "original_nl": "What is the description for the CIS-220 and how many credits does it have?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [description]|for|{NE} [the CIS - 220]|and|how|many|{COLUMN_PART} [credits]|does|it|have",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "{NE}",
+            "and",
+            "how",
+            "many",
+            "{COLUMN_PART}",
+            "does",
+            "it",
+            "have"
+        ],
+        "original_sql": "SELECT crs_credit ,  crs_description FROM course WHERE crs_code  =  'CIS-220'"
+    },
+    {
+        "original_nl": "what is the address of history department?",
+        "generalized_nl": "what|is|the|{COLUMN_PART} [address]|of|history|{TABLE} [department]",
+        "generalized_tokens": [
+            "what",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "history",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT dept_address FROM department WHERE dept_name  =  'History'"
+    },
+    {
+        "original_nl": "Where is the history department?",
+        "generalized_nl": "Where|is|the|history|{TABLE} [department]",
+        "generalized_tokens": [
+            "Where",
+            "is",
+            "the",
+            "history",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT dept_address FROM department WHERE dept_name  =  'History'"
+    },
+    {
+        "original_nl": "How many different locations does the school with code BUS has?",
+        "generalized_nl": "How|many|different|location [locations]|does|the|{COLUMN_PART} [school]|with|{COLUMN_PART} [code]|bus [BUS]|have [has]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "location",
+            "does",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "{COLUMN_PART}",
+            "bus",
+            "have"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_address) FROM department WHERE school_code  =  'BUS'"
+    },
+    {
+        "original_nl": "What are the different locations of the school with the code BUS?",
+        "generalized_nl": "What|are|the|different|location [locations]|of|the|{COLUMN_PART} [school]|with|the|{COLUMN_PART} [code]|bus [BUS]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "location",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "bus"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_address) FROM department WHERE school_code  =  'BUS'"
+    },
+    {
+        "original_nl": "How many different locations does each school have?",
+        "generalized_nl": "How|many|different|location [locations]|does|each|{COLUMN_PART} [school]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "location",
+            "does",
+            "each",
+            "{COLUMN_PART}",
+            "have"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_address) ,  school_code FROM department GROUP BY school_code"
+    },
+    {
+        "original_nl": "Count different addresses of each school.",
+        "generalized_nl": "count [Count]|different|{COLUMN_PART} [addresses]|of|each|{COLUMN_PART} [school]",
+        "generalized_tokens": [
+            "count",
+            "different",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_address) ,  school_code FROM department GROUP BY school_code"
+    },
+    {
+        "original_nl": "Find the description and credit for the course QM-261?",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [description]|and|{COLUMN_PART} [credit]|for|the|{TABLE} [course]|QM|-|{NUMBER} [261]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "QM",
+            "-",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT crs_credit ,  crs_description FROM course WHERE crs_code  =  'QM-261'"
+    },
+    {
+        "original_nl": "What is the course description and number of credits for QM-261?",
+        "generalized_nl": "What|is|the|{COLUMN} [course description]|and|{COLUMN_PART} [number]|of|{COLUMN_PART} [credits]|for|{NE} [QM - 261]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "for",
+            "{NE}"
+        ],
+        "original_sql": "SELECT crs_credit ,  crs_description FROM course WHERE crs_code  =  'QM-261'"
+    },
+    {
+        "original_nl": "Find the number of departments in each school.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [departments]|in|each|{COLUMN_PART} [school]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_name) ,  school_code FROM department GROUP BY school_code"
+    },
+    {
+        "original_nl": "How many departments are in each school?",
+        "generalized_nl": "How|many|{TABLE} [departments]|are|in|each|{COLUMN_PART} [school]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_name) ,  school_code FROM department GROUP BY school_code"
+    },
+    {
+        "original_nl": "Find the number of different departments in each school whose number of different departments is less than 5.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|different|{TABLE} [departments]|in|each|{COLUMN_PART} [school]|whose|{COLUMN_PART} [number]|of|different|{TABLE} [departments]|is|{NUMBER} [less than 5]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "different",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN_PART}",
+            "whose",
+            "{COLUMN_PART}",
+            "of",
+            "different",
+            "{TABLE}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_name) ,  school_code FROM department GROUP BY school_code HAVING count(DISTINCT dept_name)  <  5"
+    },
+    {
+        "original_nl": "How many different departments are there in each school that has less than 5 apartments?",
+        "generalized_nl": "How|many|different|{TABLE} [departments]|are|there|in|each|{COLUMN_PART} [school]|that|have [has]|{NUMBER} [less than 5]|apartment [apartments]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "each",
+            "{COLUMN_PART}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "apartment"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_name) ,  school_code FROM department GROUP BY school_code HAVING count(DISTINCT dept_name)  <  5"
+    },
+    {
+        "original_nl": "How many sections does each course has?",
+        "generalized_nl": "How|many|{COLUMN_PART} [sections]|does|each|{TABLE} [course]|have [has]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "does",
+            "each",
+            "{TABLE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) ,  crs_code FROM CLASS GROUP BY crs_code"
+    },
+    {
+        "original_nl": "How many sections does each course have?",
+        "generalized_nl": "How|many|{COLUMN_PART} [sections]|does|each|{TABLE} [course]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "does",
+            "each",
+            "{TABLE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) ,  crs_code FROM CLASS GROUP BY crs_code"
+    },
+    {
+        "original_nl": "What is the total credit does each department offer?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [credit]|does|each|{TABLE} [department]|offer",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "does",
+            "each",
+            "{TABLE}",
+            "offer"
+        ],
+        "original_sql": "SELECT sum(crs_credit) ,  dept_code FROM course GROUP BY dept_code"
+    },
+    {
+        "original_nl": "How many credits does the department offer?",
+        "generalized_nl": "How|many|{COLUMN_PART} [credits]|does|the|{TABLE} [department]|offer",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "does",
+            "the",
+            "{TABLE}",
+            "offer"
+        ],
+        "original_sql": "SELECT sum(crs_credit) ,  dept_code FROM course GROUP BY dept_code"
+    },
+    {
+        "original_nl": "Find the number of classes offered for all class rooms that held at least 2 classes.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [classes]|offer [offered]|for|all|{COLUMN} [class rooms]|that|hold [held]|{NUMBER} [at least 2]|{TABLE} [classes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "offer",
+            "for",
+            "all",
+            "{COLUMN}",
+            "that",
+            "hold",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  class_room FROM CLASS GROUP BY class_room HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "For each classroom with at least 2 classes, how many classes are offered?",
+        "generalized_nl": "For|each|classroom|with|{NUMBER} [at least 2]|{TABLE} [classes]|how|many|{TABLE} [classes]|are|offer [offered]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "classroom",
+            "with",
+            "{NUMBER}",
+            "{TABLE}",
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "offer"
+        ],
+        "original_sql": "SELECT count(*) ,  class_room FROM CLASS GROUP BY class_room HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Find the number of classes in each department.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [classes]|in|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  dept_code FROM CLASS AS T1 JOIN course AS T2 ON T1.crs_code  =  T2.crs_code GROUP BY dept_code"
+    },
+    {
+        "original_nl": "How many classes are held in each department?",
+        "generalized_nl": "How|many|{TABLE} [classes]|are|hold [held]|in|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "hold",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  dept_code FROM CLASS AS T1 JOIN course AS T2 ON T1.crs_code  =  T2.crs_code GROUP BY dept_code"
+    },
+    {
+        "original_nl": "Find the number of classes in each school.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [classes]|in|each|{COLUMN_PART} [school]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) ,  T3.school_code FROM CLASS AS T1 JOIN course AS T2 ON T1.crs_code  =  T2.crs_code JOIN department AS T3 ON T2.dept_code  =  T3.dept_code GROUP BY T3.school_code"
+    },
+    {
+        "original_nl": "How many classes exist for each school?",
+        "generalized_nl": "How|many|{TABLE} [classes]|exist|for|each|{COLUMN_PART} [school]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "exist",
+            "for",
+            "each",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) ,  T3.school_code FROM CLASS AS T1 JOIN course AS T2 ON T1.crs_code  =  T2.crs_code JOIN department AS T3 ON T2.dept_code  =  T3.dept_code GROUP BY T3.school_code"
+    },
+    {
+        "original_nl": "What is the number of professors for different school?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [number]|of|{TABLE} [professors]|for|different|{COLUMN_PART} [school]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "different",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.school_code FROM department AS T1 JOIN professor AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.school_code"
+    },
+    {
+        "original_nl": "How many different professors are there for the different schools?",
+        "generalized_nl": "How|many|different|{TABLE} [professors]|are|there|for|the|different|school [schools]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "are",
+            "there",
+            "for",
+            "the",
+            "different",
+            "school"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.school_code FROM department AS T1 JOIN professor AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.school_code"
+    },
+    {
+        "original_nl": "Find the count and code of the job has most employees.",
+        "generalized_nl": "find [Find]|the|count|and|{COLUMN_PART} [code]|of|the|{COLUMN_PART} [job]|have [has]|most|{TABLE} [employees]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "count",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "have",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT emp_jobcode ,  count(*) FROM employee GROUP BY emp_jobcode ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the count and code of the job with the most employee?",
+        "generalized_nl": "What|is|the|count|and|{COLUMN_PART} [code]|of|the|{COLUMN_PART} [job]|with|the|most|{TABLE} [employee]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "count",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT emp_jobcode ,  count(*) FROM employee GROUP BY emp_jobcode ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which school has the smallest amount of professors?",
+        "generalized_nl": "Which|{COLUMN_PART} [school]|have [has]|the|small [smallest]|sum [amount]|of|{TABLE} [professors]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "have",
+            "the",
+            "small",
+            "sum",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.school_code FROM department AS T1 JOIN professor AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.school_code ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "Which school has the fewest professors?",
+        "generalized_nl": "Which|{COLUMN_PART} [school]|have [has]|the|fewest|{TABLE} [professors]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN_PART}",
+            "have",
+            "the",
+            "fewest",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.school_code FROM department AS T1 JOIN professor AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.school_code ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "Find the number of professors with a Ph.D. degree in each department.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [professors]|with|a|{NE} [Ph.D.]|{COLUMN_PART} [degree]|in|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "a",
+            "{NE}",
+            "{COLUMN_PART}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  dept_code FROM professor WHERE prof_high_degree  =  'Ph.D.' GROUP BY dept_code"
+    },
+    {
+        "original_nl": "How many professors have a Ph.D. in each department?",
+        "generalized_nl": "How|many|{TABLE} [professors]|have|a|{NE} [Ph.D.]|in|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "a",
+            "{NE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  dept_code FROM professor WHERE prof_high_degree  =  'Ph.D.' GROUP BY dept_code"
+    },
+    {
+        "original_nl": "Find the number of students for each department.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [students]|for|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  dept_code FROM student GROUP BY dept_code"
+    },
+    {
+        "original_nl": "How many students are in each department?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|in|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  dept_code FROM student GROUP BY dept_code"
+    },
+    {
+        "original_nl": "Find the total number of hours have done for all students in each department.",
+        "generalized_nl": "find [Find]|{NE} [the total number of hours]|have|do [done]|for|all|{TABLE} [students]|in|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "{NE}",
+            "have",
+            "do",
+            "for",
+            "all",
+            "{TABLE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(stu_hrs) ,  dept_code FROM student GROUP BY dept_code"
+    },
+    {
+        "original_nl": "How many hours do the students spend studying in each department?",
+        "generalized_nl": "How|many|{COLUMN_PART} [hours]|do|the|{TABLE} [students]|spend|study [studying]|in|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "do",
+            "the",
+            "{TABLE}",
+            "spend",
+            "study",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(stu_hrs) ,  dept_code FROM student GROUP BY dept_code"
+    },
+    {
+        "original_nl": "Find the max, average, and minimum gpa of all students in each department.",
+        "generalized_nl": "find [Find]|the|max|average|and|minimal [minimum]|{COLUMN_PART} [gpa]|of|all|{TABLE} [students]|in|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "max",
+            "average",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(stu_gpa) ,  avg(stu_gpa) ,  min(stu_gpa) ,  dept_code FROM student GROUP BY dept_code"
+    },
+    {
+        "original_nl": "What is the highest, lowest, and average student GPA for every department?",
+        "generalized_nl": "What|is|the|high [highest]|low [lowest]|and|average|{COLUMN} [student GPA]|for|every|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "high",
+            "low",
+            "and",
+            "average",
+            "{COLUMN}",
+            "for",
+            "every",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(stu_gpa) ,  avg(stu_gpa) ,  min(stu_gpa) ,  dept_code FROM student GROUP BY dept_code"
+    },
+    {
+        "original_nl": "What is the name and the average gpa of department whose students have the highest average gpa?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|and|the|average|{COLUMN_PART} [gpa]|of|{TABLE} [department]|whose|{TABLE} [students]|have|the|high [highest]|average|{COLUMN_PART} [gpa]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{TABLE}",
+            "have",
+            "the",
+            "high",
+            "average",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.dept_name ,  avg(T1.stu_gpa) FROM student AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.dept_code ORDER BY avg(T1.stu_gpa) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which department has the highest average student GPA, and what is the average gpa?",
+        "generalized_nl": "Which|{TABLE} [department]|have [has]|the|high [highest]|average|{COLUMN} [student GPA]|and|what|is|the|average|{COLUMN_PART} [gpa]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "have",
+            "the",
+            "high",
+            "average",
+            "{COLUMN}",
+            "and",
+            "what",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.dept_name ,  avg(T1.stu_gpa) FROM student AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.dept_code ORDER BY avg(T1.stu_gpa) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "how many schools exist in total?",
+        "generalized_nl": "how|many|school [schools]|exist|in|entire [total]",
+        "generalized_tokens": [
+            "how",
+            "many",
+            "school",
+            "exist",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(DISTINCT school_code) FROM department"
+    },
+    {
+        "original_nl": "How many schools are there in the department?",
+        "generalized_nl": "How|many|school [schools]|are|there|in|the|{TABLE} [department]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "school",
+            "are",
+            "there",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT school_code) FROM department"
+    },
+    {
+        "original_nl": "How many different classes are there?",
+        "generalized_nl": "How|many|different|{TABLE} [classes]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT class_code) FROM CLASS"
+    },
+    {
+        "original_nl": "How many unique classes are offered?",
+        "generalized_nl": "How|many|unique|{TABLE} [classes]|are|offer [offered]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "unique",
+            "{TABLE}",
+            "are",
+            "offer"
+        ],
+        "original_sql": "SELECT count(DISTINCT class_code) FROM CLASS"
+    },
+    {
+        "original_nl": "How many courses are offered?",
+        "generalized_nl": "How|many|{TABLE} [courses]|are|offer [offered]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "offer"
+        ],
+        "original_sql": "SELECT count(DISTINCT crs_code) FROM CLASS"
+    },
+    {
+        "original_nl": "What are the number of different course codes?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [number]|of|different|{COLUMN} [course codes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT crs_code) FROM CLASS"
+    },
+    {
+        "original_nl": "How many departments does the college has?",
+        "generalized_nl": "How|many|{TABLE} [departments]|does|the|college|have [has]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "the",
+            "college",
+            "have"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_name) FROM department"
+    },
+    {
+        "original_nl": "How many different departments are there?",
+        "generalized_nl": "How|many|different|{TABLE} [departments]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_name) FROM department"
+    },
+    {
+        "original_nl": "How many courses does the department of Computer Information Systmes offer?",
+        "generalized_nl": "How|many|{TABLE} [courses]|does|the|{TABLE} [department]|of|{NE} [Computer Information Systmes]|offer",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "the",
+            "{TABLE}",
+            "of",
+            "{NE}",
+            "offer"
+        ],
+        "original_sql": "SELECT count(*) FROM department AS T1 JOIN course AS T2 ON T1.dept_code  =  T2.dept_code WHERE dept_name  =  \"Computer Info. Systems\""
+    },
+    {
+        "original_nl": "How many sections does course ACCT-211 has?",
+        "generalized_nl": "How|many|{COLUMN_PART} [sections]|does|{TABLE} [course]|{NE} [ACCT - 211]|have [has]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "does",
+            "{TABLE}",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(DISTINCT class_section) FROM CLASS WHERE crs_code  =  'ACCT-211'"
+    },
+    {
+        "original_nl": "What is the number of different class sections offered in the course ACCT-211?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [number]|of|different|{COLUMN} [class sections]|offer [offered]|in|the|{TABLE} [course]|ACCT|{NUMBER} [211]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "different",
+            "{COLUMN}",
+            "offer",
+            "in",
+            "the",
+            "{TABLE}",
+            "ACCT",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(DISTINCT class_section) FROM CLASS WHERE crs_code  =  'ACCT-211'"
+    },
+    {
+        "original_nl": "Find the total credits of all classes offered by each department.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN_PART} [credits]|of|all|{TABLE} [classes]|offer [offered]|by|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "offer",
+            "by",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(T1.crs_credit) ,  T1.dept_code FROM course AS T1 JOIN CLASS AS T2 ON T1.crs_code  =  T2.crs_code GROUP BY T1.dept_code"
+    },
+    {
+        "original_nl": "What are the total number of credits offered by each department?",
+        "generalized_nl": "What|are|the|entire [total]|{COLUMN_PART} [number]|of|{COLUMN_PART} [credits]|offer [offered]|by|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "offer",
+            "by",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(T1.crs_credit) ,  T1.dept_code FROM course AS T1 JOIN CLASS AS T2 ON T1.crs_code  =  T2.crs_code GROUP BY T1.dept_code"
+    },
+    {
+        "original_nl": "Find the name of the department that offers the largest number of credits of all classes.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|that|offer [offers]|the|large [largest]|{COLUMN_PART} [number]|of|{COLUMN_PART} [credits]|of|all|{TABLE} [classes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "offer",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.dept_name FROM course AS T1 JOIN CLASS AS T2 ON T1.crs_code  =  T2.crs_code JOIN department AS T3 ON T1.dept_code  =  T3.dept_code GROUP BY T1.dept_code ORDER BY sum(T1.crs_credit) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which department offers the most credits all together?",
+        "generalized_nl": "Which|{TABLE} [department]|offer [offers]|the|most|{COLUMN_PART} [credits]|wholly [all]|together",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "offer",
+            "the",
+            "most",
+            "{COLUMN_PART}",
+            "wholly",
+            "together"
+        ],
+        "original_sql": "SELECT T3.dept_name FROM course AS T1 JOIN CLASS AS T2 ON T1.crs_code  =  T2.crs_code JOIN department AS T3 ON T1.dept_code  =  T3.dept_code GROUP BY T1.dept_code ORDER BY sum(T1.crs_credit) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many students enrolled in class ACCT-211?",
+        "generalized_nl": "How|many|{TABLE} [students]|enroll [enrolled]|in|{TABLE} [class]|ACCT|-|{NUMBER} [211]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "enroll",
+            "in",
+            "{TABLE}",
+            "ACCT",
+            "-",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code WHERE T1.crs_code  =  'ACCT-211'"
+    },
+    {
+        "original_nl": "What are the total number of students enrolled in ACCT-211?",
+        "generalized_nl": "What|are|the|entire [total]|{COLUMN_PART} [number]|of|{TABLE} [students]|enroll [enrolled]|in|{NE} [ACCT - 211]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "enroll",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code WHERE T1.crs_code  =  'ACCT-211'"
+    },
+    {
+        "original_nl": "What is the first name of each student enrolled in class ACCT-211?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|of|each|{TABLE} [student]|enroll [enrolled]|in|{TABLE} [class]|ACCT|{NUMBER} [211]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "enroll",
+            "in",
+            "{TABLE}",
+            "ACCT",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T3.stu_fname FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN student AS T3 ON T2.stu_num  =  T3.stu_num WHERE T1.crs_code  =  'ACCT-211'"
+    },
+    {
+        "original_nl": "What are the first names of all students in course ACCT-211?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|{TABLE} [students]|in|{TABLE} [course]|ACCT|{NUMBER} [211]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "{TABLE}",
+            "ACCT",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T3.stu_fname FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN student AS T3 ON T2.stu_num  =  T3.stu_num WHERE T1.crs_code  =  'ACCT-211'"
+    },
+    {
+        "original_nl": "What is the first name of students enrolled in class ACCT-211 and got grade C?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|of|{TABLE} [students]|enroll [enrolled]|in|{TABLE} [class]|{NE} [ACCT - 211]|and|get [got]|{COLUMN_PART} [grade]|c [C]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "enroll",
+            "in",
+            "{TABLE}",
+            "{NE}",
+            "and",
+            "get",
+            "{COLUMN_PART}",
+            "c"
+        ],
+        "original_sql": "SELECT T3.stu_fname FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN student AS T3 ON T2.stu_num  =  T3.stu_num WHERE T1.crs_code  =  'ACCT-211' AND T2.enroll_grade  =  'C'"
+    },
+    {
+        "original_nl": "What are the first names of all students who took ACCT-211 and received a C?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|{TABLE} [students]|who|{COLUMN_PART} [took]|{NE} [ACCT - 211]|and|receive [received]|a|c [C]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "{NE}",
+            "and",
+            "receive",
+            "a",
+            "c"
+        ],
+        "original_sql": "SELECT T3.stu_fname FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN student AS T3 ON T2.stu_num  =  T3.stu_num WHERE T1.crs_code  =  'ACCT-211' AND T2.enroll_grade  =  'C'"
+    },
+    {
+        "original_nl": "Find the total number of employees.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN_PART} [number]|of|{TABLE} [employees]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM employee"
+    },
+    {
+        "original_nl": "How many employees are there all together?",
+        "generalized_nl": "How|many|{TABLE} [employees]|are|there|all|together",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "all",
+            "together"
+        ],
+        "original_sql": "SELECT count(*) FROM employee"
+    },
+    {
+        "original_nl": "How many professors do have a Ph.D. degree?",
+        "generalized_nl": "How|many|{TABLE} [professors]|do|have|a|{NE} [Ph.D.]|{COLUMN_PART} [degree]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "do",
+            "have",
+            "a",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM professor WHERE prof_high_degree  =  'Ph.D.'"
+    },
+    {
+        "original_nl": "What is the total number of professors with a Ph.D. ?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN_PART} [number]|of|{TABLE} [professors]|with|a|{NE} [Ph.D.]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "a",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM professor WHERE prof_high_degree  =  'Ph.D.'"
+    },
+    {
+        "original_nl": "How many students are enrolled in the class taught by some professor from the accounting department?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|enroll [enrolled]|in|the|{TABLE} [class]|teach [taught]|by|some|{TABLE} [professor]|from|the|accounting|{TABLE} [department]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "enroll",
+            "in",
+            "the",
+            "{TABLE}",
+            "teach",
+            "by",
+            "some",
+            "{TABLE}",
+            "from",
+            "the",
+            "accounting",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN course AS T3 ON T1.crs_code  =  T3.crs_code JOIN department AS T4 ON T3.dept_code  =  T4.dept_code WHERE T4.dept_name  =  'Accounting'"
+    },
+    {
+        "original_nl": "How many students are enrolled in some classes that are taught by an accounting professor?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|enroll [enrolled]|in|some|{TABLE} [classes]|that|are|teach [taught]|by|an|accounting|{TABLE} [professor]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "enroll",
+            "in",
+            "some",
+            "{TABLE}",
+            "that",
+            "are",
+            "teach",
+            "by",
+            "an",
+            "accounting",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN course AS T3 ON T1.crs_code  =  T3.crs_code JOIN department AS T4 ON T3.dept_code  =  T4.dept_code WHERE T4.dept_name  =  'Accounting'"
+    },
+    {
+        "original_nl": "What is the name of the department that has the largest number of students enrolled?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|that|have [has]|the|large [largest]|{COLUMN_PART} [number]|of|{TABLE} [students]|enroll [enrolled]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "enroll"
+        ],
+        "original_sql": "SELECT T4.dept_name FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN course AS T3 ON T1.crs_code  =  T3.crs_code JOIN department AS T4 ON T3.dept_code  =  T4.dept_code GROUP BY T3.dept_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the department with the most students enrolled?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|with|the|most|{TABLE} [students]|enroll [enrolled]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}",
+            "enroll"
+        ],
+        "original_sql": "SELECT T4.dept_name FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN course AS T3 ON T1.crs_code  =  T3.crs_code JOIN department AS T4 ON T3.dept_code  =  T4.dept_code GROUP BY T3.dept_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "list names of all departments ordered by their names.",
+        "generalized_nl": "list|{COLUMN_PART} [names]|of|all|{TABLE} [departments]|order [ordered]|by|their|{COLUMN_PART} [names]",
+        "generalized_tokens": [
+            "list",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "order",
+            "by",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT dept_name FROM department ORDER BY dept_name"
+    },
+    {
+        "original_nl": "What are the names of all departments in alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|{TABLE} [departments]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT dept_name FROM department ORDER BY dept_name"
+    },
+    {
+        "original_nl": "List the codes of all courses that take place in room KLR209.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [codes]|of|all|{TABLE} [courses]|that|take|place|in|{COLUMN_PART} [room]|KLR209",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "take",
+            "place",
+            "in",
+            "{COLUMN_PART}",
+            "KLR209"
+        ],
+        "original_sql": "SELECT class_code FROM CLASS WHERE class_room  =  'KLR209'"
+    },
+    {
+        "original_nl": "What are the codes of all the courses that are located in room KLR209?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [codes]|of|all|the|{TABLE} [courses]|that|are|locate [located]|in|{COLUMN_PART} [room]|KLR209",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "locate",
+            "in",
+            "{COLUMN_PART}",
+            "KLR209"
+        ],
+        "original_sql": "SELECT class_code FROM CLASS WHERE class_room  =  'KLR209'"
+    },
+    {
+        "original_nl": "List the first name of all employees with job code PROF ordered by their date of birth.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|of|all|{TABLE} [employees]|with|{COLUMN_PART} [job]|{COLUMN_PART} [code]|{NE} [PROF]|order [ordered]|by|their|{COLUMN_PART} [date]|of|{COLUMN_PART} [birth]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NE}",
+            "order",
+            "by",
+            "their",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT emp_fname FROM employee WHERE emp_jobcode  =  'PROF' ORDER BY emp_dob"
+    },
+    {
+        "original_nl": "What are the first names of all employees that are professors ordered by date of birth?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|{TABLE} [employees]|that|are|{TABLE} [professors]|order [ordered]|by|{COLUMN_PART} [date]|of|{COLUMN_PART} [birth]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "are",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT emp_fname FROM employee WHERE emp_jobcode  =  'PROF' ORDER BY emp_dob"
+    },
+    {
+        "original_nl": "Find the first names and offices of all professors sorted by alphabetical order of their first name.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|{COLUMN_PART} [offices]|of|all|{TABLE} [professors]|screen [sorted]|by|alphabetic [alphabetical]|order|of|their|{COLUMN_PART} [first]|{COLUMN_PART} [name]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "screen",
+            "by",
+            "alphabetic",
+            "order",
+            "of",
+            "their",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T1.prof_office FROM professor AS T1 JOIN employee AS T2 ON T1.emp_num  =  T2.emp_num ORDER BY T2.emp_fname"
+    },
+    {
+        "original_nl": "What are the first names and office locations for all professors sorted alphabetically by first name?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|{COLUMN_PART} [office]|location [locations]|for|all|{TABLE} [professors]|screen [sorted]|alphabetically|by|{COLUMN_PART} [first]|{COLUMN_PART} [name]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "location",
+            "for",
+            "all",
+            "{TABLE}",
+            "screen",
+            "alphabetically",
+            "by",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T1.prof_office FROM professor AS T1 JOIN employee AS T2 ON T1.emp_num  =  T2.emp_num ORDER BY T2.emp_fname"
+    },
+    {
+        "original_nl": "What is the first and last name of the oldest employee?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|the|old [oldest]|{TABLE} [employee]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "old",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT emp_fname ,  emp_lname FROM employee ORDER BY emp_dob LIMIT 1"
+    },
+    {
+        "original_nl": "What are the first and last names of the employee with the earliest date of birth?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN_PART} [last]|{COLUMN_PART} [names]|of|the|{TABLE} [employee]|with|the|early [earliest]|{COLUMN_PART} [date]|of|{COLUMN_PART} [birth]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "early",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT emp_fname ,  emp_lname FROM employee ORDER BY emp_dob LIMIT 1"
+    },
+    {
+        "original_nl": "What is the first, last name, gpa of the youngest one among students whose GPA is above 3?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|{COLUMN_PART} [last]|{COLUMN_PART} [name]|{COLUMN_PART} [gpa]|of|the|young [youngest]|one|among|{TABLE} [students]|whose|{COLUMN_PART} [GPA]|is|above|{NUMBER} [3]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "young",
+            "one",
+            "among",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT stu_fname ,  stu_lname ,  stu_gpa FROM student WHERE stu_gpa  >  3 ORDER BY stu_dob DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the first and last name of the youngest student with a GPA above 3, and what is their GPA?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|and|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|the|young [youngest]|{TABLE} [student]|with|a|{COLUMN_PART} [GPA]|above|{NUMBER} [3]|and|what|is|their|{COLUMN_PART} [GPA]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "young",
+            "{TABLE}",
+            "with",
+            "a",
+            "{COLUMN_PART}",
+            "above",
+            "{NUMBER}",
+            "and",
+            "what",
+            "is",
+            "their",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT stu_fname ,  stu_lname ,  stu_gpa FROM student WHERE stu_gpa  >  3 ORDER BY stu_dob DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the first name of students who got grade C in any class?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|of|{TABLE} [students]|who|get [got]|{COLUMN_PART} [grade]|c [C]|in|any|{TABLE} [class]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "get",
+            "{COLUMN_PART}",
+            "c",
+            "in",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT stu_fname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num WHERE enroll_grade  =  'C'"
+    },
+    {
+        "original_nl": "What are the first names of all students who got a grade C in a class?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|{TABLE} [students]|who|get [got]|a|{COLUMN_PART} [grade]|c [C]|in|a|{TABLE} [class]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "get",
+            "a",
+            "{COLUMN_PART}",
+            "c",
+            "in",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT stu_fname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num WHERE enroll_grade  =  'C'"
+    },
+    {
+        "original_nl": "What is the name of department where has the smallest number of professors?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|{TABLE} [department]|where|have [has]|the|small [smallest]|{COLUMN_PART} [number]|of|{TABLE} [professors]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "where",
+            "have",
+            "the",
+            "small",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.dept_name FROM professor AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.dept_code ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the department with the fewest professors?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|with|the|fewest|{TABLE} [professors]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "fewest",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.dept_name FROM professor AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.dept_code ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of department where has the largest number of professors with a Ph.D. degree?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|{TABLE} [department]|where|have [has]|the|large [largest]|{COLUMN_PART} [number]|of|{TABLE} [professors]|with|a|{NE} [Ph.D.]|{COLUMN_PART} [degree]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "where",
+            "have",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "with",
+            "a",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.dept_name ,  T1.dept_code FROM professor AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code WHERE T1.prof_high_degree  =  'Ph.D.' GROUP BY T1.dept_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which department has the most professors with a Ph.D.?",
+        "generalized_nl": "Which|{TABLE} [department]|have [has]|the|most|{TABLE} [professors]|with|a",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "have",
+            "the",
+            "most",
+            "{TABLE}",
+            "with",
+            "a"
+        ],
+        "original_sql": "SELECT T2.dept_name ,  T1.dept_code FROM professor AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code WHERE T1.prof_high_degree  =  'Ph.D.' GROUP BY T1.dept_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the first names of the professors who do not teach a class.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|the|{TABLE} [professors]|who|do|not|teach|a|{TABLE} [class]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "teach",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT emp_fname FROM employee WHERE emp_jobcode  =  'PROF' EXCEPT SELECT T1.emp_fname FROM employee AS T1 JOIN CLASS AS T2 ON T1.emp_num  =  T2.prof_num"
+    },
+    {
+        "original_nl": "What are the first names of all professors not teaching any classes?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|{TABLE} [professors]|not|teach [teaching]|any|{TABLE} [classes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "not",
+            "teach",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT emp_fname FROM employee WHERE emp_jobcode  =  'PROF' EXCEPT SELECT T1.emp_fname FROM employee AS T1 JOIN CLASS AS T2 ON T1.emp_num  =  T2.prof_num"
+    },
+    {
+        "original_nl": "What is the first names of the professors from the history department who do not teach a class.",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|the|{TABLE} [professors]|from|the|history|{TABLE} [department]|who|do|not|teach|a|{TABLE} [class]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "from",
+            "the",
+            "history",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "teach",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.emp_fname FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T2.dept_code  =  T3.dept_code WHERE T3.dept_name  =  'History' EXCEPT SELECT T4.emp_fname FROM employee AS T4 JOIN CLASS AS T5 ON T4.emp_num  =  T5.prof_num"
+    },
+    {
+        "original_nl": "What are the first names of all history professors who do not teach?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|history|{TABLE} [professors]|who|do|not|teach",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "history",
+            "{TABLE}",
+            "who",
+            "do",
+            "not",
+            "teach"
+        ],
+        "original_sql": "SELECT T1.emp_fname FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T2.dept_code  =  T3.dept_code WHERE T3.dept_name  =  'History' EXCEPT SELECT T4.emp_fname FROM employee AS T4 JOIN CLASS AS T5 ON T4.emp_num  =  T5.prof_num"
+    },
+    {
+        "original_nl": "What is the last name and office of the professor from the history department?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|and|{COLUMN_PART} [office]|of|the|{TABLE} [professor]|from|the|history|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "from",
+            "the",
+            "history",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.emp_lname ,  T2.prof_office FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T2.dept_code  =  T3.dept_code WHERE T3.dept_name  =  'History'"
+    },
+    {
+        "original_nl": "What are the last name and office of all history professors?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|and|{COLUMN_PART} [office]|of|all|history|{TABLE} [professors]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "history",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.emp_lname ,  T2.prof_office FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T2.dept_code  =  T3.dept_code WHERE T3.dept_name  =  'History'"
+    },
+    {
+        "original_nl": "What is department name and office for the professor whose last name is Heffington?",
+        "generalized_nl": "What|is|{COLUMN} [department name]|and|{COLUMN_PART} [office]|for|the|{TABLE} [professor]|whose|{COLUMN_PART} [last]|{COLUMN_PART} [name]|is|{NE} [Heffington]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T3.dept_name  ,  T2.prof_office FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T2.dept_code  =  T3.dept_code WHERE T1.emp_lname  =  'Heffington'"
+    },
+    {
+        "original_nl": "What is the name of the department and office location for the professor with the last name of Heffington?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|and|{COLUMN_PART} [office]|location|for|the|{TABLE} [professor]|with|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|{NE} [Heffington]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "and",
+            "{COLUMN_PART}",
+            "location",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T3.dept_name  ,  T2.prof_office FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T2.dept_code  =  T3.dept_code WHERE T1.emp_lname  =  'Heffington'"
+    },
+    {
+        "original_nl": "Find the last name and hire date of the professor who is in office DRE 102.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|and|{COLUMN_PART} [hire]|{COLUMN_PART} [date]|of|the|{TABLE} [professor]|who|is|in|{COLUMN_PART} [office]|DRE|{NUMBER} [102]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "is",
+            "in",
+            "{COLUMN_PART}",
+            "DRE",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.emp_lname ,  T1.emp_hiredate FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num WHERE T2.prof_office  =  'DRE 102'"
+    },
+    {
+        "original_nl": "What is the last name of the professor whose office is located in DRE 102, and when were they hired?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|the|{TABLE} [professor]|whose|{COLUMN_PART} [office]|is|locate [located]|in|{NE} [DRE 102]|and|when|were|they|hire [hired]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "locate",
+            "in",
+            "{NE}",
+            "and",
+            "when",
+            "were",
+            "they",
+            "hire"
+        ],
+        "original_sql": "SELECT T1.emp_lname ,  T1.emp_hiredate FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num WHERE T2.prof_office  =  'DRE 102'"
+    },
+    {
+        "original_nl": "What is the code of the course which the student whose last name is Smithson took?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [code]|of|the|{TABLE} [course]|which|the|{TABLE} [student]|whose|{COLUMN_PART} [last]|{COLUMN_PART} [name]|is|{NE} [Smithson]|{COLUMN_PART} [took]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.crs_code FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN student AS T3 ON T3.stu_num  =  T2.stu_num WHERE T3.stu_lname  =  'Smithson'"
+    },
+    {
+        "original_nl": "What are the course codes for every class that the student with the last name Smithson took?",
+        "generalized_nl": "What|are|the|{COLUMN} [course codes]|for|every|{TABLE} [class]|that|the|{TABLE} [student]|with|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|{NE} [Smithson]|{COLUMN_PART} [took]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "every",
+            "{TABLE}",
+            "that",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.crs_code FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN student AS T3 ON T3.stu_num  =  T2.stu_num WHERE T3.stu_lname  =  'Smithson'"
+    },
+    {
+        "original_nl": "What are the description and credit of the course which the student whose last name is Smithson took?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [description]|and|{COLUMN_PART} [credit]|of|the|{TABLE} [course]|which|the|{TABLE} [student]|whose|{COLUMN_PART} [last]|{COLUMN_PART} [name]|is|{NE} [Smithson]|{COLUMN_PART} [took]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T4.crs_description ,  T4.crs_credit FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN student AS T3 ON T3.stu_num  =  T2.stu_num JOIN course AS T4 ON T4.crs_code  =  T1.crs_code WHERE T3.stu_lname  =  'Smithson'"
+    },
+    {
+        "original_nl": "How many credits is the course that the student with the last name Smithson took, and what is its description?",
+        "generalized_nl": "How|many|{COLUMN_PART} [credits]|is|the|{TABLE} [course]|that|the|{TABLE} [student]|with|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|{NE} [Smithson]|{COLUMN_PART} [took]|and|what|is|its|{COLUMN_PART} [description]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN_PART}",
+            "is",
+            "the",
+            "{TABLE}",
+            "that",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{NE}",
+            "{COLUMN_PART}",
+            "and",
+            "what",
+            "is",
+            "its",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T4.crs_description ,  T4.crs_credit FROM CLASS AS T1 JOIN enroll AS T2 ON T1.class_code  =  T2.class_code JOIN student AS T3 ON T3.stu_num  =  T2.stu_num JOIN course AS T4 ON T4.crs_code  =  T1.crs_code WHERE T3.stu_lname  =  'Smithson'"
+    },
+    {
+        "original_nl": "How many professors who has a either Ph.D. or MA degree?",
+        "generalized_nl": "How|many|{TABLE} [professors]|who|have [has]|a|either|{NE} [Ph.D.]|or|{NE} [MA]|{COLUMN_PART} [degree]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "who",
+            "have",
+            "a",
+            "either",
+            "{NE}",
+            "or",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM professor WHERE prof_high_degree  =  'Ph.D.' OR prof_high_degree  =  'MA'"
+    },
+    {
+        "original_nl": "How many professors attained either Ph.D. or Masters degrees?",
+        "generalized_nl": "How|many|{TABLE} [professors]|reach [attained]|either|{NE} [Ph.D.]|or|{NE} [Masters]|{COLUMN_PART} [degrees]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "reach",
+            "either",
+            "{NE}",
+            "or",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT count(*) FROM professor WHERE prof_high_degree  =  'Ph.D.' OR prof_high_degree  =  'MA'"
+    },
+    {
+        "original_nl": "How many professors who are from either Accounting or Biology department?",
+        "generalized_nl": "How|many|{TABLE} [professors]|who|are|from|either|{NE} [Accounting]|or|{NE} [Biology]|{TABLE} [department]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "who",
+            "are",
+            "from",
+            "either",
+            "{NE}",
+            "or",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM professor AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code WHERE T2.dept_name  =  'Accounting' OR T2.dept_name  =  'Biology'"
+    },
+    {
+        "original_nl": "What is the number of professors who are in the Accounting or Biology departments?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [number]|of|{TABLE} [professors]|who|are|in|the|accounting [Accounting]|or|{NE} [Biology]|{TABLE} [departments]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "in",
+            "the",
+            "accounting",
+            "or",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM professor AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code WHERE T2.dept_name  =  'Accounting' OR T2.dept_name  =  'Biology'"
+    },
+    {
+        "original_nl": "Find the first name of the professor who is teaching two courses with code CIS-220 and QM-261.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|of|the|{TABLE} [professor]|who|is|teach [teaching]|{NUMBER} [two]|{TABLE} [courses]|with|{COLUMN_PART} [code]|commonwealth_of_independent_states [CIS]|{NUMBER} [220]|and|{NE} [QM - 261]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "is",
+            "teach",
+            "{NUMBER}",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "commonwealth_of_independent_states",
+            "{NUMBER}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.emp_fname FROM employee AS T1 JOIN CLASS AS T2 ON T1.emp_num  =  T2.prof_num WHERE crs_code  =  'CIS-220' INTERSECT SELECT T1.emp_fname FROM employee AS T1 JOIN CLASS AS T2 ON T1.emp_num  =  T2.prof_num WHERE crs_code  =  'QM-261'"
+    },
+    {
+        "original_nl": "What is the first name of the professor who is teaching CIS-220 and QM-261?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|of|the|{TABLE} [professor]|who|is|teach [teaching]|CIS|{NUMBER} [220]|and|{NE} [QM - 261]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "is",
+            "teach",
+            "CIS",
+            "{NUMBER}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.emp_fname FROM employee AS T1 JOIN CLASS AS T2 ON T1.emp_num  =  T2.prof_num WHERE crs_code  =  'CIS-220' INTERSECT SELECT T1.emp_fname FROM employee AS T1 JOIN CLASS AS T2 ON T1.emp_num  =  T2.prof_num WHERE crs_code  =  'QM-261'"
+    },
+    {
+        "original_nl": "What are the first names of all students taking accoutning and Computer Information Systems classes?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|{TABLE} [students]|take [taking]|accoutning|and|{NE} [Computer Information Systems]|{TABLE} [classes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "take",
+            "accoutning",
+            "and",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.stu_fname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num JOIN CLASS AS T3 ON T2.class_code  =  T3.class_code JOIN course AS T4 ON T3.crs_code  =  T4.crs_code JOIN department AS T5 ON T5.dept_code  =  T4.dept_code WHERE T5.dept_name  =  'Accounting' INTERSECT SELECT T1.stu_fname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num JOIN CLASS AS T3 ON T2.class_code  =  T3.class_code JOIN course AS T4 ON T3.crs_code  =  T4.crs_code JOIN department AS T5 ON T5.dept_code  =  T4.dept_code WHERE T5.dept_name  =  'Computer Info. Systems'"
+    },
+    {
+        "original_nl": "What is the average gpa of the students enrolled in the course with code ACCT-211?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [gpa]|of|the|{TABLE} [students]|enroll [enrolled]|in|the|{TABLE} [course]|with|{COLUMN_PART} [code]|{NE} [ACCT - 211]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "enroll",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(T2.stu_gpa) FROM enroll AS T1 JOIN student AS T2 ON T1.stu_num  =  T2.stu_num JOIN CLASS AS T3 ON T1.class_code  =  T3.class_code WHERE T3.crs_code  =  'ACCT-211'"
+    },
+    {
+        "original_nl": "What is the average GPA of students taking ACCT-211?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [GPA]|of|{TABLE} [students]|take [taking]|ACCT|-|{NUMBER} [211]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "take",
+            "ACCT",
+            "-",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT avg(T2.stu_gpa) FROM enroll AS T1 JOIN student AS T2 ON T1.stu_num  =  T2.stu_num JOIN CLASS AS T3 ON T1.class_code  =  T3.class_code WHERE T3.crs_code  =  'ACCT-211'"
+    },
+    {
+        "original_nl": "What is the first name, gpa and phone number of the top 5 students with highest gpa?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|{COLUMN_PART} [gpa]|and|{COLUMN_PART} [phone]|{COLUMN_PART} [number]|of|the|top|{NUMBER} [5]|{TABLE} [students]|with|high [highest]|{COLUMN_PART} [gpa]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "top",
+            "{NUMBER}",
+            "{TABLE}",
+            "with",
+            "high",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT stu_gpa ,  stu_phone ,  stu_fname FROM student ORDER BY stu_gpa DESC LIMIT 5"
+    },
+    {
+        "original_nl": "What is the first name, GPA, and phone number of the students with the top 5 GPAs?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|{COLUMN_PART} [GPA]|and|{COLUMN_PART} [phone]|{COLUMN_PART} [number]|of|the|{TABLE} [students]|with|the|top|{NUMBER} [5]|{COLUMN_PART} [GPAs]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "top",
+            "{NUMBER}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT stu_gpa ,  stu_phone ,  stu_fname FROM student ORDER BY stu_gpa DESC LIMIT 5"
+    },
+    {
+        "original_nl": "What is the department name of the students with lowest gpa belongs to?",
+        "generalized_nl": "What|is|the|{COLUMN} [department name]|of|the|{TABLE} [students]|with|low [lowest]|{COLUMN_PART} [gpa]|belong [belongs]|to",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "low",
+            "{COLUMN_PART}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T2.dept_name FROM student AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code ORDER BY stu_gpa LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the department with the student that has the lowest GPA?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|with|the|{TABLE} [student]|that|have [has]|the|low [lowest]|{COLUMN_PART} [GPA]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "low",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.dept_name FROM student AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code ORDER BY stu_gpa LIMIT 1"
+    },
+    {
+        "original_nl": "Find the first name and gpa of the students whose gpa is lower than the average gpa of all students.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|and|{COLUMN_PART} [gpa]|of|the|{TABLE} [students]|whose|{COLUMN_PART} [gpa]|is|low [lower]|than|the|average|{COLUMN_PART} [gpa]|of|all|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "low",
+            "than",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT stu_fname ,  stu_gpa FROM student WHERE stu_gpa  <  (SELECT avg(stu_gpa) FROM student)"
+    },
+    {
+        "original_nl": "What is the first name and GPA of every student that has a GPA lower than average?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|and|{COLUMN_PART} [GPA]|of|every|{TABLE} [student]|that|have [has]|a|{COLUMN_PART} [GPA]|low [lower]|than|average",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "every",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN_PART}",
+            "low",
+            "than",
+            "average"
+        ],
+        "original_sql": "SELECT stu_fname ,  stu_gpa FROM student WHERE stu_gpa  <  (SELECT avg(stu_gpa) FROM student)"
+    },
+    {
+        "original_nl": "Find the name and address of the department that has the highest number of students.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [address]|of|the|{TABLE} [department]|that|have [has]|the|high [highest]|{COLUMN_PART} [number]|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "high",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.dept_name ,  T2.dept_address FROM student AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.dept_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name and address of the department with the most students?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|and|{COLUMN_PART} [address]|of|the|{TABLE} [department]|with|the|most|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.dept_name ,  T2.dept_address FROM student AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.dept_code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name, address, number of students in the departments that have the top 3 highest number of students.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|{COLUMN_PART} [address]|{COLUMN_PART} [number]|of|{TABLE} [students]|in|the|{TABLE} [departments]|that|have|the|top|{NUMBER} [3]|high [highest]|{COLUMN_PART} [number]|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "top",
+            "{NUMBER}",
+            "high",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.dept_name ,  T2.dept_address ,  count(*) FROM student AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.dept_code ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What is the name, address, and number of students in the departments that have the 3 most students?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|{COLUMN_PART} [address]|and|{COLUMN_PART} [number]|of|{TABLE} [students]|in|the|{TABLE} [departments]|that|have|the|{NUMBER} [3]|most|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "{NUMBER}",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.dept_name ,  T2.dept_address ,  count(*) FROM student AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code GROUP BY T1.dept_code ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Find the first name and office of the professor who is in the history department and has a Ph.D. degree.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|and|{COLUMN_PART} [office]|of|the|{TABLE} [professor]|who|is|in|the|history|{TABLE} [department]|and|have [has]|a|{NE} [Ph.D.]|{COLUMN_PART} [degree]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "is",
+            "in",
+            "the",
+            "history",
+            "{TABLE}",
+            "and",
+            "have",
+            "a",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.emp_fname ,  T2.prof_office FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T3.dept_code  =  T2.dept_code WHERE T3.dept_name  =  'History' AND T2.prof_high_degree  =  'Ph.D.'"
+    },
+    {
+        "original_nl": "What are the first names and office of the professors who are in the history department and have a Ph.D?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|{COLUMN_PART} [office]|of|the|{TABLE} [professors]|who|are|in|the|history|{TABLE} [department]|and|have|a|{NE} [Ph.D]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "in",
+            "the",
+            "history",
+            "{TABLE}",
+            "and",
+            "have",
+            "a",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.emp_fname ,  T2.prof_office FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T3.dept_code  =  T2.dept_code WHERE T3.dept_name  =  'History' AND T2.prof_high_degree  =  'Ph.D.'"
+    },
+    {
+        "original_nl": "Find the first names of all instructors who have taught some course and the course code.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|teacher [instructors]|who|have|teach [taught]|some|{TABLE} [course]|and|the|{COLUMN} [course code]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "teacher",
+            "who",
+            "have",
+            "teach",
+            "some",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T1.crs_code FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num"
+    },
+    {
+        "original_nl": "What are the first names of all teachers who have taught a course and the corresponding course codes?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|teacher [teachers]|who|have|teach [taught]|a|{TABLE} [course]|and|the|match [corresponding]|{COLUMN} [course codes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "teacher",
+            "who",
+            "have",
+            "teach",
+            "a",
+            "{TABLE}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T1.crs_code FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num"
+    },
+    {
+        "original_nl": "Find the first names of all instructors who have taught some course and the course description.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|teacher [instructors]|who|have|teach [taught]|some|{TABLE} [course]|and|the|{COLUMN} [course description]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "teacher",
+            "who",
+            "have",
+            "teach",
+            "some",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T3.crs_description FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num JOIN course AS T3 ON T1.crs_code  =  T3.crs_code"
+    },
+    {
+        "original_nl": "What are the first names of all teachers who have taught a course and the corresponding descriptions?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|teacher [teachers]|who|have|teach [taught]|a|{TABLE} [course]|and|the|match [corresponding]|{COLUMN_PART} [descriptions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "teacher",
+            "who",
+            "have",
+            "teach",
+            "a",
+            "{TABLE}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T3.crs_description FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num JOIN course AS T3 ON T1.crs_code  =  T3.crs_code"
+    },
+    {
+        "original_nl": "Find the first names and offices of all instructors who have taught some course and also find the course description.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|{COLUMN_PART} [offices]|of|all|teacher [instructors]|who|have|teach [taught]|some|{TABLE} [course]|and|besides [also]|find|the|{COLUMN} [course description]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "teacher",
+            "who",
+            "have",
+            "teach",
+            "some",
+            "{TABLE}",
+            "and",
+            "besides",
+            "find",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T4.prof_office ,  T3.crs_description FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num JOIN course AS T3 ON T1.crs_code  =  T3.crs_code JOIN professor AS T4 ON T2.emp_num  =  T4.emp_num"
+    },
+    {
+        "original_nl": "What are the first names, office locations of all lecturers who have taught some course?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|{COLUMN_PART} [office]|location [locations]|of|all|lector [lecturers]|who|have|teach [taught]|some|{TABLE} [course]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "location",
+            "of",
+            "all",
+            "lector",
+            "who",
+            "have",
+            "teach",
+            "some",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T4.prof_office ,  T3.crs_description FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num JOIN course AS T3 ON T1.crs_code  =  T3.crs_code JOIN professor AS T4 ON T2.emp_num  =  T4.emp_num"
+    },
+    {
+        "original_nl": "Find the first names and offices of all instructors who have taught some course and the course description and the department name.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|{COLUMN_PART} [offices]|of|all|teacher [instructors]|who|have|teach [taught]|some|{TABLE} [course]|and|the|{COLUMN} [course description]|and|the|{COLUMN} [department name]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "teacher",
+            "who",
+            "have",
+            "teach",
+            "some",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T4.prof_office ,  T3.crs_description ,  T5.dept_name FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num JOIN course AS T3 ON T1.crs_code  =  T3.crs_code JOIN professor AS T4 ON T2.emp_num  =  T4.emp_num JOIN department AS T5 ON T4.dept_code  =  T5.dept_code"
+    },
+    {
+        "original_nl": "What are the first names, office locations, and departments of all instructors, and also what are the descriptions of the courses they teach?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|{COLUMN_PART} [office]|location [locations]|and|{TABLE} [departments]|of|all|teacher [instructors]|and|besides [also]|what|are|the|{COLUMN_PART} [descriptions]|of|the|{TABLE} [courses]|they|teach",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "location",
+            "and",
+            "{TABLE}",
+            "of",
+            "all",
+            "teacher",
+            "and",
+            "besides",
+            "what",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "they",
+            "teach"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T4.prof_office ,  T3.crs_description ,  T5.dept_name FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num JOIN course AS T3 ON T1.crs_code  =  T3.crs_code JOIN professor AS T4 ON T2.emp_num  =  T4.emp_num JOIN department AS T5 ON T4.dept_code  =  T5.dept_code"
+    },
+    {
+        "original_nl": "Find names of all students who took some course and the course description.",
+        "generalized_nl": "find [Find]|{COLUMN_PART} [names]|of|all|{TABLE} [students]|who|{COLUMN_PART} [took]|some|{TABLE} [course]|and|the|{COLUMN} [course description]",
+        "generalized_tokens": [
+            "find",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "some",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.stu_fname ,  T1.stu_lname ,  T4.crs_description FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num JOIN CLASS AS T3 ON T2.class_code  =  T3.class_code JOIN course AS T4 ON T3.crs_code  =  T4.crs_code"
+    },
+    {
+        "original_nl": "What are the names of all students who took a class and the corresponding course descriptions?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|{TABLE} [students]|who|{COLUMN_PART} [took]|a|{TABLE} [class]|and|the|match [corresponding]|{COLUMN} [course descriptions]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "a",
+            "{TABLE}",
+            "and",
+            "the",
+            "match",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.stu_fname ,  T1.stu_lname ,  T4.crs_description FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num JOIN CLASS AS T3 ON T2.class_code  =  T3.class_code JOIN course AS T4 ON T3.crs_code  =  T4.crs_code"
+    },
+    {
+        "original_nl": "Find names of all students who took some course and got A or C.",
+        "generalized_nl": "find [Find]|{COLUMN_PART} [names]|of|all|{TABLE} [students]|who|{COLUMN_PART} [took]|some|{TABLE} [course]|and|get [got]|A|or|C.",
+        "generalized_tokens": [
+            "find",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "some",
+            "{TABLE}",
+            "and",
+            "get",
+            "A",
+            "or",
+            "C."
+        ],
+        "original_sql": "SELECT T1.stu_fname ,  T1.stu_lname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num WHERE T2.enroll_grade  =  'C' OR T2.enroll_grade  =  'A'"
+    },
+    {
+        "original_nl": "What are the names of all students taking a course who received an A or C?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|all|{TABLE} [students]|take [taking]|a|{TABLE} [course]|who|receive [received]|an|a [A]|or|c [C]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "take",
+            "a",
+            "{TABLE}",
+            "who",
+            "receive",
+            "an",
+            "a",
+            "or",
+            "c"
+        ],
+        "original_sql": "SELECT T1.stu_fname ,  T1.stu_lname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num WHERE T2.enroll_grade  =  'C' OR T2.enroll_grade  =  'A'"
+    },
+    {
+        "original_nl": "Find the first names of all professors in the Accounting department who is teaching some course and the class room.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|{TABLE} [professors]|in|the|{NE} [Accounting]|{TABLE} [department]|who|is|teach [teaching]|some|{TABLE} [course]|and|the|{COLUMN} [class room]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}",
+            "who",
+            "is",
+            "teach",
+            "some",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T1.class_room FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num JOIN professor AS T3 ON T2.emp_num  =  T3.emp_num JOIN department AS T4 ON T4.dept_code  =  T3.dept_code WHERE T4.dept_name  =  'Accounting'"
+    },
+    {
+        "original_nl": "What are the first names of all Accounting professors who teach and what are the classrooms of the courses they teach?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|accounting [Accounting]|{TABLE} [professors]|who|teach|and|what|are|the|classroom [classrooms]|of|the|{TABLE} [courses]|they|teach",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "accounting",
+            "{TABLE}",
+            "who",
+            "teach",
+            "and",
+            "what",
+            "are",
+            "the",
+            "classroom",
+            "of",
+            "the",
+            "{TABLE}",
+            "they",
+            "teach"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T1.class_room FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num JOIN professor AS T3 ON T2.emp_num  =  T3.emp_num JOIN department AS T4 ON T4.dept_code  =  T3.dept_code WHERE T4.dept_name  =  'Accounting'"
+    },
+    {
+        "original_nl": "What are the different first names and highest degree attained for professors teaching in the Computer Information Systems department?",
+        "generalized_nl": "What|are|the|different|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|high [highest]|{COLUMN_PART} [degree]|reach [attained]|for|{TABLE} [professors]|teach [teaching]|in|the|{NE} [Computer Information Systems]|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "high",
+            "{COLUMN_PART}",
+            "reach",
+            "for",
+            "{TABLE}",
+            "teach",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.emp_fname ,  T3.prof_high_degree FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num JOIN professor AS T3 ON T2.emp_num  =  T3.emp_num JOIN department AS T4 ON T4.dept_code  =  T3.dept_code WHERE T4.dept_name  =  'Computer Info. Systems'"
+    },
+    {
+        "original_nl": "What is the last name of the student who got a grade A in the class with code 10018.",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|the|{TABLE} [student]|who|get [got]|a|{COLUMN_PART} [grade]|a [A]|in|the|{TABLE} [class]|with|{COLUMN_PART} [code]|{NUMBER} [10018]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "get",
+            "a",
+            "{COLUMN_PART}",
+            "a",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.stu_lname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num WHERE T2.enroll_grade  =  'A' AND T2.class_code  =  10018"
+    },
+    {
+        "original_nl": "What is the last name of the student who received an A in the class with the code 10018?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [last]|{COLUMN_PART} [name]|of|the|{TABLE} [student]|who|receive [received]|an|a [A]|in|the|{TABLE} [class]|with|the|{COLUMN_PART} [code]|{NUMBER} [10018]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "receive",
+            "an",
+            "a",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.stu_lname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num WHERE T2.enroll_grade  =  'A' AND T2.class_code  =  10018"
+    },
+    {
+        "original_nl": "Find the first name and office of history professor who did not get a Ph.D. degree.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|and|{COLUMN_PART} [office]|of|history|{TABLE} [professor]|who|did|not|get|a|{NE} [Ph.D.]|{COLUMN_PART} [degree]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "history",
+            "{TABLE}",
+            "who",
+            "did",
+            "not",
+            "get",
+            "a",
+            "{NE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T1.prof_office FROM professor AS T1 JOIN employee AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T1.dept_code  =  T3.dept_code WHERE T3.dept_name  =  'History' AND T1.prof_high_degree != 'Ph.D.'"
+    },
+    {
+        "original_nl": "What are the first names and offices of history professors who don't have Ph.D.s?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|and|{COLUMN_PART} [offices]|of|history|{TABLE} [professors]|who|do|n't|have|ph [Ph.D.s]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "history",
+            "{TABLE}",
+            "who",
+            "do",
+            "n't",
+            "have",
+            "ph"
+        ],
+        "original_sql": "SELECT T2.emp_fname ,  T1.prof_office FROM professor AS T1 JOIN employee AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T1.dept_code  =  T3.dept_code WHERE T3.dept_name  =  'History' AND T1.prof_high_degree != 'Ph.D.'"
+    },
+    {
+        "original_nl": "Find the first names of professors who are teaching more than one class.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|{TABLE} [professors]|who|are|teach [teaching]|{NUMBER} [more than one]|{TABLE} [class]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "teach",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.emp_fname FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num GROUP BY T1.prof_num HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "What are the first names of all professors who teach more than one class?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|all|{TABLE} [professors]|who|teach|{NUMBER} [more than one]|{TABLE} [class]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "teach",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.emp_fname FROM CLASS AS T1 JOIN employee AS T2 ON T1.prof_num  =  T2.emp_num GROUP BY T1.prof_num HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the first names of students who took exactly one class.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|{TABLE} [students]|who|{COLUMN_PART} [took]|precisely [exactly]|{NUMBER} [one]|{TABLE} [class]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "{COLUMN_PART}",
+            "precisely",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.stu_fname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num GROUP BY T2.stu_num HAVING count(*)  =  1"
+    },
+    {
+        "original_nl": "What are the first names of student who only took one course?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|{COLUMN_PART} [names]|of|{TABLE} [student]|who|only|{COLUMN_PART} [took]|{NUMBER} [one]|{TABLE} [course]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "only",
+            "{COLUMN_PART}",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.stu_fname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num GROUP BY T2.stu_num HAVING count(*)  =  1"
+    },
+    {
+        "original_nl": "Find the name of department that offers the class whose description has the word \"Statistics\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|{TABLE} [department]|that|offer [offers]|the|{TABLE} [class]|whose|{COLUMN_PART} [description]|have [has]|the|word|statistics [Statistics]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "offer",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "have",
+            "the",
+            "word",
+            "statistics"
+        ],
+        "original_sql": "SELECT T2.dept_name FROM course AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code WHERE T1.crs_description LIKE '%Statistics%'"
+    },
+    {
+        "original_nl": "What is the name of the department that offers a course that has a description including the word \"Statistics\"?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [department]|that|offer [offers]|a|{TABLE} [course]|that|have [has]|a|{COLUMN_PART} [description]|include [including]|the|word|statistics [Statistics]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "offer",
+            "a",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN_PART}",
+            "include",
+            "the",
+            "word",
+            "statistics"
+        ],
+        "original_sql": "SELECT T2.dept_name FROM course AS T1 JOIN department AS T2 ON T1.dept_code  =  T2.dept_code WHERE T1.crs_description LIKE '%Statistics%'"
+    },
+    {
+        "original_nl": "What is the first name of the student whose last name starting with the letter S and is taking ACCT-211 class?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|of|the|{TABLE} [student]|whose|{COLUMN_PART} [last]|{COLUMN_PART} [name]|start [starting]|with|the|letter|S|and|is|take [taking]|ACCT|{NUMBER} [211]|{TABLE} [class]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "start",
+            "with",
+            "the",
+            "letter",
+            "S",
+            "and",
+            "is",
+            "take",
+            "ACCT",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.stu_fname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num JOIN CLASS AS T3 ON T2.class_code  =  T3.class_code WHERE T3.crs_code  =  'ACCT-211' AND T1.stu_lname LIKE 'S%'"
+    },
+    {
+        "original_nl": "What is the first name of the student whose last name starts with the letter S and is taking ACCT-211?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [first]|{COLUMN_PART} [name]|of|the|{TABLE} [student]|whose|{COLUMN_PART} [last]|{COLUMN_PART} [name]|start [starts]|with|the|letter|S|and|is|take [taking]|ACCT|{NUMBER} [211]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "start",
+            "with",
+            "the",
+            "letter",
+            "S",
+            "and",
+            "is",
+            "take",
+            "ACCT",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.stu_fname FROM student AS T1 JOIN enroll AS T2 ON T1.stu_num  =  T2.stu_num JOIN CLASS AS T3 ON T2.class_code  =  T3.class_code WHERE T3.crs_code  =  'ACCT-211' AND T1.stu_lname LIKE 'S%'"
+    }
+]

@@ -1,0 +1,749 @@
+[
+    {
+        "original_nl": "How many devices are there?",
+        "generalized_nl": "How|many|{COLUMN} [devices]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM device"
+    },
+    {
+        "original_nl": "Count the number of devices.",
+        "generalized_nl": "count [Count]|the|number|of|{COLUMN} [devices]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM device"
+    },
+    {
+        "original_nl": "List the carriers of devices in ascending alphabetical order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [carriers]|of|{COLUMN} [devices]|in|ascend [ascending]|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Carrier FROM device ORDER BY Carrier ASC"
+    },
+    {
+        "original_nl": "What are the different carriers for devices, listed in alphabetical order?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [carriers]|for|{COLUMN} [devices]|list [listed]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "{COLUMN}",
+            "list",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Carrier FROM device ORDER BY Carrier ASC"
+    },
+    {
+        "original_nl": "What are the carriers of devices whose software platforms are not \"Android\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [carriers]|of|{COLUMN} [devices]|whose|{COLUMN} [software platforms]|are|not|{VALUE} [Android]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "not",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Carrier FROM device WHERE Software_Platform != 'Android'"
+    },
+    {
+        "original_nl": "Return the device carriers that do not have Android as their software platform.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [device]|{COLUMN} [carriers]|that|do|not|have|{VALUE} [Android]|as|their|{COLUMN} [software platform]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "{VALUE}",
+            "as",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Carrier FROM device WHERE Software_Platform != 'Android'"
+    },
+    {
+        "original_nl": "What are the names of shops in ascending order of open year?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [shops]|in|ascend [ascending]|order|of|{COLUMN} [open year]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Shop_Name FROM shop ORDER BY Open_Year ASC"
+    },
+    {
+        "original_nl": "Return the names of shops, ordered by year of opening ascending.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [names]|of|{TABLE} [shops]|order [ordered]|by|{COLUMN_PART} [year]|of|open [opening]|rise [ascending]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN_PART}",
+            "of",
+            "open",
+            "rise"
+        ],
+        "original_sql": "SELECT Shop_Name FROM shop ORDER BY Open_Year ASC"
+    },
+    {
+        "original_nl": "What is the average quantity of stocks?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [quantity]|of|{TABLE} [stocks]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Quantity) FROM stock"
+    },
+    {
+        "original_nl": "Give the average quantity of stocks.",
+        "generalized_nl": "give [Give]|the|average|{COLUMN} [quantity]|of|{TABLE} [stocks]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(Quantity) FROM stock"
+    },
+    {
+        "original_nl": "What are the names and location of the shops in ascending alphabetical order of name.",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|and|{COLUMN} [location]|of|the|{TABLE} [shops]|in|ascend [ascending]|alphabetic [alphabetical]|order|of|{COLUMN_PART} [name]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "alphabetic",
+            "order",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Shop_Name ,  LOCATION FROM shop ORDER BY Shop_Name ASC"
+    },
+    {
+        "original_nl": "Return the names and locations of shops, ordered by name in alphabetical order.",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [names]|and|{COLUMN} [locations]|of|{TABLE} [shops]|order [ordered]|by|{COLUMN_PART} [name]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN_PART}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT Shop_Name ,  LOCATION FROM shop ORDER BY Shop_Name ASC"
+    },
+    {
+        "original_nl": "How many different software platforms are there for devices?",
+        "generalized_nl": "How|many|different|{COLUMN} [software platforms]|are|there|for|{COLUMN} [devices]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "are",
+            "there",
+            "for",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT Software_Platform) FROM device"
+    },
+    {
+        "original_nl": "Count the number of different software platforms.",
+        "generalized_nl": "count [Count]|the|number|of|different|{COLUMN} [software platforms]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(DISTINCT Software_Platform) FROM device"
+    },
+    {
+        "original_nl": "List the open date of open year of the shop named \"Apple\".",
+        "generalized_nl": "list [List]|{NE} [the open date of open year]|of|the|{TABLE} [shop]|name [named]|{VALUE} [Apple]",
+        "generalized_tokens": [
+            "list",
+            "{NE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Open_Date ,  Open_Year FROM shop WHERE Shop_Name  =  \"Apple\""
+    },
+    {
+        "original_nl": "What are the open dates and years for the shop named Apple?",
+        "generalized_nl": "What|are|the|{COLUMN} [open dates]|and|{COLUMN_PART} [years]|for|the|{TABLE} [shop]|name [named]|{VALUE} [Apple]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "{TABLE}",
+            "name",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT Open_Date ,  Open_Year FROM shop WHERE Shop_Name  =  \"Apple\""
+    },
+    {
+        "original_nl": "List the name of the shop with the latest open year.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|of|the|{TABLE} [shop]|with|{NE} [the latest open year]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Shop_Name FROM shop ORDER BY Open_Year DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the shop name corresponding to the shop that opened in the most recent year?",
+        "generalized_nl": "What|is|the|{COLUMN} [shop name]|match [corresponding]|to|the|{TABLE} [shop]|that|open [opened]|in|{NE} [the most recent year]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "match",
+            "to",
+            "the",
+            "{TABLE}",
+            "that",
+            "open",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Shop_Name FROM shop ORDER BY Open_Year DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show names of shops and the carriers of devices they have in stock.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [names]|of|{TABLE} [shops]|and|the|{COLUMN} [carriers]|of|{COLUMN} [devices]|they|have|in|{TABLE} [stock]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "they",
+            "have",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Shop_Name ,  T2.Carrier FROM stock AS T1 JOIN device AS T2 ON T1.Device_ID  =  T2.Device_ID JOIN shop AS T3 ON T1.Shop_ID  =  T3.Shop_ID"
+    },
+    {
+        "original_nl": "What are the names of device shops, and what are the carriers that they carry devices in stock for?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{COLUMN} [device]|{TABLE} [shops]|and|what|are|the|{COLUMN} [carriers]|that|they|carry|{COLUMN} [devices]|in|{TABLE} [stock]|for",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "{TABLE}",
+            "and",
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "they",
+            "carry",
+            "{COLUMN}",
+            "in",
+            "{TABLE}",
+            "for"
+        ],
+        "original_sql": "SELECT T3.Shop_Name ,  T2.Carrier FROM stock AS T1 JOIN device AS T2 ON T1.Device_ID  =  T2.Device_ID JOIN shop AS T3 ON T1.Shop_ID  =  T3.Shop_ID"
+    },
+    {
+        "original_nl": "Show names of shops that have more than one kind of device in stock.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [names]|of|{TABLE} [shops]|that|have|{NUMBER} [more than one]|kind|of|{COLUMN} [device]|in|{TABLE} [stock]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "kind",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Shop_Name FROM stock AS T1 JOIN shop AS T2 ON T1.Shop_ID  =  T2.Shop_ID GROUP BY T1.Shop_ID HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "What are the names of shops that have more than a single kind of device in stock?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [shops]|that|have|more|than|a|single|kind|of|{COLUMN} [device]|in|{TABLE} [stock]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "more",
+            "than",
+            "a",
+            "single",
+            "kind",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Shop_Name FROM stock AS T1 JOIN shop AS T2 ON T1.Shop_ID  =  T2.Shop_ID GROUP BY T1.Shop_ID HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "Show the name of the shop that has the most kind of devices in stock.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|of|the|{TABLE} [shop]|that|have [has]|the|most|kind|of|{COLUMN} [devices]|in|{TABLE} [stock]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "kind",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Shop_Name FROM stock AS T1 JOIN shop AS T2 ON T1.Shop_ID  =  T2.Shop_ID GROUP BY T1.Shop_ID ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the shop that has the most different kinds of devices in stock?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [shop]|that|have [has]|the|most|different|kind [kinds]|of|{COLUMN} [devices]|in|{TABLE} [stock]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "most",
+            "different",
+            "kind",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Shop_Name FROM stock AS T1 JOIN shop AS T2 ON T1.Shop_ID  =  T2.Shop_ID GROUP BY T1.Shop_ID ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the name of the shop that have the largest quantity of devices in stock.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [name]|of|the|{TABLE} [shop]|that|have|the|large [largest]|{COLUMN} [quantity]|of|{COLUMN} [devices]|in|{TABLE} [stock]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "large",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Shop_Name FROM stock AS T1 JOIN shop AS T2 ON T1.Shop_ID  =  T2.Shop_ID GROUP BY T1.Shop_ID ORDER BY SUM(T1.quantity) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the shop that has the greatest quantity of devices in stock?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [shop]|that|have [has]|the|great [greatest]|{COLUMN} [quantity]|of|{COLUMN} [devices]|in|{TABLE} [stock]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "great",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Shop_Name FROM stock AS T1 JOIN shop AS T2 ON T1.Shop_ID  =  T2.Shop_ID GROUP BY T1.Shop_ID ORDER BY SUM(T1.quantity) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Please show different software platforms and the corresponding number of devices using each.",
+        "generalized_nl": "Please|show|different|{COLUMN} [software platforms]|and|the|match [corresponding]|number|of|{COLUMN} [devices]|use [using]|each",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "different",
+            "{COLUMN}",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{COLUMN}",
+            "use",
+            "each"
+        ],
+        "original_sql": "SELECT Software_Platform ,  COUNT(*) FROM device GROUP BY Software_Platform"
+    },
+    {
+        "original_nl": "What are the different software platforms for devices, and how many devices have each?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [software platforms]|for|{COLUMN} [devices]|and|how|many|{COLUMN} [devices]|have|each",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "{COLUMN}",
+            "and",
+            "how",
+            "many",
+            "{COLUMN}",
+            "have",
+            "each"
+        ],
+        "original_sql": "SELECT Software_Platform ,  COUNT(*) FROM device GROUP BY Software_Platform"
+    },
+    {
+        "original_nl": "Please show the software platforms of devices in descending order of the count.",
+        "generalized_nl": "Please|show|the|{COLUMN} [software platforms]|of|{COLUMN} [devices]|in|descend [descending]|order|of|the|count",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "the",
+            "count"
+        ],
+        "original_sql": "SELECT Software_Platform FROM device GROUP BY Software_Platform ORDER BY COUNT(*) DESC"
+    },
+    {
+        "original_nl": "What are the different software platforms for devices, ordered by frequency descending?",
+        "generalized_nl": "What|are|the|different|{COLUMN} [software platforms]|for|{COLUMN} [devices]|order [ordered]|by|frequency|descending",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "{COLUMN}",
+            "for",
+            "{COLUMN}",
+            "order",
+            "by",
+            "frequency",
+            "descending"
+        ],
+        "original_sql": "SELECT Software_Platform FROM device GROUP BY Software_Platform ORDER BY COUNT(*) DESC"
+    },
+    {
+        "original_nl": "List the software platform shared by the greatest number of devices.",
+        "generalized_nl": "list [List]|the|{COLUMN} [software platform]|share [shared]|by|the|great [greatest]|number|of|{COLUMN} [devices]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "the",
+            "great",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Software_Platform FROM device GROUP BY Software_Platform ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the software platform that is most common amongst all devices?",
+        "generalized_nl": "What|is|the|{COLUMN} [software platform]|that|is|most|common|amongst|all|{COLUMN} [devices]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "that",
+            "is",
+            "most",
+            "common",
+            "amongst",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Software_Platform FROM device GROUP BY Software_Platform ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the names of shops that have no devices in stock.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|{TABLE} [shops]|that|have|no|{COLUMN} [devices]|in|{TABLE} [stock]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "no",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Shop_Name FROM shop WHERE Shop_ID NOT IN (SELECT Shop_ID FROM stock)"
+    },
+    {
+        "original_nl": "What are the names of shops that do not have any devices in stock?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|{TABLE} [shops]|that|do|not|have|any|{COLUMN} [devices]|in|{TABLE} [stock]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Shop_Name FROM shop WHERE Shop_ID NOT IN (SELECT Shop_ID FROM stock)"
+    },
+    {
+        "original_nl": "Show the locations shared by shops with open year later than 2012 and shops with open year before 2008.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [locations]|share [shared]|by|{TABLE} [shops]|with|{COLUMN} [open year]|subsequently [later]|than|{NUMBER} [2012]|and|{TABLE} [shops]|with|{COLUMN} [open year]|before|{NUMBER} [2008]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "share",
+            "by",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "subsequently",
+            "than",
+            "{NUMBER}",
+            "and",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "before",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT LOCATION FROM shop WHERE Open_Year  >  2012 INTERSECT SELECT LOCATION FROM shop WHERE Open_Year  <  2008"
+    },
+    {
+        "original_nl": "Which locations contains both shops that opened after the year 2012 and shops that opened before 2008?",
+        "generalized_nl": "Which|{COLUMN} [locations]|contain [contains]|both|{TABLE} [shops]|that|open [opened]|after|{NE} [the year 2012]|and|{TABLE} [shops]|that|open [opened]|before|{NE} [2008]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "contain",
+            "both",
+            "{TABLE}",
+            "that",
+            "open",
+            "after",
+            "{NE}",
+            "and",
+            "{TABLE}",
+            "that",
+            "open",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT LOCATION FROM shop WHERE Open_Year  >  2012 INTERSECT SELECT LOCATION FROM shop WHERE Open_Year  <  2008"
+    },
+    {
+        "original_nl": "List the carriers of devices that have no devices in stock.",
+        "generalized_nl": "list [List]|the|{COLUMN} [carriers]|of|{COLUMN} [devices]|that|have|no|{COLUMN} [devices]|in|{TABLE} [stock]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "have",
+            "no",
+            "{COLUMN}",
+            "in",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Carrier FROM device WHERE Device_ID NOT IN (SELECT Device_ID FROM stock)"
+    },
+    {
+        "original_nl": "What are the carriers of devices that are not in stock anywhere?",
+        "generalized_nl": "What|are|the|{COLUMN} [carriers]|of|{COLUMN} [devices]|that|are|not|in|{TABLE} [stock]|anywhere",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "are",
+            "not",
+            "in",
+            "{TABLE}",
+            "anywhere"
+        ],
+        "original_sql": "SELECT Carrier FROM device WHERE Device_ID NOT IN (SELECT Device_ID FROM stock)"
+    },
+    {
+        "original_nl": "Show the carriers of devices in stock at more than one shop.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [carriers]|of|{COLUMN} [devices]|in|{TABLE} [stock]|at|{NUMBER} [more than one]|{TABLE} [shop]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{TABLE}",
+            "at",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Carrier FROM stock AS T1 JOIN device AS T2 ON T1.Device_ID  =  T2.Device_ID GROUP BY T1.Device_ID HAVING COUNT(*)  >  1"
+    },
+    {
+        "original_nl": "What are the carriers of devices that are in stock in more than a single shop?",
+        "generalized_nl": "What|are|the|{COLUMN} [carriers]|of|{COLUMN} [devices]|that|are|in|{TABLE} [stock]|in|more|than|a|single|{TABLE} [shop]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "that",
+            "are",
+            "in",
+            "{TABLE}",
+            "in",
+            "more",
+            "than",
+            "a",
+            "single",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.Carrier FROM stock AS T1 JOIN device AS T2 ON T1.Device_ID  =  T2.Device_ID GROUP BY T1.Device_ID HAVING COUNT(*)  >  1"
+    }
+]

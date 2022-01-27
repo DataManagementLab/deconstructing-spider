@@ -1,0 +1,294 @@
+[
+    {
+        "original_nl": "How many players are there?",
+        "generalized_nl": "How|many|{TABLE} [players]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM player"
+    },
+    {
+        "original_nl": "List the names of players in ascending order of votes.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|{TABLE} [players]|in|ascend [ascending]|order|of|{COLUMN} [votes]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "ascend",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Player_name FROM player ORDER BY Votes ASC"
+    },
+    {
+        "original_nl": "What are the gender and occupation of players?",
+        "generalized_nl": "What|are|the|{COLUMN} [gender]|and|{COLUMN} [occupation]|of|{TABLE} [players]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Gender ,  Occupation FROM player"
+    },
+    {
+        "original_nl": "List the name and residence for players whose occupation is not \"Researcher\".",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|and|{COLUMN} [residence]|for|{TABLE} [players]|whose|{COLUMN} [occupation]|is|not|research_worker [Researcher]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "not",
+            "research_worker"
+        ],
+        "original_sql": "SELECT Player_name ,  residence FROM player WHERE Occupation != \"Researcher\""
+    },
+    {
+        "original_nl": "Show the names of sponsors of players whose residence is either \"Brandon\" or \"Birtle\".",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|patron [sponsors]|of|{TABLE} [players]|whose|{COLUMN} [residence]|is|either|{NE} [Brandon]|or|{NE} [Birtle]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "patron",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "either",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Sponsor_name FROM player WHERE Residence  =  \"Brandon\" OR Residence  =  \"Birtle\""
+    },
+    {
+        "original_nl": "What is the name of the player with the largest number of votes?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [player]|with|the|large [largest]|number|of|{COLUMN} [votes]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Player_name FROM player ORDER BY Votes DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different occupations along with the number of players in each occupation.",
+        "generalized_nl": "show [Show]|different|{COLUMN} [occupations]|along|with|the|number|of|{TABLE} [players]|in|each|{COLUMN} [occupation]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Occupation ,  COUNT(*) FROM player GROUP BY Occupation"
+    },
+    {
+        "original_nl": "Please show the most common occupation of players.",
+        "generalized_nl": "Please|show|the|most|common|{COLUMN} [occupation]|of|{TABLE} [players]",
+        "generalized_tokens": [
+            "Please",
+            "show",
+            "the",
+            "most",
+            "common",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Occupation FROM player GROUP BY Occupation ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the residences that have at least two players.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [residences]|that|have|{NUMBER} [at least two]|{TABLE} [players]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Residence FROM player GROUP BY Residence HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the names of players and names of their coaches.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [players]|and|{COLUMN_PART} [names]|of|their|{TABLE} [coaches]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "their",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Player_name ,  T2.coach_name FROM player_coach AS T1 JOIN coach AS T2 ON T1.Coach_ID  =  T2.Coach_ID JOIN player AS T3 ON T1.Player_ID  =  T3.Player_ID"
+    },
+    {
+        "original_nl": "Show the names of players coached by the rank 1 coach.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [players]|coach [coached]|by|the|{COLUMN} [rank]|{NUMBER} [1]|{TABLE} [coach]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "coach",
+            "by",
+            "the",
+            "{COLUMN}",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Player_name FROM player_coach AS T1 JOIN coach AS T2 ON T1.Coach_ID  =  T2.Coach_ID JOIN player AS T3 ON T1.Player_ID  =  T3.Player_ID WHERE T2.Rank  =  1"
+    },
+    {
+        "original_nl": "Show the names and genders of players with a coach starting after 2011.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|and|{COLUMN} [genders]|of|{TABLE} [players]|with|a|{TABLE} [coach]|{COLUMN_PART} [starting]|after|{VALUE} [2011]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "a",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "after",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T3.Player_name ,  T3.gender FROM player_coach AS T1 JOIN coach AS T2 ON T1.Coach_ID  =  T2.Coach_ID JOIN player AS T3 ON T1.Player_ID  =  T3.Player_ID WHERE T1.Starting_year  >  2011"
+    },
+    {
+        "original_nl": "Show the names of players and names of their coaches in descending order of the votes of players.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [names]|of|{TABLE} [players]|and|{COLUMN_PART} [names]|of|their|{TABLE} [coaches]|in|descend [descending]|order|of|the|{COLUMN} [votes]|of|{TABLE} [players]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "their",
+            "{TABLE}",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.Player_name ,  T2.coach_name FROM player_coach AS T1 JOIN coach AS T2 ON T1.Coach_ID  =  T2.Coach_ID JOIN player AS T3 ON T1.Player_ID  =  T3.Player_ID ORDER BY T3.Votes DESC"
+    },
+    {
+        "original_nl": "List the names of players that do not have coaches.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|{TABLE} [players]|that|do|not|have|{TABLE} [coaches]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Player_name FROM player WHERE Player_ID NOT IN (SELECT Player_ID FROM player_coach)"
+    },
+    {
+        "original_nl": "Show the residences that have both a player of gender \"M\" and a player of gender \"F\".",
+        "generalized_nl": "show [Show]|the|{COLUMN} [residences]|that|have|both|a|{TABLE} [player]|of|{COLUMN} [gender]|megabyte [M]|and|a|{TABLE} [player]|of|{COLUMN} [gender]|degree_fahrenheit [F]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "a",
+            "{TABLE}",
+            "of",
+            "{COLUMN}",
+            "megabyte",
+            "and",
+            "a",
+            "{TABLE}",
+            "of",
+            "{COLUMN}",
+            "degree_fahrenheit"
+        ],
+        "original_sql": "SELECT Residence FROM player WHERE gender  =  \"M\" INTERSECT SELECT Residence FROM player WHERE gender  =  \"F\""
+    },
+    {
+        "original_nl": "How many gold medals has the club with the most coaches won?",
+        "generalized_nl": "How|many|{COLUMN} [gold]|decoration [medals]|have [has]|the|{TABLE} [club]|with|the|most|{TABLE} [coaches]|win [won]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "decoration",
+            "have",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}",
+            "win"
+        ],
+        "original_sql": "SELECT T1.club_id ,  T1.gold FROM match_result AS T1 JOIN coach AS T2 ON T1.club_id  =  T2.club_id GROUP BY T1.club_id ORDER BY count(*) DESC LIMIT 1"
+    }
+]

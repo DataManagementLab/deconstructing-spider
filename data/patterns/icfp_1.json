@@ -1,0 +1,922 @@
+[
+    {
+        "original_nl": "How many authors are there?",
+        "generalized_nl": "How|many|{TABLE} [authors]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM authors"
+    },
+    {
+        "original_nl": "Count the number of authors.",
+        "generalized_nl": "{COLUMN_PART} [Count]|the|number|of|{TABLE} [authors]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM authors"
+    },
+    {
+        "original_nl": "How many institutions are there?",
+        "generalized_nl": "How|many|{TABLE} [institutions]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM inst"
+    },
+    {
+        "original_nl": "Count the number of institutions.",
+        "generalized_nl": "{COLUMN_PART} [Count]|the|number|of|{TABLE} [institutions]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM inst"
+    },
+    {
+        "original_nl": "How many papers are published in total?",
+        "generalized_nl": "How|many|{TABLE} [papers]|are|publish [published]|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "publish",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM papers"
+    },
+    {
+        "original_nl": "Count the number of total papers.",
+        "generalized_nl": "{COLUMN_PART} [Count]|the|number|of|entire [total]|{TABLE} [papers]",
+        "generalized_tokens": [
+            "{COLUMN_PART}",
+            "the",
+            "number",
+            "of",
+            "entire",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM papers"
+    },
+    {
+        "original_nl": "What are the titles of papers published by \"Jeremy Gibbons\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|{TABLE} [papers]|publish [published]|by|{NE} [Jeremy Gibbons]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "publish",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t3.title FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE  t1.fname  =  \"Jeremy\" AND t1.lname  =  \"Gibbons\""
+    },
+    {
+        "original_nl": "Find the titles of all the papers written by \"Jeremy Gibbons\"",
+        "generalized_nl": "find [Find]|the|{COLUMN} [titles]|of|all|the|{TABLE} [papers]|write [written]|by|{NE} [Jeremy Gibbons]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "write",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t3.title FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE  t1.fname  =  \"Jeremy\" AND t1.lname  =  \"Gibbons\""
+    },
+    {
+        "original_nl": "Find all the papers published by \"Aaron Turon\".",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [papers]|publish [published]|by|{NE} [Aaron Turon \"]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "publish",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t3.title FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE  t1.fname  =  \"Aaron\" AND t1.lname  =  \"Turon\""
+    },
+    {
+        "original_nl": "Find the titles of all the papers written by \"Aaron Turon\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [titles]|of|all|the|{TABLE} [papers]|write [written]|by|{NE} [Aaron Turon \"]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "write",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t3.title FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE  t1.fname  =  \"Aaron\" AND t1.lname  =  \"Turon\""
+    },
+    {
+        "original_nl": "How many papers have \"Atsushi Ohori\" published?",
+        "generalized_nl": "How|many|{TABLE} [papers]|have|{NE} [Atsushi Ohori \"]|publish [published]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{NE}",
+            "publish"
+        ],
+        "original_sql": "SELECT count(*) FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE  t1.fname  =  \"Atsushi\" AND t1.lname  =  \"Ohori\""
+    },
+    {
+        "original_nl": "How many papers are \"Atsushi Ohori\" the author of?",
+        "generalized_nl": "How|many|{TABLE} [papers]|are|{NE} [Atsushi Ohori]|the|{TABLE} [author]|of",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "{NE}",
+            "the",
+            "{TABLE}",
+            "of"
+        ],
+        "original_sql": "SELECT count(*) FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE  t1.fname  =  \"Atsushi\" AND t1.lname  =  \"Ohori\""
+    },
+    {
+        "original_nl": "What is the name of the institution that \"Matthias Blume\" belongs to?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [institution]|that|{NE} [Matthias Blume \"]|belong [belongs]|to",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "{NE}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT DISTINCT t3.name FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t1.fname  =  \"Matthias\" AND t1.lname  =  \"Blume\""
+    },
+    {
+        "original_nl": "Which institution does \"Katsuhiro Ueno\" belong to?",
+        "generalized_nl": "Which|{TABLE} [institution]|does|{NE} [Katsuhiro Ueno \"]|belong|to",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "does",
+            "{NE}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT DISTINCT t3.name FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t1.fname  =  \"Katsuhiro\" AND t1.lname  =  \"Ueno\""
+    },
+    {
+        "original_nl": "What is the name of the institution the author \"Katsuhiro Ueno\" belongs to?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [institution]|the|{TABLE} [author]|{NE} [Katsuhiro Ueno \"]|belong [belongs]|to",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT DISTINCT t3.name FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t1.fname  =  \"Katsuhiro\" AND t1.lname  =  \"Ueno\""
+    },
+    {
+        "original_nl": "Find the first names and last names of the authors whose institution affiliation is \"University of Oxford\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|and|{COLUMN} [last names]|of|the|{TABLE} [authors]|whose|{TABLE} [institution]|affiliation|is|University|of|Oxford",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{TABLE}",
+            "affiliation",
+            "is",
+            "University",
+            "of",
+            "Oxford"
+        ],
+        "original_sql": "SELECT DISTINCT t1.fname ,  t1.lname FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t3.name  =  \"University of Oxford\""
+    },
+    {
+        "original_nl": "Find the first names and last names of the authors whose institution affiliation is \"Google\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|and|{COLUMN} [last names]|of|the|{TABLE} [authors]|whose|{TABLE} [institution]|affiliation|is|{NE} [Google]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{TABLE}",
+            "affiliation",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT t1.fname ,  t1.lname FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t3.name  =  \"Google\""
+    },
+    {
+        "original_nl": "What are the last names of the author of the paper titled \"Binders Unbound\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|of|the|{TABLE} [author]|of|the|{TABLE} [paper]|entitle [titled]|Binders|Unbound",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "entitle",
+            "Binders",
+            "Unbound"
+        ],
+        "original_sql": "SELECT t1.lname FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE t3.title  =  \"Binders Unbound\""
+    },
+    {
+        "original_nl": "Find the first and last name of the author(s) who wrote the paper \"Nameless, Painless\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [author]|s|who|write [wrote]|the|{TABLE} [paper]|nameless [Nameless]|Painless",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "s",
+            "who",
+            "write",
+            "the",
+            "{TABLE}",
+            "nameless",
+            "Painless"
+        ],
+        "original_sql": "SELECT t1.fname ,  t1.lname FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE t3.title  =  \"Nameless ,  Painless\""
+    },
+    {
+        "original_nl": "What are the first and last name of the author who published the paper titled \"Nameless, Painless\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|the|{TABLE} [author]|who|publish [published]|the|{TABLE} [paper]|entitle [titled]|{NE} [Nameless , Painless \"]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "publish",
+            "the",
+            "{TABLE}",
+            "entitle",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t1.fname ,  t1.lname FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE t3.title  =  \"Nameless ,  Painless\""
+    },
+    {
+        "original_nl": "What are the papers published under the institution \"Indiana University\"?",
+        "generalized_nl": "What|are|the|{TABLE} [papers]|publish [published]|under|the|{TABLE} [institution]|Indiana|University",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "publish",
+            "under",
+            "the",
+            "{TABLE}",
+            "Indiana",
+            "University"
+        ],
+        "original_sql": "SELECT DISTINCT t1.title FROM papers AS t1 JOIN authorship AS t2 ON t1.paperid  =  t2.paperid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t3.name  =  \"Indiana University\""
+    },
+    {
+        "original_nl": "List the titles of the papers whose authors are from the institution \"Indiana University\".",
+        "generalized_nl": "list [List]|the|{COLUMN} [titles]|of|the|{TABLE} [papers]|whose|{TABLE} [authors]|are|from|the|{TABLE} [institution]|Indiana|University",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{TABLE}",
+            "are",
+            "from",
+            "the",
+            "{TABLE}",
+            "Indiana",
+            "University"
+        ],
+        "original_sql": "SELECT DISTINCT t1.title FROM papers AS t1 JOIN authorship AS t2 ON t1.paperid  =  t2.paperid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t3.name  =  \"Indiana University\""
+    },
+    {
+        "original_nl": "Find all the papers published by the institution \"Google\".",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [papers]|publish [published]|by|the|{TABLE} [institution]|{NE} [Google]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "publish",
+            "by",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT t1.title FROM papers AS t1 JOIN authorship AS t2 ON t1.paperid  =  t2.paperid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t3.name  =  \"Google\""
+    },
+    {
+        "original_nl": "Which papers were written by authors from the institution \"Google\"?",
+        "generalized_nl": "Which|{TABLE} [papers]|were|write [written]|by|{TABLE} [authors]|from|the|{TABLE} [institution]|{NE} [Google]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "were",
+            "write",
+            "by",
+            "{TABLE}",
+            "from",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT t1.title FROM papers AS t1 JOIN authorship AS t2 ON t1.paperid  =  t2.paperid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t3.name  =  \"Google\""
+    },
+    {
+        "original_nl": "How many papers are published by the institution \"Tokohu University\"?",
+        "generalized_nl": "How|many|{TABLE} [papers]|are|publish [published]|by|the|{TABLE} [institution]|Tokohu|University",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "publish",
+            "by",
+            "the",
+            "{TABLE}",
+            "Tokohu",
+            "University"
+        ],
+        "original_sql": "SELECT count(DISTINCT t1.title) FROM papers AS t1 JOIN authorship AS t2 ON t1.paperid  =  t2.paperid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t3.name  =  \"Tokohu University\""
+    },
+    {
+        "original_nl": "Find the number of papers published by authors from the institution \"Tokohu University\".",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [papers]|publish [published]|by|{TABLE} [authors]|from|the|{TABLE} [institution]|Tokohu|University",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "publish",
+            "by",
+            "{TABLE}",
+            "from",
+            "the",
+            "{TABLE}",
+            "Tokohu",
+            "University"
+        ],
+        "original_sql": "SELECT count(DISTINCT t1.title) FROM papers AS t1 JOIN authorship AS t2 ON t1.paperid  =  t2.paperid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t3.name  =  \"Tokohu University\""
+    },
+    {
+        "original_nl": "Find the number of papers published by the institution \"University of Pennsylvania\".",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [papers]|publish [published]|by|the|{TABLE} [institution]|University|of|Pennsylvania",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "publish",
+            "by",
+            "the",
+            "{TABLE}",
+            "University",
+            "of",
+            "Pennsylvania"
+        ],
+        "original_sql": "SELECT count(DISTINCT t1.title) FROM papers AS t1 JOIN authorship AS t2 ON t1.paperid  =  t2.paperid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t3.name  =  \"University of Pennsylvania\""
+    },
+    {
+        "original_nl": "How many papers are written by authors from the institution \"University of Pennsylvania\"?",
+        "generalized_nl": "How|many|{TABLE} [papers]|are|write [written]|by|{TABLE} [authors]|from|the|{TABLE} [institution]|University|of|Pennsylvania",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "write",
+            "by",
+            "{TABLE}",
+            "from",
+            "the",
+            "{TABLE}",
+            "University",
+            "of",
+            "Pennsylvania"
+        ],
+        "original_sql": "SELECT count(DISTINCT t1.title) FROM papers AS t1 JOIN authorship AS t2 ON t1.paperid  =  t2.paperid JOIN inst AS t3 ON t2.instid  =  t3.instid WHERE t3.name  =  \"University of Pennsylvania\""
+    },
+    {
+        "original_nl": "Find the papers which have \"Olin Shivers\" as an author.",
+        "generalized_nl": "find [Find]|the|{TABLE} [papers]|which|have|{NE} [Olin Shivers]|as|an|{TABLE} [author]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{TABLE}",
+            "which",
+            "have",
+            "{NE}",
+            "as",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.title FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE t1.fname  =  \"Olin\" AND t1.lname  =  \"Shivers\""
+    },
+    {
+        "original_nl": "Which papers have \"Stephanie Weirich\" as an author?",
+        "generalized_nl": "Which|{TABLE} [papers]|have|{NE} [Stephanie Weirich]|as|an|{TABLE} [author]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "have",
+            "{NE}",
+            "as",
+            "an",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.title FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE t1.fname  =  \"Stephanie\" AND t1.lname  =  \"Weirich\""
+    },
+    {
+        "original_nl": "Find the titles of the papers the author \"Stephanie Weirich\" wrote.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [titles]|of|the|{TABLE} [papers]|the|{TABLE} [author]|{NE} [Stephanie Weirich \"]|write [wrote]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "write"
+        ],
+        "original_sql": "SELECT t3.title FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE t1.fname  =  \"Stephanie\" AND t1.lname  =  \"Weirich\""
+    },
+    {
+        "original_nl": "Which paper is published in an institution in \"USA\" and have \"Turon\" as its second author?",
+        "generalized_nl": "Which|{TABLE} [paper]|is|publish [published]|in|an|{TABLE} [institution]|in|{NE} [USA]|and|have|{NE} [Turon]|as|its|{NE} [second]|{TABLE} [author]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "is",
+            "publish",
+            "in",
+            "an",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "and",
+            "have",
+            "{NE}",
+            "as",
+            "its",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t3.title FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid JOIN inst AS t4 ON t2.instid  =  t4.instid WHERE t4.country  =  \"USA\" AND t2.authorder  =  2 AND t1.lname  =  \"Turon\""
+    },
+    {
+        "original_nl": "Find papers whose second author has last name \"Turon\" and is affiliated with an institution in the country \"USA\".",
+        "generalized_nl": "find [Find]|{TABLE} [papers]|whose|{NE} [second]|{TABLE} [author]|have [has]|{COLUMN} [last name]|{NE} [Turon]|and|is|consort [affiliated]|with|an|{TABLE} [institution]|in|the|{COLUMN} [country]|{NE} [USA]",
+        "generalized_tokens": [
+            "find",
+            "{TABLE}",
+            "whose",
+            "{NE}",
+            "{TABLE}",
+            "have",
+            "{COLUMN}",
+            "{NE}",
+            "and",
+            "is",
+            "consort",
+            "with",
+            "an",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t3.title FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid JOIN inst AS t4 ON t2.instid  =  t4.instid WHERE t4.country  =  \"USA\" AND t2.authorder  =  2 AND t1.lname  =  \"Turon\""
+    },
+    {
+        "original_nl": "Find the titles of papers whose first author is affiliated with an institution in the country \"Japan\" and has last name \"Ohori\"?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [titles]|of|{TABLE} [papers]|whose|{COLUMN_PART} [first]|{TABLE} [author]|is|consort [affiliated]|with|an|{TABLE} [institution]|in|the|{COLUMN} [country]|{NE} [Japan]|and|have [has]|{COLUMN} [last name]|{NE} [Ohori]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "is",
+            "consort",
+            "with",
+            "an",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "and",
+            "have",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t3.title FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid JOIN inst AS t4 ON t2.instid  =  t4.instid WHERE t4.country  =  \"Japan\" AND t2.authorder  =  1 AND t1.lname  =  \"Ohori\""
+    },
+    {
+        "original_nl": "What is the last name of the author that has published the most papers?",
+        "generalized_nl": "What|is|the|{COLUMN} [last name]|of|the|{TABLE} [author]|that|has|publish [published]|the|most|{TABLE} [papers]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "has",
+            "publish",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.lname FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid GROUP BY t1.fname ,  t1.lname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Retrieve the country that has published the most papers.",
+        "generalized_nl": "retrieve [Retrieve]|the|{COLUMN} [country]|that|has|publish [published]|the|most|{TABLE} [papers]",
+        "generalized_tokens": [
+            "retrieve",
+            "the",
+            "{COLUMN}",
+            "that",
+            "has",
+            "publish",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.country FROM inst AS t1 JOIN authorship AS t2 ON t1.instid  =  t2.instid JOIN papers AS t3 ON t2.paperid  =  t3.paperid GROUP BY t1.country ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the country that the most papers are affiliated with.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [country]|that|the|most|{TABLE} [papers]|are|consort [affiliated]|with",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "the",
+            "most",
+            "{TABLE}",
+            "are",
+            "consort",
+            "with"
+        ],
+        "original_sql": "SELECT t1.country FROM inst AS t1 JOIN authorship AS t2 ON t1.instid  =  t2.instid JOIN papers AS t3 ON t2.paperid  =  t3.paperid GROUP BY t1.country ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the organization that has published the largest number of papers.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|organization|that|has|publish [published]|the|large [largest]|number|of|{TABLE} [papers]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "organization",
+            "that",
+            "has",
+            "publish",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t1.name FROM inst AS t1 JOIN authorship AS t2 ON t1.instid  =  t2.instid JOIN papers AS t3 ON t2.paperid  =  t3.paperid GROUP BY t1.name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the titles of the papers that contain the word \"ML\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [titles]|of|the|{TABLE} [papers]|that|contain|the|word|milliliter [ML]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "contain",
+            "the",
+            "word",
+            "milliliter"
+        ],
+        "original_sql": "SELECT title FROM papers WHERE title LIKE \"%ML%\""
+    },
+    {
+        "original_nl": "Which paper's title contains the word \"Database\"?",
+        "generalized_nl": "Which|{TABLE} [paper]|'s|{COLUMN} [title]|contain [contains]|the|word|database [Database]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "'s",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "word",
+            "database"
+        ],
+        "original_sql": "SELECT title FROM papers WHERE title LIKE \"%Database%\""
+    },
+    {
+        "original_nl": "Find the first names of all the authors who have written a paper with title containing the word \"Functional\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|all|the|{TABLE} [authors]|who|have|write [written]|a|{TABLE} [paper]|with|{COLUMN} [title]|contain [containing]|the|word|Functional",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "write",
+            "a",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "word",
+            "Functional"
+        ],
+        "original_sql": "SELECT t1.fname FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE t3.title LIKE \"%Functional%\""
+    },
+    {
+        "original_nl": "Find the last names of all the authors that have written a paper with title containing the word \"Monadic\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last names]|of|all|the|{TABLE} [authors]|that|have|write [written]|a|{TABLE} [paper]|with|{COLUMN} [title]|contain [containing]|the|word|{NE} [Monadic]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "write",
+            "a",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "word",
+            "{NE}"
+        ],
+        "original_sql": "SELECT t1.lname FROM authors AS t1 JOIN authorship AS t2 ON t1.authid  =  t2.authid JOIN papers AS t3 ON t2.paperid  =  t3.paperid WHERE t3.title LIKE \"%Monadic%\""
+    },
+    {
+        "original_nl": "Retrieve the title of the paper that has the largest number of authors.",
+        "generalized_nl": "retrieve [Retrieve]|the|{COLUMN} [title]|of|the|{TABLE} [paper]|that|have [has]|the|large [largest]|number|of|{TABLE} [authors]",
+        "generalized_tokens": [
+            "retrieve",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "large",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT t2.title FROM authorship AS t1 JOIN papers AS t2 ON t1.paperid  =  t2.paperid WHERE t1.authorder  =  (SELECT max(authorder) FROM authorship)"
+    },
+    {
+        "original_nl": "What is the first name of the author with last name \"Ueno\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [first name]|of|the|{TABLE} [author]|with|{COLUMN} [last name]|{NE} [Ueno]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT fname FROM authors WHERE lname  =  \"Ueno\""
+    },
+    {
+        "original_nl": "Find the last name of the author with first name \"Amal\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last name]|of|the|{TABLE} [author]|with|{COLUMN} [first name]|{NE} [Amal]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT lname FROM authors WHERE fname  =  \"Amal\""
+    },
+    {
+        "original_nl": "Find the first names of all the authors ordered in alphabetical order.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|all|the|{TABLE} [authors]|order [ordered]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "order",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT fname FROM authors ORDER BY fname"
+    },
+    {
+        "original_nl": "Sort the first names of all the authors in alphabetical order.",
+        "generalized_nl": "screen [Sort]|the|{COLUMN} [first names]|of|all|the|{TABLE} [authors]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "screen",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT fname FROM authors ORDER BY fname"
+    },
+    {
+        "original_nl": "Retrieve all the last names of authors in alphabetical order.",
+        "generalized_nl": "retrieve [Retrieve]|all|the|{COLUMN} [last names]|of|{TABLE} [authors]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "retrieve",
+            "all",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT lname FROM authors ORDER BY lname"
+    },
+    {
+        "original_nl": "Give me a list of all the last names of authors sorted in alphabetical order",
+        "generalized_nl": "give [Give]|me|a|list|of|all|the|{COLUMN} [last names]|of|{TABLE} [authors]|screen [sorted]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "all",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "screen",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT lname FROM authors ORDER BY lname"
+    },
+    {
+        "original_nl": "Retrieve all the first and last names of authors in the alphabetical order of last names.",
+        "generalized_nl": "retrieve [Retrieve]|all|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|{TABLE} [authors]|in|the|alphabetic [alphabetical]|order|of|{COLUMN} [last names]",
+        "generalized_tokens": [
+            "retrieve",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "alphabetic",
+            "order",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM authors ORDER BY lname"
+    },
+    {
+        "original_nl": "Sort the list of all the first and last names of authors in alphabetical order of the last names.",
+        "generalized_nl": "screen [Sort]|the|list|of|all|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|{TABLE} [authors]|in|alphabetic [alphabetical]|order|of|the|{COLUMN} [last names]",
+        "generalized_tokens": [
+            "screen",
+            "the",
+            "list",
+            "of",
+            "all",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order",
+            "of",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT fname ,  lname FROM authors ORDER BY lname"
+    }
+]

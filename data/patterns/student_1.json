@@ -1,0 +1,1017 @@
+[
+    {
+        "original_nl": "Find the number of students in total.",
+        "generalized_nl": "find [Find]|the|number|of|student [students]|in|entire [total]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "student",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM list"
+    },
+    {
+        "original_nl": "How many students are there?",
+        "generalized_nl": "How|many|student [students]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "student",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM list"
+    },
+    {
+        "original_nl": "Find the last names of students studying in room 111.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last names]|of|student [students]|study [studying]|in|{COLUMN_PART} [room]|{NUMBER} [111]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "student",
+            "study",
+            "in",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT lastname FROM list WHERE classroom  =  111"
+    },
+    {
+        "original_nl": "What are the last names of students in room 111?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|of|student [students]|in|{COLUMN_PART} [room]|{NUMBER} [111]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "student",
+            "in",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT lastname FROM list WHERE classroom  =  111"
+    },
+    {
+        "original_nl": "Find the first names of students studying in room 108.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|student [students]|study [studying]|in|{COLUMN_PART} [room]|{NUMBER} [108]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "student",
+            "study",
+            "in",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT firstname FROM list WHERE classroom  =  108"
+    },
+    {
+        "original_nl": "What are the first names of students in room 108?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|of|student [students]|in|{COLUMN_PART} [room]|{NUMBER} [108]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "student",
+            "in",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT firstname FROM list WHERE classroom  =  108"
+    },
+    {
+        "original_nl": "What are the first names of students studying in room 107?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|of|student [students]|study [studying]|in|{COLUMN_PART} [room]|{NUMBER} [107]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "student",
+            "study",
+            "in",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT firstname FROM list WHERE classroom  =  107"
+    },
+    {
+        "original_nl": "List the first names of all the students in room 107.",
+        "generalized_nl": "{TABLE} [List]|the|{COLUMN} [first names]|of|all|the|student [students]|in|{COLUMN_PART} [room]|{NUMBER} [107]",
+        "generalized_tokens": [
+            "{TABLE}",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "student",
+            "in",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT firstname FROM list WHERE classroom  =  107"
+    },
+    {
+        "original_nl": "What are the grade number and classroom number of each class in the list?",
+        "generalized_nl": "What|are|the|{COLUMN} [grade]|number|and|{COLUMN} [classroom]|number|of|each|{COLUMN_PART} [class]|in|the|{TABLE} [list]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "number",
+            "and",
+            "{COLUMN}",
+            "number",
+            "of",
+            "each",
+            "{COLUMN_PART}",
+            "in",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT classroom ,  grade FROM list"
+    },
+    {
+        "original_nl": "Which grade is studying in classroom 103?",
+        "generalized_nl": "Which|{COLUMN} [grade]|is|study [studying]|in|{COLUMN} [classroom]|{NUMBER} [103]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "study",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT grade FROM list WHERE classroom  =  103"
+    },
+    {
+        "original_nl": "Find the grade taught in classroom 103.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [grade]|teach [taught]|in|{COLUMN} [classroom]|{NUMBER} [103]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "teach",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT grade FROM list WHERE classroom  =  103"
+    },
+    {
+        "original_nl": "Find the grade studying in room 105.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [grade]|study [studying]|in|{COLUMN_PART} [room]|{NUMBER} [105]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "study",
+            "in",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT grade FROM list WHERE classroom  =  105"
+    },
+    {
+        "original_nl": "Which grade is studying in room 105?",
+        "generalized_nl": "Which|{COLUMN} [grade]|is|study [studying]|in|{COLUMN_PART} [room]|{NUMBER} [105]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "study",
+            "in",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT grade FROM list WHERE classroom  =  105"
+    },
+    {
+        "original_nl": "Which classrooms are used by grade 4?",
+        "generalized_nl": "Which|{COLUMN} [classrooms]|are|use [used]|by|{COLUMN} [grade]|{NUMBER} [4]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "are",
+            "use",
+            "by",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT classroom FROM list WHERE grade  =  4"
+    },
+    {
+        "original_nl": "Find the classrooms in which grade 4 is studying.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [classrooms]|in|which|{COLUMN} [grade]|{NUMBER} [4]|is|study [studying]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "in",
+            "which",
+            "{COLUMN}",
+            "{NUMBER}",
+            "is",
+            "study"
+        ],
+        "original_sql": "SELECT DISTINCT classroom FROM list WHERE grade  =  4"
+    },
+    {
+        "original_nl": "Which classrooms are used by grade 5?",
+        "generalized_nl": "Which|{COLUMN} [classrooms]|are|use [used]|by|{COLUMN} [grade]|{NUMBER} [5]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "are",
+            "use",
+            "by",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT classroom FROM list WHERE grade  =  5"
+    },
+    {
+        "original_nl": "Show me the classrooms grade 5 is using.",
+        "generalized_nl": "show [Show]|me|the|{COLUMN} [classrooms]|{COLUMN} [grade]|{NUMBER} [5]|is|use [using]",
+        "generalized_tokens": [
+            "show",
+            "me",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{NUMBER}",
+            "is",
+            "use"
+        ],
+        "original_sql": "SELECT DISTINCT classroom FROM list WHERE grade  =  5"
+    },
+    {
+        "original_nl": "Find the last names of the teachers that teach fifth grade.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last names]|of|the|{TABLE} [teachers]|that|teach|{NE} [fifth]|{COLUMN} [grade]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "teach",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE grade  =  5"
+    },
+    {
+        "original_nl": "what are the last names of the teachers who teach grade 5?",
+        "generalized_nl": "what|are|the|{COLUMN} [last names]|of|the|{TABLE} [teachers]|who|teach|{COLUMN} [grade]|{NUMBER} [5]",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "teach",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE grade  =  5"
+    },
+    {
+        "original_nl": "Find the first names of the teachers that teach first grade.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|the|{TABLE} [teachers]|that|teach|{COLUMN_PART} [first]|{COLUMN} [grade]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "teach",
+            "{COLUMN_PART}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.firstname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE grade  =  1"
+    },
+    {
+        "original_nl": "What are the first names of the teachers who teach grade 1?",
+        "generalized_nl": "What|are|the|{COLUMN} [first names]|of|the|{TABLE} [teachers]|who|teach|{COLUMN} [grade]|{NUMBER} [1]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "teach",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.firstname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE grade  =  1"
+    },
+    {
+        "original_nl": "Find the first names of all the teachers that teach in classroom 110.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [first names]|of|all|the|{TABLE} [teachers]|that|teach|in|{COLUMN} [classroom]|{NUMBER} [110]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "teach",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT firstname FROM teachers WHERE classroom  =  110"
+    },
+    {
+        "original_nl": "Find the last names of teachers teaching in classroom 109.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last names]|of|{TABLE} [teachers]|teach [teaching]|in|{COLUMN} [classroom]|{NUMBER} [109]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "teach",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT lastname FROM teachers WHERE classroom  =  109"
+    },
+    {
+        "original_nl": "Report the first name and last name of all the teachers.",
+        "generalized_nl": "report [Report]|the|{COLUMN} [first name]|and|{COLUMN} [last name]|of|all|the|{TABLE} [teachers]",
+        "generalized_tokens": [
+            "report",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT firstname ,  lastname FROM teachers"
+    },
+    {
+        "original_nl": "What are the first name and last name of all the teachers?",
+        "generalized_nl": "What|are|the|{COLUMN} [first name]|and|{COLUMN} [last name]|of|all|the|{TABLE} [teachers]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT firstname ,  lastname FROM teachers"
+    },
+    {
+        "original_nl": "Report the first name and last name of all the students.",
+        "generalized_nl": "report [Report]|the|{COLUMN} [first name]|and|{COLUMN} [last name]|of|all|the|student [students]",
+        "generalized_tokens": [
+            "report",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "student"
+        ],
+        "original_sql": "SELECT DISTINCT firstname ,  lastname FROM list"
+    },
+    {
+        "original_nl": "Show each student's first name and last name.",
+        "generalized_nl": "show [Show]|each|student|'s|{COLUMN} [first name]|and|{COLUMN} [last name]",
+        "generalized_tokens": [
+            "show",
+            "each",
+            "student",
+            "'s",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT firstname ,  lastname FROM list"
+    },
+    {
+        "original_nl": "Which are the first and last names of the students taught by MARROTTE KIRK?",
+        "generalized_nl": "Which|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|the|student [students]|teach [taught]|by|{NE} [MARROTTE KIRK]",
+        "generalized_tokens": [
+            "Which",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "student",
+            "teach",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.firstname ,  T1.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T2.firstname  =  \"MARROTTE\" AND T2.lastname  =  \"KIRK\""
+    },
+    {
+        "original_nl": "Find the first and last name of all the teachers that teach EVELINA BROMLEY.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [first]|and|{COLUMN} [last name]|of|all|the|{TABLE} [teachers]|that|teach|EVELINA|BROMLEY",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "teach",
+            "EVELINA",
+            "BROMLEY"
+        ],
+        "original_sql": "SELECT T2.firstname ,  T2.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T1.firstname  =  \"EVELINA\" AND T1.lastname  =  \"BROMLEY\""
+    },
+    {
+        "original_nl": "Find the last names of all the teachers that teach GELL TAMI.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last names]|of|all|the|{TABLE} [teachers]|that|teach|{NE} [GELL TAMI]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "teach",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T1.firstname  =  \"GELL\" AND T1.lastname  =  \"TAMI\""
+    },
+    {
+        "original_nl": "What are the last names of the teachers who teach the student called GELL TAMI?",
+        "generalized_nl": "What|are|the|{COLUMN} [last names]|of|the|{TABLE} [teachers]|who|teach|the|student|call [called]|{NE} [GELL TAMI]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "teach",
+            "the",
+            "student",
+            "call",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T1.firstname  =  \"GELL\" AND T1.lastname  =  \"TAMI\""
+    },
+    {
+        "original_nl": "How many students does LORIA ONDERSMA teaches?",
+        "generalized_nl": "How|many|student [students]|does|{NE} [LORIA ONDERSMA]|teach [teaches]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "student",
+            "does",
+            "{NE}",
+            "teach"
+        ],
+        "original_sql": "SELECT count(*) FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T2.firstname  =  \"LORIA\" AND T2.lastname  =  \"ONDERSMA\""
+    },
+    {
+        "original_nl": "Count the number of students the teacher LORIA ONDERSMA teaches.",
+        "generalized_nl": "count [Count]|the|number|of|student [students]|the|{TABLE} [teacher]|{NE} [LORIA ONDERSMA]|teach [teaches]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "student",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "teach"
+        ],
+        "original_sql": "SELECT count(*) FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T2.firstname  =  \"LORIA\" AND T2.lastname  =  \"ONDERSMA\""
+    },
+    {
+        "original_nl": "How many students does KAWA GORDON teaches?",
+        "generalized_nl": "How|many|student [students]|does|{NE} [KAWA GORDON]|teach [teaches]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "student",
+            "does",
+            "{NE}",
+            "teach"
+        ],
+        "original_sql": "SELECT count(*) FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T2.firstname  =  \"KAWA\" AND T2.lastname  =  \"GORDON\""
+    },
+    {
+        "original_nl": "Find the number of students taught by the teacher KAWA GORDON.",
+        "generalized_nl": "find [Find]|the|number|of|student [students]|teach [taught]|by|the|{TABLE} [teacher]|{NE} [KAWA GORDON]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "student",
+            "teach",
+            "by",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T2.firstname  =  \"KAWA\" AND T2.lastname  =  \"GORDON\""
+    },
+    {
+        "original_nl": "Find the number of students taught by TARRING LEIA.",
+        "generalized_nl": "find [Find]|the|number|of|student [students]|teach [taught]|by|{NE} [TARRING LEIA]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "student",
+            "teach",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T2.firstname  =  \"TARRING\" AND T2.lastname  =  \"LEIA\""
+    },
+    {
+        "original_nl": "How many students are taught by teacher TARRING LEIA?",
+        "generalized_nl": "How|many|student [students]|are|teach [taught]|by|{TABLE} [teacher]|{NE} [TARRING LEIA]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "student",
+            "are",
+            "teach",
+            "by",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T2.firstname  =  \"TARRING\" AND T2.lastname  =  \"LEIA\""
+    },
+    {
+        "original_nl": "How many teachers does the student named CHRISSY NABOZNY have?",
+        "generalized_nl": "How|many|{TABLE} [teachers]|does|the|student|name [named]|CHRISSY|NABOZNY|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "the",
+            "student",
+            "name",
+            "CHRISSY",
+            "NABOZNY",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T1.firstname  =  \"CHRISSY\" AND T1.lastname  =  \"NABOZNY\""
+    },
+    {
+        "original_nl": "Find the number of teachers who teach the student called CHRISSY NABOZNY.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [teachers]|who|teach|the|student|call [called]|{NE} [CHRISSY NABOZNY]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "teach",
+            "the",
+            "student",
+            "call",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T1.firstname  =  \"CHRISSY\" AND T1.lastname  =  \"NABOZNY\""
+    },
+    {
+        "original_nl": "How many teachers does the student named MADLOCK RAY have?",
+        "generalized_nl": "How|many|{TABLE} [teachers]|does|the|student|name [named]|MADLOCK|RAY|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "the",
+            "student",
+            "name",
+            "MADLOCK",
+            "RAY",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T1.firstname  =  \"MADLOCK\" AND T1.lastname  =  \"RAY\""
+    },
+    {
+        "original_nl": "Find the number of teachers who teach the student called MADLOCK RAY.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [teachers]|who|teach|the|student|call [called]|{NE} [MADLOCK RAY]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "who",
+            "teach",
+            "the",
+            "student",
+            "call",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T1.firstname  =  \"MADLOCK\" AND T1.lastname  =  \"RAY\""
+    },
+    {
+        "original_nl": "What are the first and last names of the first-grade students who are NOT taught by teacher OTHA MOYER?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [first]|and|{COLUMN} [last names]|of|the|{COLUMN_PART} [first]|{COLUMN} [grade]|student [students]|who|are|NOT|teach [taught]|by|{TABLE} [teacher]|OTHA|MOYER",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "student",
+            "who",
+            "are",
+            "NOT",
+            "teach",
+            "by",
+            "{TABLE}",
+            "OTHA",
+            "MOYER"
+        ],
+        "original_sql": "SELECT DISTINCT T1.firstname ,  T1.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T1.grade  =  1 EXCEPT SELECT T1.firstname ,  T1.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T2.firstname  =  \"OTHA\" AND T2.lastname  =  \"MOYER\""
+    },
+    {
+        "original_nl": "Find the last names of the students in third grade that are not taught by COVIN JEROME.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [last names]|of|the|student [students]|in|{NE} [third]|{COLUMN} [grade]|that|are|not|teach [taught]|by|{NE} [COVIN JEROME]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "student",
+            "in",
+            "{NE}",
+            "{COLUMN}",
+            "that",
+            "are",
+            "not",
+            "teach",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T1.grade  =  3 AND T2.firstname != \"COVIN\" AND T2.lastname != \"JEROME\""
+    },
+    {
+        "original_nl": "For each grade, report the grade, the number of classrooms in which it is taught and the total number of students in the grade.",
+        "generalized_nl": "For|each|{COLUMN} [grade]|report|the|{COLUMN} [grade]|the|number|of|{COLUMN} [classrooms]|in|which|it|is|teach [taught]|and|the|entire [total]|number|of|student [students]|in|the|{COLUMN} [grade]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "report",
+            "the",
+            "{COLUMN}",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "in",
+            "which",
+            "it",
+            "is",
+            "teach",
+            "and",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "student",
+            "in",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT grade ,  count(DISTINCT classroom) ,  count(*) FROM list GROUP BY grade"
+    },
+    {
+        "original_nl": "For each grade, return the grade number, the number of classrooms used for the grade, and the total number of students enrolled in the grade.",
+        "generalized_nl": "For|each|{COLUMN} [grade]|return|the|{COLUMN} [grade]|number|the|number|of|{COLUMN} [classrooms]|use [used]|for|the|{COLUMN} [grade]|and|the|entire [total]|number|of|student [students]|enroll [enrolled]|in|the|{COLUMN} [grade]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "return",
+            "the",
+            "{COLUMN}",
+            "number",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "use",
+            "for",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "student",
+            "enroll",
+            "in",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT grade ,  count(DISTINCT classroom) ,  count(*) FROM list GROUP BY grade"
+    },
+    {
+        "original_nl": "For each classroom, report the classroom number and the number of grades using it.",
+        "generalized_nl": "For|each|{COLUMN} [classroom]|report|the|{COLUMN} [classroom]|number|and|the|number|of|{COLUMN} [grades]|use [using]|it",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "report",
+            "the",
+            "{COLUMN}",
+            "number",
+            "and",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "use",
+            "it"
+        ],
+        "original_sql": "SELECT classroom ,  count(DISTINCT grade) FROM list GROUP BY classroom"
+    },
+    {
+        "original_nl": "For each classroom, show the classroom number and count the number of distinct grades that use the room.",
+        "generalized_nl": "For|each|{COLUMN} [classroom]|show|the|{COLUMN} [classroom]|number|and|count|the|number|of|distinct|{COLUMN} [grades]|that|use|the|{COLUMN_PART} [room]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "show",
+            "the",
+            "{COLUMN}",
+            "number",
+            "and",
+            "count",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{COLUMN}",
+            "that",
+            "use",
+            "the",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT classroom ,  count(DISTINCT grade) FROM list GROUP BY classroom"
+    },
+    {
+        "original_nl": "Which classroom has the most students?",
+        "generalized_nl": "Which|{COLUMN} [classroom]|have [has]|the|most|student [students]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "student"
+        ],
+        "original_sql": "SELECT classroom FROM list GROUP BY classroom ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the classroom that the most students use.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [classroom]|that|the|most|student [students]|use",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "the",
+            "most",
+            "student",
+            "use"
+        ],
+        "original_sql": "SELECT classroom FROM list GROUP BY classroom ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Report the number of students in each classroom.",
+        "generalized_nl": "report [Report]|the|number|of|student [students]|in|each|{COLUMN} [classroom]",
+        "generalized_tokens": [
+            "report",
+            "the",
+            "number",
+            "of",
+            "student",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT classroom ,  count(*) FROM list GROUP BY classroom"
+    },
+    {
+        "original_nl": "For each classroom, show the classroom number and find how many students are using it.",
+        "generalized_nl": "For|each|{COLUMN} [classroom]|show|the|{COLUMN} [classroom]|number|and|find|how|many|student [students]|are|use [using]|it",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "show",
+            "the",
+            "{COLUMN}",
+            "number",
+            "and",
+            "find",
+            "how",
+            "many",
+            "student",
+            "are",
+            "use",
+            "it"
+        ],
+        "original_sql": "SELECT classroom ,  count(*) FROM list GROUP BY classroom"
+    },
+    {
+        "original_nl": "For each grade 0 classroom, report the total number of students.",
+        "generalized_nl": "For|each|{COLUMN} [grade]|{NUMBER} [0]|{COLUMN} [classroom]|report|the|entire [total]|number|of|student [students]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "{NUMBER}",
+            "{COLUMN}",
+            "report",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "student"
+        ],
+        "original_sql": "SELECT classroom ,  count(*) FROM list WHERE grade  =  \"0\" GROUP BY classroom"
+    },
+    {
+        "original_nl": "For each grade 0 classroom, return the classroom number and the count of students.",
+        "generalized_nl": "For|each|{COLUMN} [grade]|{NUMBER} [0]|{COLUMN} [classroom]|return|the|{COLUMN} [classroom]|number|and|the|count|of|student [students]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "{NUMBER}",
+            "{COLUMN}",
+            "return",
+            "the",
+            "{COLUMN}",
+            "number",
+            "and",
+            "the",
+            "count",
+            "of",
+            "student"
+        ],
+        "original_sql": "SELECT classroom ,  count(*) FROM list WHERE grade  =  \"0\" GROUP BY classroom"
+    },
+    {
+        "original_nl": "Report the total number of students for each fourth-grade classroom.",
+        "generalized_nl": "report [Report]|the|entire [total]|number|of|student [students]|for|each|{NE} [fourth]|{COLUMN} [grade]|{COLUMN} [classroom]",
+        "generalized_tokens": [
+            "report",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "student",
+            "for",
+            "each",
+            "{NE}",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT classroom ,  count(*) FROM list WHERE grade  =  \"4\" GROUP BY classroom"
+    },
+    {
+        "original_nl": "For each fourth-grade classroom, show the classroom number and the total number of students using it.",
+        "generalized_nl": "For|each|{NE} [fourth]|{COLUMN} [grade]|{COLUMN} [classroom]|show|the|{COLUMN} [classroom]|number|and|the|entire [total]|number|of|student [students]|use [using]|it",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{NE}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "show",
+            "the",
+            "{COLUMN}",
+            "number",
+            "and",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "student",
+            "use",
+            "it"
+        ],
+        "original_sql": "SELECT classroom ,  count(*) FROM list WHERE grade  =  \"4\" GROUP BY classroom"
+    },
+    {
+        "original_nl": "Find the name of the teacher who teaches the largest number of students.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [teacher]|who|teach [teaches]|the|large [largest]|number|of|student [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "teach",
+            "the",
+            "large",
+            "number",
+            "of",
+            "student"
+        ],
+        "original_sql": "SELECT T2.firstname ,  T2.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom GROUP BY T2.firstname ,  T2.lastname ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the number of students in one classroom.",
+        "generalized_nl": "find [Find]|the|number|of|student [students]|in|{NUMBER} [one]|{COLUMN} [classroom]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "student",
+            "in",
+            "{NUMBER}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  classroom FROM list GROUP BY classroom"
+    },
+    {
+        "original_nl": "How many students does one classroom have?",
+        "generalized_nl": "How|many|student [students]|does|{NUMBER} [one]|{COLUMN} [classroom]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "student",
+            "does",
+            "{NUMBER}",
+            "{COLUMN}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) ,  classroom FROM list GROUP BY classroom"
+    }
+]

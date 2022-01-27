@@ -1,0 +1,1431 @@
+[
+    {
+        "original_nl": "How many available hotels are there in total?",
+        "generalized_nl": "How|many|available|{TABLE} [hotels]|are|there|in|entire [total]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "available",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "entire"
+        ],
+        "original_sql": "SELECT count(*) FROM HOTELS"
+    },
+    {
+        "original_nl": "Find the total number of available hotels.",
+        "generalized_nl": "find [Find]|the|entire [total]|number|of|available|{TABLE} [hotels]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "available",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM HOTELS"
+    },
+    {
+        "original_nl": "What are the price ranges of hotels?",
+        "generalized_nl": "What|are|the|{COLUMN} [price ranges]|of|{TABLE} [hotels]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT price_range FROM HOTELS"
+    },
+    {
+        "original_nl": "Tell me the price ranges for all the hotels.",
+        "generalized_nl": "tell [Tell]|me|the|{COLUMN} [price ranges]|for|all|the|{TABLE} [hotels]",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "{COLUMN}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT price_range FROM HOTELS"
+    },
+    {
+        "original_nl": "Show all distinct location names.",
+        "generalized_nl": "show [Show]|all|distinct|{COLUMN} [location names]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Location_Name FROM LOCATIONS"
+    },
+    {
+        "original_nl": "What are the distinct location names?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [location names]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Location_Name FROM LOCATIONS"
+    },
+    {
+        "original_nl": "Show the names and details of all the staff members.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|and|{COLUMN_PART} [details]|of|all|the|{TABLE} [staff]|member [members]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT Name ,  Other_Details FROM Staff"
+    },
+    {
+        "original_nl": "What is the name and detail of each staff member?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN_PART} [detail]|of|each|{TABLE} [staff]|member",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "member"
+        ],
+        "original_sql": "SELECT Name ,  Other_Details FROM Staff"
+    },
+    {
+        "original_nl": "Show details of all visitors.",
+        "generalized_nl": "show [Show]|{COLUMN_PART} [details]|of|all|{TABLE} [visitors]",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Tourist_Details FROM VISITORS"
+    },
+    {
+        "original_nl": "What is the detail of each visitor?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [detail]|of|each|{TABLE} [visitor]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Tourist_Details FROM VISITORS"
+    },
+    {
+        "original_nl": "Show the price ranges of hotels with 5 star ratings.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [price ranges]|of|{TABLE} [hotels]|with|{NUMBER} [5]|{COLUMN_PART} [star]|evaluation [ratings]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "evaluation"
+        ],
+        "original_sql": "SELECT price_range FROM HOTELS WHERE star_rating_code  =  \"5\""
+    },
+    {
+        "original_nl": "What are the price ranges of five star hotels?",
+        "generalized_nl": "What|are|the|{COLUMN} [price ranges]|of|{NUMBER} [five]|{COLUMN_PART} [star]|{TABLE} [hotels]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT price_range FROM HOTELS WHERE star_rating_code  =  \"5\""
+    },
+    {
+        "original_nl": "Show the average price range of hotels that have 5 star ratings and allow pets.",
+        "generalized_nl": "show [Show]|the|average|{COLUMN} [price range]|of|{TABLE} [hotels]|that|have|{NUMBER} [5]|{COLUMN_PART} [star]|evaluation [ratings]|and|allow|{COLUMN_PART} [pets]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "evaluation",
+            "and",
+            "allow",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(price_range) FROM HOTELS WHERE star_rating_code  =  \"5\" AND pets_allowed_yn  =  1"
+    },
+    {
+        "original_nl": "What is the average price range of five star hotels that allow pets?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [price range]|of|{NUMBER} [five]|{COLUMN_PART} [star]|{TABLE} [hotels]|that|allow|{COLUMN_PART} [pets]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "that",
+            "allow",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT avg(price_range) FROM HOTELS WHERE star_rating_code  =  \"5\" AND pets_allowed_yn  =  1"
+    },
+    {
+        "original_nl": "What is the address of the location \"UK Gallery\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [address]|of|the|{TABLE} [location]|{NE} [UK]|Gallery",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "Gallery"
+        ],
+        "original_sql": "SELECT Address FROM LOCATIONS WHERE Location_Name  =  \"UK Gallery\""
+    },
+    {
+        "original_nl": "Find the address of the location named \"UK Gallery\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [address]|of|the|{TABLE} [location]|name [named]|UK|Gallery",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "UK",
+            "Gallery"
+        ],
+        "original_sql": "SELECT Address FROM LOCATIONS WHERE Location_Name  =  \"UK Gallery\""
+    },
+    {
+        "original_nl": "What is the detail of the location UK Gallery?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [detail]|of|the|{TABLE} [location]|{NE} [UK Gallery]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Other_Details FROM LOCATIONS WHERE Location_Name  =  \"UK Gallery\""
+    },
+    {
+        "original_nl": "Return the detail of the location named \"UK Gallery\".",
+        "generalized_nl": "return [Return]|the|{COLUMN_PART} [detail]|of|the|{TABLE} [location]|name [named]|{NE} [UK Gallery \"]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Other_Details FROM LOCATIONS WHERE Location_Name  =  \"UK Gallery\""
+    },
+    {
+        "original_nl": "Which location names contain the word \"film\"?",
+        "generalized_nl": "Which|{COLUMN} [location names]|contain|the|word|film",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "word",
+            "film"
+        ],
+        "original_sql": "SELECT Location_Name FROM LOCATIONS WHERE Location_Name LIKE \"%film%\""
+    },
+    {
+        "original_nl": "Find all the locations whose names contain the word \"film\".",
+        "generalized_nl": "find [Find]|all|the|{TABLE} [locations]|whose|{COLUMN} [names]|contain|the|word|film",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "word",
+            "film"
+        ],
+        "original_sql": "SELECT Location_Name FROM LOCATIONS WHERE Location_Name LIKE \"%film%\""
+    },
+    {
+        "original_nl": "How many distinct names are associated with all the photos?",
+        "generalized_nl": "How|many|distinct|{COLUMN} [names]|are|associate [associated]|with|all|the|{TABLE} [photos]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "{COLUMN}",
+            "are",
+            "associate",
+            "with",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT Name) FROM PHOTOS"
+    },
+    {
+        "original_nl": "Count the number of distinct names associated with the photos.",
+        "generalized_nl": "count [Count]|the|number|of|distinct|{COLUMN} [names]|associate [associated]|with|the|{TABLE} [photos]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT Name) FROM PHOTOS"
+    },
+    {
+        "original_nl": "What are the distinct visit dates?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [visit dates]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Visit_Date FROM VISITS"
+    },
+    {
+        "original_nl": "Find all the distinct visit dates.",
+        "generalized_nl": "find [Find]|all|the|distinct|{COLUMN} [visit dates]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "the",
+            "distinct",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Visit_Date FROM VISITS"
+    },
+    {
+        "original_nl": "What are the names of the tourist attractions that can be accessed by bus?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [tourist attractions]|that|can|be|access [accessed]|by|bus",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "can",
+            "be",
+            "access",
+            "by",
+            "bus"
+        ],
+        "original_sql": "SELECT Name FROM TOURIST_ATTRACTIONS WHERE How_to_Get_There  =  \"bus\""
+    },
+    {
+        "original_nl": "What are the names and opening hours of the tourist attractions that can be accessed by bus or walk?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [opening hours]|of|the|{TABLE} [tourist attractions]|that|can|be|access [accessed]|by|bus|or|walk",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "can",
+            "be",
+            "access",
+            "by",
+            "bus",
+            "or",
+            "walk"
+        ],
+        "original_sql": "SELECT Name ,  Opening_Hours FROM TOURIST_ATTRACTIONS WHERE How_to_Get_There  =  \"bus\" OR How_to_Get_There  =  \"walk\""
+    },
+    {
+        "original_nl": "Find the names and opening hours of the tourist attractions that we get to by bus or walk.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|and|{COLUMN} [opening hours]|of|the|{TABLE} [tourist attractions]|that|we|{COLUMN_PART} [get]|to|by|bus|or|walk",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "we",
+            "{COLUMN_PART}",
+            "to",
+            "by",
+            "bus",
+            "or",
+            "walk"
+        ],
+        "original_sql": "SELECT Name ,  Opening_Hours FROM TOURIST_ATTRACTIONS WHERE How_to_Get_There  =  \"bus\" OR How_to_Get_There  =  \"walk\""
+    },
+    {
+        "original_nl": "What are the star rating descriptions of the hotels with price above 10000?",
+        "generalized_nl": "What|are|the|{COLUMN} [star rating descriptions]|of|the|{TABLE} [hotels]|with|{COLUMN_PART} [price]|above|{NUMBER} [10000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.star_rating_description FROM HOTELS AS T1 JOIN Ref_Hotel_Star_Ratings AS T2 ON T1.star_rating_code  =  T2.star_rating_code WHERE T1.price_range  >  10000"
+    },
+    {
+        "original_nl": "Give me the star rating descriptions of the hotels that cost more than 10000.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN} [star rating descriptions]|of|the|{TABLE} [hotels]|that|cost|{NUMBER} [more than 10000]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "cost",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.star_rating_description FROM HOTELS AS T1 JOIN Ref_Hotel_Star_Ratings AS T2 ON T1.star_rating_code  =  T2.star_rating_code WHERE T1.price_range  >  10000"
+    },
+    {
+        "original_nl": "What are the details and opening hours of the museums?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|and|{COLUMN} [opening hours]|of|the|{TABLE} [museums]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Museum_Details ,  T2.Opening_Hours FROM MUSEUMS AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Museum_ID  =  T2.Tourist_Attraction_ID"
+    },
+    {
+        "original_nl": "Give me the detail and opening hour for each museum.",
+        "generalized_nl": "give [Give]|me|{NE} [the detail and opening hour]|for|each|{TABLE} [museum]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "{NE}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Museum_Details ,  T2.Opening_Hours FROM MUSEUMS AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Museum_ID  =  T2.Tourist_Attraction_ID"
+    },
+    {
+        "original_nl": "What is the name of the tourist attraction that is associated with the photo \"game1\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [tourist attraction]|that|is|associate [associated]|with|the|{TABLE} [photo]|game1",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "associate",
+            "with",
+            "the",
+            "{TABLE}",
+            "game1"
+        ],
+        "original_sql": "SELECT T2.Name FROM PHOTOS AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID WHERE T1.Name  =  \"game1\""
+    },
+    {
+        "original_nl": "What are the names and descriptions of the photos taken at the tourist attraction \"film festival\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [descriptions]|of|the|{TABLE} [photos]|take [taken]|at|the|{TABLE} [tourist attraction]|film|festival",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "take",
+            "at",
+            "the",
+            "{TABLE}",
+            "film",
+            "festival"
+        ],
+        "original_sql": "SELECT T1.Name ,  T1.Description FROM PHOTOS AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID WHERE T2.Name  =  \"film festival\""
+    },
+    {
+        "original_nl": "Find the names and descriptions of the photos taken at the tourist attraction called \"film festival\".",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|and|{COLUMN} [descriptions]|of|the|{TABLE} [photos]|take [taken]|at|the|{TABLE} [tourist attraction]|call [called]|film|festival",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "take",
+            "at",
+            "the",
+            "{TABLE}",
+            "call",
+            "film",
+            "festival"
+        ],
+        "original_sql": "SELECT T1.Name ,  T1.Description FROM PHOTOS AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID WHERE T2.Name  =  \"film festival\""
+    },
+    {
+        "original_nl": "What are the details and ways to get to tourist attractions related to royal family?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|and|way [ways]|to|{COLUMN_PART} [get]|to|{TABLE} [tourist attractions]|related|to|{TABLE} [royal family]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "way",
+            "to",
+            "{COLUMN_PART}",
+            "to",
+            "{TABLE}",
+            "related",
+            "to",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Royal_Family_Details ,  T2.How_to_Get_There FROM ROYAL_FAMILY AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Royal_Family_ID  =  T2.Tourist_Attraction_ID"
+    },
+    {
+        "original_nl": "What are the details of the shops that can be accessed by walk?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|of|the|{TABLE} [shops]|that|can|be|access [accessed]|by|walk",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "can",
+            "be",
+            "access",
+            "by",
+            "walk"
+        ],
+        "original_sql": "SELECT T1.Shop_Details FROM SHOPS AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Shop_ID  =  T2.Tourist_Attraction_ID WHERE T2.How_to_Get_There  =  \"walk\""
+    },
+    {
+        "original_nl": "Find the details of the shops that can be reached by walk.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [details]|of|the|{TABLE} [shops]|that|can|be|reach [reached]|by|walk",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "can",
+            "be",
+            "reach",
+            "by",
+            "walk"
+        ],
+        "original_sql": "SELECT T1.Shop_Details FROM SHOPS AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Shop_ID  =  T2.Tourist_Attraction_ID WHERE T2.How_to_Get_There  =  \"walk\""
+    },
+    {
+        "original_nl": "What is the name of the staff that is in charge of the attraction named \"US museum\"?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [staff]|that|is|in|charge|of|the|{COLUMN_PART} [attraction]|name [named]|{NE} [US]|{TABLE} [museum]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "in",
+            "charge",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "name",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM STAFF AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID WHERE T2.Name  =  \"US museum\""
+    },
+    {
+        "original_nl": "Tell me the name of the staff in charge of the attraction called \"US museum\".",
+        "generalized_nl": "tell [Tell]|me|the|{COLUMN} [name]|of|the|{TABLE} [staff]|in|charge|of|the|{COLUMN_PART} [attraction]|call [called]|{NE} [US]|{TABLE} [museum]",
+        "generalized_tokens": [
+            "tell",
+            "me",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "charge",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "call",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM STAFF AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID WHERE T2.Name  =  \"US museum\""
+    },
+    {
+        "original_nl": "What are the details of the markets that can be accessed by walk or bus?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|of|the|market [markets]|that|can|be|access [accessed]|by|walk|or|bus",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "market",
+            "that",
+            "can",
+            "be",
+            "access",
+            "by",
+            "walk",
+            "or",
+            "bus"
+        ],
+        "original_sql": "SELECT T1.Market_Details FROM Street_Markets AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Market_ID  =  T2.Tourist_Attraction_ID WHERE T2.How_to_Get_There  =  \"walk\" OR  T2.How_to_Get_There  =  \"bus\""
+    },
+    {
+        "original_nl": "Find the details of all the markets that are accessible by walk or bus.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [details]|of|all|the|market [markets]|that|are|accessible|by|walk|or|bus",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "market",
+            "that",
+            "are",
+            "accessible",
+            "by",
+            "walk",
+            "or",
+            "bus"
+        ],
+        "original_sql": "SELECT T1.Market_Details FROM Street_Markets AS T1 JOIN TOURIST_ATTRACTIONS AS T2 ON T1.Market_ID  =  T2.Tourist_Attraction_ID WHERE T2.How_to_Get_There  =  \"walk\" OR  T2.How_to_Get_There  =  \"bus\""
+    },
+    {
+        "original_nl": "What are the visit date and details of the visitor whose detail is 'Vincent'?",
+        "generalized_nl": "What|are|the|{COLUMN} [visit date]|and|{COLUMN_PART} [details]|of|the|{TABLE} [visitor]|whose|{COLUMN_PART} [detail]|is|{NE} [Vincent]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Visit_Date ,  T2.Visit_Details FROM VISITORS AS T1 JOIN VISITS AS T2 ON T1.Tourist_ID  =  T2.Tourist_ID WHERE T1.Tourist_Details  =  \"Vincent\""
+    },
+    {
+        "original_nl": "Which tourist attractions does the visitor with detail 'Vincent' visit?",
+        "generalized_nl": "Which|{TABLE} [tourist attractions]|does|the|{TABLE} [visitor]|with|{COLUMN_PART} [detail]|{NE} [Vincent]|'|{TABLE} [visit]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "does",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NE}",
+            "'",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID JOIN VISITORS AS T3 ON T2.Tourist_ID  =  T3.Tourist_ID WHERE T3.Tourist_Details  =  \"Vincent\""
+    },
+    {
+        "original_nl": "Show the tourist attractions visited by the tourist whose detail is 'Vincent'.",
+        "generalized_nl": "show [Show]|the|{TABLE} [tourist attractions]|visit [visited]|by|the|{COLUMN_PART} [tourist]|whose|{COLUMN_PART} [detail]|is|{NE} [Vincent]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{TABLE}",
+            "visit",
+            "by",
+            "the",
+            "{COLUMN_PART}",
+            "whose",
+            "{COLUMN_PART}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID JOIN VISITORS AS T3 ON T2.Tourist_ID  =  T3.Tourist_ID WHERE T3.Tourist_Details  =  \"Vincent\""
+    },
+    {
+        "original_nl": "What are the names of the tourist attractions and the dates when the tourists named Vincent or Vivian visited there?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [tourist attractions]|and|the|{COLUMN_PART} [dates]|when|the|tourist [tourists]|name [named]|{NE} [Vincent]|or|{NE} [Vivian]|visit [visited]|there",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "when",
+            "the",
+            "tourist",
+            "name",
+            "{NE}",
+            "or",
+            "{NE}",
+            "visit",
+            "there"
+        ],
+        "original_sql": "SELECT T1.Name ,  T3.Visit_Date FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Vincent\" OR T2.Tourist_Details  =  \"Vivian\""
+    },
+    {
+        "original_nl": "For each tourist attraction, return its name and the date when the tourists named Vincent or Vivian visited there.",
+        "generalized_nl": "For|each|{TABLE} [tourist attraction]|return|its|{COLUMN} [name]|and|the|{COLUMN_PART} [date]|when|the|tourist [tourists]|name [named]|{NE} [Vincent]|or|{NE} [Vivian]|visit [visited]|there",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "return",
+            "its",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "when",
+            "the",
+            "tourist",
+            "name",
+            "{NE}",
+            "or",
+            "{NE}",
+            "visit",
+            "there"
+        ],
+        "original_sql": "SELECT T1.Name ,  T3.Visit_Date FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Vincent\" OR T2.Tourist_Details  =  \"Vivian\""
+    },
+    {
+        "original_nl": "Show the average price of hotels for each star rating code.",
+        "generalized_nl": "show [Show]|the|average|{COLUMN_PART} [price]|of|{TABLE} [hotels]|for|each|{COLUMN} [star rating code]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT star_rating_code ,  avg(price_range) FROM HOTELS GROUP BY star_rating_code"
+    },
+    {
+        "original_nl": "What is the average price range of hotels for each each star rating code?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [price range]|of|{TABLE} [hotels]|for|each|each|{COLUMN} [star rating code]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT star_rating_code ,  avg(price_range) FROM HOTELS GROUP BY star_rating_code"
+    },
+    {
+        "original_nl": "Show the average price of hotels for different pet policy.",
+        "generalized_nl": "show [Show]|the|average|{COLUMN_PART} [price]|of|{TABLE} [hotels]|for|different|pet|policy",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "different",
+            "pet",
+            "policy"
+        ],
+        "original_sql": "SELECT pets_allowed_yn ,  avg(price_range) FROM HOTELS GROUP BY pets_allowed_yn"
+    },
+    {
+        "original_nl": "What are the average prices of hotels grouped by their pet policy.",
+        "generalized_nl": "What|are|the|average|price [prices]|of|{TABLE} [hotels]|group [grouped]|by|their|pet|policy",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "price",
+            "of",
+            "{TABLE}",
+            "group",
+            "by",
+            "their",
+            "pet",
+            "policy"
+        ],
+        "original_sql": "SELECT pets_allowed_yn ,  avg(price_range) FROM HOTELS GROUP BY pets_allowed_yn"
+    },
+    {
+        "original_nl": "Show the id and star rating of each hotel, ordered by its price from low to high.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [id]|and|{COLUMN_PART} [star]|{COLUMN_PART} [rating]|of|each|{TABLE} [hotel]|order [ordered]|by|it|s|{COLUMN_PART} [price]|from|low|to|high",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "order",
+            "by",
+            "it",
+            "s",
+            "{COLUMN_PART}",
+            "from",
+            "low",
+            "to",
+            "high"
+        ],
+        "original_sql": "SELECT hotel_id ,  star_rating_code FROM HOTELS ORDER BY price_range ASC"
+    },
+    {
+        "original_nl": "Find the id and star rating of each hotel and sort them in increasing order of price.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|and|{COLUMN_PART} [star]|{COLUMN_PART} [rating]|of|each|{TABLE} [hotel]|and|screen [sort]|them|in|increase [increasing]|order|of|{COLUMN_PART} [price]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "and",
+            "screen",
+            "them",
+            "in",
+            "increase",
+            "order",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT hotel_id ,  star_rating_code FROM HOTELS ORDER BY price_range ASC"
+    },
+    {
+        "original_nl": "Show the details of the top 3 most expensive hotels.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [details]|of|the|top|{NUMBER} [3]|most|expensive|{TABLE} [hotels]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "top",
+            "{NUMBER}",
+            "most",
+            "expensive",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT other_hotel_details FROM HOTELS ORDER BY price_range DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What are the details of the three most expensive hotels?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|of|the|{NUMBER} [three]|most|expensive|{TABLE} [hotels]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{NUMBER}",
+            "most",
+            "expensive",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT other_hotel_details FROM HOTELS ORDER BY price_range DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Show the details and star ratings of the 3 least expensive hotels.",
+        "generalized_nl": "show [Show]|the|{COLUMN_PART} [details]|and|{COLUMN_PART} [star]|evaluation [ratings]|of|the|{NUMBER} [3]|least|expensive|{TABLE} [hotels]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "evaluation",
+            "of",
+            "the",
+            "{NUMBER}",
+            "least",
+            "expensive",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT other_hotel_details ,  star_rating_code FROM HOTELS ORDER BY price_range ASC LIMIT 3"
+    },
+    {
+        "original_nl": "What are the details and star ratings of the three hotels with the lowest price ranges?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [details]|and|{COLUMN_PART} [star]|evaluation [ratings]|of|the|{NUMBER} [three]|{TABLE} [hotels]|with|the|low [lowest]|{COLUMN} [price ranges]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "evaluation",
+            "of",
+            "the",
+            "{NUMBER}",
+            "{TABLE}",
+            "with",
+            "the",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT other_hotel_details ,  star_rating_code FROM HOTELS ORDER BY price_range ASC LIMIT 3"
+    },
+    {
+        "original_nl": "Show the transportation method most people choose to get to tourist attractions.",
+        "generalized_nl": "show [Show]|the|transportation|method|most|people|choose|to|{COLUMN_PART} [get]|to|{TABLE} [tourist attractions]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "transportation",
+            "method",
+            "most",
+            "people",
+            "choose",
+            "to",
+            "{COLUMN_PART}",
+            "to",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT How_to_Get_There FROM Tourist_Attractions GROUP BY How_to_Get_There ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which transportation method is used the most often to get to tourist attractions?",
+        "generalized_nl": "Which|transportation|method|is|use [used]|the|most|frequently [often]|to|{COLUMN_PART} [get]|to|{TABLE} [tourist attractions]",
+        "generalized_tokens": [
+            "Which",
+            "transportation",
+            "method",
+            "is",
+            "use",
+            "the",
+            "most",
+            "frequently",
+            "to",
+            "{COLUMN_PART}",
+            "to",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT How_to_Get_There FROM Tourist_Attractions GROUP BY How_to_Get_There ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the description and code of the attraction type most tourist attractions belong to.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [description]|and|{COLUMN_PART} [code]|of|the|{COLUMN_PART} [attraction]|{COLUMN_PART} [type]|most|{TABLE} [tourist attractions]|belong|to",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "most",
+            "{TABLE}",
+            "belong",
+            "to"
+        ],
+        "original_sql": "SELECT T1.Attraction_Type_Description ,  T2.Attraction_Type_Code FROM Ref_Attraction_Types AS T1 JOIN Tourist_Attractions AS T2 ON T1.Attraction_Type_Code  =  T2.Attraction_Type_Code GROUP BY T2.Attraction_Type_Code ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show different ways to get to attractions and the number of attractions that can be accessed in the corresponding way.",
+        "generalized_nl": "show [Show]|different|way [ways]|to|{COLUMN_PART} [get]|to|attraction [attractions]|and|the|number|of|attraction [attractions]|that|can|be|access [accessed]|in|the|match [corresponding]|way",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "way",
+            "to",
+            "{COLUMN_PART}",
+            "to",
+            "attraction",
+            "and",
+            "the",
+            "number",
+            "of",
+            "attraction",
+            "that",
+            "can",
+            "be",
+            "access",
+            "in",
+            "the",
+            "match",
+            "way"
+        ],
+        "original_sql": "SELECT How_to_Get_There ,  COUNT(*) FROM Tourist_Attractions GROUP BY How_to_Get_There"
+    },
+    {
+        "original_nl": "List all the possible ways to get to attractions, together with the number of attractions accessible by these methods.",
+        "generalized_nl": "list [List]|all|the|possible|way [ways]|to|{COLUMN_PART} [get]|to|attraction [attractions]|together|with|the|number|of|attraction [attractions]|accessible|by|these|method [methods]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "the",
+            "possible",
+            "way",
+            "to",
+            "{COLUMN_PART}",
+            "to",
+            "attraction",
+            "together",
+            "with",
+            "the",
+            "number",
+            "of",
+            "attraction",
+            "accessible",
+            "by",
+            "these",
+            "method"
+        ],
+        "original_sql": "SELECT How_to_Get_There ,  COUNT(*) FROM Tourist_Attractions GROUP BY How_to_Get_There"
+    },
+    {
+        "original_nl": "Show different tourist attractions' names, ids, and the corresponding number of visits.",
+        "generalized_nl": "show [Show]|different|{TABLE} [tourist attractions]|'|{COLUMN} [names]|{COLUMN_PART} [ids]|and|the|match [corresponding]|number|of|{TABLE} [visits]",
+        "generalized_tokens": [
+            "show",
+            "different",
+            "{TABLE}",
+            "'",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Tourist_Attraction_ID ,   COUNT(*) FROM Tourist_Attractions AS T1 JOIN VISITS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID GROUP BY T2.Tourist_Attraction_ID"
+    },
+    {
+        "original_nl": "What are the name, id and the corresponding number of visits for each  tourist attraction?",
+        "generalized_nl": "What|are|the|{COLUMN} [name]|{COLUMN_PART} [id]|and|the|match [corresponding]|number|of|{TABLE} [visits]|for|each|{TABLE} [tourist attraction]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "match",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Tourist_Attraction_ID ,   COUNT(*) FROM Tourist_Attractions AS T1 JOIN VISITS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID GROUP BY T2.Tourist_Attraction_ID"
+    },
+    {
+        "original_nl": "Show the names and ids of tourist attractions that are visited at least two times.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|and|{COLUMN_PART} [ids]|of|{TABLE} [tourist attractions]|that|are|visit [visited]|{NUMBER} [at least two]|time [times]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "visit",
+            "{NUMBER}",
+            "time"
+        ],
+        "original_sql": "SELECT T1.Name ,  T2.Tourist_Attraction_ID FROM Tourist_Attractions AS T1 JOIN VISITS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID GROUP BY T2.Tourist_Attraction_ID HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the names and ids of tourist attractions that are visited at most once.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|and|{COLUMN_PART} [ids]|of|{TABLE} [tourist attractions]|that|are|visit [visited]|at|most|once",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "visit",
+            "at",
+            "most",
+            "once"
+        ],
+        "original_sql": "SELECT T1.Name ,  T1.Tourist_Attraction_ID FROM Tourist_Attractions AS T1 JOIN VISITS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID GROUP BY T2.Tourist_Attraction_ID HAVING count(*)  <=  1"
+    },
+    {
+        "original_nl": "What are the names and ids of the tourist attractions that are visited at most once?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN_PART} [ids]|of|the|{TABLE} [tourist attractions]|that|are|visit [visited]|at|most|once",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "are",
+            "visit",
+            "at",
+            "most",
+            "once"
+        ],
+        "original_sql": "SELECT T1.Name ,  T1.Tourist_Attraction_ID FROM Tourist_Attractions AS T1 JOIN VISITS AS T2 ON T1.Tourist_Attraction_ID  =  T2.Tourist_Attraction_ID GROUP BY T2.Tourist_Attraction_ID HAVING count(*)  <=  1"
+    },
+    {
+        "original_nl": "What are the names of tourist attractions that can be reached by walk or is at address 660 Shea Crescent?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [tourist attractions]|that|can|be|reach [reached]|by|walk|or|is|at|{COLUMN} [address]|{NE} [660 Shea Crescent]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "can",
+            "be",
+            "reach",
+            "by",
+            "walk",
+            "or",
+            "is",
+            "at",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM Locations AS T1 JOIN Tourist_Attractions AS T2 ON T1.Location_ID  =  T2.Location_ID WHERE T1.Address  =  \"660 Shea Crescent\" OR T2.How_to_Get_There  =  \"walk\""
+    },
+    {
+        "original_nl": "Find the names of the tourist attractions that is either accessible by walk or at address 660 Shea Crescent.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|{TABLE} [tourist attractions]|that|is|either|accessible|by|walk|or|at|{COLUMN} [address]|{NE} [660 Shea Crescent]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "either",
+            "accessible",
+            "by",
+            "walk",
+            "or",
+            "at",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM Locations AS T1 JOIN Tourist_Attractions AS T2 ON T1.Location_ID  =  T2.Location_ID WHERE T1.Address  =  \"660 Shea Crescent\" OR T2.How_to_Get_There  =  \"walk\""
+    },
+    {
+        "original_nl": "What are the names of the tourist attractions that have parking or shopping as their feature details?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [tourist attractions]|that|have|parking|or|shopping|as|their|{COLUMN} [feature details]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "parking",
+            "or",
+            "shopping",
+            "as",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN Tourist_Attraction_Features AS T2 ON T1.tourist_attraction_id  =  T2.tourist_attraction_id JOIN Features AS T3 ON T2.Feature_ID  =  T3.Feature_ID WHERE T3.feature_Details  =  'park' UNION SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN Tourist_Attraction_Features AS T2 ON T1.tourist_attraction_id  =  T2.tourist_attraction_id JOIN Features AS T3 ON T2.Feature_ID  =  T3.Feature_ID WHERE T3.feature_Details  =  'shopping'"
+    },
+    {
+        "original_nl": "What are the names of tourist attractions that can be reached by bus or is at address 254 Ottilie Junction?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [tourist attractions]|that|can|be|reach [reached]|by|bus|or|is|at|{COLUMN} [address]|{NE} [254 Ottilie Junction]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "can",
+            "be",
+            "reach",
+            "by",
+            "bus",
+            "or",
+            "is",
+            "at",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM Locations AS T1 JOIN Tourist_Attractions AS T2 ON T1.Location_ID  =  T2.Location_ID WHERE T1.Address  =  \"254 Ottilie Junction\" OR T2.How_to_Get_There  =  \"bus\""
+    },
+    {
+        "original_nl": "Find the names of the tourist attractions that is either accessible by bus or at address 254 Ottilie Junction.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|{TABLE} [tourist attractions]|that|is|either|accessible|by|bus|or|at|{COLUMN} [address]|{NE} [254 Ottilie Junction]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "either",
+            "accessible",
+            "by",
+            "bus",
+            "or",
+            "at",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM Locations AS T1 JOIN Tourist_Attractions AS T2 ON T1.Location_ID  =  T2.Location_ID WHERE T1.Address  =  \"254 Ottilie Junction\" OR T2.How_to_Get_There  =  \"bus\""
+    },
+    {
+        "original_nl": "What are the names of the tourist attractions Vincent and Marcelle visit?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [tourist attractions]|{NE} [Vincent]|and|{NE} [Marcelle]|{TABLE} [visit]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "{NE}",
+            "and",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Vincent\" INTERSECT SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Marcelle\""
+    },
+    {
+        "original_nl": "What are the names of tourist attraction that Alison visited but Rosalind did not visit?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [tourist attraction]|that|{NE} [Alison]|visit [visited]|but|{NE} [Rosalind]|did|not|{TABLE} [visit]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "{NE}",
+            "visit",
+            "but",
+            "{NE}",
+            "did",
+            "not",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Alison\" EXCEPT SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Rosalind\""
+    },
+    {
+        "original_nl": "Find the the names of the tourist attractions that the tourist named Alison visited but Rosalind did not visit.",
+        "generalized_nl": "find [Find]|the|the|{COLUMN} [names]|of|the|{TABLE} [tourist attractions]|that|the|{COLUMN_PART} [tourist]|name [named]|{NE} [Alison]|visit [visited]|but|{NE} [Rosalind]|did|not|{TABLE} [visit]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "the",
+            "{COLUMN_PART}",
+            "name",
+            "{NE}",
+            "visit",
+            "but",
+            "{NE}",
+            "did",
+            "not",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Alison\" EXCEPT SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Rosalind\""
+    },
+    {
+        "original_nl": "How many tourists did not make any visit?",
+        "generalized_nl": "How|many|tourist [tourists]|did|not|make|any|{TABLE} [visit]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "tourist",
+            "did",
+            "not",
+            "make",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Visitors WHERE Tourist_ID NOT IN ( SELECT Tourist_ID FROM Visits )"
+    },
+    {
+        "original_nl": "Count the number of tourists who did not visit any place.",
+        "generalized_nl": "count [Count]|the|number|of|tourist [tourists]|who|did|not|{TABLE} [visit]|any|place",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "tourist",
+            "who",
+            "did",
+            "not",
+            "{TABLE}",
+            "any",
+            "place"
+        ],
+        "original_sql": "SELECT count(*) FROM Visitors WHERE Tourist_ID NOT IN ( SELECT Tourist_ID FROM Visits )"
+    }
+]

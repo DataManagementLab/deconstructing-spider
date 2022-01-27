@@ -1,0 +1,886 @@
+[
+    {
+        "original_nl": "What is the id of the most recent order?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|the|most|recent|{TABLE} [order]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "most",
+            "recent",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT order_id FROM orders ORDER BY date_order_placed DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the id of the order made most recently.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|of|the|{TABLE} [order]|make [made]|most|recently",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "make",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT order_id FROM orders ORDER BY date_order_placed DESC LIMIT 1"
+    },
+    {
+        "original_nl": "what are the order id and customer id of the oldest order?",
+        "generalized_nl": "what|are|the|{COLUMN} [order id]|and|{COLUMN} [customer id]|of|the|old [oldest]|{TABLE} [order]",
+        "generalized_tokens": [
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "old",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT order_id ,  customer_id FROM orders ORDER BY date_order_placed LIMIT 1"
+    },
+    {
+        "original_nl": "Find the order id and customer id associated with the oldest order.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [order id]|and|{COLUMN} [customer id]|associate [associated]|with|the|old [oldest]|{TABLE} [order]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "associate",
+            "with",
+            "the",
+            "old",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT order_id ,  customer_id FROM orders ORDER BY date_order_placed LIMIT 1"
+    },
+    {
+        "original_nl": "Find the id of the order whose shipment tracking number is \"3452\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|of|the|{TABLE} [order]|whose|{COLUMN} [shipment tracking number]|is|{NUMBER} [3452]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT order_id FROM shipments WHERE shipment_tracking_number = \"3452\""
+    },
+    {
+        "original_nl": "Find the ids of all the order items whose product id is 11.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [ids]|of|all|the|{TABLE} [order items]|whose|{COLUMN} [product id]|is|{VALUE} [11]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT order_item_id FROM order_items WHERE product_id = 11"
+    },
+    {
+        "original_nl": "List the name of all the distinct customers who have orders with status \"Packing\".",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|of|all|the|distinct|{TABLE} [customers]|who|have|{TABLE} [orders]|with|{COLUMN_PART} [status]|packing [Packing]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "distinct",
+            "{TABLE}",
+            "who",
+            "have",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "packing"
+        ],
+        "original_sql": "SELECT DISTINCT T1.customer_name FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id WHERE T2.order_status = \"Packing\""
+    },
+    {
+        "original_nl": "Find the details of all the distinct customers who have orders with status \"On Road\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [details]|of|all|the|distinct|{TABLE} [customers]|who|have|{TABLE} [orders]|with|{COLUMN_PART} [status]|On|Road",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "the",
+            "distinct",
+            "{TABLE}",
+            "who",
+            "have",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "On",
+            "Road"
+        ],
+        "original_sql": "SELECT DISTINCT T1.customer_details FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id WHERE T2.order_status = \"On Road\""
+    },
+    {
+        "original_nl": "What is the name of the customer who has the most orders?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|who|have [has]|the|most|{TABLE} [orders]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the customer id of the customer who has the most orders?",
+        "generalized_nl": "What|is|the|{COLUMN} [customer id]|of|the|{TABLE} [customer]|who|have [has]|the|most|{TABLE} [orders]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.customer_id FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the id of the customer who made the most orders.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|of|the|{TABLE} [customer]|who|make [made]|the|most|{TABLE} [orders]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "make",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.customer_id FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id  =  T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Give me a list of id and status of orders which belong to the customer named \"Jeramie\".",
+        "generalized_nl": "give [Give]|me|a|list|of|{COLUMN_PART} [id]|and|{COLUMN_PART} [status]|of|{TABLE} [orders]|which|belong|to|the|{TABLE} [customer]|name [named]|{NE} [Jeramie]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "which",
+            "belong",
+            "to",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.order_id ,  T2.order_status FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id WHERE T1.customer_name = \"Jeramie\""
+    },
+    {
+        "original_nl": "Find the dates of orders which belong to the customer named \"Jeramie\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [dates]|of|{TABLE} [orders]|which|belong|to|the|{TABLE} [customer]|name [named]|{NE} [Jeramie]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "which",
+            "belong",
+            "to",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.date_order_placed FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id WHERE T1.customer_name = \"Jeramie\""
+    },
+    {
+        "original_nl": "What are the dates of the orders made by the customer named \"Jeramie\"?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [dates]|of|the|{TABLE} [orders]|make [made]|by|the|{TABLE} [customer]|name [named]|{NE} [Jeramie]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "make",
+            "by",
+            "the",
+            "{TABLE}",
+            "name",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.date_order_placed FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id WHERE T1.customer_name = \"Jeramie\""
+    },
+    {
+        "original_nl": "Give me the names of customers who have placed orders between 2009-01-01 and 2010-01-01.",
+        "generalized_nl": "give [Give]|me|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|have|{COLUMN_PART} [placed]|{TABLE} [orders]|{NE} [between 2009 - 01-01]|and|{NE} [2010 - 01-01]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN_PART}",
+            "{TABLE}",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id WHERE T2.date_order_placed >= \"2009-01-01\" AND T2.date_order_placed <= \"2010-01-01\""
+    },
+    {
+        "original_nl": "Give me a list of distinct product ids from orders placed between 1975-01-01 and 1976-01-01?",
+        "generalized_nl": "give [Give]|me|a|list|of|distinct|{COLUMN} [product ids]|from|{TABLE} [orders]|{COLUMN_PART} [placed]|between|{NE} [1975 - 01-01 and 1976 - 01-01]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "a",
+            "list",
+            "of",
+            "distinct",
+            "{COLUMN}",
+            "from",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "between",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.product_id FROM orders AS T1 JOIN order_items AS T2 ON T1.order_id = T2.order_id WHERE T1.date_order_placed >= \"1975-01-01\" AND T1.date_order_placed <= \"1976-01-01\""
+    },
+    {
+        "original_nl": "What are the distinct ids of products ordered between 1975-01-01 and 1976-01-01??",
+        "generalized_nl": "What|are|the|distinct|{COLUMN_PART} [ids]|of|{TABLE} [products]|order [ordered]|{NE} [between 1975 - 01-01]|and|{NE} [1976 - 01-01]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "order",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.product_id FROM orders AS T1 JOIN order_items AS T2 ON T1.order_id = T2.order_id WHERE T1.date_order_placed >= \"1975-01-01\" AND T1.date_order_placed <= \"1976-01-01\""
+    },
+    {
+        "original_nl": "Find the names of the customers who have order status both \"On Road\" and \"Shipped\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [names]|of|the|{TABLE} [customers]|who|have|{COLUMN} [order status]|both|On|Road|and|ship [Shipped]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "both",
+            "On",
+            "Road",
+            "and",
+            "ship"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id WHERE T2.order_status = \"On Road\" INTERSECT SELECT T1.customer_name FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id WHERE T2.order_status = \"Shipped\""
+    },
+    {
+        "original_nl": "Find the id of the customers who have order status both \"On Road\" and \"Shipped\".",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|of|the|{TABLE} [customers]|who|have|{COLUMN} [order status]|both|On|Road|and|ship [Shipped]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "both",
+            "On",
+            "Road",
+            "and",
+            "ship"
+        ],
+        "original_sql": "SELECT T1.customer_id FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id WHERE T2.order_status = \"On Road\" INTERSECT SELECT T1.customer_id FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id WHERE T2.order_status = \"Shipped\""
+    },
+    {
+        "original_nl": "On which day was the order placed whose shipment tracking number is 3452?",
+        "generalized_nl": "On|{NE} [which day]|was|the|{TABLE} [order]|{COLUMN_PART} [placed]|whose|{COLUMN} [shipment tracking number]|is|{NUMBER} [3452]",
+        "generalized_tokens": [
+            "On",
+            "{NE}",
+            "was",
+            "the",
+            "{TABLE}",
+            "{COLUMN_PART}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.date_order_placed FROM orders AS T1 JOIN shipments AS T2 ON T1.order_id = T2.order_id WHERE T2.shipment_tracking_number = 3452"
+    },
+    {
+        "original_nl": "What is the placement date of the order whose invoice number is 10?",
+        "generalized_nl": "What|is|the|placement|{COLUMN_PART} [date]|of|the|{TABLE} [order]|whose|{COLUMN} [invoice number]|is|{VALUE} [10]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "placement",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{VALUE}"
+        ],
+        "original_sql": "SELECT T1.date_order_placed FROM orders AS T1 JOIN shipments AS T2 ON T1.order_id = T2.order_id WHERE T2.invoice_number = 10"
+    },
+    {
+        "original_nl": "On what day was the order with invoice number 10 placed?",
+        "generalized_nl": "On|{NE} [what day]|was|the|{TABLE} [order]|with|{COLUMN} [invoice number]|{VALUE} [10]|{COLUMN_PART} [placed]",
+        "generalized_tokens": [
+            "On",
+            "{NE}",
+            "was",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{VALUE}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT T1.date_order_placed FROM orders AS T1 JOIN shipments AS T2 ON T1.order_id = T2.order_id WHERE T2.invoice_number = 10"
+    },
+    {
+        "original_nl": "List the count and id of each product in all the orders.",
+        "generalized_nl": "list [List]|the|count|and|{COLUMN_PART} [id]|of|each|{TABLE} [product]|in|all|the|{TABLE} [orders]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "count",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "each",
+            "{TABLE}",
+            "in",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  T3.product_id FROM orders AS T1 JOIN order_items AS T2 JOIN products AS T3 ON T1.order_id = T2.order_id AND T2.product_id = T3.product_id GROUP BY T3.product_id"
+    },
+    {
+        "original_nl": "For each product, return its id and the number of times it was ordered.",
+        "generalized_nl": "For|each|{TABLE} [product]|return|its|{COLUMN_PART} [id]|and|the|{COLUMN_PART} [number]|of|time [times]|it|was|order [ordered]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "return",
+            "its",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "time",
+            "it",
+            "was",
+            "order"
+        ],
+        "original_sql": "SELECT count(*) ,  T3.product_id FROM orders AS T1 JOIN order_items AS T2 JOIN products AS T3 ON T1.order_id = T2.order_id AND T2.product_id = T3.product_id GROUP BY T3.product_id"
+    },
+    {
+        "original_nl": "List the name and count of each product in all orders.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [name]|and|count|of|each|{TABLE} [product]|in|all|{TABLE} [orders]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "count",
+            "of",
+            "each",
+            "{TABLE}",
+            "in",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.product_name ,  count(*) FROM orders AS T1 JOIN order_items AS T2 JOIN products AS T3 ON T1.order_id = T2.order_id AND T2.product_id = T3.product_id GROUP BY T3.product_id"
+    },
+    {
+        "original_nl": "For each product, show its name and the number of times it was ordered.",
+        "generalized_nl": "For|each|{TABLE} [product]|show|it|s|{COLUMN_PART} [name]|and|the|{COLUMN_PART} [number]|of|time [times]|it|was|order [ordered]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "show",
+            "it",
+            "s",
+            "{COLUMN_PART}",
+            "and",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "time",
+            "it",
+            "was",
+            "order"
+        ],
+        "original_sql": "SELECT T3.product_name ,  count(*) FROM orders AS T1 JOIN order_items AS T2 JOIN products AS T3 ON T1.order_id = T2.order_id AND T2.product_id = T3.product_id GROUP BY T3.product_id"
+    },
+    {
+        "original_nl": "Find the ids of orders which are shipped after 2000-01-01.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [ids]|of|{TABLE} [orders]|which|are|ship [shipped]|after|{NE} [2000 - 01-01]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "which",
+            "are",
+            "ship",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT order_id FROM shipments WHERE shipment_date > \"2000-01-01\""
+    },
+    {
+        "original_nl": "Find the id of the order which is shipped most recently.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|of|the|{TABLE} [order]|which|is|ship [shipped]|most|recently",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "is",
+            "ship",
+            "most",
+            "recently"
+        ],
+        "original_sql": "SELECT order_id FROM shipments WHERE shipment_date  =  (SELECT max(shipment_date) FROM shipments)"
+    },
+    {
+        "original_nl": "List the names of all distinct products in alphabetical order.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|all|distinct|{TABLE} [products]|in|alphabetic [alphabetical]|{TABLE} [order]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "distinct",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT product_name FROM products ORDER BY product_name"
+    },
+    {
+        "original_nl": "Sort all the distinct products in alphabetical order.",
+        "generalized_nl": "screen [Sort]|all|the|distinct|{TABLE} [products]|in|alphabetic [alphabetical]|{TABLE} [order]",
+        "generalized_tokens": [
+            "screen",
+            "all",
+            "the",
+            "distinct",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT product_name FROM products ORDER BY product_name"
+    },
+    {
+        "original_nl": "List the ids of all distinct orders ordered by placed date.",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [ids]|of|all|distinct|{TABLE} [orders]|order [ordered]|by|{COLUMN_PART} [placed]|{COLUMN_PART} [date]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "all",
+            "distinct",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT order_id FROM orders ORDER BY date_order_placed"
+    },
+    {
+        "original_nl": "What are ids of the all distinct orders, sorted by placement date?",
+        "generalized_nl": "What|are|{COLUMN_PART} [ids]|of|the|all|distinct|{TABLE} [orders]|screen [sorted]|by|placement|{COLUMN_PART} [date]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "all",
+            "distinct",
+            "{TABLE}",
+            "screen",
+            "by",
+            "placement",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT order_id FROM orders ORDER BY date_order_placed"
+    },
+    {
+        "original_nl": "What is the id of the order which has the most items?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|the|{TABLE} [order]|which|have [has]|the|most|item [items]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "have",
+            "the",
+            "most",
+            "item"
+        ],
+        "original_sql": "SELECT T1.order_id FROM orders AS T1 JOIN order_items AS T2 ON T1.order_id = T2.order_id GROUP BY T1.order_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the customer who has the largest number of orders?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|who|have [has]|the|large [largest]|{COLUMN_PART} [number]|of|{TABLE} [orders]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of the customer who made the most orders.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [customer]|who|make [made]|the|most|{TABLE} [orders]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "make",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN orders AS T2 ON T1.customer_id = T2.customer_id GROUP BY T1.customer_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the invoice numbers which are created before 1989-09-03 or after 2007-12-25.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [invoice numbers]|which|are|create [created]|before|{NE} [1989 - 09 - 03]|or|after|{NE} [2007 - 12-25]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "which",
+            "are",
+            "create",
+            "before",
+            "{NE}",
+            "or",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT invoice_number FROM invoices WHERE invoice_date < \"1989-09-03\" OR invoice_date > \"2007-12-25\""
+    },
+    {
+        "original_nl": "What are the invoice numbers created before 1989-09-03 or after 2007-12-25?",
+        "generalized_nl": "What|are|the|{COLUMN} [invoice numbers]|create [created]|before|{NE} [1989 - 09 - 03]|or|after|{NE} [2007 - 12-25]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "create",
+            "before",
+            "{NE}",
+            "or",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT invoice_number FROM invoices WHERE invoice_date < \"1989-09-03\" OR invoice_date > \"2007-12-25\""
+    },
+    {
+        "original_nl": "Find the distinct details of invoices which are created before 1989-09-03 or after 2007-12-25.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN_PART} [details]|of|{TABLE} [invoices]|which|are|create [created]|before|{NE} [1989 - 09 - 03]|or|after|{NE} [2007 - 12-25]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "which",
+            "are",
+            "create",
+            "before",
+            "{NE}",
+            "or",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT invoice_details FROM invoices WHERE invoice_date < \"1989-09-03\" OR invoice_date > \"2007-12-25\""
+    },
+    {
+        "original_nl": "What are the distinct details of invoices created before 1989-09-03 or after 2007-12-25?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN_PART} [details]|of|{TABLE} [invoices]|create [created]|before|{NE} [1989 - 09 - 03]|or|after|{NE} [2007 - 12-25]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "create",
+            "before",
+            "{NE}",
+            "or",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT invoice_details FROM invoices WHERE invoice_date < \"1989-09-03\" OR invoice_date > \"2007-12-25\""
+    },
+    {
+        "original_nl": "For each customer who has at least two orders, find the customer name and number of orders made.",
+        "generalized_nl": "For|each|{TABLE} [customer]|who|have [has]|{NUMBER} [at least two]|{TABLE} [orders]|find|the|{COLUMN} [customer name]|and|{COLUMN_PART} [number]|of|{TABLE} [orders]|make [made]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{TABLE}",
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "make"
+        ],
+        "original_sql": "SELECT T2.customer_name ,  count(*) FROM orders AS T1 JOIN customers AS T2 ON T1.customer_id = T2.customer_id GROUP BY T2.customer_id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "Find the name of the customers who have at most two orders.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [name]|of|the|{TABLE} [customers]|who|have|at|most|{NUMBER} [two]|{TABLE} [orders]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "at",
+            "most",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.customer_name FROM orders AS T1 JOIN customers AS T2 ON T1.customer_id = T2.customer_id GROUP BY T2.customer_id HAVING count(*)  <=  2"
+    },
+    {
+        "original_nl": "What are the names of the customers who have made two or less orders?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [customers]|who|have|make [made]|{NUMBER} [two]|or|less|{TABLE} [orders]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "make",
+            "{NUMBER}",
+            "or",
+            "less",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.customer_name FROM orders AS T1 JOIN customers AS T2 ON T1.customer_id = T2.customer_id GROUP BY T2.customer_id HAVING count(*)  <=  2"
+    },
+    {
+        "original_nl": "List the names of the customers who have once bought product \"food\".",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|the|{TABLE} [customers]|who|have|once|buy [bought]|{TABLE} [product]|food",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "once",
+            "buy",
+            "{TABLE}",
+            "food"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN orders AS T2 JOIN order_items AS T3 JOIN products AS T4 ON T1.customer_id = T2.customer_id AND T2.order_id = T3.order_id AND T3.product_id = T4.product_id WHERE T4.product_name = \"food\" GROUP BY T1.customer_id HAVING count(*)  >=  1"
+    },
+    {
+        "original_nl": "What are the names of the customers who bought product \"food\" at least once?",
+        "generalized_nl": "What|are|the|{COLUMN_PART} [names]|of|the|{TABLE} [customers]|who|buy [bought]|{TABLE} [product]|food|at|least|once",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "buy",
+            "{TABLE}",
+            "food",
+            "at",
+            "least",
+            "once"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN orders AS T2 JOIN order_items AS T3 JOIN products AS T4 ON T1.customer_id = T2.customer_id AND T2.order_id = T3.order_id AND T3.product_id = T4.product_id WHERE T4.product_name = \"food\" GROUP BY T1.customer_id HAVING count(*)  >=  1"
+    },
+    {
+        "original_nl": "List the names of customers who have once canceled the purchase of the product \"food\" (the item status is \"Cancel\").",
+        "generalized_nl": "list [List]|the|{COLUMN_PART} [names]|of|{TABLE} [customers]|who|have|once|cancel [canceled]|the|purchase|of|the|{TABLE} [product]|food|the|{COLUMN_PART} [item]|{COLUMN_PART} [status]|is|natural [Cancel]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "once",
+            "cancel",
+            "the",
+            "purchase",
+            "of",
+            "the",
+            "{TABLE}",
+            "food",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "natural"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN orders AS T2 JOIN order_items AS T3 JOIN products AS T4 ON T1.customer_id = T2.customer_id AND T2.order_id = T3.order_id AND T3.product_id = T4.product_id WHERE T3.order_item_status = \"Cancel\" AND T4.product_name = \"food\" GROUP BY T1.customer_id HAVING count(*)  >=  1"
+    },
+    {
+        "original_nl": "Which customers have ever canceled the purchase of the product \"food\" (the item status is \"Cancel\")?",
+        "generalized_nl": "Which|{TABLE} [customers]|have|ever|cancel [canceled]|the|purchase|of|the|{TABLE} [product]|food|the|{COLUMN_PART} [item]|{COLUMN_PART} [status]|is|natural [Cancel]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "have",
+            "ever",
+            "cancel",
+            "the",
+            "purchase",
+            "of",
+            "the",
+            "{TABLE}",
+            "food",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "is",
+            "natural"
+        ],
+        "original_sql": "SELECT T1.customer_name FROM customers AS T1 JOIN orders AS T2 JOIN order_items AS T3 JOIN products AS T4 ON T1.customer_id = T2.customer_id AND T2.order_id = T3.order_id AND T3.product_id = T4.product_id WHERE T3.order_item_status = \"Cancel\" AND T4.product_name = \"food\" GROUP BY T1.customer_id HAVING count(*)  >=  1"
+    }
+]

@@ -1,0 +1,1563 @@
+[
+    {
+        "original_nl": "What is the name of the highest rated wine?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|high [highest]|rat [rated]|{TABLE} [wine]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "high",
+            "rat",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM WINE ORDER BY Score LIMIT 1"
+    },
+    {
+        "original_nl": "Give the name of the wine with the highest score.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [name]|of|the|{TABLE} [wine]|with|the|high [highest]|{COLUMN} [score]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM WINE ORDER BY Score LIMIT 1"
+    },
+    {
+        "original_nl": "Which winery is the wine that has the highest score from?",
+        "generalized_nl": "Which|{COLUMN} [winery]|is|the|{TABLE} [wine]|that|have [has]|the|high [highest]|{COLUMN} [score]|from",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "high",
+            "{COLUMN}",
+            "from"
+        ],
+        "original_sql": "SELECT Winery FROM WINE ORDER BY SCORE LIMIT 1"
+    },
+    {
+        "original_nl": "What is the winery at which the wine with the highest score was made?",
+        "generalized_nl": "What|is|the|{COLUMN} [winery]|at|which|the|{TABLE} [wine]|with|the|high [highest]|{COLUMN} [score]|was|make [made]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "at",
+            "which",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}",
+            "was",
+            "make"
+        ],
+        "original_sql": "SELECT Winery FROM WINE ORDER BY SCORE LIMIT 1"
+    },
+    {
+        "original_nl": "Find the names of all wines produced in 2008.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{TABLE} [wines]|produce [produced]|in|{NE} [2008]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "produce",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Name FROM WINE WHERE YEAR  =  \"2008\""
+    },
+    {
+        "original_nl": "What are the names of all wines produced in 2008?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [wines]|produce [produced]|in|{NE} [2008]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "produce",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Name FROM WINE WHERE YEAR  =  \"2008\""
+    },
+    {
+        "original_nl": "List the grapes and appelations of all wines.",
+        "generalized_nl": "list [List]|the|{COLUMN} [grapes]|and|{COLUMN} [appelations]|of|all|{TABLE} [wines]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Grape ,  Appelation FROM WINE"
+    },
+    {
+        "original_nl": "What are the grapes and appelations of each wine?",
+        "generalized_nl": "What|are|the|{COLUMN} [grapes]|and|{COLUMN} [appelations]|of|each|{TABLE} [wine]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Grape ,  Appelation FROM WINE"
+    },
+    {
+        "original_nl": "List the names and scores of all wines.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|and|{COLUMN} [scores]|of|all|{TABLE} [wines]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name ,  Score FROM WINE"
+    },
+    {
+        "original_nl": "What are the names and scores of all wines?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [scores]|of|all|{TABLE} [wines]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name ,  Score FROM WINE"
+    },
+    {
+        "original_nl": "List the area and county of all appelations.",
+        "generalized_nl": "list [List]|the|{COLUMN} [area]|and|{COLUMN} [county]|of|all|{COLUMN} [appelations]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Area ,  County FROM APPELLATIONS"
+    },
+    {
+        "original_nl": "What are the areas and counties for all appelations?",
+        "generalized_nl": "What|are|the|{COLUMN} [areas]|and|{COLUMN} [counties]|for|all|{COLUMN} [appelations]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Area ,  County FROM APPELLATIONS"
+    },
+    {
+        "original_nl": "What are the prices of wines produced before the year of 2010?",
+        "generalized_nl": "What|are|the|{COLUMN} [prices]|of|{TABLE} [wines]|produce [produced]|before|{NE} [the year of 2010]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "produce",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Price FROM WINE WHERE YEAR  <  2010"
+    },
+    {
+        "original_nl": "Return the prices of wines produced before 2010.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [prices]|of|{TABLE} [wines]|produce [produced]|before|{NE} [2010]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "produce",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Price FROM WINE WHERE YEAR  <  2010"
+    },
+    {
+        "original_nl": "List the names of all distinct wines that have scores higher than 90.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|all|distinct|{TABLE} [wines]|that|have|{COLUMN} [scores]|{NUMBER} [higher than 90]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "distinct",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Name FROM WINE WHERE score  >  90"
+    },
+    {
+        "original_nl": "What are the names of wines with scores higher than 90?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wines]|with|{COLUMN} [scores]|high [higher]|than|{NUMBER} [90]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "high",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT Name FROM WINE WHERE score  >  90"
+    },
+    {
+        "original_nl": "List the names of all distinct wines that are made of red color grape.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|all|distinct|{TABLE} [wines]|that|are|make [made]|of|crimson [red]|{COLUMN} [color]|{COLUMN} [grape]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "distinct",
+            "{TABLE}",
+            "that",
+            "are",
+            "make",
+            "of",
+            "crimson",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Name FROM GRAPES AS T1 JOIN WINE AS T2 ON T1.Grape  =  T2.Grape WHERE T1.Color  =  \"Red\""
+    },
+    {
+        "original_nl": "What are the names of wines made from red grapes?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wines]|make [made]|from|crimson [red]|{COLUMN} [grapes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "make",
+            "from",
+            "crimson",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Name FROM GRAPES AS T1 JOIN WINE AS T2 ON T1.Grape  =  T2.Grape WHERE T1.Color  =  \"Red\""
+    },
+    {
+        "original_nl": "Find the names of all distinct wines that have appellations in North Coast area.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|distinct|{TABLE} [wines]|that|have|{TABLE} [appellations]|in|{NE} [North Coast]|{COLUMN} [area]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "distinct",
+            "{TABLE}",
+            "that",
+            "have",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Name FROM APPELLATIONs AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T1.Area  =  \"North Coast\""
+    },
+    {
+        "original_nl": "What are the distinct names of wines that have appellations in the North Coast area?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [names]|of|{TABLE} [wines]|that|have|{TABLE} [appellations]|in|the|{NE} [North Coast]|{COLUMN} [area]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T2.Name FROM APPELLATIONs AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T1.Area  =  \"North Coast\""
+    },
+    {
+        "original_nl": "How many wines are produced at Robert Biale winery?",
+        "generalized_nl": "How|many|{TABLE} [wines]|are|produce [produced]|at|{NE} [Robert Biale]|{COLUMN} [winery]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "produce",
+            "at",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM WINE WHERE Winery  =  \"Robert Biale\""
+    },
+    {
+        "original_nl": "Count the number of wines produced at Robert Biale winery.",
+        "generalized_nl": "count [Count]|the|number|of|{TABLE} [wines]|produce [produced]|at|{NE} [Robert Biale]|{COLUMN} [winery]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "produce",
+            "at",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM WINE WHERE Winery  =  \"Robert Biale\""
+    },
+    {
+        "original_nl": "How many appelations are in Napa Country?",
+        "generalized_nl": "How|many|{COLUMN} [appelations]|are|in|{NE} [Napa Country]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM APPELLATIONS WHERE County  =  \"Napa\""
+    },
+    {
+        "original_nl": "Count the number of appelations in Napa County.",
+        "generalized_nl": "count [Count]|the|number|of|{COLUMN} [appelations]|in|{NE} [Napa County]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM APPELLATIONS WHERE County  =  \"Napa\""
+    },
+    {
+        "original_nl": "Give me the average prices of wines that are produced by appelations in Sonoma County.",
+        "generalized_nl": "give [Give]|me|the|average|{COLUMN} [prices]|of|{TABLE} [wines]|that|are|produce [produced]|by|{COLUMN} [appelations]|in|{NE} [Sonoma County]",
+        "generalized_tokens": [
+            "give",
+            "me",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "produce",
+            "by",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT AVG(T2.Price) FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T1.County  =  \"Sonoma\""
+    },
+    {
+        "original_nl": "What is the average price of wines produced in appelations in Sonoma County?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [price]|of|{TABLE} [wines]|produce [produced]|in|{COLUMN} [appelations]|in|{NE} [Sonoma County]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "produce",
+            "in",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT AVG(T2.Price) FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T1.County  =  \"Sonoma\""
+    },
+    {
+        "original_nl": "What are the names and scores of wines that are made of white color grapes?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [scores]|of|{TABLE} [wines]|that|are|make [made]|of|white|{COLUMN} [color]|{COLUMN} [grapes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "make",
+            "of",
+            "white",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name ,   T2.Score FROM GRAPES AS T1 JOIN WINE AS T2 ON T1.Grape  =  T2.Grape WHERE T1.Color  =  \"White\""
+    },
+    {
+        "original_nl": "Give the names and scores of wines made from white grapes.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [names]|and|{COLUMN} [scores]|of|{TABLE} [wines]|make [made]|from|white|{COLUMN} [grapes]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "make",
+            "from",
+            "white",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name ,   T2.Score FROM GRAPES AS T1 JOIN WINE AS T2 ON T1.Grape  =  T2.Grape WHERE T1.Color  =  \"White\""
+    },
+    {
+        "original_nl": "Find the maximum price of wins from the appelations in Central Coast area and produced before the year of 2005.",
+        "generalized_nl": "find [Find]|the|maximal [maximum]|{COLUMN} [price]|of|win [wins]|from|the|{COLUMN} [appelations]|in|{NE} [Central Coast]|{COLUMN} [area]|and|produce [produced]|before|{NE} [the year of 2005]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "win",
+            "from",
+            "the",
+            "{COLUMN}",
+            "in",
+            "{NE}",
+            "{COLUMN}",
+            "and",
+            "produce",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT max(T2.Price) FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T1.Area  =  \"Central Coast\" AND T2.year  <  2005"
+    },
+    {
+        "original_nl": "What is the maximum price of wines from the appelation in the Central Coast area, which was produced before 2005?",
+        "generalized_nl": "What|is|the|maximal [maximum]|{COLUMN} [price]|of|{TABLE} [wines]|from|the|{COLUMN} [appelation]|in|the|{NE} [Central Coast]|{COLUMN} [area]|which|was|produce [produced]|before|{NE} [2005]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "from",
+            "the",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{NE}",
+            "{COLUMN}",
+            "which",
+            "was",
+            "produce",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT max(T2.Price) FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T1.Area  =  \"Central Coast\" AND T2.year  <  2005"
+    },
+    {
+        "original_nl": "Find the the grape whose white color grapes are used to produce wines with scores higher than 90.",
+        "generalized_nl": "find [Find]|the|the|{COLUMN} [grape]|whose|white|{COLUMN} [color]|{COLUMN} [grapes]|are|use [used]|to|produce|{TABLE} [wines]|with|{COLUMN} [scores]|{NUMBER} [higher than 90]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "the",
+            "{COLUMN}",
+            "whose",
+            "white",
+            "{COLUMN}",
+            "{COLUMN}",
+            "are",
+            "use",
+            "to",
+            "produce",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Grape FROM GRAPES AS T1 JOIN WINE AS T2 ON T1.Grape  =  T2.Grape WHERE T1.Color  =  \"White\" AND T2.score  >  90"
+    },
+    {
+        "original_nl": "Find the white grape used to produce wines with scores above 90.",
+        "generalized_nl": "find [Find]|the|white|{COLUMN} [grape]|use [used]|to|produce|{TABLE} [wines]|with|{COLUMN} [scores]|above|{NUMBER} [90]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "white",
+            "{COLUMN}",
+            "use",
+            "to",
+            "produce",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.Grape FROM GRAPES AS T1 JOIN WINE AS T2 ON T1.Grape  =  T2.Grape WHERE T1.Color  =  \"White\" AND T2.score  >  90"
+    },
+    {
+        "original_nl": "What are the wines that have prices higher than 50 and made of Red color grapes?",
+        "generalized_nl": "What|are|the|{TABLE} [wines]|that|have|{COLUMN} [prices]|high [higher]|than|{NUMBER} [50]|and|make [made]|of|crimson [Red]|{COLUMN} [color]|{COLUMN} [grapes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "high",
+            "than",
+            "{NUMBER}",
+            "and",
+            "make",
+            "of",
+            "crimson",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Name FROM Grapes AS T1 JOIN WINE AS T2 ON T1.Grape  =  T2.Grape WHERE T1.Color  =  \"Red\" AND T2.price  >  50"
+    },
+    {
+        "original_nl": "What are the names of wines made from red grapes and with prices above 50?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wines]|make [made]|from|crimson [red]|{COLUMN} [grapes]|and|with|{COLUMN} [prices]|above|{NUMBER} [50]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "make",
+            "from",
+            "crimson",
+            "{COLUMN}",
+            "and",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Name FROM Grapes AS T1 JOIN WINE AS T2 ON T1.Grape  =  T2.Grape WHERE T1.Color  =  \"Red\" AND T2.price  >  50"
+    },
+    {
+        "original_nl": "What are the wines that have prices lower than 50 and have appelations in Monterey county?",
+        "generalized_nl": "What|are|the|{TABLE} [wines]|that|have|{COLUMN} [prices]|low [lower]|than|{NUMBER} [50]|and|have|{COLUMN} [appelations]|in|{NE} [Monterey county]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "low",
+            "than",
+            "{NUMBER}",
+            "and",
+            "have",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T1.County  =  \"Monterey\" AND T2.price  <  50"
+    },
+    {
+        "original_nl": "Give the neames of wines with prices below 50 and with appelations in Monterey county.",
+        "generalized_nl": "give [Give]|the|neames|of|{TABLE} [wines]|with|{COLUMN} [prices]|below|{NUMBER} [50]|and|with|{COLUMN} [appelations]|in|{NE} [Monterey county]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "neames",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "below",
+            "{NUMBER}",
+            "and",
+            "with",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.Name FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T1.County  =  \"Monterey\" AND T2.price  <  50"
+    },
+    {
+        "original_nl": "What are the numbers of wines for different grapes?",
+        "generalized_nl": "What|are|the|number [numbers]|of|{TABLE} [wines]|for|different|{COLUMN} [grapes]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "different",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  Grape FROM WINE GROUP BY Grape"
+    },
+    {
+        "original_nl": "How many wines are there for each grape?",
+        "generalized_nl": "How|many|{TABLE} [wines]|are|there|for|each|{COLUMN} [grape]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  Grape FROM WINE GROUP BY Grape"
+    },
+    {
+        "original_nl": "What are the average prices of wines for different years?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [prices]|of|{TABLE} [wines]|for|{NE} [different years]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "for",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(Price) ,  YEAR FROM WINE GROUP BY YEAR"
+    },
+    {
+        "original_nl": "What is the average prices of wines for each each?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [prices]|of|{TABLE} [wines]|for|each|each",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "each"
+        ],
+        "original_sql": "SELECT avg(Price) ,  YEAR FROM WINE GROUP BY YEAR"
+    },
+    {
+        "original_nl": "Find the distinct names of all wines that have prices higher than some wines from John Anthony winery.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [names]|of|all|{TABLE} [wines]|that|have|{COLUMN} [prices]|high [higher]|than|some|{TABLE} [wines]|from|{NE} [John Anthony]|{COLUMN} [winery]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN}",
+            "high",
+            "than",
+            "some",
+            "{TABLE}",
+            "from",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Name FROM WINE WHERE Price  >  (SELECT min(Price) FROM wine WHERE Winery  =  \"John Anthony\")"
+    },
+    {
+        "original_nl": "What are the distinct names of wines with prices higher than any wine from John Anthony winery.",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [names]|of|{TABLE} [wines]|with|{COLUMN} [prices]|high [higher]|than|any|{TABLE} [wine]|from|{NE} [John Anthony]|{COLUMN} [winery]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "high",
+            "than",
+            "any",
+            "{TABLE}",
+            "from",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Name FROM WINE WHERE Price  >  (SELECT min(Price) FROM wine WHERE Winery  =  \"John Anthony\")"
+    },
+    {
+        "original_nl": "List the names of all distinct wines in alphabetical order.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|all|distinct|{TABLE} [wines]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "distinct",
+            "{TABLE}",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT DISTINCT Name FROM WINE ORDER BY Name"
+    },
+    {
+        "original_nl": "What are the names of wines, sorted in alphabetical order?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wines]|screen [sorted]|in|alphabetic [alphabetical]|order",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "screen",
+            "in",
+            "alphabetic",
+            "order"
+        ],
+        "original_sql": "SELECT DISTINCT Name FROM WINE ORDER BY Name"
+    },
+    {
+        "original_nl": "List the names of all distinct wines ordered by price.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|all|distinct|{TABLE} [wines]|order [ordered]|by|{COLUMN} [price]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "distinct",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT Name FROM WINE ORDER BY price"
+    },
+    {
+        "original_nl": "What are the names of wines, sorted by price ascending?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wines]|screen [sorted]|by|{COLUMN} [price]|rise [ascending]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "rise"
+        ],
+        "original_sql": "SELECT DISTINCT Name FROM WINE ORDER BY price"
+    },
+    {
+        "original_nl": "What is the area of the appelation that produces the highest number of wines before the year of 2010?",
+        "generalized_nl": "What|is|the|{COLUMN} [area]|of|the|{COLUMN} [appelation]|that|produce [produces]|the|high [highest]|number|of|{TABLE} [wines]|before|{NE} [the year of 2010]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "produce",
+            "the",
+            "high",
+            "number",
+            "of",
+            "{TABLE}",
+            "before",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.Area FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation GROUP BY T2.Appelation HAVING T2.year  <  2010 ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the area for the appelation which produced the most wines prior to 2010?",
+        "generalized_nl": "What|is|the|{COLUMN} [area]|for|the|{COLUMN} [appelation]|which|produce [produced]|the|most|{TABLE} [wines]|anterior [prior]|to|{NE} [2010]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{COLUMN}",
+            "which",
+            "produce",
+            "the",
+            "most",
+            "{TABLE}",
+            "anterior",
+            "to",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.Area FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation GROUP BY T2.Appelation HAVING T2.year  <  2010 ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the color of the grape whose wine products has the highest average price?",
+        "generalized_nl": "What|is|the|{COLUMN} [color]|of|the|{COLUMN} [grape]|whose|{TABLE} [wine]|product [products]|have [has]|the|high [highest]|average|{COLUMN} [price]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "whose",
+            "{TABLE}",
+            "product",
+            "have",
+            "the",
+            "high",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Color FROM GRAPES AS T1 JOIN WINE AS T2 ON T1.Grape  =  T2.Grape GROUP BY T2.Grape ORDER BY AVG(Price) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Give the color of the grape whose wine products have the highest average price?",
+        "generalized_nl": "give [Give]|the|{COLUMN} [color]|of|the|{COLUMN} [grape]|whose|{TABLE} [wine]|product [products]|have|the|high [highest]|average|{COLUMN} [price]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "whose",
+            "{TABLE}",
+            "product",
+            "have",
+            "the",
+            "high",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.Color FROM GRAPES AS T1 JOIN WINE AS T2 ON T1.Grape  =  T2.Grape GROUP BY T2.Grape ORDER BY AVG(Price) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the distinct names of wines produced before the year of 2000 or after the year of 2010.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [names]|of|{TABLE} [wines]|produce [produced]|before|{NE} [the year of 2000]|or|after|{NE} [the year of 2010]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "produce",
+            "before",
+            "{NE}",
+            "or",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT Name FROM WINE WHERE YEAR  <  2000 OR YEAR  >  2010"
+    },
+    {
+        "original_nl": "Give the distinct names of wines made before 2000 or after 2010.",
+        "generalized_nl": "give [Give]|the|distinct|{COLUMN} [names]|of|{TABLE} [wines]|make [made]|before|{NE} [2000]|or|after|{NE} [2010]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "make",
+            "before",
+            "{NE}",
+            "or",
+            "after",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT Name FROM WINE WHERE YEAR  <  2000 OR YEAR  >  2010"
+    },
+    {
+        "original_nl": "Find the distinct winery of wines having price between 50 and 100.",
+        "generalized_nl": "find [Find]|the|distinct|{COLUMN} [winery]|of|{TABLE} [wines]|have [having]|{COLUMN} [price]|{NUMBER} [between 50 and 100]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "have",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT Winery FROM WINE WHERE Price BETWEEN 50 AND 100"
+    },
+    {
+        "original_nl": "What are the distinct wineries which produce wines costing between 50 and 100?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [wineries]|which|produce|{TABLE} [wines]|cost [costing]|{NUMBER} [between 50 and 100]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "which",
+            "produce",
+            "{TABLE}",
+            "cost",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT Winery FROM WINE WHERE Price BETWEEN 50 AND 100"
+    },
+    {
+        "original_nl": "What are the average prices and cases of wines produced in the year of 2009 and made of Zinfandel grape?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [prices]|and|{COLUMN} [cases]|of|{TABLE} [wines]|produce [produced]|in|{NE} [the year of 2009]|and|make [made]|of|zinfandel [Zinfandel]|{COLUMN} [grape]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "produce",
+            "in",
+            "{NE}",
+            "and",
+            "make",
+            "of",
+            "zinfandel",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT AVG(Price) ,  AVG(Cases) FROM WINE WHERE YEAR  =  2009 AND Grape  =  \"Zinfandel\""
+    },
+    {
+        "original_nl": "Give the average price and case of wines made from Zinfandel grapes in the year 2009.",
+        "generalized_nl": "give [Give]|the|average|{COLUMN} [price]|and|{COLUMN} [case]|of|{TABLE} [wines]|make [made]|from|Zinfandel|{COLUMN} [grapes]|in|{NE} [the year 2009]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "make",
+            "from",
+            "Zinfandel",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT AVG(Price) ,  AVG(Cases) FROM WINE WHERE YEAR  =  2009 AND Grape  =  \"Zinfandel\""
+    },
+    {
+        "original_nl": "What are the maximum price and score of wines produced by St. Helena appelation?",
+        "generalized_nl": "What|are|the|maximal [maximum]|{COLUMN} [price]|and|{COLUMN} [score]|of|{TABLE} [wines]|produce [produced]|by|{NE} [St. Helena]|{COLUMN} [appelation]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "produce",
+            "by",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(Price) ,  max(Score) FROM WINE WHERE Appelation  =  \"St. Helena\""
+    },
+    {
+        "original_nl": "Give the maximum price and score for wines produced in the appelation St. Helena.",
+        "generalized_nl": "give [Give]|the|maximal [maximum]|{COLUMN} [price]|and|{COLUMN} [score]|for|{TABLE} [wines]|produce [produced]|in|the|{COLUMN} [appelation]|{NE} [St. Helena]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "produce",
+            "in",
+            "the",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT max(Price) ,  max(Score) FROM WINE WHERE Appelation  =  \"St. Helena\""
+    },
+    {
+        "original_nl": "What are the maximum price and score of wines in each year?",
+        "generalized_nl": "What|are|the|maximal [maximum]|{COLUMN} [price]|and|{COLUMN} [score]|of|{TABLE} [wines]|in|{NE} [each year]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT max(Price) ,  max(Score) ,  YEAR FROM WINE GROUP BY YEAR"
+    },
+    {
+        "original_nl": "What are the maximum price and score of wines for each year?",
+        "generalized_nl": "What|are|the|maximal [maximum]|{COLUMN} [price]|and|{COLUMN} [score]|of|{TABLE} [wines]|for|each|{COLUMN} [year]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(Price) ,  max(Score) ,  YEAR FROM WINE GROUP BY YEAR"
+    },
+    {
+        "original_nl": "What are the average price and score of wines grouped by appelation?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [price]|and|{COLUMN} [score]|of|{TABLE} [wines]|group [grouped]|by|{COLUMN} [appelation]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "group",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(Price) ,  avg(Score) ,  Appelation FROM WINE GROUP BY Appelation"
+    },
+    {
+        "original_nl": "What are the average price and score of wines for each appelation?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [price]|and|{COLUMN} [score]|of|{TABLE} [wines]|for|each|{COLUMN} [appelation]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(Price) ,  avg(Score) ,  Appelation FROM WINE GROUP BY Appelation"
+    },
+    {
+        "original_nl": "Find the wineries that have at least four wines.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [wineries]|that|have|{NUMBER} [at least four]|{TABLE} [wines]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Winery FROM WINE GROUP BY Winery HAVING count(*)  >=  4"
+    },
+    {
+        "original_nl": "Which wineries produce at least four wines?",
+        "generalized_nl": "Which|{COLUMN} [wineries]|produce|{NUMBER} [at least four]|{TABLE} [wines]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "produce",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Winery FROM WINE GROUP BY Winery HAVING count(*)  >=  4"
+    },
+    {
+        "original_nl": "Find the country of all appelations who have at most three wines.",
+        "generalized_nl": "find [Find]|the|country|of|all|{COLUMN} [appelations]|who|have|at|most|{NUMBER} [three]|{TABLE} [wines]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "country",
+            "of",
+            "all",
+            "{COLUMN}",
+            "who",
+            "have",
+            "at",
+            "most",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.County FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation GROUP BY T2.Appelation HAVING count(*)  <=  3"
+    },
+    {
+        "original_nl": "What are the countries for appelations with at most 3 wines?",
+        "generalized_nl": "What|are|the|country [countries]|for|{COLUMN} [appelations]|with|at|most|{NUMBER} [3]|{TABLE} [wines]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "country",
+            "for",
+            "{COLUMN}",
+            "with",
+            "at",
+            "most",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.County FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation GROUP BY T2.Appelation HAVING count(*)  <=  3"
+    },
+    {
+        "original_nl": "What are the names of wines whose production year are before the year of all wines by Brander winery?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wines]|whose|production|{COLUMN} [year]|are|before|{NE} [the year]|of|all|{TABLE} [wines]|by|{NE} [Brander]|{COLUMN} [winery]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "production",
+            "{COLUMN}",
+            "are",
+            "before",
+            "{NE}",
+            "of",
+            "all",
+            "{TABLE}",
+            "by",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM WINE WHERE YEAR  <  (SELECT min(YEAR) FROM WINE WHERE Winery  =  \"Brander\")"
+    },
+    {
+        "original_nl": "What are the names of wines produced before any wine from the Brander winery?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wines]|produce [produced]|before|any|{TABLE} [wine]|from|the|{NE} [Brander]|{COLUMN} [winery]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "produce",
+            "before",
+            "any",
+            "{TABLE}",
+            "from",
+            "the",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM WINE WHERE YEAR  <  (SELECT min(YEAR) FROM WINE WHERE Winery  =  \"Brander\")"
+    },
+    {
+        "original_nl": "What are the names of wines that are more expensive then all wines made in the year 2006?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [wines]|that|are|more|expensive|then|all|{TABLE} [wines]|make [made]|in|{NE} [the year 2006]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "more",
+            "expensive",
+            "then",
+            "all",
+            "{TABLE}",
+            "make",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Name FROM WINE WHERE Price  >  (SELECT max(Price) FROM WINE WHERE YEAR  =  2006)"
+    },
+    {
+        "original_nl": "Give the names of wines with prices above any wine produced in 2006.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [names]|of|{TABLE} [wines]|with|{COLUMN} [prices]|above|any|{TABLE} [wine]|produce [produced]|in|{NE} [2006]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "above",
+            "any",
+            "{TABLE}",
+            "produce",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT Name FROM WINE WHERE Price  >  (SELECT max(Price) FROM WINE WHERE YEAR  =  2006)"
+    },
+    {
+        "original_nl": "Find the top 3 wineries with the greatest number of wines made of white color grapes.",
+        "generalized_nl": "find [Find]|the|top|{NUMBER} [3]|{COLUMN} [wineries]|with|the|great [greatest]|number|of|{TABLE} [wines]|make [made]|of|white|{COLUMN} [color]|{COLUMN} [grapes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "top",
+            "{NUMBER}",
+            "{COLUMN}",
+            "with",
+            "the",
+            "great",
+            "number",
+            "of",
+            "{TABLE}",
+            "make",
+            "of",
+            "white",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Winery FROM GRAPES AS T1 JOIN WINE AS T2 ON T1.GRAPE  =  T2.GRAPE WHERE T1.Color  =  \"White\" GROUP BY T2.Winery ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Which 3 wineries produce the most wines made from white grapes?",
+        "generalized_nl": "Which|{NUMBER} [3]|{COLUMN} [wineries]|produce|the|most|{TABLE} [wines]|make [made]|from|white|{COLUMN} [grapes]",
+        "generalized_tokens": [
+            "Which",
+            "{NUMBER}",
+            "{COLUMN}",
+            "produce",
+            "the",
+            "most",
+            "{TABLE}",
+            "make",
+            "from",
+            "white",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.Winery FROM GRAPES AS T1 JOIN WINE AS T2 ON T1.GRAPE  =  T2.GRAPE WHERE T1.Color  =  \"White\" GROUP BY T2.Winery ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "List the grape, winery and year of the wines whose price is bigger than 100 ordered by year.",
+        "generalized_nl": "list [List]|the|{COLUMN} [grape]|{COLUMN} [winery]|and|{COLUMN} [year]|of|the|{TABLE} [wines]|whose|{COLUMN} [price]|is|{NUMBER} [bigger than 100]|order [ordered]|by|{COLUMN} [year]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Grape ,  Winery ,  YEAR FROM WINE WHERE Price  >   100 ORDER BY YEAR"
+    },
+    {
+        "original_nl": "What are the grapes, wineries and years for wines with price higher than 100, sorted by year?",
+        "generalized_nl": "What|are|the|{COLUMN} [grapes]|{COLUMN} [wineries]|and|{COLUMN} [years]|for|{TABLE} [wines]|with|{COLUMN} [price]|{NUMBER} [higher than 100]|screen [sorted]|by|{COLUMN} [year]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}",
+            "screen",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Grape ,  Winery ,  YEAR FROM WINE WHERE Price  >   100 ORDER BY YEAR"
+    },
+    {
+        "original_nl": "List the grape, appelation and name of wines whose score is higher than 93 ordered by Name.",
+        "generalized_nl": "list [List]|the|{COLUMN} [grape]|{COLUMN} [appelation]|and|{COLUMN} [name]|of|{TABLE} [wines]|whose|{COLUMN} [score]|is|high [higher]|than|{NUMBER} [93]|order [ordered]|by|{COLUMN} [Name]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "high",
+            "than",
+            "{NUMBER}",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Grape ,  Appelation ,  Name FROM WINE WHERE Score  >  93 ORDER BY Name"
+    },
+    {
+        "original_nl": "What are the grapes, appelations, and wines with scores above 93, sorted by Name?",
+        "generalized_nl": "What|are|the|{COLUMN} [grapes]|{COLUMN} [appelations]|and|{TABLE} [wines]|with|{COLUMN} [scores]|above|{NUMBER} [93]|screen [sorted]|by|{COLUMN} [Name]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "above",
+            "{NUMBER}",
+            "screen",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Grape ,  Appelation ,  Name FROM WINE WHERE Score  >  93 ORDER BY Name"
+    },
+    {
+        "original_nl": "Find the appelations that produce wines after the year of 2008 but not in Central Coast area.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [appelations]|that|produce|{TABLE} [wines]|after|{NE} [the year of 2008]|but|not|in|{NE} [Central Coast]|{COLUMN} [area]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "that",
+            "produce",
+            "{TABLE}",
+            "after",
+            "{NE}",
+            "but",
+            "not",
+            "in",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Appelation FROM WINE WHERE YEAR  >  2008 EXCEPT SELECT Appelation FROM APPELLATIONS WHERE Area  =  \"Central Coast\""
+    },
+    {
+        "original_nl": "What are the appelations for wines produced after 2008 but not in the Central Coast area?",
+        "generalized_nl": "What|are|the|{COLUMN} [appelations]|for|{TABLE} [wines]|produce [produced]|after|{NE} [2008]|but|not|in|the|{NE} [Central Coast]|{COLUMN} [area]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "produce",
+            "after",
+            "{NE}",
+            "but",
+            "not",
+            "in",
+            "the",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Appelation FROM WINE WHERE YEAR  >  2008 EXCEPT SELECT Appelation FROM APPELLATIONS WHERE Area  =  \"Central Coast\""
+    },
+    {
+        "original_nl": "Find the average price of wines that are not produced from Sonoma county.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [price]|of|{TABLE} [wines]|that|are|not|produce [produced]|from|{NE} [Sonoma county]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "produce",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(price) FROM wine WHERE Appelation NOT IN (SELECT T1.Appelation FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T1.County  =  'Sonoma')"
+    },
+    {
+        "original_nl": "What is the average price for wines not produced in Sonoma county?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [price]|for|{TABLE} [wines]|not|produce [produced]|in|{NE} [Sonoma county]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "not",
+            "produce",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(price) FROM wine WHERE Appelation NOT IN (SELECT T1.Appelation FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T1.County  =  'Sonoma')"
+    },
+    {
+        "original_nl": "Find the county where produces the most number of wines with score higher than 90.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [county]|where|produce [produces]|the|most|number|of|{TABLE} [wines]|with|{COLUMN} [score]|{NUMBER} [higher than 90]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "where",
+            "produce",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.County FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T2.Score  >  90 GROUP BY T1.County ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the county that produces the most wines scoring higher than 90?",
+        "generalized_nl": "What|is|the|{COLUMN} [county]|that|produce [produces]|the|most|{TABLE} [wines]|score [scoring]|high [higher]|than|{NUMBER} [90]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "that",
+            "produce",
+            "the",
+            "most",
+            "{TABLE}",
+            "score",
+            "high",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.County FROM APPELLATIONS AS T1 JOIN WINE AS T2 ON T1.Appelation  =  T2.Appelation WHERE T2.Score  >  90 GROUP BY T1.County ORDER BY count(*) DESC LIMIT 1"
+    }
+]

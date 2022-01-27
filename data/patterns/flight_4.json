@@ -1,0 +1,1533 @@
+[
+    {
+        "original_nl": "Find the name of the airport in the city of Goroka.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [airport]|in|the|{COLUMN} [city]|of|{NE} [Goroka]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM airports WHERE city  =  'Goroka'"
+    },
+    {
+        "original_nl": "What are the names of the airports in the city of Goroka?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [airports]|in|the|{COLUMN} [city]|of|{NE} [Goroka]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM airports WHERE city  =  'Goroka'"
+    },
+    {
+        "original_nl": "Find the name, city, country, and altitude (or elevation) of the airports in the city of New York.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|{COLUMN} [city]|{COLUMN} [country]|and|altitude|or|{COLUMN} [elevation]|of|the|{TABLE} [airports]|in|the|{COLUMN} [city]|of|{NE} [New York]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "altitude",
+            "or",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name ,  city ,  country ,  elevation FROM airports WHERE city  =  'New York'"
+    },
+    {
+        "original_nl": "What is the name, city, country, and elevation for every airport in the city of New York?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|{COLUMN} [city]|{COLUMN} [country]|and|{COLUMN} [elevation]|for|every|{TABLE} [airport]|in|the|{COLUMN} [city]|of|{NE} [New York]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "every",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name ,  city ,  country ,  elevation FROM airports WHERE city  =  'New York'"
+    },
+    {
+        "original_nl": "How many airlines are there?",
+        "generalized_nl": "How|many|{COLUMN} [airlines]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(*) FROM airlines"
+    },
+    {
+        "original_nl": "What is the total number of airlines?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{COLUMN} [airlines]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM airlines"
+    },
+    {
+        "original_nl": "How many airlines does Russia has?",
+        "generalized_nl": "How|many|{COLUMN} [airlines]|does|{NE} [Russia]|have [has]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "does",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM airlines WHERE country  =  'Russia'"
+    },
+    {
+        "original_nl": "What is the number of airlines based in Russia?",
+        "generalized_nl": "What|is|the|number|of|{COLUMN} [airlines]|establish [based]|in|{NE} [Russia]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "establish",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM airlines WHERE country  =  'Russia'"
+    },
+    {
+        "original_nl": "What is the maximum elevation of all airports in the country of Iceland?",
+        "generalized_nl": "What|is|the|maximal [maximum]|{COLUMN} [elevation]|of|all|{TABLE} [airports]|in|the|{COLUMN} [country]|of|{NE} [Iceland]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT max(elevation) FROM airports WHERE country  =  'Iceland'"
+    },
+    {
+        "original_nl": "What is the highest elevation of an airport in the country of Iceland?",
+        "generalized_nl": "What|is|the|high [highest]|{COLUMN} [elevation]|of|an|{TABLE} [airport]|in|the|{COLUMN} [country]|of|{NE} [Iceland]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "high",
+            "{COLUMN}",
+            "of",
+            "an",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT max(elevation) FROM airports WHERE country  =  'Iceland'"
+    },
+    {
+        "original_nl": "Find the name of the airports located in Cuba or Argentina.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [airports]|locate [located]|in|{NE} [Cuba]|or|{NE} [Argentina]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "locate",
+            "in",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM airports WHERE country  =  'Cuba' OR country  =  'Argentina'"
+    },
+    {
+        "original_nl": "What are the names of all airports in Cuba or Argentina?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [airports]|in|{NE} [Cuba]|or|{NE} [Argentina]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM airports WHERE country  =  'Cuba' OR country  =  'Argentina'"
+    },
+    {
+        "original_nl": "Find the country of the airlines whose name starts with 'Orbit'.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [country]|of|the|{COLUMN} [airlines]|whose|{COLUMN} [name]|start [starts]|with|{NE} [Orbit]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "start",
+            "with",
+            "{NE}"
+        ],
+        "original_sql": "SELECT country FROM airlines WHERE name LIKE 'Orbit%'"
+    },
+    {
+        "original_nl": "What are the countries of all airlines whose names start with Orbit?",
+        "generalized_nl": "What|are|the|{COLUMN} [countries]|of|all|{COLUMN} [airlines]|whose|{COLUMN} [names]|start|with|{NE} [Orbit]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "start",
+            "with",
+            "{NE}"
+        ],
+        "original_sql": "SELECT country FROM airlines WHERE name LIKE 'Orbit%'"
+    },
+    {
+        "original_nl": "Find the name of airports whose altitude is between -50 and 50.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [airports]|whose|altitude|is|{NUMBER} [between - 50 and 50]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "altitude",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT name FROM airports WHERE elevation BETWEEN -50 AND 50"
+    },
+    {
+        "original_nl": "What are the names of all airports whose elevation is between -50 and 50?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [airports]|whose|{COLUMN} [elevation]|is|{NE} [between - 50 and 50]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM airports WHERE elevation BETWEEN -50 AND 50"
+    },
+    {
+        "original_nl": "Which country is the airport that has the highest altitude located in?",
+        "generalized_nl": "Which|{COLUMN} [country]|is|the|{TABLE} [airport]|that|have [has]|the|high [highest]|altitude|locate [located]|in",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "is",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "high",
+            "altitude",
+            "locate",
+            "in"
+        ],
+        "original_sql": "SELECT country FROM airports ORDER BY elevation DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the country of the airport with the highest elevation?",
+        "generalized_nl": "What|is|the|{COLUMN} [country]|of|the|{TABLE} [airport]|with|the|high [highest]|{COLUMN} [elevation]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT country FROM airports ORDER BY elevation DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the number of airports whose name contain the word 'International'.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [airports]|whose|{COLUMN} [name]|contain|the|word|International",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "contain",
+            "the",
+            "word",
+            "International"
+        ],
+        "original_sql": "SELECT count(*) FROM airports WHERE name LIKE '%International%'"
+    },
+    {
+        "original_nl": "How many airports' names have the word Interanation in them?",
+        "generalized_nl": "How|many|{TABLE} [airports]|'|{COLUMN} [names]|have|the|word|Interanation|in|them",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "'",
+            "{COLUMN}",
+            "have",
+            "the",
+            "word",
+            "Interanation",
+            "in",
+            "them"
+        ],
+        "original_sql": "SELECT count(*) FROM airports WHERE name LIKE '%International%'"
+    },
+    {
+        "original_nl": "How many different cities do have some airport in the country of Greenland?",
+        "generalized_nl": "How|many|different|{COLUMN} [cities]|do|have|some|{TABLE} [airport]|in|the|{COLUMN} [country]|of|{NE} [Greenland]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{COLUMN}",
+            "do",
+            "have",
+            "some",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT city) FROM airports WHERE country  =  'Greenland'"
+    },
+    {
+        "original_nl": "In how many cities are there airports in the country of Greenland?",
+        "generalized_nl": "In|how|many|{COLUMN} [cities]|be [are]|there|{TABLE} [airports]|in|the|{COLUMN} [country]|of|{NE} [Greenland]",
+        "generalized_tokens": [
+            "In",
+            "how",
+            "many",
+            "{COLUMN}",
+            "be",
+            "there",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT city) FROM airports WHERE country  =  'Greenland'"
+    },
+    {
+        "original_nl": "Find the number of routes operated by American Airlines.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [routes]|operate [operated]|by|{NE} [American Airlines]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "operate",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM airlines AS T1 JOIN routes AS T2 ON T1.alid  =  T2.alid WHERE T1.name  =  'American Airlines'"
+    },
+    {
+        "original_nl": "How many routes does American Airlines operate?",
+        "generalized_nl": "How|many|{TABLE} [routes]|does|{NE} [American Airlines]|operate",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "does",
+            "{NE}",
+            "operate"
+        ],
+        "original_sql": "SELECT count(*) FROM airlines AS T1 JOIN routes AS T2 ON T1.alid  =  T2.alid WHERE T1.name  =  'American Airlines'"
+    },
+    {
+        "original_nl": "Find the number of routes whose destination airports are in Canada.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [routes]|whose|{COLUMN} [destination airports]|are|in|{NE} [Canada]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.dst_apid WHERE country  =  'Canada'"
+    },
+    {
+        "original_nl": "How many routes end in a Canadian airport?",
+        "generalized_nl": "How|many|{TABLE} [routes]|end|in|a|{NE} [Canadian]|{TABLE} [airport]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "end",
+            "in",
+            "a",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.dst_apid WHERE country  =  'Canada'"
+    },
+    {
+        "original_nl": "Find the name, city, and country of the airport that has the lowest altitude.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|{COLUMN} [city]|and|{COLUMN} [country]|of|the|{TABLE} [airport]|that|have [has]|the|low [lowest]|altitude",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "low",
+            "altitude"
+        ],
+        "original_sql": "SELECT name ,  city ,  country FROM airports ORDER BY elevation LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name, city, and country of the airport with the lowest altitude?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|{COLUMN} [city]|and|{COLUMN} [country]|of|the|{TABLE} [airport]|with|the|low [lowest]|altitude",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "low",
+            "altitude"
+        ],
+        "original_sql": "SELECT name ,  city ,  country FROM airports ORDER BY elevation LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name, city, and country of the airport that has the highest latitude.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|{COLUMN} [city]|and|{COLUMN} [country]|of|the|{TABLE} [airport]|that|have [has]|the|high [highest]|latitude",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "the",
+            "high",
+            "latitude"
+        ],
+        "original_sql": "SELECT name ,  city ,  country FROM airports ORDER BY elevation DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name, city, and country of the airport with the highest elevation?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|{COLUMN} [city]|and|{COLUMN} [country]|of|the|{TABLE} [airport]|with|the|high [highest]|{COLUMN} [elevation]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  city ,  country FROM airports ORDER BY elevation DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name and city of the airport which is the destination of the most number of routes.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [city]|of|the|{TABLE} [airport]|which|is|the|{COLUMN_PART} [destination]|of|the|most|number|of|{TABLE} [routes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.city ,  T2.dst_apid FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.dst_apid GROUP BY T2.dst_apid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name and city of the airport that the most routes end at?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [city]|of|the|{TABLE} [airport]|that|the|most|{TABLE} [routes]|end|at",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "the",
+            "most",
+            "{TABLE}",
+            "end",
+            "at"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.city ,  T2.dst_apid FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.dst_apid GROUP BY T2.dst_apid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the names of the top 10 airlines that operate the most number of routes.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|top|{NUMBER} [10]|{COLUMN} [airlines]|that|operate|the|most|number|of|{TABLE} [routes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "top",
+            "{NUMBER}",
+            "{COLUMN}",
+            "that",
+            "operate",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T2.alid FROM airlines AS T1 JOIN routes AS T2 ON T1.alid  =  T2.alid GROUP BY T2.alid ORDER BY count(*) DESC LIMIT 10"
+    },
+    {
+        "original_nl": "For the airline ids with the top 10 most routes operated, what are their names?",
+        "generalized_nl": "For|the|{COLUMN} [airline]|{COLUMN_PART} [ids]|with|the|top|{NUMBER} [10]|most|{TABLE} [routes]|operate [operated]|what|are|their|{COLUMN} [names]",
+        "generalized_tokens": [
+            "For",
+            "the",
+            "{COLUMN}",
+            "{COLUMN_PART}",
+            "with",
+            "the",
+            "top",
+            "{NUMBER}",
+            "most",
+            "{TABLE}",
+            "operate",
+            "what",
+            "are",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name ,  T2.alid FROM airlines AS T1 JOIN routes AS T2 ON T1.alid  =  T2.alid GROUP BY T2.alid ORDER BY count(*) DESC LIMIT 10"
+    },
+    {
+        "original_nl": "Find the name and city of the airport which is the source for the most number of flight routes.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [city]|of|the|{TABLE} [airport]|which|is|the|{COLUMN_PART} [source]|for|the|most|number|of|flight|{TABLE} [routes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "for",
+            "the",
+            "most",
+            "number",
+            "of",
+            "flight",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.city ,  T2.src_apid FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.src_apid GROUP BY T2.src_apid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name and city of the airport from most of the routes start?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [city]|of|the|{TABLE} [airport]|from|most|of|the|{TABLE} [routes]|start",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "from",
+            "most",
+            "of",
+            "the",
+            "{TABLE}",
+            "start"
+        ],
+        "original_sql": "SELECT T1.name ,  T1.city ,  T2.src_apid FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.src_apid GROUP BY T2.src_apid ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the number of different airports which are the destinations of the American Airlines.",
+        "generalized_nl": "find [Find]|the|number|of|different|{TABLE} [airports]|which|are|the|finish [destinations]|of|{NE} [the American Airlines]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{TABLE}",
+            "which",
+            "are",
+            "the",
+            "finish",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT dst_apid) FROM airlines AS T1 JOIN routes AS T2 ON T1.alid  =  T2.alid WHERE T1.name  =  'American Airlines'"
+    },
+    {
+        "original_nl": "What is the number of different different airports that are destinations for American Airlines?",
+        "generalized_nl": "What|is|the|number|of|different|different|{TABLE} [airports]|that|are|finish [destinations]|for|{NE} [American Airlines]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "different",
+            "different",
+            "{TABLE}",
+            "that",
+            "are",
+            "finish",
+            "for",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT dst_apid) FROM airlines AS T1 JOIN routes AS T2 ON T1.alid  =  T2.alid WHERE T1.name  =  'American Airlines'"
+    },
+    {
+        "original_nl": "Which countries has the most number of airlines?",
+        "generalized_nl": "Which|{COLUMN} [countries]|have [has]|the|most|number|of|{COLUMN} [airlines]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT country FROM airlines GROUP BY country ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the country with the most number of home airlines?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{COLUMN} [country]|with|the|most|number|of|home|{COLUMN} [airlines]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "number",
+            "of",
+            "home",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT country FROM airlines GROUP BY country ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which countries has the most number of airlines whose active status is 'Y'?",
+        "generalized_nl": "Which|{COLUMN} [countries]|have [has]|the|most|number|of|{COLUMN} [airlines]|whose|{COLUMN} [active]|status|is|{COLUMN} [Y]",
+        "generalized_tokens": [
+            "Which",
+            "{COLUMN}",
+            "have",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "status",
+            "is",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT country FROM airlines WHERE active  =  'Y' GROUP BY country ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the countries with the most airlines whose active status is Y?",
+        "generalized_nl": "What|are|the|{COLUMN} [countries]|with|the|most|{COLUMN} [airlines]|whose|{COLUMN} [active]|status|is|{COLUMN} [Y]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "{COLUMN}",
+            "whose",
+            "{COLUMN}",
+            "status",
+            "is",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT country FROM airlines WHERE active  =  'Y' GROUP BY country ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List all countries and their number of airlines in the descending order of number of airlines.",
+        "generalized_nl": "list [List]|all|{COLUMN} [countries]|and|their|number|of|{COLUMN} [airlines]|in|the|descend [descending]|order|of|number|of|{COLUMN} [airlines]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "and",
+            "their",
+            "number",
+            "of",
+            "{COLUMN}",
+            "in",
+            "the",
+            "descend",
+            "order",
+            "of",
+            "number",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT country ,  count(*) FROM airlines GROUP BY country ORDER BY count(*) DESC"
+    },
+    {
+        "original_nl": "How many airlines operate out of each country in descending order?",
+        "generalized_nl": "How|many|{COLUMN} [airlines]|operate|out|of|each|{COLUMN} [country]|in|descend [descending]|order",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "operate",
+            "out",
+            "of",
+            "each",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order"
+        ],
+        "original_sql": "SELECT country ,  count(*) FROM airlines GROUP BY country ORDER BY count(*) DESC"
+    },
+    {
+        "original_nl": "What is the number of airports per country, ordered from most to least?",
+        "generalized_nl": "What|is|the|number|of|{TABLE} [airports]|per|{COLUMN} [country]|order [ordered]|from|most|to|least",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "per",
+            "{COLUMN}",
+            "order",
+            "from",
+            "most",
+            "to",
+            "least"
+        ],
+        "original_sql": "SELECT count(*) ,  country FROM airports GROUP BY country ORDER BY count(*) DESC"
+    },
+    {
+        "original_nl": "How many airports are there per city in the US ordered from most to least?",
+        "generalized_nl": "How|many|{TABLE} [airports]|are|there|per|{COLUMN} [city]|in|the|{NE} [US]|order [ordered]|from|most|to|least",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "per",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{NE}",
+            "order",
+            "from",
+            "most",
+            "to",
+            "least"
+        ],
+        "original_sql": "SELECT count(*) ,  city FROM airports WHERE country  =  'United States' GROUP BY city ORDER BY count(*) DESC"
+    },
+    {
+        "original_nl": "Return the cities with more than 3 airports in the United States.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [cities]|with|{NUMBER} [more than 3]|{TABLE} [airports]|in|{NE} [the United States]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT city FROM airports WHERE country  =  'United States' GROUP BY city HAVING count(*)  >  3"
+    },
+    {
+        "original_nl": "What is the number of cities in the United States with more than 3 airports?",
+        "generalized_nl": "What|is|the|number|of|{COLUMN} [cities]|in|{NE} [the United States]|with|{NUMBER} [more than 3]|{TABLE} [airports]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "{COLUMN}",
+            "in",
+            "{NE}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT city FROM airports WHERE country  =  'United States' GROUP BY city HAVING count(*)  >  3"
+    },
+    {
+        "original_nl": "How many cities are there that have more than 3 airports?",
+        "generalized_nl": "How|many|{COLUMN} [cities]|are|there|that|have|{NUMBER} [more than 3]|{TABLE} [airports]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "there",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM (SELECT city FROM airports GROUP BY city HAVING count(*)  >  3)"
+    },
+    {
+        "original_nl": "What is the count of cities with more than 3 airports?",
+        "generalized_nl": "What|is|the|count|of|{COLUMN} [cities]|with|{NUMBER} [more than 3]|{TABLE} [airports]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "count",
+            "of",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM (SELECT city FROM airports GROUP BY city HAVING count(*)  >  3)"
+    },
+    {
+        "original_nl": "List the cities which have more than one airport and number of airports.",
+        "generalized_nl": "list [List]|the|{COLUMN} [cities]|which|have|{NUMBER} [more than one]|{TABLE} [airport]|and|number|of|{TABLE} [airports]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "which",
+            "have",
+            "{NUMBER}",
+            "{TABLE}",
+            "and",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT city ,  count(*) FROM airports GROUP BY city HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "What are the names of all cities with more than one airport and how many airports do they have?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{COLUMN} [cities]|with|{NUMBER} [more than one]|{TABLE} [airport]|and|how|many|{TABLE} [airports]|do|they|have",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}",
+            "and",
+            "how",
+            "many",
+            "{TABLE}",
+            "do",
+            "they",
+            "have"
+        ],
+        "original_sql": "SELECT city ,  count(*) FROM airports GROUP BY city HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "List the cities which have more than 2 airports sorted by the number of airports.",
+        "generalized_nl": "list [List]|the|{COLUMN} [cities]|which|have|{NUMBER} [more than 2]|{TABLE} [airports]|screen [sorted]|by|the|number|of|{TABLE} [airports]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "which",
+            "have",
+            "{NUMBER}",
+            "{TABLE}",
+            "screen",
+            "by",
+            "the",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT city FROM airports GROUP BY city HAVING count(*)  >  2 ORDER BY count(*)"
+    },
+    {
+        "original_nl": "What are the cities that have more than 2 airports sorted by number of airports?",
+        "generalized_nl": "What|are|the|{COLUMN} [cities]|that|have|{NUMBER} [more than 2]|{TABLE} [airports]|screen [sorted]|by|number|of|{TABLE} [airports]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}",
+            "screen",
+            "by",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT city FROM airports GROUP BY city HAVING count(*)  >  2 ORDER BY count(*)"
+    },
+    {
+        "original_nl": "Find the number of routes for each source airport and the airport name.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [routes]|for|each|{COLUMN} [source airport]|and|the|{TABLE} [airport]|{COLUMN} [name]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.name FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.src_apid GROUP BY T1.name"
+    },
+    {
+        "original_nl": "For each airport name, how many routes start at that airport?",
+        "generalized_nl": "For|each|{TABLE} [airport]|{COLUMN} [name]|how|many|{TABLE} [routes]|start|at|that|{TABLE} [airport]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "{COLUMN}",
+            "how",
+            "many",
+            "{TABLE}",
+            "start",
+            "at",
+            "that",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.name FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.src_apid GROUP BY T1.name"
+    },
+    {
+        "original_nl": "Find the number of routes and airport name for each source airport, order the results by decreasing number of routes.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [routes]|and|{TABLE} [airport]|{COLUMN} [name]|for|each|{COLUMN} [source airport]|order|the|consequence [results]|by|decrease [decreasing]|number|of|{TABLE} [routes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "and",
+            "{TABLE}",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}",
+            "order",
+            "the",
+            "consequence",
+            "by",
+            "decrease",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.name FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.src_apid GROUP BY T1.name ORDER BY count(*) DESC"
+    },
+    {
+        "original_nl": "For each  airport name, how many routes start at that airport, ordered from most to least?",
+        "generalized_nl": "For|each|{TABLE} [airport]|{COLUMN} [name]|how|many|{TABLE} [routes]|start|at|that|{TABLE} [airport]|order [ordered]|from|most|to|least",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{TABLE}",
+            "{COLUMN}",
+            "how",
+            "many",
+            "{TABLE}",
+            "start",
+            "at",
+            "that",
+            "{TABLE}",
+            "order",
+            "from",
+            "most",
+            "to",
+            "least"
+        ],
+        "original_sql": "SELECT count(*) ,  T1.name FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.src_apid GROUP BY T1.name ORDER BY count(*) DESC"
+    },
+    {
+        "original_nl": "Find the average elevation of all airports for each country.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [elevation]|of|all|{TABLE} [airports]|for|each|{COLUMN} [country]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(elevation) ,  country FROM airports GROUP BY country"
+    },
+    {
+        "original_nl": "For each country, what is the average elevation of that country's airports?",
+        "generalized_nl": "For|each|{COLUMN} [country]|what|is|the|average|{COLUMN} [elevation]|of|that|{COLUMN} [country]|'s|{TABLE} [airports]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "what",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "that",
+            "{COLUMN}",
+            "'s",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(elevation) ,  country FROM airports GROUP BY country"
+    },
+    {
+        "original_nl": "Find the cities which have exactly two airports.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [cities]|which|have|precisely [exactly]|{NUMBER} [two]|{TABLE} [airports]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "which",
+            "have",
+            "precisely",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT city FROM airports GROUP BY city HAVING count(*)  =  2"
+    },
+    {
+        "original_nl": "What are the cities with exactly two airports?",
+        "generalized_nl": "What|are|the|{COLUMN} [cities]|with|precisely [exactly]|{NUMBER} [two]|{TABLE} [airports]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "with",
+            "precisely",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT city FROM airports GROUP BY city HAVING count(*)  =  2"
+    },
+    {
+        "original_nl": "For each country and airline name, how many routes are there?",
+        "generalized_nl": "For|each|{COLUMN} [country]|and|{COLUMN} [airline]|{COLUMN} [name]|how|many|{TABLE} [routes]|are|there",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "{COLUMN}",
+            "how",
+            "many",
+            "{TABLE}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT T1.country ,  T1.name ,  count(*) FROM airlines AS T1 JOIN routes AS T2 ON T1.alid  =  T2.alid GROUP BY T1.country ,  T1.name"
+    },
+    {
+        "original_nl": "What is the total number of routes for each country and airline in that country?",
+        "generalized_nl": "What|is|the|entire [total]|number|of|{TABLE} [routes]|for|each|{COLUMN} [country]|and|{COLUMN} [airline]|in|that|{COLUMN} [country]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "in",
+            "that",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.country ,  T1.name ,  count(*) FROM airlines AS T1 JOIN routes AS T2 ON T1.alid  =  T2.alid GROUP BY T1.country ,  T1.name"
+    },
+    {
+        "original_nl": "Find the number of routes with destination airports in Italy.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [routes]|with|{COLUMN} [destination airports]|in|{NE} [Italy]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM routes AS T1 JOIN airports AS T2 ON T1.dst_apid  =  T2.apid WHERE T2.country  =  'Italy'"
+    },
+    {
+        "original_nl": "What is the number of routes whose destinations are Italian airports?",
+        "generalized_nl": "What|is|the|number|of|{TABLE} [routes]|whose|finish [destinations]|are|{NE} [Italian]|{TABLE} [airports]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "whose",
+            "finish",
+            "are",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM routes AS T1 JOIN airports AS T2 ON T1.dst_apid  =  T2.apid WHERE T2.country  =  'Italy'"
+    },
+    {
+        "original_nl": "Return the number of routes with destination airport in Italy operated by the airline with name 'American Airlines'.",
+        "generalized_nl": "return [Return]|the|number|of|{TABLE} [routes]|with|{COLUMN} [destination airport]|in|{NE} [Italy]|operate [operated]|by|the|{COLUMN} [airline]|with|{COLUMN} [name]|American|{COLUMN} [Airlines]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "in",
+            "{NE}",
+            "operate",
+            "by",
+            "the",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "American",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM routes AS T1 JOIN airports AS T2 ON T1.dst_apid  =  T2.apid JOIN airlines AS T3 ON T1.alid  =  T3.alid WHERE T2.country  =  'Italy' AND T3.name  =  'American Airlines'"
+    },
+    {
+        "original_nl": "What is the number of routes operated by the airline American Airlines whose destinations are in Italy?",
+        "generalized_nl": "What|is|the|number|of|{TABLE} [routes]|operate [operated]|by|the|{COLUMN} [airline]|{NE} [American Airlines]|whose|finish [destinations]|are|in|{NE} [Italy]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "operate",
+            "by",
+            "the",
+            "{COLUMN}",
+            "{NE}",
+            "whose",
+            "finish",
+            "are",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM routes AS T1 JOIN airports AS T2 ON T1.dst_apid  =  T2.apid JOIN airlines AS T3 ON T1.alid  =  T3.alid WHERE T2.country  =  'Italy' AND T3.name  =  'American Airlines'"
+    },
+    {
+        "original_nl": "Find the number of routes that have destination John F Kennedy International Airport.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [routes]|that|have|{COLUMN_PART} [destination]|{NE} [John F Kennedy International Airport]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{COLUMN_PART}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.dst_apid WHERE T1.name  =  'John F Kennedy International Airport'"
+    },
+    {
+        "original_nl": "What is the number of routes that end at John F Kennedy International Airport?",
+        "generalized_nl": "What|is|the|number|of|{TABLE} [routes]|that|end|at|{NE} [John F Kennedy International Airport]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "end",
+            "at",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.dst_apid WHERE T1.name  =  'John F Kennedy International Airport'"
+    },
+    {
+        "original_nl": "Find the number of routes from the United States to Canada.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [routes]|from|{NE} [the United States]|to|{NE} [Canada]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "from",
+            "{NE}",
+            "to",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM routes WHERE dst_apid IN (SELECT apid FROM airports WHERE country  =  'Canada') AND src_apid IN (SELECT apid FROM airports WHERE country  =  'United States')"
+    },
+    {
+        "original_nl": "How many routes go from the United States to Canada?",
+        "generalized_nl": "How|many|{TABLE} [routes]|go|from|{NE} [the United States]|to|{NE} [Canada]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "go",
+            "from",
+            "{NE}",
+            "to",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM routes WHERE dst_apid IN (SELECT apid FROM airports WHERE country  =  'Canada') AND src_apid IN (SELECT apid FROM airports WHERE country  =  'United States')"
+    },
+    {
+        "original_nl": "Find the id of routes whose source and destination airports are in the United States.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [id]|of|{TABLE} [routes]|whose|{COLUMN_PART} [source]|and|{COLUMN} [destination airports]|are|in|{NE} [the United States]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "are",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT rid FROM routes WHERE dst_apid IN (SELECT apid FROM airports WHERE country  =  'United States') AND src_apid IN (SELECT apid FROM airports WHERE country  =  'United States')"
+    },
+    {
+        "original_nl": "What is the id of the routes whose source and destination airports are in the United States?",
+        "generalized_nl": "What|is|the|{COLUMN_PART} [id]|of|the|{TABLE} [routes]|whose|{COLUMN_PART} [source]|and|{COLUMN} [destination airports]|are|in|{NE} [the United States]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN}",
+            "are",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT rid FROM routes WHERE dst_apid IN (SELECT apid FROM airports WHERE country  =  'United States') AND src_apid IN (SELECT apid FROM airports WHERE country  =  'United States')"
+    },
+    {
+        "original_nl": "Find the name of airline which runs the most number of routes.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{COLUMN} [airline]|which|run [runs]|the|most|number|of|{TABLE} [routes]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "which",
+            "run",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM airlines AS T1 JOIN routes AS T2 ON T1.alid  =  T2.alid GROUP BY T1.name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the airline with the most routes?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{COLUMN} [airline]|with|the|most|{TABLE} [routes]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM airlines AS T1 JOIN routes AS T2 ON T1.alid  =  T2.alid GROUP BY T1.name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the busiest source airport that runs most number of routes in China.",
+        "generalized_nl": "find [Find]|the|busy [busiest]|{COLUMN} [source airport]|that|run [runs]|most|number|of|{TABLE} [routes]|in|{NE} [China]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "busy",
+            "{COLUMN}",
+            "that",
+            "run",
+            "most",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.src_apid WHERE T1.country  =  'China' GROUP BY T1.name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the airport with the most number of routes that start in China?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [airport]|with|the|most|number|of|{TABLE} [routes]|that|start|in|{NE} [China]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "start",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.src_apid WHERE T1.country  =  'China' GROUP BY T1.name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the busiest destination airport that runs most number of routes in China.",
+        "generalized_nl": "find [Find]|the|busy [busiest]|{COLUMN} [destination airport]|that|run [runs]|most|number|of|{TABLE} [routes]|in|{NE} [China]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "busy",
+            "{COLUMN}",
+            "that",
+            "run",
+            "most",
+            "number",
+            "of",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.dst_apid WHERE T1.country  =  'China' GROUP BY T1.name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the airport that is the destination of the most number of routes that start in China?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [airport]|that|is|the|{COLUMN_PART} [destination]|of|the|most|number|of|{TABLE} [routes]|that|start|in|{NE} [China]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "the",
+            "most",
+            "number",
+            "of",
+            "{TABLE}",
+            "that",
+            "start",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM airports AS T1 JOIN routes AS T2 ON T1.apid  =  T2.dst_apid WHERE T1.country  =  'China' GROUP BY T1.name ORDER BY count(*) DESC LIMIT 1"
+    }
+]

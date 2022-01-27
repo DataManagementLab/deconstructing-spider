@@ -1,0 +1,1552 @@
+[
+    {
+        "original_nl": "Who is the founder of Sony?",
+        "generalized_nl": "Who|is|the|{COLUMN} [founder]|of|{NE} [Sony]",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT founder FROM manufacturers WHERE name  =  'Sony'"
+    },
+    {
+        "original_nl": "Return the founder of Sony.",
+        "generalized_nl": "return [Return]|the|{COLUMN} [founder]|of|{NE} [Sony]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{NE}"
+        ],
+        "original_sql": "SELECT founder FROM manufacturers WHERE name  =  'Sony'"
+    },
+    {
+        "original_nl": "Where is the headquarter of the company founded by James?",
+        "generalized_nl": "Where|is|the|{COLUMN} [headquarter]|of|the|company|establish [founded]|by|{NE} [James]",
+        "generalized_tokens": [
+            "Where",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "company",
+            "establish",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT headquarter FROM manufacturers WHERE founder  =  'James'"
+    },
+    {
+        "original_nl": "What is the headquarter of the company whose founder is James?",
+        "generalized_nl": "What|is|the|{COLUMN} [headquarter]|of|the|company|whose|{COLUMN} [founder]|is|{NE} [James]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "company",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NE}"
+        ],
+        "original_sql": "SELECT headquarter FROM manufacturers WHERE founder  =  'James'"
+    },
+    {
+        "original_nl": "Find all manufacturers' names and their headquarters, sorted by the ones with highest revenue first.",
+        "generalized_nl": "find [Find]|all|{COLUMN} [manufacturers]|'|{COLUMN} [names]|and|their|{COLUMN} [headquarters]|screen [sorted]|by|the|one [ones]|with|high [highest]|{COLUMN} [revenue]|{NE} [first]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "{COLUMN}",
+            "'",
+            "{COLUMN}",
+            "and",
+            "their",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "the",
+            "one",
+            "with",
+            "high",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name ,  headquarter FROM manufacturers ORDER BY revenue DESC"
+    },
+    {
+        "original_nl": "What are the names and headquarters of all manufacturers, ordered by revenue descending?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [headquarters]|of|all|{COLUMN} [manufacturers]|order [ordered]|by|{COLUMN} [revenue]|descending",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "order",
+            "by",
+            "{COLUMN}",
+            "descending"
+        ],
+        "original_sql": "SELECT name ,  headquarter FROM manufacturers ORDER BY revenue DESC"
+    },
+    {
+        "original_nl": "What are the average, maximum and total revenues of all companies?",
+        "generalized_nl": "What|are|the|average|maximal [maximum]|and|entire [total]|{COLUMN} [revenues]|of|all|company [companies]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "maximal",
+            "and",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "all",
+            "company"
+        ],
+        "original_sql": "SELECT avg(revenue) ,  max(revenue) ,  sum(revenue) FROM manufacturers"
+    },
+    {
+        "original_nl": "Return the average, maximum, and total revenues across all manufacturers.",
+        "generalized_nl": "return [Return]|the|average|maximal [maximum]|and|entire [total]|{COLUMN} [revenues]|across|all|{COLUMN} [manufacturers]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "average",
+            "maximal",
+            "and",
+            "entire",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(revenue) ,  max(revenue) ,  sum(revenue) FROM manufacturers"
+    },
+    {
+        "original_nl": "How many companies were created by Andy?",
+        "generalized_nl": "How|many|company [companies]|were|create [created]|by|{NE} [Andy]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "company",
+            "were",
+            "create",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM manufacturers WHERE founder  =  'Andy'"
+    },
+    {
+        "original_nl": "Return the number of companies created by Andy.",
+        "generalized_nl": "return [Return]|the|number|of|company [companies]|create [created]|by|{NE} [Andy]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "number",
+            "of",
+            "company",
+            "create",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM manufacturers WHERE founder  =  'Andy'"
+    },
+    {
+        "original_nl": "Find the total revenue created by the companies whose headquarter is located at Austin.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN} [revenue]|create [created]|by|the|company [companies]|whose|{COLUMN} [headquarter]|is|locate [located]|at|{NE} [Austin]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "create",
+            "by",
+            "the",
+            "company",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "locate",
+            "at",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(revenue) FROM manufacturers WHERE headquarter  =  'Austin'"
+    },
+    {
+        "original_nl": "What is the sum of revenue from companies with headquarters in Austin?",
+        "generalized_nl": "What|is|the|sum|of|{COLUMN} [revenue]|from|company [companies]|with|{COLUMN} [headquarters]|in|{NE} [Austin]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "sum",
+            "of",
+            "{COLUMN}",
+            "from",
+            "company",
+            "with",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(revenue) FROM manufacturers WHERE headquarter  =  'Austin'"
+    },
+    {
+        "original_nl": "What are the different cities listed?",
+        "generalized_nl": "What|are|the|different|city [cities]|list [listed]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "different",
+            "city",
+            "list"
+        ],
+        "original_sql": "SELECT DISTINCT headquarter FROM manufacturers"
+    },
+    {
+        "original_nl": "Give the distinct headquarters of manufacturers.",
+        "generalized_nl": "give [Give]|the|distinct|{COLUMN} [headquarters]|of|{COLUMN} [manufacturers]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT headquarter FROM manufacturers"
+    },
+    {
+        "original_nl": "Find the number of manufactures that are based in Tokyo or Beijing.",
+        "generalized_nl": "find [Find]|the|number|of|industry [manufactures]|that|are|establish [based]|in|{NE} [Tokyo]|or|{NE} [Beijing]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "industry",
+            "that",
+            "are",
+            "establish",
+            "in",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM manufacturers WHERE headquarter  =  'Tokyo' OR headquarter  =  'Beijing'"
+    },
+    {
+        "original_nl": "How many manufacturers have headquarters in either Tokyo or Beijing?",
+        "generalized_nl": "How|many|{COLUMN} [manufacturers]|have|{COLUMN} [headquarters]|in|either|{NE} [Tokyo]|or|{NE} [Beijing]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "have",
+            "{COLUMN}",
+            "in",
+            "either",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM manufacturers WHERE headquarter  =  'Tokyo' OR headquarter  =  'Beijing'"
+    },
+    {
+        "original_nl": "Find the founder of the company whose name begins with the letter 'S'.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [founder]|of|the|company|whose|{COLUMN} [name]|begin [begins]|with|the|letter|S",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "company",
+            "whose",
+            "{COLUMN}",
+            "begin",
+            "with",
+            "the",
+            "letter",
+            "S"
+        ],
+        "original_sql": "SELECT founder FROM manufacturers WHERE name LIKE 'S%'"
+    },
+    {
+        "original_nl": "Who is the founders of companies whose first letter is S?",
+        "generalized_nl": "Who|is|the|{COLUMN} [founders]|of|company [companies]|whose|{NE} [first]|letter|is|S",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "company",
+            "whose",
+            "{NE}",
+            "letter",
+            "is",
+            "S"
+        ],
+        "original_sql": "SELECT founder FROM manufacturers WHERE name LIKE 'S%'"
+    },
+    {
+        "original_nl": "Find the name of companies whose revenue is between 100 and 150.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|company [companies]|whose|{COLUMN} [revenue]|is|{NUMBER} [between 100 and 150]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "company",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT name FROM manufacturers WHERE revenue BETWEEN 100 AND 150"
+    },
+    {
+        "original_nl": "What are the names of companies with revenue between 100 and 150?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|company [companies]|with|{COLUMN} [revenue]|{NUMBER} [between 100 and 150]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "company",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT name FROM manufacturers WHERE revenue BETWEEN 100 AND 150"
+    },
+    {
+        "original_nl": "What is the total revenue of all companies whose main office is at Tokyo or Taiwan?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN} [revenue]|of|all|company [companies]|whose|chief [main]|office|is|at|{NE} [Tokyo]|or|{NE} [Taiwan]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "all",
+            "company",
+            "whose",
+            "chief",
+            "office",
+            "is",
+            "at",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(revenue) FROM manufacturers WHERE Headquarter  =  'Tokyo' OR Headquarter  =  'Taiwan'"
+    },
+    {
+        "original_nl": "Return the total revenue of companies with headquarters in Tokyo or Taiwan.",
+        "generalized_nl": "return [Return]|the|entire [total]|{COLUMN} [revenue]|of|company [companies]|with|{COLUMN} [headquarters]|in|{NE} [Tokyo]|or|{NE} [Taiwan]",
+        "generalized_tokens": [
+            "return",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "company",
+            "with",
+            "{COLUMN}",
+            "in",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(revenue) FROM manufacturers WHERE Headquarter  =  'Tokyo' OR Headquarter  =  'Taiwan'"
+    },
+    {
+        "original_nl": "Find the name of product that is produced by both companies Creative Labs and Sony.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [product]|that|is|produce [produced]|by|both|company [companies]|{NE} [Creative Labs]|and|{NE} [Sony]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "is",
+            "produce",
+            "by",
+            "both",
+            "company",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code WHERE T2.name  =  'Creative Labs' INTERSECT SELECT T1.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code WHERE T2.name  =  'Sony'"
+    },
+    {
+        "original_nl": "What are the names of products produced by both Creative Labs and Sony?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [products]|produce [produced]|by|both|{NE} [Creative Labs]|and|{NE} [Sony]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "produce",
+            "by",
+            "both",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code WHERE T2.name  =  'Creative Labs' INTERSECT SELECT T1.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code WHERE T2.name  =  'Sony'"
+    },
+    {
+        "original_nl": "Find the name, headquarter and founder of the manufacturer that has the highest revenue.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|{COLUMN} [headquarter]|and|{COLUMN} [founder]|of|the|{COLUMN} [manufacturer]|that|have [has]|the|high [highest]|{COLUMN} [revenue]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  headquarter ,  founder FROM manufacturers ORDER BY revenue DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the names, headquarters and founders of the company with the highest revenue?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|{COLUMN} [headquarters]|and|{COLUMN} [founders]|of|the|company|with|the|high [highest]|{COLUMN} [revenue]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "company",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  headquarter ,  founder FROM manufacturers ORDER BY revenue DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name, headquarter and revenue of all manufacturers sorted by their revenue in the descending order.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|{COLUMN} [headquarter]|and|{COLUMN} [revenue]|of|all|{COLUMN} [manufacturers]|screen [sorted]|by|their|{COLUMN} [revenue]|in|the|descending|order",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "their",
+            "{COLUMN}",
+            "in",
+            "the",
+            "descending",
+            "order"
+        ],
+        "original_sql": "SELECT name ,  headquarter ,  revenue FROM manufacturers ORDER BY revenue DESC"
+    },
+    {
+        "original_nl": "What are the names, headquarters and revenues for manufacturers, sorted by revenue descending?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|{COLUMN} [headquarters]|and|{COLUMN} [revenues]|for|{COLUMN} [manufacturers]|screen [sorted]|by|{COLUMN} [revenue]|descending",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "descending"
+        ],
+        "original_sql": "SELECT name ,  headquarter ,  revenue FROM manufacturers ORDER BY revenue DESC"
+    },
+    {
+        "original_nl": "Find the name of companies whose revenue is greater than the average revenue of all companies.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|company [companies]|whose|{COLUMN} [revenue]|is|great [greater]|than|the|average|{COLUMN} [revenue]|of|all|company [companies]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "company",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "great",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "company"
+        ],
+        "original_sql": "SELECT name FROM manufacturers WHERE revenue  >  (SELECT avg(revenue) FROM manufacturers)"
+    },
+    {
+        "original_nl": "What are the names of manufacturers with revenue greater than the average of all revenues?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{COLUMN} [manufacturers]|with|{COLUMN} [revenue]|great [greater]|than|the|average|of|all|{COLUMN} [revenues]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "great",
+            "than",
+            "the",
+            "average",
+            "of",
+            "all",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM manufacturers WHERE revenue  >  (SELECT avg(revenue) FROM manufacturers)"
+    },
+    {
+        "original_nl": "Find the name of companies whose revenue is smaller than the revenue of all companies based in Austin.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|company [companies]|whose|{COLUMN} [revenue]|is|small [smaller]|than|the|{COLUMN} [revenue]|of|all|company [companies]|establish [based]|in|{NE} [Austin]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "company",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "small",
+            "than",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "company",
+            "establish",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM manufacturers WHERE revenue  <  (SELECT min(revenue) FROM manufacturers WHERE headquarter  =  'Austin')"
+    },
+    {
+        "original_nl": "What are the names of companies with revenue less than the lowest revenue of any manufacturer in Austin?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|company [companies]|with|{COLUMN} [revenue]|less|than|the|low [lowest]|{COLUMN} [revenue]|of|any|{COLUMN} [manufacturer]|in|{NE} [Austin]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "company",
+            "with",
+            "{COLUMN}",
+            "less",
+            "than",
+            "the",
+            "low",
+            "{COLUMN}",
+            "of",
+            "any",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM manufacturers WHERE revenue  <  (SELECT min(revenue) FROM manufacturers WHERE headquarter  =  'Austin')"
+    },
+    {
+        "original_nl": "Find the total revenue of companies whose revenue is larger than the revenue of some companies based in Austin.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN} [revenue]|of|company [companies]|whose|{COLUMN} [revenue]|is|large [larger]|than|the|{COLUMN} [revenue]|of|some|company [companies]|establish [based]|in|{NE} [Austin]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "company",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "large",
+            "than",
+            "the",
+            "{COLUMN}",
+            "of",
+            "some",
+            "company",
+            "establish",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(revenue) FROM manufacturers WHERE revenue  >  (SELECT min(revenue) FROM manufacturers WHERE headquarter  =  'Austin')"
+    },
+    {
+        "original_nl": "What is the total revenue of companies with revenue greater than the lowest revenue of any manufacturer in Austin?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN} [revenue]|of|company [companies]|with|{COLUMN} [revenue]|great [greater]|than|the|low [lowest]|{COLUMN} [revenue]|of|any|{COLUMN} [manufacturer]|in|{NE} [Austin]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "company",
+            "with",
+            "{COLUMN}",
+            "great",
+            "than",
+            "the",
+            "low",
+            "{COLUMN}",
+            "of",
+            "any",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT sum(revenue) FROM manufacturers WHERE revenue  >  (SELECT min(revenue) FROM manufacturers WHERE headquarter  =  'Austin')"
+    },
+    {
+        "original_nl": "Find the total revenue of companies of each founder.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN} [revenue]|of|company [companies]|of|each|{COLUMN} [founder]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "company",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(revenue) ,  founder FROM manufacturers GROUP BY founder"
+    },
+    {
+        "original_nl": "What is the total revenue of companies started by founder?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN} [revenue]|of|company [companies]|start [started]|by|{COLUMN} [founder]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "company",
+            "start",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(revenue) ,  founder FROM manufacturers GROUP BY founder"
+    },
+    {
+        "original_nl": "Find the name and revenue of the company that earns the highest revenue in each city.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [revenue]|of|the|company|that|gain [earns]|the|high [highest]|{COLUMN} [revenue]|in|each|city",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "company",
+            "that",
+            "gain",
+            "the",
+            "high",
+            "{COLUMN}",
+            "in",
+            "each",
+            "city"
+        ],
+        "original_sql": "SELECT name ,  max(revenue) ,  Headquarter FROM manufacturers GROUP BY Headquarter"
+    },
+    {
+        "original_nl": "What are the names and revenues of the companies with the highest revenues in each headquarter city?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [revenues]|of|the|company [companies]|with|the|high [highest]|{COLUMN} [revenues]|in|each|{COLUMN} [headquarter]|city",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "company",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}",
+            "in",
+            "each",
+            "{COLUMN}",
+            "city"
+        ],
+        "original_sql": "SELECT name ,  max(revenue) ,  Headquarter FROM manufacturers GROUP BY Headquarter"
+    },
+    {
+        "original_nl": "Find the total revenue for each manufacturer.",
+        "generalized_nl": "find [Find]|the|entire [total]|{COLUMN} [revenue]|for|each|{COLUMN} [manufacturer]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(revenue) ,  name FROM manufacturers GROUP BY name"
+    },
+    {
+        "original_nl": "What is the total revenue of each manufacturer?",
+        "generalized_nl": "What|is|the|entire [total]|{COLUMN} [revenue]|of|each|{COLUMN} [manufacturer]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "entire",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT sum(revenue) ,  name FROM manufacturers GROUP BY name"
+    },
+    {
+        "original_nl": "Find the average prices of all products from each manufacture, and list each company's name.",
+        "generalized_nl": "find [Find]|the|average|{COLUMN} [prices]|of|all|{TABLE} [products]|from|each|industry [manufacture]|and|list|each|company|'s|{COLUMN} [name]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "from",
+            "each",
+            "industry",
+            "and",
+            "list",
+            "each",
+            "company",
+            "'s",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(T1.price) ,  T2.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code GROUP BY T2.name"
+    },
+    {
+        "original_nl": "What are the average prices of products for each manufacturer?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [prices]|of|{TABLE} [products]|for|each|{COLUMN} [manufacturer]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(T1.price) ,  T2.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code GROUP BY T2.name"
+    },
+    {
+        "original_nl": "Find the number of different products that are produced by companies at different headquarter cities.",
+        "generalized_nl": "find [Find]|the|number|of|different|{TABLE} [products]|that|are|produce [produced]|by|company [companies]|at|different|{COLUMN} [headquarter]|city [cities]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "different",
+            "{TABLE}",
+            "that",
+            "are",
+            "produce",
+            "by",
+            "company",
+            "at",
+            "different",
+            "{COLUMN}",
+            "city"
+        ],
+        "original_sql": "SELECT count(DISTINCT T1.name) ,  T2.Headquarter FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code GROUP BY T2.Headquarter"
+    },
+    {
+        "original_nl": "How many different products are produced in each headquarter city?",
+        "generalized_nl": "How|many|different|{TABLE} [products]|are|produce [produced]|in|each|{COLUMN} [headquarter]|city",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "are",
+            "produce",
+            "in",
+            "each",
+            "{COLUMN}",
+            "city"
+        ],
+        "original_sql": "SELECT count(DISTINCT T1.name) ,  T2.Headquarter FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code GROUP BY T2.Headquarter"
+    },
+    {
+        "original_nl": "Find number of products which Sony does not make.",
+        "generalized_nl": "find [Find]|number|of|{TABLE} [products]|which|{NE} [Sony]|does|not|make",
+        "generalized_tokens": [
+            "find",
+            "number",
+            "of",
+            "{TABLE}",
+            "which",
+            "{NE}",
+            "does",
+            "not",
+            "make"
+        ],
+        "original_sql": "SELECT count(DISTINCT name) FROM products WHERE name NOT IN (SELECT T1.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code WHERE T2.name  =  'Sony')"
+    },
+    {
+        "original_nl": "How many products are not made by Sony?",
+        "generalized_nl": "How|many|{TABLE} [products]|are|not|make [made]|by|{NE} [Sony]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "not",
+            "make",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT name) FROM products WHERE name NOT IN (SELECT T1.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code WHERE T2.name  =  'Sony')"
+    },
+    {
+        "original_nl": "Find the name of companies that do not make DVD drive.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|company [companies]|that|do|not|make|DVD|drive",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "company",
+            "that",
+            "do",
+            "not",
+            "make",
+            "DVD",
+            "drive"
+        ],
+        "original_sql": "SELECT name FROM manufacturers EXCEPT SELECT T2.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code WHERE T1.name  =  'DVD drive'"
+    },
+    {
+        "original_nl": "What are the names of companies that do not make DVD drives?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|company [companies]|that|do|not|make|videodisk [DVD]|drive [drives]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "company",
+            "that",
+            "do",
+            "not",
+            "make",
+            "videodisk",
+            "drive"
+        ],
+        "original_sql": "SELECT name FROM manufacturers EXCEPT SELECT T2.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code WHERE T1.name  =  'DVD drive'"
+    },
+    {
+        "original_nl": "Find the number of products for each manufacturer, showing the name of each company.",
+        "generalized_nl": "find [Find]|the|number|of|{TABLE} [products]|for|each|{COLUMN} [manufacturer]|show [showing]|the|{COLUMN} [name]|of|each|company",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{COLUMN}",
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "company"
+        ],
+        "original_sql": "SELECT count(*) ,  T2.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code GROUP BY T2.name"
+    },
+    {
+        "original_nl": "How many products are there for each manufacturer?",
+        "generalized_nl": "How|many|{TABLE} [products]|are|there|for|each|{COLUMN} [manufacturer]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  T2.name FROM products AS T1 JOIN manufacturers AS T2 ON T1.Manufacturer  =  T2.code GROUP BY T2.name"
+    },
+    {
+        "original_nl": "Select the names of all the products in the store.",
+        "generalized_nl": "choose [Select]|the|{COLUMN} [names]|of|all|the|{TABLE} [products]|in|the|shop [store]",
+        "generalized_tokens": [
+            "choose",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "shop"
+        ],
+        "original_sql": "SELECT Name FROM Products"
+    },
+    {
+        "original_nl": "What are the names of all products?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [products]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM Products"
+    },
+    {
+        "original_nl": "Select the names and the prices of all the products in the store.",
+        "generalized_nl": "choose [Select]|the|{COLUMN} [names]|and|the|{COLUMN} [prices]|of|all|the|{TABLE} [products]|in|the|shop [store]",
+        "generalized_tokens": [
+            "choose",
+            "the",
+            "{COLUMN}",
+            "and",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "shop"
+        ],
+        "original_sql": "SELECT name ,  price FROM products"
+    },
+    {
+        "original_nl": "What are the names and prices of all products in the store?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [prices]|of|all|{TABLE} [products]|in|the|shop [store]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "shop"
+        ],
+        "original_sql": "SELECT name ,  price FROM products"
+    },
+    {
+        "original_nl": "Select the name of the products with a price less than or equal to $200.",
+        "generalized_nl": "choose [Select]|the|{COLUMN} [name]|of|the|{TABLE} [products]|with|a|{COLUMN} [price]|less|than|or|{NE} [equal to $ 200]",
+        "generalized_tokens": [
+            "choose",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "a",
+            "{COLUMN}",
+            "less",
+            "than",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM products WHERE price  <=  200"
+    },
+    {
+        "original_nl": "What are the names of products with price at most 200?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [products]|with|{COLUMN} [price]|at|most|{NUMBER} [200]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "at",
+            "most",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT name FROM products WHERE price  <=  200"
+    },
+    {
+        "original_nl": "Find all information of all the products with a price between $60 and $120.",
+        "generalized_nl": "find [Find]|all|information|of|all|the|{TABLE} [products]|with|a|{COLUMN} [price]|{NE} [between $ 60 and $ 120]",
+        "generalized_tokens": [
+            "find",
+            "all",
+            "information",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "with",
+            "a",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT * FROM products WHERE price BETWEEN 60 AND 120"
+    },
+    {
+        "original_nl": "What is all the information of all the products that have a price between 60 and 120?",
+        "generalized_nl": "What|is|all|the|information|of|all|the|{TABLE} [products]|that|have|a|{COLUMN} [price]|between|{NUMBER} [60 and 120]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "all",
+            "the",
+            "information",
+            "of",
+            "all",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "a",
+            "{COLUMN}",
+            "between",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT * FROM products WHERE price BETWEEN 60 AND 120"
+    },
+    {
+        "original_nl": "Compute the average price of all the products.",
+        "generalized_nl": "calculate [Compute]|the|average|{COLUMN} [price]|of|all|the|{TABLE} [products]",
+        "generalized_tokens": [
+            "calculate",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(price) FROM products"
+    },
+    {
+        "original_nl": "What is the average price across all products?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [price]|across|all|{TABLE} [products]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "across",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(price) FROM products"
+    },
+    {
+        "original_nl": "Compute the average price of all products with manufacturer code equal to 2.",
+        "generalized_nl": "calculate [Compute]|the|average|{COLUMN} [price]|of|all|{TABLE} [products]|with|{COLUMN} [manufacturer]|{COLUMN} [code]|equal|to|{NUMBER} [2]",
+        "generalized_tokens": [
+            "calculate",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{COLUMN}",
+            "equal",
+            "to",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT avg(price) FROM products WHERE Manufacturer  =  2"
+    },
+    {
+        "original_nl": "What is the average price of products with manufacturer codes equal to 2?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [price]|of|{TABLE} [products]|with|{COLUMN} [manufacturer]|{COLUMN} [codes]|equal|to|{NUMBER} [2]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{COLUMN}",
+            "equal",
+            "to",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT avg(price) FROM products WHERE Manufacturer  =  2"
+    },
+    {
+        "original_nl": "Compute the number of products with a price larger than or equal to $180.",
+        "generalized_nl": "calculate [Compute]|the|number|of|{TABLE} [products]|with|a|{COLUMN} [price]|large [larger]|than|or|equal|to|$|{NE} [180]",
+        "generalized_tokens": [
+            "calculate",
+            "the",
+            "number",
+            "of",
+            "{TABLE}",
+            "with",
+            "a",
+            "{COLUMN}",
+            "large",
+            "than",
+            "or",
+            "equal",
+            "to",
+            "$",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM products WHERE price >= 180"
+    },
+    {
+        "original_nl": "How many products have prices of at least 180?",
+        "generalized_nl": "How|many|{TABLE} [products]|have|{COLUMN} [prices]|of|{NUMBER} [at least 180]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{COLUMN}",
+            "of",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM products WHERE price >= 180"
+    },
+    {
+        "original_nl": "Select the name and price of all products with a price larger than or equal to $180, and sort first by price (in descending order), and then by name  (in ascending order).",
+        "generalized_nl": "choose [Select]|the|{COLUMN} [name]|and|{COLUMN} [price]|of|all|{TABLE} [products]|with|a|{COLUMN} [price]|large [larger]|than|or|equal|to|$|{NE} [180]|and|sort|{NE} [first]|by|{COLUMN} [price]|in|descend [descending]|order|and|then|by|{COLUMN} [name]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "choose",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "with",
+            "a",
+            "{COLUMN}",
+            "large",
+            "than",
+            "or",
+            "equal",
+            "to",
+            "$",
+            "{NE}",
+            "and",
+            "sort",
+            "{NE}",
+            "by",
+            "{COLUMN}",
+            "in",
+            "descend",
+            "order",
+            "and",
+            "then",
+            "by",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT name ,  price FROM products WHERE price  >=  180 ORDER BY price DESC ,  name ASC"
+    },
+    {
+        "original_nl": "What are the names and prices of products that cost at least 180, sorted by price decreasing and name ascending?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [prices]|of|{TABLE} [products]|that|cost|{NUMBER} [at least 180]|screen [sorted]|by|{COLUMN} [price]|decreasing|and|{COLUMN} [name]|ascend [ascending]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "cost",
+            "{NUMBER}",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "decreasing",
+            "and",
+            "{COLUMN}",
+            "ascend"
+        ],
+        "original_sql": "SELECT name ,  price FROM products WHERE price  >=  180 ORDER BY price DESC ,  name ASC"
+    },
+    {
+        "original_nl": "Select all the data from the products and each product's manufacturer.",
+        "generalized_nl": "choose [Select]|all|the|data|from|the|{TABLE} [products]|and|each|{TABLE} [product]|'s|{COLUMN} [manufacturer]",
+        "generalized_tokens": [
+            "choose",
+            "all",
+            "the",
+            "data",
+            "from",
+            "the",
+            "{TABLE}",
+            "and",
+            "each",
+            "{TABLE}",
+            "'s",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT * FROM products AS T1 JOIN Manufacturers AS T2 ON T1.manufacturer  =  T2.code"
+    },
+    {
+        "original_nl": "What is all the product data, as well as  each product's manufacturer?",
+        "generalized_nl": "What|is|all|the|{TABLE} [product]|data|equally [as]|well|as|each|{TABLE} [product]|'s|{COLUMN} [manufacturer]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "all",
+            "the",
+            "{TABLE}",
+            "data",
+            "equally",
+            "well",
+            "as",
+            "each",
+            "{TABLE}",
+            "'s",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT * FROM products AS T1 JOIN Manufacturers AS T2 ON T1.manufacturer  =  T2.code"
+    },
+    {
+        "original_nl": "Select the average price of each manufacturer's products, showing only the manufacturer's code.",
+        "generalized_nl": "choose [Select]|the|average|{COLUMN} [price]|of|each|{COLUMN} [manufacturer]|'s|{TABLE} [products]|show [showing]|only|the|{COLUMN} [manufacturer]|'s|{COLUMN} [code]",
+        "generalized_tokens": [
+            "choose",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}",
+            "'s",
+            "{TABLE}",
+            "show",
+            "only",
+            "the",
+            "{COLUMN}",
+            "'s",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT AVG(Price) ,  Manufacturer FROM Products GROUP BY Manufacturer"
+    },
+    {
+        "original_nl": "What are the average prices of products, grouped by manufacturer code?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [prices]|of|{TABLE} [products]|group [grouped]|by|{COLUMN} [manufacturer]|{COLUMN} [code]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "group",
+            "by",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT AVG(Price) ,  Manufacturer FROM Products GROUP BY Manufacturer"
+    },
+    {
+        "original_nl": "Select the average price of each manufacturer's products, showing the manufacturer's name.",
+        "generalized_nl": "choose [Select]|the|average|{COLUMN} [price]|of|each|{COLUMN} [manufacturer]|'s|{TABLE} [products]|show [showing]|the|{COLUMN} [manufacturer]|'s|{COLUMN} [name]",
+        "generalized_tokens": [
+            "choose",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}",
+            "'s",
+            "{TABLE}",
+            "show",
+            "the",
+            "{COLUMN}",
+            "'s",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(T1.Price) ,  T2.name FROM products AS T1 JOIN Manufacturers AS T2 ON T1.manufacturer  =  T2.code GROUP BY T2.name"
+    },
+    {
+        "original_nl": "What are the average prices of products, grouped by manufacturer name?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [prices]|of|{TABLE} [products]|group [grouped]|by|{COLUMN} [manufacturer]|{COLUMN} [name]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "group",
+            "by",
+            "{COLUMN}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(T1.Price) ,  T2.name FROM products AS T1 JOIN Manufacturers AS T2 ON T1.manufacturer  =  T2.code GROUP BY T2.name"
+    },
+    {
+        "original_nl": "Select the names of manufacturer whose products have an average price higher than or equal to $150.",
+        "generalized_nl": "choose [Select]|the|{COLUMN} [names]|of|{COLUMN} [manufacturer]|whose|{TABLE} [products]|have|an|average|{COLUMN} [price]|high [higher]|than|or|{NE} [equal to $ 150]",
+        "generalized_tokens": [
+            "choose",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{COLUMN}",
+            "whose",
+            "{TABLE}",
+            "have",
+            "an",
+            "average",
+            "{COLUMN}",
+            "high",
+            "than",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(T1.Price) ,  T2.name FROM products AS T1 JOIN Manufacturers AS T2 ON T1.manufacturer  =  T2.code GROUP BY T2.name HAVING avg(T1.price) >= 150"
+    },
+    {
+        "original_nl": "What are the names and average prices of products for manufacturers whose products cost on average 150 or more?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|average|{COLUMN} [prices]|of|{TABLE} [products]|for|{COLUMN} [manufacturers]|whose|{TABLE} [products]|cost|on|average|{NUMBER} [150]|or|more",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "for",
+            "{COLUMN}",
+            "whose",
+            "{TABLE}",
+            "cost",
+            "on",
+            "average",
+            "{NUMBER}",
+            "or",
+            "more"
+        ],
+        "original_sql": "SELECT avg(T1.Price) ,  T2.name FROM products AS T1 JOIN Manufacturers AS T2 ON T1.manufacturer  =  T2.code GROUP BY T2.name HAVING avg(T1.price) >= 150"
+    },
+    {
+        "original_nl": "Select the name and price of the cheapest product.",
+        "generalized_nl": "choose [Select]|the|{COLUMN} [name]|and|{COLUMN} [price]|of|the|cheap [cheapest]|{TABLE} [product]",
+        "generalized_tokens": [
+            "choose",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "cheap",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  price FROM Products ORDER BY price ASC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name and price of the cheapest product?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [price]|of|the|cheap [cheapest]|{TABLE} [product]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "cheap",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  price FROM Products ORDER BY price ASC LIMIT 1"
+    },
+    {
+        "original_nl": "Select the name of each manufacturer along with the name and price of its most expensive product.",
+        "generalized_nl": "choose [Select]|the|{COLUMN} [name]|of|each|{COLUMN} [manufacturer]|along|with|the|{COLUMN} [name]|and|{COLUMN} [price]|of|its|most|expensive|{TABLE} [product]",
+        "generalized_tokens": [
+            "choose",
+            "the",
+            "{COLUMN}",
+            "of",
+            "each",
+            "{COLUMN}",
+            "along",
+            "with",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "its",
+            "most",
+            "expensive",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name ,  max(T1.Price) ,  T2.name FROM products AS T1 JOIN Manufacturers AS T2 ON T1.manufacturer  =  T2.code GROUP BY T2.name"
+    },
+    {
+        "original_nl": "For each manufacturer name, what are the names and prices of their most expensive product?",
+        "generalized_nl": "For|each|{COLUMN} [manufacturer]|{COLUMN} [name]|what|are|the|{COLUMN} [names]|and|{COLUMN} [prices]|of|their|most|expensive|{TABLE} [product]",
+        "generalized_tokens": [
+            "For",
+            "each",
+            "{COLUMN}",
+            "{COLUMN}",
+            "what",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "their",
+            "most",
+            "expensive",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.Name ,  max(T1.Price) ,  T2.name FROM products AS T1 JOIN Manufacturers AS T2 ON T1.manufacturer  =  T2.code GROUP BY T2.name"
+    },
+    {
+        "original_nl": "Select the code of the product that is cheapest in each product category.",
+        "generalized_nl": "choose [Select]|the|{COLUMN} [code]|of|the|{TABLE} [product]|that|is|cheap [cheapest]|in|each|{TABLE} [product]|class [category]",
+        "generalized_tokens": [
+            "choose",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "cheap",
+            "in",
+            "each",
+            "{TABLE}",
+            "class"
+        ],
+        "original_sql": "SELECT code ,  name ,  min(price) FROM products GROUP BY name"
+    },
+    {
+        "original_nl": "What are the codes and names of the cheapest products in each category?",
+        "generalized_nl": "What|are|the|{COLUMN} [codes]|and|{COLUMN} [names]|of|the|cheap [cheapest]|{TABLE} [products]|in|each|class [category]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "cheap",
+            "{TABLE}",
+            "in",
+            "each",
+            "class"
+        ],
+        "original_sql": "SELECT code ,  name ,  min(price) FROM products GROUP BY name"
+    }
+]

@@ -1,0 +1,295 @@
+[
+    {
+        "original_nl": "How many companies are headquartered in the US?",
+        "generalized_nl": "How|many|{TABLE} [companies]|are|headquarter [headquartered]|in|the|{NE} [US]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "headquarter",
+            "in",
+            "the",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM company WHERE Headquarters  =  'USA'"
+    },
+    {
+        "original_nl": "List the names of companies by ascending number of sales.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [companies]|by|ascend [ascending]|number|of|{COLUMN_PART} [sales]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "by",
+            "ascend",
+            "number",
+            "of",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Name FROM company ORDER BY Sales_in_Billion ASC"
+    },
+    {
+        "original_nl": "What are the headquarters and industries of all companies?",
+        "generalized_nl": "What|are|the|{COLUMN} [headquarters]|and|{COLUMN} [industries]|of|all|{TABLE} [companies]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Headquarters ,  Industry FROM company"
+    },
+    {
+        "original_nl": "Show the names of companies in the banking or retailing industry?",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [companies]|in|the|banking|or|retailing|{COLUMN} [industry]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "banking",
+            "or",
+            "retailing",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Name FROM company WHERE Industry  =  \"Banking\" OR Industry  =  \"Retailing\""
+    },
+    {
+        "original_nl": "What is the maximum and minimum market value of companies?",
+        "generalized_nl": "What|is|the|maximal [maximum]|and|minimal [minimum]|{COLUMN_PART} [market]|{COLUMN_PART} [value]|of|{TABLE} [companies]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(Market_Value_in_Billion) ,  min(Market_Value_in_Billion) FROM company"
+    },
+    {
+        "original_nl": "What is the headquarter of the company with the largest sales?",
+        "generalized_nl": "What|is|the|headquarter|of|the|{TABLE} [company]|with|the|large [largest]|{COLUMN_PART} [sales]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "headquarter",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "large",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT Headquarters FROM company ORDER BY Sales_in_Billion DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the different headquarters and number of companies at each headquarter.",
+        "generalized_nl": "show [Show]|the|different|{COLUMN} [headquarters]|and|number|of|{TABLE} [companies]|at|each|headquarter",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "different",
+            "{COLUMN}",
+            "and",
+            "number",
+            "of",
+            "{TABLE}",
+            "at",
+            "each",
+            "headquarter"
+        ],
+        "original_sql": "SELECT Headquarters ,  COUNT(*) FROM company GROUP BY Headquarters"
+    },
+    {
+        "original_nl": "Show the most common headquarter for companies.",
+        "generalized_nl": "show [Show]|the|most|common|headquarter|for|{TABLE} [companies]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "most",
+            "common",
+            "headquarter",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Headquarters FROM company GROUP BY Headquarters ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Show the headquarters that have at least two companies.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [headquarters]|that|have|{NUMBER} [at least two]|{TABLE} [companies]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Headquarters FROM company GROUP BY Headquarters HAVING COUNT(*)  >=  2"
+    },
+    {
+        "original_nl": "Show the headquarters that have both companies in banking industry and companies in oil and gas industry.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [headquarters]|that|have|both|{TABLE} [companies]|in|banking|{COLUMN} [industry]|and|{TABLE} [companies]|in|oil|and|gas|{COLUMN} [industry]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "that",
+            "have",
+            "both",
+            "{TABLE}",
+            "in",
+            "banking",
+            "{COLUMN}",
+            "and",
+            "{TABLE}",
+            "in",
+            "oil",
+            "and",
+            "gas",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT Headquarters FROM company WHERE Industry  =  \"Banking\" INTERSECT SELECT Headquarters FROM company WHERE Industry  =  \"Oil and gas\""
+    },
+    {
+        "original_nl": "Show the names of companies and of employees.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [companies]|and|of|employee [employees]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "of",
+            "employee"
+        ],
+        "original_sql": "SELECT T3.Name ,  T2.Name FROM employment AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID JOIN company AS T3 ON T1.Company_ID  =  T3.Company_ID"
+    },
+    {
+        "original_nl": "Show names of companies and that of employees in descending order of number of years working for that employee.",
+        "generalized_nl": "show [Show]|{COLUMN} [names]|of|{TABLE} [companies]|and|that|of|employee [employees]|in|descend [descending]|order|of|number|of|{NE} [years]|{COLUMN_PART} [working]|for|that|employee",
+        "generalized_tokens": [
+            "show",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "that",
+            "of",
+            "employee",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "number",
+            "of",
+            "{NE}",
+            "{COLUMN_PART}",
+            "for",
+            "that",
+            "employee"
+        ],
+        "original_sql": "SELECT T3.Name ,  T2.Name FROM employment AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID JOIN company AS T3 ON T1.Company_ID  =  T3.Company_ID ORDER BY T1.Year_working"
+    },
+    {
+        "original_nl": "Show the names of employees that work for companies with sales bigger than 200.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|employee [employees]|that|work|for|{TABLE} [companies]|with|{COLUMN_PART} [sales]|{NUMBER} [bigger than 200]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "employee",
+            "that",
+            "work",
+            "for",
+            "{TABLE}",
+            "with",
+            "{COLUMN_PART}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T2.Name FROM employment AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID JOIN company AS T3 ON T1.Company_ID  =  T3.Company_ID WHERE T3.Sales_in_Billion  >  200"
+    },
+    {
+        "original_nl": "Show the names of companies and the number of employees they have",
+        "generalized_nl": "show [Show]|the|{COLUMN} [names]|of|{TABLE} [companies]|and|the|number|of|employee [employees]|they|have",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "the",
+            "number",
+            "of",
+            "employee",
+            "they",
+            "have"
+        ],
+        "original_sql": "SELECT T3.Name ,  COUNT(*) FROM employment AS T1 JOIN people AS T2 ON T1.People_ID  =  T2.People_ID JOIN company AS T3 ON T1.Company_ID  =  T3.Company_ID GROUP BY T3.Name"
+    },
+    {
+        "original_nl": "List the names of people that are not employed by any company",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|{TABLE} [people]|that|are|not|use [employed]|by|any|{TABLE} [company]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "not",
+            "use",
+            "by",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT Name FROM people WHERE People_ID NOT IN (SELECT People_ID FROM employment)"
+    },
+    {
+        "original_nl": "list the names of the companies with more than 200 sales in the descending order of sales and profits.",
+        "generalized_nl": "list|the|{COLUMN} [names]|of|the|{TABLE} [companies]|with|{NUMBER} [more than 200]|{COLUMN_PART} [sales]|in|the|descend [descending]|order|of|{COLUMN_PART} [sales]|and|{COLUMN_PART} [profits]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{COLUMN_PART}",
+            "in",
+            "the",
+            "descend",
+            "order",
+            "of",
+            "{COLUMN_PART}",
+            "and",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT name FROM company WHERE Sales_in_Billion  >  200 ORDER BY Sales_in_Billion ,  Profits_in_Billion DESC"
+    }
+]

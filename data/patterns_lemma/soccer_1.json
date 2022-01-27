@@ -1,0 +1,268 @@
+[
+    {
+        "original_nl": "List all country and league names.",
+        "generalized_nl": "list [List]|all|{TABLE} [country]|and|{TABLE} [league]|{COLUMN} [names]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{TABLE}",
+            "and",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.name ,  T2.name FROM Country AS T1 JOIN League AS T2 ON T1.id  =  T2.country_id"
+    },
+    {
+        "original_nl": "How many leagues are there in England?",
+        "generalized_nl": "How|many|{TABLE} [leagues]|are|there|in|{NE} [England]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "there",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM Country AS T1 JOIN League AS T2 ON T1.id  =  T2.country_id WHERE T1.name  =  \"England\""
+    },
+    {
+        "original_nl": "What is the average weight of all players?",
+        "generalized_nl": "What|is|the|average|{COLUMN} [weight]|of|all|{TABLE} [players]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT avg(weight) FROM Player"
+    },
+    {
+        "original_nl": "What is the maximum and minimum height of all players?",
+        "generalized_nl": "What|is|the|maximal [maximum]|and|minimal [minimum]|{COLUMN} [height]|of|all|{TABLE} [players]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "maximal",
+            "and",
+            "minimal",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(weight) ,  min(weight) FROM Player"
+    },
+    {
+        "original_nl": "List all player names who have an overall rating higher than the average.",
+        "generalized_nl": "list [List]|all|{COLUMN} [player names]|who|have|an|{COLUMN} [overall rating]|high [higher]|than|the|average",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "{COLUMN}",
+            "who",
+            "have",
+            "an",
+            "{COLUMN}",
+            "high",
+            "than",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT DISTINCT T1.player_name FROM Player AS T1 JOIN Player_Attributes AS T2 ON T1.player_api_id = T2.player_api_id WHERE T2.overall_rating  >  ( SELECT avg(overall_rating) FROM Player_Attributes )"
+    },
+    {
+        "original_nl": "What are the names of players who have the best dribbling?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [players]|who|have|the|good [best]|{COLUMN} [dribbling]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "good",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.player_name FROM Player AS T1 JOIN Player_Attributes AS T2 ON T1.player_api_id = T2.player_api_id WHERE T2.dribbling  =  ( SELECT max(overall_rating) FROM Player_Attributes)"
+    },
+    {
+        "original_nl": "List the names of all players who have a crossing score higher than 90 and prefer their right foot.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|all|{TABLE} [players]|who|have|a|{COLUMN} [crossing]|score|{NUMBER} [higher than 90]|and|prefer|their|right|{COLUMN_PART} [foot]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "a",
+            "{COLUMN}",
+            "score",
+            "{NUMBER}",
+            "and",
+            "prefer",
+            "their",
+            "right",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.player_name FROM Player AS T1 JOIN Player_Attributes AS T2 ON T1.player_api_id = T2.player_api_id WHERE T2.crossing  >  90 AND T2.preferred_foot  =  \"right\""
+    },
+    {
+        "original_nl": "List the names of all left-footed players who have overall rating between 85 and 90.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|all|leave [left]|foot [footed]|{TABLE} [players]|who|have|{COLUMN} [overall rating]|{NE} [between 85 and 90]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "leave",
+            "foot",
+            "{TABLE}",
+            "who",
+            "have",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.player_name FROM Player AS T1 JOIN Player_Attributes AS T2 ON T1.player_api_id = T2.player_api_id WHERE T2.preferred_foot  =  \"left\" AND T2.overall_rating  >=  85 AND T2.overall_rating  <=  90"
+    },
+    {
+        "original_nl": "What is the average rating for right-footed players and left-footed players?",
+        "generalized_nl": "What|is|the|average|{COLUMN_PART} [rating]|for|right|foot [footed]|{TABLE} [players]|and|leave [left]|foot [footed]|{TABLE} [players]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "{COLUMN_PART}",
+            "for",
+            "right",
+            "foot",
+            "{TABLE}",
+            "and",
+            "leave",
+            "foot",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT preferred_foot ,  avg(overall_rating) FROM Player_Attributes GROUP BY preferred_foot"
+    },
+    {
+        "original_nl": "Of all players with an overall rating greater than 80, how many are right-footed and left-footed?",
+        "generalized_nl": "Of|all|{TABLE} [players]|with|an|{COLUMN} [overall rating]|great [greater]|than|{NUMBER} [80]|how|many|are|right|foot [footed]|and|leave [left]|foot [footed]",
+        "generalized_tokens": [
+            "Of",
+            "all",
+            "{TABLE}",
+            "with",
+            "an",
+            "{COLUMN}",
+            "great",
+            "than",
+            "{NUMBER}",
+            "how",
+            "many",
+            "are",
+            "right",
+            "foot",
+            "and",
+            "leave",
+            "foot"
+        ],
+        "original_sql": "SELECT preferred_foot ,  count(*) FROM Player_Attributes WHERE overall_rating  >  80 GROUP BY preferred_foot"
+    },
+    {
+        "original_nl": "List all of the player ids with a height of at least 180cm and an overall rating higher than 85.",
+        "generalized_nl": "list [List]|all|of|the|{TABLE} [player]|{COLUMN} [ids]|with|a|{COLUMN} [height]|of|{NE} [at least 180 cm]|and|an|{COLUMN} [overall rating]|high [higher]|than|{NUMBER} [85]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "of",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "with",
+            "a",
+            "{COLUMN}",
+            "of",
+            "{NE}",
+            "and",
+            "an",
+            "{COLUMN}",
+            "high",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT player_api_id FROM Player WHERE height  >=  180 INTERSECT SELECT player_api_id FROM Player_Attributes WHERE overall_rating  >  85"
+    },
+    {
+        "original_nl": "List all of the ids for left-footed players with a height between 180cm and 190cm.",
+        "generalized_nl": "list [List]|all|of|the|{COLUMN} [ids]|for|leave [left]|foot [footed]|{TABLE} [players]|with|a|{COLUMN} [height]|{NE} [between 180 cm]|and|{NE} [190 cm]",
+        "generalized_tokens": [
+            "list",
+            "all",
+            "of",
+            "the",
+            "{COLUMN}",
+            "for",
+            "leave",
+            "foot",
+            "{TABLE}",
+            "with",
+            "a",
+            "{COLUMN}",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT player_api_id FROM Player WHERE height  >=  180 AND height  <=  190 INTERSECT SELECT player_api_id FROM Player_Attributes WHERE preferred_foot  =  \"left\""
+    },
+    {
+        "original_nl": "Who are the top 3 players in terms of overall rating?",
+        "generalized_nl": "Who|are|the|top|{NUMBER} [3]|{TABLE} [players]|in|term [terms]|of|{COLUMN} [overall rating]",
+        "generalized_tokens": [
+            "Who",
+            "are",
+            "the",
+            "top",
+            "{NUMBER}",
+            "{TABLE}",
+            "in",
+            "term",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.player_name FROM Player AS T1 JOIN Player_Attributes AS T2 ON T1.player_api_id  =  T2.player_api_id ORDER BY overall_rating DESC LIMIT 3"
+    },
+    {
+        "original_nl": "List the names and birthdays of the top five players in terms of potential.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|and|{COLUMN} [birthdays]|of|the|top|{NUMBER} [five]|{TABLE} [players]|in|term [terms]|of|{COLUMN} [potential]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "top",
+            "{NUMBER}",
+            "{TABLE}",
+            "in",
+            "term",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.player_name ,  T1.birthday FROM Player AS T1 JOIN Player_Attributes AS T2 ON T1.player_api_id  =  T2.player_api_id ORDER BY potential DESC LIMIT 5"
+    }
+]

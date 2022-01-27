@@ -1,0 +1,330 @@
+[
+    {
+        "original_nl": "How many camera lenses have a focal length longer than 15 mm?",
+        "generalized_nl": "How|many|{TABLE} [camera lenses]|have|a|{COLUMN_PART} [focal]|{COLUMN_PART} [length]|longer|than|{NE} [15 mm]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "a",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "longer",
+            "than",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM camera_lens WHERE focal_length_mm  >  15"
+    },
+    {
+        "original_nl": "Find the brand and name for each camera lens, and sort in descending order of maximum aperture.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [brand]|and|{COLUMN} [name]|for|each|{TABLE} [camera lens]|and|screen [sort]|in|descend [descending]|order|of|maximal [maximum]|{COLUMN_PART} [aperture]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{TABLE}",
+            "and",
+            "screen",
+            "in",
+            "descend",
+            "order",
+            "of",
+            "maximal",
+            "{COLUMN_PART}"
+        ],
+        "original_sql": "SELECT brand ,  name FROM camera_lens ORDER BY max_aperture DESC"
+    },
+    {
+        "original_nl": "List the id, color scheme, and name for all the photos.",
+        "generalized_nl": "list [List]|the|{COLUMN} [id]|{COLUMN} [color]|scheme|and|{COLUMN} [name]|for|all|the|{TABLE} [photos]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "scheme",
+            "and",
+            "{COLUMN}",
+            "for",
+            "all",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT id ,  color ,  name FROM photos"
+    },
+    {
+        "original_nl": "What are the maximum and average height of the mountains?",
+        "generalized_nl": "What|are|the|maximal [maximum]|and|average|{COLUMN} [height]|of|the|{TABLE} [mountains]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "maximal",
+            "and",
+            "average",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT max(height) ,  avg(height) FROM mountain"
+    },
+    {
+        "original_nl": "What are the average prominence of the mountains in country 'Morocco'?",
+        "generalized_nl": "What|are|the|average|{COLUMN} [prominence]|of|the|{TABLE} [mountains]|in|{COLUMN} [country]|{NE} [Morocco]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT avg(prominence) FROM mountain WHERE country  =  'Morocco'"
+    },
+    {
+        "original_nl": "What are the name, height and prominence of mountains which do not belong to the range 'Aberdare Range'?",
+        "generalized_nl": "What|are|the|{COLUMN} [name]|{COLUMN} [height]|and|{COLUMN} [prominence]|of|{TABLE} [mountains]|which|do|not|belong|to|the|{COLUMN} [range]|Aberdare|{COLUMN} [Range]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "which",
+            "do",
+            "not",
+            "belong",
+            "to",
+            "the",
+            "{COLUMN}",
+            "Aberdare",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  height ,  prominence FROM mountain WHERE range != 'Aberdare Range'"
+    },
+    {
+        "original_nl": "What are the id and name of the photos for mountains?",
+        "generalized_nl": "What|are|the|{COLUMN} [id]|and|{COLUMN} [name]|of|the|{TABLE} [photos]|for|{TABLE} [mountains]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "for",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.name FROM mountain AS T1 JOIN photos AS T2 ON T1.id  =  T2.mountain_id WHERE T1.height  >  4000"
+    },
+    {
+        "original_nl": "What are the id and name of the mountains that have at least 2 photos?",
+        "generalized_nl": "What|are|the|{COLUMN} [id]|and|{COLUMN} [name]|of|the|{TABLE} [mountains]|that|have|{NUMBER} [at least 2]|{TABLE} [photos]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.id ,  T1.name FROM mountain AS T1 JOIN photos AS T2 ON T1.id  =  T2.mountain_id GROUP BY T1.id HAVING count(*)  >=  2"
+    },
+    {
+        "original_nl": "What are the names of the cameras that have taken picture of the most mountains?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|camera [cameras]|that|have|take [taken]|picture|of|the|most|{TABLE} [mountains]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "camera",
+            "that",
+            "have",
+            "take",
+            "picture",
+            "of",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name FROM photos AS T1 JOIN camera_lens AS T2 ON T1.camera_lens_id  =  T2.id GROUP BY T2.id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What are the names of photos taken with the lens brand 'Sigma' or 'Olympus'?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [photos]|take [taken]|with|the|{COLUMN_PART} [lens]|{COLUMN} [brand]|{NE} [Sigma]|or|{NE} [Olympus]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "take",
+            "with",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM camera_lens AS T1 JOIN photos AS T2 ON T2.camera_lens_id  =  T1.id WHERE T1.brand  =  'Sigma' OR T1.brand  =  'Olympus'"
+    },
+    {
+        "original_nl": "How many different kinds of lens brands are there?",
+        "generalized_nl": "How|many|different|kind [kinds]|of|{COLUMN_PART} [lens]|{COLUMN} [brands]|are|there",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "kind",
+            "of",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "are",
+            "there"
+        ],
+        "original_sql": "SELECT count(DISTINCT brand) FROM camera_lens"
+    },
+    {
+        "original_nl": "How many camera lenses are not used in taking any photos?",
+        "generalized_nl": "How|many|{TABLE} [camera lenses]|are|not|use [used]|in|take [taking]|any|{TABLE} [photos]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "not",
+            "use",
+            "in",
+            "take",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM camera_lens WHERE id NOT IN ( SELECT camera_lens_id FROM photos )"
+    },
+    {
+        "original_nl": "How many distinct kinds of camera lenses are used to take photos of mountains in the country 'Ethiopia'?",
+        "generalized_nl": "How|many|distinct|kind [kinds]|of|{TABLE} [camera lenses]|are|use [used]|to|take|{TABLE} [photos]|of|{TABLE} [mountains]|in|the|{COLUMN} [country]|{NE} [Ethiopia]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "distinct",
+            "kind",
+            "of",
+            "{TABLE}",
+            "are",
+            "use",
+            "to",
+            "take",
+            "{TABLE}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT T2.camera_lens_id) FROM mountain AS T1 JOIN photos AS T2 ON T1.id  =  T2.mountain_id WHERE T1.country  =  'Ethiopia'"
+    },
+    {
+        "original_nl": "List the brands of lenses that took both a picture of mountains with range 'Toubkal Atlas' and a picture of mountains with range 'Lasta Massif'",
+        "generalized_nl": "list [List]|the|{COLUMN} [brands]|of|lens [lenses]|that|take [took]|both|a|picture|of|{TABLE} [mountains]|with|{COLUMN} [range]|Toubkal|Atlas|and|a|picture|of|{TABLE} [mountains]|with|{COLUMN} [range]|Lasta|Massif",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "lens",
+            "that",
+            "take",
+            "both",
+            "a",
+            "picture",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "Toubkal",
+            "Atlas",
+            "and",
+            "a",
+            "picture",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "Lasta",
+            "Massif"
+        ],
+        "original_sql": "SELECT T3.brand FROM mountain AS T1 JOIN photos AS T2 ON T1.id  =  T2.mountain_id JOIN camera_lens AS T3 ON T2.camera_lens_id  =  T3.id WHERE T1.range  =  'Toubkal Atlas' INTERSECT SELECT T3.brand FROM mountain AS T1 JOIN photos AS T2 ON T1.id  =  T2.mountain_id JOIN camera_lens AS T3 ON T2.camera_lens_id  =  T3.id WHERE T1.range  =  'Lasta Massif'"
+    },
+    {
+        "original_nl": "Show the name and prominence of the mountains whose picture is not taken by a lens of brand 'Sigma'.",
+        "generalized_nl": "show [Show]|the|{COLUMN} [name]|and|{COLUMN} [prominence]|of|the|{TABLE} [mountains]|whose|picture|is|not|take [taken]|by|a|{COLUMN_PART} [lens]|of|{COLUMN} [brand]|{NE} [Sigma]",
+        "generalized_tokens": [
+            "show",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "picture",
+            "is",
+            "not",
+            "take",
+            "by",
+            "a",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name ,  prominence FROM mountain EXCEPT SELECT T1.name ,  T1.prominence FROM mountain AS T1 JOIN photos AS T2 ON T1.id  =  T2.mountain_id JOIN camera_lens AS T3 ON T2.camera_lens_id  =  T3.id WHERE T3.brand  =  'Sigma'"
+    },
+    {
+        "original_nl": "List the camera lens names containing substring \"Digital\".",
+        "generalized_nl": "list [List]|the|{TABLE} [camera lens]|{COLUMN} [names]|contain [containing]|substring|Digital",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "contain",
+            "substring",
+            "Digital"
+        ],
+        "original_sql": "SELECT name FROM camera_lens WHERE name LIKE \"%Digital%\""
+    }
+]

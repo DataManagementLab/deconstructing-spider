@@ -1,0 +1,3256 @@
+[
+    {
+        "original_nl": "Find the buildings which have rooms with capacity more than 50.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [buildings]|which|have|room [rooms]|with|{COLUMN} [capacity]|{NUMBER} [more than 50]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "which",
+            "have",
+            "room",
+            "with",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT building FROM classroom WHERE capacity  >  50"
+    },
+    {
+        "original_nl": "What are the distinct buildings with capacities of greater than 50?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [buildings]|with|{COLUMN} [capacities]|of|great [greater]|than|{NUMBER} [50]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "with",
+            "{COLUMN}",
+            "of",
+            "great",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT DISTINCT building FROM classroom WHERE capacity  >  50"
+    },
+    {
+        "original_nl": "Count the number of rooms that are not in the Lamberton building.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|room [rooms]|that|are|not|in|the|{NE} [Lamberton]|{COLUMN} [building]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "room",
+            "that",
+            "are",
+            "not",
+            "in",
+            "the",
+            "{NE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) FROM classroom WHERE building != 'Lamberton'"
+    },
+    {
+        "original_nl": "How many classrooms are not in Lamberton?",
+        "generalized_nl": "How|many|{TABLE} [classrooms]|are|not|in|{NE} [Lamberton]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "not",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM classroom WHERE building != 'Lamberton'"
+    },
+    {
+        "original_nl": "What is the name and building of the departments whose budget is more than the average budget?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|and|{COLUMN} [building]|of|the|{TABLE} [departments]|whose|{COLUMN} [budget]|is|more|than|the|average|{COLUMN} [budget]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "more",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT dept_name ,  building FROM department WHERE budget  >  (SELECT avg(budget) FROM department)"
+    },
+    {
+        "original_nl": "Give the name and building of the departments with greater than average budget.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [name]|and|{COLUMN} [building]|of|the|{TABLE} [departments]|with|great [greater]|than|average|{COLUMN} [budget]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "great",
+            "than",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT dept_name ,  building FROM department WHERE budget  >  (SELECT avg(budget) FROM department)"
+    },
+    {
+        "original_nl": "Find the room number of the rooms which can sit 50 to 100 students and their buildings.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [room number]|of|the|room [rooms]|which|can|sit|{NUMBER} [50 to 100]|{TABLE} [students]|and|their|{COLUMN} [buildings]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "room",
+            "which",
+            "can",
+            "sit",
+            "{NUMBER}",
+            "{TABLE}",
+            "and",
+            "their",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT building ,  room_number FROM classroom WHERE capacity BETWEEN 50 AND 100"
+    },
+    {
+        "original_nl": "What are the room numbers and corresponding buildings for classrooms which can seat between 50 to 100 students?",
+        "generalized_nl": "What|are|the|{COLUMN} [room numbers]|and|match [corresponding]|{COLUMN} [buildings]|for|{TABLE} [classrooms]|which|can|seat|{NUMBER} [between 50 to 100]|{TABLE} [students]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "match",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "which",
+            "can",
+            "seat",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT building ,  room_number FROM classroom WHERE capacity BETWEEN 50 AND 100"
+    },
+    {
+        "original_nl": "Find the name and building of the department with the highest budget.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [building]|of|the|{TABLE} [department]|with|the|high [highest]|{COLUMN} [budget]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT dept_name ,  building FROM department ORDER BY budget DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the department name and corresponding building for the department with the greatest budget?",
+        "generalized_nl": "What|is|the|{COLUMN} [department name]|and|match [corresponding]|{COLUMN} [building]|for|the|{TABLE} [department]|with|the|great [greatest]|{COLUMN} [budget]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "match",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "great",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT dept_name ,  building FROM department ORDER BY budget DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the student who has the highest total credits in the History department.",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [student]|who|have [has]|the|high [highest]|{COLUMN} [total credits]|in|the|{NE} [History]|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "high",
+            "{COLUMN}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM student WHERE dept_name  =  'History' ORDER BY tot_cred DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Give the name of the student in the History department with the most credits.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [name]|of|the|{TABLE} [student]|in|the|history [History]|{TABLE} [department]|with|the|most|{COLUMN} [credits]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "history",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM student WHERE dept_name  =  'History' ORDER BY tot_cred DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many rooms does the Lamberton building have?",
+        "generalized_nl": "How|many|room [rooms]|does|{NE} [the Lamberton building]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "room",
+            "does",
+            "{NE}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM classroom WHERE building  =  'Lamberton'"
+    },
+    {
+        "original_nl": "Count the number of classrooms in Lamberton.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [classrooms]|in|{NE} [Lamberton]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(*) FROM classroom WHERE building  =  'Lamberton'"
+    },
+    {
+        "original_nl": "How many students have advisors?",
+        "generalized_nl": "How|many|{TABLE} [students]|have|{TABLE} [advisors]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "have",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT s_id) FROM advisor"
+    },
+    {
+        "original_nl": "Count the number of students who have advisors.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [students]|who|have|{TABLE} [advisors]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT s_id) FROM advisor"
+    },
+    {
+        "original_nl": "How many departments offer courses?",
+        "generalized_nl": "How|many|{TABLE} [departments]|offer|{TABLE} [courses]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "offer",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_name) FROM course"
+    },
+    {
+        "original_nl": "Count the number of departments which offer courses.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [departments]|which|offer|{TABLE} [courses]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "which",
+            "offer",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT dept_name) FROM course"
+    },
+    {
+        "original_nl": "How many different courses offered by Physics department?",
+        "generalized_nl": "How|many|different|{TABLE} [courses]|offer [offered]|by|{NE} [Physics department]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "offer",
+            "by",
+            "{NE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT course_id) FROM course WHERE dept_name  =  'Physics'"
+    },
+    {
+        "original_nl": "Count the number of courses in the Physics department.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [courses]|in|the|{NE} [Physics]|{TABLE} [department]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT course_id) FROM course WHERE dept_name  =  'Physics'"
+    },
+    {
+        "original_nl": "Find the title of courses that have two prerequisites?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [title]|of|{TABLE} [courses]|that|have|{NUMBER} [two]|{TABLE} [prerequisites]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.title FROM course AS T1 JOIN prereq AS T2 ON T1.course_id  =  T2.course_id GROUP BY T2.course_id HAVING count(*)  =  2"
+    },
+    {
+        "original_nl": "What are the titles for courses with two prerequisites?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|for|{TABLE} [courses]|with|{NUMBER} [two]|{TABLE} [prerequisites]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.title FROM course AS T1 JOIN prereq AS T2 ON T1.course_id  =  T2.course_id GROUP BY T2.course_id HAVING count(*)  =  2"
+    },
+    {
+        "original_nl": "Find the title, credit, and department name of courses that have more than one prerequisites?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [title]|{COLUMN} [credit]|and|{COLUMN} [department name]|of|{TABLE} [courses]|that|have|{NUMBER} [more than one]|{TABLE} [prerequisites]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.title ,  T1.credits , T1.dept_name FROM course AS T1 JOIN prereq AS T2 ON T1.course_id  =  T2.course_id GROUP BY T2.course_id HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "What is the title, credit value, and department name for courses with more than one prerequisite?",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|{COLUMN} [credit]|value|and|{COLUMN} [department name]|for|{TABLE} [courses]|with|{NUMBER} [more than one]|{TABLE} [prerequisite]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "value",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.title ,  T1.credits , T1.dept_name FROM course AS T1 JOIN prereq AS T2 ON T1.course_id  =  T2.course_id GROUP BY T2.course_id HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "How many courses that do not have prerequisite?",
+        "generalized_nl": "How|many|{TABLE} [courses]|that|do|not|have|{TABLE} [prerequisite]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM course WHERE course_id NOT IN (SELECT course_id FROM prereq)"
+    },
+    {
+        "original_nl": "Count the number of courses without prerequisites.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|{TABLE} [courses]|without|{TABLE} [prerequisites]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "without",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) FROM course WHERE course_id NOT IN (SELECT course_id FROM prereq)"
+    },
+    {
+        "original_nl": "Find the name of the courses that do not have any prerequisite?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [courses]|that|do|not|have|any|{TABLE} [prerequisite]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE course_id NOT IN (SELECT course_id FROM prereq)"
+    },
+    {
+        "original_nl": "What are the titles of courses without prerequisites?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|{TABLE} [courses]|without|{TABLE} [prerequisites]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "without",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE course_id NOT IN (SELECT course_id FROM prereq)"
+    },
+    {
+        "original_nl": "How many different instructors have taught some course?",
+        "generalized_nl": "How|many|different|{TABLE} [instructors]|have|teach [taught]|some|{TABLE} [course]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "different",
+            "{TABLE}",
+            "have",
+            "teach",
+            "some",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT COUNT (DISTINCT id) FROM teaches"
+    },
+    {
+        "original_nl": "Count the number of distinct instructors who have taught a course.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|distinct|{TABLE} [instructors]|who|have|teach [taught]|a|{TABLE} [course]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "distinct",
+            "{TABLE}",
+            "who",
+            "have",
+            "teach",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT COUNT (DISTINCT id) FROM teaches"
+    },
+    {
+        "original_nl": "Find the total budgets of the Marketing or Finance department.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [total]|{COLUMN} [budgets]|of|the|Marketing|or|{NE} [Finance]|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN}",
+            "of",
+            "the",
+            "Marketing",
+            "or",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(budget) FROM department WHERE dept_name  =  'Marketing' OR dept_name  =  'Finance'"
+    },
+    {
+        "original_nl": "What is the sum of budgets of the Marketing and Finance departments?",
+        "generalized_nl": "What|is|the|sum|of|{COLUMN} [budgets]|of|the|{NE} [Marketing and Finance]|{TABLE} [departments]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "sum",
+            "of",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(budget) FROM department WHERE dept_name  =  'Marketing' OR dept_name  =  'Finance'"
+    },
+    {
+        "original_nl": "Find the department name of the instructor whose name contains 'Soisalon'.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [department name]|of|the|{TABLE} [instructor]|whose|{COLUMN} [name]|contain [contains]|{NE} [Soisalon]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "contain",
+            "{NE}"
+        ],
+        "original_sql": "SELECT dept_name FROM instructor WHERE name LIKE '%Soisalon%'"
+    },
+    {
+        "original_nl": "What is the name of the department with an instructure who has a name like 'Soisalon'?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [department]|with|an|instructure|who|have [has]|a|{COLUMN} [name]|like|{NE} [Soisalon]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "an",
+            "instructure",
+            "who",
+            "have",
+            "a",
+            "{COLUMN}",
+            "like",
+            "{NE}"
+        ],
+        "original_sql": "SELECT dept_name FROM instructor WHERE name LIKE '%Soisalon%'"
+    },
+    {
+        "original_nl": "How many rooms whose capacity is less than 50 does the Lamberton building have?",
+        "generalized_nl": "How|many|room [rooms]|whose|{COLUMN} [capacity]|is|{NUMBER} [less than 50]|does|the|{NE} [Lamberton]|{COLUMN} [building]|have",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "room",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}",
+            "does",
+            "the",
+            "{NE}",
+            "{COLUMN}",
+            "have"
+        ],
+        "original_sql": "SELECT count(*) FROM classroom WHERE building  =  'Lamberton' AND capacity  <  50"
+    },
+    {
+        "original_nl": "Count the number of rooms in Lamberton with capacity lower than 50.",
+        "generalized_nl": "count [Count]|the|{COLUMN_PART} [number]|of|room [rooms]|in|{NE} [Lamberton]|with|{COLUMN} [capacity]|low [lower]|than|{NUMBER} [50]",
+        "generalized_tokens": [
+            "count",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "room",
+            "in",
+            "{NE}",
+            "with",
+            "{COLUMN}",
+            "low",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) FROM classroom WHERE building  =  'Lamberton' AND capacity  <  50"
+    },
+    {
+        "original_nl": "Find the name and budget of departments whose budgets are more than the average budget.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [budget]|of|{TABLE} [departments]|whose|{COLUMN} [budgets]|are|more|than|the|average|{COLUMN} [budget]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "are",
+            "more",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT dept_name ,  budget FROM department WHERE budget  >  (SELECT avg(budget) FROM department)"
+    },
+    {
+        "original_nl": "What are the names and budgets of departments with budgets greater than the average?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [budgets]|of|{TABLE} [departments]|with|{COLUMN} [budgets]|great [greater]|than|the|average",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "great",
+            "than",
+            "the",
+            "average"
+        ],
+        "original_sql": "SELECT dept_name ,  budget FROM department WHERE budget  >  (SELECT avg(budget) FROM department)"
+    },
+    {
+        "original_nl": "what is the name of the instructor who is in Statistics department and earns the lowest salary?",
+        "generalized_nl": "what|is|the|{COLUMN} [name]|of|the|{TABLE} [instructor]|who|is|in|statistics [Statistics]|{TABLE} [department]|and|gain [earns]|the|low [lowest]|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "what",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "is",
+            "in",
+            "statistics",
+            "{TABLE}",
+            "and",
+            "gain",
+            "the",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE dept_name  =  'Statistics' ORDER BY salary LIMIT 1"
+    },
+    {
+        "original_nl": "Give the name of the lowest earning instructor in the Statistics department.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [name]|of|the|low [lowest]|gain [earning]|{TABLE} [instructor]|in|the|{NE} [Statistics]|{TABLE} [department]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "low",
+            "gain",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE dept_name  =  'Statistics' ORDER BY salary LIMIT 1"
+    },
+    {
+        "original_nl": "Find the title of course that is provided by both Statistics and Psychology departments.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [title]|of|{TABLE} [course]|that|is|provide [provided]|by|both|{NE} [Statistics and Psychology]|{TABLE} [departments]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "is",
+            "provide",
+            "by",
+            "both",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE dept_name  =  'Statistics' INTERSECT SELECT title FROM course WHERE dept_name  =  'Psychology'"
+    },
+    {
+        "original_nl": "What is the title of a course that is listed in both the Statistics and Psychology departments?",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|of|a|{TABLE} [course]|that|is|list [listed]|in|both|the|{NE} [Statistics and Psychology]|{TABLE} [departments]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "a",
+            "{TABLE}",
+            "that",
+            "is",
+            "list",
+            "in",
+            "both",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE dept_name  =  'Statistics' INTERSECT SELECT title FROM course WHERE dept_name  =  'Psychology'"
+    },
+    {
+        "original_nl": "Find the title of course that is provided by Statistics but not Psychology departments.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [title]|of|{TABLE} [course]|that|is|provide [provided]|by|{NE} [Statistics]|but|not|psychology [Psychology]|{TABLE} [departments]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "is",
+            "provide",
+            "by",
+            "{NE}",
+            "but",
+            "not",
+            "psychology",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE dept_name  =  'Statistics' EXCEPT SELECT title FROM course WHERE dept_name  =  'Psychology'"
+    },
+    {
+        "original_nl": "What are the titles of courses that are in the Statistics department but not the Psychology department?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|{TABLE} [courses]|that|are|in|the|{NE} [Statistics]|{TABLE} [department]|but|not|the|psychology [Psychology]|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}",
+            "but",
+            "not",
+            "the",
+            "psychology",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE dept_name  =  'Statistics' EXCEPT SELECT title FROM course WHERE dept_name  =  'Psychology'"
+    },
+    {
+        "original_nl": "Find the id of instructors who taught a class in Fall 2009 but not in Spring 2010.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [id]|of|{TABLE} [instructors]|who|teach [taught]|a|class|in|{NE} [Fall 2009]|but|not|in|{NE} [Spring 2010]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "teach",
+            "a",
+            "class",
+            "in",
+            "{NE}",
+            "but",
+            "not",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT id FROM teaches WHERE semester  =  'Fall' AND YEAR  =  2009 EXCEPT SELECT id FROM teaches WHERE semester  =  'Spring' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "What are the ids of instructors who taught in the Fall of 2009 but not in the Spring of 2010?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|of|{TABLE} [instructors]|who|teach [taught]|in|{NE} [the Fall of 2009]|but|not|in|{NE} [the Spring of 2010]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "teach",
+            "in",
+            "{NE}",
+            "but",
+            "not",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT id FROM teaches WHERE semester  =  'Fall' AND YEAR  =  2009 EXCEPT SELECT id FROM teaches WHERE semester  =  'Spring' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "Find the name of students who took any class in the years of 2009 and 2010.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [students]|who|take [took]|any|class|in|{NE} [the years of 2009]|and|{NE} [2010]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "take",
+            "any",
+            "class",
+            "in",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name FROM student AS T1 JOIN takes AS T2 ON T1.id  =  T2.id WHERE YEAR  =  2009 OR YEAR  =  2010"
+    },
+    {
+        "original_nl": "What are the names of the students who took classes in 2009 or 2010?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{TABLE} [students]|who|take [took]|class [classes]|in|{NE} [2009]|or|{NE} [2010]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "take",
+            "class",
+            "in",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT DISTINCT T1.name FROM student AS T1 JOIN takes AS T2 ON T1.id  =  T2.id WHERE YEAR  =  2009 OR YEAR  =  2010"
+    },
+    {
+        "original_nl": "Find the names of the top 3 departments that provide the largest amount of courses?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|the|top|{NUMBER} [3]|{TABLE} [departments]|that|provide|the|large [largest]|sum [amount]|of|{TABLE} [courses]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "top",
+            "{NUMBER}",
+            "{TABLE}",
+            "that",
+            "provide",
+            "the",
+            "large",
+            "sum",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT dept_name FROM course GROUP BY dept_name ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "What are the names of the 3 departments with the most courses?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|the|{NUMBER} [3]|{TABLE} [departments]|with|the|most|{TABLE} [courses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{NUMBER}",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT dept_name FROM course GROUP BY dept_name ORDER BY count(*) DESC LIMIT 3"
+    },
+    {
+        "original_nl": "Find the name of the department that offers the highest total credits?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [department]|that|offer [offers]|the|high [highest]|{COLUMN} [total credits]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "offer",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT dept_name FROM course GROUP BY dept_name ORDER BY sum(credits) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the department with the most credits?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [department]|with|the|most|{COLUMN} [credits]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "most",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT dept_name FROM course GROUP BY dept_name ORDER BY sum(credits) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the names of all courses ordered by their titles and credits.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|of|all|{TABLE} [courses]|order [ordered]|by|their|{COLUMN} [titles]|and|{COLUMN} [credits]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "order",
+            "by",
+            "their",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT title FROM course ORDER BY title ,  credits"
+    },
+    {
+        "original_nl": "Given the titles of all courses, in order of titles and credits.",
+        "generalized_nl": "give [Given]|the|{COLUMN} [titles]|of|all|{TABLE} [courses]|in|order|of|{COLUMN} [titles]|and|{COLUMN} [credits]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "order",
+            "of",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT title FROM course ORDER BY title ,  credits"
+    },
+    {
+        "original_nl": "Which department has the lowest budget?",
+        "generalized_nl": "Which|{TABLE} [department]|have [has]|the|low [lowest]|{COLUMN} [budget]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "have",
+            "the",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT dept_name FROM department ORDER BY budget LIMIT 1"
+    },
+    {
+        "original_nl": "Give the name of the department with the lowest budget.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [name]|of|the|{TABLE} [department]|with|the|low [lowest]|{COLUMN} [budget]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "low",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT dept_name FROM department ORDER BY budget LIMIT 1"
+    },
+    {
+        "original_nl": "List the names and buildings of all departments sorted by the budget from large to small.",
+        "generalized_nl": "list [List]|the|{COLUMN} [names]|and|{COLUMN} [buildings]|of|all|{TABLE} [departments]|screen [sorted]|by|the|{COLUMN} [budget]|from|large|to|small",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "screen",
+            "by",
+            "the",
+            "{COLUMN}",
+            "from",
+            "large",
+            "to",
+            "small"
+        ],
+        "original_sql": "SELECT dept_name ,  building FROM department ORDER BY budget DESC"
+    },
+    {
+        "original_nl": "What are the names and buildings of the deparments, sorted by budget descending?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [buildings]|of|the|deparments|screen [sorted]|by|{COLUMN} [budget]|descending",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "deparments",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "descending"
+        ],
+        "original_sql": "SELECT dept_name ,  building FROM department ORDER BY budget DESC"
+    },
+    {
+        "original_nl": "Who is the instructor with the highest salary?",
+        "generalized_nl": "Who|is|the|{TABLE} [instructor]|with|the|high [highest]|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "Who",
+            "is",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name FROM instructor ORDER BY salary DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Give the name of the highest paid instructor.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [name]|of|the|high [highest]|pay [paid]|{TABLE} [instructor]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "high",
+            "pay",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM instructor ORDER BY salary DESC LIMIT 1"
+    },
+    {
+        "original_nl": "List the information of all instructors ordered by their salary in ascending order.",
+        "generalized_nl": "list [List]|the|information|of|all|{TABLE} [instructors]|order [ordered]|by|their|{COLUMN} [salary]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "information",
+            "of",
+            "all",
+            "{TABLE}",
+            "order",
+            "by",
+            "their",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT * FROM instructor ORDER BY salary"
+    },
+    {
+        "original_nl": "Give all information regarding instructors, in order of salary from least to greatest.",
+        "generalized_nl": "give [Give]|all|information|see [regarding]|{TABLE} [instructors]|in|order|of|{COLUMN} [salary]|from|least|to|great [greatest]",
+        "generalized_tokens": [
+            "give",
+            "all",
+            "information",
+            "see",
+            "{TABLE}",
+            "in",
+            "order",
+            "of",
+            "{COLUMN}",
+            "from",
+            "least",
+            "to",
+            "great"
+        ],
+        "original_sql": "SELECT * FROM instructor ORDER BY salary"
+    },
+    {
+        "original_nl": "Find the name of the students and their department names sorted by their total credits in ascending order.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [students]|and|their|{COLUMN} [department names]|screen [sorted]|by|their|{COLUMN} [total credits]|in|ascend [ascending]|order",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "and",
+            "their",
+            "{COLUMN}",
+            "screen",
+            "by",
+            "their",
+            "{COLUMN}",
+            "in",
+            "ascend",
+            "order"
+        ],
+        "original_sql": "SELECT name ,  dept_name FROM student ORDER BY tot_cred"
+    },
+    {
+        "original_nl": "What are the names of students and their respective departments, ordered by number of credits from least to greatest?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [students]|and|their|respective|{TABLE} [departments]|order [ordered]|by|{COLUMN_PART} [number]|of|{COLUMN} [credits]|from|least|to|great [greatest]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "and",
+            "their",
+            "respective",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}",
+            "from",
+            "least",
+            "to",
+            "great"
+        ],
+        "original_sql": "SELECT name ,  dept_name FROM student ORDER BY tot_cred"
+    },
+    {
+        "original_nl": "list in alphabetic order all course names and their instructors' names in year 2008.",
+        "generalized_nl": "list|in|alphabetic|order|all|{TABLE} [course]|{COLUMN} [names]|and|their|{TABLE} [instructors]|'|{COLUMN} [names]|in|{COLUMN} [year]|{NUMBER} [2008]",
+        "generalized_tokens": [
+            "list",
+            "in",
+            "alphabetic",
+            "order",
+            "all",
+            "{TABLE}",
+            "{COLUMN}",
+            "and",
+            "their",
+            "{TABLE}",
+            "'",
+            "{COLUMN}",
+            "in",
+            "{COLUMN}",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT T1.title ,  T3.name FROM course AS T1 JOIN teaches AS T2 ON T1.course_id  =  T2.course_id JOIN instructor AS T3 ON T2.id  =  T3.id WHERE YEAR  =  2008 ORDER BY T1.title"
+    },
+    {
+        "original_nl": "Show all titles and their instructors' names for courses in 2008, in alphabetical order by title.",
+        "generalized_nl": "show [Show]|all|{COLUMN} [titles]|and|their|{TABLE} [instructors]|'|{COLUMN} [names]|for|{TABLE} [courses]|in|{NE} [2008]|in|alphabetic [alphabetical]|order|by|{COLUMN} [title]",
+        "generalized_tokens": [
+            "show",
+            "all",
+            "{COLUMN}",
+            "and",
+            "their",
+            "{TABLE}",
+            "'",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "in",
+            "alphabetic",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T1.title ,  T3.name FROM course AS T1 JOIN teaches AS T2 ON T1.course_id  =  T2.course_id JOIN instructor AS T3 ON T2.id  =  T3.id WHERE YEAR  =  2008 ORDER BY T1.title"
+    },
+    {
+        "original_nl": "Find the name of instructors who are advising more than one student.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [instructors]|who|are|rede [advising]|{NUMBER} [more than one]|{TABLE} [student]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "rede",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM instructor AS T1 JOIN advisor AS T2 ON T1.id  =  T2.i_id GROUP BY T2.i_id HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "What are the names of instructors who advise more than one student?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [instructors]|who|rede [advise]|{NUMBER} [more than one]|{TABLE} [student]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "rede",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM instructor AS T1 JOIN advisor AS T2 ON T1.id  =  T2.i_id GROUP BY T2.i_id HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the name of the students who have more than one advisor?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [students]|who|have|{NUMBER} [more than one]|{TABLE} [advisor]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM student AS T1 JOIN advisor AS T2 ON T1.id  =  T2.s_id GROUP BY T2.s_id HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "What are the names of students who have more than one advisor?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [students]|who|have|{NUMBER} [more than one]|{TABLE} [advisor]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM student AS T1 JOIN advisor AS T2 ON T1.id  =  T2.s_id GROUP BY T2.s_id HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the number of rooms with more than 50 capacity for each building.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|room [rooms]|with|{NUMBER} [more than 50]|{COLUMN} [capacity]|for|each|{COLUMN} [building]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "room",
+            "with",
+            "{NUMBER}",
+            "{COLUMN}",
+            "for",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  building FROM classroom WHERE capacity  >  50 GROUP BY building"
+    },
+    {
+        "original_nl": "How many rooms in each building have a capacity of over 50?",
+        "generalized_nl": "How|many|room [rooms]|in|each|{COLUMN} [building]|have|a|{COLUMN} [capacity]|of|over|{NUMBER} [50]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "room",
+            "in",
+            "each",
+            "{COLUMN}",
+            "have",
+            "a",
+            "{COLUMN}",
+            "of",
+            "over",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT count(*) ,  building FROM classroom WHERE capacity  >  50 GROUP BY building"
+    },
+    {
+        "original_nl": "Find the maximum and average capacity among rooms in each building.",
+        "generalized_nl": "find [Find]|the|maximal [maximum]|and|average|{COLUMN} [capacity]|among|room [rooms]|in|each|{COLUMN} [building]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "maximal",
+            "and",
+            "average",
+            "{COLUMN}",
+            "among",
+            "room",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(capacity) ,  avg(capacity) ,  building FROM classroom GROUP BY building"
+    },
+    {
+        "original_nl": "What are the greatest and average capacity for rooms in each building?",
+        "generalized_nl": "What|are|the|great [greatest]|and|average|{COLUMN} [capacity]|for|room [rooms]|in|each|{COLUMN} [building]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "great",
+            "and",
+            "average",
+            "{COLUMN}",
+            "for",
+            "room",
+            "in",
+            "each",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT max(capacity) ,  avg(capacity) ,  building FROM classroom GROUP BY building"
+    },
+    {
+        "original_nl": "Find the title of the course that is offered by more than one department.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [title]|of|the|{TABLE} [course]|that|is|offer [offered]|by|{NUMBER} [more than one]|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "offer",
+            "by",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course GROUP BY title HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "What are the titles of courses that are offered in more than one department?",
+        "generalized_nl": "What|are|the|{COLUMN} [titles]|of|{TABLE} [courses]|that|are|offer [offered]|in|{NUMBER} [more than one]|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "that",
+            "are",
+            "offer",
+            "in",
+            "{NUMBER}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course GROUP BY title HAVING count(*)  >  1"
+    },
+    {
+        "original_nl": "Find the total credits of courses provided by different department.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [total credits]|of|{TABLE} [courses]|provide [provided]|by|different|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "provide",
+            "by",
+            "different",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(credits) ,  dept_name FROM course GROUP BY dept_name"
+    },
+    {
+        "original_nl": "How many total credits are offered by each department?",
+        "generalized_nl": "How|many|{COLUMN} [total credits]|are|offer [offered]|by|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{COLUMN}",
+            "are",
+            "offer",
+            "by",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT sum(credits) ,  dept_name FROM course GROUP BY dept_name"
+    },
+    {
+        "original_nl": "Find the minimum salary for the departments whose average salary is above the average payment of all instructors.",
+        "generalized_nl": "find [Find]|the|minimal [minimum]|{COLUMN} [salary]|for|the|{TABLE} [departments]|whose|average|{COLUMN} [salary]|is|above|the|average|payment|of|all|{TABLE} [instructors]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "minimal",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "whose",
+            "average",
+            "{COLUMN}",
+            "is",
+            "above",
+            "the",
+            "average",
+            "payment",
+            "of",
+            "all",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT min(salary) ,  dept_name FROM instructor GROUP BY dept_name HAVING avg(salary)  >  (SELECT avg(salary) FROM instructor)"
+    },
+    {
+        "original_nl": "What is the lowest salary in departments with average salary greater than the overall average.",
+        "generalized_nl": "What|is|the|low [lowest]|{COLUMN} [salary]|in|{TABLE} [departments]|with|average|{COLUMN} [salary]|great [greater]|than|the|overall|average",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "low",
+            "{COLUMN}",
+            "in",
+            "{TABLE}",
+            "with",
+            "average",
+            "{COLUMN}",
+            "great",
+            "than",
+            "the",
+            "overall",
+            "average"
+        ],
+        "original_sql": "SELECT min(salary) ,  dept_name FROM instructor GROUP BY dept_name HAVING avg(salary)  >  (SELECT avg(salary) FROM instructor)"
+    },
+    {
+        "original_nl": "Find the number of courses provided in each semester and year.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|of|{TABLE} [courses]|provide [provided]|in|each|{COLUMN} [semester]|and|{COLUMN} [year]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "provide",
+            "in",
+            "each",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  semester ,  YEAR FROM SECTION GROUP BY semester ,  YEAR"
+    },
+    {
+        "original_nl": "How many courses are provided in each semester and year?",
+        "generalized_nl": "How|many|{TABLE} [courses]|are|provide [provided]|in|each|{COLUMN} [semester]|and|{COLUMN} [year]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "provide",
+            "in",
+            "each",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT count(*) ,  semester ,  YEAR FROM SECTION GROUP BY semester ,  YEAR"
+    },
+    {
+        "original_nl": "Find the year which offers the largest number of courses.",
+        "generalized_nl": "find [Find]|{NE} [the year]|which|offer [offers]|the|large [largest]|{COLUMN_PART} [number]|of|{TABLE} [courses]",
+        "generalized_tokens": [
+            "find",
+            "{NE}",
+            "which",
+            "offer",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT YEAR FROM SECTION GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which year had the greatest number of courses?",
+        "generalized_nl": "{NE} [Which year]|have [had]|the|great [greatest]|{COLUMN_PART} [number]|of|{TABLE} [courses]",
+        "generalized_tokens": [
+            "{NE}",
+            "have",
+            "the",
+            "great",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT YEAR FROM SECTION GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the year and semester when offers the largest number of courses.",
+        "generalized_nl": "find [Find]|{NE} [the year and semester]|when|offer [offers]|the|large [largest]|{COLUMN_PART} [number]|of|{TABLE} [courses]",
+        "generalized_tokens": [
+            "find",
+            "{NE}",
+            "when",
+            "offer",
+            "the",
+            "large",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT semester ,  YEAR FROM SECTION GROUP BY semester ,  YEAR ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the year and semester with the most courses?",
+        "generalized_nl": "What|is|{NE} [the year and semester]|with|the|most|{TABLE} [courses]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "{NE}",
+            "with",
+            "the",
+            "most",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT semester ,  YEAR FROM SECTION GROUP BY semester ,  YEAR ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of department has the highest amount of students?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [department]|have [has]|the|high [highest]|sum [amount]|of|{TABLE} [students]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "have",
+            "the",
+            "high",
+            "sum",
+            "of",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT dept_name FROM student GROUP BY dept_name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the deparment with the highest enrollment?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|deparment|with|the|high [highest]|registration [enrollment]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "deparment",
+            "with",
+            "the",
+            "high",
+            "registration"
+        ],
+        "original_sql": "SELECT dept_name FROM student GROUP BY dept_name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the total number of students in each department.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [total]|{COLUMN_PART} [number]|of|{TABLE} [students]|in|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  dept_name FROM student GROUP BY dept_name"
+    },
+    {
+        "original_nl": "How many students are in each department?",
+        "generalized_nl": "How|many|{TABLE} [students]|are|in|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(*) ,  dept_name FROM student GROUP BY dept_name"
+    },
+    {
+        "original_nl": "Find the semester and year which has the least number of student taking any class.",
+        "generalized_nl": "find [Find]|{NE} [the semester and year]|which|have [has]|the|least|{COLUMN_PART} [number]|of|{TABLE} [student]|take [taking]|any|class",
+        "generalized_tokens": [
+            "find",
+            "{NE}",
+            "which",
+            "have",
+            "the",
+            "least",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "take",
+            "any",
+            "class"
+        ],
+        "original_sql": "SELECT semester ,  YEAR FROM takes GROUP BY semester ,  YEAR ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "Which semeseter and year had the fewest students?",
+        "generalized_nl": "Which|semeseter|and|{COLUMN} [year]|have [had]|the|fewest|{TABLE} [students]",
+        "generalized_tokens": [
+            "Which",
+            "semeseter",
+            "and",
+            "{COLUMN}",
+            "have",
+            "the",
+            "fewest",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT semester ,  YEAR FROM takes GROUP BY semester ,  YEAR ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "original_nl": "What is the id of the instructor who advises of all students from History department?",
+        "generalized_nl": "What|is|the|{COLUMN} [id]|of|the|{TABLE} [instructor]|who|rede [advises]|of|all|{TABLE} [students]|from|{NE} [History department]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "rede",
+            "of",
+            "all",
+            "{TABLE}",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT i_id FROM advisor AS T1 JOIN student AS T2 ON T1.s_id  =  T2.id WHERE T2.dept_name  =  'History'"
+    },
+    {
+        "original_nl": "Give id of the instructor who advises students in the History department.",
+        "generalized_nl": "give [Give]|{COLUMN} [id]|of|the|{TABLE} [instructor]|who|rede [advises]|{TABLE} [students]|in|the|{NE} [History]|{TABLE} [department]",
+        "generalized_tokens": [
+            "give",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "rede",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT i_id FROM advisor AS T1 JOIN student AS T2 ON T1.s_id  =  T2.id WHERE T2.dept_name  =  'History'"
+    },
+    {
+        "original_nl": "Find the name and salary of the instructors who are advisors of any student from History department?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [salary]|of|the|{TABLE} [instructors]|who|are|{TABLE} [advisors]|of|any|{TABLE} [student]|from|{NE} [History department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "are",
+            "{TABLE}",
+            "of",
+            "any",
+            "{TABLE}",
+            "from",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T2.name ,  T2.salary FROM advisor AS T1 JOIN instructor AS T2 ON T1.i_id  =  T2.id JOIN student AS T3 ON T1.s_id  =  T3.id WHERE T3.dept_name  =  'History'"
+    },
+    {
+        "original_nl": "What are the names and salaries of instructors who advises students in the History department?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [salaries]|of|{TABLE} [instructors]|who|rede [advises]|{TABLE} [students]|in|the|{NE} [History]|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "rede",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name ,  T2.salary FROM advisor AS T1 JOIN instructor AS T2 ON T1.i_id  =  T2.id JOIN student AS T3 ON T1.s_id  =  T3.id WHERE T3.dept_name  =  'History'"
+    },
+    {
+        "original_nl": "Find the id of the courses that do not have any prerequisite?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [id]|of|the|{TABLE} [courses]|that|do|not|have|any|{TABLE} [prerequisite]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT course_id FROM course EXCEPT SELECT course_id FROM prereq"
+    },
+    {
+        "original_nl": "What are the ids of courses without prerequisites?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|of|{TABLE} [courses]|without|{TABLE} [prerequisites]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "without",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT course_id FROM course EXCEPT SELECT course_id FROM prereq"
+    },
+    {
+        "original_nl": "Find the name of the courses that do not have any prerequisite?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [courses]|that|do|not|have|any|{TABLE} [prerequisite]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE course_id NOT IN (SELECT course_id FROM prereq)"
+    },
+    {
+        "original_nl": "What are the names of courses without prerequisites?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [courses]|without|{TABLE} [prerequisites]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "without",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE course_id NOT IN (SELECT course_id FROM prereq)"
+    },
+    {
+        "original_nl": "What is the title of the prerequisite class of International Finance course?",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|of|the|{TABLE} [prerequisite]|class|of|{NE} [International Finance]|{TABLE} [course]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "class",
+            "of",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE course_id IN (SELECT T1.prereq_id FROM prereq AS T1 JOIN course AS T2 ON T1.course_id  =  T2.course_id WHERE T2.title  =  'International Finance')"
+    },
+    {
+        "original_nl": "Give the title of the prerequisite to the course International Finance.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [title]|of|the|{TABLE} [prerequisite]|to|the|{TABLE} [course]|{NE} [International Finance]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "to",
+            "the",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE course_id IN (SELECT T1.prereq_id FROM prereq AS T1 JOIN course AS T2 ON T1.course_id  =  T2.course_id WHERE T2.title  =  'International Finance')"
+    },
+    {
+        "original_nl": "Find the title of course whose prerequisite is course Differential Geometry.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [title]|of|{TABLE} [course]|whose|{TABLE} [prerequisite]|is|{TABLE} [course]|Differential|Geometry",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{TABLE}",
+            "is",
+            "{TABLE}",
+            "Differential",
+            "Geometry"
+        ],
+        "original_sql": "SELECT title FROM course WHERE course_id IN (SELECT T1.course_id FROM prereq AS T1 JOIN course AS T2 ON T1.prereq_id  =  T2.course_id WHERE T2.title  =  'Differential Geometry')"
+    },
+    {
+        "original_nl": "What is the title of the course with Differential Geometry as a prerequisite?",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|of|the|{TABLE} [course]|with|Differential|Geometry|as|a|{TABLE} [prerequisite]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "Differential",
+            "Geometry",
+            "as",
+            "a",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE course_id IN (SELECT T1.course_id FROM prereq AS T1 JOIN course AS T2 ON T1.prereq_id  =  T2.course_id WHERE T2.title  =  'Differential Geometry')"
+    },
+    {
+        "original_nl": "Find the names of students who have taken any course in the fall semester of year 2003.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [students]|who|have|take [taken]|any|{TABLE} [course]|in|{NE} [the fall semester of year 2003]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "take",
+            "any",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM student WHERE id IN (SELECT id FROM takes WHERE semester  =  'Fall' AND YEAR  =  2003)"
+    },
+    {
+        "original_nl": "What are the names of students who took a course in the Fall of 2003?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [students]|who|take [took]|a|{TABLE} [course]|in|{NE} [the Fall of 2003]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "take",
+            "a",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM student WHERE id IN (SELECT id FROM takes WHERE semester  =  'Fall' AND YEAR  =  2003)"
+    },
+    {
+        "original_nl": "What is the title of the course that was offered at building Chandler during the fall semester in the year of 2010?",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|of|the|{TABLE} [course]|that|was|offer [offered]|at|{COLUMN} [building]|{NE} [Chandler]|during|the|fall|{COLUMN} [semester]|in|{NE} [the year of 2010]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "was",
+            "offer",
+            "at",
+            "{COLUMN}",
+            "{NE}",
+            "during",
+            "the",
+            "fall",
+            "{COLUMN}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.title FROM course AS T1 JOIN SECTION AS T2 ON T1.course_id  =  T2.course_id WHERE building  =  'Chandler' AND semester  =  'Fall' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "Give the title of the course offered in Chandler during the Fall of 2010.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [title]|of|the|{TABLE} [course]|offer [offered]|in|{NE} [Chandler]|during|{NE} [the Fall of 2010]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "offer",
+            "in",
+            "{NE}",
+            "during",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.title FROM course AS T1 JOIN SECTION AS T2 ON T1.course_id  =  T2.course_id WHERE building  =  'Chandler' AND semester  =  'Fall' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "Find the name of the instructors who taught C Programming course before.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [instructors]|who|teach [taught]|{NE} [C Programming]|{TABLE} [course]|earlier [before]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "teach",
+            "{NE}",
+            "{TABLE}",
+            "earlier"
+        ],
+        "original_sql": "SELECT T1.name FROM instructor AS T1 JOIN teaches AS T2 ON T1.id  =  T2.id JOIN course AS T3 ON T2.course_id  =  T3.course_id WHERE T3.title  =  'C Programming'"
+    },
+    {
+        "original_nl": "What are the names of instructors who have taught C Programming courses?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [instructors]|who|have|teach [taught]|{NE} [C Programming]|{TABLE} [courses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "teach",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T1.name FROM instructor AS T1 JOIN teaches AS T2 ON T1.id  =  T2.id JOIN course AS T3 ON T2.course_id  =  T3.course_id WHERE T3.title  =  'C Programming'"
+    },
+    {
+        "original_nl": "Find the name and salary of instructors who are advisors of the students from the Math department.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [salary]|of|{TABLE} [instructors]|who|are|{TABLE} [advisors]|of|the|{TABLE} [students]|from|the|{NE} [Math]|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "from",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name ,  T2.salary FROM advisor AS T1 JOIN instructor AS T2 ON T1.i_id  =  T2.id JOIN student AS T3 ON T1.s_id  =  T3.id WHERE T3.dept_name  =  'Math'"
+    },
+    {
+        "original_nl": "What are the names and salaries of instructors who advise students in the Math department?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [salaries]|of|{TABLE} [instructors]|who|rede [advise]|{TABLE} [students]|in|the|{NE} [Math]|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "rede",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name ,  T2.salary FROM advisor AS T1 JOIN instructor AS T2 ON T1.i_id  =  T2.id JOIN student AS T3 ON T1.s_id  =  T3.id WHERE T3.dept_name  =  'Math'"
+    },
+    {
+        "original_nl": "Find the name of instructors who are advisors of the students from the Math department, and sort the results by students' total credit.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [instructors]|who|are|{TABLE} [advisors]|of|the|{TABLE} [students]|from|the|{NE} [Math]|{TABLE} [department]|and|screen [sort]|the|consequence [results]|by|{TABLE} [students]|'|{COLUMN} [total credit]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "are",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "from",
+            "the",
+            "{NE}",
+            "{TABLE}",
+            "and",
+            "screen",
+            "the",
+            "consequence",
+            "by",
+            "{TABLE}",
+            "'",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.name FROM advisor AS T1 JOIN instructor AS T2 ON T1.i_id  =  T2.id JOIN student AS T3 ON T1.s_id  =  T3.id WHERE T3.dept_name  =  'Math' ORDER BY T3.tot_cred"
+    },
+    {
+        "original_nl": "What are the names of all instructors who advise students in the math depart sorted by total credits of the student.",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [instructors]|who|rede [advise]|{TABLE} [students]|in|the|mathematics [math]|depart|screen [sorted]|by|{COLUMN} [total credits]|of|the|{TABLE} [student]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "rede",
+            "{TABLE}",
+            "in",
+            "the",
+            "mathematics",
+            "depart",
+            "screen",
+            "by",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T2.name FROM advisor AS T1 JOIN instructor AS T2 ON T1.i_id  =  T2.id JOIN student AS T3 ON T1.s_id  =  T3.id WHERE T3.dept_name  =  'Math' ORDER BY T3.tot_cred"
+    },
+    {
+        "original_nl": "What is the course title of the prerequisite of course Mobile Computing?",
+        "generalized_nl": "What|is|the|{TABLE} [course]|{COLUMN} [title]|of|the|{TABLE} [prerequisite]|of|{TABLE} [course]|{NE} [Mobile Computing]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{TABLE}",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "of",
+            "{TABLE}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE course_id IN (SELECT T1.prereq_id FROM prereq AS T1 JOIN course AS T2 ON T1.course_id  =  T2.course_id WHERE T2.title  =  'Mobile Computing')"
+    },
+    {
+        "original_nl": "What is the title of the course that is a prerequisite for Mobile Computing?",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|of|the|{TABLE} [course]|that|is|a|{TABLE} [prerequisite]|for|{NE} [Mobile Computing]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "a",
+            "{TABLE}",
+            "for",
+            "{NE}"
+        ],
+        "original_sql": "SELECT title FROM course WHERE course_id IN (SELECT T1.prereq_id FROM prereq AS T1 JOIN course AS T2 ON T1.course_id  =  T2.course_id WHERE T2.title  =  'Mobile Computing')"
+    },
+    {
+        "original_nl": "Find the name of instructor who is the advisor of the student who has the highest number of total credits.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [instructor]|who|is|the|{TABLE} [advisor]|of|the|{TABLE} [student]|who|have [has]|the|high [highest]|{COLUMN_PART} [number]|of|{COLUMN} [total credits]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "is",
+            "the",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "have",
+            "the",
+            "high",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.name FROM advisor AS T1 JOIN instructor AS T2 ON T1.i_id  =  T2.id JOIN student AS T3 ON T1.s_id  =  T3.id ORDER BY T3.tot_cred DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the name of the instructor who advises the student with the greatest number of total credits?",
+        "generalized_nl": "What|is|the|{COLUMN} [name]|of|the|{TABLE} [instructor]|who|rede [advises]|the|{TABLE} [student]|with|the|great [greatest]|{COLUMN_PART} [number]|of|{COLUMN} [total credits]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "who",
+            "rede",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "great",
+            "{COLUMN_PART}",
+            "of",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.name FROM advisor AS T1 JOIN instructor AS T2 ON T1.i_id  =  T2.id JOIN student AS T3 ON T1.s_id  =  T3.id ORDER BY T3.tot_cred DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the name of instructors who didn't teach any courses?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [instructors]|who|did|n't|{TABLE} [teach]|any|{TABLE} [courses]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "n't",
+            "{TABLE}",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE id NOT IN (SELECT id FROM teaches)"
+    },
+    {
+        "original_nl": "What are the names of instructors who didn't teach?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [instructors]|who|did|n't|{TABLE} [teach]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "n't",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE id NOT IN (SELECT id FROM teaches)"
+    },
+    {
+        "original_nl": "Find the id of instructors who didn't teach any courses?",
+        "generalized_nl": "find [Find]|the|{COLUMN} [id]|of|{TABLE} [instructors]|who|did|n't|{TABLE} [teach]|any|{TABLE} [courses]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "n't",
+            "{TABLE}",
+            "any",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT id FROM instructor EXCEPT SELECT id FROM teaches"
+    },
+    {
+        "original_nl": "What are the ids of instructors who didnt' teach?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|of|{TABLE} [instructors]|who|did|nt'|{TABLE} [teach]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "nt'",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT id FROM instructor EXCEPT SELECT id FROM teaches"
+    },
+    {
+        "original_nl": "Find the names of instructors who didn't each any courses in any Spring semester.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|{TABLE} [instructors]|who|did|n't|each|any|{TABLE} [courses]|in|any|{NE} [Spring semester]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "n't",
+            "each",
+            "any",
+            "{TABLE}",
+            "in",
+            "any",
+            "{NE}"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE id NOT IN (SELECT id FROM teaches WHERE semester  =  'Spring')"
+    },
+    {
+        "original_nl": "What are the names of instructors who didn't teach courses in the Spring?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [instructors]|who|did|n't|{TABLE} [teach]|{TABLE} [courses]|in|the|spring [Spring]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "n't",
+            "{TABLE}",
+            "{TABLE}",
+            "in",
+            "the",
+            "spring"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE id NOT IN (SELECT id FROM teaches WHERE semester  =  'Spring')"
+    },
+    {
+        "original_nl": "Find the name of the department which has the highest average salary of professors.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|the|{TABLE} [department]|which|have [has]|the|high [highest]|average|{COLUMN} [salary]|of|professor [professors]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "which",
+            "have",
+            "the",
+            "high",
+            "average",
+            "{COLUMN}",
+            "of",
+            "professor"
+        ],
+        "original_sql": "SELECT dept_name FROM instructor GROUP BY dept_name ORDER BY avg(salary) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Which department has the highest average instructor salary?",
+        "generalized_nl": "Which|{TABLE} [department]|have [has]|the|high [highest]|average|{TABLE} [instructor]|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "Which",
+            "{TABLE}",
+            "have",
+            "the",
+            "high",
+            "average",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT dept_name FROM instructor GROUP BY dept_name ORDER BY avg(salary) DESC LIMIT 1"
+    },
+    {
+        "original_nl": "Find the number and averaged salary of all instructors who are in the department with the highest budget.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [number]|and|average [averaged]|{COLUMN} [salary]|of|all|{TABLE} [instructors]|who|are|in|the|{TABLE} [department]|with|the|high [highest]|{COLUMN} [budget]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "are",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(T1.salary) ,  count(*) FROM instructor AS T1 JOIN department AS T2 ON T1.dept_name  =  T2.dept_name ORDER BY T2.budget DESC LIMIT 1"
+    },
+    {
+        "original_nl": "How many instructors are in the department with the highest budget, and what is their average salary?",
+        "generalized_nl": "How|many|{TABLE} [instructors]|are|in|the|{TABLE} [department]|with|the|high [highest]|{COLUMN} [budget]|and|what|is|their|average|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "are",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}",
+            "and",
+            "what",
+            "is",
+            "their",
+            "average",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT avg(T1.salary) ,  count(*) FROM instructor AS T1 JOIN department AS T2 ON T1.dept_name  =  T2.dept_name ORDER BY T2.budget DESC LIMIT 1"
+    },
+    {
+        "original_nl": "What is the title and credits of the course that is taught in the largest classroom (with the highest capacity)?",
+        "generalized_nl": "What|is|the|{COLUMN} [title]|and|{COLUMN} [credits]|of|the|{TABLE} [course]|that|is|teach [taught]|in|the|large [largest]|{TABLE} [classroom]|with|the|high [highest]|{COLUMN} [capacity]",
+        "generalized_tokens": [
+            "What",
+            "is",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "teach",
+            "in",
+            "the",
+            "large",
+            "{TABLE}",
+            "with",
+            "the",
+            "high",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T3.title ,  T3.credits FROM classroom AS T1 JOIN SECTION AS T2 ON T1.building  =  T2.building AND T1.room_number  =  T2.room_number JOIN course AS T3 ON T2.course_id  =  T3.course_id WHERE T1.capacity  =  (SELECT max(capacity) FROM classroom)"
+    },
+    {
+        "original_nl": "Give the title and credits for the course that is taught in the classroom with the greatest capacity.",
+        "generalized_nl": "give [Give]|the|{COLUMN} [title]|and|{COLUMN} [credits]|for|the|{TABLE} [course]|that|is|teach [taught]|in|the|{TABLE} [classroom]|with|the|great [greatest]|{COLUMN} [capacity]",
+        "generalized_tokens": [
+            "give",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "the",
+            "{TABLE}",
+            "that",
+            "is",
+            "teach",
+            "in",
+            "the",
+            "{TABLE}",
+            "with",
+            "the",
+            "great",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T3.title ,  T3.credits FROM classroom AS T1 JOIN SECTION AS T2 ON T1.building  =  T2.building AND T1.room_number  =  T2.room_number JOIN course AS T3 ON T2.course_id  =  T3.course_id WHERE T1.capacity  =  (SELECT max(capacity) FROM classroom)"
+    },
+    {
+        "original_nl": "Find the name of students who didn't take any course from Biology department.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [students]|who|did|n't|take|any|{TABLE} [course]|from|{NE} [Biology]|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "did",
+            "n't",
+            "take",
+            "any",
+            "{TABLE}",
+            "from",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM student WHERE id NOT IN (SELECT T1.id FROM takes AS T1 JOIN course AS T2 ON T1.course_id  =  T2.course_id WHERE T2.dept_name  =  'Biology')"
+    },
+    {
+        "original_nl": "What are the names of students who haven't taken any Biology courses?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [students]|who|have|n't|take [taken]|any|biology [Biology]|{TABLE} [courses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "n't",
+            "take",
+            "any",
+            "biology",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM student WHERE id NOT IN (SELECT T1.id FROM takes AS T1 JOIN course AS T2 ON T1.course_id  =  T2.course_id WHERE T2.dept_name  =  'Biology')"
+    },
+    {
+        "original_nl": "Find the total number of students and total number of instructors for each department.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [total]|{COLUMN_PART} [number]|of|{TABLE} [students]|and|{COLUMN_PART} [total]|{COLUMN_PART} [number]|of|{TABLE} [instructors]|for|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "and",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "for",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT T2.id) ,  count(DISTINCT T3.id) ,  T3.dept_name FROM department AS T1 JOIN student AS T2 ON T1.dept_name  =  T2.dept_name JOIN instructor AS T3 ON T1.dept_name  =  T3.dept_name GROUP BY T3.dept_name"
+    },
+    {
+        "original_nl": "How many students and instructors are in each department?",
+        "generalized_nl": "How|many|{TABLE} [students]|and|{TABLE} [instructors]|are|in|each|{TABLE} [department]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "and",
+            "{TABLE}",
+            "are",
+            "in",
+            "each",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT count(DISTINCT T2.id) ,  count(DISTINCT T3.id) ,  T3.dept_name FROM department AS T1 JOIN student AS T2 ON T1.dept_name  =  T2.dept_name JOIN instructor AS T3 ON T1.dept_name  =  T3.dept_name GROUP BY T3.dept_name"
+    },
+    {
+        "original_nl": "Find the name of students who have taken the prerequisite course of the course with title International Finance.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [students]|who|have|take [taken]|the|{TABLE} [prerequisite]|{TABLE} [course]|of|the|{TABLE} [course]|with|{COLUMN} [title]|{NE} [International Finance]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "take",
+            "the",
+            "{TABLE}",
+            "{TABLE}",
+            "of",
+            "the",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "{NE}"
+        ],
+        "original_sql": "SELECT T1.name FROM student AS T1 JOIN takes AS T2 ON T1.id  =  T2.id WHERE T2.course_id IN (SELECT T4.prereq_id FROM course AS T3 JOIN prereq AS T4 ON T3.course_id  =  T4.course_id WHERE T3.title  =  'International Finance')"
+    },
+    {
+        "original_nl": "What are the names of students who have taken the prerequisite for the course International Finance?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [students]|who|have|take [taken]|the|{TABLE} [prerequisite]|for|the|{TABLE} [course]|International|Finance",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "take",
+            "the",
+            "{TABLE}",
+            "for",
+            "the",
+            "{TABLE}",
+            "International",
+            "Finance"
+        ],
+        "original_sql": "SELECT T1.name FROM student AS T1 JOIN takes AS T2 ON T1.id  =  T2.id WHERE T2.course_id IN (SELECT T4.prereq_id FROM course AS T3 JOIN prereq AS T4 ON T3.course_id  =  T4.course_id WHERE T3.title  =  'International Finance')"
+    },
+    {
+        "original_nl": "Find the name and salary of instructors whose salary is below the average salary of the instructors in the Physics department.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|and|{COLUMN} [salary]|of|{TABLE} [instructors]|whose|{COLUMN} [salary]|is|below|the|average|{COLUMN} [salary]|of|the|{TABLE} [instructors]|in|the|{NE} [Physics]|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "below",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  salary FROM instructor WHERE salary  <  (SELECT avg(salary) FROM instructor WHERE dept_name  =  'Physics')"
+    },
+    {
+        "original_nl": "What are the names and salaries for instructors who earn less than the average salary of instructors in the Physics department?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|{COLUMN} [salaries]|for|{TABLE} [instructors]|who|gain [earn]|less|than|the|average|{COLUMN} [salary]|of|{TABLE} [instructors]|in|the|{NE} [Physics]|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "who",
+            "gain",
+            "less",
+            "than",
+            "the",
+            "average",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name ,  salary FROM instructor WHERE salary  <  (SELECT avg(salary) FROM instructor WHERE dept_name  =  'Physics')"
+    },
+    {
+        "original_nl": "Find the name of students who took some course offered by Statistics department.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [name]|of|{TABLE} [students]|who|take [took]|some|{TABLE} [course]|offer [offered]|by|{NE} [Statistics]|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "take",
+            "some",
+            "{TABLE}",
+            "offer",
+            "by",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.name FROM course AS T1 JOIN takes AS T2 ON T1.course_id  =  T2.course_id JOIN student AS T3 ON T2.id  =  T3.id WHERE T1.dept_name  =  'Statistics'"
+    },
+    {
+        "original_nl": "What are the names of students who have taken Statistics courses?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [students]|who|have|take [taken]|statistics [Statistics]|{TABLE} [courses]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "have",
+            "take",
+            "statistics",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT T3.name FROM course AS T1 JOIN takes AS T2 ON T1.course_id  =  T2.course_id JOIN student AS T3 ON T2.id  =  T3.id WHERE T1.dept_name  =  'Statistics'"
+    },
+    {
+        "original_nl": "Find the building, room number, semester and year of all courses offered by Psychology department sorted by course titles.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [building]|{COLUMN} [room number]|{COLUMN} [semester]|and|{COLUMN} [year]|of|all|{TABLE} [courses]|offer [offered]|by|{NE} [Psychology]|{TABLE} [department]|screen [sorted]|by|{TABLE} [course]|{COLUMN} [titles]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "offer",
+            "by",
+            "{NE}",
+            "{TABLE}",
+            "screen",
+            "by",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.building ,  T2.room_number ,  T2.semester ,  T2.year FROM course AS T1 JOIN SECTION AS T2 ON T1.course_id  =  T2.course_id WHERE T1.dept_name  =  'Psychology' ORDER BY T1.title"
+    },
+    {
+        "original_nl": "What are the building, room number, semester and year of courses in the Psychology department, sorted using course title?",
+        "generalized_nl": "What|are|the|{COLUMN} [building]|{COLUMN} [room number]|{COLUMN} [semester]|and|{COLUMN} [year]|of|{TABLE} [courses]|in|the|psychology [Psychology]|{TABLE} [department]|screen [sorted]|use [using]|{TABLE} [course]|{COLUMN} [title]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "{COLUMN}",
+            "{COLUMN}",
+            "and",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "in",
+            "the",
+            "psychology",
+            "{TABLE}",
+            "screen",
+            "use",
+            "{TABLE}",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT T2.building ,  T2.room_number ,  T2.semester ,  T2.year FROM course AS T1 JOIN SECTION AS T2 ON T1.course_id  =  T2.course_id WHERE T1.dept_name  =  'Psychology' ORDER BY T1.title"
+    },
+    {
+        "original_nl": "Find the names of all instructors in computer science department",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{TABLE} [instructors]|in|computer|science|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "computer",
+            "science",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE dept_name  =  'Comp. Sci.'"
+    },
+    {
+        "original_nl": "Find the names of all instructors who have taught some course and the course_id.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{TABLE} [instructors]|who|have|teach [taught]|some|{TABLE} [course]|and|the|{COLUMN} [course_id]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "teach",
+            "some",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  course_id FROM instructor AS T1 JOIN teaches AS T2 ON T1.ID  =  T2.ID"
+    },
+    {
+        "original_nl": "What are the names of all instructors who have taught a course, as well as the corresponding course id?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [instructors]|who|have|teach [taught]|a|{TABLE} [course]|equally [as]|well|as|the|match [corresponding]|{COLUMN} [course id]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "have",
+            "teach",
+            "a",
+            "{TABLE}",
+            "equally",
+            "well",
+            "as",
+            "the",
+            "match",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  course_id FROM instructor AS T1 JOIN teaches AS T2 ON T1.ID  =  T2.ID"
+    },
+    {
+        "original_nl": "Find the names of all instructors in the Art department who have taught some course and the course_id.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{TABLE} [instructors]|in|the|art [Art]|{TABLE} [department]|who|have|teach [taught]|some|{TABLE} [course]|and|the|{COLUMN} [course_id]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "art",
+            "{TABLE}",
+            "who",
+            "have",
+            "teach",
+            "some",
+            "{TABLE}",
+            "and",
+            "the",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  course_id FROM instructor AS T1 JOIN teaches AS T2 ON T1.ID  =  T2.ID WHERE T1.dept_name  =  'Art'"
+    },
+    {
+        "original_nl": "What are the names of Art instructors who have taught a course, and the corresponding course id?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|art [Art]|{TABLE} [instructors]|who|have|teach [taught]|a|{TABLE} [course]|and|the|corresponding|{COLUMN} [course id]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "art",
+            "{TABLE}",
+            "who",
+            "have",
+            "teach",
+            "a",
+            "{TABLE}",
+            "and",
+            "the",
+            "corresponding",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT name ,  course_id FROM instructor AS T1 JOIN teaches AS T2 ON T1.ID  =  T2.ID WHERE T1.dept_name  =  'Art'"
+    },
+    {
+        "original_nl": "Find the names of all instructors whose name includes the substring \u201cdar\u201d.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{TABLE} [instructors]|whose|{COLUMN} [name]|include [includes]|the|substring|dar",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "include",
+            "the",
+            "substring",
+            "dar"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE name LIKE '%dar%'"
+    },
+    {
+        "original_nl": "What are the names of all instructors with names that include \"dar\"?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [instructors]|with|{COLUMN} [names]|that|include|dar",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "that",
+            "include",
+            "dar"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE name LIKE '%dar%'"
+    },
+    {
+        "original_nl": "List in alphabetic order the names of all distinct instructors.",
+        "generalized_nl": "list [List]|in|alphabetic|order|the|{COLUMN} [names]|of|all|distinct|{TABLE} [instructors]",
+        "generalized_tokens": [
+            "list",
+            "in",
+            "alphabetic",
+            "order",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "distinct",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT DISTINCT name FROM  instructor ORDER BY name"
+    },
+    {
+        "original_nl": "List the distinct names of the instructors, ordered by name.",
+        "generalized_nl": "list [List]|the|distinct|{COLUMN} [names]|of|the|{TABLE} [instructors]|order [ordered]|by|{COLUMN} [name]",
+        "generalized_tokens": [
+            "list",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "the",
+            "{TABLE}",
+            "order",
+            "by",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT name FROM  instructor ORDER BY name"
+    },
+    {
+        "original_nl": "Find courses that ran in Fall 2009 or in Spring 2010.",
+        "generalized_nl": "find [Find]|{TABLE} [courses]|that|run [ran]|in|{NE} [Fall 2009]|or|in|{NE} [Spring 2010]",
+        "generalized_tokens": [
+            "find",
+            "{TABLE}",
+            "that",
+            "run",
+            "in",
+            "{NE}",
+            "or",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT course_id FROM SECTION WHERE semester  =  'Fall' AND YEAR  =  2009 UNION SELECT course_id FROM SECTION WHERE semester  =  'Spring' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "What are the ids for courses in the Fall of 2009 or the Spring of 2010?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|for|{TABLE} [courses]|in|{NE} [the Fall of 2009]|or|{NE} [the Spring of 2010]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "in",
+            "{NE}",
+            "or",
+            "{NE}"
+        ],
+        "original_sql": "SELECT course_id FROM SECTION WHERE semester  =  'Fall' AND YEAR  =  2009 UNION SELECT course_id FROM SECTION WHERE semester  =  'Spring' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "Find courses that ran in Fall 2009 and in Spring 2010.",
+        "generalized_nl": "find [Find]|{TABLE} [courses]|that|run [ran]|in|{NE} [Fall 2009]|and|in|{NE} [Spring 2010]",
+        "generalized_tokens": [
+            "find",
+            "{TABLE}",
+            "that",
+            "run",
+            "in",
+            "{NE}",
+            "and",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT course_id FROM SECTION WHERE semester  =  'Fall' AND YEAR  =  2009 INTERSECT SELECT course_id FROM SECTION WHERE semester  =  'Spring' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "What are the ids for courses that were offered in both Fall of 2009 and Spring of 2010?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|for|{TABLE} [courses]|that|were|offer [offered]|in|both|{NE} [Fall of 2009]|and|{NE} [Spring of 2010]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "that",
+            "were",
+            "offer",
+            "in",
+            "both",
+            "{NE}",
+            "and",
+            "{NE}"
+        ],
+        "original_sql": "SELECT course_id FROM SECTION WHERE semester  =  'Fall' AND YEAR  =  2009 INTERSECT SELECT course_id FROM SECTION WHERE semester  =  'Spring' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "Find courses that ran in Fall 2009 but not in Spring 2010.",
+        "generalized_nl": "find [Find]|{TABLE} [courses]|that|run [ran]|in|{NE} [Fall 2009]|but|not|in|{NE} [Spring 2010]",
+        "generalized_tokens": [
+            "find",
+            "{TABLE}",
+            "that",
+            "run",
+            "in",
+            "{NE}",
+            "but",
+            "not",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT course_id FROM SECTION WHERE semester  =  'Fall' AND YEAR  =  2009 EXCEPT SELECT course_id FROM SECTION WHERE semester  =  'Spring' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "What are the ids of courses offered in Fall of 2009 but not in Spring of 2010?",
+        "generalized_nl": "What|are|the|{COLUMN} [ids]|of|{TABLE} [courses]|offer [offered]|in|{NE} [Fall of 2009]|but|not|in|{NE} [Spring of 2010]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "offer",
+            "in",
+            "{NE}",
+            "but",
+            "not",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT course_id FROM SECTION WHERE semester  =  'Fall' AND YEAR  =  2009 EXCEPT SELECT course_id FROM SECTION WHERE semester  =  'Spring' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "Find the salaries of all distinct instructors that are less than the largest salary.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [salaries]|of|all|distinct|{TABLE} [instructors]|that|are|less|than|the|large [largest]|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "distinct",
+            "{TABLE}",
+            "that",
+            "are",
+            "less",
+            "than",
+            "the",
+            "large",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT salary FROM instructor WHERE salary  <  (SELECT max(salary) FROM instructor)"
+    },
+    {
+        "original_nl": "What are the distinct salaries of all instructors who earned less than the maximum salary?",
+        "generalized_nl": "What|are|the|distinct|{COLUMN} [salaries]|of|all|{TABLE} [instructors]|who|gain [earned]|less|than|the|maximal [maximum]|{COLUMN} [salary]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "who",
+            "gain",
+            "less",
+            "than",
+            "the",
+            "maximal",
+            "{COLUMN}"
+        ],
+        "original_sql": "SELECT DISTINCT salary FROM instructor WHERE salary  <  (SELECT max(salary) FROM instructor)"
+    },
+    {
+        "original_nl": "Find the total number of instructors who teach a course in the Spring 2010 semester.",
+        "generalized_nl": "find [Find]|the|{COLUMN_PART} [total]|{COLUMN_PART} [number]|of|{TABLE} [instructors]|who|{TABLE} [teach]|a|{TABLE} [course]|in|the|{NE} [Spring 2010 semester]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN_PART}",
+            "{COLUMN_PART}",
+            "of",
+            "{TABLE}",
+            "who",
+            "{TABLE}",
+            "a",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}"
+        ],
+        "original_sql": "SELECT COUNT (DISTINCT ID) FROM teaches WHERE semester  =  'Spring' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "How many instructors teach a course in the Spring of 2010?",
+        "generalized_nl": "How|many|{TABLE} [instructors]|{TABLE} [teach]|a|{TABLE} [course]|in|{NE} [the Spring of 2010]",
+        "generalized_tokens": [
+            "How",
+            "many",
+            "{TABLE}",
+            "{TABLE}",
+            "a",
+            "{TABLE}",
+            "in",
+            "{NE}"
+        ],
+        "original_sql": "SELECT COUNT (DISTINCT ID) FROM teaches WHERE semester  =  'Spring' AND YEAR  =  2010"
+    },
+    {
+        "original_nl": "Find the names and average salaries of all departments whose average salary is greater than 42000.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|and|average|{COLUMN} [salaries]|of|all|{TABLE} [departments]|whose|average|{COLUMN} [salary]|is|{NUMBER} [greater than 42000]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "whose",
+            "average",
+            "{COLUMN}",
+            "is",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT dept_name ,  AVG (salary) FROM instructor GROUP BY dept_name HAVING AVG (salary)  >  42000"
+    },
+    {
+        "original_nl": "What are the names and average salaries for departments with average salary higher than 42000?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|and|average|{COLUMN} [salaries]|for|{TABLE} [departments]|with|average|{COLUMN} [salary]|high [higher]|than|{NUMBER} [42000]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "and",
+            "average",
+            "{COLUMN}",
+            "for",
+            "{TABLE}",
+            "with",
+            "average",
+            "{COLUMN}",
+            "high",
+            "than",
+            "{NUMBER}"
+        ],
+        "original_sql": "SELECT dept_name ,  AVG (salary) FROM instructor GROUP BY dept_name HAVING AVG (salary)  >  42000"
+    },
+    {
+        "original_nl": "Find names of instructors with salary greater than that of some (at least one) instructor in the Biology department.",
+        "generalized_nl": "find [Find]|{COLUMN} [names]|of|{TABLE} [instructors]|with|{COLUMN} [salary]|great [greater]|than|that|of|some|{NUMBER} [at least one]|{TABLE} [instructor]|in|the|{NE} [Biology]|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "with",
+            "{COLUMN}",
+            "great",
+            "than",
+            "that",
+            "of",
+            "some",
+            "{NUMBER}",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE salary  >  (SELECT min(salary) FROM instructor WHERE dept_name  =  'Biology')"
+    },
+    {
+        "original_nl": "What are the names of instructors who earn more than at least one instructor from the Biology department?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|{TABLE} [instructors]|who|gain [earn]|more|than|{NUMBER} [at least one]|{TABLE} [instructor]|from|the|{NE} [Biology]|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "{TABLE}",
+            "who",
+            "gain",
+            "more",
+            "than",
+            "{NUMBER}",
+            "{TABLE}",
+            "from",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE salary  >  (SELECT min(salary) FROM instructor WHERE dept_name  =  'Biology')"
+    },
+    {
+        "original_nl": "Find the names of all instructors whose salary is greater than the salary of all instructors in the Biology department.",
+        "generalized_nl": "find [Find]|the|{COLUMN} [names]|of|all|{TABLE} [instructors]|whose|{COLUMN} [salary]|is|great [greater]|than|the|{COLUMN} [salary]|of|all|{TABLE} [instructors]|in|the|{NE} [Biology]|{TABLE} [department]",
+        "generalized_tokens": [
+            "find",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "whose",
+            "{COLUMN}",
+            "is",
+            "great",
+            "than",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE salary  >  (SELECT max(salary) FROM instructor WHERE dept_name  =  'Biology')"
+    },
+    {
+        "original_nl": "What are the names of all instructors with a higher salary than any of the instructors in the Biology department?",
+        "generalized_nl": "What|are|the|{COLUMN} [names]|of|all|{TABLE} [instructors]|with|a|high [higher]|{COLUMN} [salary]|than|any|of|the|{TABLE} [instructors]|in|the|{NE} [Biology]|{TABLE} [department]",
+        "generalized_tokens": [
+            "What",
+            "are",
+            "the",
+            "{COLUMN}",
+            "of",
+            "all",
+            "{TABLE}",
+            "with",
+            "a",
+            "high",
+            "{COLUMN}",
+            "than",
+            "any",
+            "of",
+            "the",
+            "{TABLE}",
+            "in",
+            "the",
+            "{NE}",
+            "{TABLE}"
+        ],
+        "original_sql": "SELECT name FROM instructor WHERE salary  >  (SELECT max(salary) FROM instructor WHERE dept_name  =  'Biology')"
+    }
+]
